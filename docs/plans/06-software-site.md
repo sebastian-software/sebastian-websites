@@ -59,13 +59,13 @@ Out of scope:
 
 ## Verification commands
 
-| Purpose | Command | Expected result |
-| --- | --- | --- |
-| Full check | `pnpm agent:check` | exit 0 |
-| Variants | `pnpm --filter @sebastian-websites/software build:variants` | `dist/software-de` and `dist/software-en` with matching routes |
-| Completeness | the translation-completeness check from plan 02 | legal, navigation, and primary call to action complete in both languages |
-| Redirects | the table-driven redirect tests | every rule of ADR-0010 for Software passes |
-| Smoke after cutover | `curl -sI https://sebastian-software.de/mission` | 301 to the company page |
+| Purpose             | Command                                                     | Expected result                                                          |
+| ------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Full check          | `pnpm agent:check`                                          | exit 0                                                                   |
+| Variants            | `pnpm --filter @sebastian-websites/software build:variants` | `dist/software-de` and `dist/software-en` with matching routes           |
+| Completeness        | the translation-completeness check from plan 02             | legal, navigation, and primary call to action complete in both languages |
+| Redirects           | the table-driven redirect tests                             | every rule of ADR-0010 for Software passes                               |
+| Smoke after cutover | `curl -sI https://sebastian-software.de/mission`            | 301 to the company page                                                  |
 
 ## Steps
 

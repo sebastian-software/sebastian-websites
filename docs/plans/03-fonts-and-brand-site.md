@@ -56,11 +56,11 @@ Out of scope:
 
 ## Verification commands
 
-| Purpose | Command | Expected result |
-| --- | --- | --- |
-| Font host | `curl -sI https://fonts.sebastian-software.com/sans/400.woff2` | 200, `access-control-allow-origin: *`, `cache-control` with a long max-age |
-| Brand site | `pnpm --filter @sebastian-websites/brand build` | `dist/brand/index.html` and `dist/brand/tokens/software.css` exist |
-| Shell | `pnpm --filter @sebastian-websites/ui test` | fixtures pass with font URLs pointing at the host |
+| Purpose    | Command                                                        | Expected result                                                            |
+| ---------- | -------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Font host  | `curl -sI https://fonts.sebastian-software.com/sans/400.woff2` | 200, `access-control-allow-origin: *`, `cache-control` with a long max-age |
+| Brand site | `pnpm --filter @sebastian-websites/brand build`                | `dist/brand/index.html` and `dist/brand/tokens/software.css` exist         |
+| Shell      | `pnpm --filter @sebastian-websites/ui test`                    | fixtures pass with font URLs pointing at the host                          |
 
 ## Steps
 

@@ -42,12 +42,12 @@ Seven themes recur across the company's published writing:
 
 ## Audiences
 
-| Site        | Audience                                                                     | Primary goal       |
-| ----------- | ---------------------------------------------------------------------------- | ------------------ |
-| Consulting  | Technical decision makers; also intermediaries who pass on a profile         | Book an intro call |
-| Software    | Users and buyers of the products, partners, possible team members            | Discover a product |
-| Open Source | Developers, technical evaluators, possible contributors                      | Open a project     |
-| Skills      | Developers and team leads who run coding agents                              | Install a skill    |
+| Site        | Audience                                                             | Primary goal       |
+| ----------- | -------------------------------------------------------------------- | ------------------ |
+| Consulting  | Technical decision makers; also intermediaries who pass on a profile | Book an intro call |
+| Software    | Users and buyers of the products, partners, possible team members    | Discover a product |
+| Open Source | Developers, technical evaluators, possible contributors              | Open a project     |
+| Skills      | Developers and team leads who run coding agents                      | Install a skill    |
 
 The Software audience splits by product: Terminaro addresses non-technical owners of small
 businesses, Palamedes and Dalo address developers.

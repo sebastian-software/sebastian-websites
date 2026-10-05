@@ -50,10 +50,10 @@ Out of scope:
 
 ## Verification commands
 
-| Purpose | Command | Expected result |
-| --- | --- | --- |
-| Export | `npx sanity dataset export <dataset> export.tar.gz` (in `studio/`) | archive with `data.ndjson` and `images/` |
-| Count | `tar -xOf export.tar.gz data.ndjson \| jq -r '._type' \| sort \| uniq -c` | counts per type, including `testimonial` and `page` |
+| Purpose | Command                                                                   | Expected result                                     |
+| ------- | ------------------------------------------------------------------------- | --------------------------------------------------- |
+| Export  | `npx sanity dataset export <dataset> export.tar.gz` (in `studio/`)        | archive with `data.ndjson` and `images/`            |
+| Count   | `tar -xOf export.tar.gz data.ndjson \| jq -r '._type' \| sort \| uniq -c` | counts per type, including `testimonial` and `page` |
 
 ## Steps
 

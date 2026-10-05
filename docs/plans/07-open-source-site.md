@@ -57,12 +57,12 @@ Out of scope:
 
 ## Verification commands
 
-| Purpose | Command | Expected result |
-| --- | --- | --- |
-| Full check | `pnpm agent:check` | exit 0 |
-| Variants | `pnpm --filter @sebastian-websites/opensource build:variants` | both variants; project cards carry snapshot numbers |
-| List drift | the nightly check | reports zero missing repositories on launch day |
-| Live numbers | open the page, compare a star count with GitHub | matches within the hour |
+| Purpose      | Command                                                       | Expected result                                     |
+| ------------ | ------------------------------------------------------------- | --------------------------------------------------- |
+| Full check   | `pnpm agent:check`                                            | exit 0                                              |
+| Variants     | `pnpm --filter @sebastian-websites/opensource build:variants` | both variants; project cards carry snapshot numbers |
+| List drift   | the nightly check                                             | reports zero missing repositories on launch day     |
+| Live numbers | open the page, compare a star count with GitHub               | matches within the hour                             |
 
 ## Steps
 

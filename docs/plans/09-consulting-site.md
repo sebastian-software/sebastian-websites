@@ -63,13 +63,13 @@ Out of scope:
 
 ## Verification commands
 
-| Purpose | Command | Expected result |
-| --- | --- | --- |
-| Full check | `pnpm agent:check` | exit 0 |
-| Variants | `pnpm --filter @sebastian-websites/consulting build:variants` | both variants; PDFs generated and verified |
-| PDFs | `pnpm --filter @sebastian-websites/consulting generate:pdf` | A4 checks pass; file names unchanged |
-| Redirects | the table-driven redirect tests | every Consulting rule of ADR-0010 passes, including the locale prefixes |
-| Smoke after cutover | `curl -sI https://sebastian-consulting.de/de/fastner` | 301 to `/fastner` |
+| Purpose             | Command                                                       | Expected result                                                         |
+| ------------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Full check          | `pnpm agent:check`                                            | exit 0                                                                  |
+| Variants            | `pnpm --filter @sebastian-websites/consulting build:variants` | both variants; PDFs generated and verified                              |
+| PDFs                | `pnpm --filter @sebastian-websites/consulting generate:pdf`   | A4 checks pass; file names unchanged                                    |
+| Redirects           | the table-driven redirect tests                               | every Consulting rule of ADR-0010 passes, including the locale prefixes |
+| Smoke after cutover | `curl -sI https://sebastian-consulting.de/de/fastner`         | 301 to `/fastner`                                                       |
 
 ## Steps
 

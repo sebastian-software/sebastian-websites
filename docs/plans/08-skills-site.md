@@ -55,12 +55,12 @@ Out of scope:
 
 ## Verification commands
 
-| Purpose | Command | Expected result |
-| --- | --- | --- |
-| Full check | `pnpm agent:check` | exit 0 |
-| Variants | `pnpm --filter @sebastian-websites/skills build:variants` | both variants with six skill pages each |
-| Skills repository CI | its `ci.yml` after the removal | passes without site steps |
-| Links | `mise run links:check` in the skills repository | no broken links to the new site |
+| Purpose              | Command                                                   | Expected result                         |
+| -------------------- | --------------------------------------------------------- | --------------------------------------- |
+| Full check           | `pnpm agent:check`                                        | exit 0                                  |
+| Variants             | `pnpm --filter @sebastian-websites/skills build:variants` | both variants with six skill pages each |
+| Skills repository CI | its `ci.yml` after the removal                            | passes without site steps               |
+| Links                | `mise run links:check` in the skills repository           | no broken links to the new site         |
 
 ## Steps
 

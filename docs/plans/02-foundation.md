@@ -69,11 +69,11 @@ Out of scope:
 
 ## Verification commands
 
-| Purpose | Command | Expected result |
-| --- | --- | --- |
-| Full check | `pnpm agent:check` | exit 0 |
+| Purpose           | Command                                                                         | Expected result                                          |
+| ----------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Full check        | `pnpm agent:check`                                                              | exit 0                                                   |
 | Build one variant | `pnpm --filter @sebastian-websites/placeholder build:variant -- placeholder-en` | `dist/placeholder-en/index.html` exists with `lang="en"` |
-| Preview chain | open a pull request | preview URL commented on the pull request and reachable |
+| Preview chain     | open a pull request                                                             | preview URL commented on the pull request and reachable  |
 
 ## Steps
 

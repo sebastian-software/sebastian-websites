@@ -46,10 +46,10 @@ Out of scope:
 
 ## Verification commands
 
-| Purpose | Command | Expected result |
-| --- | --- | --- |
-| Live schema | `curl -s https://metrics.sebastian-software.com/v1/metrics.json \| jq '.schema, (.skills \| length), .github.ferroni.archived'` | new schema number, `6`, `false` |
-| Repository checks | the repository's own test and lint commands | exit 0 |
+| Purpose           | Command                                                                                                                         | Expected result                 |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| Live schema       | `curl -s https://metrics.sebastian-software.com/v1/metrics.json \| jq '.schema, (.skills \| length), .github.ferroni.archived'` | new schema number, `6`, `false` |
+| Repository checks | the repository's own test and lint commands                                                                                     | exit 0                          |
 
 ## Steps
 

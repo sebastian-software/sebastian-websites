@@ -58,11 +58,11 @@ Out of scope:
 
 ## Verification commands
 
-| Purpose | Command | Expected result |
-| --- | --- | --- |
-| Hot-links | `grep -rl "sebastian-brand.vercel.app\|oss.sebastian-software.com/main/app/assets" /Users/sebastian/Workspace/*/README.md* /Users/sebastian/Workspace/sebastian-theme` | no matches |
-| AWS | `sst remove --stage production` and `--stage development` (in the old repository) | no resources left |
-| Domains | `curl -sI` on every alias and personal domain | the ADR-0010 target, served from Bunny |
+| Purpose   | Command                                                                                                                                                                | Expected result                        |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| Hot-links | `grep -rl "sebastian-brand.vercel.app\|oss.sebastian-software.com/main/app/assets" /Users/sebastian/Workspace/*/README.md* /Users/sebastian/Workspace/sebastian-theme` | no matches                             |
+| AWS       | `sst remove --stage production` and `--stage development` (in the old repository)                                                                                      | no resources left                      |
+| Domains   | `curl -sI` on every alias and personal domain                                                                                                                          | the ADR-0010 target, served from Bunny |
 
 ## Steps
 
