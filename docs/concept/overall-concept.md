@@ -198,6 +198,8 @@ content.
    case and the brand anchor; Consulting comes last because it works today and its PDF
    profiles make it the most demanding.
 
+The work packages, their dependencies, and verification are in [docs/plans](../plans/README.md).
+
 ## Open points
 
 Everything that shapes the overall concept is decided. These points are settled with the
