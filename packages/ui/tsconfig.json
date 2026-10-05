@@ -1,0 +1,5 @@
+{
+  "extends": "@sebastian-websites/config/tsconfig/react.json",
+  "include": ["src/**/*", "vitest.config.ts"],
+  "compilerOptions": {}
+}

@@ -17,6 +17,7 @@ catalog:
   "@vanilla-extract/vite-plugin": ^5.2.6
   eslint: ^10.8.0
   eslint-config-setup: ^0.5.2
+  happy-dom: ^20.0.10
   jiti: ^2.6.1
   oxlint: ^1.77.0
   prettier: ^3.9.6

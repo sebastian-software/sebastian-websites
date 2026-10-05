@@ -1,0 +1,42 @@
+{
+  "name": "@sebastian-websites/ui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The shared shell of all sites: brand bar, footer, and primitives.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./brand-consulting.css": "./src/brand-consulting.css.ts",
+    "./brand-software.css": "./src/brand-software.css.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc",
+    "lint": "oxlint -c ../../oxlint.config.ts src && eslint src --config ../../eslint.config.ts",
+    "format": "prettier --write src",
+    "format:check": "prettier --check src",
+    "test": "vitest run",
+    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test"
+  },
+  "dependencies": {
+    "@sebastian-websites/tokens": "workspace:*",
+    "@sebastian-websites/web-core": "workspace:*",
+    "@vanilla-extract/css": "catalog:",
+    "react": "catalog:"
+  },
+  "devDependencies": {
+    "@sebastian-websites/config": "workspace:*",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vanilla-extract/vite-plugin": "catalog:",
+    "eslint": "catalog:",
+    "happy-dom": "catalog:",
+    "jiti": "catalog:",
+    "oxlint": "catalog:",
+    "prettier": "catalog:",
+    "react-dom": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
+  }
+}
