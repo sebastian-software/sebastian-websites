@@ -1,0 +1,40 @@
+{
+  "name": "@sebastian-websites/config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared website build, lint, test, and TypeScript configuration.",
+  "exports": {
+    "./eslint": "./src/eslint.ts",
+    "./oxlint": "./src/oxlint.ts",
+    "./prettier": "./src/prettier.ts",
+    "./vitest": "./src/vitest.ts",
+    "./tsconfig/base.json": "./tsconfig/base.json",
+    "./tsconfig/react.json": "./tsconfig/react.json"
+  },
+  "scripts": {
+    "typecheck": "tsc",
+    "lint": "oxlint -c oxlint.config.ts src scripts && eslint src scripts --config eslint.config.ts",
+    "format": "prettier --write src scripts *.ts",
+    "format:check": "prettier --check src scripts *.ts",
+    "test": "vitest run",
+    "check:boundaries": "tsx scripts/checkWorkspaceBoundaries.ts",
+    "affected:check": "tsx scripts/runAffected.ts agent:check",
+    "affected:build": "tsx scripts/runAffected.ts build",
+    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test"
+  },
+  "dependencies": {
+    "eslint-config-setup": "catalog:",
+    "oxlint": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "jiti": "catalog:",
+    "prettier": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
+  }
+}
