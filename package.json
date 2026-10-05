@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "pnpm -r --if-present build",
+    "dev": "pnpm --filter @sebastian-websites/software dev",
     "test": "pnpm -r --if-present test",
     "typecheck": "pnpm -r --if-present typecheck",
     "lint": "pnpm -r --if-present lint",

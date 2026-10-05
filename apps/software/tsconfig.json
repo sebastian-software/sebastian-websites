@@ -1,0 +1,10 @@
+{
+  "extends": "@sebastian-websites/config/tsconfig/react.json",
+  "include": ["**/*", ".react-router/types/**/*"],
+  "compilerOptions": {
+    "rootDirs": [".", "./.react-router/types"],
+    "paths": {
+      "~/*": ["./app/*"]
+    }
+  }
+}

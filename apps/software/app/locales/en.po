@@ -1,0 +1,23 @@
+msgid ""
+msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"X-Generator: palamedes\n"
+
+#: app/routes/home.tsx
+msgid "Experience. Clarity. Enthusiasm."
+msgstr "Experience. Clarity. Enthusiasm."
+
+#: app/root.tsx
+msgid "Language"
+msgstr "Language"
+
+#: app/routes/home.tsx#meta
+msgid "Sebastian Software"
+msgstr "Sebastian Software"
+
+#: app/routes/home.tsx
+msgid "The new Sebastian Software site is being built."
+msgstr "The new Sebastian Software site is being built."

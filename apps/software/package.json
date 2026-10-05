@@ -1,0 +1,47 @@
+{
+  "name": "@sebastian-websites/software",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The Sebastian Software site.",
+  "scripts": {
+    "dev": "react-router dev",
+    "build": "pnpm build:de && pnpm build:en",
+    "build:de": "SITE_VARIANT=software-de react-router build",
+    "build:en": "SITE_VARIANT=software-en react-router build",
+    "typecheck": "react-router typegen && tsc",
+    "lint": "oxlint -c ../../oxlint.config.ts app && eslint app --config ../../eslint.config.ts",
+    "format": "prettier --write app",
+    "format:check": "prettier --check app",
+    "palamedes:extract": "pmds extract",
+    "check:translations": "pmds audit --fail-on warning",
+    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm check:translations"
+  },
+  "dependencies": {
+    "@palamedes/core": "catalog:",
+    "@palamedes/react": "catalog:",
+    "@palamedes/runtime": "catalog:",
+    "@sebastian-websites/ui": "workspace:*",
+    "@sebastian-websites/web-core": "workspace:*",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-router": "catalog:",
+    "isbot": "^5"
+  },
+  "devDependencies": {
+    "@palamedes/cli": "catalog:",
+    "@palamedes/vite-plugin": "catalog:",
+    "@react-router/dev": "catalog:",
+    "@sebastian-websites/config": "workspace:*",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vanilla-extract/vite-plugin": "catalog:",
+    "eslint": "catalog:",
+    "jiti": "catalog:",
+    "oxlint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:"
+  }
+}
