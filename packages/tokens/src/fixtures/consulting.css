@@ -1,0 +1,19 @@
+/* Consulting — warm · confident · reflective · personal · advisory · opinionated */
+
+:root {
+  /* Named */
+  --consulting-mulberry: oklch(0.25 0.1 2);
+  --consulting-burgundy: oklch(0.4 0.17 2);
+  --consulting-ruby: oklch(0.5 0.2 2);
+  --consulting-linen: oklch(0.95 0.01 2);
+  --consulting-plum: oklch(0.15 0.05 2);
+  --consulting-ember: oklch(0.7 0.2 2);
+
+  /* Semantic */
+  --consulting-night: var(--consulting-plum);
+  --consulting-dark: var(--consulting-mulberry);
+  --consulting-base: var(--consulting-burgundy);
+  --consulting-vivid: var(--consulting-ruby);
+  --consulting-bright: var(--consulting-ember);
+  --consulting-paper: var(--consulting-linen);
+}

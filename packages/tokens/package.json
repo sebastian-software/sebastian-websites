@@ -1,0 +1,29 @@
+{
+  "name": "@sebastian-websites/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Binding brand palettes and shared design tokens.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc",
+    "lint": "oxlint -c ../../oxlint.config.ts src && eslint src --config ../../eslint.config.ts",
+    "format": "prettier --write src",
+    "format:check": "prettier --check src",
+    "test": "vitest run",
+    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test"
+  },
+  "devDependencies": {
+    "@sebastian-websites/config": "workspace:*",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "jiti": "catalog:",
+    "oxlint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
+  }
+}
