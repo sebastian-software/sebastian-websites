@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest"
 
-import { getBrandBar } from "./brandBar.ts"
+import { getBrandBar, getLanguageLinks } from "./brandBar.ts"
 import { defineVariants, getSiteOrigin, getVariant, SITES, VARIANTS } from "./sites.ts"
 
 describe("variants", () => {
@@ -92,5 +92,24 @@ describe("brand bar", () => {
     expect(links.find((link) => link.id === "profiles")?.href).toBe(
       "https://sebastian-consulting.de/profiles"
     )
+  })
+})
+
+describe("language links", () => {
+  it("keeps the path and swaps only the domain", () => {
+    expect(getLanguageLinks("software", "de", "/company")).toStrictEqual([
+      {
+        current: true,
+        href: "https://sebastian-software.de/company",
+        label: "Deutsch",
+        locale: "de",
+      },
+      {
+        current: false,
+        href: "https://sebastian-software.com/company",
+        label: "English",
+        locale: "en",
+      },
+    ])
   })
 })
