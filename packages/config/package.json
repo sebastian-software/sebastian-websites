@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "26.x"
+  },
   "description": "Shared website build, lint, test, and TypeScript configuration.",
   "exports": {
     "./eslint": "./src/eslint.ts",

@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "26.x"
+  },
   "description": "Binding brand palettes and shared design tokens.",
   "exports": {
     ".": "./src/index.ts"

@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "26.x"
+  },
   "description": "The shared shell of all sites: brand bar, footer, and primitives.",
   "exports": {
     ".": "./src/index.ts",

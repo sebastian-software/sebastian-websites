@@ -1,9 +1,11 @@
 import type { Config } from "@react-router/dev/config"
 
+import { PAGES } from "./app/lib/pages.ts"
+
 const variant = process.env.SITE_VARIANT ?? "software-en"
 
 export default {
   buildDirectory: `build/${variant}`,
-  prerender: ["/"],
+  prerender: [...PAGES, "/sitemap.xml", "/robots.txt"],
   ssr: false,
 } satisfies Config
