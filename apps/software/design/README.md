@@ -7,3 +7,7 @@ These are visual concepts. The reusable source images are collected in [app/asse
 ## Selected commercial product atlas, revision 6
 
 ![Selected commercial product atlas, revision 6](homepage.png)
+
+## Shared header and footer
+
+The [shared site frame](../../../packages/ui/design/README.md) supplies the common 48px header and generous footer for all four websites. It supersedes the corresponding frame areas shown in this earlier full-page reference.

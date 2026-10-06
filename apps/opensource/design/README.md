@@ -11,3 +11,7 @@ These are visual concepts. The reusable source images are collected in [app/asse
 ## Complete inline project section, revision 9
 
 ![Complete inline project section, revision 9](homepage-inline-projects.png)
+
+## Shared header and footer
+
+The [shared site frame](../../../packages/ui/design/README.md) supplies the common 48px header and generous footer for all four websites. It supersedes the corresponding frame areas shown in the earlier full-page reference.
