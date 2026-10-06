@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Richtung C · Werkstatt</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; letter-spacing: 0.04em; color: var(--muted); }
+  .hero { position: relative; overflow: hidden; padding: 120px 0 96px; border-bottom: 1px solid var(--line); }
+  .hero .mark { position: absolute; right: -4%; top: -10%; width: 44vw; max-width: 640px; opacity: 0.12; pointer-events: none; }
+  .hero h1 { max-width: 14ch; font-size: clamp(44px, 6.5vw, 84px); }
+  .hero .lead { margin: 28px 0 40px; }
+  .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { border-radius: 6px; }
+  .meta { display: flex; gap: 40px; margin-top: 56px; flex-wrap: wrap; }
+  .meta div b { display: block; font-size: 15px; font-weight: 500; color: var(--ink); }
+  .section { padding: 96px 0; }
+  .section-head { max-width: 60ch; margin-bottom: 48px; }
+  .section-head h2 { margin-bottom: 16px; }
+  .section-head p { color: var(--muted); font-size: 18px; }
+  .shelf { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .tool { border: 1px solid var(--line); border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 12px; min-height: 220px; background: var(--white); }
+  .tool .top { display: flex; justify-content: space-between; align-items: center; }
+  .tool h3 { font-weight: 500; }
+  .tool p { color: var(--muted); font-size: 15px; flex: 1; }
+  .tool .stat { font-size: 13px; color: var(--muted); display: flex; gap: 14px; }
+  .tool .stat b { color: var(--ink); font-weight: 500; }
+  .dark { background: var(--night); color: var(--paper); padding: 112px 0; }
+  .dark .mono { color: var(--bright); }
+  .dark h2 { color: var(--white); }
+  .dark p { color: oklch(0.8 0.02 218); }
+  .live { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: oklch(0.3 0.04 218); border: 1px solid oklch(0.3 0.04 218); margin-top: 48px; }
+  .live div { background: var(--night); padding: 28px; }
+  .live b { display: block; font-size: 44px; font-weight: 300; letter-spacing: -0.03em; color: var(--white); }
+  .live span { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--bright); }
+  .founders { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .founders .photo { aspect-ratio: 3 / 2; border-radius: 10px; }
+  .founders ul { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 14px; }
+  .founders li { display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 14px; }
+  .founders li span { color: var(--muted); }
+  .final { background: var(--dark); color: var(--white); padding: 96px 0; }
+  .final .lead { color: oklch(0.85 0.02 218); }
+  .final .btn-primary { background: var(--white); color: var(--dark); }
+  .final .btn-secondary { background: transparent; color: var(--white); border-color: oklch(0.45 0.06 218); }
+  @media (max-width: 860px) { .shelf, .founders { grid-template-columns: 1fr; } .live { grid-template-columns: 1fr 1fr; } .section, .dark { padding: 64px 0; } .hero { padding: 72px 0 56px; } .hero .mark { width: 70vw; right: -20%; } }
+</style>
+</head>
+<body>
+<div class="brandbar"><div class="container">
+  <div class="groups">
+    <ul><li><a class="lead current" href="#">Sebastian Software</a></li><li><a href="#">Open Source</a></li><li><a href="#">Skills</a></li></ul>
+    <ul><li><a class="lead" href="#">Sebastian Consulting</a></li><li><a href="#">Leistungen</a></li><li><a href="#">Profile</a></li></ul>
+  </div>
+  <ul><li><a class="current" href="#">Deutsch</a></li><li><a href="#">English</a></li></ul>
+</div></div>
+<header class="header"><div class="container">
+  <a class="logo" href="#"><img src="assets/logo-software.svg" alt="Sebastian Software"></a>
+  <nav><ul><li><a href="#">Produkte</a></li><li><a href="#">Open Source</a></li><li><a href="#">Unternehmen</a></li><li><a href="#">Kontakt</a></li></ul></nav>
+  <a class="mono" href="#">github.com/sebastian-software ↗</a>
+</div></header>
+<section class="hero">
+  <img class="mark" src="assets/icon-software.svg" alt="">
+  <div class="container">
+    <p class="mono" style="margin-bottom:24px">SEBASTIAN SOFTWARE GMBH · MAINZ · SEIT 2014</p>
+    <h1>Werkzeuge und Produkte, gebaut, um zu bleiben.</h1>
+    <p class="lead">Eine kleine Firma mit zwei Gründern. Wir bauen Software, die wir selbst nutzen, und veröffentlichen, womit wir arbeiten, damit jeder nachprüfen kann, wie wir bauen.</p>
+    <div class="ctas"><a class="btn btn-primary" href="#">Produkte</a><a class="btn btn-secondary" href="#">Open Source</a></div>
+    <div class="meta"><div><b>Terminaro</b><span class="mono">Produkt · verfügbar</span></div><div><b>Palamedes+</b><span class="mono">Produkt · demnächst</span></div><div><b>Ferramenta</b><span class="mono">10 Werkzeuge · Rust</span></div><div><b>Effective</b><span class="mono">Bibliotheken · Skills</span></div></div>
+  </div>
+</section>
+<section class="section"><div class="container">
+  <div class="section-head"><p class="mono" style="margin-bottom:12px">PRODUKTE</p><h2>Klein, aber seriös.</h2><p>Jedes Produkt löst eine Aufgabe, die wir selbst hatten, und bleibt bewusst klein.</p></div>
+  <div class="shelf">
+    <article class="tool"><div class="top"><h3>Terminaro</h3><span class="mono">VERFÜGBAR</span></div><p>Terminbuchung für kleine Betriebe. Kalender anbinden, Verfügbarkeit festlegen, in Sekunden buchen lassen, ohne Konto.</p><div class="stat"><span><b>terminaro.eu</b></span></div></article>
+    <article class="tool"><div class="top"><h3>Palamedes+</h3><span class="mono">DEMNÄCHST</span></div><p>Übersetzungen ausliefern statt Tickets. Die verwaltete Übersetzungsschicht über dem offenen Kern Palamedes.</p><div class="stat"><span><b>plus.palamedes.dev</b></span></div></article>
+    <article class="tool"><div class="top"><h3>Drittes Produkt</h3><span class="mono">IN VORBEREITUNG</span></div><p>Wird hier angekündigt, sobald es etwas zu zeigen gibt.</p><div class="stat"><span>—</span></div></article>
+  </div>
+</div></section>
+<section class="dark"><div class="container">
+  <div class="section-head"><p class="mono" style="margin-bottom:12px">OPEN SOURCE · LIVE AUS METRICS.SEBASTIAN-SOFTWARE.COM</p><h2>Zurückgeben, nachprüfbar.</h2><p>Open Source hat unsere Laufbahnen geprägt. Die Zahlen hier pflegt niemand von Hand; sie kommen stündlich von GitHub, npm und crates.io.</p></div>
+  <div class="live"><div><b>26</b><span>Projekte</span></div><div><b>10</b><span>Ferramenta-Werkzeuge</span></div><div><b>373</b><span>Skill-Referenzen</span></div><div><b>v1.25</b><span>Palamedes, aktuell</span></div></div>
+</div></section>
+<section class="section"><div class="container">
+  <div class="founders">
+    <div class="photo" aria-hidden="true"></div>
+    <div><p class="mono" style="margin-bottom:12px">UNTERNEHMEN</p><h2>Zwei Gründer. Kein Dazwischen.</h2><ul><li><b>Sebastian Fastner</b><span>Geschäftsführer · Backend, Cloud, Sicherheit</span></li><li><b>Sebastian Werner</b><span>Geschäftsführer · Frontend, UX, Open Source</span></li><li><b>Mainz</b><span>seit 2014</span></li></ul></div>
+  </div>
+</div></section>
+<section class="final"><div class="container">
+  <h2>Projekthilfe? Das ist der Job von Sebastian Consulting.</h2>
+  <p class="lead" style="margin: 20px 0 32px">Für alles andere: info@sebastian-software.de.</p>
+  <div class="ctas"><a class="btn btn-primary" href="#">Zu Sebastian Consulting</a><a class="btn btn-secondary" href="#">Kontakt</a></div>
+</div></section>
+<footer class="footer"><div class="container">
+  <p>© Sebastian Software GmbH · Mainz</p>
+  <ul><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li><li><a href="#">GitHub</a></li></ul>
+</div></footer>
+</body></html>

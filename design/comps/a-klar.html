@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Richtung A · Klar</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+  body { background: var(--white); }
+  .grid-frame { position: relative; }
+  .grid-frame::before, .grid-frame::after { content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: var(--line); }
+  .grid-frame::before { left: 24px; } .grid-frame::after { right: 24px; }
+  @media (min-width: 1248px) { .grid-frame::before { left: calc(50% - 600px); } .grid-frame::after { right: calc(50% - 600px); } }
+  .hero { text-align: center; padding: 112px 0 72px; border-bottom: 1px solid var(--line); }
+  .hero .pill { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; margin-bottom: 28px; }
+  .hero .pill i { width: 7px; height: 7px; border-radius: 50%; background: var(--vivid); display: inline-block; }
+  .hero h1 { max-width: 16ch; margin-inline: auto; }
+  .hero .lead { margin: 24px auto 36px; }
+  .ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .trust { padding: 40px 0; border-bottom: 1px solid var(--line); }
+  .trust .eyebrow { text-align: center; margin-bottom: 28px; }
+  .trust .logos { grid-template-columns: repeat(4, 1fr); }
+  @media (min-width: 900px) { .trust .logos { grid-template-columns: repeat(8, 1fr); } }
+  .section { padding: 96px 0; border-bottom: 1px solid var(--line); }
+  .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; margin-bottom: 56px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .card { background: var(--white); padding: 32px; display: flex; flex-direction: column; gap: 14px; min-height: 260px; }
+  .card .num { font-size: 40px; font-weight: 300; letter-spacing: -0.03em; color: var(--dark); }
+  .card .num small { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: block; margin-top: 6px; font-weight: 600; }
+  .card p { color: var(--muted); font-size: 15px; }
+  .card .tag { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--vivid); }
+  .quote { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; }
+  .quote blockquote { margin: 0; font-size: 28px; font-weight: 300; line-height: 1.3; letter-spacing: -0.01em; }
+  .quote figcaption { margin-top: 20px; font-size: 14px; color: var(--muted); }
+  .quote .photo { aspect-ratio: 4 / 5; }
+  .final { text-align: center; padding: 96px 0; }
+  @media (max-width: 860px) { .section-head, .quote, .cards { grid-template-columns: 1fr; } .section { padding: 64px 0; } .hero { padding: 72px 0 48px; } }
+</style>
+</head>
+<body>
+<div class="brandbar"><div class="container">
+  <div class="groups">
+    <ul><li><a class="lead current" href="#">Sebastian Software</a></li><li><a href="#">Open Source</a></li><li><a href="#">Skills</a></li></ul>
+    <ul><li><a class="lead" href="#">Sebastian Consulting</a></li><li><a href="#">Leistungen</a></li><li><a href="#">Profile</a></li></ul>
+  </div>
+  <ul><li><a class="current" href="#">Deutsch</a></li><li><a href="#">English</a></li></ul>
+</div></div>
+<header class="header"><div class="container">
+  <a class="logo" href="#"><img src="assets/logo-software.svg" alt="Sebastian Software"></a>
+  <nav><ul><li><a href="#">Produkte</a></li><li><a href="#">Open Source</a></li><li><a href="#">Unternehmen</a></li><li><a href="#">Kontakt</a></li></ul></nav>
+  <a class="btn btn-secondary" href="#">Kontakt aufnehmen</a>
+</div></header>
+<div class="grid-frame">
+<section class="hero"><div class="container">
+  <span class="pill"><i></i>Seit 2014 · Mainz</span>
+  <h1>Software, die <span class="accent">Bestand</span> hat.</h1>
+  <p class="lead">Wir bauen Produkte, die wir selbst nutzen, und geben die Werkzeuge dahinter als Open Source weiter. Zwei Gründer, keine Zwischenebenen, nachprüfbare Arbeit.</p>
+  <div class="ctas"><a class="btn btn-primary" href="#">Produkte entdecken</a><a class="btn btn-secondary" href="#">Open Source ansehen</a></div>
+</div></section>
+<section class="trust"><div class="container">
+  <p class="eyebrow">Teams, die mit uns gearbeitet haben</p>
+  <div class="logos">
+    <img src="assets/clients/deutsche-telekom-ag.svg" alt="Deutsche Telekom"><img src="assets/clients/dws-group-gmbh-co-kgaa.svg" alt="DWS"><img src="assets/clients/deutsche-bank-ag.svg" alt="Deutsche Bank"><img src="assets/clients/enbw.svg" alt="EnBW"><img src="assets/clients/schweizerische-bundesbahnen-ag.svg" alt="SBB"><img src="assets/clients/commerzbank-ag.svg" alt="Commerzbank"><img src="assets/clients/heidelberg-materials-ag.svg" alt="Heidelberg Materials"><img src="assets/clients/swr.svg" alt="SWR">
+  </div>
+</div></section>
+<section class="section"><div class="container">
+  <div class="section-head"><h2>Produkte, bewusst klein gehalten</h2><p class="lead">Jedes Produkt löst eine Aufgabe, die wir selbst hatten. Nichts davon ist eine Suite.</p></div>
+  <div class="cards">
+    <article class="card"><span class="tag">Verfügbar</span><h3>Terminaro</h3><p>Terminbuchung für kleine Betriebe. Kalender anbinden, Verfügbarkeit festlegen, Kundinnen in Sekunden buchen lassen, ohne Konto.</p><a class="btn btn-ghost" href="#">terminaro.eu →</a></article>
+    <article class="card"><span class="tag">Demnächst</span><h3>Palamedes+</h3><p>Übersetzungen ausliefern statt Tickets: die verwaltete Übersetzungsschicht über unserem Open-Source-Kern Palamedes.</p><a class="btn btn-ghost" href="#">Palamedes, der offene Kern →</a></article>
+    <article class="card"><span class="tag">In Vorbereitung</span><h3>Ein drittes Produkt</h3><p>Wird hier angekündigt, sobald es so weit ist. Bis dahin gilt: Wir reden über Dinge, die es gibt.</p></article>
+  </div>
+</div></section>
+<section class="section"><div class="container">
+  <div class="section-head"><h2>Open Source, in Zahlen, live</h2><p class="lead">Die Zahlen kommen aus unserem Metrics-Dienst, nicht aus einer Pflegeliste. Was hier steht, lässt sich auf GitHub, npm und crates.io nachprüfen.</p></div>
+  <div class="cards">
+    <article class="card"><span class="num">26<small>Projekte mit Opt-in</small></span><p>Von Rust-Engines bis Agenten-Skills, jedes mit Lizenz, Tests und Doku.</p></article>
+    <article class="card"><span class="num">10<small>Werkzeuge in der Ferramenta-Familie</small></span><p>Reguläre Ausdrücke, Markdown, Syntaxhervorhebung, Übersetzungskataloge und mehr, in Rust.</p></article>
+    <article class="card"><span class="num">373<small>Referenzen in sechs Skills</small></span><p>Praxiswissen für Coding-Agenten, von Produkt bis Delivery.</p></article>
+  </div>
+</div></section>
+<section class="section"><div class="container">
+  <figure class="quote">
+    <div><blockquote>„Ihre Lösung war unglaublich elegant: Sie nutzte robuste Open-Source-Technologien, funktionierte reibungslos und setzte neue Maßstäbe im Bereich DevX.“</blockquote><figcaption>Chris Lewis, Leiter der Software-Entwicklung, Regrello Corp.</figcaption></div>
+    <div class="photo" aria-hidden="true"></div>
+  </figure>
+</div></section>
+<section class="final"><div class="container">
+  <h2>Zwei Gründer. Kein Dazwischen.</h2>
+  <p class="lead" style="margin: 20px auto 32px">Sebastian Fastner und Sebastian Werner bauen seit 2014 Software, die relevant bleibt. Projekthilfe gibt es bei Sebastian Consulting.</p>
+  <div class="ctas"><a class="btn btn-primary" href="#">Über das Unternehmen</a><a class="btn btn-secondary" href="#">Zu Sebastian Consulting</a></div>
+</div></section>
+</div>
+<footer class="footer"><div class="container">
+  <p>© Sebastian Software GmbH · Mainz</p>
+  <ul><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li><li><a href="#">GitHub</a></li></ul>
+</div></footer>
+</body></html>
