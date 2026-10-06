@@ -12,6 +12,10 @@ export default {
       rules: { "no-await-in-loop": "off" },
     },
     {
+      files: ["packages/content/src/data/*.ts"],
+      rules: { "max-lines": "off", "sonarjs/no-duplicate-string": "off" },
+    },
+    {
       files: ["hosting/**/*.test.ts"],
       rules: { complexity: "off", "max-statements": "off" },
     },

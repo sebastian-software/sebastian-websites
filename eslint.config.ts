@@ -12,6 +12,12 @@ export default [
     rules: { "no-await-in-loop": "off" },
   },
   {
+    files: ["packages/content/src/data/*.ts"],
+    name: "sebastian-websites/generated-data",
+    // Generated from the capture of the old site; long by nature.
+    rules: { "max-lines": "off", "sonarjs/no-duplicate-string": "off" },
+  },
+  {
     files: ["hosting/**/*.test.ts"],
     name: "sebastian-websites/hosting-tests",
     // Test fixtures model a whole Bunny account in one function.

@@ -1,0 +1,32 @@
+{
+  "name": "@sebastian-websites/content",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "26.x"
+  },
+  "description": "Cleared data shared by the sites: client logos and testimonials.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc",
+    "lint": "oxlint -c ../../oxlint.config.ts src && eslint src --config ../../eslint.config.ts",
+    "format": "prettier --write src README.md",
+    "format:check": "prettier --check src README.md",
+    "test": "vitest run",
+    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test"
+  },
+  "devDependencies": {
+    "@sebastian-websites/config": "workspace:*",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "jiti": "catalog:",
+    "oxlint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
+  }
+}
