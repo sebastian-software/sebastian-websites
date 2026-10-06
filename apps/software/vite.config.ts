@@ -2,6 +2,7 @@ import { fileURLToPath } from "node:url"
 import { palamedes } from "@palamedes/vite-plugin"
 import { reactRouter } from "@react-router/dev/vite"
 import { getVariant } from "@sebastian-websites/web-core"
+import { bunnyImages } from "@sebastian-websites/web-core/vite"
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin"
 import { defineConfig } from "vite"
 
@@ -14,6 +15,7 @@ export default defineConfig({
     __SITE_VARIANT__: JSON.stringify(variantId),
   },
   plugins: [
+    bunnyImages(),
     palamedes({ failOnCompileError: true, failOnMissing: true, runtimeModule: "~/lib/i18n" }),
     vanillaExtractPlugin(),
     reactRouter(),

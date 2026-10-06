@@ -14,6 +14,13 @@ Font binaries and photographs are uploaded manually to the shared Bunny asset zo
 typography CSS is versioned here in `apps/brand/public`; licensed binaries and source
 backups stay outside this public repository. [docs/operations/font-hosting.md](docs/operations/font-hosting.md) describes the integration.
 
+When building pages, use `BunnyImage` from `@sebastian-websites/ui` for responsive
+raster images. Repository-owned images stay beside their components and use
+`?bunny` imports. See [ADR-0015](docs/adr/0015-shared-bunny-image-component.md) for
+the decision and a usage example, and the
+[responsive images guide](docs/operations/responsive-images.md) for setup, crops,
+art direction, and preloads. [AGENTS.md](AGENTS.md) records the guidance for agents.
+
 - [Overall concept](docs/concept/overall-concept.md): what is decided and what is still open
 - [Positioning basis](docs/concept/positioning.md): values, strengths, and audiences
 - [GLOSSARY.md](GLOSSARY.md): the shared vocabulary

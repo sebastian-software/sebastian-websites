@@ -21,6 +21,12 @@ paths are available under the canonical domain.
 
 ## What a deployment does
 
+Before publishing websites, deployment collects Vite's `?bunny` image manifests,
+verifies content hashes, and publishes the deduplicated originals to the shared
+asset zone. These uploads preserve old files and skip cache purges. Original
+delivery is verified before website documents are uploaded. See
+[responsive images](responsive-images.md).
+
 For website targets:
 
 1. `provision.ts`: creates or reuses the storage zone (DE, replicated to SE and NY) and the
