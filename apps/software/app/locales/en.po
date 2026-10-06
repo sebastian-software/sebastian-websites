@@ -50,7 +50,7 @@ msgstr ""
 #~ msgid "A third product is in preparation and will be announced here."
 #~ msgstr "A third product is in preparation and will be announced here."
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid ""
 "A third product is in the works. We will announce it once it runs in our own "
 "daily work and we know it keeps what it promises. Until then: Palamedes, the "
@@ -129,13 +129,19 @@ msgstr ""
 msgid "Automated Decision-Making"
 msgstr "Automated Decision-Making"
 
-#: app/routes/home.tsx#ProductCards
-msgid "Available"
-msgstr "Available"
+#~ #@ obsolete-since: 2026-10-06
+#~ #: app/routes/home.tsx#ProductCards
+#~ msgid "Available"
+#~ msgstr "Available"
 
 #: app/routes/products.tsx
-msgid "Born from our own need"
-msgstr "Born from our own need"
+msgid "Born from gaps we saw"
+msgstr "Born from gaps we saw"
+
+#~ #@ obsolete-since: 2026-10-06
+#~ #: app/routes/products.tsx
+#~ msgid "Born from our own need"
+#~ msgstr "Born from our own need"
 
 #: app/routes/home.tsx#ProjectSupport
 msgid ""
@@ -229,7 +235,7 @@ msgstr ""
 "strengthen our partners' teams so that they achieve more together, long after "
 "a project has ended."
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid "Coming soon"
 msgstr "Coming soon"
 
@@ -255,9 +261,9 @@ msgstr "Company – Sebastian Software"
 #~ "solutions."
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+#: app/components/Closing.tsx#Closing
 #: app/components/MainNav.tsx#MainNav
 #: app/routes/contact.tsx
-#: app/routes/home.tsx#Closing
 msgid "Contact"
 msgstr "Contact"
 
@@ -303,15 +309,29 @@ msgstr "Discover the products"
 #: app/routes/home.tsx#Products
 #: app/routes/products.tsx
 msgid ""
-"Each of our products grew out of a need of our own and is used by us every "
-"day. That is our standard: we would not sell anything we would not want to use"
-" ourselves. The products have their own sites with every detail; this is what "
-"they are for."
+"Each of our products grew out of a gap we saw ourselves, and we use them in "
+"our own work wherever they fit. That is our standard: we would not sell "
+"anything we would not want to use ourselves. The products have their own sites"
+" with every detail; this is what they are for."
 msgstr ""
-"Each of our products grew out of a need of our own and is used by us every "
-"day. That is our standard: we would not sell anything we would not want to use"
-" ourselves. The products have their own sites with every detail; this is what "
-"they are for."
+"Each of our products grew out of a gap we saw ourselves, and we use them in "
+"our own work wherever they fit. That is our standard: we would not sell "
+"anything we would not want to use ourselves. The products have their own sites"
+" with every detail; this is what they are for."
+
+#~ #@ obsolete-since: 2026-10-06
+#~ #: app/routes/home.tsx#Products
+#~ #: app/routes/products.tsx
+#~ msgid ""
+#~ "Each of our products grew out of a need of our own and is used by us every "
+#~ "day. That is our standard: we would not sell anything we would not want to use"
+#~ " ourselves. The products have their own sites with every detail; this is what "
+#~ "they are for."
+#~ msgstr ""
+#~ "Each of our products grew out of a need of our own and is used by us every "
+#~ "day. That is our standard: we would not sell anything we would not want to use"
+#~ " ourselves. The products have their own sites with every detail; this is what "
+#~ "they are for."
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -332,6 +352,10 @@ msgstr ""
 "assurance by Bunny.net, this data is held exclusively in working memory (RAM) "
 "and automatically deleted after 20–30 seconds. According to this assurance, "
 "no persistent storage takes place."
+
+#: app/components/ProductCards.tsx#ProductCards
+msgid "Early access"
+msgstr "Early access"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Edge Scripting for server-side logic at Bunny.net nodes"
@@ -366,15 +390,28 @@ msgstr ""
 
 #: app/routes/products.tsx
 msgid ""
-"Every product started as something we needed for our own work: a booking page "
-"for a small business we know, a translation workflow for the codebases we "
-"internationalize. We use them daily, which is the fastest way to notice what "
-"is missing."
+"Every product started as a gap we saw: appointment booking that asks nothing "
+"of the people who book, a translation workflow for the codebases we "
+"internationalize. Using what we build is the fastest way to notice what is "
+"still missing."
 msgstr ""
-"Every product started as something we needed for our own work: a booking page "
-"for a small business we know, a translation workflow for the codebases we "
-"internationalize. We use them daily, which is the fastest way to notice what "
-"is missing."
+"Every product started as a gap we saw: appointment booking that asks nothing "
+"of the people who book, a translation workflow for the codebases we "
+"internationalize. Using what we build is the fastest way to notice what is "
+"still missing."
+
+#~ #@ obsolete-since: 2026-10-06
+#~ #: app/routes/products.tsx
+#~ msgid ""
+#~ "Every product started as something we needed for our own work: a booking page "
+#~ "for a small business we know, a translation workflow for the codebases we "
+#~ "internationalize. We use them daily, which is the fastest way to notice what "
+#~ "is missing."
+#~ msgstr ""
+#~ "Every product started as something we needed for our own work: a booking page "
+#~ "for a small business we know, a translation workflow for the codebases we "
+#~ "internationalize. We use them daily, which is the fastest way to notice what "
+#~ "is missing."
 
 #: app/routes/home.tsx#Hero
 msgid "Experience."
@@ -422,7 +459,7 @@ msgstr ""
 "Art. 4(10) GDPR, but rather an internal processing operation by the same "
 "controller."
 
-#: app/routes/home.tsx#Closing
+#: app/components/Closing.tsx#Closing
 msgid ""
 "For products and partnerships, an email is enough. Project support is at "
 "Sebastian Consulting, directly with the two founders."
@@ -589,7 +626,7 @@ msgstr "How we build products"
 #~ msgid "Imprint – Sebastian Software"
 #~ msgstr "Imprint – Sebastian Software"
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid "In preparation"
 msgstr "In preparation"
 
@@ -667,8 +704,8 @@ msgstr "Legal Notice"
 msgid "Legal Notice – Sebastian Software"
 msgstr "Legal Notice – Sebastian Software"
 
+#: app/components/Closing.tsx#Closing
 #: app/routes/contact.tsx
-#: app/routes/home.tsx#Closing
 msgid "Let's talk about what is meant to last."
 msgstr "Let's talk about what is meant to last."
 
@@ -683,7 +720,7 @@ msgstr "Let's talk about what is meant to last."
 #~ "pipeline, engineering workflows for coding agents, and six skills covering "
 #~ "product, web, engineering, delivery, marketing, and writing."
 
-#: app/routes/home.tsx#Families
+#: app/components/Families.tsx#Families
 msgid ""
 "Libraries and skills for everyday work in TypeScript projects: colors, CSS, "
 "icons, favicons, shadows, setting up a new machine. Small tools we need in "
@@ -710,7 +747,7 @@ msgstr "Looking for project help?"
 msgid "Main navigation"
 msgstr "Main navigation"
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid ""
 "Managed translations for teams that use our open core Palamedes. The core "
 "stays open source; maintaining catalogs, approvals, and AI-assisted "
@@ -763,17 +800,32 @@ msgstr "nothing in between"
 msgid "Obligation to Provide Data"
 msgstr "Obligation to Provide Data"
 
-#: app/routes/home.tsx#ProductCards
+#~ #@ obsolete-since: 2026-10-06
+#~ #: app/routes/home.tsx#ProductCards
+#~ msgid ""
+#~ "Online appointment booking for small businesses. Customers book themselves; "
+#~ "the business keeps hours, services, and reminders in hand. Set up quickly, "
+#~ "without an agency and without training, and built so that it still does the "
+#~ "same in three years."
+#~ msgstr ""
+#~ "Online appointment booking for small businesses. Customers book themselves; "
+#~ "the business keeps hours, services, and reminders in hand. Set up quickly, "
+#~ "without an agency and without training, and built so that it still does the "
+#~ "same in three years."
+
+#: app/components/ProductCards.tsx#ProductCards
 msgid ""
-"Online appointment booking for small businesses. Customers book themselves; "
-"the business keeps hours, services, and reminders in hand. Set up quickly, "
-"without an agency and without training, and built so that it still does the "
-"same in three years."
+"Online appointment booking for the self-employed and small businesses. "
+"Customers book in seconds without an account, and the public booking page sets"
+" no cookies. Calendar sync with Google, iCloud, or CalDAV prevents double "
+"bookings, confirmations and reminders go out automatically, and booking data "
+"stays on servers in Germany."
 msgstr ""
-"Online appointment booking for small businesses. Customers book themselves; "
-"the business keeps hours, services, and reminders in hand. Set up quickly, "
-"without an agency and without training, and built so that it still does the "
-"same in three years."
+"Online appointment booking for the self-employed and small businesses. "
+"Customers book in seconds without an account, and the public booking page sets"
+" no cookies. Calendar sync with Google, iCloud, or CalDAV prevents double "
+"bookings, confirmations and reminders go out automatically, and booking data "
+"stays on servers in Germany."
 
 #: app/components/MainNav.tsx#MainNav
 #: app/components/MetricsBand.tsx#MetricsBand
@@ -874,7 +926,7 @@ msgstr "Page views (URL, referrer)"
 #~ msgid "Palamedes, the open core"
 #~ msgstr "Palamedes, the open core"
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid "Palamedes, the open core →"
 msgstr "Palamedes, the open core →"
 
@@ -1068,7 +1120,7 @@ msgstr "Right to rectification (Art. 16 GDPR)"
 msgid "Right to restriction of processing (Art. 18 GDPR)"
 msgstr "Right to restriction of processing (Art. 18 GDPR)"
 
-#: app/routes/home.tsx#Families
+#: app/components/Families.tsx#Families
 msgid ""
 "Rust engines and applications for documents and text: parsing, rendering, and "
 "converting Markdown. Built because our products needed tools written in modern"
@@ -1196,7 +1248,7 @@ msgstr "Services and profiles at Sebastian Consulting →"
 msgid "Since 2014"
 msgstr "Since 2014"
 
-#: app/routes/home.tsx#Families
+#: app/components/Families.tsx#Families
 msgid ""
 "Six skills that put our way of working into verifiable instructions, so agents"
 " work the way we would expect in a review. Expertise you can read before you "
@@ -1206,7 +1258,7 @@ msgstr ""
 " work the way we would expect in a review. Expertise you can read before you "
 "install it, with results that still depend on the model."
 
-#: app/routes/home.tsx#Families
+#: app/components/Families.tsx#Families
 msgid "Skills for coding agents"
 msgstr "Skills for coding agents"
 
@@ -1375,7 +1427,7 @@ msgstr ""
 msgid "The two founders at the laptop"
 msgstr "The two founders at the laptop"
 
-#: app/routes/home.tsx#Closing
+#: app/components/Closing.tsx#Closing
 msgid "The two founders in front of the building"
 msgstr "The two founders in front of the building"
 
@@ -1403,7 +1455,7 @@ msgstr ""
 msgid "There is no contact form – contact is made exclusively by email."
 msgstr "There is no contact form – contact is made exclusively by email."
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid "Third product"
 msgstr "Third product"
 
@@ -1491,16 +1543,16 @@ msgstr ""
 "To exercise your rights, you may contact us at any time at: "
 "<0>{privacyEmail}</0>"
 
+#: app/components/Closing.tsx#Closing
 #: app/routes/contact.tsx
-#: app/routes/home.tsx#Closing
 msgid "To Sebastian Consulting"
 msgstr "To Sebastian Consulting"
 
-#: app/routes/home.tsx#Families
+#: app/components/Families.tsx#Families
 msgid "To the Open Source site →"
 msgstr "To the Open Source site →"
 
-#: app/routes/home.tsx#Families
+#: app/components/Families.tsx#Families
 msgid "To the Skills site →"
 msgstr "To the Skills site →"
 
@@ -1597,7 +1649,7 @@ msgstr ""
 #~ msgid "Visit ferramenta.dev"
 #~ msgstr "Visit ferramenta.dev"
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid "Visit palamedes.dev →"
 msgstr "Visit palamedes.dev →"
 
@@ -1606,7 +1658,7 @@ msgstr "Visit palamedes.dev →"
 #~ msgid "Visit terminaro.eu"
 #~ msgstr "Visit terminaro.eu"
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid "Visit terminaro.eu →"
 msgstr "Visit terminaro.eu →"
 

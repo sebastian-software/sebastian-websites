@@ -22,8 +22,8 @@ export function meta(): Route.MetaDescriptors {
 export default function Products(): ReactElement {
   const principles = [
     {
-      text: t`Every product started as something we needed for our own work: a booking page for a small business we know, a translation workflow for the codebases we internationalize. We use them daily, which is the fastest way to notice what is missing.`,
-      title: t`Born from our own need`,
+      text: t`Every product started as a gap we saw: appointment booking that asks nothing of the people who book, a translation workflow for the codebases we internationalize. Using what we build is the fastest way to notice what is still missing.`,
+      title: t`Born from gaps we saw`,
     },
     {
       text: t`A product that works for its first customers should still work for them in three years. We prefer boring, well-understood technology, keep the scope small, and change things only when we can explain why.`,
@@ -39,7 +39,7 @@ export default function Products(): ReactElement {
       <Section>
         <SectionHead
           eyebrow={t`Products`}
-          intro={t`Each of our products grew out of a need of our own and is used by us every day. That is our standard: we would not sell anything we would not want to use ourselves. The products have their own sites with every detail; this is what they are for.`}
+          intro={t`Each of our products grew out of a gap we saw ourselves, and we use them in our own work wherever they fit. That is our standard: we would not sell anything we would not want to use ourselves. The products have their own sites with every detail; this is what they are for.`}
           title={t`We build what we need ourselves.`}
           titleAs="h1"
         />

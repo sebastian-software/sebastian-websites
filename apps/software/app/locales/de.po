@@ -41,19 +41,26 @@ msgid ""
 "A product that works for its first customers should still work for them in "
 "three years. We prefer boring, well-understood technology, keep the scope "
 "small, and change things only when we can explain why."
-msgstr "Ein Produkt, das für seine ersten Kundinnen und Kunden funktioniert, soll für sie auch in drei Jahren noch funktionieren. Wir bevorzugen langweilige, gut verstandene Technik, halten den Umfang klein und ändern nur, was wir begründen können."
+msgstr ""
+"Ein Produkt, das für seine ersten Kundinnen und Kunden funktioniert, soll "
+"für sie auch in drei Jahren noch funktionieren. Wir bevorzugen langweilige, "
+"gut verstandene Technik, halten den Umfang klein und ändern nur, was wir "
+"begründen können."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/products.tsx
 #~ msgid "A third product is in preparation and will be announced here."
 #~ msgstr "Ein drittes Produkt ist in Vorbereitung und wird hier angekündigt."
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid ""
 "A third product is in the works. We will announce it once it runs in our own "
 "daily work and we know it keeps what it promises. Until then: Palamedes, the "
 "open core, is here today."
-msgstr "Ein drittes Produkt ist in Arbeit. Wir kündigen es an, sobald es bei uns selbst im Einsatz ist und wir wissen, dass es hält, was es verspricht. Bis dahin: Palamedes, der offene Kern, ist heute schon da."
+msgstr ""
+"Ein drittes Produkt ist in Arbeit. Wir kündigen es an, sobald es bei uns "
+"selbst im Einsatz ist und wir wissen, dass es hält, was es verspricht. Bis "
+"dahin: Palamedes, der offene Kern, ist heute schon da."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/home.tsx
@@ -78,7 +85,10 @@ msgid ""
 "An open tool can be read, benchmarked, and corrected by anyone. That keeps us "
 "honest about quality and keeps our products on foundations that outlast any "
 "single vendor, including us."
-msgstr "Ein offenes Werkzeug kann jeder lesen, messen und korrigieren. Das hält uns bei der Qualität ehrlich und stellt unsere Produkte auf Grundlagen, die jeden einzelnen Anbieter überdauern, auch uns."
+msgstr ""
+"Ein offenes Werkzeug kann jeder lesen, messen und korrigieren. Das hält uns "
+"bei der Qualität ehrlich und stellt unsere Produkte auf Grundlagen, die jeden"
+" einzelnen Anbieter überdauern, auch uns."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/products.tsx
@@ -112,26 +122,38 @@ msgid ""
 "Architecture, delivery, and enablement for frontend teams: that is the job of "
 "Sebastian Consulting. Book a fifteen-minute intro call directly with one of "
 "the two founders."
-msgstr "Architektur, Delivery und Enablement für Frontend-Teams: Das ist die Aufgabe von Sebastian Consulting. Buchen Sie ein fünfzehnminütiges Erstgespräch direkt mit einem der beiden Gründer."
+msgstr ""
+"Architektur, Delivery und Enablement für Frontend-Teams: Das ist die Aufgabe "
+"von Sebastian Consulting. Buchen Sie ein fünfzehnminütiges Erstgespräch "
+"direkt mit einem der beiden Gründer."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
 msgid "Automated Decision-Making"
 msgstr "Automatisierte Entscheidungsfindung"
 
-#: app/routes/home.tsx#ProductCards
-msgid "Available"
-msgstr "Verfügbar"
+#~ #@ obsolete-since: 2026-10-06
+#~ #: app/routes/home.tsx#ProductCards
+#~ msgid "Available"
+#~ msgstr "Verfügbar"
 
 #: app/routes/products.tsx
-msgid "Born from our own need"
-msgstr "Aus eigenem Bedarf entstanden"
+msgid "Born from gaps we saw"
+msgstr "Aus Lücken entstanden, die wir gesehen haben"
+
+#~ #@ obsolete-since: 2026-10-06
+#~ #: app/routes/products.tsx
+#~ msgid "Born from our own need"
+#~ msgstr "Aus eigenem Bedarf entstanden"
 
 #: app/routes/home.tsx#ProjectSupport
 msgid ""
 "Bringing interfaces and user-generated content into many languages without "
 "slowing the product down and without translations taking weeks. Palamedes grew"
 " out of this, and Palamedes+ will."
-msgstr "Oberflächen und nutzergenerierte Inhalte in viele Sprachen bringen, ohne das Produkt zu verlangsamen und ohne dass Übersetzungen Wochen dauern. Daraus ist Palamedes entstanden, und daraus wird Palamedes+."
+msgstr ""
+"Oberflächen und nutzergenerierte Inhalte in viele Sprachen bringen, ohne das "
+"Produkt zu verlangsamen und ohne dass Übersetzungen Wochen dauern. Daraus ist"
+" Palamedes entstanden, und daraus wird Palamedes+."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/open-source.tsx
@@ -211,9 +233,12 @@ msgid ""
 "Collaboration is at the heart of what we do. We share our knowledge and "
 "strengthen our partners' teams so that they achieve more together, long after "
 "a project has ended."
-msgstr "Zusammenarbeit ist unser Herzstück. Wir teilen unser Wissen und stärken die Teams unserer Partner, damit sie gemeinsam mehr erreichen, auch lange nachdem ein Projekt beendet ist."
+msgstr ""
+"Zusammenarbeit ist unser Herzstück. Wir teilen unser Wissen und stärken die "
+"Teams unserer Partner, damit sie gemeinsam mehr erreichen, auch lange nachdem "
+"ein Projekt beendet ist."
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid "Coming soon"
 msgstr "Demnächst"
 
@@ -238,9 +263,9 @@ msgstr "Unternehmen – Sebastian Software"
 #~ "Kommandozeilen-Fan mit Fokus auf Sicherheit und Cloud-Lösungen."
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+#: app/components/Closing.tsx#Closing
 #: app/components/MainNav.tsx#MainNav
 #: app/routes/contact.tsx
-#: app/routes/home.tsx#Closing
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -286,11 +311,25 @@ msgstr "Produkte entdecken"
 #: app/routes/home.tsx#Products
 #: app/routes/products.tsx
 msgid ""
-"Each of our products grew out of a need of our own and is used by us every "
-"day. That is our standard: we would not sell anything we would not want to use"
-" ourselves. The products have their own sites with every detail; this is what "
-"they are for."
-msgstr "Jedes unserer Produkte ist aus einem eigenen Bedarf entstanden und wird bei uns täglich benutzt. Das ist unser Maßstab: Wir würden nichts verkaufen, was wir nicht selbst einsetzen wollten. Die Produkte haben eigene Seiten mit allen Details; hier steht, wofür sie da sind."
+"Each of our products grew out of a gap we saw ourselves, and we use them in "
+"our own work wherever they fit. That is our standard: we would not sell "
+"anything we would not want to use ourselves. The products have their own sites"
+" with every detail; this is what they are for."
+msgstr "Jedes unserer Produkte ist aus einer Lücke entstanden, die wir selbst gesehen haben, und wir setzen sie in unserer eigenen Arbeit ein, wo immer sie passen. Das ist unser Maßstab: Wir würden nichts verkaufen, was wir nicht selbst einsetzen wollten. Die Produkte haben eigene Seiten mit allen Details; hier steht, wofür sie da sind."
+
+#~ #@ obsolete-since: 2026-10-06
+#~ #: app/routes/home.tsx#Products
+#~ #: app/routes/products.tsx
+#~ msgid ""
+#~ "Each of our products grew out of a need of our own and is used by us every "
+#~ "day. That is our standard: we would not sell anything we would not want to use"
+#~ " ourselves. The products have their own sites with every detail; this is what "
+#~ "they are for."
+#~ msgstr ""
+#~ "Jedes unserer Produkte ist aus einem eigenen Bedarf entstanden und wird bei "
+#~ "uns täglich benutzt. Das ist unser Maßstab: Wir würden nichts verkaufen, "
+#~ "was wir nicht selbst einsetzen wollten. Die Produkte haben eigene Seiten mit "
+#~ "allen Details; hier steht, wofür sie da sind."
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -311,6 +350,10 @@ msgstr ""
 "Zusicherung von Bunny.net werden diese Daten ausschließlich im "
 "Arbeitsspeicher (RAM) gehalten und nach 20–30 Sekunden automatisch "
 "gelöscht. Es erfolgt nach dieser Zusicherung keine dauerhafte Speicherung."
+
+#: app/components/ProductCards.tsx#ProductCards
+msgid "Early access"
+msgstr "Früher Zugang"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Edge Scripting for server-side logic at Bunny.net nodes"
@@ -338,15 +381,31 @@ msgid ""
 "Every number here is live from the metrics service, refreshed hourly from "
 "GitHub, npm, and crates.io, and republished with every build. We do not "
 "maintain figures by hand."
-msgstr "Jede Zahl hier kommt live vom Metrics-Dienst, stündlich aktualisiert von GitHub, npm und crates.io und mit jedem Build neu veröffentlicht. Wir pflegen keine Zahlen von Hand."
+msgstr ""
+"Jede Zahl hier kommt live vom Metrics-Dienst, stündlich aktualisiert von "
+"GitHub, npm und crates.io und mit jedem Build neu veröffentlicht. Wir pflegen"
+" keine Zahlen von Hand."
 
 #: app/routes/products.tsx
 msgid ""
-"Every product started as something we needed for our own work: a booking page "
-"for a small business we know, a translation workflow for the codebases we "
-"internationalize. We use them daily, which is the fastest way to notice what "
-"is missing."
-msgstr "Jedes Produkt begann als etwas, das wir für unsere eigene Arbeit brauchten: eine Buchungsseite für einen kleinen Betrieb, den wir kennen, ein Übersetzungs-Workflow für die Codebasen, die wir internationalisieren. Wir benutzen sie täglich, und so merkt man am schnellsten, was fehlt."
+"Every product started as a gap we saw: appointment booking that asks nothing "
+"of the people who book, a translation workflow for the codebases we "
+"internationalize. Using what we build is the fastest way to notice what is "
+"still missing."
+msgstr "Jedes Produkt begann mit einer Lücke, die wir gesehen haben: Terminbuchung, die von den Buchenden nichts verlangt, ein Übersetzungs-Workflow für die Codebasen, die wir internationalisieren. Zu benutzen, was wir bauen, ist der schnellste Weg zu merken, was noch fehlt."
+
+#~ #@ obsolete-since: 2026-10-06
+#~ #: app/routes/products.tsx
+#~ msgid ""
+#~ "Every product started as something we needed for our own work: a booking page "
+#~ "for a small business we know, a translation workflow for the codebases we "
+#~ "internationalize. We use them daily, which is the fastest way to notice what "
+#~ "is missing."
+#~ msgstr ""
+#~ "Jedes Produkt begann als etwas, das wir für unsere eigene Arbeit brauchten: "
+#~ "eine Buchungsseite für einen kleinen Betrieb, den wir kennen, ein "
+#~ "Übersetzungs-Workflow für die Codebasen, die wir internationalisieren. Wir "
+#~ "benutzen sie täglich, und so merkt man am schnellsten, was fehlt."
 
 #: app/routes/home.tsx#Hero
 msgid "Experience."
@@ -394,11 +453,13 @@ msgstr ""
 "einen Dritten im Sinne von Art. 4 Nr. 10 DSGVO, sondern um eine interne "
 "Verarbeitung durch denselben Verantwortlichen."
 
-#: app/routes/home.tsx#Closing
+#: app/components/Closing.tsx#Closing
 msgid ""
 "For products and partnerships, an email is enough. Project support is at "
 "Sebastian Consulting, directly with the two founders."
-msgstr "Für Produkte und Partnerschaften genügt eine E-Mail. Projekthilfe gibt es bei Sebastian Consulting, direkt bei den beiden Gründern."
+msgstr ""
+"Für Produkte und Partnerschaften genügt eine E-Mail. Projekthilfe gibt es "
+"bei Sebastian Consulting, direkt bei den beiden Gründern."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
 msgid ""
@@ -415,7 +476,11 @@ msgid ""
 "Foundations on which several teams deliver in parallel, with conventions that "
 "prevail because they make everyday work easier. The Effective libraries are "
 "the tools we kept needing along the way."
-msgstr "Grundlagen, auf denen mehrere Teams parallel liefern, mit Konventionen, die sich durchsetzen, weil sie den Alltag leichter machen. Die Effective-Bibliotheken sind die Werkzeuge, die wir dabei immer wieder gebraucht haben."
+msgstr ""
+"Grundlagen, auf denen mehrere Teams parallel liefern, mit Konventionen, die "
+"sich durchsetzen, weil sie den Alltag leichter machen. Die "
+"Effective-Bibliotheken sind die Werkzeuge, die wir dabei immer wieder "
+"gebraucht haben."
 
 #: app/routes/home.tsx#Hero
 msgid ""
@@ -424,7 +489,13 @@ msgid ""
 " our work today: our own products such as Terminaro and Palamedes, a family of"
 " open tools in Rust and TypeScript, and, as Sebastian Consulting, project "
 "support for teams that want their frontend architecture to carry."
-msgstr "Gegründet 2014 von Sebastian Fastner und Sebastian Werner, nach vielen Jahren in großen Frontend-Projekten und in der Open-Source-Welt. Heute entstehen bei uns drei Dinge: eigene Produkte wie Terminaro und Palamedes, eine Familie offener Werkzeuge in Rust und TypeScript, und als Sebastian Consulting die Projekthilfe für Teams, die ihre Frontend-Architektur tragfähig machen wollen."
+msgstr ""
+"Gegründet 2014 von Sebastian Fastner und Sebastian Werner, nach vielen Jahren"
+" in großen Frontend-Projekten und in der Open-Source-Welt. Heute entstehen "
+"bei uns drei Dinge: eigene Produkte wie Terminaro und Palamedes, eine Familie "
+"offener Werkzeuge in Rust und TypeScript, und als Sebastian Consulting die "
+"Projekthilfe für Teams, die ihre Frontend-Architektur tragfähig machen "
+"wollen."
 
 #: app/components/Founders.tsx#Founders
 msgid "Founder · Frontend architecture and developer experience"
@@ -438,7 +509,9 @@ msgstr "Gründer · Fullstack und Plattform"
 msgid ""
 "Four themes have guided the company since 2014. They are written down here so "
 "that our partners and customers can hold us to them."
-msgstr "Vier Themen leiten das Unternehmen seit 2014. Sie stehen hier, damit Partner und Kunden uns daran messen können."
+msgstr ""
+"Vier Themen leiten das Unternehmen seit 2014. Sie stehen hier, damit Partner "
+"und Kunden uns daran messen können."
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -480,7 +553,12 @@ msgid ""
 "proven building block over the loud one, and we write down why. Software we "
 "build today should still be understandable in five years, for us and for those"
 " who work on it after us."
-msgstr "Gute Architektur zeigt sich daran, wie leicht die nächste Änderung fällt. Deshalb entscheiden wir uns lieber für den bewährten Baustein als für den lauten, und wir schreiben auf, warum. Software, die wir heute bauen, soll in fünf Jahren noch verständlich sein, für uns und für die, die nach uns daran arbeiten."
+msgstr ""
+"Gute Architektur zeigt sich daran, wie leicht die nächste Änderung fällt. "
+"Deshalb entscheiden wir uns lieber für den bewährten Baustein als für den "
+"lauten, und wir schreiben auf, warum. Software, die wir heute bauen, soll in "
+"fünf Jahren noch verständlich sein, für uns und für die, die nach uns "
+"daran arbeiten."
 
 #: app/routes/open-source.tsx
 msgid "Gratitude"
@@ -545,7 +623,7 @@ msgstr "Wie wir Produkte bauen"
 #~ msgid "Imprint – Sebastian Software"
 #~ msgstr "Impressum – Sebastian Software"
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid "In preparation"
 msgstr "In Vorbereitung"
 
@@ -555,7 +633,11 @@ msgid ""
 "was rarely the loudest, but what was well built, clearly documented, and "
 "honestly tested. That is how we direct our products, our open-source work, and"
 " our consulting."
-msgstr "Wir haben in zwanzig Jahren viele Technologiewellen kommen und gehen sehen. Was geblieben ist, war selten das Lauteste, sondern das, was gut gebaut, verständlich dokumentiert und ehrlich geprüft war. Danach richten wir unsere Produkte, unsere Open-Source-Arbeit und unsere Beratung aus."
+msgstr ""
+"Wir haben in zwanzig Jahren viele Technologiewellen kommen und gehen sehen. "
+"Was geblieben ist, war selten das Lauteste, sondern das, was gut gebaut, "
+"verständlich dokumentiert und ehrlich geprüft war. Danach richten wir unsere"
+" Produkte, unsere Open-Source-Arbeit und unsere Beratung aus."
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Information pursuant to § 5 DDG"
@@ -582,14 +664,20 @@ msgid ""
 "Learning is our foundation. We read, try, and measure before we recommend, and"
 " we choose deliberately what really adds value. Not every novelty suits us, "
 "not even in AI."
-msgstr "Weiterbildung ist unsere Grundlage. Wir lesen, probieren und messen, bevor wir empfehlen, und wir wählen bewusst aus, was wirklich Mehrwert bietet. Nicht jede Neuerung passt zu uns, auch nicht bei KI."
+msgstr ""
+"Weiterbildung ist unsere Grundlage. Wir lesen, probieren und messen, bevor wir"
+" empfehlen, und wir wählen bewusst aus, was wirklich Mehrwert bietet. Nicht "
+"jede Neuerung passt zu uns, auch nicht bei KI."
 
 #: app/routes/company.tsx#Mission
 msgid ""
 "Learning is our foundation. We read, try, and measure, and we exchange ideas "
 "at conferences and developer meetings. Not every innovation is right for us; "
 "we deliberately select what offers real value."
-msgstr "Weiterbildung ist unsere Grundlage. Wir lesen, probieren und messen, und wir tauschen uns auf Fachkonferenzen und Entwicklertreffen aus. Nicht jede Neuerung passt zu uns; wir wählen bewusst aus, was wirklich Mehrwert bietet."
+msgstr ""
+"Weiterbildung ist unsere Grundlage. Wir lesen, probieren und messen, und wir "
+"tauschen uns auf Fachkonferenzen und Entwicklertreffen aus. Nicht jede "
+"Neuerung passt zu uns; wir wählen bewusst aus, was wirklich Mehrwert bietet."
 
 #: app/root.tsx
 msgid "Legal"
@@ -613,8 +701,8 @@ msgstr "Impressum"
 msgid "Legal Notice – Sebastian Software"
 msgstr "Impressum – Sebastian Software"
 
+#: app/components/Closing.tsx#Closing
 #: app/routes/contact.tsx
-#: app/routes/home.tsx#Closing
 msgid "Let's talk about what is meant to last."
 msgstr "Reden wir über das, was Bestand haben soll."
 
@@ -630,12 +718,16 @@ msgstr "Reden wir über das, was Bestand haben soll."
 #~ "sechs Skills für Produkt, Web, Engineering, Delivery, Marketing und "
 #~ "Schreiben."
 
-#: app/routes/home.tsx#Families
+#: app/components/Families.tsx#Families
 msgid ""
 "Libraries and skills for everyday work in TypeScript projects: colors, CSS, "
 "icons, favicons, shadows, setting up a new machine. Small tools we need in "
 "every project and therefore maintain instead of rewriting them each time."
-msgstr "Bibliotheken und Skills für den Alltag in TypeScript-Projekten: Farben, CSS, Icons, Favicons, Schatten, das Setup eines neuen Rechners. Kleine Werkzeuge, die wir in jedem Projekt wieder brauchen und deshalb pflegen, statt sie jedes Mal neu zu schreiben."
+msgstr ""
+"Bibliotheken und Skills für den Alltag in TypeScript-Projekten: Farben, CSS, "
+"Icons, Favicons, Schatten, das Setup eines neuen Rechners. Kleine Werkzeuge, "
+"die wir in jedem Projekt wieder brauchen und deshalb pflegen, statt sie jedes "
+"Mal neu zu schreiben."
 
 #: app/routes/home.tsx#Stance
 msgid "Longevity before pace"
@@ -655,13 +747,18 @@ msgstr "Suchen Sie Projekthilfe?"
 msgid "Main navigation"
 msgstr "Hauptnavigation"
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid ""
 "Managed translations for teams that use our open core Palamedes. The core "
 "stays open source; maintaining catalogs, approvals, and AI-assisted "
 "suggestions become a service. Born from internationalizing large codebases "
 "where translations should roll out in seconds rather than weeks."
-msgstr "Verwaltete Übersetzungen für Teams, die unseren offenen Kern Palamedes einsetzen. Der Kern bleibt Open Source; die Pflege der Kataloge, Freigaben und KI-gestützte Vorschläge werden zum Dienst. Entstanden aus der Internationalisierung großer Codebasen, in denen Übersetzungen in Sekunden statt in Wochen ausgerollt werden sollten."
+msgstr ""
+"Verwaltete Übersetzungen für Teams, die unseren offenen Kern Palamedes "
+"einsetzen. Der Kern bleibt Open Source; die Pflege der Kataloge, Freigaben und"
+" KI-gestützte Vorschläge werden zum Dienst. Entstanden aus der "
+"Internationalisierung großer Codebasen, in denen Übersetzungen in Sekunden "
+"statt in Wochen ausgerollt werden sollten."
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Managing Directors"
@@ -704,13 +801,27 @@ msgstr "kein Dazwischen"
 msgid "Obligation to Provide Data"
 msgstr "Pflicht zur Bereitstellung der Daten"
 
-#: app/routes/home.tsx#ProductCards
+#~ #@ obsolete-since: 2026-10-06
+#~ #: app/routes/home.tsx#ProductCards
+#~ msgid ""
+#~ "Online appointment booking for small businesses. Customers book themselves; "
+#~ "the business keeps hours, services, and reminders in hand. Set up quickly, "
+#~ "without an agency and without training, and built so that it still does the "
+#~ "same in three years."
+#~ msgstr ""
+#~ "Online-Terminbuchung für kleine Betriebe. Kundinnen und Kunden buchen selbst,"
+#~ " der Betrieb behält Zeiten, Leistungen und Erinnerungen in der Hand. Schnell "
+#~ "eingerichtet, ohne Agentur und ohne Schulung, und so gebaut, dass es auch in "
+#~ "drei Jahren noch dasselbe tut."
+
+#: app/components/ProductCards.tsx#ProductCards
 msgid ""
-"Online appointment booking for small businesses. Customers book themselves; "
-"the business keeps hours, services, and reminders in hand. Set up quickly, "
-"without an agency and without training, and built so that it still does the "
-"same in three years."
-msgstr "Online-Terminbuchung für kleine Betriebe. Kundinnen und Kunden buchen selbst, der Betrieb behält Zeiten, Leistungen und Erinnerungen in der Hand. Schnell eingerichtet, ohne Agentur und ohne Schulung, und so gebaut, dass es auch in drei Jahren noch dasselbe tut."
+"Online appointment booking for the self-employed and small businesses. "
+"Customers book in seconds without an account, and the public booking page sets"
+" no cookies. Calendar sync with Google, iCloud, or CalDAV prevents double "
+"bookings, confirmations and reminders go out automatically, and booking data "
+"stays on servers in Germany."
+msgstr "Online-Terminbuchung für Selbstständige und kleine Betriebe. Kundinnen und Kunden buchen in Sekunden ohne Konto, und die öffentliche Buchungsseite setzt keine Cookies. Der Kalenderabgleich mit Google, iCloud oder CalDAV verhindert Doppelbuchungen, Bestätigungen und Erinnerungen gehen automatisch raus, und Buchungsdaten bleiben auf Servern in Deutschland."
 
 #: app/components/MainNav.tsx#MainNav
 #: app/components/MetricsBand.tsx#MetricsBand
@@ -739,7 +850,12 @@ msgid ""
 "Jasy at Zynga. What we build for our products today we share again, as "
 "families of open tools whose numbers stand here live. Every library, engine, "
 "and skill is on GitHub, with tests, benchmarks, and decisions."
-msgstr "Open Source hat unsere Laufbahnen geprägt: qooxdoo bei 1&1, Unify bei der Deutschen Telekom, Jasy bei Zynga. Was wir heute für unsere Produkte bauen, teilen wir wieder, als Familien offener Werkzeuge, deren Zahlen hier live stehen. Jede Bibliothek, jede Engine und jeder Skill ist auf GitHub einsehbar, mit Tests, Benchmarks und Entscheidungen."
+msgstr ""
+"Open Source hat unsere Laufbahnen geprägt: qooxdoo bei 1&1, Unify bei der "
+"Deutschen Telekom, Jasy bei Zynga. Was wir heute für unsere Produkte bauen, "
+"teilen wir wieder, als Familien offener Werkzeuge, deren Zahlen hier live "
+"stehen. Jede Bibliothek, jede Engine und jeder Skill ist auf GitHub einsehbar,"
+" mit Tests, Benchmarks und Entscheidungen."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/open-source.tsx
@@ -763,7 +879,10 @@ msgid ""
 "Open standards over proprietary formats: Markdown, gettext catalogs, plain "
 "files in a repository. Whatever we build should leave your data in a form you "
 "can take elsewhere."
-msgstr "Offene Standards statt proprietärer Formate: Markdown, gettext-Kataloge, einfache Dateien im Repository. Was wir bauen, soll Ihre Daten in einer Form hinterlassen, die Sie überallhin mitnehmen können."
+msgstr ""
+"Offene Standards statt proprietärer Formate: Markdown, gettext-Kataloge, "
+"einfache Dateien im Repository. Was wir bauen, soll Ihre Daten in einer Form "
+"hinterlassen, die Sie überallhin mitnehmen können."
 
 #: app/routes/products.tsx
 msgid "Open where it matters"
@@ -778,7 +897,11 @@ msgid ""
 "Our careers began in open source: qooxdoo at 1&1, Unify at Deutsche Telekom, "
 "Jasy at Zynga. The tools and the people around them taught us most of what we "
 "know. Publishing what we build today is how we return the favor."
-msgstr "Unsere Laufbahnen begannen in Open Source: qooxdoo bei 1&1, Unify bei der Deutschen Telekom, Jasy bei Zynga. Die Werkzeuge und die Menschen darum herum haben uns das meiste beigebracht, was wir wissen. Zu veröffentlichen, was wir heute bauen, ist unsere Art, das zurückzugeben."
+msgstr ""
+"Unsere Laufbahnen begannen in Open Source: qooxdoo bei 1&1, Unify bei der "
+"Deutschen Telekom, Jasy bei Zynga. Die Werkzeuge und die Menschen darum herum "
+"haben uns das meiste beigebracht, was wir wissen. Zu veröffentlichen, was wir"
+" heute bauen, ist unsere Art, das zurückzugeben."
 
 #: app/routes/home.tsx#Stance
 msgid "Our stance"
@@ -801,7 +924,7 @@ msgstr "Seitenaufrufe (URL, Referrer)"
 #~ msgid "Palamedes, the open core"
 #~ msgstr "Palamedes, der offene Kern"
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid "Palamedes, the open core →"
 msgstr "Palamedes, der offene Kern →"
 
@@ -814,7 +937,13 @@ msgid ""
 "readiness to put a finger on the sore spot when a simpler path is possible. "
 "And that teams stand stronger after the collaboration, because knowledge, "
 "tools, and standards stay."
-msgstr "Wer mit uns gearbeitet hat, beschreibt meist dasselbe: ein breites, aktuelles Wissen über Web-Technologien; Empfehlungen, die begründet und nachvollziehbar sind; den Blick fürs Gesamtsystem statt nur fürs Framework; und die Bereitschaft, den Finger in die Wunde zu legen, wenn ein einfacherer Weg möglich ist. Und dass Teams nach der Zusammenarbeit stärker dastehen, weil Wissen, Werkzeuge und Standards bleiben."
+msgstr ""
+"Wer mit uns gearbeitet hat, beschreibt meist dasselbe: ein breites, aktuelles "
+"Wissen über Web-Technologien; Empfehlungen, die begründet und "
+"nachvollziehbar sind; den Blick fürs Gesamtsystem statt nur fürs Framework; "
+"und die Bereitschaft, den Finger in die Wunde zu legen, wenn ein einfacherer "
+"Weg möglich ist. Und dass Teams nach der Zusammenarbeit stärker dastehen, "
+"weil Wissen, Werkzeuge und Standards bleiben."
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Phone:"
@@ -916,7 +1045,10 @@ msgid ""
 "Project support runs under Sebastian Consulting, with the same two people. "
 "Three kinds of work have recurred for years, and each has also produced "
 "something for our products and tools."
-msgstr "Die Projekthilfe läuft unter Sebastian Consulting, mit denselben zwei Personen. Drei Arten von Arbeit kehren seit Jahren wieder, und aus jeder ist auch etwas für unsere Produkte und Werkzeuge entstanden."
+msgstr ""
+"Die Projekthilfe läuft unter Sebastian Consulting, mit denselben zwei "
+"Personen. Drei Arten von Arbeit kehren seit Jahren wieder, und aus jeder ist "
+"auch etwas für unsere Produkte und Werkzeuge entstanden."
 
 #: app/components/MetricsBand.tsx#MetricsBand
 msgid "Projects on GitHub"
@@ -930,7 +1062,9 @@ msgstr "Belegen statt behaupten"
 msgid ""
 "React, TypeScript, internationalization, and code quality. In web development "
 "since 2000, formerly architect of the qooxdoo framework at 1&1."
-msgstr "React, TypeScript, Internationalisierung und Code-Qualität. Seit 2000 in der Webentwicklung, früher Architekt des qooxdoo-Frameworks bei 1&1."
+msgstr ""
+"React, TypeScript, Internationalisierung und Code-Qualität. Seit 2000 in der "
+"Webentwicklung, früher Architekt des qooxdoo-Frameworks bei 1&1."
 
 #: app/components/MetricsBand.tsx#MetricsBand
 msgid "References to our agent skills"
@@ -988,13 +1122,17 @@ msgstr "Recht auf Berichtigung (Art. 16 DSGVO)"
 msgid "Right to restriction of processing (Art. 18 GDPR)"
 msgstr "Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)"
 
-#: app/routes/home.tsx#Families
+#: app/components/Families.tsx#Families
 msgid ""
 "Rust engines and applications for documents and text: parsing, rendering, and "
 "converting Markdown. Built because our products needed tools written in modern"
 " Rust, tested, and measurable. The family has its own site with benchmarks and"
 " comparisons."
-msgstr "Rust-Engines und Anwendungen für Dokumente und Text: Markdown verarbeiten, rendern, konvertieren. Gebaut, weil wir für unsere Produkte Werkzeuge brauchten, die in modernem Rust geschrieben, geprüft und messbar sind. Die Familie hat eine eigene Seite mit Benchmarks und Vergleichen."
+msgstr ""
+"Rust-Engines und Anwendungen für Dokumente und Text: Markdown verarbeiten, "
+"rendern, konvertieren. Gebaut, weil wir für unsere Produkte Werkzeuge "
+"brauchten, die in modernem Rust geschrieben, geprüft und messbar sind. Die "
+"Familie hat eine eigene Seite mit Benchmarks und Vergleichen."
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""
@@ -1037,7 +1175,11 @@ msgid ""
 "2014. Both have worked in professional software development since the early "
 "2000s, for a long time in large frontend projects for corporations, in between"
 " on frameworks that many others have used."
-msgstr "Sebastian Fastner und Sebastian Werner führen die Firma seit 2014 selbst. Beide arbeiten seit Anfang der Zweitausender in professioneller Softwareentwicklung, lange in großen Frontend-Projekten für Konzerne, zwischendurch an Frameworks, die viele andere benutzt haben."
+msgstr ""
+"Sebastian Fastner und Sebastian Werner führen die Firma seit 2014 selbst. "
+"Beide arbeiten seit Anfang der Zweitausender in professioneller "
+"Softwareentwicklung, lange in großen Frontend-Projekten für Konzerne, "
+"zwischendurch an Frameworks, die viele andere benutzt haben."
 
 #: app/routes/home.tsx#meta
 msgid "Sebastian Software"
@@ -1056,7 +1198,10 @@ msgid ""
 "Sebastian Software GmbH is based in Mainz and registered at the local court of"
 " Mainz. The company has no investors and no plans for any: it is owned and run"
 " by the two founders."
-msgstr "Die Sebastian Software GmbH hat ihren Sitz in Mainz und ist beim Amtsgericht Mainz eingetragen. Das Unternehmen hat keine Investoren und plant keine: Es gehört den beiden Gründern und wird von ihnen geführt."
+msgstr ""
+"Die Sebastian Software GmbH hat ihren Sitz in Mainz und ist beim Amtsgericht "
+"Mainz eingetragen. Das Unternehmen hat keine Investoren und plant keine: Es "
+"gehört den beiden Gründern und wird von ihnen geführt."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/company.tsx
@@ -1092,7 +1237,10 @@ msgstr ""
 msgid ""
 "Sebastian Software is a small software company from Mainz. We build products "
 "that are meant to last and share the tools behind them as open source."
-msgstr "Sebastian Software ist ein kleines Softwareunternehmen aus Mainz. Wir bauen Produkte, die Bestand haben sollen, und teilen die Werkzeuge dahinter als Open Source."
+msgstr ""
+"Sebastian Software ist ein kleines Softwareunternehmen aus Mainz. Wir bauen "
+"Produkte, die Bestand haben sollen, und teilen die Werkzeuge dahinter als Open"
+" Source."
 
 #: app/routes/home.tsx#ProjectSupport
 msgid "Services and profiles at Sebastian Consulting →"
@@ -1107,14 +1255,18 @@ msgstr "Leistungen und Profile bei Sebastian Consulting →"
 msgid "Since 2014"
 msgstr "Seit 2014"
 
-#: app/routes/home.tsx#Families
+#: app/components/Families.tsx#Families
 msgid ""
 "Six skills that put our way of working into verifiable instructions, so agents"
 " work the way we would expect in a review. Expertise you can read before you "
 "install it, with results that still depend on the model."
-msgstr "Sechs Skills, die unsere Arbeitsweise in prüfbare Anweisungen fassen, damit Agenten so arbeiten, wie wir es in Reviews erwarten würden. Expertise, die man lesen kann, bevor man sie installiert, und deren Ergebnisse trotzdem vom Modell abhängen."
+msgstr ""
+"Sechs Skills, die unsere Arbeitsweise in prüfbare Anweisungen fassen, damit "
+"Agenten so arbeiten, wie wir es in Reviews erwarten würden. Expertise, die "
+"man lesen kann, bevor man sie installiert, und deren Ergebnisse trotzdem vom "
+"Modell abhängen."
 
-#: app/routes/home.tsx#Families
+#: app/components/Families.tsx#Families
 msgid "Skills for coding agents"
 msgstr "Skills für Coding-Agenten"
 
@@ -1153,7 +1305,10 @@ msgid ""
 "Target picture, decision, migration path: reasoned, documented, and "
 "implemented together. Also for systems that have run for ten years and should "
 "run for ten more."
-msgstr "Zielbild, Entscheidung, Migrationspfad: begründet, dokumentiert und gemeinsam umgesetzt. Auch für Systeme, die seit zehn Jahren laufen und noch zehn weitere laufen sollen."
+msgstr ""
+"Zielbild, Entscheidung, Migrationspfad: begründet, dokumentiert und gemeinsam"
+" umgesetzt. Auch für Systeme, die seit zehn Jahren laufen und noch zehn "
+"weitere laufen sollen."
 
 #: app/routes/company.tsx#Mission
 msgid "Technology that wins hearts and minds"
@@ -1192,7 +1347,9 @@ msgstr ""
 msgid ""
 "The Ferramenta family of Rust engines, the Effective libraries and skills, and"
 " the live numbers behind them."
-msgstr "Die Ferramenta-Familie aus Rust-Engines, die Effective-Bibliotheken und -Skills und die Live-Zahlen dahinter."
+msgstr ""
+"Die Ferramenta-Familie aus Rust-Engines, die Effective-Bibliotheken und "
+"-Skills und die Live-Zahlen dahinter."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/open-source.tsx#meta
@@ -1212,7 +1369,9 @@ msgstr ""
 
 #: app/routes/contact.tsx
 msgid "The general mailbox of the company. We answer within two working days."
-msgstr "Das allgemeine Postfach des Unternehmens. Wir antworten innerhalb von zwei Werktagen."
+msgstr ""
+"Das allgemeine Postfach des Unternehmens. Wir antworten innerhalb von zwei "
+"Werktagen."
 
 #: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
 msgid ""
@@ -1283,7 +1442,7 @@ msgstr ""
 msgid "The two founders at the laptop"
 msgstr "Die beiden Gründer am Laptop"
 
-#: app/routes/home.tsx#Closing
+#: app/components/Closing.tsx#Closing
 msgid "The two founders in front of the building"
 msgstr "Die beiden Gründer vor dem Gebäude"
 
@@ -1313,7 +1472,7 @@ msgstr ""
 "Es gibt kein Kontaktformular – die Kontaktaufnahme erfolgt ausschließlich "
 "per E-Mail."
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid "Third product"
 msgstr "Drittes Produkt"
 
@@ -1376,13 +1535,17 @@ msgstr ""
 msgid ""
 "Three principles decide what we build and how. They are the same principles "
 "that guide our consulting work, applied to our own products."
-msgstr "Drei Prinzipien entscheiden, was wir bauen und wie. Es sind dieselben Prinzipien, die unsere Beratung leiten, angewandt auf unsere eigenen Produkte."
+msgstr ""
+"Drei Prinzipien entscheiden, was wir bauen und wie. Es sind dieselben "
+"Prinzipien, die unsere Beratung leiten, angewandt auf unsere eigenen Produkte."
 
 #: app/routes/open-source.tsx
 msgid ""
 "Three reasons we keep publishing, even when a tool would be easier to keep to "
 "ourselves."
-msgstr "Drei Gründe, warum wir weiter veröffentlichen, auch wenn es einfacher wäre, ein Werkzeug für uns zu behalten."
+msgstr ""
+"Drei Gründe, warum wir weiter veröffentlichen, auch wenn es einfacher wäre,"
+" ein Werkzeug für uns zu behalten."
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
@@ -1400,16 +1563,16 @@ msgstr ""
 "Zur Ausübung Ihrer Rechte können Sie sich jederzeit an uns wenden unter: "
 "<0>{privacyEmail}</0>"
 
+#: app/components/Closing.tsx#Closing
 #: app/routes/contact.tsx
-#: app/routes/home.tsx#Closing
 msgid "To Sebastian Consulting"
 msgstr "Zu Sebastian Consulting"
 
-#: app/routes/home.tsx#Families
+#: app/components/Families.tsx#Families
 msgid "To the Open Source site →"
 msgstr "Zur Open-Source-Seite →"
 
-#: app/routes/home.tsx#Families
+#: app/components/Families.tsx#Families
 msgid "To the Skills site →"
 msgstr "Zur Skills-Seite →"
 
@@ -1442,7 +1605,10 @@ msgid ""
 "Two founders, no layer in between. Whoever works with us talks to the people "
 "who decide and build. That keeps paths short, decisions reasoned, and quality "
 "where it is made: in the code, not on slides."
-msgstr "Zwei Gründer, keine Zwischenebene. Wer mit uns arbeitet, spricht mit denen, die entscheiden und bauen. Das hält Wege kurz, Entscheidungen begründet und die Qualität dort, wo sie entsteht: im Code, nicht auf Folien."
+msgstr ""
+"Zwei Gründer, keine Zwischenebene. Wer mit uns arbeitet, spricht mit denen, "
+"die entscheiden und bauen. Das hält Wege kurz, Entscheidungen begründet und "
+"die Qualität dort, wo sie entsteht: im Code, nicht auf Folien."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/home.tsx
@@ -1462,7 +1628,9 @@ msgstr "Zwei Gründer. Kein Dazwischen."
 msgid ""
 "TypeScript, React, Rust, and infrastructure, from the surface to the backend. "
 "In professional software development since 2002."
-msgstr "TypeScript, React, Rust und Infrastruktur, von der Oberfläche bis zum Backend. Seit 2002 in der professionellen Softwareentwicklung."
+msgstr ""
+"TypeScript, React, Rust und Infrastruktur, von der Oberfläche bis zum "
+"Backend. Seit 2002 in der professionellen Softwareentwicklung."
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
@@ -1500,7 +1668,7 @@ msgstr "Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:"
 #~ msgid "Visit ferramenta.dev"
 #~ msgstr "Zu ferramenta.dev"
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid "Visit palamedes.dev →"
 msgstr "Zu palamedes.dev →"
 
@@ -1509,7 +1677,7 @@ msgstr "Zu palamedes.dev →"
 #~ msgid "Visit terminaro.eu"
 #~ msgstr "Zu terminaro.eu"
 
-#: app/routes/home.tsx#ProductCards
+#: app/components/ProductCards.tsx#ProductCards
 msgid "Visit terminaro.eu →"
 msgstr "Zu terminaro.eu →"
 
@@ -1518,7 +1686,11 @@ msgid ""
 "We bring product thinking, design, and engineering together. The result is "
 "software that not only works but convinces, with a clear architecture that "
 "earns trust and leaves a lasting impression on the people who use it."
-msgstr "Wir bringen Produktdenken, Design und Entwicklung zusammen. Das Ergebnis ist Software, die nicht nur funktioniert, sondern überzeugt, mit einer klaren Architektur, die Vertrauen schafft und bei den Menschen, die sie benutzen, einen bleibenden Eindruck hinterlässt."
+msgstr ""
+"Wir bringen Produktdenken, Design und Entwicklung zusammen. Das Ergebnis ist "
+"Software, die nicht nur funktioniert, sondern überzeugt, mit einer klaren "
+"Architektur, die Vertrauen schafft und bei den Menschen, die sie benutzen, "
+"einen bleibenden Eindruck hinterlässt."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/company.tsx
@@ -1568,7 +1740,11 @@ msgid ""
 "Quality and longevity come first. We use current technology to create "
 "solutions that make a difference, and our curiosity drives us to keep getting "
 "better."
-msgstr "Wir entwickeln Software, die nicht nur heute, sondern auch morgen relevant bleibt. Qualität und Langlebigkeit stehen an erster Stelle. Wir nutzen aktuelle Technologie für Lösungen, die einen Unterschied machen, und unsere Neugier treibt uns an, immer besser zu werden."
+msgstr ""
+"Wir entwickeln Software, die nicht nur heute, sondern auch morgen relevant "
+"bleibt. Qualität und Langlebigkeit stehen an erster Stelle. Wir nutzen "
+"aktuelle Technologie für Lösungen, die einen Unterschied machen, und unsere "
+"Neugier treibt uns an, immer besser zu werden."
 
 #: app/routes/company.tsx
 #: app/routes/home.tsx#Company
@@ -1578,14 +1754,23 @@ msgid ""
 "products as much as for the project support we deliver as Sebastian "
 "Consulting. It is the way of working we have come to know as the most reliable"
 " in twenty years."
-msgstr "Wir sind bewusst klein geblieben. Keine Junioren, keine Zwischenebene, keine Übergabe an Dritte: Wer mit uns arbeitet, arbeitet mit uns. Das gilt für unsere Produkte genauso wie für die Projekthilfe, die wir als Sebastian Consulting leisten. Es ist die Arbeitsweise, die wir in zwanzig Jahren als die verlässlichste kennengelernt haben."
+msgstr ""
+"Wir sind bewusst klein geblieben. Keine Junioren, keine Zwischenebene, keine "
+"Übergabe an Dritte: Wer mit uns arbeitet, arbeitet mit uns. Das gilt für "
+"unsere Produkte genauso wie für die Projekthilfe, die wir als Sebastian "
+"Consulting leisten. Es ist die Arbeitsweise, die wir in zwanzig Jahren als die"
+" verlässlichste kennengelernt haben."
 
 #: app/routes/home.tsx#Stance
 msgid ""
 "We quote no numbers we do not measure live and no references that cannot be "
 "checked. Our tools are open on GitHub, their use is counted every hour, and "
 "our products run in our own daily work before anyone else gets them."
-msgstr "Wir nennen keine Zahlen, die wir nicht live messen, und keine Referenzen, die sich nicht nachprüfen lassen. Unsere Werkzeuge liegen offen auf GitHub, ihre Nutzung wird stündlich gezählt, und unsere Produkte laufen bei uns selbst im Alltag, bevor sie jemand anderes bekommt."
+msgstr ""
+"Wir nennen keine Zahlen, die wir nicht live messen, und keine Referenzen, die "
+"sich nicht nachprüfen lassen. Unsere Werkzeuge liegen offen auf GitHub, ihre "
+"Nutzung wird stündlich gezählt, und unsere Produkte laufen bei uns selbst im"
+" Alltag, bevor sie jemand anderes bekommt."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid ""
@@ -1609,7 +1794,12 @@ msgid ""
 "applications, a family of TypeScript libraries, and skills for coding agents. "
 "The full catalogue with every project lives on the Open Source site; this page"
 " explains why we do it and what belongs together."
-msgstr "Was wir für unsere Produkte bauen, teilen wir wieder: eine Familie von Rust-Engines und Anwendungen, eine Familie von TypeScript-Bibliotheken und Skills für Coding-Agenten. Der vollständige Katalog mit allen Projekten liegt auf der Open-Source-Seite; diese Seite erklärt, warum wir das tun und was zusammengehört."
+msgstr ""
+"Was wir für unsere Produkte bauen, teilen wir wieder: eine Familie von "
+"Rust-Engines und Anwendungen, eine Familie von TypeScript-Bibliotheken und "
+"Skills für Coding-Agenten. Der vollständige Katalog mit allen Projekten "
+"liegt auf der Open-Source-Seite; diese Seite erklärt, warum wir das tun und "
+"was zusammengehört."
 
 #: app/routes/company.tsx#Mission
 msgid "What we stand for."
@@ -1658,7 +1848,10 @@ msgid ""
 "Where a product grows out of an open core, the core stays open. Palamedes is "
 "and remains open source; Palamedes+ adds the service around it. You can "
 "inspect what you rely on."
-msgstr "Wo ein Produkt aus einem offenen Kern entsteht, bleibt der Kern offen. Palamedes ist und bleibt Open Source; Palamedes+ ergänzt den Dienst darum herum. Sie können prüfen, worauf Sie sich verlassen."
+msgstr ""
+"Wo ein Produkt aus einem offenen Kern entsteht, bleibt der Kern offen. "
+"Palamedes ist und bleibt Open Source; Palamedes+ ergänzt den Dienst darum "
+"herum. Sie können prüfen, worauf Sie sich verlassen."
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
@@ -1693,7 +1886,10 @@ msgid ""
 "Write to us; one of the two founders answers. For products and partnerships an"
 " email is enough. If you are looking for project help, Sebastian Consulting is"
 " the right address, with the same two people."
-msgstr "Schreiben Sie uns; einer der beiden Gründer antwortet. Für Produkte und Partnerschaften genügt eine E-Mail. Wenn Sie Projekthilfe suchen, ist Sebastian Consulting die richtige Adresse, mit denselben zwei Personen."
+msgstr ""
+"Schreiben Sie uns; einer der beiden Gründer antwortet. Für Produkte und "
+"Partnerschaften genügt eine E-Mail. Wenn Sie Projekthilfe suchen, ist "
+"Sebastian Consulting die richtige Adresse, mit denselben zwei Personen."
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
