@@ -259,6 +259,9 @@ importers:
       '@palamedes/runtime':
         specifier: 'catalog:'
         version: 1.25.0
+      '@sebastian-websites/legal':
+        specifier: workspace:*
+        version: link:../../packages/legal
       '@sebastian-websites/ui':
         specifier: workspace:*
         version: link:../../packages/ui

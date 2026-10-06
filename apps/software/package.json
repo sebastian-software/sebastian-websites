@@ -24,12 +24,13 @@
     "@palamedes/core": "catalog:",
     "@palamedes/react": "catalog:",
     "@palamedes/runtime": "catalog:",
+    "@sebastian-websites/legal": "workspace:*",
     "@sebastian-websites/ui": "workspace:*",
     "@sebastian-websites/web-core": "workspace:*",
+    "isbot": "^5",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-router": "catalog:",
-    "isbot": "^5"
+    "react-router": "catalog:"
   },
   "devDependencies": {
     "@palamedes/cli": "catalog:",
