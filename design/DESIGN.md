@@ -28,10 +28,10 @@ styles, layout, typography, buttons, blocks, Section and SectionHead, brand bar,
 
 - Wordmark and icon as delivered by the brand repository; Open Source and Skills run under the
   Software wordmark with the area named in text.
-- **Typefaces:** Sebastian Sans in Light (300) for display and headlines, Regular (400) for
+- **Typefaces:** Glober in Light (300) for display and headlines, Regular (400) for
   text, Medium (500) for titles inside sections and names, Semibold (600) for buttons,
-  labels, and small caps. Sebastian Slab appears only in the wordmark and as the quotation
-  mark of a quote. Fonts load from `https://fonts.sebastian-software.com/fonts.css`
+  labels, and small caps. Elena appears only in the wordmark and as the quotation
+  mark of a quote. Fonts load from `https://sebastian-websites-brand.b-cdn.net/fonts-all.css`
   (ADR-0013).
 - **Palette roles per brand** (OKLCH, one hue in six lightness steps; `packages/tokens`):
 

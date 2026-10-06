@@ -91,12 +91,20 @@ preserves remote files absent from its local folder, so a photo upload cannot de
 CI provisions the asset zone but never publishes or deletes its manually managed sources.
 The existing organization `BUNNY_API_KEY` is sufficient for infrastructure provisioning.
 
-## Previous font host
+## Retiring the previous font host
 
-The private `sebastian-fonts` repository and `fonts.sebastian-software.com` previously
-published binaries and CSS together through their own pipeline. Keep that host available
-for existing external consumers during migration. The rebuilt Software and Brand sites
-use the new contract above; deleting the old zone or repository is a separate cleanup.
+The separate `sebastian-fonts` repository and `fonts-sebastian-software` pull zone
+are no longer needed once the shared-host migration is deployed. The Software and
+Brand applications and the design comps use the versioned brand CSS above.
+Licensed originals, prepared files, and private license records remain backed up
+outside this public repository.
+
+Before removing the old pull zone, deploy the migration and verify the new public
+CSS and its font URLs. Remove the authoritative DNS record for
+`fonts.sebastian-software.com`, then delete the obsolete pull zone. Disable the old
+repository's publishing workflow and archive or delete the private repository after
+preserving its Git history locally. The old storage zone can remain as a private
+backup without a connected pull zone; it is not part of the new deployment.
 
 ## Verification and immutable file names
 
