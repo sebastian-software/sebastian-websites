@@ -13,7 +13,7 @@
     "typecheck": "pnpm -r --if-present typecheck",
     "lint": "pnpm -r --if-present lint",
     "format": "prettier --write . && pnpm -r --if-present format",
-    "format:root": "prettier --check README.md GLOSSARY.md docs package.json pnpm-workspace.yaml prettier.config.mjs eslint.config.ts oxlint.config.ts",
+    "format:root": "prettier --check README.md GLOSSARY.md docs .github package.json pnpm-workspace.yaml prettier.config.mjs eslint.config.ts oxlint.config.ts",
     "check:boundaries": "pnpm --filter @sebastian-websites/config --fail-if-no-match check:boundaries",
     "agent:check": "pnpm format:root && pnpm check:boundaries && pnpm -r --if-present agent:check"
   },

@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Check and build
+    # GitHub-hosted on purpose: this repository is public, and pull requests from
+    # forks must not run on the self-hosted runner. Deployment jobs, which need
+    # secrets, are added when the first variant goes live (plan 02, ADR-0009).
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: jdx/mise-action@v3
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Run repository checks
+        run: pnpm agent:check
+      - name: Build all variants
+        run: pnpm build
