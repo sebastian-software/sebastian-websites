@@ -31,40 +31,42 @@ export function BrandBar(props: BrandBarProps): ReactElement {
 
   return (
     <div className={styles.bar}>
-      <nav aria-label="Sebastian" className={styles.groups}>
-        {groups.map((group) => (
-          <ul className={styles.list} key={group.brand}>
-            {group.links.map((link, index) => (
-              <li key={link.id}>
+      <div className={styles.inner}>
+        <nav aria-label="Sebastian" className={styles.groups}>
+          {groups.map((group) => (
+            <ul className={styles.list} key={group.brand}>
+              {group.links.map((link, index) => (
+                <li key={link.id}>
+                  <a
+                    aria-current={link.current ? "page" : undefined}
+                    className={index === 0 ? `${styles.link} ${styles.brandLink}` : styles.link}
+                    href={link.href}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ))}
+        </nav>
+        <nav aria-label={languageLabel}>
+          <ul className={styles.list}>
+            {languages.map((language) => (
+              <li key={language.locale}>
                 <a
-                  aria-current={link.current ? "page" : undefined}
-                  className={index === 0 ? `${styles.link} ${styles.brandLink}` : styles.link}
-                  href={link.href}
+                  aria-current={language.current ? "true" : undefined}
+                  className={styles.link}
+                  href={language.href}
+                  hrefLang={language.locale}
+                  lang={language.locale}
                 >
-                  {link.label}
+                  {language.label}
                 </a>
               </li>
             ))}
           </ul>
-        ))}
-      </nav>
-      <nav aria-label={languageLabel}>
-        <ul className={styles.list}>
-          {languages.map((language) => (
-            <li key={language.locale}>
-              <a
-                aria-current={language.current ? "true" : undefined}
-                className={styles.link}
-                href={language.href}
-                hrefLang={language.locale}
-                lang={language.locale}
-              >
-                {language.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        </nav>
+      </div>
     </div>
   )
 }

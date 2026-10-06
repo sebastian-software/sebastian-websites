@@ -7,7 +7,7 @@ import {
   type SiteId,
 } from "./sites.ts"
 
-/** Labels are brand and area names; they are not translated. */
+/** Brand names stay as they are; area names carry the variant's language. */
 export type BrandBarLink = {
   readonly current: boolean
   readonly href: string
@@ -22,10 +22,12 @@ export type BrandBarGroup = {
 
 type LinkSpec = {
   readonly id: string
-  readonly label: string
+  readonly label: Readonly<Record<Locale, string>>
   readonly path: string
   readonly site: SiteId
 }
+
+const same = (label: string): Readonly<Record<Locale, string>> => ({ de: label, en: label })
 
 type GroupSpec = {
   readonly brand: BrandId
@@ -40,17 +42,27 @@ const GROUPS: readonly GroupSpec[] = [
   {
     brand: "software",
     links: [
-      { id: "software", label: "Sebastian Software", path: "/", site: "software" },
-      { id: "opensource", label: "Open Source", path: "/", site: "opensource" },
-      { id: "skills", label: "Skills", path: "/", site: "skills" },
+      { id: "software", label: same("Sebastian Software"), path: "/", site: "software" },
+      { id: "opensource", label: same("Open Source"), path: "/", site: "opensource" },
+      { id: "skills", label: same("Skills"), path: "/", site: "skills" },
     ],
   },
   {
     brand: "consulting",
     links: [
-      { id: "consulting", label: "Sebastian Consulting", path: "/", site: "consulting" },
-      { id: "services", label: "Services", path: "/services", site: "consulting" },
-      { id: "profiles", label: "Profiles", path: "/profiles", site: "consulting" },
+      { id: "consulting", label: same("Sebastian Consulting"), path: "/", site: "consulting" },
+      {
+        id: "services",
+        label: { de: "Leistungen", en: "Services" },
+        path: "/services",
+        site: "consulting",
+      },
+      {
+        id: "profiles",
+        label: { de: "Profile", en: "Profiles" },
+        path: "/profiles",
+        site: "consulting",
+      },
     ],
   },
 ]
@@ -103,7 +115,7 @@ export function getBrandBar(currentSite: SiteId, locale: Locale): readonly Brand
       current: link.path === "/" && link.site === currentSite,
       href: toHref(getSiteOrigin(link.site, locale), link.path),
       id: link.id,
-      label: link.label,
+      label: link.label[locale],
     })),
   }))
 }
