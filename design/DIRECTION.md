@@ -96,8 +96,39 @@ foundation in `comps/shared.css`. Open any file in a browser; the fonts load fro
 Files: `comps/r2-software-home.html`, `r2-software-products.html`, `r2-software-company.html`,
 `r2-consulting-home.html`.
 
+## Round 3: richer, and the Consulting route motif
+
+Feedback on round 2 (2026-10-06): the layout holds, everything may become richer, and the
+photos may be cropped tightly. The owners also asked to build on the route animation of the
+current Consulting site: many paths lead to the goal, with our help.
+
+- **Software home, richer.** A faint icon mark and a soft glow behind the hero, a caption
+  pill on the photo, a facts row under the calls to action, product tiles with glyphs and
+  status pills, live numbers with sparklines and a short list of highlighted projects, a
+  two-photo collage for the company theme, quote cards with initials, and a Midnight closing
+  band with the building photo. Every photo is cropped to its subject with `object-position`.
+- **Consulting, the route motif.** The hero carries a route map: several paths start at the
+  left edge, two end as marked dead ends, three converge on a ringed goal that breathes and
+  pings; a luminous dot travels each carrying path, and the main path draws in on load. The
+  headline reads "Viele Wege führen zum Ziel. Wir kennen die, die tragen." The motif returns
+  as the path of three steps under "Zusammenarbeit" and as the goal marker above the closing
+  call to action. Two variants for the owners to choose from: the light Linen hero that stays
+  within the one-light-design rule, and the "drenched" dark Ruby hero with a dark header that
+  carries the mood of the current site into the new system; everything below the hero is
+  identical.
+- **Images.** The build prepares every image variant and crop itself; Bunny Optimizer stays
+  off ([ADR-0014](../docs/adr/0014-images-prepared-at-build-time.md), proposed).
+- Still open: who is who on the individual portraits, so the Consulting profiles use the duo
+  photo for now.
+
+Files: `comps/r3-software-home.html`, `r3-consulting-home.html`, `r3-consulting-home-dark.html`.
+The route map is plain SVG with CSS motion (`offset-path`, `stroke-dashoffset`); the
+production version would honour `prefers-reduced-motion` and fall back to a static line as the
+current site does.
+
 ## Next
 
-The owners review round 2. Then `DESIGN.md` and the token package are written from it, and
-the Software app is rebuilt on the new system, desktop first (plan 01, steps 3 to 5; plan
-06).
+The owners review round 3 and choose the Consulting hero variant. Then `DESIGN.md` and the
+token package are written from the approved comps, and the Software app is rebuilt on the new
+system, desktop first (plan 01, steps 3 to 5; plan 06). Phone layouts follow once the desktop
+design is settled.
