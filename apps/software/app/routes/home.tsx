@@ -13,7 +13,7 @@ import { MetricsBand } from "~/components/MetricsBand"
 import { Photo } from "~/components/Photo"
 import { ProductCards } from "~/components/ProductCards"
 import { formatCount, loadMetrics } from "~/lib/metrics"
-import { heroPhoto, laptopPhoto, PHOTO_SIZES } from "~/lib/photos"
+import { heroPhoto, heroPreload, laptopPhoto, PHOTO_SIZES } from "~/lib/photos"
 import { variant } from "~/lib/site"
 
 import type { Route } from "./+types/home"
@@ -34,9 +34,9 @@ export function links(): Route.LinkDescriptors {
   return [
     {
       as: "image",
-      href: heroPhoto.src,
+      href: heroPreload.src,
       imageSizes: PHOTO_SIZES,
-      imageSrcSet: heroPhoto.srcSet,
+      imageSrcSet: heroPreload.srcSet,
       rel: "preload",
     },
   ]

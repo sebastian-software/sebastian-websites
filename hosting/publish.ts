@@ -34,7 +34,7 @@ const RETRIES = 4
 const RETRY_BASE_MS = 1000
 
 /** Build metadata Vite writes next to the output; it is not part of the site. */
-const SKIPPED_DIRECTORIES = new Set([".vite"])
+const SKIPPED_DIRECTORIES = new Set(["_bunny", ".vite"])
 
 /**
  * Hashes bytes the way Bunny Storage reports checksums.
@@ -189,11 +189,21 @@ export type PublishOptions = {
   readonly deleteStale?: boolean
   readonly ids: Provisioned
   readonly log?: Log
+  /** Immutable, content-addressed image uploads need no invalidation. */
+  readonly purgeCache?: boolean
   readonly request?: Fetch
   readonly target: Target
 }
 
 export type Published = { readonly removed: number; readonly uploaded: number }
+
+function shouldPurge(options: PublishOptions, result: Published): boolean {
+  // Unchanged shared fonts must not flush the image variants on each site deploy.
+  return (
+    options.purgeCache !== false &&
+    (options.target.assets !== true || result.uploaded > 0 || result.removed > 0)
+  )
+}
 
 async function uploadChanged(
   storage: StorageClient,
@@ -249,7 +259,9 @@ export async function publish(options: PublishOptions): Promise<Published> {
   const state = { log, remote: await storage.list("") }
   const uploaded = await uploadChanged(storage, assets, state)
   const removed = deleteStale ? await removeStale(storage, assets, state) : 0
-  await api("POST", `/pullzone/${ids.pullZoneId}/purgeCache`, {})
-  log(`Purged ${target.name}`)
+  if (shouldPurge(options, { removed, uploaded })) {
+    await api("POST", `/pullzone/${ids.pullZoneId}/purgeCache`, {})
+    log(`Purged ${target.name}`)
+  }
   return { removed, uploaded }
 }

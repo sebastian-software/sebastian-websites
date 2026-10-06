@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest"
 
-import { image } from "./image.ts"
+import { image, responsiveImage } from "./image.ts"
 
 const source = { height: 5942, path: "shooting-2024/shoot-19.jpg", width: 3961 }
 
@@ -43,5 +43,35 @@ describe("image", () => {
     expect(() =>
       image({ ...source, path: "../private.jpg" }, { aspectRatio: [1, 1], width: 800 })
     ).toThrow("relative asset path")
+  })
+})
+
+describe("responsiveImage", () => {
+  it("bounds every width descriptor by the source crop and removes duplicate variants", () => {
+    const photo = responsiveImage(
+      { height: 600, path: "images/small.jpg", width: 800 },
+      { aspectRatio: [1, 1], width: 800, widths: [320, 600, 1200, 2400] }
+    )
+    const candidates = photo.srcSet.split(", ")
+    expect(candidates.map((entry) => entry.split(" ").at(-1))).toStrictEqual(["320w", "600w"])
+    for (const candidate of candidates) {
+      const [url, descriptor] = candidate.split(" ")
+      expect(`${new URL(url).searchParams.get("width")}w`).toBe(descriptor)
+    }
+    expect(new URL(photo.src).searchParams.get("width")).toBe("600")
+  })
+
+  it("keeps the face crop constant across resolutions and resizes after cropping", () => {
+    const photo = responsiveImage(source, {
+      aspectRatio: [4, 5],
+      crop: { mode: "faces" },
+      width: 800,
+    })
+    const crops = photo.srcSet.split(", ").map((entry) => {
+      const url = new URL(entry.split(" ")[0])
+      expect(url.searchParams.has("aspect_ratio")).toBe(false)
+      return url.searchParams.get("face_crop")
+    })
+    expect(new Set(crops)).toStrictEqual(new Set(["3961,4951"]))
   })
 })

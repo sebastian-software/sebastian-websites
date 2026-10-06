@@ -1,5 +1,6 @@
 export * as blocks from "./blocks.css.ts"
 export { BrandBar, type BrandBarProps } from "./BrandBar.tsx"
+export { BunnyImage, type BunnyImageProps, type BunnyImageVariant } from "./BunnyImage.tsx"
 export { button } from "./button.css.ts"
 export * as layout from "./layout.css.ts"
 export { legalClassNames } from "./legal.css.ts"

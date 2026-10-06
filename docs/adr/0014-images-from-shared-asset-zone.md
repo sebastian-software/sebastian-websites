@@ -1,6 +1,6 @@
 ---
 status: accepted
-updated: 2026-10-06
+updated: 2026-10-07
 ---
 
 # Images are served from one shared asset zone with Bunny Optimizer
@@ -13,6 +13,16 @@ focal crop, quality); the zone converts to WebP or AVIF for browsers that accept
 caches every variant at the edge. The sites' own pull zones stay without the Optimizer.
 
 Client logos stay in the repository as SVG; they need no transformation.
+
+Repository-owned raster illustrations can also use this zone. Vite's `?bunny`
+imports keep sources next to their components and expose original dimensions plus
+an immutable `images/<sha256>.<extension>` path. Deployment uploads new originals
+before site documents, preserves older hashes, and skips cache invalidation for
+these immutable uploads. Private photo originals continue to be managed separately.
+The shared `BunnyImage` component handles responsive widths, pixel density, optional
+art direction, and center, face, or focal-point crops. See
+[ADR-0015](0015-shared-bunny-image-component.md) for the component decision and
+[responsive images](../operations/responsive-images.md) for the import and component contracts.
 
 ## What Bunny offers (checked on 2026-10-06)
 
@@ -49,8 +59,9 @@ Client logos stay in the repository as SVG; they need no transformation.
 - **Crops stay reviewable.** The focal point and aspect ratio of a placement are parameters
   in the component's code, visible in every pull request, exactly as a build-time crop would
   be.
-- **Development and previews match production** without local image processing: they load
-  the same public URLs.
+- **Existing shared photographs match production in development and previews** without
+  local image processing: they load the same public URLs. Repository imports use local
+  originals during development, as described in ADR-0015.
 - **Dimensions are known without a manifest.** A requested width and aspect ratio determine
   the height, so every image gets `width`, `height`, `srcset`, and `sizes`, and the hero
   image can be preloaded.
@@ -70,12 +81,13 @@ Client logos stay in the repository as SVG; they need no transformation.
   `OptimizerEnableManipulationEngine`, `OptimizerEnableWebP`, and `EnableAvifVary` to `true`,
   and `OptimizerAutomaticOptimizationEnabled` and `OptimizerEnableUpscaling` to `false`: the
   sites request variants explicitly.
-- Source files are uploaded manually to Bunny. An optional `publish-assets` script uploads
+- Private photo sources are uploaded manually to Bunny. An optional `publish-assets` script uploads
   sources with checksums from a private folder and purges the zone, preserving files absent
   from that local folder. Fonts share the zone as raw WOFF2 binaries (ADR-0013).
   Everything on the asset host is public, so the
   clearance rule of ADR-0012 applies to the upload, not only to the repository.
-- Sources are stored as unchanged original JPEGs; only CDN variants are resized.
+- Photo sources are stored as unchanged original JPEGs; repository images retain their
+  original supported format. Only CDN variants are resized.
 - A shared `image()` helper in `packages/web-core` composes the URL and the `width`/`height`
   pair for a placement; components never write query strings by hand.
 - Image classes are defined once the placements are stable, and `OptimizerForceClasses` is

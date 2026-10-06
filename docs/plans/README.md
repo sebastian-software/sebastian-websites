@@ -4,6 +4,11 @@ Work packages that turn the [overall concept](../concept/overall-concept.md) int
 plan is self-contained and records the commit it was planned against; check for drift before
 executing one. Decisions and their reasons live in the [ADRs](../adr/), not here.
 
+For every site plan, reuse `BunnyImage` from `@sebastian-websites/ui` for responsive
+raster images. [ADR-0015](../adr/0015-shared-bunny-image-component.md) includes a
+usage example; the [responsive images guide](../operations/responsive-images.md)
+describes Vite imports, setup for new apps, crops, art direction, and preloads.
+
 | Plan                                | Outcome                                                        | Depends on              |
 | ----------------------------------- | -------------------------------------------------------------- | ----------------------- |
 | [01](01-design-phase.md)            | Approved drafts of the brand bar and the four home pages       | —                       |

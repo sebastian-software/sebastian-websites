@@ -1,15 +1,14 @@
-import type { ResponsiveImage } from "@sebastian-websites/web-core"
 import type { ReactElement } from "react"
 
-import { blocks } from "@sebastian-websites/ui"
+import { blocks, BunnyImage } from "@sebastian-websites/ui"
 
-import { PHOTO_SIZES } from "~/lib/photos"
+import { PHOTO_SIZES, type PhotoPlacement } from "~/lib/photos"
 
 export type PhotoProps = {
   readonly alt: string
   readonly caption?: string
   readonly frame: keyof typeof blocks.photoFrame
-  readonly image: ResponsiveImage
+  readonly image: PhotoPlacement
   readonly priority?: boolean
 }
 
@@ -24,12 +23,11 @@ export function Photo(props: PhotoProps): ReactElement {
   const { alt, caption, frame, image: photo, priority = false } = props
   return (
     <div className={`${blocks.photo} ${blocks.photoFrame[frame]}`}>
-      <img
+      <BunnyImage
         alt={alt}
         className={blocks.photoImage}
-        loading={priority ? "eager" : "lazy"}
         {...photo}
-        fetchPriority={priority ? "high" : undefined}
+        priority={priority}
         sizes={PHOTO_SIZES}
       />
       {caption === undefined ? null : (
