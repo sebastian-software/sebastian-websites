@@ -12,9 +12,9 @@
   },
   "scripts": {
     "typecheck": "tsc",
-    "lint": "oxlint -c ../../oxlint.config.ts src && eslint src --config ../../eslint.config.ts",
-    "format": "prettier --write src README.md",
-    "format:check": "prettier --check src README.md",
+    "lint": "oxlint -c ../../oxlint.config.ts src && eslint src --config eslint.config.ts",
+    "format": "prettier --write src README.md eslint.config.ts",
+    "format:check": "prettier --check src README.md eslint.config.ts",
     "test": "vitest run",
     "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test"
   },

@@ -20,20 +20,9 @@ export function meta(): Route.MetaDescriptors {
   ]
 }
 
-export default function Company(): ReactElement {
-  const consulting = getSiteOrigin("consulting", variant.locale)
+function Mission(): ReactElement {
   return (
-    <main className={page.main}>
-      <h1 className={page.title}>
-        <Trans>The company</Trans>
-      </h1>
-      <p className={page.lead}>
-        <Trans>
-          Sebastian Software GmbH was founded in 2014 by Sebastian Fastner and Sebastian Werner in
-          Mainz. We are two engineers who build products, publish open-source tools, and help teams
-          through Sebastian Consulting.
-        </Trans>
-      </p>
+    <>
       <section className={page.section}>
         <h2 className={page.heading}>
           <Trans>Software that lasts and inspires</Trans>
@@ -86,33 +75,58 @@ export default function Company(): ReactElement {
           </Trans>
         </p>
       </section>
-      <section className={page.section}>
-        <h2 className={page.heading}>
-          <Trans>The team</Trans>
-        </h2>
-        <p>
-          <strong>Sebastian Fastner</strong>
-          {" – "}
-          <Trans>
-            Computer science as the foundation, classic and modern web technology firmly in hand, a
-            command-line enthusiast with a focus on security and cloud solutions.
-          </Trans>{" "}
-          <a className={page.link} href={`${consulting}/fastner`}>
-            <Trans>Profile</Trans>
-          </a>
-        </p>
-        <p>
-          <strong>Sebastian Werner</strong>
-          {" – "}
-          <Trans>
-            More than twenty years of web technology, clear design and clever interfaces, UI
-            frameworks, and open source since leading qooxdoo.
-          </Trans>{" "}
-          <a className={page.link} href={`${consulting}/werner`}>
-            <Trans>Profile</Trans>
-          </a>
-        </p>
-      </section>
+    </>
+  )
+}
+
+function Team({ consulting }: { readonly consulting: string }): ReactElement {
+  return (
+    <section className={page.section}>
+      <h2 className={page.heading}>
+        <Trans>The team</Trans>
+      </h2>
+      <p>
+        <strong>Sebastian Fastner</strong>
+        {" – "}
+        <Trans>
+          Computer science as the foundation, classic and modern web technology firmly in hand, a
+          command-line enthusiast with a focus on security and cloud solutions.
+        </Trans>{" "}
+        <a className={page.link} href={`${consulting}/fastner`}>
+          <Trans>Profile</Trans>
+        </a>
+      </p>
+      <p>
+        <strong>Sebastian Werner</strong>
+        {" – "}
+        <Trans>
+          More than twenty years of web technology, clear design and clever interfaces, UI
+          frameworks, and open source since leading qooxdoo.
+        </Trans>{" "}
+        <a className={page.link} href={`${consulting}/werner`}>
+          <Trans>Profile</Trans>
+        </a>
+      </p>
+    </section>
+  )
+}
+
+export default function Company(): ReactElement {
+  const consulting = getSiteOrigin("consulting", variant.locale)
+  return (
+    <main className={page.main}>
+      <h1 className={page.title}>
+        <Trans>The company</Trans>
+      </h1>
+      <p className={page.lead}>
+        <Trans>
+          Sebastian Software GmbH was founded in 2014 by Sebastian Fastner and Sebastian Werner in
+          Mainz. We are two engineers who build products, publish open-source tools, and help teams
+          through Sebastian Consulting.
+        </Trans>
+      </p>
+      <Mission />
+      <Team consulting={consulting} />
       <section className={page.section}>
         <h2 className={page.heading}>
           <Trans>How we build</Trans>
