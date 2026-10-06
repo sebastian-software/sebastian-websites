@@ -1,0 +1,21 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "software",
+      "runtimeExecutable": "mise",
+      "runtimeArgs": [
+        "-C",
+        "/Users/sebastian/Workspace/sebastian-websites/apps/software",
+        "exec",
+        "--",
+        "pnpm",
+        "dev",
+        "--port",
+        "5181",
+        "--strictPort"
+      ],
+      "port": 5181
+    }
+  ]
+}
