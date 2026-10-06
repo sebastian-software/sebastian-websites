@@ -1,7 +1,7 @@
 import type { ReactElement, ReactNode } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { BrandBar, SiteFooter } from "@sebastian-websites/ui"
+import { BrandBar, FONT_STYLESHEET, SiteFooter } from "@sebastian-websites/ui"
 import { createSeoLinks } from "@sebastian-websites/web-core"
 import { Links, Meta, Outlet, Scripts, useLocation } from "react-router"
 import "@sebastian-websites/ui/brand-software.css"
@@ -17,6 +17,7 @@ export function Layout({ children }: { readonly children: ReactNode }): ReactEle
       <head>
         <meta charSet="utf-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <link crossOrigin="anonymous" href={FONT_STYLESHEET} rel="stylesheet" />
         <Meta />
         {seoLinks.map((link) => (
           <link
