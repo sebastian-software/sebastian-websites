@@ -1,32 +1,34 @@
 import { style } from "@vanilla-extract/css"
 
-import { color, font } from "./theme.css.ts"
+import { container } from "./layout.css.ts"
+import { color, NARROW } from "./theme.css.ts"
 
-// Structural styles only. The visual design follows plan 01.
-
+/** A hairline strip in Frost above the header, visibly secondary. */
 export const bar = style({
-  alignItems: "center",
   backgroundColor: color.paper,
-  borderBottom: `1px solid ${color.bright}`,
-  color: color.dark,
-  display: "flex",
-  flexWrap: "wrap",
-  fontFamily: font.sans,
-  fontSize: "0.8125rem",
-  gap: "0.5rem 2rem",
-  justifyContent: "space-between",
-  padding: "0.375rem 1rem",
+  borderBottom: `1px solid ${color.line}`,
+  color: color.muted,
+  fontSize: "13px",
 })
 
-export const groups = style({
-  display: "flex",
-  flexWrap: "wrap",
-  gap: "0.5rem 2rem",
-})
+export const inner = style([
+  container,
+  {
+    "@media": { [NARROW]: { minHeight: "auto", paddingBlock: "8px" } },
+    alignItems: "center",
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "24px",
+    justifyContent: "space-between",
+    minHeight: "36px",
+  },
+])
+
+export const groups = style({ display: "flex", flexWrap: "wrap", gap: "36px" })
 
 export const list = style({
   display: "flex",
-  gap: "1rem",
+  gap: "18px",
   listStyle: "none",
   margin: 0,
   padding: 0,
@@ -35,12 +37,9 @@ export const list = style({
 export const link = style({
   color: "inherit",
   selectors: {
-    "&:hover, &:focus-visible": { textDecoration: "underline" },
-    '&[aria-current="page"]': { color: color.vivid, fontWeight: 700 },
+    "&:hover, &:focus-visible": { color: color.vivid },
+    '&[aria-current="page"], &[aria-current="true"]': { color: color.vivid, fontWeight: 600 },
   },
-  textDecoration: "none",
 })
 
-export const brandLink = style({
-  fontWeight: 700,
-})
+export const brandLink = style({ color: color.ink, fontWeight: 600 })

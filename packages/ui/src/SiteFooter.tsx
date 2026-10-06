@@ -24,18 +24,20 @@ export function SiteFooter(props: SiteFooterProps): ReactElement {
   const { legalEntity, links, navigationLabel } = props
   return (
     <footer className={styles.footer}>
-      <p>© {legalEntity}</p>
-      <nav aria-label={navigationLabel}>
-        <ul className={styles.list}>
-          {links.map((link) => (
-            <li key={link.href}>
-              <a className={styles.link} href={link.href}>
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <div className={styles.inner}>
+        <p>© {legalEntity}</p>
+        <nav aria-label={navigationLabel}>
+          <ul className={styles.list}>
+            {links.map((link) => (
+              <li key={link.href}>
+                <a className={styles.link} href={link.href}>
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
     </footer>
   )
 }

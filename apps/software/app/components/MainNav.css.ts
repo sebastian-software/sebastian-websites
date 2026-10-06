@@ -1,40 +1,34 @@
-import { color, font } from "@sebastian-websites/ui"
+import { color, layout } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
-// Structural styles only. The visual design follows plan 01.
+export const header = style({ backgroundColor: color.paper })
 
-export const header = style({
-  alignItems: "baseline",
-  borderBottom: `1px solid ${color.bright}`,
-  display: "flex",
-  flexWrap: "wrap",
-  fontFamily: font.sans,
-  gap: "1rem 2rem",
-  padding: "1rem",
-})
+export const inner = style([
+  layout.container,
+  {
+    alignItems: "center",
+    display: "flex",
+    gap: "32px",
+    justifyContent: "space-between",
+    minHeight: "72px",
+  },
+])
 
-export const brand = style({
-  color: color.dark,
-  fontFamily: font.slab,
-  fontSize: "1.25rem",
-  fontWeight: 700,
-  textDecoration: "none",
-})
+export const logo = style({ display: "block", height: "28px", width: "auto" })
 
 export const list = style({
   display: "flex",
-  flexWrap: "wrap",
-  gap: "1.5rem",
+  fontSize: "15px",
+  gap: "28px",
   listStyle: "none",
   margin: 0,
   padding: 0,
 })
 
 export const link = style({
-  color: color.dark,
+  color: color.ink,
   selectors: {
-    "&:hover, &:focus-visible": { textDecoration: "underline" },
-    '&[aria-current="page"]': { color: color.vivid, fontWeight: 700 },
+    "&:hover, &:focus-visible": { color: color.vivid },
+    '&[aria-current="page"]': { color: color.vivid },
   },
-  textDecoration: "none",
 })

@@ -1,9 +1,10 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { Trans } from "@palamedes/react/macro"
+import { blocks, layout, Section, SectionHead, typography } from "@sebastian-websites/ui"
 
-import * as page from "~/components/Page.css"
+import { Closing } from "~/components/Closing"
+import { ProductCards } from "~/components/ProductCards"
 
 import type { Route } from "./+types/products"
 
@@ -19,53 +20,47 @@ export function meta(): Route.MetaDescriptors {
 }
 
 export default function Products(): ReactElement {
+  const principles = [
+    {
+      text: t`Every product started as something we needed for our own work: a booking page for a small business we know, a translation workflow for the codebases we internationalize. We use them daily, which is the fastest way to notice what is missing.`,
+      title: t`Born from our own need`,
+    },
+    {
+      text: t`A product that works for its first customers should still work for them in three years. We prefer boring, well-understood technology, keep the scope small, and change things only when we can explain why.`,
+      title: t`Built to keep working`,
+    },
+    {
+      text: t`Where a product grows out of an open core, the core stays open. Palamedes is and remains open source; Palamedes+ adds the service around it. You can inspect what you rely on.`,
+      title: t`Open where it matters`,
+    },
+  ]
   return (
-    <main className={page.main}>
-      <h1 className={page.title}>
-        <Trans>Products</Trans>
-      </h1>
-      <p className={page.lead}>
-        <Trans>We build products we use ourselves, and we keep them deliberately small.</Trans>
-      </p>
-      <section className={page.section}>
-        <h2 className={page.heading}>Terminaro</h2>
-        <p>
-          <Trans>
-            Appointment booking for small businesses. Connect your calendar, define your
-            availability, and let customers book in seconds, without an account and without the
-            complexity of large scheduling suites. Set up in minutes.
-          </Trans>
-        </p>
-        <a className={page.link} href="https://terminaro.eu">
-          <Trans>Visit terminaro.eu</Trans>
-        </a>
-      </section>
-      <section className={page.section}>
-        <h2 className={page.heading}>
-          Palamedes+
-          <span className={page.badge}>
-            <Trans>Coming soon</Trans>
-          </span>
-        </h2>
-        <p>
-          <Trans>Ship translations, not tickets.</Trans>
-        </p>
-        <p>
-          <Trans>
-            The managed translation layer on top of Palamedes, our open-source i18n toolchain:
-            translation runs with provider and model control, quality checks, and review workflows
-            for teams that keep their catalogs in the repository.
-          </Trans>
-        </p>
-        <a className={page.link} href="https://palamedes.dev">
-          <Trans>Palamedes, the open core</Trans>
-        </a>
-      </section>
-      <section className={page.section}>
-        <p>
-          <Trans>A third product is in preparation and will be announced here.</Trans>
-        </p>
-      </section>
+    <main>
+      <Section>
+        <SectionHead
+          eyebrow={t`Products`}
+          intro={t`Each of our products grew out of a need of our own and is used by us every day. That is our standard: we would not sell anything we would not want to use ourselves. The products have their own sites with every detail; this is what they are for.`}
+          title={t`We build what we need ourselves.`}
+          titleAs="h1"
+        />
+        <ProductCards />
+      </Section>
+      <Section tone="white">
+        <SectionHead
+          eyebrow={t`How we build products`}
+          intro={t`Three principles decide what we build and how. They are the same principles that guide our consulting work, applied to our own products.`}
+          title={t`Small, lasting, inspectable.`}
+        />
+        <div className={layout.columns}>
+          {principles.map((principle) => (
+            <div className={blocks.column} key={principle.title}>
+              <h3 className={typography.h3}>{principle.title}</h3>
+              <p className={typography.textMuted}>{principle.text}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+      <Closing />
     </main>
   )
 }

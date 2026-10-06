@@ -6,7 +6,8 @@
 - Effort: L
 - Risk: MEDIUM (taste decisions; the brand bar must work on four sites at once)
 - Depends on: none
-- State: deferred while content migration and hosting infrastructure proceed
+- State: done for the direction and the Software site on 2026-10-06; Consulting home comp
+  approved, Open Source and Skills follow their plans
 - Planned at: f007192, 2026-10-06
 - Working state: clean
 
@@ -84,14 +85,16 @@ owners; iterate until approved. Commit the approved drafts under `design/comps/`
 
 ## Done criteria
 
-- [ ] Both owners approve the drafts.
+- [x] Both owners approve the drafts: round 5 on 2026-10-06 (`design/DIRECTION.md`).
 - [ ] The bar reads as one family across all four contexts and as secondary to each main
       navigation.
 - [ ] Software and Consulting read as equal in weight; Open Source and Skills read as part of
       Software.
-- [ ] The drafts use only the binding brand system plus documented extensions.
-- [ ] Every draft works at phone width.
-- [ ] The direction, drafts, and icon choice are committed.
+- [x] The drafts use only the binding brand system plus documented extensions
+      (`design/DESIGN.md`).
+- [ ] Every draft works at phone width (deferred: desktop first; grids collapse to one
+      column below 900 px as a safety net).
+- [x] The direction and drafts are committed; the icon style is still open.
 
 ## Stop conditions
 

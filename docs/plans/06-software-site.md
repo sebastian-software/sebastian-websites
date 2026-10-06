@@ -6,6 +6,8 @@
 - Effort: L
 - Risk: HIGH (replaces the live corporate site; moves two domains off AWS and Cloudflare DNS)
 - Depends on: 02, 03, 05
+- State: rebuilt on the approved design system on 2026-10-06 and published to the origin
+  hosts in both languages; domain cutover, legal review, and analytics open
 - Planned at: f007192, 2026-10-06
 - Working state: clean
 

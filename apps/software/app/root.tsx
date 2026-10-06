@@ -1,6 +1,7 @@
 import type { ReactElement, ReactNode } from "react"
 
 import { t } from "@palamedes/core/macro"
+import { COMPANY } from "@sebastian-websites/legal"
 import { BrandBar, FONT_STYLESHEET, SiteFooter } from "@sebastian-websites/ui"
 import { createSeoLinks } from "@sebastian-websites/web-core"
 import { Links, Meta, Outlet, Scripts, useLocation } from "react-router"
@@ -52,10 +53,11 @@ export default function App(): ReactElement {
       <MainNav />
       <Outlet />
       <SiteFooter
-        legalEntity="Sebastian Software GmbH"
+        legalEntity={`${COMPANY.name} · ${COMPANY.address.city}`}
         links={[
           { href: "/imprint", label: t`Legal Notice` },
           { href: "/privacy", label: t`Privacy` },
+          { href: "https://github.com/sebastian-software", label: "GitHub" },
         ]}
         navigationLabel={t`Legal`}
       />

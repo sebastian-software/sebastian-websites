@@ -22,11 +22,11 @@ the delivery to Bunny, which publishes every push to `main` to the origin hosts)
 for the fonts and the brand site is published on its origin host (the brand hostname and the
 external consumers are open), 04 is in review
 ([oss-metrics#7](https://github.com/sebastian-software/oss-metrics/pull/7), merged), 05 is
-done, and 06 has its pages (home, products, open source, company, contact, legal) on the
-origin hosts; its domain cutover is open.
+done, 01 reached an approved design in five comp rounds (`design/DIRECTION.md`,
+`design/DESIGN.md`), and 06 has its pages (home, products, open source, company, contact,
+legal) rebuilt on that design system with live numbers from the metrics service, on the
+origin hosts in both languages; its domain cutover is open.
 
-Design work (01) is deferred. The immediate order is reusable content transfer, font hosting
-and its shared CSS contract (03), then production and preview delivery (02). Content routes
-can use a minimal semantic structure in the meantime. The Software home and mission copy
-in both languages is now preserved in `apps/software/content/legacy/`. The build order of the sites is Software, Open
-Source, Skills, Consulting.
+The Software home and mission copy in both languages is preserved in
+`apps/software/content/legacy/`. The build order of the sites is Software, Open Source,
+Skills, Consulting.

@@ -24,6 +24,7 @@
     "@palamedes/core": "catalog:",
     "@palamedes/react": "catalog:",
     "@palamedes/runtime": "catalog:",
+    "@sebastian-websites/content": "workspace:*",
     "@sebastian-websites/legal": "workspace:*",
     "@sebastian-websites/ui": "workspace:*",
     "@sebastian-websites/web-core": "workspace:*",
