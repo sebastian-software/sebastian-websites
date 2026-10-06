@@ -122,9 +122,10 @@ Tokens and logos are served with open CORS and immutable caching:
 
 ### Web Fonts
 
-`Sebastian Sans` (Glober) and `Sebastian Slab` (Elena) are licensed for the company's own
+`Glober` and `Elena` are licensed for the company's own
 websites. The font files are not part of this repository; the sites load them from the
-company's font host.
+shared asset CDN. The versioned `fonts.css`, `fonts-all.css`, and `typography.css`
+are published with this brand application; see [font hosting](../../docs/operations/font-hosting.md).
 
 ### Software
 
