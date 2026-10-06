@@ -50,11 +50,11 @@ type check, lint, and the tests against a fake Bunny account.
 ## Assets
 
 `sebastian-websites-assets` has no build directory. CI provisions it with Optimizer and
-image caching, without HTML rules or middleware, and never uploads or deletes its sources.
+image and immutable font caching, without HTML rules or middleware, and never uploads or deletes its sources.
 Every other pull zone keeps Optimizer disabled. Image query strings remain in the asset
 cache key so different widths and crops cannot share the same cached response.
 
-Keep the complete public asset collection outside this repository:
+Upload source files manually through Bunny's file manager. Keep local backups outside this repository:
 
 ```text
 ~/Workspace/sebastian-assets/
@@ -62,6 +62,13 @@ Keep the complete public asset collection outside this repository:
     shoot-1.jpg
     ...
     shoot-46.jpg
+  fonts/
+    Glober/
+      GloberRegular-latin-<hash>.woff2
+      ...
+    Elena/
+      Elena-Medium-latin-<hash>.woff2
+      ...
   products/
     product-name.png
 ```
@@ -78,12 +85,19 @@ BUNNY_API_KEY=… node hosting/publish-assets.ts
 ASSETS_DIR="$HOME/Workspace/sebastian-photos-2024/publish" BUNNY_API_KEY=… node hosting/publish-assets.ts
 ```
 
-The script refuses CI and empty folders, skips hidden files and symbolic links, compares
-SHA-256 checksums, uploads changed files, deletes remote files absent from the complete
-local collection, and purges the pull zone. A second unchanged run uploads nothing.
-Always supply the whole collection, including product visuals, because the folder is
-an authoritative mirror of the zone. Everything uploaded is public; third-party portraits
+The script is an optional upload tool. It refuses CI and empty folders, skips hidden files
+and symbolic links, compares SHA-256 checksums, uploads changed files, and purges the pull
+zone. It never deletes remote files absent locally, so uploading photos cannot remove
+manually maintained fonts or product visuals. A second unchanged run uploads nothing.
+Delete obsolete assets explicitly in Bunny after checking consumers. Everything uploaded is public; third-party portraits
 require recorded permission before publishing (ADR-0012).
+
+Only WOFF2 binaries are uploaded under `fonts/Glober/` and `fonts/Elena/`. Latin and
+extended subsets preserve the original faces' combined Unicode coverage and load on
+demand. They are served without image transformations, with open CORS and a one-year
+immutable cache lifetime. Changed font bytes require a new filename. Font CSS, fallback
+metrics, and family stacks are versioned and deployed by the brand application; see
+[font hosting](font-hosting.md).
 
 The owners' DNS step is a CNAME from `assets.sebastian-software.com` to
 `sebastian-websites-assets.b-cdn.net`. The record is already present in Bunny DNS, but
@@ -93,6 +107,9 @@ certificate; it retries certificate issuance after DNS is live and then forces H
 Keep `ASSET_HOST.productionActive` false in `packages/web-core/src/image.ts` until DNS,
 the certificate, and HTTPS are verified; then switch it to true. Until then the sites
 use the Bunny origin hostname.
+
+The font URLs in `apps/brand/public/fonts.css` and `fonts-all.css` also use the Bunny
+origin; update those URLs at the same verified cutover.
 
 The shared `image()` helper uses original dimensions to compute the largest focal crop
 at the placement's aspect ratio, then requests responsive widths and quality. This follows

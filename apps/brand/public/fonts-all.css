@@ -1,0 +1,746 @@
+@import url("./typography.css");
+
+/* Generated from licensed local sources with scripts/prepare-fonts.py. */
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberBlack-latin-271a757774fb.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberBlack-extended-4237ff3625c0.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberBlackItalic-latin-cf2689d37b88.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberBlackItalic-extended-0e8120913649.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberBold-latin-dbb4db82fe49.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberBold-extended-66ebe69e3f86.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberBoldItalic-latin-97538e5606e2.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberBoldItalic-extended-aa187796847a.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 350;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberBook-latin-65b110c84abf.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 350;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberBook-extended-84e0e475213e.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 350;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberBookItalic-latin-56bdfcd67e76.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 350;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberBookItalic-extended-848049bd27db.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 850;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberHeavy-latin-f09e1f30fb99.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 850;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberHeavy-extended-79c86062b425.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 850;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberHeavyItalic-latin-177da47c2ab2.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 850;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberHeavyItalic-extended-130848f14881.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberLight-latin-961ce4a78050.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberLight-extended-43a37a698c8a.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberLightItalic-latin-4e6399ceaf72.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberLightItalic-extended-48658ba7043d.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberRegular-latin-aab673c68e83.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberRegular-extended-c7c967bf8fd1.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberRegularItalic-latin-d27af00a3809.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberRegularItalic-extended-300e90d911d1.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberSemiBold-latin-ff5fb0eb415d.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberSemiBold-extended-0495710c5e54.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberSemiBoldItalic-latin-809ee973876d.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberSemiBoldItalic-extended-1c274df8f092.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberThin-latin-7a405012ac35.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberThin-extended-1c55da647fcb.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 100;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberThinItalic-latin-2bc8ad5c0c8e.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 100;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberThinItalic-extended-fe4569f52b90.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberxBold-latin-9e31cb43af99.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberxBold-extended-6467edabf87e.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberxBoldItalic-latin-307c7778e600.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A1-17F, U+192, U+1FA-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2013-2014,
+    U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+2044, U+20AC, U+20BD,
+    U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Glober";
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Glober/GloberxBoldItalic-extended-a361af3e5410.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+401, U+410-44F, U+451, U+2080-2089, U+2113, U+2116-2117, U+2122,
+    U+2126, U+212E, U+2153-2154, U+215B-215E, U+2190-2193, U+2196-2199, U+2202, U+2206, U+220F,
+    U+2211-2212, U+2215, U+2219-221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+F6C3;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-Bold-latin-7912acbc3c38.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A0-AC, U+AE-17E, U+192, U+1FA-1FF, U+218-21B, U+312, U+315, U+326, U+1E80-1E85,
+    U+1EF2-1EF3, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A,
+    U+2044, U+20AC, U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-Bold-extended-4a1e46c4a3ed.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+2113, U+2116, U+2122, U+2126, U+212E, U+2153-2154, U+215B-215E,
+    U+2202, U+2206, U+220F, U+2211-2212, U+221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-BoldItalic-latin-f9467ab39921.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A0-AC, U+AE-17E, U+192, U+1FA-1FF, U+218-21B, U+312, U+315, U+326, U+1E80-1E85,
+    U+1EF2-1EF3, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A,
+    U+2044, U+20AC, U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-BoldItalic-extended-8be5e1caa611.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+2113, U+2116, U+2122, U+2126, U+212E, U+2153-2154, U+215B-215E,
+    U+2202, U+2206, U+220F, U+2211-2212, U+221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-Light-latin-5875d2a690bf.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A0-AC, U+AE-17E, U+192, U+1FA-1FF, U+218-21B, U+312, U+315, U+326, U+1E80-1E85,
+    U+1EF2-1EF3, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A,
+    U+2044, U+20AC, U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-Light-extended-88fa96dc852f.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+2113, U+2116, U+2122, U+2126, U+212E, U+2153-2154, U+215B-215E,
+    U+2202, U+2206, U+220F, U+2211-2212, U+221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-LightItalic-latin-a6076f6253e2.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A0-AC, U+AE-17E, U+192, U+1FA-1FF, U+218-21B, U+312, U+315, U+326, U+1E80-1E85,
+    U+1EF2-1EF3, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A,
+    U+2044, U+20AC, U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-LightItalic-extended-9deee1c59f7b.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+2113, U+2116, U+2122, U+2126, U+212E, U+2153-2154, U+215B-215E,
+    U+2202, U+2206, U+220F, U+2211-2212, U+221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-Medium-latin-f0e984d3e709.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A0-AC, U+AE-17E, U+192, U+1FA-1FF, U+218-21B, U+312, U+315, U+326, U+1E80-1E85,
+    U+1EF2-1EF3, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A,
+    U+2044, U+20AC, U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-Medium-extended-dd103fb5b57e.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+2113, U+2116, U+2122, U+2126, U+212E, U+2153-2154, U+215B-215E,
+    U+2202, U+2206, U+220F, U+2211-2212, U+221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-MediumItalic-latin-9ff7c48bd7d4.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A0-AC, U+AE-17E, U+192, U+1FA-1FF, U+218-21B, U+312, U+315, U+326, U+1E80-1E85,
+    U+1EF2-1EF3, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A,
+    U+2044, U+20AC, U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-MediumItalic-extended-622e0df838a2.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+2113, U+2116, U+2122, U+2126, U+212E, U+2153-2154, U+215B-215E,
+    U+2202, U+2206, U+220F, U+2211-2212, U+221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-Regular-latin-0337305f52e6.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A0-AC, U+AE-17E, U+192, U+1FA-1FF, U+218-21B, U+312, U+315, U+326, U+1E80-1E85,
+    U+1EF2-1EF3, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A,
+    U+2044, U+20AC, U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-Regular-extended-444e482ffe25.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+2113, U+2116, U+2122, U+2126, U+212E, U+2153-2154, U+215B-215E,
+    U+2202, U+2206, U+220F, U+2211-2212, U+221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-RegularItalic-latin-3fd5dd9d7958.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A0-AC, U+AE-17E, U+192, U+1FA-1FF, U+218-21B, U+312, U+315, U+326, U+1E80-1E85,
+    U+1EF2-1EF3, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A,
+    U+2044, U+20AC, U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Elena";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/Elena-RegularItalic-extended-88f4d0f248fa.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+2113, U+2116, U+2122, U+2126, U+212E, U+2153-2154, U+215B-215E,
+    U+2202, U+2206, U+220F, U+2211-2212, U+221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA;
+}
+
+@font-face {
+  font-family: "Elena Basic";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/ElenaBasic-Bold-latin-9ed30938dabc.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A0-AC, U+AE-17E, U+192, U+1FA-1FF, U+218-21B, U+312, U+315, U+326, U+1E80-1E85,
+    U+1EF2-1EF3, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A,
+    U+2044, U+20AC, U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Elena Basic";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/ElenaBasic-Bold-extended-e6bc3b16a1f8.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+2113, U+2116, U+2122, U+2126, U+212E, U+2153-2154, U+215B-215E,
+    U+2202, U+2206, U+220F, U+2211-2212, U+221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA;
+}
+
+@font-face {
+  font-family: "Elena Basic";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/ElenaBasic-Regular-latin-4ce32deb1949.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A0-AC, U+AE-17E, U+192, U+1FA-1FF, U+218-21B, U+312, U+315, U+326, U+1E80-1E85,
+    U+1EF2-1EF3, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A,
+    U+2044, U+20AC, U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Elena Basic";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/ElenaBasic-Regular-extended-c0cf80f423af.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+2113, U+2116, U+2122, U+2126, U+212E, U+2153-2154, U+215B-215E,
+    U+2202, U+2206, U+220F, U+2211-2212, U+221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA;
+}
+
+@font-face {
+  font-family: "Elena Basic";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/ElenaBasic-RegularItalic-latin-c6d7558e6817.woff2")
+    format("woff2");
+  unicode-range:
+    U+20-7E, U+A0-AC, U+AE-17E, U+192, U+1FA-1FF, U+218-21B, U+312, U+315, U+326, U+1E80-1E85,
+    U+1EF2-1EF3, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A,
+    U+2044, U+20AC, U+FB01-FB02;
+}
+
+@font-face {
+  font-family: "Elena Basic";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://sebastian-websites-assets.b-cdn.net/fonts/Elena/ElenaBasic-RegularItalic-extended-9e95c242a588.woff2")
+    format("woff2");
+  unicode-range:
+    U+2C6-2C7, U+2D8-2DD, U+3C0, U+2113, U+2116, U+2122, U+2126, U+212E, U+2153-2154, U+215B-215E,
+    U+2202, U+2206, U+220F, U+2211-2212, U+221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA;
+}

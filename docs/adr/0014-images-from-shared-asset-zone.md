@@ -70,8 +70,10 @@ Client logos stay in the repository as SVG; they need no transformation.
   `OptimizerEnableManipulationEngine`, `OptimizerEnableWebP`, and `EnableAvifVary` to `true`,
   and `OptimizerAutomaticOptimizationEnabled` and `OptimizerEnableUpscaling` to `false`: the
   sites request variants explicitly.
-- A `publish-assets` script uploads sources with checksums from a private folder or
-  repository and purges changed paths. Everything on the asset host is public, so the
+- Source files are uploaded manually to Bunny. An optional `publish-assets` script uploads
+  sources with checksums from a private folder and purges the zone, preserving files absent
+  from that local folder. Fonts share the zone as raw WOFF2 binaries (ADR-0013).
+  Everything on the asset host is public, so the
   clearance rule of ADR-0012 applies to the upload, not only to the repository.
 - Sources are stored as unchanged original JPEGs; only CDN variants are resized.
 - A shared `image()` helper in `packages/web-core` composes the URL and the `width`/`height`

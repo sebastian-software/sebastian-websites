@@ -1,0 +1,38 @@
+/* Shared typography contract. Font sizes and line heights belong to each site. */
+@font-face {
+  font-family: "Glober Fallback";
+  src: local("Arial"), local("Helvetica Neue");
+  size-adjust: 97.7%;
+  ascent-override: 108.5%;
+  descent-override: 25.6%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Elena Fallback";
+  src: local("Georgia"), local("Times New Roman");
+  size-adjust: 83.5%;
+  ascent-override: 107.8%;
+  descent-override: 29.9%;
+  line-gap-override: 0%;
+}
+
+:root {
+  --sebastian-font-sans: "Glober", "Glober Fallback", ui-sans-serif, system-ui, sans-serif;
+  --sebastian-font-serif: "Elena", "Elena Fallback", "Rockwell", ui-serif, Georgia, serif;
+  --sebastian-font-slab: var(--sebastian-font-serif);
+  --sebastian-sans-letter-spacing: normal;
+  --sebastian-serif-letter-spacing: -0.02em;
+}
+
+:where(.sebastian-sans) {
+  font-family: var(--sebastian-font-sans);
+  font-kerning: normal;
+  letter-spacing: var(--sebastian-sans-letter-spacing);
+}
+
+:where(.sebastian-serif, .sebastian-slab) {
+  font-family: var(--sebastian-font-serif);
+  font-kerning: normal;
+  letter-spacing: var(--sebastian-serif-letter-spacing);
+}

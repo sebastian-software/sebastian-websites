@@ -1,4 +1,4 @@
-/** Publishes the complete private asset folder. Never runs in CI. */
+/** Uploads local asset files without deleting files managed in Bunny. Never runs in CI. */
 import { homedir } from "node:os"
 import { resolve } from "node:path"
 

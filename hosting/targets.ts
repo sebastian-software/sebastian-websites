@@ -22,9 +22,11 @@ const BRAND_TARGET: Target = {
   name: "sebastian-websites-brand",
 }
 
+export const IMAGE_EXTENSIONS = ["jpg", "jpeg", "png", "webp", "avif", "gif", "svg"] as const
+
 export const ASSET_TARGET: Target = {
   assets: true,
-  corsExtensions: ["jpg", "jpeg", "png", "webp", "avif", "gif", "svg"],
+  corsExtensions: [...IMAGE_EXTENSIONS, "woff2"],
   hostname: "assets.sebastian-software.com",
   name: "sebastian-websites-assets",
 }

@@ -8,7 +8,13 @@ import { type BunnyApi, isJson, type Json } from "./bunny.ts"
 import { originRequest, planPath, publicPath } from "./middleware-logic.ts"
 import { cacheRules, provision, pullZoneSettings } from "./provision.ts"
 import { checksum, loadAssets, publish } from "./publish.ts"
-import { ASSET_TARGET, buildableTargets, type Target, TARGETS } from "./targets.ts"
+import {
+  ASSET_TARGET,
+  buildableTargets,
+  IMAGE_EXTENSIONS,
+  type Target,
+  TARGETS,
+} from "./targets.ts"
 import { checksFor } from "./verify.ts"
 
 const target: Target = {
@@ -273,7 +279,7 @@ test("targets cover every variant, the brand site, and the build-free asset zone
   assert.deepEqual(brand?.corsExtensions, ["css", "svg", "png"])
 })
 
-test("only assets enable Optimizer, with distinct variants and open image CORS", () => {
+test("only assets enable Optimizer, with distinct variants and open image and font CORS", () => {
   for (const entry of TARGETS) {
     assert.equal(pullZoneSettings(entry).OptimizerEnabled, entry.assets === true)
   }
@@ -298,6 +304,7 @@ test("only assets enable Optimizer, with distinct variants and open image CORS",
     assert.equal(settings[field], false)
   }
   assert.deepEqual(settings.AccessControlOriginHeaderExtensions, ASSET_TARGET.corsExtensions)
+  assert.ok(ASSET_TARGET.corsExtensions.includes("woff2"))
   assert.equal(ASSET_TARGET.hostname, "assets.sebastian-software.com")
   assert.deepEqual(buildableTargets("/missing-build-root"), [ASSET_TARGET])
 })
@@ -308,7 +315,7 @@ test("an asset zone is provisioned without HTML rules or middleware and converge
   await provision(bunny.api, assetTarget, silent)
   assert.ok(bunny.calls.every((call) => !call.path.startsWith("/compute/")))
   const rules = bunny.calls.filter((call) => call.path.endsWith("/edgerules/addOrUpdate"))
-  assert.equal(rules.length, 1)
+  assert.equal(rules.length, 2)
   const rule = rules[0].body
   assert.ok(isJson(rule))
   assert.equal(rule.Description, "websites: images are cached for a year")
@@ -322,8 +329,12 @@ test("an asset zone is provisioned without HTML rules or middleware and converge
   })
   assert.deepEqual(
     patterns,
-    ASSET_TARGET.corsExtensions.map((extension) => `*.${extension}*`)
+    IMAGE_EXTENSIONS.map((extension) => `*.${extension}*`)
   )
+  const fontRule = rules[1].body
+  assert.ok(isJson(fontRule))
+  assert.equal(fontRule.Description, "websites: font binaries are immutable")
+  assert.ok(JSON.stringify(fontRule.ExtraActions).includes("public, max-age=31536000, immutable"))
   bunny.calls.length = 0
   await provision(bunny.api, assetTarget, silent)
   assert.ok(bunny.calls.every((call) => call.method === "GET"))
@@ -339,6 +350,7 @@ function originalStorage(bytes: Uint8Array) {
   let remoteChecksum: string | undefined
   let uploads = 0
   const request: typeof fetch = async (input, init) => {
+    assert.notEqual(init?.method, "DELETE", "manually uploaded font files must survive")
     if (init?.method === "PUT") {
       assert.deepEqual(init.body, bytes, "publishing preserves the original bytes")
       remoteChecksum = checksum(bytes)
@@ -348,13 +360,16 @@ function originalStorage(bytes: Uint8Array) {
     return Response.json(
       String(input).endsWith("/shooting-2024/")
         ? [{ Checksum: remoteChecksum, IsDirectory: false, ObjectName: "shoot-3.jpg" }]
-        : [{ IsDirectory: true, ObjectName: "shooting-2024" }]
+        : [
+            { IsDirectory: true, ObjectName: "shooting-2024" },
+            { Checksum: "FONT", IsDirectory: false, ObjectName: "manually-uploaded.woff2" },
+          ]
     )
   }
   return { request, uploads: () => uploads }
 }
 
-test("publishing original assets twice skips unchanged bytes on the second run", async () => {
+test("publishing photos preserves manual fonts and skips unchanged bytes on the second run", async () => {
   const bunny = account({ provisioned: true, target: ASSET_TARGET })
   const bytes = new TextEncoder().encode("original JPEG bytes")
   const assets = [{ bytes, path: "shooting-2024/shoot-3.jpg" }]

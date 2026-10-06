@@ -1,5 +1,6 @@
 import type { Json } from "./bunny.ts"
-import type { Target } from "./targets.ts"
+
+import { IMAGE_EXTENSIONS, type Target } from "./targets.ts"
 
 const ONE_YEAR = 31_536_000
 const ONE_DAY = 86_400
@@ -94,7 +95,7 @@ function cacheRule(spec: CacheRuleSpec): EdgeRule {
  * The caching rules of a website target: hashed build assets never change,
  * documents are purged on every publish and kept short in browsers.
  *
- * @param target - Asset zones receive only the image caching rule.
+ * @param target - Asset zones receive image and immutable font caching rules.
  * @returns The rules, matched by description on later runs.
  */
 export function cacheRules(target?: Target): readonly EdgeRule[] {
@@ -107,7 +108,16 @@ export function cacheRules(target?: Target): readonly EdgeRule[] {
         immutable: false,
         matching: MATCH.any,
         orderIndex: 0,
-        patterns: target.corsExtensions.map((extension) => `*.${extension}*`),
+        patterns: IMAGE_EXTENSIONS.map((extension) => `*.${extension}*`),
+      }),
+      cacheRule({
+        browser: ONE_YEAR,
+        cdn: ONE_YEAR,
+        description: "websites: font binaries are immutable",
+        immutable: true,
+        matching: MATCH.any,
+        orderIndex: 1,
+        patterns: ["*.woff2*"],
       }),
     ]
   }

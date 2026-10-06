@@ -185,6 +185,8 @@ function storageClient(request: Fetch, zone: string, password: string): StorageC
 export type PublishOptions = {
   readonly api: BunnyApi
   readonly assets: readonly Asset[]
+  /** Defaults to true for website builds and false for manually managed asset zones. */
+  readonly deleteStale?: boolean
   readonly ids: Provisioned
   readonly log?: Log
   readonly request?: Fetch
@@ -229,14 +231,15 @@ async function removeStale(
 }
 
 /**
- * Publishes a build: uploads new and changed files, deletes stale ones, and
- * purges the pull zone.
+ * Publishes files and purges the pull zone. Website builds remove stale files;
+ * manually managed asset zones preserve files uploaded separately.
  *
  * @param options - The client, target, zone ids, build files, and optional fetch and log.
  * @returns The number of uploaded and removed files.
  */
 export async function publish(options: PublishOptions): Promise<Published> {
   const { api, assets, ids, log = console.log, request = fetch, target } = options
+  const deleteStale = options.deleteStale ?? target.assets !== true
   const zone: Json = await getZone(api, "/storagezone", ids.storageId)
   const password = text(zone, "Password")
   if (password === undefined || password === "") {
@@ -245,7 +248,7 @@ export async function publish(options: PublishOptions): Promise<Published> {
   const storage = storageClient(request, target.name, password)
   const state = { log, remote: await storage.list("") }
   const uploaded = await uploadChanged(storage, assets, state)
-  const removed = await removeStale(storage, assets, state)
+  const removed = deleteStale ? await removeStale(storage, assets, state) : 0
   await api("POST", `/pullzone/${ids.pullZoneId}/purgeCache`, {})
   log(`Purged ${target.name}`)
   return { removed, uploaded }
