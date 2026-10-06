@@ -8,8 +8,12 @@ License records, local sources, and correspondence stay outside this public repo
 
 ## Subsetting from licensed originals
 
-`scripts/prepare-fonts.py` reads the 18 licensed Glober OTF faces and the 11 original
-Elena WOFF2 faces (including three Elena Basic faces). Use Python 3.11 or newer.
+`scripts/prepare-fonts.py` reads the 18 licensed Glober OTF faces and the eight original
+full-featured Elena WOFF2 faces. Elena Basic is excluded: it duplicates the full
+family's design and language coverage with fewer OpenType features
+([foundry comparison](https://processtypefoundry.com/help/base/full-vs-basic-fonts/)),
+and no consumer uses it. Existing Basic binaries on the CDN may remain unused.
+Use Python 3.11 or newer.
 It generates a Latin subset and
 an extended subset for every face, plus the asset stylesheet and brand wrapper. Install
 the pinned dependencies in a local Python environment, then run:
@@ -60,7 +64,7 @@ with no connected pull zone, never under the publicly served asset zone.
 
 One stable base stylesheet lives beside the binaries:
 `https://assets.sebastian-software.com/fonts/fonts.css`. Its source is versioned in
-`assets/fonts/fonts.css` and includes all 29 Glober, Elena, and Elena Basic faces.
+`assets/fonts/fonts.css` and includes all 26 Glober and full-featured Elena faces.
 There is no separate core/all selection or per-family stylesheet.
 
 Each face has Latin and extended `@font-face` rules with matching family, weight,
@@ -69,7 +73,7 @@ face and downloads the subsets needed for the text. Declaring unused weights doe
 not download their WOFF2 files. Relative binary paths resolve next to the CSS without
 image transformation parameters. Unused binary files on the CDN need no cleanup.
 
-The base exposes `--font-glober`, `--font-elena`, and `--font-elena-basic`, with simple
+The base exposes `--font-glober` and `--font-elena`, with simple
 system font fallbacks. It has no classes, metric adjustments, letter spacing, font
 sizes, line heights, or imports from the brand application. A standalone consumer uses:
 
@@ -140,7 +144,7 @@ is retained, so rerunning the same pinned toolchain and sources produces the sam
 bytes. Changed sources or toolchain output receive new URLs; never overwrite a
 previously published immutable file. Run Prettier on the generated CSS before committing.
 
-The CSS family names remain `Glober`, `Elena`, and `Elena Basic`. The split is a
+The CSS family names remain `Glober` and `Elena`. The split is a
 Unicode partition of each original face, not a list extracted from today's website
 text. This keeps future copy, accented names, and existing non-Latin characters
 available. Ligature/layout closure retains glyphs that have no direct Unicode mapping.
