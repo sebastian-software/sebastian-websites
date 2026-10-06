@@ -36,7 +36,7 @@ export default function Products(): ReactElement {
   ]
   return (
     <main>
-      <Section>
+      <Section tone="white">
         <SectionHead
           eyebrow={t`Products`}
           intro={t`Each of our products grew out of a gap we saw ourselves, and we use them in our own work wherever they fit. That is our standard: we would not sell anything we would not want to use ourselves. The products have their own sites with every detail; this is what they are for.`}
@@ -45,7 +45,7 @@ export default function Products(): ReactElement {
         />
         <ProductCards />
       </Section>
-      <Section tone="white">
+      <Section>
         <SectionHead
           eyebrow={t`How we build products`}
           intro={t`Three principles decide what we build and how. They are the same principles that guide our consulting work, applied to our own products.`}
