@@ -42,11 +42,12 @@ Each brand provides the same set of files in `sebastian-{brand}/`:
 | `logo-{brand}.png`       | PNG    | Raster fallback                                          |
 | `icon-{brand}-light.svg` | SVG    | Icon on a light (paper) container, for light backgrounds |
 | `icon-{brand}-light.png` | PNG    | Raster fallback                                          |
-| `icon-{brand}-dark.svg`  | SVG    | Icon on a dark (night) container, for dark backgrounds   |
-| `icon-{brand}-dark.png`  | PNG    | Raster fallback                                          |
 | `*-transparent.svg`      | SVG    | The same logo or icon without its container              |
 
 Where `{brand}` is `software`, `holding`, or `consulting`.
+
+Dark-background icon variants have been withdrawn pending a redesign. Only the
+light variants and their transparent counterparts are currently published.
 
 ## Typography
 
