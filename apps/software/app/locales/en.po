@@ -24,9 +24,41 @@ msgstr ""
 "for this do not apply. For data protection inquiries, you can contact the "
 "email address listed above."
 
+#: app/routes/open-source.tsx
+msgid ""
+"A family of Rust-native engines and applications: regular expressions, syntax "
+"highlighting, Markdown, spell checking, translation catalogs, file walking, "
+"and PDF previews, plus Palamedes, Dalo, and Ardo built on them."
+msgstr ""
+"A family of Rust-native engines and applications: regular expressions, syntax "
+"highlighting, Markdown, spell checking, translation catalogs, file walking, "
+"and PDF previews, plus Palamedes, Dalo, and Ardo built on them."
+
+#: app/routes/products.tsx
+msgid "A third product is in preparation and will be announced here."
+msgstr "A third product is in preparation and will be announced here."
+
+#: app/routes/home.tsx
+msgid "About the company"
+msgstr "About the company"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Address"
 msgstr "Address"
+
+#: app/routes/open-source.tsx
+msgid "All projects on our Open Source site"
+msgstr "All projects on our Open Source site"
+
+#: app/routes/products.tsx
+msgid ""
+"Appointment booking for small businesses. Connect your calendar, define your "
+"availability, and let customers book in seconds, without an account and "
+"without the complexity of large scheduling suites. Set up in minutes."
+msgstr ""
+"Appointment booking for small businesses. Connect your calendar, define your "
+"availability, and let customers book in seconds, without an account and "
+"without the complexity of large scheduling suites. Set up in minutes."
 
 #: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
 msgid "Appointment Booking via Terminaro"
@@ -43,6 +75,10 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
 msgid "Automated Decision-Making"
 msgstr "Automated Decision-Making"
+
+#: app/routes/open-source.tsx
+msgid "Browse the skills"
+msgstr "Browse the skills"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -78,9 +114,54 @@ msgstr ""
 msgid "CDN, hosting and edge scripting for this website"
 msgstr "CDN, hosting and edge scripting for this website"
 
+#: app/routes/company.tsx
+msgid "Collaboration for outstanding results"
+msgstr "Collaboration for outstanding results"
+
+#: app/routes/company.tsx
+msgid ""
+"Collaboration is at the heart of what we do. We share our knowledge and "
+"empower our partners' teams to achieve great things together. Our solutions "
+"are more than just technology – they improve product quality and increase "
+"user satisfaction. This creates a win-win situation for everyone."
+msgstr ""
+"Collaboration is at the heart of what we do. We share our knowledge and "
+"empower our partners' teams to achieve great things together. Our solutions "
+"are more than just technology – they improve product quality and increase "
+"user satisfaction. This creates a win-win situation for everyone."
+
+#: app/routes/products.tsx
+msgid "Coming soon"
+msgstr "Coming soon"
+
+#: app/components/MainNav.tsx#MainNav
+#: app/routes/home.tsx
+msgid "Company"
+msgstr "Company"
+
+#: app/routes/company.tsx#meta
+msgid "Company – Sebastian Software"
+msgstr "Company – Sebastian Software"
+
+#: app/routes/company.tsx
+msgid ""
+"Computer science as the foundation, classic and modern web technology firmly "
+"in hand, a command-line enthusiast with a focus on security and cloud "
+"solutions."
+msgstr ""
+"Computer science as the foundation, classic and modern web technology firmly "
+"in hand, a command-line enthusiast with a focus on security and cloud "
+"solutions."
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+#: app/components/MainNav.tsx#MainNav
+#: app/routes/contact.tsx
 msgid "Contact"
 msgstr "Contact"
+
+#: app/routes/contact.tsx#meta
+msgid "Contact – Sebastian Software"
+msgstr "Contact – Sebastian Software"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#EmailContactSection
 msgid "Contact via Email"
@@ -103,6 +184,10 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Device information (screen size, operating system, browser)"
 msgstr "Device information (screen size, operating system, browser)"
+
+#: app/routes/home.tsx
+msgid "Discover our products"
+msgstr "Discover our products"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -144,6 +229,10 @@ msgstr "Entry in the Commercial Register"
 #: app/routes/home.tsx
 msgid "Experience. Clarity. Enthusiasm."
 msgstr "Experience. Clarity. Enthusiasm."
+
+#: app/routes/home.tsx
+msgid "Explore our open source"
+msgstr "Explore our open source"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
 msgid "External Links"
@@ -191,8 +280,23 @@ msgstr ""
 "Further information can be found in the <0>Bunny.net privacy policy</0> and on"
 " the <1>Bunny.net GDPR page</1>."
 
+#: app/routes/company.tsx
+msgid ""
+"Further training is our foundation. We invest in ourselves to keep our finger "
+"on the pulse. We actively exchange ideas at specialist conferences and "
+"developer meetings. This enables us to identify trends and make well-informed "
+"decisions. Not every innovation is right for us – we consciously select what"
+" really offers added value."
+msgstr ""
+"Further training is our foundation. We invest in ourselves to keep our finger "
+"on the pulse. We actively exchange ideas at specialist conferences and "
+"developer meetings. This enables us to identify trends and make well-informed "
+"decisions. Not every innovation is right for us – we consciously select what"
+" really offers added value."
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
+#: app/routes/contact.tsx
 msgid "Germany"
 msgstr "Germany"
 
@@ -228,6 +332,14 @@ msgstr "Hosting of the Terminaro application and the Rybbit analytics server"
 msgid "How It Works"
 msgstr "How It Works"
 
+#: app/routes/contact.tsx#meta
+msgid "How to reach Sebastian Software GmbH in Mainz."
+msgstr "How to reach Sebastian Software GmbH in Mainz."
+
+#: app/routes/company.tsx
+msgid "How we build"
+msgstr "How we build"
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/root.tsx
 #~ msgid "Imprint"
@@ -241,6 +353,10 @@ msgstr "How It Works"
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Information pursuant to § 5 DDG"
 msgstr "Information pursuant to § 5 DDG"
+
+#: app/routes/company.tsx
+msgid "Knowledge is the key to real progress"
+msgstr "Knowledge is the key to real progress"
 
 #: app/root.tsx
 msgid "Language"
@@ -272,6 +388,24 @@ msgstr "Legal Notice"
 msgid "Legal Notice – Sebastian Software"
 msgstr "Legal Notice – Sebastian Software"
 
+#: app/routes/open-source.tsx
+msgid ""
+"Libraries and agent skills for everyday web work: a compile-time icon "
+"pipeline, engineering workflows for coding agents, and six skills covering "
+"product, web, engineering, delivery, marketing, and writing."
+msgstr ""
+"Libraries and agent skills for everyday web work: a compile-time icon "
+"pipeline, engineering workflows for coding agents, and six skills covering "
+"product, web, engineering, delivery, marketing, and writing."
+
+#: app/routes/contact.tsx
+msgid "Looking for project help? That is the job of Sebastian Consulting."
+msgstr "Looking for project help? That is the job of Sebastian Consulting."
+
+#: app/components/MainNav.tsx#MainNav
+msgid "Main navigation"
+msgstr "Main navigation"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Managing Directors"
 msgstr "Managing Directors"
@@ -279,6 +413,14 @@ msgstr "Managing Directors"
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid "Managing Directors:"
 msgstr "Managing Directors:"
+
+#: app/routes/company.tsx
+msgid ""
+"More than twenty years of web technology, clear design and clever interfaces, "
+"UI frameworks, and open source since leading qooxdoo."
+msgstr ""
+"More than twenty years of web technology, clear design and clever interfaces, "
+"UI frameworks, and open source since leading qooxdoo."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
 msgid ""
@@ -292,6 +434,34 @@ msgstr ""
 msgid "Obligation to Provide Data"
 msgstr "Obligation to Provide Data"
 
+#: app/components/MainNav.tsx#MainNav
+#: app/routes/home.tsx
+#: app/routes/open-source.tsx
+msgid "Open source"
+msgstr "Open source"
+
+#: app/routes/open-source.tsx#meta
+msgid "Open source – Sebastian Software"
+msgstr "Open source – Sebastian Software"
+
+#: app/routes/home.tsx
+msgid ""
+"Open source shaped our careers, and we give back: the Ferramenta family of "
+"Rust engines, the Effective libraries and skills, and the tools we use "
+"ourselves."
+msgstr ""
+"Open source shaped our careers, and we give back: the Ferramenta family of "
+"Rust engines, the Effective libraries and skills, and the tools we use "
+"ourselves."
+
+#: app/routes/open-source.tsx
+msgid ""
+"Open source shaped our careers. We give back with tools whose claims can be "
+"checked in their code, tests, and documentation."
+msgstr ""
+"Open source shaped our careers. We give back with tools whose claims can be "
+"checked in their code, tests, and documentation."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
 msgid "Overview of Data Processing"
 msgstr "Overview of Data Processing"
@@ -299,6 +469,10 @@ msgstr "Overview of Data Processing"
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Page views (URL, referrer)"
 msgstr "Page views (URL, referrer)"
+
+#: app/routes/products.tsx
+msgid "Palamedes, the open core"
+msgstr "Palamedes, the open core"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Phone:"
@@ -368,6 +542,20 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid "Processors"
 msgstr "Processors"
+
+#: app/components/MainNav.tsx#MainNav
+#: app/routes/home.tsx
+#: app/routes/products.tsx
+msgid "Products"
+msgstr "Products"
+
+#: app/routes/products.tsx#meta
+msgid "Products – Sebastian Software"
+msgstr "Products – Sebastian Software"
+
+#: app/routes/company.tsx
+msgid "Profile"
+msgstr "Profile"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Register Court:"
@@ -451,9 +639,83 @@ msgstr ""
 msgid "Sebastian Software"
 msgstr "Sebastian Software"
 
+#: app/routes/home.tsx#meta
+msgid ""
+"Sebastian Software builds products that are meant to last and shares the tools"
+" behind them as open source."
+msgstr ""
+"Sebastian Software builds products that are meant to last and shares the tools"
+" behind them as open source."
+
+#: app/routes/company.tsx
+msgid ""
+"Sebastian Software GmbH was founded in 2014 by Sebastian Fastner and Sebastian"
+" Werner in Mainz. We are two engineers who build products, publish open-source"
+" tools, and help teams through Sebastian Consulting."
+msgstr ""
+"Sebastian Software GmbH was founded in 2014 by Sebastian Fastner and Sebastian"
+" Werner in Mainz. We are two engineers who build products, publish open-source"
+" tools, and help teams through Sebastian Consulting."
+
+#: app/routes/company.tsx#meta
+msgid ""
+"Sebastian Software GmbH: founded in 2014 in Mainz by Sebastian Fastner and "
+"Sebastian Werner. Our mission, our team, and how we build."
+msgstr ""
+"Sebastian Software GmbH: founded in 2014 in Mainz by Sebastian Fastner and "
+"Sebastian Werner. Our mission, our team, and how we build."
+
+#: app/routes/home.tsx
+msgid ""
+"Sebastian Software is a small German software company. We build products that "
+"are meant to last and share the tools behind them as open source."
+msgstr ""
+"Sebastian Software is a small German software company. We build products that "
+"are meant to last and share the tools behind them as open source."
+
+#: app/routes/products.tsx
+msgid "Ship translations, not tickets."
+msgstr "Ship translations, not tickets."
+
+#: app/routes/company.tsx
+msgid ""
+"Small teams, clear architecture, and quality and longevity before speed. We "
+"publish the tools we work with, so anyone can check how we build."
+msgstr ""
+"Small teams, clear architecture, and quality and longevity before speed. We "
+"publish the tools we work with, so anyone can check how we build."
+
+#: app/routes/company.tsx
+msgid "Software that lasts and inspires"
+msgstr "Software that lasts and inspires"
+
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Storage for static files and assets"
 msgstr "Storage for static files and assets"
+
+#: app/routes/company.tsx
+msgid "Technology that wins hearts and minds"
+msgstr "Technology that wins hearts and minds"
+
+#: app/routes/products.tsx#meta
+msgid ""
+"Terminaro for appointment booking, Palamedes+ for managed translations: the "
+"products of Sebastian Software."
+msgstr ""
+"Terminaro for appointment booking, Palamedes+ for managed translations: the "
+"products of Sebastian Software."
+
+#: app/routes/home.tsx
+msgid ""
+"Terminaro keeps appointment booking simple for small businesses. Palamedes+ "
+"will bring managed translations to teams that already use Palamedes."
+msgstr ""
+"Terminaro keeps appointment booking simple for small businesses. Palamedes+ "
+"will bring managed translations to teams that already use Palamedes."
+
+#: app/routes/company.tsx
+msgid "The company"
+msgstr "The company"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""
@@ -462,6 +724,14 @@ msgid ""
 msgstr ""
 "The controller within the meaning of the General Data Protection Regulation "
 "(GDPR) and other data protection legislation is:"
+
+#: app/routes/open-source.tsx#meta
+msgid ""
+"The Ferramenta family of Rust engines, the Effective libraries and skills, and"
+" the tools Sebastian Software uses itself."
+msgstr ""
+"The Ferramenta family of Rust engines, the Effective libraries and skills, and"
+" the tools Sebastian Software uses itself."
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""
@@ -497,9 +767,24 @@ msgstr ""
 "redirect may also lead to the respective other domain. No cookie is set in the"
 " process."
 
-#: app/routes/home.tsx
-msgid "The new Sebastian Software site is being built."
-msgstr "The new Sebastian Software site is being built."
+#: app/routes/products.tsx
+msgid ""
+"The managed translation layer on top of Palamedes, our open-source i18n "
+"toolchain: translation runs with provider and model control, quality checks, "
+"and review workflows for teams that keep their catalogs in the repository."
+msgstr ""
+"The managed translation layer on top of Palamedes, our open-source i18n "
+"toolchain: translation runs with provider and model control, quality checks, "
+"and review workflows for teams that keep their catalogs in the repository."
+
+#~ #@ obsolete-since: 2026-10-06
+#~ #: app/routes/home.tsx
+#~ msgid "The new Sebastian Software site is being built."
+#~ msgstr "The new Sebastian Software site is being built."
+
+#: app/routes/company.tsx
+msgid "The team"
+msgstr "The team"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -605,6 +890,10 @@ msgstr ""
 "To exercise your rights, you may contact us at any time at: "
 "<0>{privacyEmail}</0>"
 
+#: app/routes/contact.tsx
+msgid "To Sebastian Consulting"
+msgstr "To Sebastian Consulting"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Trademark Notice"
 msgstr "Trademark Notice"
@@ -616,6 +905,14 @@ msgid ""
 msgstr ""
 "Triggered interaction events (such as clicking the booking button or the PDF "
 "download), each without any personal reference"
+
+#: app/routes/home.tsx
+msgid ""
+"Two founders, one company since 2014, and a way of working that puts quality "
+"and longevity first."
+msgstr ""
+"Two founders, one company since 2014, and a way of working that puts quality "
+"and longevity first."
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
@@ -648,6 +945,47 @@ msgid ""
 msgstr ""
 "VAT identification number pursuant to § 27a of the German Value Added Tax "
 "Act:"
+
+#: app/routes/open-source.tsx
+msgid "Visit ferramenta.dev"
+msgstr "Visit ferramenta.dev"
+
+#: app/routes/products.tsx
+msgid "Visit terminaro.eu"
+msgstr "Visit terminaro.eu"
+
+#: app/routes/company.tsx
+msgid ""
+"We bring together experts from product management, design and development. The"
+" result? Products that not only work, but also inspire. Our clear architecture"
+" ensures sustainable experiences that inspire confidence. Our work is not only"
+" reliable – it leaves a lasting impression. Our customers notice this, and "
+"it makes us proud."
+msgstr ""
+"We bring together experts from product management, design and development. The"
+" result? Products that not only work, but also inspire. Our clear architecture"
+" ensures sustainable experiences that inspire confidence. Our work is not only"
+" reliable – it leaves a lasting impression. Our customers notice this, and "
+"it makes us proud."
+
+#: app/routes/products.tsx
+msgid "We build products we use ourselves, and we keep them deliberately small."
+msgstr ""
+"We build products we use ourselves, and we keep them deliberately small."
+
+#: app/routes/company.tsx
+msgid ""
+"We develop software that remains relevant not just today but also tomorrow. "
+"Quality and longevity are our top priorities. We use the latest technologies "
+"to create solutions that really make a difference. With our in-depth "
+"expertise, we combine ideas and create sustainable success. Our curiosity and "
+"passion drive us to keep getting better."
+msgstr ""
+"We develop software that remains relevant not just today but also tomorrow. "
+"Quality and longevity are our top priorities. We use the latest technologies "
+"to create solutions that really make a difference. With our in-depth "
+"expertise, we combine ideas and create sustainable success. Our curiosity and "
+"passion drive us to keep getting better."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid ""
@@ -714,6 +1052,10 @@ msgstr ""
 "compelling legitimate grounds for the processing which override your "
 "interests, rights and freedoms, or the processing serves the establishment, "
 "exercise or defence of legal claims."
+
+#: app/routes/contact.tsx
+msgid "Write to us; one of the two founders answers."
+msgstr "Write to us; one of the two founders answers."
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""

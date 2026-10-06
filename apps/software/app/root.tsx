@@ -6,6 +6,7 @@ import { createSeoLinks } from "@sebastian-websites/web-core"
 import { Links, Meta, Outlet, Scripts, useLocation } from "react-router"
 import "@sebastian-websites/ui/brand-software.css"
 
+import { MainNav } from "~/components/MainNav"
 import { variant } from "~/lib/site"
 
 export function Layout({ children }: { readonly children: ReactNode }): ReactElement {
@@ -48,6 +49,7 @@ export default function App(): ReactElement {
         path={pathname}
         site="software"
       />
+      <MainNav />
       <Outlet />
       <SiteFooter
         legalEntity="Sebastian Software GmbH"

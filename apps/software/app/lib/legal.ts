@@ -8,7 +8,7 @@ import { variant } from "~/lib/site"
 
 // The Software site has no dedicated privacy mailbox yet; both addresses use the
 // general one until the legal review settles them.
-const CONTACT_EMAIL = "info@sebastian-software.de"
+export const CONTACT_EMAIL = "info@sebastian-software.de"
 
 export const legalConfig: LegalSiteConfig = defineLegalSiteConfig({
   imprintReview: {
