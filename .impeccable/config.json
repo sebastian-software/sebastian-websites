@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "undersized-ui-text",
+        "value": "*",
+        "files": [
+          "apps/brand/index.html"
+        ],
+        "createdAt": "2026-10-06T21:29:50.615Z",
+        "reason": "I keep the existing typography on the brand reference page; this exception is limited to its small table headings."
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "apps/brand/index.html"
+        ],
+        "createdAt": "2026-10-06T21:29:50.710Z",
+        "reason": "I keep the existing section-label hierarchy on the brand reference page while withdrawing the dark icon variants."
+      }
+    ]
+  }
+}
