@@ -45,8 +45,7 @@ def prepare(source, output, directory):
     weight = WEIGHTS[variant.removesuffix("Italic")]
     record = {"name": stem, "family": family, "weight": weight,
               "style": "italic" if italic else "normal", "source_characters": len(cmap),
-              "files": [], "core": (directory == "Glober" and weight in (400, 700)) or
-              (family == "Elena" and weight in (500, 700))}
+              "files": []}
     # Full WOFF2 gives a comparable baseline, including OTF input conversion.
     original.flavor = "woff2"
     from io import BytesIO
@@ -101,8 +100,7 @@ def prepare(source, output, directory):
 
 
 def stylesheet(records):
-    rules = ['@import url("./typography.css");',
-             "/* Generated from licensed local sources with scripts/prepare-fonts.py. */"]
+    rules = ["/* Generated font definitions; brand adjustments belong in typography.css. */"]
     for record in records:
         for file in record["files"]:
             rules.append(f'''@font-face {{
@@ -110,10 +108,23 @@ def stylesheet(records):
   font-style: {record['style']};
   font-weight: {record['weight']};
   font-display: swap;
-  src: url("{BASE_URL}/{file['path']}") format("woff2");
+  src: url("./{file['path']}") format("woff2");
   unicode-range: {file['unicode_range']};
 }}''')
+    stacks = {
+        "Glober": ('--font-glober', '"Glober", ui-sans-serif, system-ui, sans-serif'),
+        "Elena": ('--font-elena', '"Elena", ui-serif, Georgia, serif'),
+        "Elena Basic": ('--font-elena-basic', '"Elena Basic", ui-serif, Georgia, serif'),
+    }
+    declarations = [f"  {name}: {stack};" for family, (name, stack) in stacks.items()
+                    if any(record["family"] == family for record in records)]
+    rules.append(":root {\n" + "\n".join(declarations) + "\n}")
     return "\n\n".join(rules) + "\n"
+
+
+def brand_stylesheet():
+    return (f'@import url("{BASE_URL}/fonts.css");\n'
+            '@import url("./typography.css");\n')
 
 
 if __name__ == "__main__":
@@ -122,6 +133,8 @@ if __name__ == "__main__":
     parser.add_argument("--elena", type=Path, required=True, help="Vendor webfont folder")
     parser.add_argument("--output", type=Path, required=True, help="Private output folder")
     parser.add_argument("--css", type=Path, required=True, help="Brand public CSS folder")
+    parser.add_argument("--asset-css", type=Path, default=Path(__file__).resolve().parent.parent / "assets/fonts",
+                        help="Versioned asset CSS folder (default: assets/fonts)")
     args = parser.parse_args()
     public_repository = Path(__file__).resolve().parent.parent
     if args.output.resolve().is_relative_to(public_repository):
@@ -131,11 +144,11 @@ if __name__ == "__main__":
     assert sum(d == "Glober" for _, d in sources) == 18
     assert sum(d == "Elena" for _, d in sources) == 11
     records = [prepare(p, args.output, d) for p, d in sources]
-    args.css.joinpath("fonts.css").write_text(stylesheet([r for r in records if r["core"]]))
-    args.css.joinpath("fonts-all.css").write_text(stylesheet(records))
+    args.asset_css.mkdir(parents=True, exist_ok=True)
+    args.asset_css.joinpath("fonts.css").write_text(stylesheet(records))
+    args.css.joinpath("fonts.css").write_text(brand_stylesheet())
     args.output.joinpath("manifest.json").write_text(json.dumps(records, indent=2) + "\n")
-    core = [r for r in records if r["core"]]
     print(json.dumps({"faces": len(records), "files": sum(len(r["files"]) for r in records),
-                      "core_full_bytes": sum(r["full_woff2_bytes"] for r in core),
-                      "core_latin_bytes": sum(r["files"][0]["bytes"] for r in core),
+                      "full_woff2_bytes": sum(r["full_woff2_bytes"] for r in records),
+                      "latin_woff2_bytes": sum(r["files"][0]["bytes"] for r in records),
                       "all_original_characters_preserved": True}))

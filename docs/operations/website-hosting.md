@@ -57,8 +57,11 @@ type check, lint, and the tests against a fake Bunny account.
 
 ## Assets
 
-`sebastian-websites-assets` has no build directory. CI provisions it with Optimizer and
-image and immutable font caching, without HTML rules or middleware, and never uploads or deletes its sources.
+`sebastian-websites-assets` uses `assets/` as its public source directory. CI provisions
+it with Optimizer, image and immutable font caching, and short-lived font CSS caching,
+without HTML rules or middleware. It publishes the versioned base font stylesheet
+and verifies their public delivery and CORS. It never deletes remote files or uploads
+manually managed font binaries and images.
 Every other pull zone keeps Optimizer disabled. Image query strings remain in the asset
 cache key so different widths and crops cannot share the same cached response.
 
@@ -103,8 +106,10 @@ require recorded permission before publishing (ADR-0012).
 Only WOFF2 binaries are uploaded under `fonts/Glober/` and `fonts/Elena/`. Latin and
 extended subsets preserve the original faces' combined Unicode coverage and load on
 demand. They are served without image transformations, with open CORS and a one-year
-immutable cache lifetime. Changed font bytes require a new filename. Font CSS, fallback
-metrics, and family stacks are versioned and deployed by the brand application; see
+immutable cache lifetime. Changed font bytes require a new filename. Base font CSS and
+family variables are served beside the binaries from `fonts/fonts.css`, with all
+faces in one stylesheet. Brand fallback metrics and typography choices remain in the
+brand application's versioned CSS, which imports this base; see
 [font hosting](font-hosting.md).
 
 The authoritative Cloudflare DNS has a DNS-only CNAME from

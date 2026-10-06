@@ -119,6 +119,15 @@ export function cacheRules(target?: Target): readonly EdgeRule[] {
         orderIndex: 1,
         patterns: ["*.woff2*"],
       }),
+      cacheRule({
+        browser: FIVE_MINUTES,
+        cdn: ONE_DAY,
+        description: "websites: font stylesheets are purged on publish",
+        immutable: false,
+        matching: MATCH.any,
+        orderIndex: 2,
+        patterns: ["*.css*"],
+      }),
     ]
   }
   return [

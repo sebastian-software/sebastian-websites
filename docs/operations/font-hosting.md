@@ -2,15 +2,16 @@
 
 The shared `sebastian-websites-assets` zone stores WOFF2 font binaries under
 `fonts/Glober/` and `fonts/Elena/`, using the actual family and original face names.
-Upload them manually through Bunny's file manager. No CSS or license records belong
-in these public folders. Local sources and correspondence stay outside this repository.
+Upload binaries manually through Bunny's file manager. The same `fonts/` folder serves
+one generated base stylesheet; CI publishes its source from `assets/fonts/`.
+License records, local sources, and correspondence stay outside this public repository.
 
 ## Subsetting from licensed originals
 
 `scripts/prepare-fonts.py` reads the 18 licensed Glober OTF faces and the 11 original
 Elena WOFF2 faces (including three Elena Basic faces). Use Python 3.11 or newer.
 It generates a Latin subset and
-an extended subset for every face, plus both versioned stylesheets. Install
+an extended subset for every face, plus the asset stylesheet and brand wrapper. Install
 the pinned dependencies in a local Python environment, then run:
 
 ```bash
@@ -19,7 +20,8 @@ python scripts/prepare-fonts.py \
   --glober "/path/to/Glober Font (Licensed 2014)" \
   --elena "/path/to/Elena Font (Commercial 2024 Extended)/webfont" \
   --output "/private/path/to/prepared-fonts" \
-  --css apps/brand/public
+  --css apps/brand/public \
+  --asset-css assets/fonts
 ```
 
 Only upload the generated `Glober` and `Elena` directories, not `manifest.json`.
@@ -54,28 +56,53 @@ neutral-name subsets remain available for compatibility. New CSS uses the explic
 family paths above. Keep license correspondence in a separate private storage zone
 with no connected pull zone, never under the publicly served asset zone.
 
-## Versioned CSS
+## Base font CSS and brand typography
 
-The brand application's public files own the typography contract:
+One stable base stylesheet lives beside the binaries:
+`https://assets.sebastian-software.com/fonts/fonts.css`. Its source is versioned in
+`assets/fonts/fonts.css` and includes all 29 Glober, Elena, and Elena Basic faces.
+There is no separate core/all selection or per-family stylesheet.
 
-- `apps/brand/public/fonts.css`: eight core Glober and Elena faces used by the websites.
-- `apps/brand/public/fonts-all.css`: all 29 faces for consumers needing other weights.
-- `apps/brand/public/typography.css`: metric-adjusted Glober and Elena fallback faces, family stacks,
-  `.sebastian-sans`, `.sebastian-serif` and slab aliases, and letter-spacing variables.
+Each face has Latin and extended `@font-face` rules with matching family, weight,
+and style and disjoint `unicode-range` values. The browser combines these into one
+face and downloads the subsets needed for the text. Declaring unused weights does
+not download their WOFF2 files. Relative binary paths resolve next to the CSS without
+image transformation parameters. Unused binary files on the CDN need no cleanup.
 
-Both font stylesheets import `typography.css`. Their WOFF2 URLs point directly to the
-shared asset host without image transformation parameters. The Software site uses
-`FONT_STYLESHEET` from `packages/ui`; the brand page loads its own `/fonts.css`.
-CSS changes are reviewed in this repository and published through the normal website CI,
-with open CSS CORS and a five-minute browser lifetime. Site-specific sizes and line heights
-remain with each site.
+The base exposes `--font-glober`, `--font-elena`, and `--font-elena-basic`, with simple
+system font fallbacks. It has no classes, metric adjustments, letter spacing, font
+sizes, line heights, or imports from the brand application. A standalone consumer uses:
 
-Until the brand's canonical domain is activated, consumers load
-`https://sebastian-websites-brand.b-cdn.net/fonts.css` (or `/fonts-all.css`) and the CSS
-references `https://assets.sebastian-software.com/fonts/...`.
-The asset hostname's Cloudflare CNAME, certificate, and forced HTTPS are active; see
-[website hosting](website-hosting.md). Update `FONT_STYLESHEET` when the brand hostname
-becomes active.
+```html
+<link rel="stylesheet" href="https://assets.sebastian-software.com/fonts/fonts.css" />
+```
+
+```css
+body {
+  font-family: var(--font-glober);
+}
+h1 {
+  font-family: var(--font-elena);
+}
+```
+
+The brand application owns the typography choices that may evolve:
+
+- `apps/brand/public/fonts.css`: imports the asset stylesheet, followed by `typography.css`.
+- `apps/brand/public/typography.css`: metric-adjusted fallback faces, overrides for
+  the base family variables, semantic aliases such as `--sebastian-font-sans`, and
+  letter-spacing variables. Existing `.sebastian-sans`, `.sebastian-serif`, and slab
+  utility classes remain available for compatibility.
+
+Consumers wanting the brand adjustments load `https://brand.sebastian-software.com/fonts.css`.
+The Software site uses this URL through `FONT_STYLESHEET` from `packages/ui`; the brand
+page loads its own `/fonts.css`. The existing `/fonts.css` entry point on the Bunny
+origin hostname remains compatible. Sizes and line heights belong to each site.
+
+Both CSS layers are reviewed in this repository and published through the normal CI,
+with open CORS and a five-minute browser lifetime. The canonical hostnames have
+Cloudflare DNS-only CNAMEs and Bunny certificates with forced HTTPS; see
+[website hosting](website-hosting.md).
 
 ## Binary delivery and updates
 
@@ -88,7 +115,8 @@ URLs must never be overwritten with different bytes.
 
 Bunny is the delivery store. Keep a local source backup. The optional asset upload script
 preserves remote files absent from its local folder, so a photo upload cannot delete fonts.
-CI provisions the asset zone but never publishes or deletes its manually managed sources.
+CI provisions the asset zone and publishes only the CSS source in `assets/`; it never
+deletes remote files or uploads the manually managed font and image sources.
 The existing organization `BUNNY_API_KEY` is sufficient for infrastructure provisioning.
 
 ## Retiring the previous font host

@@ -24,7 +24,7 @@ export const font = {
 } as const
 
 /** Versioned typography CSS from the brand site; binaries use the asset host (ADR-0013). */
-export const FONT_STYLESHEET = "https://sebastian-websites-brand.b-cdn.net/fonts.css"
+export const FONT_STYLESHEET = "https://brand.sebastian-software.com/fonts.css"
 
 /** Text colours on Midnight sections, independent of the brand hue. */
 export const ON_NIGHT = {

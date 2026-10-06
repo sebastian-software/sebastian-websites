@@ -308,6 +308,7 @@ test("only assets enable Optimizer, with distinct variants and open image and fo
   }
   assert.deepEqual(settings.AccessControlOriginHeaderExtensions, ASSET_TARGET.corsExtensions)
   assert.ok(ASSET_TARGET.corsExtensions.includes("woff2"))
+  assert.ok(ASSET_TARGET.corsExtensions.includes("css"))
   assert.equal(ASSET_TARGET.hostname, "assets.sebastian-software.com")
   assert.deepEqual(buildableTargets("/missing-build-root"), [ASSET_TARGET])
 })
@@ -318,7 +319,7 @@ test("an asset zone is provisioned without HTML rules or middleware and converge
   await provision(bunny.api, assetTarget, silent)
   assert.ok(bunny.calls.every((call) => !call.path.startsWith("/compute/")))
   const rules = bunny.calls.filter((call) => call.path.endsWith("/edgerules/addOrUpdate"))
-  assert.equal(rules.length, 2)
+  assert.equal(rules.length, 3)
   const rule = rules[0].body
   assert.ok(isJson(rule))
   assert.equal(rule.Description, "websites: images are cached for a year")
@@ -338,6 +339,10 @@ test("an asset zone is provisioned without HTML rules or middleware and converge
   assert.ok(isJson(fontRule))
   assert.equal(fontRule.Description, "websites: font binaries are immutable")
   assert.ok(JSON.stringify(fontRule.ExtraActions).includes("public, max-age=31536000, immutable"))
+  const cssRule = rules[2].body
+  assert.ok(isJson(cssRule))
+  assert.equal(cssRule.Description, "websites: font stylesheets are purged on publish")
+  assert.ok(JSON.stringify(cssRule.ExtraActions).includes("public, max-age=300"))
   bunny.calls.length = 0
   await provision(bunny.api, assetTarget, silent)
   assert.ok(bunny.calls.every((call) => call.method === "GET"))
@@ -427,4 +432,11 @@ test("verification checks the home page, one route both ways, a missing path, an
       ["/tokens/software.css", OK],
     ]
   )
+})
+
+test("asset verification checks the font stylesheet without assuming a website", () => {
+  const assets = [{ bytes: new Uint8Array(), path: "fonts/fonts.css" }]
+  assert.deepEqual(checksFor(ASSET_TARGET, assets), [
+    { cors: true, path: "/fonts/fonts.css", status: OK },
+  ])
 })

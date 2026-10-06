@@ -2,11 +2,11 @@ import { existsSync } from "node:fs"
 
 import { type VariantDefinition, VARIANTS } from "../packages/web-core/src/sites.ts"
 
-/** One Bunny storage and pull zone pair serving a build or private asset sources. */
+/** One Bunny storage and pull zone pair serving a site or shared assets. */
 export type Target = {
-  /** Asset zones are provisioned without a site build or middleware. */
+  /** Asset zones omit site middleware and preserve manually uploaded files. */
   readonly assets?: boolean
-  /** The build output to upload, relative to the repository root. */
+  /** The public build output or asset source folder, relative to the repository root. */
   readonly buildDirectory?: string
   /** File extensions served with open CORS, for assets other sites embed. */
   readonly corsExtensions: readonly string[]
@@ -27,7 +27,8 @@ export const IMAGE_EXTENSIONS = ["jpg", "jpeg", "png", "webp", "avif", "gif", "s
 
 export const ASSET_TARGET: Target = {
   assets: true,
-  corsExtensions: [...IMAGE_EXTENSIONS, "woff2"],
+  buildDirectory: "assets",
+  corsExtensions: [...IMAGE_EXTENSIONS, "woff2", "css"],
   hostname: "assets.sebastian-software.com",
   name: "sebastian-websites-assets",
 }
