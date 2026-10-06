@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sebastian — Brand Assets</title>
+  <meta name="description" content="Brand assets for the Sebastian brand system: color tokens, logos, and icons.">
+  <link rel="icon" type="image/svg+xml" href="/sebastian-software/icon-software-light.svg">
+  <link rel="stylesheet" href="/tokens/index.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      color: oklch(0.25 0.015 218);
+      background: oklch(0.97 0.003 218);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- Hero ---- */
+
+    .hero {
+      background: var(--software-paper);
+      padding: 5rem 2rem 4.5rem;
+      text-align: center;
+      border-bottom: 1px solid oklch(0.92 0.005 218);
+    }
+
+    .hero-logo {
+      height: clamp(56px, 8vw, 80px);
+      width: auto;
+    }
+
+    .hero .subtitle {
+      font-weight: 500;
+      font-size: 0.8125rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--software-base);
+      margin-top: 1.25rem;
+    }
+
+    /* ---- Layout ---- */
+
+    main {
+      max-width: 68rem;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 4vw, 3rem);
+    }
+
+    section {
+      padding: 4.5rem 0;
+      border-bottom: 1px solid oklch(0.92 0.005 218);
+    }
+
+    section:last-child { border-bottom: none; }
+
+    h2 {
+      font-weight: 700;
+      font-size: 0.6875rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: oklch(0.5 0.02 218);
+      margin-bottom: 2rem;
+    }
+
+    h3 {
+      font-weight: 600;
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: oklch(0.5 0.02 218);
+      margin-bottom: 0.75rem;
+    }
+
+    p.lead {
+      font-size: 0.9375rem;
+      color: oklch(0.45 0.015 218);
+      margin-bottom: 2rem;
+      max-width: 38rem;
+      line-height: 1.7;
+    }
+
+    /* ---- Code Blocks (Light) ---- */
+
+    .code-block {
+      position: relative;
+      background: #fff;
+      border: 1px solid oklch(0.92 0.005 218);
+      border-radius: 10px;
+      padding: 1.5rem 1.75rem;
+      padding-right: 5.5rem;
+      margin-bottom: 1rem;
+      overflow-x: auto;
+    }
+
+    .code-block pre {
+      font-family: "SF Mono", "Fira Code", ui-monospace, monospace;
+      font-size: 0.8125rem;
+      line-height: 2;
+      white-space: pre;
+      color: oklch(0.3 0.02 218);
+    }
+
+    .cm { color: oklch(0.6 0.01 218); }
+    .kw { color: oklch(0.4 0.1 218); }
+    .fn { color: oklch(0.45 0.08 250); }
+    .str { color: oklch(0.4 0.08 218); }
+
+    .copy-btn {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background: oklch(0.95 0.005 218);
+      color: oklch(0.5 0.02 218);
+      border: 1px solid oklch(0.9 0.005 218);
+      border-radius: 6px;
+      padding: 0.375rem 0.75rem;
+      font: 600 0.6875rem/1 system-ui, sans-serif;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .copy-btn:hover {
+      background: oklch(0.92 0.008 218);
+      color: oklch(0.35 0.03 218);
+    }
+
+    /* ---- Import Grid ---- */
+
+    .import-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+      gap: 2rem;
+    }
+
+    /* ---- Palettes ---- */
+
+    .palettes {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    .palette-head {
+      margin-bottom: 1.5rem;
+    }
+
+    .palette-logo {
+      height: 96px;
+      width: auto;
+      margin-bottom: 0.75rem;
+    }
+
+    .palette-desc {
+      font-size: 0.8125rem;
+      color: oklch(0.5 0.015 218);
+      line-height: 1.7;
+    }
+
+    .palette-desc strong {
+      font-weight: 600;
+      color: oklch(0.4 0.02 218);
+    }
+
+    .swatch-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 4px oklch(0 0 0 / 0.06);
+    }
+
+    .swatch {
+      aspect-ratio: 2;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: default;
+    }
+
+    .swatch:hover {
+      transform: scaleY(1.15);
+      z-index: 1;
+      box-shadow: 0 4px 20px oklch(0 0 0 / 0.2);
+    }
+
+    /* ---- Color Table ---- */
+
+    .color-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+    }
+
+    .color-table th {
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.625rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: oklch(0.55 0.015 218);
+      padding: 0 0.75rem 0.625rem;
+      border-bottom: 1px solid oklch(0.9 0.005 218);
+    }
+
+    .color-table td {
+      padding: 0.625rem 0.75rem;
+      border-bottom: 1px solid oklch(0.94 0.003 218);
+      vertical-align: middle;
+    }
+
+    .color-table tr:last-child td { border-bottom: none; }
+
+    .color-table tr {
+      transition: background 0.1s ease;
+    }
+
+    .color-table tbody tr:hover {
+      background: oklch(0.98 0.002 218);
+    }
+
+    .color-table .badge {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      display: inline-block;
+      vertical-align: middle;
+      box-shadow: 0 1px 3px oklch(0 0 0 / 0.1), inset 0 0 0 1px oklch(0 0 0 / 0.06);
+    }
+
+    .color-table .col-badge { width: 2.75rem; }
+    .color-table .col-name { font-weight: 500; color: oklch(0.3 0.02 218); }
+
+    .color-table code {
+      font-family: "SF Mono", "Fira Code", ui-monospace, monospace;
+      font-size: 0.75rem;
+      color: oklch(0.42 0.03 218);
+    }
+
+    .color-table .col-oklch code {
+      color: oklch(0.55 0.015 218);
+    }
+
+    /* Clickable code elements */
+
+    .copyable {
+      cursor: pointer;
+      transition: background 0.12s ease, color 0.12s ease;
+      border-radius: 3px;
+      padding: 0.125em 0.35em;
+      margin: -0.125em -0.1em;
+    }
+
+    .copyable:hover {
+      background: oklch(0.92 0.01 218);
+      color: oklch(0.3 0.04 218);
+    }
+
+    .copy-toast {
+      position: fixed;
+      background: oklch(0.2 0.03 218);
+      color: oklch(0.9 0.01 218);
+      padding: 0.3rem 0.625rem;
+      border-radius: 6px;
+      font: 600 0.6875rem/1 system-ui, sans-serif;
+      letter-spacing: 0.02em;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      z-index: 100;
+      box-shadow: 0 4px 12px oklch(0 0 0 / 0.15);
+    }
+
+    .copy-toast.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- Token Info ---- */
+
+    .token-info {
+      margin-top: 3rem;
+      padding: 1.75rem 2rem;
+      background: #fff;
+      border-radius: 10px;
+      font-size: 0.8125rem;
+      line-height: 1.8;
+      color: oklch(0.35 0.015 218);
+      border: 1px solid oklch(0.93 0.005 218);
+    }
+
+    .token-info code {
+      font-family: "SF Mono", "Fira Code", ui-monospace, monospace;
+      font-size: 0.75rem;
+      background: oklch(0.95 0.005 218);
+      padding: 0.15em 0.45em;
+      border-radius: 4px;
+    }
+
+    .token-roles {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.375rem 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .token-roles dt {
+      font-family: "SF Mono", "Fira Code", ui-monospace, monospace;
+      font-size: 0.75rem;
+      color: oklch(0.42 0.03 218);
+      margin-top: 0.375rem;
+    }
+
+    .token-roles dd {
+      color: oklch(0.55 0.015 218);
+      margin-bottom: 0.125rem;
+    }
+
+    /* ---- Logo Grid ---- */
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 52rem) {
+      .logo-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 32rem) {
+      .logo-grid { grid-template-columns: 1fr; }
+    }
+
+    .logo-card {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid oklch(0.93 0.005 218);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .logo-card:hover {
+      box-shadow: 0 4px 16px oklch(0 0 0 / 0.08);
+      transform: translateY(-2px);
+    }
+
+    .logo-card .preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 2rem;
+      min-height: 120px;
+    }
+
+    .logo-card .preview img {
+      max-width: 100%;
+      height: auto;
+      max-height: 56px;
+    }
+
+    .logo-card .preview.on-dark-software { background: var(--software-night); }
+    .logo-card .preview.on-dark-holding { background: var(--holding-night); }
+    .logo-card .preview.on-dark-consulting { background: var(--consulting-night); }
+
+    .logo-card .preview.on-paper-software { background: var(--software-paper); }
+    .logo-card .preview.on-paper-holding { background: var(--holding-paper); }
+    .logo-card .preview.on-paper-consulting { background: var(--consulting-paper); }
+
+    .logo-card .meta {
+      padding: 0.75rem 1rem;
+      border-top: 1px solid oklch(0.93 0.005 218);
+      font-family: "SF Mono", "Fira Code", ui-monospace, monospace;
+      font-size: 0.6875rem;
+      color: oklch(0.5 0.015 218);
+      background: oklch(0.985 0.002 218);
+    }
+
+    .logo-brand-label {
+      grid-column: 1 / -1;
+      font-weight: 600;
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: oklch(0.5 0.02 218);
+      padding-top: 1.5rem;
+    }
+
+    .logo-brand-label:first-child {
+      padding-top: 0;
+    }
+
+    /* ---- Footer ---- */
+
+    footer {
+      text-align: center;
+      padding: 3.5rem 2rem;
+      font-size: 0.75rem;
+      color: oklch(0.6 0.01 218);
+      letter-spacing: 0.02em;
+    }
+
+    footer a {
+      color: oklch(0.45 0.04 218);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    footer a:hover { color: oklch(0.35 0.06 218); }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="hero-logo" src="./sebastian-software/logo-software.svg" alt="Sebastian Software">
+  <p class="subtitle">Brand Assets</p>
+</header>
+
+<main>
+
+  <!-- ======== Usage ======== -->
+  <section id="usage">
+    <h2>Usage</h2>
+    <p class="lead">Import color tokens directly via URL. All assets are served with CORS headers for cross-origin use.</p>
+    <div class="import-grid">
+      <div>
+        <h3>Color Tokens</h3>
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code><span class="cm">/* All palettes */</span>
+<span class="kw">@import</span> <span class="fn">url</span>(<span class="str">"<span data-url="tokens/index.css"></span>"</span>);
+
+<span class="cm">/* Individual palette */</span>
+<span class="kw">@import</span> <span class="fn">url</span>(<span class="str">"<span data-url="tokens/software.css"></span>"</span>);
+<span class="kw">@import</span> <span class="fn">url</span>(<span class="str">"<span data-url="tokens/holding.css"></span>"</span>);
+<span class="kw">@import</span> <span class="fn">url</span>(<span class="str">"<span data-url="tokens/consulting.css"></span>"</span>);</code></pre>
+        </div>
+      </div>
+      <div>
+        <h3>Token Usage</h3>
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code><span class="cm">/* By name */</span>
+<span class="kw">color</span>: <span class="fn">var</span>(<span class="str">--software-lagoon</span>);
+
+<span class="cm">/* By role — same color */</span>
+<span class="kw">color</span>: <span class="fn">var</span>(<span class="str">--software-vivid</span>);</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== Palettes ======== -->
+  <section id="palettes">
+    <h2>Color Palettes</h2>
+    <p class="lead">Each brand has a dedicated palette built on a single OKLCH hue with six perceptually uniform lightness steps.</p>
+    <div class="palettes">
+
+      <!-- Software -->
+      <div class="palette">
+        <div class="palette-head">
+          <img class="palette-logo" src="./sebastian-software/logo-software.svg" alt="Sebastian Software">
+          <p class="palette-desc">
+            <strong>Mood:</strong> cool · calm · technical<br>
+            <strong>Character:</strong> factual · structured · dependable
+          </p>
+        </div>
+        <div class="swatch-strip">
+          <div class="swatch" style="background:var(--software-night)"></div>
+          <div class="swatch" style="background:var(--software-dark)"></div>
+          <div class="swatch" style="background:var(--software-base)"></div>
+          <div class="swatch" style="background:var(--software-vivid)"></div>
+          <div class="swatch" style="background:var(--software-bright)"></div>
+          <div class="swatch" style="background:var(--software-paper)"></div>
+        </div>
+        <table class="color-table">
+          <thead>
+            <tr><th class="col-badge"></th><th>Name</th><th>Token</th><th>Alias</th><th class="col-oklch">OKLCH</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="badge" style="background:var(--software-space)"></span></td><td class="col-name">Space</td><td><code>--software-space</code></td><td><code>--software-night</code></td><td class="col-oklch"><code>oklch(0.15 0.02 218)</code></td></tr>
+            <tr><td><span class="badge" style="background:var(--software-midnight)"></span></td><td class="col-name">Midnight</td><td><code>--software-midnight</code></td><td><code>--software-dark</code></td><td class="col-oklch"><code>oklch(0.25 0.05 218)</code></td></tr>
+            <tr><td><span class="badge" style="background:var(--software-teal)"></span></td><td class="col-name">Teal</td><td><code>--software-teal</code></td><td><code>--software-base</code></td><td class="col-oklch"><code>oklch(0.4 0.08 218)</code></td></tr>
+            <tr><td><span class="badge" style="background:var(--software-lagoon)"></span></td><td class="col-name">Lagoon</td><td><code>--software-lagoon</code></td><td><code>--software-vivid</code></td><td class="col-oklch"><code>oklch(0.5 0.11 218)</code></td></tr>
+            <tr><td><span class="badge" style="background:var(--software-signal)"></span></td><td class="col-name">Signal</td><td><code>--software-signal</code></td><td><code>--software-bright</code></td><td class="col-oklch"><code>oklch(0.7 0.11 218)</code></td></tr>
+            <tr><td><span class="badge" style="background:var(--software-frost)"></span></td><td class="col-name">Frost</td><td><code>--software-frost</code></td><td><code>--software-paper</code></td><td class="col-oklch"><code>oklch(0.95 0.01 218)</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Holding -->
+      <div class="palette">
+        <div class="palette-head">
+          <img class="palette-logo" src="./sebastian-holding/logo-holding.svg" alt="Sebastian Holding">
+          <p class="palette-desc">
+            <strong>Mood:</strong> refined · restrained · institutional<br>
+            <strong>Character:</strong> clear · enduring · trustworthy
+          </p>
+        </div>
+        <div class="swatch-strip">
+          <div class="swatch" style="background:var(--holding-night)"></div>
+          <div class="swatch" style="background:var(--holding-dark)"></div>
+          <div class="swatch" style="background:var(--holding-base)"></div>
+          <div class="swatch" style="background:var(--holding-vivid)"></div>
+          <div class="swatch" style="background:var(--holding-bright)"></div>
+          <div class="swatch" style="background:var(--holding-paper)"></div>
+        </div>
+        <table class="color-table">
+          <thead>
+            <tr><th class="col-badge"></th><th>Name</th><th>Token</th><th>Alias</th><th class="col-oklch">OKLCH</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="badge" style="background:var(--holding-pitch)"></span></td><td class="col-name">Pitch</td><td><code>--holding-pitch</code></td><td><code>--holding-night</code></td><td class="col-oklch"><code>oklch(0.15 0.03 78)</code></td></tr>
+            <tr><td><span class="badge" style="background:var(--holding-walnut)"></span></td><td class="col-name">Walnut</td><td><code>--holding-walnut</code></td><td><code>--holding-dark</code></td><td class="col-oklch"><code>oklch(0.25 0.04 78)</code></td></tr>
+            <tr><td><span class="badge" style="background:var(--holding-brass)"></span></td><td class="col-name">Brass</td><td><code>--holding-brass</code></td><td><code>--holding-base</code></td><td class="col-oklch"><code>oklch(0.4 0.07 78)</code></td></tr>
+            <tr><td><span class="badge" style="background:var(--holding-amber)"></span></td><td class="col-name">Amber</td><td><code>--holding-amber</code></td><td><code>--holding-vivid</code></td><td class="col-oklch"><code>oklch(0.5 0.1 78)</code></td></tr>
+            <tr><td><span class="badge" style="background:var(--holding-gild)"></span></td><td class="col-name">Gild</td><td><code>--holding-gild</code></td><td><code>--holding-bright</code></td><td class="col-oklch"><code>oklch(0.7 0.1 78)</code></td></tr>
+            <tr><td><span class="badge" style="background:var(--holding-sand)"></span></td><td class="col-name">Sand</td><td><code>--holding-sand</code></td><td><code>--holding-paper</code></td><td class="col-oklch"><code>oklch(0.95 0.01 78)</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Consulting -->
+      <div class="palette">
+        <div class="palette-head">
+          <img class="palette-logo" src="./sebastian-consulting/logo-consulting.svg" alt="Sebastian Consulting">
+          <p class="palette-desc">
+            <strong>Mood:</strong> warm · confident · reflective<br>
+            <strong>Character:</strong> personal · advisory · opinionated
+          </p>
+        </div>
+        <div class="swatch-strip">
+          <div class="swatch" style="background:var(--consulting-night)"></div>
+          <div class="swatch" style="background:var(--consulting-dark)"></div>
+          <div class="swatch" style="background:var(--consulting-base)"></div>
+          <div class="swatch" style="background:var(--consulting-vivid)"></div>
+          <div class="swatch" style="background:var(--consulting-bright)"></div>
+          <div class="swatch" style="background:var(--consulting-paper)"></div>
+        </div>
+        <table class="color-table">
+          <thead>
+            <tr><th class="col-badge"></th><th>Name</th><th>Token</th><th>Alias</th><th class="col-oklch">OKLCH</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="badge" style="background:var(--consulting-plum)"></span></td><td class="col-name">Plum</td><td><code>--consulting-plum</code></td><td><code>--consulting-night</code></td><td class="col-oklch"><code>oklch(0.15 0.05 2)</code></td></tr>
+            <tr><td><span class="badge" style="background:var(--consulting-mulberry)"></span></td><td class="col-name">Mulberry</td><td><code>--consulting-mulberry</code></td><td><code>--consulting-dark</code></td><td class="col-oklch"><code>oklch(0.25 0.1 2)</code></td></tr>
+            <tr><td><span class="badge" style="background:var(--consulting-burgundy)"></span></td><td class="col-name">Burgundy</td><td><code>--consulting-burgundy</code></td><td><code>--consulting-base</code></td><td class="col-oklch"><code>oklch(0.4 0.17 2)</code></td></tr>
+            <tr><td><span class="badge" style="background:var(--consulting-ruby)"></span></td><td class="col-name">Ruby</td><td><code>--consulting-ruby</code></td><td><code>--consulting-vivid</code></td><td class="col-oklch"><code>oklch(0.5 0.2 2)</code></td></tr>
+            <tr><td><span class="badge" style="background:var(--consulting-ember)"></span></td><td class="col-name">Ember</td><td><code>--consulting-ember</code></td><td><code>--consulting-bright</code></td><td class="col-oklch"><code>oklch(0.7 0.2 2)</code></td></tr>
+            <tr><td><span class="badge" style="background:var(--consulting-linen)"></span></td><td class="col-name">Linen</td><td><code>--consulting-linen</code></td><td><code>--consulting-paper</code></td><td class="col-oklch"><code>oklch(0.95 0.01 2)</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="token-info">
+      Each palette provides two ways to reference colors:<br>
+      <strong>By name</strong> — the unique color name, e.g. <code>var(--software-lagoon)</code><br>
+      <strong>By role</strong> — a semantic alias consistent across all palettes, e.g. <code>var(--software-vivid)</code>
+      <dl class="token-roles">
+        <dt><code>night</code></dt><dd>0.15 — Near-black, deepest tone</dd>
+        <dt><code>dark</code></dt><dd>0.25 — Dark backgrounds, heavy text</dd>
+        <dt><code>base</code></dt><dd>0.40 — Primary brand color</dd>
+        <dt><code>vivid</code></dt><dd>0.50 — Strongest chroma, accents</dd>
+        <dt><code>bright</code></dt><dd>0.70 — Lighter accent, highlights</dd>
+        <dt><code>paper</code></dt><dd>0.95 — Near-white, backgrounds</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ======== Logos ======== -->
+  <section id="logos">
+    <h2>Logos &amp; Icons</h2>
+
+    <div class="logo-grid">
+      <div class="logo-brand-label">Software</div>
+      <div class="logo-card">
+        <div class="preview on-paper-software"><img src="./sebastian-software/logo-software.svg" alt="Logo Software"></div>
+        <div class="meta">logo-software.svg</div>
+      </div>
+      <div class="logo-card">
+        <div class="preview on-paper-software"><img src="./sebastian-software/icon-software-light.svg" alt="Icon Software Light"></div>
+        <div class="meta">icon-software-light.svg</div>
+      </div>
+      <div class="logo-card">
+        <div class="preview on-dark-software"><img src="./sebastian-software/icon-software-dark.svg" alt="Icon Software Dark"></div>
+        <div class="meta">icon-software-dark.svg</div>
+      </div>
+
+      <div class="logo-brand-label">Holding</div>
+      <div class="logo-card">
+        <div class="preview on-paper-holding"><img src="./sebastian-holding/logo-holding.svg" alt="Logo Holding"></div>
+        <div class="meta">logo-holding.svg</div>
+      </div>
+      <div class="logo-card">
+        <div class="preview on-paper-holding"><img src="./sebastian-holding/icon-holding-light.svg" alt="Icon Holding Light"></div>
+        <div class="meta">icon-holding-light.svg</div>
+      </div>
+      <div class="logo-card">
+        <div class="preview on-dark-holding"><img src="./sebastian-holding/icon-holding-dark.svg" alt="Icon Holding Dark"></div>
+        <div class="meta">icon-holding-dark.svg</div>
+      </div>
+
+      <div class="logo-brand-label">Consulting</div>
+      <div class="logo-card">
+        <div class="preview on-paper-consulting"><img src="./sebastian-consulting/logo-consulting.svg" alt="Logo Consulting"></div>
+        <div class="meta">logo-consulting.svg</div>
+      </div>
+      <div class="logo-card">
+        <div class="preview on-paper-consulting"><img src="./sebastian-consulting/icon-consulting-light.svg" alt="Icon Consulting Light"></div>
+        <div class="meta">icon-consulting-light.svg</div>
+      </div>
+      <div class="logo-card">
+        <div class="preview on-dark-consulting"><img src="./sebastian-consulting/icon-consulting-dark.svg" alt="Icon Consulting Dark"></div>
+        <div class="meta">icon-consulting-dark.svg</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <a href="https://github.com/sebastian-software/sebastian-websites/tree/main/apps/brand">sebastian-websites/apps/brand</a>
+</footer>
+
+<script>
+  const base = location.origin;
+  for (const el of document.querySelectorAll("[data-url]")) {
+    el.textContent = base + "/" + el.dataset.url;
+  }
+  for (const btn of document.querySelectorAll(".copy-btn")) {
+    btn.addEventListener("click", async () => {
+      const text = btn.closest(".code-block").querySelector("code").textContent;
+      await navigator.clipboard.writeText(text);
+      btn.textContent = "Copied";
+      setTimeout(() => (btn.textContent = "Copy"), 2000);
+    });
+  }
+
+  // Clickable code elements in tables
+  const toast = document.createElement("div");
+  toast.className = "copy-toast";
+  toast.textContent = "Copied";
+  document.body.appendChild(toast);
+  let toastTimer;
+
+  for (const code of document.querySelectorAll(".color-table code, .token-roles code")) {
+    code.classList.add("copyable");
+    code.addEventListener("click", async (e) => {
+      await navigator.clipboard.writeText(code.textContent);
+      clearTimeout(toastTimer);
+      const rect = code.getBoundingClientRect();
+      toast.style.left = rect.right + 8 + "px";
+      toast.style.top = rect.top + rect.height / 2 - 12 + "px";
+      toast.classList.add("visible");
+      toastTimer = setTimeout(() => toast.classList.remove("visible"), 1200);
+    });
+  }
+</script>
+
+</body>
+</html>

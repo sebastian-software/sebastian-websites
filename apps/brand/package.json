@@ -1,0 +1,21 @@
+{
+  "name": "@sebastian-websites/brand",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "26.x"
+  },
+  "description": "The brand reference page and the public logo and token files.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "format": "prettier --write README.md vite.config.ts",
+    "format:check": "prettier --check README.md vite.config.ts",
+    "agent:check": "pnpm format:check && pnpm build"
+  },
+  "devDependencies": {
+    "prettier": "catalog:",
+    "vite": "catalog:"
+  }
+}

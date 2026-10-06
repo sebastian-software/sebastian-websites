@@ -1,0 +1,19 @@
+/* Holding — refined · restrained · institutional · clear · enduring · trustworthy */
+
+:root {
+  /* Named */
+  --holding-walnut: oklch(0.25 0.04 78);
+  --holding-brass: oklch(0.4 0.07 78);
+  --holding-amber: oklch(0.5 0.1 78);
+  --holding-sand: oklch(0.95 0.01 78);
+  --holding-pitch: oklch(0.15 0.03 78);
+  --holding-gild: oklch(0.7 0.1 78);
+
+  /* Semantic */
+  --holding-night: var(--holding-pitch);
+  --holding-dark: var(--holding-walnut);
+  --holding-base: var(--holding-brass);
+  --holding-vivid: var(--holding-amber);
+  --holding-bright: var(--holding-gild);
+  --holding-paper: var(--holding-sand);
+}

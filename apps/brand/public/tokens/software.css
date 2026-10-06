@@ -1,0 +1,19 @@
+/* Software — cool · calm · technical · factual · structured · dependable */
+
+:root {
+  /* Named */
+  --software-midnight: oklch(0.25 0.05 218);
+  --software-teal: oklch(0.4 0.08 218);
+  --software-lagoon: oklch(0.5 0.11 218);
+  --software-frost: oklch(0.95 0.01 218);
+  --software-space: oklch(0.15 0.02 218);
+  --software-signal: oklch(0.7 0.11 218);
+
+  /* Semantic */
+  --software-night: var(--software-space);
+  --software-dark: var(--software-midnight);
+  --software-base: var(--software-teal);
+  --software-vivid: var(--software-lagoon);
+  --software-bright: var(--software-signal);
+  --software-paper: var(--software-frost);
+}

@@ -16,6 +16,22 @@
         "--strictPort"
       ],
       "port": 5181
+    },
+    {
+      "name": "brand",
+      "runtimeExecutable": "mise",
+      "runtimeArgs": [
+        "-C",
+        "/Users/sebastian/Workspace/sebastian-websites/apps/brand",
+        "exec",
+        "--",
+        "pnpm",
+        "dev",
+        "--port",
+        "5182",
+        "--strictPort"
+      ],
+      "port": 5182
     }
   ]
 }
