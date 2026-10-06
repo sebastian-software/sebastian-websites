@@ -1,13 +1,29 @@
-# Export the old Software site's content from Sanity and sort it
+# Capture the old Software site's content
 
 ## Status
 
 - Priority: P1
 - Effort: S
-- Risk: MEDIUM (the dataset is the only copy of the content; it contains third-party personal data)
+- Risk: LOW
 - Depends on: none
+- State: done on 2026-10-06; the clearance of testimonials is open
 - Planned at: f007192, 2026-10-06
-- Working state: clean
+
+## Outcome
+
+The content was captured from the live site instead of exported from Sanity: everything worth
+keeping is public at `sebastian-software.de` and `.com`. The capture lives outside every
+repository, in `~/Workspace/sebastian-software-legacy-content/` on the owner's machine, because
+it contains testimonials and portraits of third parties (ADR-0012).
+
+- 6 pages per language (home, mission, team, consulting, imprint, privacy policy)
+- 56 testimonials per language from 55 people, with full quotes from the detail pages
+- 28 client logos (names and image URLs)
+- `inventory.md` sorts every item: owned by Consulting, worth carrying over (the mission copy,
+  the home teasers, the client logos), or needing a recorded permission (every testimonial)
+
+What remains is the clearance list in step 3 below. Sanity is retired with the AWS stack in
+plan 10 without an export.
 
 ## Why this matters
 

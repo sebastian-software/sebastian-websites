@@ -17,5 +17,11 @@ executing one. Decisions and their reasons live in the [ADRs](../adr/), not here
 | [09](09-consulting-site.md)         | Consulting site rebuilt and cut over                           | 02, 03                  |
 | [10](10-retire-old-repositories.md) | Old repositories and infrastructure retired                    | 06, 07, 08, 09          |
 
+State on 2026-10-06: 02 is in progress (workspace, packages, Software app, CI done; delivery
+to Bunny open), 03 is in progress (brand site and fonts repository done; hosting setup and
+consumers open), 04 is in review
+([oss-metrics#7](https://github.com/sebastian-software/oss-metrics/pull/7)), 05 is done
+except the testimonial clearance.
+
 Plans 01, 04, and 05 can start at once. The build order of the sites is Software, Open
 Source, Skills, Consulting.
