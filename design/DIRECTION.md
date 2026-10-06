@@ -166,8 +166,32 @@ what it brings, and what drives us, informed by the recommendations clients have
 
 Files: `comps/r4-software-home.html`, `comps/r4-consulting-home.html`.
 
+## Round 5: rhythm, spacing, alignment
+
+Feedback on round 4 (2026-10-06): the pendulum swung too far. Boxes are fine where they fit;
+what the owners want is variety, with each design element matching its content, generous
+spacing so sections keep their context, and clean alignment wherever text is meant to line
+up.
+
+- **Each content type gets its own form.** Prose themes stand as three open text columns with
+  numerals; products and services, which are objects, sit in cards; live numbers sit on a
+  Midnight band; results and recurring work are ruled list rows; people are portrait rows;
+  quotes are open columns with a slab quotation mark. Sections alternate Frost and white.
+- **One spacing scale** on an 8 px base: 24, 40, 64, 96, 128. Sections are 128 px tall at the
+  top and bottom, section heads sit 72 px above their content, columns are 64 px apart,
+  list rows have 36 px of padding.
+- **One alignment rule.** Whatever shares a row shares font size and line height, so first
+  lines meet: the section head puts the eyebrow above both columns and offsets the intro by
+  10 px to the headline's cap height; list rows set one size for title and text; big numbers
+  align at the top; ghost links lose the stray inline padding that had indented them in every
+  earlier round; links under columns of unequal length are pushed to a common bottom edge.
+- Each section was rendered and checked on its own before the pages were sent.
+
+Files: `comps/r5-software-home.html`, `comps/r5-consulting-home.html` (the terrain hero from
+round 4 unchanged).
+
 ## Next
 
-The owners review round 4. Then `DESIGN.md` and the token package are written from the
+The owners review round 5. Then `DESIGN.md` and the token package are written from the
 approved comps, and the Software app is rebuilt on the new system, desktop first (plan 01,
 steps 3 to 5; plan 06). Phone layouts follow once the desktop design is settled.
