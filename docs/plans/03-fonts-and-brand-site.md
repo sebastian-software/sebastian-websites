@@ -33,10 +33,9 @@ as `brand.sebastian-software.com` and serves the fonts from one CDN host.
   storage and pull zone, the font CNAME, open extension CORS, one-year immutable font
   caching, one-hour CSS caching, uploads, HTTPS and live verification. This follows
   `oss-metrics` and requires no private hosting CLI or npm token.
-- Font CI uses the repository Actions secret `BUNNY_API_KEY`, duplicating the organization
-  key used by the public website and Metrics repositories. GitHub Free remains the baseline;
-  rotation must update both copies. The repository secret is configured. This font workflow
-  does not use Limen; its GitHub Actions rollout remains pending the workflow merge.
+- GitHub Team is enabled, and the organization Actions secret `BUNNY_API_KEY` is available
+  to all repositories. Font CI passes it to the scripts' `BUNNY_API_KEY` variable. This font
+  workflow does not use Limen; its GitHub Actions rollout remains pending the workflow merge.
 - Font hosting is live: the authoritative Cloudflare CNAME points to Bunny, HTTPS is forced,
   and all 29 assets pass content, CORS, cache and missing-file 404 checks with fresh public
   DNS. Repeat provisioning reuses the configuration without writes.

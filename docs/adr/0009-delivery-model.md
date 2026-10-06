@@ -7,19 +7,20 @@ updated: 2026-10-06
 
 Each of the eight variants (four sites, two languages) is built as its own static artifact for
 exactly one domain, driven by one central, typed list of variants. Every push to `main` builds,
-tests, and publishes all variants that are active in production; a pull request gets a preview
-for each variant it affects. There are no releases, tags, or version numbers for websites, and
+tests, and publishes every variant that has a build to its own origin host
+(`<target>.b-cdn.net`); whether a variant is active in production only decides whether its
+canonical domain is attached to that host. A pull request gets a preview for each variant it
+affects. There are no releases, tags, or version numbers for websites, and
 recovery only moves forward: a problem is fixed by a new commit on `main`, never by publishing
 an earlier state again.
 
 Publishing uses small repository-owned scripts that call the Bunny API directly, following
-the existing `oss-metrics` deployment. CI reads `BUNNY_API_KEY` from GitHub Actions secrets.
+the existing `oss-metrics` deployment. CI reads the organization Actions secret
+`BUNNY_API_KEY` into the deployment scripts' process environment.
 There is no private hosting package, npm token, or required Limen integration for deployment.
-GitHub Free remains the baseline. The public website monorepo and Metrics share an
-organization secret, available to all public repositories in the organization; the private
-font repository stores a copy of the same Bunny key as a
-repository secret, because organization secrets are unavailable to private repositories
-on this plan. All workflows read `secrets.BUNNY_API_KEY`; key rotation must update both copies.
+GitHub Team makes the same organization secret available to all repositories, including
+the private font repository. The websites, Metrics, and Fonts workflows read
+`secrets.BUNNY_API_KEY`; rotation updates the central secret.
 
 The deploying repository is the source of truth for its hosting configuration: edge rules,
 redirects, and cache lifetimes are defined and applied there, never maintained only in the
@@ -42,3 +43,6 @@ the font CDN configuration and deployment.
 - Each variant has its own hosting target and can be published or rolled forward on its own.
 - Deployment scripts apply the declared configuration, preserve unrelated resources, and
   verify both API readback and live delivery.
+- Prerendered routes are directories holding an `index.html`, and Bunny Storage serves files
+  only. A small middleware on every pull zone resolves extension-less paths to those files and
+  redirects trailing slashes to the canonical path (ADR-0010); its source lives in `hosting/`.

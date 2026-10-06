@@ -1,0 +1,7 @@
+{
+  "extends": "@sebastian-websites/config/tsconfig/base.json",
+  "include": ["*.ts", "../packages/web-core/src/sites.ts"],
+  "compilerOptions": {
+    "types": ["node"]
+  }
+}

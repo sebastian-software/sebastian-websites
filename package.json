@@ -13,12 +13,23 @@
     "typecheck": "pnpm -r --if-present typecheck",
     "lint": "pnpm -r --if-present lint",
     "format": "prettier --write . && pnpm -r --if-present format",
-    "format:root": "prettier --check README.md GLOSSARY.md docs .github package.json pnpm-workspace.yaml prettier.config.mjs eslint.config.ts oxlint.config.ts",
+    "format:root": "prettier --check README.md GLOSSARY.md docs .github package.json pnpm-workspace.yaml prettier.config.mjs eslint.config.ts oxlint.config.ts hosting",
     "check:boundaries": "pnpm --filter @sebastian-websites/config --fail-if-no-match check:boundaries",
-    "agent:check": "pnpm format:root && pnpm check:boundaries && pnpm -r --if-present agent:check"
+    "agent:check": "pnpm format:root && pnpm check:boundaries && pnpm hosting:check && pnpm -r --if-present agent:check",
+    "deploy": "node hosting/deploy.ts",
+    "hosting:typecheck": "tsc -p hosting",
+    "hosting:lint": "oxlint -c oxlint.config.ts hosting && eslint hosting --config eslint.config.ts",
+    "hosting:test": "node --test hosting/*.test.ts",
+    "hosting:check": "pnpm hosting:typecheck && pnpm hosting:lint && pnpm hosting:test"
   },
   "devDependencies": {
     "@sebastian-websites/config": "workspace:*",
-    "prettier": "catalog:"
+    "@types/node": "catalog:",
+    "esbuild": "catalog:",
+    "eslint": "catalog:",
+    "jiti": "catalog:",
+    "oxlint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
   }
 }
