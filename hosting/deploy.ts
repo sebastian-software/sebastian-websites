@@ -23,6 +23,10 @@ const summary: string[] = ["### Website delivery", ""]
 for (const target of targets) {
   console.log(`\n${target.name}`)
   const ids = await provision(api, target)
+  if (target.buildDirectory === undefined) {
+    summary.push(`- \`${target.name}\`: provisioned; sources are published locally`)
+    continue
+  }
   const assets = await loadBuild(`${root}/${target.buildDirectory}`)
   const result = await publish({ api, assets, ids, target })
   await verify({ assets, target })

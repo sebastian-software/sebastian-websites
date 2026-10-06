@@ -47,6 +47,7 @@ export const checksum = (bytes: Uint8Array): string =>
 
 async function readDirectory(root: string, relative: string, files: Asset[]): Promise<void> {
   for (const entry of await readdir(`${root}/${relative}`, { withFileTypes: true })) {
+    if (entry.name.startsWith(".")) continue
     const path = relative === "" ? entry.name : `${relative}/${entry.name}`
     if (entry.isDirectory() && !SKIPPED_DIRECTORIES.has(entry.name)) {
       await readDirectory(root, path, files)
@@ -63,10 +64,25 @@ async function readDirectory(root: string, relative: string, files: Asset[]): Pr
  * @returns The files with their content, sorted by path.
  */
 export async function loadBuild(root: string): Promise<readonly Asset[]> {
-  const files: Asset[] = []
-  await readDirectory(root, "", files)
+  const files = await loadAssets(root)
   if (!files.some((file) => file.path === "index.html")) {
     throw new Error(`${root} holds no index.html; is it a build output?`)
+  }
+  return files
+}
+
+/**
+ * Reads a private asset folder without requiring a website document.
+ * Hidden files and symbolic links are excluded from the public upload.
+ *
+ * @param root - The complete source folder for the storage zone.
+ * @returns Files sorted by their public path.
+ */
+export async function loadAssets(root: string): Promise<readonly Asset[]> {
+  const files: Asset[] = []
+  await readDirectory(root, "", files)
+  if (files.length === 0) {
+    throw new Error(`${root} holds no assets; refusing an empty publish`)
   }
   return files.toSorted((left, right) => left.path.localeCompare(right.path))
 }
@@ -169,6 +185,8 @@ function storageClient(request: Fetch, zone: string, password: string): StorageC
 export type PublishOptions = {
   readonly api: BunnyApi
   readonly assets: readonly Asset[]
+  /** Defaults to true for website builds and false for manually managed asset zones. */
+  readonly deleteStale?: boolean
   readonly ids: Provisioned
   readonly log?: Log
   readonly request?: Fetch
@@ -213,14 +231,15 @@ async function removeStale(
 }
 
 /**
- * Publishes a build: uploads new and changed files, deletes stale ones, and
- * purges the pull zone.
+ * Publishes files and purges the pull zone. Website builds remove stale files;
+ * manually managed asset zones preserve files uploaded separately.
  *
  * @param options - The client, target, zone ids, build files, and optional fetch and log.
  * @returns The number of uploaded and removed files.
  */
 export async function publish(options: PublishOptions): Promise<Published> {
   const { api, assets, ids, log = console.log, request = fetch, target } = options
+  const deleteStale = options.deleteStale ?? target.assets !== true
   const zone: Json = await getZone(api, "/storagezone", ids.storageId)
   const password = text(zone, "Password")
   if (password === undefined || password === "") {
@@ -229,7 +248,7 @@ export async function publish(options: PublishOptions): Promise<Published> {
   const storage = storageClient(request, target.name, password)
   const state = { log, remote: await storage.list("") }
   const uploaded = await uploadChanged(storage, assets, state)
-  const removed = await removeStale(storage, assets, state)
+  const removed = deleteStale ? await removeStale(storage, assets, state) : 0
   await api("POST", `/pullzone/${ids.pullZoneId}/purgeCache`, {})
   log(`Purged ${target.name}`)
   return { removed, uploaded }

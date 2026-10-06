@@ -5,8 +5,6 @@ import { blocks, button, layout, Section, SectionHead, typography } from "@sebas
 import { getSiteOrigin } from "@sebastian-websites/web-core"
 import { Link } from "react-router"
 
-import laptop from "~/assets/photos/shoot-19.jpg"
-import wall from "~/assets/photos/shoot-39.jpg"
 import { Closing } from "~/components/Closing"
 import { Families } from "~/components/Families"
 import { Founders } from "~/components/Founders"
@@ -15,6 +13,7 @@ import { MetricsBand } from "~/components/MetricsBand"
 import { Photo } from "~/components/Photo"
 import { ProductCards } from "~/components/ProductCards"
 import { formatCount, loadMetrics } from "~/lib/metrics"
+import { heroPhoto, laptopPhoto, PHOTO_SIZES } from "~/lib/photos"
 import { variant } from "~/lib/site"
 
 import type { Route } from "./+types/home"
@@ -26,6 +25,19 @@ export function meta(): Route.MetaDescriptors {
     {
       content: t`Sebastian Software builds products that are meant to last and shares the tools behind them as open source.`,
       name: "description",
+    },
+  ]
+}
+
+// eslint-disable-next-line react-refresh/only-export-components -- React Router reads links from the route module
+export function links(): Route.LinkDescriptors {
+  return [
+    {
+      as: "image",
+      href: heroPhoto.src,
+      imageSizes: PHOTO_SIZES,
+      imageSrcSet: heroPhoto.srcSet,
+      rel: "preload",
     },
   ]
 }
@@ -79,10 +91,9 @@ function Hero({ repositories }: { readonly repositories: number }): ReactElement
         <Photo
           alt={t`Sebastian Fastner and Sebastian Werner`}
           caption="Sebastian Fastner & Sebastian Werner"
-          focus="center 72%"
           frame="square"
+          image={heroPhoto}
           priority
-          src={wall}
         />
       </div>
     </section>
@@ -157,12 +168,7 @@ function Company(): ReactElement {
             {t`Learning is our foundation. We read, try, and measure before we recommend, and we choose deliberately what really adds value. Not every novelty suits us, not even in AI.`}
           </p>
         </div>
-        <Photo
-          alt={t`The two founders at the laptop`}
-          focus="center 62%"
-          frame="landscape"
-          src={laptop}
-        />
+        <Photo alt={t`The two founders at the laptop`} frame="landscape" image={laptopPhoto} />
       </div>
       <Founders />
     </Section>

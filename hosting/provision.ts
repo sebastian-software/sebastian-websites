@@ -22,109 +22,18 @@ import {
   text,
   type Zone,
 } from "./bunny.ts"
+import { cacheRules, type EdgeRule, pullZoneSettings } from "./zone-settings.ts"
+
+export { cacheRules, pullZoneSettings } from "./zone-settings.ts"
 
 export type Log = (message: string) => void
 
 const STORAGE = { region: "DE", replicationRegions: ["SE", "NY"] } as const
-const ONE_YEAR = 31_536_000
-const ONE_DAY = 86_400
-const FIVE_MINUTES = 300
 const BAD_REQUEST = 400
 const NOTE_LENGTH = 12
-
-// Bunny edge-rule and trigger codes, as its API names them.
-const ACTION = { browserCacheTime: 16, cacheTime: 3, setResponseHeader: 5 } as const
-const TRIGGER_URL = 0
-const MATCH = { any: 0, none: 2 } as const
 const SCRIPT_TYPE_MIDDLEWARE = 2
 const STORAGE_ZONES = "/storagezone"
 const PULL_ZONES = "/pullzone"
-
-export type EdgeRule = { readonly Description: string } & Json
-
-/**
- * The pull-zone settings every target shares, plus open CORS for the
- * extensions a target exports to other sites.
- *
- * @param target - The target whose exported extensions get open CORS.
- * @returns The settings as Bunny's API names them.
- */
-export function pullZoneSettings(target: Target): Json {
-  return {
-    AccessControlOriginHeaderExtensions: [...target.corsExtensions],
-    CacheErrorResponses: false,
-    DisableCookies: true,
-    EnableAccessControlOriginHeader: target.corsExtensions.length > 0,
-    EnableGeoZoneAF: false,
-    EnableGeoZoneASIA: false,
-    EnableGeoZoneEU: true,
-    EnableGeoZoneSA: false,
-    EnableGeoZoneUS: true,
-    IgnoreQueryStrings: true,
-  }
-}
-
-type CacheRuleSpec = {
-  readonly browser: number
-  readonly cdn: number
-  readonly description: string
-  readonly immutable: boolean
-  readonly matching: number
-  readonly orderIndex: number
-  readonly patterns: readonly string[]
-}
-
-function cacheRule(spec: CacheRuleSpec): EdgeRule {
-  const cacheControl = `public, max-age=${spec.browser}${spec.immutable ? ", immutable" : ""}`
-  return {
-    ActionParameter1: String(spec.cdn),
-    ActionType: ACTION.cacheTime,
-    Description: spec.description,
-    Enabled: true,
-    ExtraActions: [
-      { ActionParameter1: String(spec.browser), ActionType: ACTION.browserCacheTime },
-      {
-        ActionParameter1: "Cache-Control",
-        ActionParameter2: cacheControl,
-        ActionType: ACTION.setResponseHeader,
-      },
-    ],
-    OrderIndex: spec.orderIndex,
-    TriggerMatchingType: MATCH.any,
-    Triggers: [
-      { PatternMatches: [...spec.patterns], PatternMatchingType: spec.matching, Type: TRIGGER_URL },
-    ],
-  }
-}
-
-/**
- * The caching rules of a website target: hashed build assets never change,
- * documents are purged on every publish and kept short in browsers.
- *
- * @returns The two rules, matched by description on later runs.
- */
-export function cacheRules(): readonly EdgeRule[] {
-  return [
-    cacheRule({
-      browser: ONE_YEAR,
-      cdn: ONE_YEAR,
-      description: "websites: hashed assets are immutable",
-      immutable: true,
-      matching: MATCH.any,
-      orderIndex: 0,
-      patterns: ["*/assets/*"],
-    }),
-    cacheRule({
-      browser: FIVE_MINUTES,
-      cdn: ONE_DAY,
-      description: "websites: documents are purged on publish",
-      immutable: false,
-      matching: MATCH.none,
-      orderIndex: 1,
-      patterns: ["*/assets/*"],
-    }),
-  ]
-}
 
 type Context = { readonly api: BunnyApi; readonly log: Log; readonly target: Target }
 
@@ -194,7 +103,7 @@ async function applyRule(context: Context, pull: Zone, rule: EdgeRule): Promise<
 }
 
 async function ensureEdgeRules(context: Context, pull: Zone): Promise<void> {
-  for (const rule of cacheRules()) {
+  for (const rule of cacheRules(context.target)) {
     await applyRule(context, pull, rule)
   }
 }
@@ -340,7 +249,9 @@ export async function provision(
   const context: Context = { api, log, target }
   const storage = await ensureStorage(context)
   const pull = await ensurePullZone(context, storage.Id)
-  await ensureMiddleware(context, pull)
+  if (target.assets !== true) {
+    await ensureMiddleware(context, pull)
+  }
   await ensureHostname(context, pull)
   return { pullZoneId: pull.Id, storageId: storage.Id }
 }

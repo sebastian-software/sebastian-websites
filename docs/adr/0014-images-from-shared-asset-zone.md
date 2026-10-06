@@ -1,5 +1,5 @@
 ---
-status: proposed
+status: accepted
 updated: 2026-10-06
 ---
 
@@ -70,15 +70,17 @@ Client logos stay in the repository as SVG; they need no transformation.
   `OptimizerEnableManipulationEngine`, `OptimizerEnableWebP`, and `EnableAvifVary` to `true`,
   and `OptimizerAutomaticOptimizationEnabled` and `OptimizerEnableUpscaling` to `false`: the
   sites request variants explicitly.
-- A `publish-assets` script uploads sources with checksums from a private folder or
-  repository and purges changed paths. Everything on the asset host is public, so the
+- Source files are uploaded manually to Bunny. An optional `publish-assets` script uploads
+  sources with checksums from a private folder and purges the zone, preserving files absent
+  from that local folder. Fonts share the zone as raw WOFF2 binaries (ADR-0013).
+  Everything on the asset host is public, so the
   clearance rule of ADR-0012 applies to the upload, not only to the repository.
-- Sources are stored at a working resolution of about 3000 px on the long edge as JPEG.
+- Sources are stored as unchanged original JPEGs; only CDN variants are resized.
 - A shared `image()` helper in `packages/web-core` composes the URL and the `width`/`height`
   pair for a placement; components never write query strings by hand.
 - Image classes are defined once the placements are stable, and `OptimizerForceClasses` is
   then switched on.
-- **Interim (2026-10-06):** until the asset zone is provisioned and filled, the six photos
-  of the founders that the Software site uses ship with the app at 1400 px. They are company
-  property, so ADR-0012 is not touched; the `Photo` component already isolates the URL, so
-  the switch to the asset host is a one-line change per placement.
+- **Implemented (2026-10-06):** all 46 original photos from the 2024 shoot are published
+  under `shooting-2024/`. Software placements use responsive URLs from the shared asset
+  host with focal crops, intrinsic dimensions, and a hero preload. The six interim JPEGs
+  are removed from the application; existing Git history is unchanged.

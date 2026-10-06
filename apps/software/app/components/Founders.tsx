@@ -3,8 +3,7 @@ import type { ReactElement } from "react"
 import { t } from "@palamedes/core/macro"
 import { blocks, button } from "@sebastian-websites/ui"
 
-import werner from "~/assets/photos/shoot-3.jpg"
-import fastner from "~/assets/photos/shoot-4.jpg"
+import { fastnerPhoto, wernerPhoto } from "~/lib/photos"
 
 export type FoundersProps = {
   /** Links to the Consulting profiles, when the page offers them. */
@@ -22,16 +21,16 @@ export function Founders(props: FoundersProps): ReactElement {
   const founders = [
     {
       id: "werner",
+      image: wernerPhoto,
       name: "Sebastian Werner",
       role: t`Founder · Frontend architecture and developer experience`,
-      src: werner,
       text: t`React, TypeScript, internationalization, and code quality. In web development since 2000, formerly architect of the qooxdoo framework at 1&1.`,
     },
     {
       id: "fastner",
+      image: fastnerPhoto,
       name: "Sebastian Fastner",
       role: t`Founder · Full stack and platform`,
-      src: fastner,
       text: t`TypeScript, React, Rust, and infrastructure, from the surface to the backend. In professional software development since 2002.`,
     },
   ]
@@ -44,8 +43,8 @@ export function Founders(props: FoundersProps): ReactElement {
               alt={founder.name}
               className={blocks.photoImage}
               loading="lazy"
-              src={founder.src}
-              style={{ objectPosition: "center 22%" }}
+              {...founder.image}
+              sizes="72px"
             />
           </span>
           <div>

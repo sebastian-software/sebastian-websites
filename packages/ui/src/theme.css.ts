@@ -19,12 +19,12 @@ export const color = createThemeContract({
 })
 
 export const font = {
-  sans: 'var(--sebastian-font-sans, "Sebastian Sans", system-ui, sans-serif)',
-  slab: 'var(--sebastian-font-serif, "Sebastian Slab", Georgia, serif)',
+  sans: 'var(--sebastian-font-sans, "Glober", system-ui, sans-serif)',
+  slab: 'var(--sebastian-font-serif, "Elena", Georgia, serif)',
 } as const
 
-/** The licensed fonts, served from the company's font host (ADR-0013). */
-export const FONT_STYLESHEET = "https://fonts.sebastian-software.com/fonts.css"
+/** Versioned typography CSS from the brand site; binaries use the asset host (ADR-0013). */
+export const FONT_STYLESHEET = "https://sebastian-websites-brand.b-cdn.net/fonts.css"
 
 /** Text colours on Midnight sections, independent of the brand hue. */
 export const ON_NIGHT = {

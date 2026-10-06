@@ -1,6 +1,6 @@
 /* Shared foundation of the three direction comps. Binding brand system:
-   Sebastian Sans + Slab (via the font host), the Software palette (hue 218). */
-@import url("https://fonts.sebastian-software.com/fonts-all.css");
+   Glober + Elena (via the shared asset host), the Software palette (hue 218). */
+@import url("https://sebastian-websites-brand.b-cdn.net/fonts-all.css");
 
 :root {
   --night: oklch(0.15 0.02 218);
@@ -13,8 +13,8 @@
   --muted: oklch(0.48 0.03 218);
   --line: oklch(0.88 0.015 218);
   --white: #fff;
-  --sans: "Sebastian Sans", system-ui, sans-serif;
-  --slab: "Sebastian Slab", Georgia, serif;
+  --sans: "Glober", system-ui, sans-serif;
+  --slab: "Elena", Georgia, serif;
   --max: 1200px;
 }
 *, *::before, *::after { box-sizing: border-box; }

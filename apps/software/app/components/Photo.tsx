@@ -1,15 +1,16 @@
+import type { ResponsiveImage } from "@sebastian-websites/web-core"
 import type { ReactElement } from "react"
 
 import { blocks } from "@sebastian-websites/ui"
 
+import { PHOTO_SIZES } from "~/lib/photos"
+
 export type PhotoProps = {
   readonly alt: string
   readonly caption?: string
-  /** The CSS `object-position` that keeps the subject in the frame. */
-  readonly focus: string
   readonly frame: keyof typeof blocks.photoFrame
+  readonly image: ResponsiveImage
   readonly priority?: boolean
-  readonly src: string
 }
 
 /**
@@ -20,15 +21,16 @@ export type PhotoProps = {
  * @returns The framed photograph.
  */
 export function Photo(props: PhotoProps): ReactElement {
-  const { alt, caption, focus, frame, priority = false, src } = props
+  const { alt, caption, frame, image: photo, priority = false } = props
   return (
     <div className={`${blocks.photo} ${blocks.photoFrame[frame]}`}>
       <img
         alt={alt}
         className={blocks.photoImage}
         loading={priority ? "eager" : "lazy"}
-        src={src}
-        style={{ objectPosition: focus }}
+        {...photo}
+        fetchPriority={priority ? "high" : undefined}
+        sizes={PHOTO_SIZES}
       />
       {caption === undefined ? null : (
         <span className={blocks.caption}>

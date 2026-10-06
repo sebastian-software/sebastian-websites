@@ -19,6 +19,11 @@ as `brand.sebastian-software.com` and serves the fonts from one CDN host.
 
 ## Current state
 
+Update (2026-10-06): the current contract keeps typography CSS in `apps/brand/public`
+and uploads raw font binaries manually to the shared asset zone. See
+[font hosting](../operations/font-hosting.md). The deployment history below describes
+the previous separate font host.
+
 - `apps/brand` already contains the reference page, public logos, icons, and CSS tokens;
   its build output is `apps/brand/build/client`.
 - The private `sebastian-fonts` repository exists with all 26 font binaries, licences,
