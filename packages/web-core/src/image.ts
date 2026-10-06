@@ -6,7 +6,7 @@ export const ASSET_HOST: Readonly<{
 }> = {
   canonicalOrigin: "https://assets.sebastian-software.com",
   origin: "https://sebastian-websites-assets.b-cdn.net",
-  productionActive: false,
+  productionActive: true,
 } as const
 
 export type ImageSource = {

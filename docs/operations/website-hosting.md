@@ -99,17 +99,14 @@ immutable cache lifetime. Changed font bytes require a new filename. Font CSS, f
 metrics, and family stacks are versioned and deployed by the brand application; see
 [font hosting](font-hosting.md).
 
-The owners' DNS step is a CNAME from `assets.sebastian-software.com` to
-`sebastian-websites-assets.b-cdn.net`. The record is already present in Bunny DNS, but
-the domain's authoritative nameservers are Cloudflare (`dina` and `matt`), where the
-record still needs to be added. Provisioning attaches the hostname and requests its
-certificate; it retries certificate issuance after DNS is live and then forces HTTPS.
-Keep `ASSET_HOST.productionActive` false in `packages/web-core/src/image.ts` until DNS,
-the certificate, and HTTPS are verified; then switch it to true. Until then the sites
-use the Bunny origin hostname.
-
-The font URLs in `apps/brand/public/fonts.css` and `fonts-all.css` also use the Bunny
-origin; update those URLs at the same verified cutover.
+The authoritative Cloudflare DNS has a DNS-only CNAME from
+`assets.sebastian-software.com` to `sebastian-websites-assets.b-cdn.net`.
+Bunny's managed certificate and forced HTTPS were verified on October 6, 2026.
+The Cloudflare proxy stays off so Bunny handles image optimization and font delivery.
+Provisioning maintains the hostname, certificate, and HTTPS settings.
+`ASSET_HOST.productionActive` is true in `packages/web-core/src/image.ts`, and the
+font stylesheets and preparation script use the same canonical asset hostname.
+The Bunny origin hostname remains available as a fallback for a reviewed rollback.
 
 The shared `image()` helper uses original dimensions to compute the largest focal crop
 at the placement's aspect ratio, then requests responsive widths and quality. This follows
