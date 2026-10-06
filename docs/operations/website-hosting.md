@@ -8,11 +8,13 @@ need only `BUNNY_API_KEY` in GitHub Actions secrets.
 
 `hosting/targets.ts` derives the targets from the variant list in `packages/web-core`: one
 storage and pull zone pair per variant, named like its `deploymentTarget`
-(`sebastian-websites-software-en`), plus `sebastian-websites-brand`. Each target is reachable
+(`sebastian-websites-software-en`), plus `sebastian-websites-brand` and the shared `sebastian-websites-assets` zone. Each target is reachable
 on its origin host `https://<name>.b-cdn.net/`. A variant's canonical domain is attached only
 once it is `productionActive`; until then the origin host is the place to look.
 
 ## What a deployment does
+
+For website targets:
 
 1. `provision.ts`: creates or reuses the storage zone (DE, replicated to SE and NY) and the
    pull zone (EU and US delivery, cookies off, query strings ignored), applies the two cache
@@ -44,3 +46,55 @@ type check, lint, and the tests against a fake Bunny account.
   shared preview zone; that pattern returns once the first site is live.
 - Redirect rules of ADR-0010 beyond the trailing slash; they join the middleware with the
   first domain cutover.
+
+## Assets
+
+`sebastian-websites-assets` has no build directory. CI provisions it with Optimizer and
+image caching, without HTML rules or middleware, and never uploads or deletes its sources.
+Every other pull zone keeps Optimizer disabled. Image query strings remain in the asset
+cache key so different widths and crops cannot share the same cached response.
+
+Keep the complete public asset collection outside this repository:
+
+```text
+~/Workspace/sebastian-assets/
+  shooting-2024/
+    shoot-1.jpg
+    ...
+    shoot-46.jpg
+  products/
+    product-name.png
+```
+
+All 46 photographs from the 2024 shoot are published as unchanged original JPEGs. The
+source `color_09092024-N.jpg` maps to `shooting-2024/shoot-N.jpg`; no recompression or
+resizing occurs during publishing. Only the requested CDN variants are resized. The
+initial local upload folder is `~/Workspace/sebastian-photos-2024/publish`, containing
+byte-identical copies of the originals in `shooting-2024/`.
+
+```bash
+BUNNY_API_KEY=… node hosting/publish-assets.ts
+# Use the prepared local collection instead of the default:
+ASSETS_DIR="$HOME/Workspace/sebastian-photos-2024/publish" BUNNY_API_KEY=… node hosting/publish-assets.ts
+```
+
+The script refuses CI and empty folders, skips hidden files and symbolic links, compares
+SHA-256 checksums, uploads changed files, deletes remote files absent from the complete
+local collection, and purges the pull zone. A second unchanged run uploads nothing.
+Always supply the whole collection, including product visuals, because the folder is
+an authoritative mirror of the zone. Everything uploaded is public; third-party portraits
+require recorded permission before publishing (ADR-0012).
+
+The owners' DNS step is a CNAME from `assets.sebastian-software.com` to
+`sebastian-websites-assets.b-cdn.net`. The record is already present in Bunny DNS, but
+the domain's authoritative nameservers are Cloudflare (`dina` and `matt`), where the
+record still needs to be added. Provisioning attaches the hostname and requests its
+certificate; it retries certificate issuance after DNS is live and then forces HTTPS.
+Keep `ASSET_HOST.productionActive` false in `packages/web-core/src/image.ts` until DNS,
+the certificate, and HTTPS are verified; then switch it to true. Until then the sites
+use the Bunny origin hostname.
+
+The shared `image()` helper uses original dimensions to compute the largest focal crop
+at the placement's aspect ratio, then requests responsive widths and quality. This follows
+[Bunny's crop-before-resize behavior](https://bunny.net/docs/optimizer/dynamic-images/cropping).
+Image classes and `OptimizerForceClasses` remain a follow-up after placements stabilize.

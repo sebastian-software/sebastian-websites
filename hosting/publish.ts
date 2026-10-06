@@ -47,6 +47,7 @@ export const checksum = (bytes: Uint8Array): string =>
 
 async function readDirectory(root: string, relative: string, files: Asset[]): Promise<void> {
   for (const entry of await readdir(`${root}/${relative}`, { withFileTypes: true })) {
+    if (entry.name.startsWith(".")) continue
     const path = relative === "" ? entry.name : `${relative}/${entry.name}`
     if (entry.isDirectory() && !SKIPPED_DIRECTORIES.has(entry.name)) {
       await readDirectory(root, path, files)
@@ -63,10 +64,25 @@ async function readDirectory(root: string, relative: string, files: Asset[]): Pr
  * @returns The files with their content, sorted by path.
  */
 export async function loadBuild(root: string): Promise<readonly Asset[]> {
-  const files: Asset[] = []
-  await readDirectory(root, "", files)
+  const files = await loadAssets(root)
   if (!files.some((file) => file.path === "index.html")) {
     throw new Error(`${root} holds no index.html; is it a build output?`)
+  }
+  return files
+}
+
+/**
+ * Reads a private asset folder without requiring a website document.
+ * Hidden files and symbolic links are excluded from the public upload.
+ *
+ * @param root - The complete source folder for the storage zone.
+ * @returns Files sorted by their public path.
+ */
+export async function loadAssets(root: string): Promise<readonly Asset[]> {
+  const files: Asset[] = []
+  await readDirectory(root, "", files)
+  if (files.length === 0) {
+    throw new Error(`${root} holds no assets; refusing an empty publish`)
   }
   return files.toSorted((left, right) => left.path.localeCompare(right.path))
 }

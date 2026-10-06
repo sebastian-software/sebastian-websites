@@ -1,11 +1,14 @@
 import assert from "node:assert/strict"
+import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises"
+import { tmpdir } from "node:os"
+import { join } from "node:path"
 import { test } from "node:test"
 
 import { type BunnyApi, isJson, type Json } from "./bunny.ts"
 import { originRequest, planPath, publicPath } from "./middleware-logic.ts"
 import { cacheRules, provision, pullZoneSettings } from "./provision.ts"
-import { checksum, publish } from "./publish.ts"
-import { type Target, TARGETS } from "./targets.ts"
+import { checksum, loadAssets, publish } from "./publish.ts"
+import { ASSET_TARGET, buildableTargets, type Target, TARGETS } from "./targets.ts"
 import { checksFor } from "./verify.ts"
 
 const target: Target = {
@@ -24,24 +27,29 @@ type Call = { readonly body?: unknown; readonly method: string; readonly path: s
  * A Bunny account with or without a fully configured target.
  *
  * @param options - Whether the target already exists.
- * @param options.provisioned
+ * @param options.provisioned - Whether resources already exist.
+ * @param options.target - Optional target whose resources are modeled.
  * @returns A fake API, its call log, and the current middleware script.
  */
-function account(options: { readonly provisioned: boolean }) {
+function account(options: { readonly provisioned: boolean; readonly target?: Target }) {
+  const deployedTarget = options.target ?? target
   const calls: Call[] = []
-  const middlewareName = `${target.name}-middleware`
+  const middlewareName = `${deployedTarget.name}-middleware`
   let storage: Json | undefined = options.provisioned
-    ? { Id: 1, Name: target.name, Password: "secret", Region: "DE", Rewrite404To200: false }
+    ? { Id: 1, Name: deployedTarget.name, Password: "secret", Region: "DE", Rewrite404To200: false }
     : undefined
   let pull: Json | undefined = options.provisioned
     ? {
-        EdgeRules: cacheRules().map((rule, index) => ({ ...rule, Guid: `rule-${index}` })),
+        EdgeRules: cacheRules(deployedTarget).map((rule, index) => ({
+          ...rule,
+          Guid: `rule-${index}`,
+        })),
         Hostnames: [],
         Id: 2,
         MiddlewareScriptId: 3,
-        Name: target.name,
+        Name: deployedTarget.name,
         StorageZoneId: 1,
-        ...pullZoneSettings(target),
+        ...pullZoneSettings(deployedTarget),
       }
     : undefined
   let script: Json | undefined = options.provisioned
@@ -254,15 +262,134 @@ test("the middleware rewrites origin requests and redirects visitors to canonica
   assert.equal(redirected.headers.get("location"), "https://sebastian-software.com/imprint?q=1")
 })
 
-test("targets cover every variant on its origin host plus the brand site", () => {
-  assert.equal(TARGETS.length, 9)
+test("targets cover every variant, the brand site, and the build-free asset zone", () => {
+  assert.equal(TARGETS.length, 10)
   assert.ok(TARGETS.every((entry) => entry.name.startsWith("sebastian-websites-")))
   assert.ok(
-    TARGETS.every((entry) => entry.hostname === undefined),
+    TARGETS.filter((entry) => entry.assets !== true).every((entry) => entry.hostname === undefined),
     "no variant is active yet"
   )
   const brand = TARGETS.find((entry) => entry.name === "sebastian-websites-brand")
   assert.deepEqual(brand?.corsExtensions, ["css", "svg", "png"])
+})
+
+test("only assets enable Optimizer, with distinct variants and open image CORS", () => {
+  for (const entry of TARGETS) {
+    assert.equal(pullZoneSettings(entry).OptimizerEnabled, entry.assets === true)
+  }
+  const settings = pullZoneSettings(ASSET_TARGET)
+  for (const field of [
+    "OptimizerEnableManipulationEngine",
+    "OptimizerEnableWebP",
+    "EnableAvifVary",
+    "EnableWebpVary",
+    "EnableAccessControlOriginHeader",
+  ]) {
+    assert.equal(settings[field], true)
+  }
+  for (const field of [
+    "IgnoreQueryStrings",
+    "OptimizerAutomaticOptimizationEnabled",
+    "OptimizerEnableUpscaling",
+    "OptimizerMinifyCSS",
+    "OptimizerMinifyJavaScript",
+    "OptimizerForceClasses",
+  ]) {
+    assert.equal(settings[field], false)
+  }
+  assert.deepEqual(settings.AccessControlOriginHeaderExtensions, ASSET_TARGET.corsExtensions)
+  assert.equal(ASSET_TARGET.hostname, "assets.sebastian-software.com")
+  assert.deepEqual(buildableTargets("/missing-build-root"), [ASSET_TARGET])
+})
+
+test("an asset zone is provisioned without HTML rules or middleware and converges", async () => {
+  const assetTarget = { ...ASSET_TARGET, hostname: undefined }
+  const bunny = account({ provisioned: false, target: assetTarget })
+  await provision(bunny.api, assetTarget, silent)
+  assert.ok(bunny.calls.every((call) => !call.path.startsWith("/compute/")))
+  const rules = bunny.calls.filter((call) => call.path.endsWith("/edgerules/addOrUpdate"))
+  assert.equal(rules.length, 1)
+  const rule = rules[0].body
+  assert.ok(isJson(rule))
+  assert.equal(rule.Description, "websites: images are cached for a year")
+  assert.ok(Array.isArray(rule.Triggers))
+  const patterns = rule.Triggers.filter(isJson).flatMap((trigger) => {
+    assert.ok(Array.isArray(trigger.PatternMatches))
+    assert.ok(trigger.PatternMatches.length <= 5, "Bunny permits five patterns per trigger")
+    return trigger.PatternMatches.filter(
+      (pattern: unknown): pattern is string => typeof pattern === "string"
+    )
+  })
+  assert.deepEqual(
+    patterns,
+    ASSET_TARGET.corsExtensions.map((extension) => `*.${extension}*`)
+  )
+  bunny.calls.length = 0
+  await provision(bunny.api, assetTarget, silent)
+  assert.ok(bunny.calls.every((call) => call.method === "GET"))
+})
+
+/**
+ * Models storage persisting an original's checksum between publishes.
+ *
+ * @param bytes - The source content expected at upload time.
+ * @returns A storage request function and the number of uploads.
+ */
+function originalStorage(bytes: Uint8Array) {
+  let remoteChecksum: string | undefined
+  let uploads = 0
+  const request: typeof fetch = async (input, init) => {
+    if (init?.method === "PUT") {
+      assert.deepEqual(init.body, bytes, "publishing preserves the original bytes")
+      remoteChecksum = checksum(bytes)
+      uploads += 1
+      return new Response(null, { status: OK })
+    }
+    return Response.json(
+      String(input).endsWith("/shooting-2024/")
+        ? [{ Checksum: remoteChecksum, IsDirectory: false, ObjectName: "shoot-3.jpg" }]
+        : [{ IsDirectory: true, ObjectName: "shooting-2024" }]
+    )
+  }
+  return { request, uploads: () => uploads }
+}
+
+test("publishing original assets twice skips unchanged bytes on the second run", async () => {
+  const bunny = account({ provisioned: true, target: ASSET_TARGET })
+  const bytes = new TextEncoder().encode("original JPEG bytes")
+  const assets = [{ bytes, path: "shooting-2024/shoot-3.jpg" }]
+  const storage = originalStorage(bytes)
+  const options = {
+    api: bunny.api,
+    assets,
+    ids: { pullZoneId: 2, storageId: 1 },
+    log: silent,
+    request: storage.request,
+    target: ASSET_TARGET,
+  }
+  assert.deepEqual(await publish(options), { removed: 0, uploaded: 1 })
+  assert.deepEqual(await publish(options), { removed: 0, uploaded: 0 })
+  assert.equal(storage.uploads(), 1)
+})
+
+test("asset sources need no index, exclude private metadata, and reject empty collections", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "website-assets-"))
+  try {
+    await assert.rejects(loadAssets(directory), /refusing an empty publish/v)
+    await mkdir(join(directory, "shooting-2024"))
+    await mkdir(join(directory, ".private"))
+    await writeFile(join(directory, ".private", "permission.txt"), "private")
+    await writeFile(join(directory, ".DS_Store"), "metadata")
+    await writeFile(join(directory, "shooting-2024", "shoot-3.jpg"), "original")
+    const assets = await loadAssets(directory)
+    assert.deepEqual(
+      assets.map((asset) => asset.path),
+      ["shooting-2024/shoot-3.jpg"]
+    )
+    assert.equal(new TextDecoder().decode(assets[0].bytes), "original")
+  } finally {
+    await rm(directory, { force: true, recursive: true })
+  }
 })
 
 test("verification checks the home page, one route both ways, a missing path, and CORS assets", () => {

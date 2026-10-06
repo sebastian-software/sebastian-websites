@@ -4,8 +4,8 @@ import { t } from "@palamedes/core/macro"
 import { blocks, button, layout, Section, typography } from "@sebastian-websites/ui"
 import { getSiteOrigin } from "@sebastian-websites/web-core"
 
-import building from "~/assets/photos/shoot-26.jpg"
 import { CONTACT_EMAIL } from "~/lib/legal"
+import { buildingPhoto } from "~/lib/photos"
 import { variant } from "~/lib/site"
 
 import { Photo } from "./Photo"
@@ -38,9 +38,8 @@ export function Closing(): ReactElement {
         </div>
         <Photo
           alt={t`The two founders in front of the building`}
-          focus="center 76%"
           frame="landscape"
-          src={building}
+          image={buildingPhoto}
         />
       </div>
     </Section>

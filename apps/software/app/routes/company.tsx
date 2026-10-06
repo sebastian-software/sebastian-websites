@@ -4,10 +4,10 @@ import { t } from "@palamedes/core/macro"
 import { blocks, layout, Section, SectionHead, typography } from "@sebastian-websites/ui"
 import { getSiteOrigin } from "@sebastian-websites/web-core"
 
-import laptop from "~/assets/photos/shoot-19.jpg"
 import { Closing } from "~/components/Closing"
 import { Founders } from "~/components/Founders"
 import { Photo } from "~/components/Photo"
+import { laptopPhoto } from "~/lib/photos"
 import { variant } from "~/lib/site"
 
 import type { Route } from "./+types/company"
@@ -84,12 +84,7 @@ export default function Company(): ReactElement {
               {t`Sebastian Software GmbH is based in Mainz and registered at the local court of Mainz. The company has no investors and no plans for any: it is owned and run by the two founders.`}
             </p>
           </div>
-          <Photo
-            alt={t`The two founders at the laptop`}
-            focus="center 62%"
-            frame="landscape"
-            src={laptop}
-          />
+          <Photo alt={t`The two founders at the laptop`} frame="landscape" image={laptopPhoto} />
         </div>
         <Founders profileOrigin={consulting} />
       </Section>
