@@ -35,13 +35,14 @@ as `brand.sebastian-software.com` and serves the fonts from one CDN host.
   `oss-metrics` and requires no private hosting CLI or npm token.
 - GitHub Team is enabled, and the organization Actions secret `BUNNY_API_KEY` is available
   to all repositories. Font CI passes it to the scripts' `BUNNY_API_KEY` variable. This font
-  workflow does not use Limen; its GitHub Actions rollout remains pending the workflow merge.
+  workflow does not use Limen. Its GitHub Actions deployment passed with the central key,
+  including 12 tests and verification of all 29 public assets.
 - Font hosting is live: the authoritative Cloudflare CNAME points to Bunny, HTTPS is forced,
   and all 29 assets pass content, CORS, cache and missing-file 404 checks with fresh public
   DNS. Repeat provisioning reuses the configuration without writes.
 - Shared typography is merged in
   [sebastian-fonts#1](https://github.com/sebastian-software/sebastian-fonts/pull/1).
-  Direct Bunny deployment and the simplified workflow are ready for review in
+  Direct Bunny deployment and the simplified workflow are merged in
   [sebastian-fonts#2](https://github.com/sebastian-software/sebastian-fonts/pull/2).
 
 ### Legacy reference locations

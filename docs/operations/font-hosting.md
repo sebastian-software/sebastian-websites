@@ -26,8 +26,14 @@ public CNAME for certificate issuance.
 Live setup is verified: all 29 assets pass HTTPS, checksum, CORS, cache lifetime and
 missing-file 404 checks using fresh public DNS, and repeat Bunny provisioning needs no
 writes. GitHub Team and the organization secret are configured, and the secret is available
-to Fonts, Metrics, and the website monorepo. The workflow updates must be merged before
-GitHub Actions can deploy using `BUNNY_API_KEY`.
+to Fonts, Metrics, and the website monorepo. GitHub Actions deployment passed for both
+[Fonts](https://github.com/sebastian-software/sebastian-fonts/actions/runs/37437534848) and
+[Metrics](https://github.com/sebastian-software/oss-metrics/actions/runs/37437619790) using
+the central `BUNNY_API_KEY`. The font repository has no separate secret copy.
+
+Metrics also uses a DNS-only Cloudflare CNAME:
+`metrics.sebastian-software.com` → `sebastian-oss-metrics.b-cdn.net`. Its deployment verifies
+both the Bunny hostname and the public custom hostname.
 
 `node scripts/publish.mjs` uploads `public/`, preserves existing identical font binaries,
 rejects binary changes at immutable URLs, purges the CDN cache and enables HTTPS.
