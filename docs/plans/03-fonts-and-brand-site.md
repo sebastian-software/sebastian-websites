@@ -5,7 +5,8 @@
 - Priority: P2
 - Effort: M
 - Risk: MEDIUM (licence boundary for the fonts; external consumers of the brand package)
-- Depends on: 02
+- Depends on: 02 for site delivery; font hosting can proceed independently
+- State: in progress; typography contract and direct Bunny deployment prepared, live hosting verification pending
 - Planned at: f007192, 2026-10-06
 - Working state: clean
 
@@ -17,6 +18,34 @@ typefaces cannot live in it, and the brand package was private only because of t
 as `brand.sebastian-software.com` and serves the fonts from one CDN host.
 
 ## Current state
+
+- `apps/brand` already contains the reference page, public logos, icons, and CSS tokens;
+  its build output is `apps/brand/build/client`.
+- The private `sebastian-fonts` repository exists with all 26 font binaries, licences,
+  subset specification, and both font stylesheets. Its first deployment failed because
+  the former workflow had no npm/Bunny credentials available.
+- The font stylesheets now import `typography.css`: family variables, `.sebastian-sans`,
+  `.sebastian-serif`/`.sebastian-slab`, metric-adjusted fallback faces, and configurable
+  letter spacing. Sizes and line heights stay with the consuming sites.
+- `packages/ui` reads the remote family variables, and Software and Brand load the font
+  stylesheet. This is infrastructure work; the broader design phase remains deferred.
+- The private font repository owns `hosting.json` and its direct Bunny API scripts:
+  storage and pull zone, the font CNAME, open extension CORS, one-year immutable font
+  caching, one-hour CSS caching, uploads, HTTPS and live verification. This follows
+  `oss-metrics` and requires no private hosting CLI or npm token.
+- Font CI uses the repository Actions secret `BUNNY_API_KEY`, duplicating the organization
+  key used by the public website and Metrics repositories. GitHub Free remains the baseline;
+  rotation must update both copies. The repository secret is configured. This font workflow
+  does not use Limen; its GitHub Actions rollout remains pending the workflow merge.
+- Font hosting is live: the authoritative Cloudflare CNAME points to Bunny, HTTPS is forced,
+  and all 29 assets pass content, CORS, cache and missing-file 404 checks with fresh public
+  DNS. Repeat provisioning reuses the configuration without writes.
+- Shared typography is merged in
+  [sebastian-fonts#1](https://github.com/sebastian-software/sebastian-fonts/pull/1).
+  Direct Bunny deployment and the simplified workflow are ready for review in
+  [sebastian-fonts#2](https://github.com/sebastian-software/sebastian-fonts/pull/2).
+
+### Legacy reference locations
 
 - `sebastian-brand/fonts/`: woff2 files (Sans 100 to 900, Slab 300 to 700, each with italics),
   `fonts.css` (8 core faces), `fonts-all.css` (26 faces), `SUBSET-SPEC.md`, and the licence
@@ -41,8 +70,11 @@ In scope:
 
 - A private repository `sebastian-fonts` with the woff2 files, the licence texts, the subset
   spec, and the two CSS files, plus a workflow that uploads them to a Bunny storage zone.
-- A pull zone and host `fonts.sebastian-software.com` with `Access-Control-Allow-Origin: *`
-  and a long immutable cache; defined as configuration here per ADR-0009.
+- A pull zone and host `fonts.sebastian-software.com` with `Access-Control-Allow-Origin: *`,
+  immutable font caching and short-lived CSS caching; the deploying private repository owns
+  its configuration per ADR-0009.
+- Shared typography variables and low-specificity font classes in the private repository,
+  including the established fallback faces and configurable letter spacing.
 - `apps/brand`: tokens, logos, icons, and the reference page, English only, outside the
   bilingual variant list, published at `brand.sebastian-software.com` with open CORS for
   `tokens/*.css` and `*.svg`. The README corrections travel with the move.
@@ -56,11 +88,11 @@ Out of scope:
 
 ## Verification commands
 
-| Purpose    | Command                                                        | Expected result                                                            |
-| ---------- | -------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Font host  | `curl -sI https://fonts.sebastian-software.com/sans/400.woff2` | 200, `access-control-allow-origin: *`, `cache-control` with a long max-age |
-| Brand site | `pnpm --filter @sebastian-websites/brand build`                | `dist/brand/index.html` and `dist/brand/tokens/software.css` exist         |
-| Shell      | `pnpm --filter @sebastian-websites/ui test`                    | fixtures pass with font URLs pointing at the host                          |
+| Purpose    | Command                                                                             | Expected result                                                                              |
+| ---------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Font host  | `curl -sI https://fonts.sebastian-software.com/sans-serif/sans-serif-Regular.woff2` | 200, `access-control-allow-origin: *`, `cache-control` with a long max-age                   |
+| Brand site | `pnpm --filter @sebastian-websites/brand build`                                     | `apps/brand/build/client/index.html` and `apps/brand/build/client/tokens/software.css` exist |
+| Shell      | `pnpm --filter @sebastian-websites/ui test`                                         | fixtures pass with font URLs pointing at the host                                            |
 
 ## Steps
 

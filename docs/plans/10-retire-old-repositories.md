@@ -39,7 +39,7 @@ In scope, each after at least 30 days of the successor in production without inc
 - AWS: `sst remove` for both stages, deletion of leftover buckets and the DynamoDB table,
   removal of the Cloudflare DNS records that pointed at AWS, rotation or deletion of the AWS
   and Cloudflare credentials, closure of the Sanity project after plan 05 confirmed the
-  export.
+  capture.
 - Bunny: removal of the old Open Source target and edge script, the legacy Consulting target
   and preview resources, and any pull zone not in the variant list; the PDF-name rules only
   after 2027-06-13.
@@ -68,8 +68,8 @@ Out of scope:
 
 ### 1. Confirm the successors
 
-For each old site, confirm 30 days in production, the redirect tests green, and the export of
-plan 05 stored.
+For each old site, confirm 30 days in production, the redirect tests green, and the readable
+capture of plan 05 stored.
 
 ### 2. Remove the hot-link dependencies
 
@@ -101,10 +101,10 @@ the npm package.
 
 - Stop if any successor had an incident in its observation period; retire nothing until it is
   resolved.
-- Stop if the Sanity export of plan 05 cannot be located and read.
+- Stop if the content capture of plan 05 cannot be located and read.
 - Stop before touching the PDF-name edge rules before 2027-06-13.
 
 ## Maintenance and review focus
 
 Everything here is irreversible. Reviewers should insist on the hot-link search output and the
-export location being attached to the pull request that archives a repository.
+capture location being attached to the pull request that archives a repository.

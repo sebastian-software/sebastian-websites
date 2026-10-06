@@ -12,10 +12,19 @@ for each variant it affects. There are no releases, tags, or version numbers for
 recovery only moves forward: a problem is fixed by a new commit on `main`, never by publishing
 an earlier state again.
 
-Publishing goes through our private hosting CLI (`@sebastian-gmbh/hosting`) to Bunny, from a
-self-hosted CI runner. The repository is the single source of truth for hosting configuration:
-edge rules, redirects, and cache lifetimes are defined here and applied to Bunny from here,
-never maintained only in the dashboard.
+Publishing uses small repository-owned scripts that call the Bunny API directly, following
+the existing `oss-metrics` deployment. CI reads `BUNNY_API_KEY` from GitHub Actions secrets.
+There is no private hosting package, npm token, or required Limen integration for deployment.
+GitHub Free remains the baseline. The public website monorepo and Metrics share an
+organization secret, available to all public repositories in the organization; the private
+font repository stores a copy of the same Bunny key as a
+repository secret, because organization secrets are unavailable to private repositories
+on this plan. All workflows read `secrets.BUNNY_API_KEY`; key rotation must update both copies.
+
+The deploying repository is the source of truth for its hosting configuration: edge rules,
+redirects, and cache lifetimes are defined and applied there, never maintained only in the
+dashboard. Website configuration lives in this monorepo; the private font repository owns
+the font CDN configuration and deployment.
 
 ## Considered options
 
@@ -23,10 +32,13 @@ never maintained only in the dashboard.
   need versions, and the tag adds a step without adding safety.
 - **Deploying an earlier revision to recover.** Rejected: it hides the fix from `main` and
   makes the live state differ from the repository.
+- **Requiring the private hosting CLI.** Rejected: the direct Metrics scripts already show
+  the necessary API operations. Shared helpers can be extracted once deployment scripts
+  demonstrate repeated code with a clear common contract.
 
 ## Consequences
 
 - Every production state corresponds to exactly one commit on `main`.
 - Each variant has its own hosting target and can be published or rolled forward on its own.
-- The hosting CLI must be able to apply the configuration kept here; if it cannot, that
-  capability is added to it rather than worked around in the dashboard.
+- Deployment scripts apply the declared configuration, preserve unrelated resources, and
+  verify both API readback and live delivery.

@@ -6,6 +6,7 @@
 - Effort: L
 - Risk: MEDIUM (taste decisions; the brand bar must work on four sites at once)
 - Depends on: none
+- State: deferred while content migration and hosting infrastructure proceed
 - Planned at: f007192, 2026-10-06
 - Working state: clean
 
@@ -104,3 +105,16 @@ owners; iterate until approved. Commit the approved drafts under `design/comps/`
 The drafts become the reference for plan 02. Reviewers should watch for a system that only
 works for the site it was drafted on first, and for accent sections that drift into a second,
 dark theme.
+
+### Existing brand reference page findings
+
+The 2026-10-06 font-host integration changed the stylesheet link and body font family in
+`apps/brand/index.html`. The sizes below are unchanged from the committed reference page.
+They remain open for the design phase; no detector ignores were added.
+
+- `Name`, `Token`, `Alias`, and `OKLCH` table headers inherit `0.625rem` (10px at the default
+  root size) from `.color-table th`. Each falls below the detector's 11px functional-text
+  floor. Raise the shared header size when refining the reference page.
+- The hierarchy detector compares 11px `h2`/`h3` with 13px content text and reports a largest
+  step of 1.18. Review this against the reference page's visual asset hierarchy before
+  deciding whether section labels need a stronger size step.

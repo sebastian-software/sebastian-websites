@@ -18,7 +18,7 @@ may enter the repository:
   described only as such.
 - No internal analyses. Research that counts customers or weighs internal contradictions stays
   outside; the concept documents here carry only confirmed statements.
-- No secrets. Tokens for the private hosting CLI and for Bunny live in CI, never in files.
+- No secrets. The Bunny API key lives in GitHub Actions secrets and is never committed.
 
 ## Considered options
 
@@ -31,4 +31,4 @@ may enter the repository:
 
 - Reviews check the rules above, and the concept documents are written to be read by
   outsiders.
-- The private hosting CLI stays private; the repository only calls it.
+- Deployment scripts call Bunny directly and need no private hosting npm package.

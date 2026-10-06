@@ -29,7 +29,7 @@ plan 10 without an export.
 
 The old Software site keeps every text, project, and testimonial in Sanity; nothing is in
 Git ([ADR-0004](../adr/0004-content-as-files-no-cms.md)). Before the site is rebuilt and the
-AWS stack removed, the content must be exported, and before anything enters this public
+AWS stack removed, the public content must be captured, and before anything enters this public
 repository it must be sorted against [ADR-0012](../adr/0012-public-repository.md).
 
 ## Current state
@@ -52,8 +52,8 @@ repository it must be sorted against [ADR-0012](../adr/0012-public-repository.md
 
 In scope:
 
-- A full dataset export (`sanity dataset export`) including assets, stored in a private
-  location outside this repository.
+- A capture of the public live-site content, stored in a private location outside this
+  repository. This replaced the originally planned dataset export.
 - A sorted inventory: which page copy, projects, testimonials, and logos are (a) already
   owned by the Consulting site, (b) worth carrying into the new Software or Consulting site,
   (c) not cleared for reuse.
@@ -66,17 +66,19 @@ Out of scope:
 
 ## Verification commands
 
-| Purpose | Command                                                                   | Expected result                                     |
-| ------- | ------------------------------------------------------------------------- | --------------------------------------------------- |
-| Export  | `npx sanity dataset export <dataset> export.tar.gz` (in `studio/`)        | archive with `data.ndjson` and `images/`            |
-| Count   | `tar -xOf export.tar.gz data.ndjson \| jq -r '._type' \| sort \| uniq -c` | counts per type, including `testimonial` and `page` |
+| Purpose       | Command                                                              | Expected result                                    |
+| ------------- | -------------------------------------------------------------------- | -------------------------------------------------- |
+| Capture       | `test -r ~/Workspace/sebastian-software-legacy-content/inventory.md` | readable sorted inventory                          |
+| Pages         | `rg --files ~/Workspace/sebastian-software-legacy-content/pages`     | 12 page files, six per language                    |
+| Reusable copy | `rg --files apps/software/content/legacy`                            | four company copy files, home and mission in EN/DE |
 
 ## Steps
 
-### 1. Export
+### 1. Capture
 
-Run the export with the studio's configured project and dataset. Store the archive privately
-(not in any public repository) and record where.
+Completed from the public live sites, with original source URLs and capture timestamps.
+Keep the full archive outside public repositories. The home and mission company copy is
+also preserved under `apps/software/content/legacy/` for plan 06.
 
 ### 2. Inventory and sort
 
@@ -91,14 +93,14 @@ for it. Everything without a record stays out.
 
 ## Done criteria
 
-- [ ] The export exists outside Git and is readable.
-- [ ] Every content type is sorted into owned, reusable, or not cleared.
+- [x] The capture exists outside Git and is readable.
+- [x] Every content type is sorted into owned, reusable, or not cleared.
 - [ ] No portrait or testimonial is scheduled for reuse without a recorded permission.
 
 ## Stop conditions
 
-- Stop if the dataset is not accessible with the owners' Sanity account; nothing else in
-  this plan can proceed.
+- Stop before retiring the old stack if the captured content or inventory cannot be located
+  and read. Testimonials and portraits remain excluded until their clearance is recorded.
 
 ## Maintenance and review focus
 

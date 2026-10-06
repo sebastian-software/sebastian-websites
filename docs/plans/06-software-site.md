@@ -34,7 +34,7 @@ without the services, profiles, and booking prompts that now belong to Consultin
   ([overall concept, Information architecture](../concept/overall-concept.md#information-architecture)).
 - Commercial products: Terminaro (`terminaro.eu`), Palamedes+ (not yet public), a third
   product in preparation. Open-source products: Palamedes, Dalo, Ardo, and the families.
-- Source material: the Sanity export sorted in plan 05.
+- Source material: the live-site capture sorted in plan 05; reusable home and mission copy is in `apps/software/content/legacy/`.
 
 ## Scope
 
@@ -47,7 +47,7 @@ In scope:
 - Redirects: the alias domains, `/consulting` to the Consulting site in the matching
   language, `/mission` to the company page, `/privacy-policy` to `/privacy`, `/team` kept,
   `/testimonials` and `/testimonial/*` to 410 until the Consulting references exist.
-- Bunny targets `software-de` and `software-en`, the canonical domains attached, TLS, and the
+- Bunny targets `websites-software-de` and `websites-software-en`, the canonical domains attached, TLS, and the
   DNS move for the two canonical domains and the aliases.
 
 Out of scope:
@@ -59,25 +59,25 @@ Out of scope:
 
 ## Verification commands
 
-| Purpose             | Command                                                     | Expected result                                                          |
-| ------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------ |
-| Full check          | `pnpm agent:check`                                          | exit 0                                                                   |
-| Variants            | `pnpm --filter @sebastian-websites/software build:variants` | `dist/software-de` and `dist/software-en` with matching routes           |
-| Completeness        | the translation-completeness check from plan 02             | legal, navigation, and primary call to action complete in both languages |
-| Redirects           | the table-driven redirect tests                             | every rule of ADR-0010 for Software passes                               |
-| Smoke after cutover | `curl -sI https://sebastian-software.de/mission`            | 301 to the company page                                                  |
+| Purpose             | Command                                            | Expected result                                                                                            |
+| ------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Full check          | `pnpm agent:check`                                 | exit 0                                                                                                     |
+| Variants            | `pnpm --filter @sebastian-websites/software build` | `apps/software/build/software-de/client` and `apps/software/build/software-en/client` with matching routes |
+| Completeness        | the translation-completeness check from plan 02    | legal, navigation, and primary call to action complete in both languages                                   |
+| Redirects           | the table-driven redirect tests                    | every rule of ADR-0010 for Software passes                                                                 |
+| Smoke after cutover | `curl -sI https://sebastian-software.de/mission`   | 301 to the company page                                                                                    |
 
 ## Steps
 
 ### 1. Write the content
 
-Draft the English copy from the positioning basis and the sorted export, then the German
+Draft the English copy from the positioning basis and the sorted capture, then the German
 translation through the Palamedes catalog. Settle the open points for this site with the
 owners first: whether recruiting is an audience, and the company story.
 
 ### 2. Build the app
 
-Implement the pages on the shell from plan 02 with the drafts from plan 01. Product pages
+Implement the pages on the shell from plan 02 with a minimal semantic structure while plan 01 is deferred; apply its visual drafts later. Product pages
 carry the positioning and the entry point into the product's own site.
 
 ### 3. Redirects and hosting

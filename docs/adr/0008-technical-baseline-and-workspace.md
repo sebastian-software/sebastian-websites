@@ -29,7 +29,7 @@ is no custom orchestration script.
 
 ## Consequences
 
-- Node 26 is not yet an LTS release at the time of writing; CI, the hosting CLI, and Playwright
+- Node 26 is not yet an LTS release at the time of writing; CI, deployment scripts, and Playwright
   must be verified against it.
 - Whether the icon pipeline runs through our own effective-icon depends on its support for a
   custom Streamline pack; that is decided during implementation.
