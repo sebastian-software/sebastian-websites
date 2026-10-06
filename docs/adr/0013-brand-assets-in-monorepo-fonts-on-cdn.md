@@ -26,8 +26,10 @@ subsets together preserve the Unicode coverage of each licensed original; CSS lo
 rare characters only when needed. The reproducible preparation tool and delivery
 contract are documented in [font hosting](../operations/font-hosting.md).
 
-This supersedes the earlier separate font-host deployment. The old host remains available
-for existing consumers during migration; no licensed binary is copied into the public tree.
+This supersedes the earlier separate font-host deployment. After the consumers migrated,
+the old DNS record and pull zone were removed and the private publishing repository was
+archived. The old storage remains a private backup; no licensed binary is copied into
+the public tree.
 
 ## Considered options
 

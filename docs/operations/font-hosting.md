@@ -70,12 +70,12 @@ CSS changes are reviewed in this repository and published through the normal web
 with open CSS CORS and a five-minute browser lifetime. Site-specific sizes and line heights
 remain with each site.
 
-Until canonical domains are activated, consumers load
+Until the brand's canonical domain is activated, consumers load
 `https://sebastian-websites-brand.b-cdn.net/fonts.css` (or `/fonts-all.css`) and the CSS
-references `https://sebastian-websites-assets.b-cdn.net/fonts/...`.
-The asset hostname's Cloudflare CNAME, certificate, and cutover are described in
-[website hosting](website-hosting.md). Update both font stylesheets' source URLs when
-switching the asset host; update `FONT_STYLESHEET` when the brand hostname becomes active.
+references `https://assets.sebastian-software.com/fonts/...`.
+The asset hostname's Cloudflare CNAME, certificate, and forced HTTPS are active; see
+[website hosting](website-hosting.md). Update `FONT_STYLESHEET` when the brand hostname
+becomes active.
 
 ## Binary delivery and updates
 
@@ -93,18 +93,16 @@ The existing organization `BUNNY_API_KEY` is sufficient for infrastructure provi
 
 ## Retiring the previous font host
 
-The separate `sebastian-fonts` repository and `fonts-sebastian-software` pull zone
-are no longer needed once the shared-host migration is deployed. The Software and
-Brand applications and the design comps use the versioned brand CSS above.
-Licensed originals, prepared files, and private license records remain backed up
-outside this public repository.
+The previous font host was retired on October 6, 2026, after the shared-host migration
+was deployed and its public CSS and font URLs were verified. The authoritative
+`fonts.sebastian-software.com` DNS record and the `fonts-sebastian-software` pull zone
+were removed. The private `sebastian-fonts` repository is archived, its publishing
+workflow is disabled, and its Git history is backed up locally.
 
-Before removing the old pull zone, deploy the migration and verify the new public
-CSS and its font URLs. Remove the authoritative DNS record for
-`fonts.sebastian-software.com`, then delete the obsolete pull zone. Disable the old
-repository's publishing workflow and archive or delete the private repository after
-preserving its Git history locally. The old storage zone can remain as a private
-backup without a connected pull zone; it is not part of the new deployment.
+The Software and Brand applications and the design comps use the versioned brand CSS
+above. Licensed originals, prepared files, and private license records remain backed
+up outside this public repository. The old storage zone remains a private backup
+without a connected pull zone; it is not part of the new deployment.
 
 ## Verification and immutable file names
 

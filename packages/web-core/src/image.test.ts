@@ -8,7 +8,7 @@ describe("image", () => {
   it("crops the original before resizing and reports matching responsive dimensions", () => {
     const photo = image(source, { aspectRatio: [4, 3], focus: [0.5, 0.62], width: 800 })
     const url = new URL(photo.src)
-    expect(url.hostname).toBe("sebastian-websites-assets.b-cdn.net")
+    expect(url.hostname).toBe("assets.sebastian-software.com")
     expect(url.pathname).toBe("/shooting-2024/shoot-19.jpg")
     expect(url.searchParams.get("focus_crop")).toBe("3961,2970,0.5,0.62")
     expect(url.searchParams.get("aspect_ratio")).toBe("4:3")

@@ -16,7 +16,7 @@ LATIN_BLOCKS = ((0, 0x24F), (0x300, 0x36F), (0x1E00, 0x1EFF),
 WEIGHTS = {"Thin": 100, "Light": 300, "Book": 350, "Regular": 400,
            "Medium": 500, "SemiBold": 600, "Bold": 700, "xBold": 800,
            "Heavy": 850, "Black": 900}
-BASE_URL = "https://sebastian-websites-assets.b-cdn.net/fonts"
+BASE_URL = "https://assets.sebastian-software.com/fonts"
 
 
 def unicode_ranges(points):
