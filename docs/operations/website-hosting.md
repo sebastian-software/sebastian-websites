@@ -12,6 +12,13 @@ storage and pull zone pair per variant, named like its `deploymentTarget`
 on its origin host `https://<name>.b-cdn.net/`. A variant's canonical domain is attached only
 once it is `productionActive`; until then the origin host is the place to look.
 
+The brand reference site is published at `https://brand.sebastian-software.com/`.
+Cloudflare has a DNS-only CNAME from `brand.sebastian-software.com` to
+`sebastian-websites-brand.b-cdn.net`. Bunny serves it with a free managed certificate
+and redirects HTTP to HTTPS. The brand target declares this hostname so provisioning
+maintains its certificate and HTTPS settings. The existing logo, token, and font CSS
+paths are available under the canonical domain.
+
 ## What a deployment does
 
 For website targets:
@@ -20,7 +27,8 @@ For website targets:
    pull zone (EU and US delivery, cookies off, query strings ignored), applies the two cache
    rules (hashed `assets/` immutable for a year, everything else purged on publish and kept
    five minutes in browsers), publishes the path-resolving middleware and links it, and
-   attaches the canonical hostname with a free certificate when the variant is active.
+   attaches each declared canonical hostname with a free certificate. Site variants
+   declare their hostname only when active; the brand site is already active.
 2. `publish.ts`: uploads new and changed files by checksum, deletes files the build no longer
    contains, and purges the pull zone.
 3. `verify.ts`: fetches the home page, one prerendered route with and without a trailing

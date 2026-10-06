@@ -272,11 +272,14 @@ test("targets cover every variant, the brand site, and the build-free asset zone
   assert.equal(TARGETS.length, 10)
   assert.ok(TARGETS.every((entry) => entry.name.startsWith("sebastian-websites-")))
   assert.ok(
-    TARGETS.filter((entry) => entry.assets !== true).every((entry) => entry.hostname === undefined),
+    TARGETS.filter((entry) => entry.assets !== true)
+      .filter((entry) => entry.name !== "sebastian-websites-brand")
+      .every((entry) => entry.hostname === undefined),
     "no variant is active yet"
   )
   const brand = TARGETS.find((entry) => entry.name === "sebastian-websites-brand")
   assert.deepEqual(brand?.corsExtensions, ["css", "svg", "png"])
+  assert.equal(brand.hostname, "brand.sebastian-software.com")
 })
 
 test("only assets enable Optimizer, with distinct variants and open image and font CORS", () => {
