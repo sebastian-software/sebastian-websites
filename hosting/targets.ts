@@ -10,7 +10,7 @@ export type Target = {
   readonly buildDirectory?: string
   /** File extensions served with open CORS, for assets other sites embed. */
   readonly corsExtensions: readonly string[]
-  /** The canonical hostname to attach, once the variant is active in production. */
+  /** The canonical hostname to attach and secure during provisioning. */
   readonly hostname?: string
   /** The zone name; also the `<name>.b-cdn.net` origin host, unique across Bunny. */
   readonly name: string
@@ -19,6 +19,7 @@ export type Target = {
 const BRAND_TARGET: Target = {
   buildDirectory: "apps/brand/build/client",
   corsExtensions: ["css", "svg", "png"],
+  hostname: "brand.sebastian-software.com",
   name: "sebastian-websites-brand",
 }
 
