@@ -1,6 +1,6 @@
 """Prepare licensed local Glober/Elena sources; never commit generated binaries.
 
-Requires fonttools[woff]==4.66.1. See docs/operations/font-hosting.md.
+Requires Python 3.11+ and fonttools[woff]==4.66.1. See docs/operations/font-hosting.md.
 """
 import argparse
 import hashlib

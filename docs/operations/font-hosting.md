@@ -8,7 +8,8 @@ in these public folders. Local sources and correspondence stay outside this repo
 ## Subsetting from licensed originals
 
 `scripts/prepare-fonts.py` reads the 18 licensed Glober OTF faces and the 11 original
-Elena WOFF2 faces (including three Elena Basic faces). It generates a Latin subset and
+Elena WOFF2 faces (including three Elena Basic faces). Use Python 3.11 or newer.
+It generates a Latin subset and
 an extended subset for every face, plus both versioned stylesheets. Install
 the pinned dependencies in a local Python environment, then run:
 
