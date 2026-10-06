@@ -22,7 +22,7 @@ families their place and actively promotes Consulting.
   only, routes `/`, `/imprint`, `/privacy`. Projects are hard-coded in `app/data/projects.ts`
   (16 projects in five categories); star badges go through a Bunny edge proxy
   (`functions/bunnyMiddleware.ts`, `/ext/shields/*`).
-- Hosting: Bunny target `opensource-sebastian-software` via the hosting CLI
+- Hosting: Bunny target `opensource-sebastian-software` via repository-owned Bunny API scripts
   (`.github/workflows/deploy.yml`). The header still links to `oss.sebastian-software.de`,
   which does not exist yet.
 - The metrics service lists about 26 repositories tagged `oss-project` (plan 04 adds status).
@@ -91,8 +91,8 @@ only when it is retired in plan 10.
 
 ## Stop conditions
 
-- Stop if the metrics service does not yet carry `archived` and `pushedAt` (plan 04); status
-  cannot be derived without them.
+- Stop if the metrics service does not yet carry `pushedAt` (plan 04); activity cannot be
+  shown without it.
 - Stop if the Effective family would be shown with repositories the owners have not
   maintained yet; show the maintained ones only.
 

@@ -1,4 +1,4 @@
-# Extend the metrics service with a skills section and repository status
+# Extend the metrics service with a skills section and last-push dates
 
 ## Status
 
@@ -13,8 +13,8 @@
 
 [ADR-0005](../adr/0005-curated-lists-live-numbers.md) makes the metrics service the only
 runtime data source of the Open Source and Skills sites. It already serves stars, releases,
-and package numbers; it knows nothing about skills, and it omits archived repositories, so a
-site cannot tell "archived" from "not listed".
+and package numbers; it knows nothing about skills, and it says nothing about how alive a
+project is.
 
 ## Current state
 
@@ -34,10 +34,10 @@ In scope:
 - A `skills` section: per skill its name, reference count, and last change; the number of
   instruction packs; read from the skills repository's `main` through the GitHub API on the
   same refresh cycle.
-- Repository status: include archived `oss-project` repositories with an `archived: true`
-  flag, and carry `pushedAt` for every repository, so a site can derive "active" and
-  "archived" without a hand-maintained maturity field.
-- A schema version bump and a README update.
+- `pushedAt` for every repository, so a site can show activity without a hand-maintained
+  maturity field. Archived repositories stay out, like repositories without the topic: a site
+  that still lists one gets no live numbers and notices through its nightly check.
+- A README update; the additions are backward compatible, so the schema stays 1.
 
 Out of scope:
 
@@ -46,10 +46,10 @@ Out of scope:
 
 ## Verification commands
 
-| Purpose           | Command                                                                                                                         | Expected result                 |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| Live schema       | `curl -s https://metrics.sebastian-software.com/v1/metrics.json \| jq '.schema, (.skills \| length), .github.ferroni.archived'` | new schema number, `6`, `false` |
-| Repository checks | the repository's own test and lint commands                                                                                     | exit 0                          |
+| Purpose           | Command                                                                                                                                | Expected result       |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| Live schema       | `curl -s https://metrics.sebastian-software.com/v1/metrics.json \| jq '.schema, (.skills.skills \| length), .github.ferroni.pushedAt'` | `1`, `6`, an ISO date |
+| Repository checks | the repository's own test and lint commands                                                                                            | exit 0                |
 
 ## Steps
 
@@ -58,20 +58,19 @@ Out of scope:
 Read `skills/*/SKILL.md` and `skills/*/references/*.md` through the GitHub contents or tree
 API, count, and emit per skill. Count `instructions/*.md` for the packs.
 
-### 2. Add status fields
+### 2. Add the last push
 
-Include archived repositories with the topic, add `archived` and `pushedAt`, and keep the
-existing fields unchanged.
+Add `pushedAt` to every repository and keep the existing fields unchanged.
 
-### 3. Bump the schema and document
+### 3. Document
 
-Raise `schema`, document both additions in the README, and deploy.
+Describe both additions in the README and deploy.
 
 ## Done criteria
 
 - [ ] The live document carries `skills` with six entries whose reference counts match the
       repository.
-- [ ] Every GitHub entry carries `archived` and `pushedAt`.
+- [ ] Every GitHub entry carries `pushedAt`.
 - [ ] Existing consumers (the old Open Source site's proxy is independent of this) are
       unaffected.
 

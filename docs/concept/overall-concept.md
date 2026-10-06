@@ -109,7 +109,8 @@ oss.sebastian-software.com      one long page with anchors: Highlights · Famili
 ├─ Ferramenta: family block, leading to ferramenta.dev
 ├─ Effective: family block with libraries and skills, leading to the Skills site
 ├─ All projects by category: name, one-liner, ecosystem, live stars and version, link to
-│    site or repository; status (active, archived) derived from the metrics service
+│    site or repository; activity derived from the metrics service, and a project the
+│    service no longer lists is retired from the page
 ├─ Work with us: Consulting
 └─ Legal
 
