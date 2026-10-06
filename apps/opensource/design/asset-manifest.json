@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-07",
+  "path_base": "App directory",
+  "assets": [
+    {
+      "file": "app/assets/illustrations/palamedes-catalogs.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "975662c57204b41748457898d5d6ed3fc300ff74cbe055a48237551fd6988ab1",
+      "title": "Palamedes \u2014 language catalogs",
+      "origin": "Built-in ImageGen reconstruction",
+      "transparent": true
+    },
+    {
+      "file": "app/assets/illustrations/ferramenta-documents.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "b75ed9a9803eddabd5fe7209e67718294e6d582197fc851511d3e84bbbfe82f1",
+      "title": "Ferramenta \u2014 documents and stamp",
+      "origin": "Built-in ImageGen reconstruction",
+      "transparent": true
+    },
+    {
+      "file": "app/assets/illustrations/dalo-agent-setup.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "8ca882785bc4a3c4adc0f2a694a878b874ec43983872382b249d1eece4b0e2f0",
+      "title": "Dalo \u2014 shared agent setup",
+      "origin": "Built-in ImageGen reconstruction",
+      "transparent": true
+    },
+    {
+      "file": "app/assets/illustrations/ardo-documentation-book.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "144e1996629928db77499eae2b9c68fd39292ec1b390f6a2c656a19c661c471c",
+      "title": "Ardo \u2014 open documentation book",
+      "origin": "Built-in ImageGen reconstruction",
+      "transparent": true
+    },
+    {
+      "file": "app/assets/illustrations/consulting-mountain-route.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "fc318a33c3d5217accedea7ae80dd9161dd974e086ba186956215e83fcf4d425",
+      "title": "Consulting bridge \u2014 illustrated route",
+      "origin": "Built-in ImageGen reconstruction",
+      "transparent": true
+    }
+  ],
+  "concepts": [
+    {
+      "file": "design/homepage-featured-stories.png",
+      "width": 724,
+      "height": 2172,
+      "sha256": "f35725652b926d70de70c2c242e4d1a33c3d213eb3957251397a932f8af8ec3e"
+    },
+    {
+      "file": "design/homepage-inline-projects.png",
+      "width": 993,
+      "height": 1584,
+      "sha256": "c1cea97c1f022ede87d9c7eccef872256ff67bb01ef55d0b4711d7e9e6c69993"
+    }
+  ]
+}

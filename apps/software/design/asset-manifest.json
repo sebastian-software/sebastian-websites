@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-07",
+  "path_base": "App directory",
+  "assets": [
+    {
+      "file": "app/assets/illustrations/terminaro-calendar.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "1573e60e0f5ed3aca9572d5c35291dd9bb93ccaf858d1b920daec088b7e4ca6a",
+      "title": "Terminaro \u2014 appointment calendar",
+      "origin": "Built-in ImageGen reconstruction",
+      "transparent": true
+    },
+    {
+      "file": "app/assets/illustrations/palamedes-plus-books.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "8b27bec6818e324b104d060b02a607302bfb285a22b036d3f31ea2a48b2c7f4a",
+      "title": "Palamedes+ \u2014 translation books",
+      "origin": "Built-in ImageGen reconstruction",
+      "transparent": true
+    },
+    {
+      "file": "app/assets/illustrations/vorort-storefront.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "531037736e08c62fa048fe51aff4613455b4dcc0b41d9e2b2407cc559934293c",
+      "title": "VorOrt \u2014 local storefront",
+      "origin": "Built-in ImageGen reconstruction",
+      "transparent": true
+    },
+    {
+      "file": "app/assets/illustrations/mainz-heidelberg-region.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "3db38b893736225fb0938ab0a5def9a5163c12343a4b19d1f63605647b0adbc9",
+      "title": "Mainz and Heidelberg \u2014 shared region",
+      "origin": "Built-in ImageGen reconstruction",
+      "transparent": true
+    }
+  ],
+  "concepts": [
+    {
+      "file": "design/homepage.png",
+      "width": 724,
+      "height": 2172,
+      "sha256": "1085f2559e13c2820e52c535b6b14aea01a5b10b210c6cd402d44f50628487a7"
+    }
+  ]
+}

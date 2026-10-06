@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-07",
+  "path_base": "App directory",
+  "assets": [
+    {
+      "file": "app/assets/photography/consulting-ridge-path.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "00f630efd104fed8ebdaa1f78beba8ea366b4f470bb016e376e602391040f5fe",
+      "title": "Consulting \u2014 path to an overlook",
+      "origin": "Built-in ImageGen reconstruction",
+      "transparent": false
+    },
+    {
+      "file": "app/assets/photography/founder-sebastian-werner.jpg",
+      "width": 3907,
+      "height": 5861,
+      "sha256": "1c0ba1dff8008e0e71151ad8f91ee9ef0b31509445e30daf7f49a7a3b30d99e1",
+      "title": "Sebastian Werner",
+      "origin": "Unchanged original 2024 founder photograph",
+      "original_source_name": "shoot-3.jpg",
+      "transparent": false
+    },
+    {
+      "file": "app/assets/photography/founder-sebastian-fastner.jpg",
+      "width": 3927,
+      "height": 5890,
+      "sha256": "65198028f28753e436ee217ae782349bacfae59cb54b0eae2b6e1dd8510db512",
+      "title": "Sebastian Fastner",
+      "origin": "Unchanged original 2024 founder photograph",
+      "original_source_name": "shoot-4.jpg",
+      "transparent": false
+    }
+  ],
+  "concepts": [
+    {
+      "file": "design/homepage.png",
+      "width": 725,
+      "height": 2167,
+      "sha256": "82a63b086aac6218fffecf62a5026d56f8a90bc714b918e6b2cbc7860c8e45a1"
+    }
+  ]
+}

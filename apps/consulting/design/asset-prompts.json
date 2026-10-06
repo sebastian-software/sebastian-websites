@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-07",
+  "mode": "built-in ImageGen",
+  "path_base": "This design directory",
+  "note": "These are the exact reconstruction prompts. Native output dimensions are recorded in asset-manifest.json; the tool returned smaller dimensions than requested in the prompts.",
+  "assets": [
+    {
+      "id": "consulting-ridge-path",
+      "input": "homepage.png",
+      "output": "../app/assets/photography/consulting-ridge-path.png",
+      "transparent_background": false,
+      "prompt": "Use case: precise-object-edit.\nAsset type: standalone high-resolution landscape photograph for a website section.\nInput image 1: EDIT TARGET, approved Consulting homepage.\nPrimary request: extract and faithfully reconstruct ONLY the closing landscape photograph on the LOWER RIGHT, around 75\u201390% down the page. A visible narrow rocky footpath winds from the lower foreground along a mountain ridge to a cairn at a sunlit overlook. Layered mountains recede into rosy evening haze; low sun at upper right, warm sky, muted violet-gray rock and vegetation.\nKeep the exact scene character, trail leading direction, near foreground rocks, cairn, pink sunset and distant layers. Natural believable photography with detailed rock and grass texture. Reconstruct the landscape slightly wider as a useful standalone 3:2 horizontal photograph, targeting the highest available native resolution around 3072 by 2048 pixels. The path and destination remain fully visible. No transparent background. No webpage crop edges, typography, logos, borders, paper texture, new people or invented structures."
+    }
+  ]
+}
