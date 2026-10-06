@@ -238,3 +238,73 @@ body.b { background: var(--paper); }
 .b .final .target { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--vivid); font-weight: 600; margin-bottom: 20px; }
 .b .final .target i { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--vivid); position: relative; display: inline-block; }
 .b .final .target i::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--vivid); }
+
+/* ---- Round 4: hairlines instead of boxes, more text, tight photos ---- */
+.r4 .hero .mark { display: none; }
+.r4 .hero .container { grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center; }
+.r4 .hero .photo { aspect-ratio: 1 / 1; max-height: none; }
+.r4 .hero .lead { margin: 28px 0 18px; }
+.r4 .hero .more { margin: 0 0 36px; font-size: 17px; line-height: 1.6; max-width: 60ch; color: var(--ink); }
+.r4 .sec { padding: 104px 0 0; }
+.r4 .sec-head { display: grid; grid-template-columns: 1fr 1.6fr; gap: 64px; align-items: end; padding-bottom: 40px; }
+.r4 .sec-head h2 { margin-top: 14px; }
+.r4 .sec-head .intro { font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 62ch; }
+.r4 .cols3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; border-top: 1px solid var(--line); padding-top: 36px; }
+.r4 .cols3 h3 { font-size: 20px; font-weight: 500; margin-bottom: 12px; }
+.r4 .cols3 p { font-size: 16px; line-height: 1.6; color: var(--muted); }
+.r4 .cols3 .btn-ghost { margin-top: 14px; font-size: 15px; }
+.r4 .cols3.after { margin-top: 56px; }
+.r4 .group-label { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--vivid); font-weight: 600; margin: 40px 0 16px; }
+.r4 .plist { border-top: 1px solid var(--line); }
+.r4 .prow { display: grid; grid-template-columns: 1fr 2fr auto; gap: 48px; padding: 32px 0; border-bottom: 1px solid var(--line); align-items: start; }
+.r4 .prow h3 { font-size: 24px; font-weight: 400; margin-bottom: 10px; }
+.r4 .prow p { font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 60ch; }
+.r4 .prow .status { display: inline-block; }
+.r4 .numbers { display: flex; gap: 72px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 32px 0; margin-bottom: 44px; align-items: flex-end; }
+.r4 .numbers b { display: block; font-size: 64px; font-weight: 300; letter-spacing: -0.03em; color: var(--dark); line-height: 1; }
+.r4 .numbers span { font-size: 14px; color: var(--muted); display: block; margin-top: 8px; }
+.r4 .numbers .live { margin-left: auto; font-size: 13px; color: var(--muted); display: flex; gap: 8px; align-items: center; align-self: center; }
+.r4 .numbers .live i { width: 7px; height: 7px; border-radius: 50%; background: var(--vivid); display: inline-block; }
+.r4 .two { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 72px; align-items: start; }
+.r4 .two p { font-size: 17px; line-height: 1.65; color: var(--ink); margin-bottom: 20px; max-width: 60ch; }
+.r4 .two p.muted { color: var(--muted); }
+.r4 .two .photo { aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; }
+.r4 .two .names { border-top: 1px solid var(--line); margin-top: 8px; }
+.r4 .two .names div { display: grid; grid-template-columns: 1fr 1.6fr; gap: 24px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.r4 .two .names span { color: var(--muted); }
+.r4 .results .rrow { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+.r4 .results .rrow b { font-weight: 500; display: block; font-size: 18px; }
+.r4 .results .rrow small { color: var(--muted); }
+.r4 .results .rrow p { font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 64ch; }
+.r4 .results { border-top: 1px solid var(--line); }
+.r4 .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; border-top: 1px solid var(--line); padding-top: 36px; }
+.r4 .quotes blockquote { margin: 0 0 16px; font-size: 18px; font-weight: 300; line-height: 1.5; }
+.r4 .quotes figcaption { font-size: 13px; color: var(--muted); }
+.r4 .final.dark { margin-top: 120px; }
+.r4 .final.light { padding: 120px 0 0; }
+.r4 .final.light .container { border-top: 1px solid var(--line); padding-top: 72px; }
+
+/* ---- Round 4: the Consulting terrain hero, carried over from the current site ---- */
+.b .terrain { position: relative; overflow: hidden; min-height: 780px; display: flex; align-items: center; color: var(--white); background: radial-gradient(135% 120% at 78% 24%, oklch(0.4 0.16 2) 0%, oklch(0.26 0.11 2) 58%, oklch(0.19 0.08 2) 100%); padding: 96px 0 88px; }
+.b .terrain .layer { position: absolute; inset: 0; pointer-events: none; }
+.b .terrain .layer svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.b .terrain .scrim { position: absolute; inset: 0; background: linear-gradient(102deg, oklch(0.2 0.09 2) 0%, oklch(0.2 0.09 2 / 0.82) 26%, oklch(0.22 0.09 2 / 0.3) 52%, transparent 74%); pointer-events: none; }
+.b .terrain .container { position: relative; z-index: 2; width: 100%; }
+.b .terrain .content { max-width: 42rem; }
+.b .terrain .eyebrow { color: var(--bright); margin-bottom: 20px; }
+.b .terrain h1 { font-size: clamp(44px, 4.6vw, 76px); line-height: 1.02; letter-spacing: -0.03em; }
+.b .terrain h1 em { font-style: normal; color: var(--bright); }
+.b .terrain .lead { color: oklch(0.86 0.04 2); margin: 28px 0 36px; font-size: 20px; max-width: 48ch; }
+.b .terrain .note { color: oklch(0.74 0.05 2); font-size: 14px; margin-top: 18px; }
+.b .terrain .btn-primary { background: var(--white); color: var(--dark); }
+.b .terrain .btn-secondary { background: transparent; color: var(--white); border-color: oklch(0.5 0.1 2); }
+.b .terrain .route-glow { fill: none; stroke: oklch(0.7 0.2 2); stroke-width: 12; stroke-linecap: round; opacity: 0.45; filter: url(#terraGlow); stroke-dasharray: 3200; stroke-dashoffset: 3200; animation: draw 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards; }
+.b .terrain .route { fill: none; stroke: url(#terraRoute); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 3200; stroke-dashoffset: 3200; animation: draw 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards; }
+.b .terrain .route-flow { fill: none; stroke: oklch(0.97 0.05 2); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 2 30; filter: url(#terraGlow); opacity: 0.9; animation: flowT 1.4s linear infinite; }
+.b .terrain .pulse { offset-rotate: 0deg; opacity: 0; animation: travel 4.8s cubic-bezier(0.5, 0, 0.5, 1) 1.9s infinite; }
+.b .terrain .summit-glow { animation: breathe 3.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.b .terrain .summit-ping { fill: none; stroke: oklch(0.85 0.12 2); stroke-width: 2; animation: ping 2.8s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes flowT { to { stroke-dashoffset: -64; } }
+.r4 .two .names div { grid-template-columns: 56px 1fr 1.6fr; align-items: center; }
+.r4 .two .names .face { width: 56px; height: 56px; border-radius: 50%; overflow: hidden; position: relative; }
+.r4 .two .names .face img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }

@@ -116,8 +116,9 @@ current Consulting site: many paths lead to the goal, with our help.
   within the one-light-design rule, and the "drenched" dark Ruby hero with a dark header that
   carries the mood of the current site into the new system; everything below the hero is
   identical.
-- **Images.** The build prepares every image variant and crop itself; Bunny Optimizer stays
-  off ([ADR-0014](../docs/adr/0014-images-prepared-at-build-time.md), proposed).
+- **Images.** The photos are served from one shared asset zone with Bunny Optimizer, so the
+  public repository carries no photographs and every crop is a query string
+  ([ADR-0014](../docs/adr/0014-images-from-shared-asset-zone.md), proposed).
 - Still open: who is who on the individual portraits, so the Consulting profiles use the duo
   photo for now.
 
@@ -126,9 +127,47 @@ The route map is plain SVG with CSS motion (`offset-path`, `stroke-dashoffset`);
 production version would honour `prefers-reduced-motion` and fall back to a static line as the
 current site does.
 
+## Round 4: fewer boxes, more words, the terrain stays
+
+Feedback on round 3 (2026-10-06): the current Consulting hero with the terrain and the
+particles running along the route is far better than the new route maps, because it is more
+abstract and brings real movement; build on it. The richer Software home is going in the right
+direction and the crops are better, but photos must not overlap and cut each other, the hero
+photo shows too much wall and too little face, the page repeats one shape (boxes, boxes inside
+boxes), sparklines are a gimmick, and the whole site is too short on words: explain what we do,
+what it brings, and what drives us, informed by the recommendations clients have written.
+
+- **Hairlines instead of boxes.** Sections are separated by rules, not surfaces: a section
+  head with eyebrow and headline on the left and an introductory paragraph on the right, then
+  three text columns, hairline rows for products and results, big numbers on a ruled band.
+  The only remaining surfaces are the logo strip and the Midnight closing band.
+- **Photos cropped to the subject.** The hero is a square cropped to the founders' faces; the
+  company theme shows one photo, not a collage; the individual portraits now carry names:
+  the owners confirmed on 2026-10-06 that the shoot's frames 4, 6, 7, 17, 18, 22, 23, 31, 36,
+  42, 43 show Sebastian Fastner and frames 3, 8, 12, 15, 16, 20, 21, 24, 25, 32, 33, 37, 40,
+  44, 45 show Sebastian Werner.
+- **No sparklines.** Live numbers stand as numbers with a source line.
+- **Twice the words.** Every section now explains: what the stance is and why, what each
+  product is for and where it came from, why the open-source families exist, how the founders
+  work and how clients describe the collaboration. The description of the collaboration is
+  a synthesis of the recommendations (broad and current knowledge, reasoned and traceable
+  recommendations, a view of the whole system, honest communication, teams left stronger),
+  not a quote. Product copy is a draft the owners must verify; nothing in it is published
+  fact yet.
+- **Consulting keeps the terrain.** The hero is the current site's: the tinted relief, the
+  route drawn in on load, the luminous flow and the travelling pulse, the breathing summit.
+  The comp reproduces the static SVG fallback of the current implementation and loads the
+  relief from the live site; the production build takes the component and the WebGL flow
+  field over from the Consulting repository. The rights to the relief image are recorded as
+  unknown in that repository's inventory and must be confirmed before it enters this public
+  repository. Below the hero the page follows the hairline system and carries the current
+  site's copy, extended: approach in three steps, six fields of work, three results, the two
+  architects, three quotes, the closing call.
+
+Files: `comps/r4-software-home.html`, `comps/r4-consulting-home.html`.
+
 ## Next
 
-The owners review round 3 and choose the Consulting hero variant. Then `DESIGN.md` and the
-token package are written from the approved comps, and the Software app is rebuilt on the new
-system, desktop first (plan 01, steps 3 to 5; plan 06). Phone layouts follow once the desktop
-design is settled.
+The owners review round 4. Then `DESIGN.md` and the token package are written from the
+approved comps, and the Software app is rebuilt on the new system, desktop first (plan 01,
+steps 3 to 5; plan 06). Phone layouts follow once the desktop design is settled.
