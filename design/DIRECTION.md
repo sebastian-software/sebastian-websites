@@ -1,7 +1,8 @@
 # Design direction, round 1
 
-**Status:** three directions drafted on 2026-10-06 as static comps under `comps/`; the owners
-choose or combine. Nothing here is built into the sites yet.
+**Status:** round 1 (three directions) was reviewed on 2026-10-06; the owners chose
+direction B, "Statement", with its pastel-teal background. Round 2 refines it on four page
+types under `comps/r2-*.html`. Nothing here is built into the sites yet.
 
 ## What the owners asked for
 
@@ -77,8 +78,26 @@ locally.
 Files: `comps/a-klar.html`, `comps/b-statement.html`, `comps/c-werkstatt.html`, shared
 foundation in `comps/shared.css`. Open any file in a browser; the fonts load from the host.
 
+## Round 2: direction B refined
+
+- **Chosen:** B "Statement". The value statement as a three-line hero, the pastel Frost
+  background, white panels with large radii, the chess layout for the three themes.
+- **Desktop first.** The owners decided on 2026-10-06 to design for desktop first: the
+  audiences evaluate on large screens, and the designs should use that space well. Containers
+  grow to 1480 px above 1700 px viewports. Phone layouts follow once the desktop design is
+  settled and are a launch requirement, not optional.
+- **Real photos** from the 2024 shoot, exported at 1800 px: the two founders at the concrete
+  wall for the Software hero, at the laptop for the company theme, in front of the building
+  for the company page, and in conversation for the Consulting hero. Portraits of individuals
+  are not placed until the owners confirm who is who.
+- **Two worlds, one system.** The Consulting comp applies the same components with the
+  Consulting palette (hue 2, Linen background, Ruby accent) and the formal register.
+
+Files: `comps/r2-software-home.html`, `r2-software-products.html`, `r2-software-company.html`,
+`r2-consulting-home.html`.
+
 ## Next
 
-The owners pick a direction or name what to combine. Round 2 refines that direction on four
-page types (Software home, product page, company page, Consulting home) and defines
-`DESIGN.md` and the token package from it (plan 01, steps 3 to 5).
+The owners review round 2. Then `DESIGN.md` and the token package are written from it, and
+the Software app is rebuilt on the new system, desktop first (plan 01, steps 3 to 5; plan
+06).
