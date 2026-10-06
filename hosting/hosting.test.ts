@@ -117,13 +117,54 @@ function account(options: { readonly provisioned: boolean }) {
   return { api, calls, script: () => script }
 }
 
+const silent = (): void => undefined
+
+const isPost = (call: Call, path: string): boolean => call.method === "POST" && call.path === path
+
+const isDelete = (
+  entry: { readonly method: string; readonly url: string },
+  suffix: string
+): boolean => entry.method === "DELETE" && entry.url.endsWith(suffix)
+
+/**
+ * A storage zone holding an old home page, an unchanged asset, and a stale file.
+ *
+ * @param unchanged - The bytes of the asset that must not be uploaded again.
+ * @returns A fake fetch and the requests it received.
+ */
+function storageFixture(unchanged: Uint8Array): {
+  readonly request: typeof fetch
+  readonly requests: ReadonlyArray<{ readonly method: string; readonly url: string }>
+} {
+  const requests: Array<{ readonly method: string; readonly url: string }> = []
+  const request: typeof fetch = async (input, init) => {
+    const url = String(input)
+    const method = init?.method ?? "GET"
+    requests.push({ method, url })
+    if (method === "GET" && url.endsWith(`/${target.name}/`)) {
+      return Response.json([
+        { IsDirectory: true, ObjectName: "assets" },
+        { Checksum: "OLD", IsDirectory: false, ObjectName: "index.html" },
+        { Checksum: "X", IsDirectory: false, ObjectName: "stale.html" },
+      ])
+    }
+    if (method === "GET" && url.endsWith("/assets/")) {
+      return Response.json([
+        { Checksum: checksum(unchanged), IsDirectory: false, ObjectName: "app.js" },
+      ])
+    }
+    return new Response(null, { status: method === "GET" ? NOT_FOUND : OK })
+  }
+  return { request, requests }
+}
+
 test("a provisioned target needs no writes once its middleware code is current", async () => {
   const bunny = account({ provisioned: true })
-  await provision(bunny.api, target, () => {})
+  await provision(bunny.api, target, silent)
   const code = bunny.script()?.Code
   assert.equal(typeof code, "string")
   bunny.calls.length = 0
-  await provision(bunny.api, target, () => {})
+  await provision(bunny.api, target, silent)
   assert.ok(
     bunny.calls.every((call) => call.method === "GET"),
     "second run reads only"
@@ -141,7 +182,7 @@ test("an empty account gets storage, pull zone, rules, and a linked middleware",
   assert.ok(writes.includes("/compute/script"))
   assert.ok(writes.includes("/compute/script/3/publish"))
   assert.equal(writes.filter((path) => path === "/pullzone/2/edgerules/addOrUpdate").length, 2)
-  const link = bunny.calls.find((call) => call.method === "POST" && call.path === "/pullzone/2")
+  const link = bunny.calls.find((call) => isPost(call, "/pullzone/2"))
   assert.deepEqual(link?.body, { MiddlewareScriptId: 3 })
   assert.ok(log.some((line) => line.includes("Created storage zone")))
   assert.ok(
@@ -158,30 +199,12 @@ test("publishing uploads changed files, keeps unchanged ones, removes stale ones
     { bytes: unchanged, path: "assets/app.js" },
     { bytes: new TextEncoder().encode("<html>"), path: "imprint/index.html" },
   ]
-  const requests: Array<{ readonly method: string; readonly url: string }> = []
-  const request: typeof fetch = async (input, init) => {
-    const url = String(input)
-    const method = init?.method ?? "GET"
-    requests.push({ method, url })
-    if (method === "GET" && url.endsWith("/sebastian-websites-software-en/")) {
-      return Response.json([
-        { IsDirectory: true, ObjectName: "assets" },
-        { Checksum: "OLD", IsDirectory: false, ObjectName: "index.html" },
-        { Checksum: "X", IsDirectory: false, ObjectName: "stale.html" },
-      ])
-    }
-    if (method === "GET" && url.endsWith("/assets/")) {
-      return Response.json([
-        { Checksum: checksum(unchanged), IsDirectory: false, ObjectName: "app.js" },
-      ])
-    }
-    return new Response(null, { status: method === "GET" ? NOT_FOUND : OK })
-  }
+  const { request, requests } = storageFixture(unchanged)
   const result = await publish({
     api: bunny.api,
     assets,
     ids: { pullZoneId: 2, storageId: 1 },
-    log() {},
+    log: silent,
     request,
     target,
   })
@@ -194,9 +217,7 @@ test("publishing uploads changed files, keeps unchanged ones, removes stale ones
     ["index.html", "imprint/index.html"],
     "documents go last, unchanged assets are skipped"
   )
-  assert.ok(
-    requests.some((entry) => entry.method === "DELETE" && entry.url.endsWith("/stale.html"))
-  )
+  assert.ok(requests.some((entry) => isDelete(entry, "/stale.html")))
   assert.ok(bunny.calls.some((call) => call.path === "/pullzone/2/purgeCache"))
 })
 
