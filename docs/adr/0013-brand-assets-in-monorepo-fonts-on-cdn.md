@@ -1,9 +1,9 @@
 ---
 status: accepted
-updated: 2026-10-06
+updated: 2026-10-07
 ---
 
-# Brand assets and typography CSS live here; font binaries are served from the shared asset CDN
+# Brand assets and font CSS live here; font definitions and binaries share the asset CDN
 
 Logos, colour tokens, and the brand reference page move from the separate `sebastian-brand`
 repository into this monorepo as `apps/brand`, published at `brand.sebastian-software.com`.
@@ -16,11 +16,20 @@ Licensed font binaries stay outside this public repository
 `fonts/` in the shared asset zone of ADR-0014. They need no dedicated publishing repository
 or CI pipeline. The private `sebastian-fonts` checkout retains the source files and licenses.
 
-The CSS is technical source code and belongs in Git. `apps/brand/public/fonts.css` (eight
-core Glober and Elena faces), `fonts-all.css` (all 29 faces), and `typography.css` (fallback metrics, family
-stacks, and typography utilities) are versioned here and deployed with the brand site.
-Every site and external consumer can load that CSS; its font URLs point to the shared
-asset host. Font binaries have immutable URLs, while CSS can evolve with the websites.
+The CSS is technical source code and belongs in Git. One `assets/fonts/fonts.css`
+includes all 29 Glober, Elena, and Elena Basic faces and declares their subset rules,
+relative binary URLs, and simple family variables with system fallbacks. CI publishes
+it to `fonts/` on the shared asset CDN without deleting its manually managed files.
+It contains no brand-specific adjustments or utility classes.
+
+`apps/brand/public/fonts.css` imports the asset stylesheet followed by
+`typography.css`, which owns fallback metrics, adjusted family stacks,
+semantic aliases, and typography utilities. These entry points are versioned here and
+deployed with the brand site. Consumers can use either the standalone asset definitions
+or the brand typography layer. Font binaries have immutable URLs, while CSS can evolve
+through reviewed changes.
+There is no separate core/all selection or per-family stylesheet. Declaring unused
+faces does not download their binaries.
 Glober and Elena use their explicit family and face names. Latin and extended WOFF2
 subsets together preserve the Unicode coverage of each licensed original; CSS loads
 rare characters only when needed. The reproducible preparation tool and delivery

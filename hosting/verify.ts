@@ -1,7 +1,8 @@
 /**
  * Checks a published target over HTTPS on its origin host: documents resolve
  * without an extension, a trailing slash redirects, unknown paths are 404, and
- * exported assets carry open CORS.
+ * exported assets carry open CORS. Shared asset targets verify every published
+ * file without requiring website documents.
  */
 import { setTimeout as pause } from "node:timers/promises"
 
@@ -29,13 +30,20 @@ export type Check = {
 /**
  * Derives the checks for a target from its build: the home page, one
  * prerendered route with and without a trailing slash, a missing path, and
- * one exported asset per CORS extension.
+ * one exported asset per CORS extension. Asset targets check every uploaded file.
  *
  * @param target - The target whose exported extensions need CORS checks.
  * @param assets - The build files.
  * @returns The checks to run.
  */
 export function checksFor(target: Target, assets: readonly Asset[]): readonly Check[] {
+  if (target.assets === true) {
+    return assets.map((asset) => ({
+      cors: target.corsExtensions.some((extension) => asset.path.endsWith(`.${extension}`)),
+      path: `/${asset.path}`,
+      status: OK,
+    }))
+  }
   const checks: Check[] = [
     { path: "/", status: OK, text: "<html" },
     { path: "/no-such-page-verification", status: NOT_FOUND },

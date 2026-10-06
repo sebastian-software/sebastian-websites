@@ -18,8 +18,10 @@
 }
 
 :root {
-  --sebastian-font-sans: "Glober", "Glober Fallback", ui-sans-serif, system-ui, sans-serif;
-  --sebastian-font-serif: "Elena", "Elena Fallback", "Rockwell", ui-serif, Georgia, serif;
+  --font-glober: "Glober", "Glober Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-elena: "Elena", "Elena Fallback", "Rockwell", ui-serif, Georgia, serif;
+  --sebastian-font-sans: var(--font-glober);
+  --sebastian-font-serif: var(--font-elena);
   --sebastian-font-slab: var(--sebastian-font-serif);
   --sebastian-sans-letter-spacing: normal;
   --sebastian-serif-letter-spacing: -0.02em;

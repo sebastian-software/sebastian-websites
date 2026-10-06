@@ -125,8 +125,25 @@ Tokens and logos are served with open CORS and immutable caching:
 
 `Glober` and `Elena` are licensed for the company's own
 websites. The font files are not part of this repository; the sites load them from the
-shared asset CDN. The versioned `fonts.css`, `fonts-all.css`, and `typography.css`
-are published with this brand application; see [font hosting](../../docs/operations/font-hosting.md).
+shared asset CDN. Its base CSS combines the Latin and extended subsets and exposes
+`--font-glober` and `--font-elena`:
+
+```css
+@import "https://assets.sebastian-software.com/fonts/fonts.css";
+
+body {
+  font-family: var(--font-glober);
+}
+h1 {
+  font-family: var(--font-elena);
+}
+```
+
+For the brand's adjusted fallbacks, load `https://brand.sebastian-software.com/fonts.css`
+instead. That wrapper imports the asset definitions followed by the versioned
+`typography.css`. The single base stylesheet includes all weights and character subsets;
+the browser downloads only the binaries needed for the text. There is no separate
+core/all selection or per-family stylesheet; see [font hosting](../../docs/operations/font-hosting.md).
 
 ### Software
 

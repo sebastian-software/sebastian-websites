@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url"
 
 import { bunnyApi, required } from "./bunny.ts"
 import { provision } from "./provision.ts"
-import { loadBuild, publish } from "./publish.ts"
+import { loadAssets, loadBuild, publish } from "./publish.ts"
 import { buildableTargets } from "./targets.ts"
 import { verify } from "./verify.ts"
 
@@ -27,7 +27,8 @@ for (const target of targets) {
     summary.push(`- \`${target.name}\`: provisioned; sources are published locally`)
     continue
   }
-  const assets = await loadBuild(`${root}/${target.buildDirectory}`)
+  const directory = `${root}/${target.buildDirectory}`
+  const assets = await (target.assets === true ? loadAssets(directory) : loadBuild(directory))
   const result = await publish({ api, assets, ids, target })
   await verify({ assets, target })
   summary.push(

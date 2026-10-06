@@ -72,7 +72,7 @@ export async function loadBuild(root: string): Promise<readonly Asset[]> {
 }
 
 /**
- * Reads a private asset folder without requiring a website document.
+ * Reads an asset source folder without requiring a website document.
  * Hidden files and symbolic links are excluded from the public upload.
  *
  * @param root - The complete source folder for the storage zone.
