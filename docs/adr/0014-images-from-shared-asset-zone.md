@@ -78,3 +78,7 @@ Client logos stay in the repository as SVG; they need no transformation.
   pair for a placement; components never write query strings by hand.
 - Image classes are defined once the placements are stable, and `OptimizerForceClasses` is
   then switched on.
+- **Interim (2026-10-06):** until the asset zone is provisioned and filled, the six photos
+  of the founders that the Software site uses ship with the app at 1400 px. They are company
+  property, so ADR-0012 is not touched; the `Photo` component already isolates the URL, so
+  the switch to the asset host is a one-line change per placement.

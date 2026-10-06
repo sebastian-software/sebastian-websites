@@ -158,9 +158,8 @@ what it brings, and what drives us, informed by the recommendations clients have
   route drawn in on load, the luminous flow and the travelling pulse, the breathing summit.
   The comp reproduces the static SVG fallback of the current implementation and loads the
   relief from the live site; the production build takes the component and the WebGL flow
-  field over from the Consulting repository. The rights to the relief image are recorded as
-  unknown in that repository's inventory and must be confirmed before it enters this public
-  repository. Below the hero the page follows the hairline system and carries the current
+  field over from the Consulting repository. The relief is a generated image (owners,
+  2026-10-06), so it can enter this public repository. Below the hero the page follows the hairline system and carries the current
   site's copy, extended: approach in three steps, six fields of work, three results, the two
   architects, three quotes, the closing call.
 

@@ -4,10 +4,10 @@ Monorepo for the websites of Sebastian Software GmbH: Sebastian Software, Sebast
 Open Source, and Skills. One shared design system and brand bar, one static site per brand
 site and language, hosted on Bunny.
 
-**Status:** the workspace, shared packages, the Software application in German and English,
-the brand asset application, checks, builds, and delivery are implemented: every push to
-`main` publishes each target to its Bunny origin host. Canonical domains, previews, and the
-design phase are still open.
+**Status:** the workspace, shared packages, the design system (`design/DESIGN.md`), the
+Software application in German and English on that system, the brand asset application,
+checks, builds, and delivery are implemented: every push to `main` publishes each target to
+its Bunny origin host. Canonical domains, previews, and phone layouts are still open.
 
 The reusable legacy company copy is in [apps/software/content](apps/software/content/README.md).
 Licensed font binaries stay in the private `sebastian-fonts` repository; their CDN configuration
