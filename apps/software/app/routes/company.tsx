@@ -1,10 +1,13 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { Trans } from "@palamedes/react/macro"
+import { blocks, layout, Section, SectionHead, typography } from "@sebastian-websites/ui"
 import { getSiteOrigin } from "@sebastian-websites/web-core"
 
-import * as page from "~/components/Page.css"
+import laptop from "~/assets/photos/shoot-19.jpg"
+import { Closing } from "~/components/Closing"
+import { Founders } from "~/components/Founders"
+import { Photo } from "~/components/Photo"
 import { variant } from "~/lib/site"
 
 import type { Route } from "./+types/company"
@@ -21,123 +24,77 @@ export function meta(): Route.MetaDescriptors {
 }
 
 function Mission(): ReactElement {
+  const themes = [
+    {
+      text: t`We develop software that remains relevant not just today but also tomorrow. Quality and longevity come first. We use current technology to create solutions that make a difference, and our curiosity drives us to keep getting better.`,
+      title: t`Software that lasts and inspires`,
+    },
+    {
+      text: t`We bring product thinking, design, and engineering together. The result is software that not only works but convinces, with a clear architecture that earns trust and leaves a lasting impression on the people who use it.`,
+      title: t`Technology that wins hearts and minds`,
+    },
+    {
+      text: t`Learning is our foundation. We read, try, and measure, and we exchange ideas at conferences and developer meetings. Not every innovation is right for us; we deliberately select what offers real value.`,
+      title: t`Knowledge is the key to real progress`,
+    },
+    {
+      text: t`Collaboration is at the heart of what we do. We share our knowledge and strengthen our partners' teams so that they achieve more together, long after a project has ended.`,
+      title: t`Collaboration for outstanding results`,
+    },
+  ]
   return (
-    <>
-      <section className={page.section}>
-        <h2 className={page.heading}>
-          <Trans>Software that lasts and inspires</Trans>
-        </h2>
-        <p>
-          <Trans>
-            We develop software that remains relevant not just today but also tomorrow. Quality and
-            longevity are our top priorities. We use the latest technologies to create solutions
-            that really make a difference. With our in-depth expertise, we combine ideas and create
-            sustainable success. Our curiosity and passion drive us to keep getting better.
-          </Trans>
-        </p>
-      </section>
-      <section className={page.section}>
-        <h2 className={page.heading}>
-          <Trans>Technology that wins hearts and minds</Trans>
-        </h2>
-        <p>
-          <Trans>
-            We bring together experts from product management, design and development. The result?
-            Products that not only work, but also inspire. Our clear architecture ensures
-            sustainable experiences that inspire confidence. Our work is not only reliable – it
-            leaves a lasting impression. Our customers notice this, and it makes us proud.
-          </Trans>
-        </p>
-      </section>
-      <section className={page.section}>
-        <h2 className={page.heading}>
-          <Trans>Knowledge is the key to real progress</Trans>
-        </h2>
-        <p>
-          <Trans>
-            Further training is our foundation. We invest in ourselves to keep our finger on the
-            pulse. We actively exchange ideas at specialist conferences and developer meetings. This
-            enables us to identify trends and make well-informed decisions. Not every innovation is
-            right for us – we consciously select what really offers added value.
-          </Trans>
-        </p>
-      </section>
-      <section className={page.section}>
-        <h2 className={page.heading}>
-          <Trans>Collaboration for outstanding results</Trans>
-        </h2>
-        <p>
-          <Trans>
-            Collaboration is at the heart of what we do. We share our knowledge and empower our
-            partners' teams to achieve great things together. Our solutions are more than just
-            technology – they improve product quality and increase user satisfaction. This creates a
-            win-win situation for everyone.
-          </Trans>
-        </p>
-      </section>
-    </>
-  )
-}
-
-function Team({ consulting }: { readonly consulting: string }): ReactElement {
-  return (
-    <section className={page.section}>
-      <h2 className={page.heading}>
-        <Trans>The team</Trans>
-      </h2>
-      <p>
-        <strong>Sebastian Fastner</strong>
-        {" – "}
-        <Trans>
-          Computer science as the foundation, classic and modern web technology firmly in hand, a
-          command-line enthusiast with a focus on security and cloud solutions.
-        </Trans>{" "}
-        <a className={page.link} href={`${consulting}/fastner`}>
-          <Trans>Profile</Trans>
-        </a>
-      </p>
-      <p>
-        <strong>Sebastian Werner</strong>
-        {" – "}
-        <Trans>
-          More than twenty years of web technology, clear design and clever interfaces, UI
-          frameworks, and open source since leading qooxdoo.
-        </Trans>{" "}
-        <a className={page.link} href={`${consulting}/werner`}>
-          <Trans>Profile</Trans>
-        </a>
-      </p>
-    </section>
+    <Section>
+      <SectionHead
+        eyebrow={t`Mission`}
+        intro={t`Four themes have guided the company since 2014. They are written down here so that our partners and customers can hold us to them.`}
+        title={t`What we stand for.`}
+      />
+      <div className={layout.columnsTwo}>
+        {themes.map((theme) => (
+          <div className={blocks.column} key={theme.title}>
+            <h3 className={typography.h3}>{theme.title}</h3>
+            <p className={typography.textMuted}>{theme.text}</p>
+          </div>
+        ))}
+      </div>
+    </Section>
   )
 }
 
 export default function Company(): ReactElement {
   const consulting = getSiteOrigin("consulting", variant.locale)
   return (
-    <main className={page.main}>
-      <h1 className={page.title}>
-        <Trans>The company</Trans>
-      </h1>
-      <p className={page.lead}>
-        <Trans>
-          Sebastian Software GmbH was founded in 2014 by Sebastian Fastner and Sebastian Werner in
-          Mainz. We are two engineers who build products, publish open-source tools, and help teams
-          through Sebastian Consulting.
-        </Trans>
-      </p>
+    <main>
+      <Section tone="white">
+        <SectionHead
+          eyebrow={t`Company`}
+          intro={t`Sebastian Fastner and Sebastian Werner have run the company themselves since 2014. Both have worked in professional software development since the early 2000s, for a long time in large frontend projects for corporations, in between on frameworks that many others have used.`}
+          title={t`Two founders. Nothing in between.`}
+          titleAs="h1"
+        />
+        <div className={layout.split}>
+          <div className={typography.prose}>
+            <p className={typography.text}>
+              {t`We have stayed small on purpose. No juniors, no layer in between, no handover to third parties: whoever works with us works with us. That holds for our products as much as for the project support we deliver as Sebastian Consulting. It is the way of working we have come to know as the most reliable in twenty years.`}
+            </p>
+            <p className={typography.text}>
+              {t`People who have worked with us tend to describe the same things: broad, current knowledge of web technologies; recommendations that are reasoned and traceable; a view of the whole system rather than only the framework; and the readiness to put a finger on the sore spot when a simpler path is possible. And that teams stand stronger after the collaboration, because knowledge, tools, and standards stay.`}
+            </p>
+            <p className={typography.textMuted}>
+              {t`Sebastian Software GmbH is based in Mainz and registered at the local court of Mainz. The company has no investors and no plans for any: it is owned and run by the two founders.`}
+            </p>
+          </div>
+          <Photo
+            alt={t`The two founders at the laptop`}
+            focus="center 62%"
+            frame="landscape"
+            src={laptop}
+          />
+        </div>
+        <Founders profileOrigin={consulting} />
+      </Section>
       <Mission />
-      <Team consulting={consulting} />
-      <section className={page.section}>
-        <h2 className={page.heading}>
-          <Trans>How we build</Trans>
-        </h2>
-        <p>
-          <Trans>
-            Small teams, clear architecture, and quality and longevity before speed. We publish the
-            tools we work with, so anyone can check how we build.
-          </Trans>
-        </p>
-      </section>
+      <Closing />
     </main>
   )
 }
