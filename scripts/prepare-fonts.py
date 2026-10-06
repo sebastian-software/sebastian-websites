@@ -39,8 +39,8 @@ def prepare(source, output, directory):
     source_glyphs = original.getGlyphSet()
     latin = {cp for cp in cmap if any(a <= cp <= b for a, b in LATIN_BLOCKS)}
     stem = source.stem.removeprefix("Fontfabric - ")
-    family = "Elena Basic" if stem.startswith("ElenaBasic") else directory
-    variant = stem.removeprefix("Glober").removeprefix("ElenaBasic-").removeprefix("Elena-")
+    family = directory
+    variant = stem.removeprefix("Glober").removeprefix("Elena-")
     italic = variant.endswith("Italic")
     weight = WEIGHTS[variant.removesuffix("Italic")]
     record = {"name": stem, "family": family, "weight": weight,
@@ -114,7 +114,6 @@ def stylesheet(records):
     stacks = {
         "Glober": ('--font-glober', '"Glober", ui-sans-serif, system-ui, sans-serif'),
         "Elena": ('--font-elena', '"Elena", ui-serif, Georgia, serif'),
-        "Elena Basic": ('--font-elena-basic', '"Elena Basic", ui-serif, Georgia, serif'),
     }
     declarations = [f"  {name}: {stack};" for family, (name, stack) in stacks.items()
                     if any(record["family"] == family for record in records)]
@@ -140,9 +139,10 @@ if __name__ == "__main__":
     if args.output.resolve().is_relative_to(public_repository):
         parser.error("Keep licensed font binaries outside this public repository")
     sources = [(p, "Glober") for p in sorted(args.glober.glob("*.otf"))]
-    sources += [(p, "Elena") for p in sorted(args.elena.glob("*.woff2"))]
+    # Basic duplicates the full family's design with fewer OpenType features.
+    sources += [(p, "Elena") for p in sorted(args.elena.glob("Elena-*.woff2"))]
     assert sum(d == "Glober" for _, d in sources) == 18
-    assert sum(d == "Elena" for _, d in sources) == 11
+    assert sum(d == "Elena" for _, d in sources) == 8
     records = [prepare(p, args.output, d) for p, d in sources]
     args.asset_css.mkdir(parents=True, exist_ok=True)
     args.asset_css.joinpath("fonts.css").write_text(stylesheet(records))
