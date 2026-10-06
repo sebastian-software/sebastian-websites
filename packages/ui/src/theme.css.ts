@@ -14,8 +14,8 @@ export const color = createThemeContract({
 })
 
 export const font = {
-  sans: '"Sebastian Sans", system-ui, sans-serif',
-  slab: '"Sebastian Slab", Georgia, serif',
+  sans: 'var(--sebastian-font-sans, "Sebastian Sans", system-ui, sans-serif)',
+  slab: 'var(--sebastian-font-serif, "Sebastian Slab", Georgia, serif)',
 } as const
 
 /** The licensed fonts, served from the company's font host (ADR-0013). */
