@@ -3,24 +3,22 @@ status: proposed
 updated: 2026-10-06
 ---
 
-# Images are prepared at build time; Bunny Optimizer stays off
+# Images are served from one shared asset zone with Bunny Optimizer
 
-The sites show a small, known set of photographs: the 2024 shoot, client logos as SVG, and
-later a few product visuals. Every crop is a design decision. The build therefore produces the
-image variants itself: for each placement, a set of widths in AVIF, WebP, and JPEG, with the
-crop and focal point declared in code next to the component that uses the image. The output is
-plain static files, published with the rest of the build
-([ADR-0009](0009-delivery-model.md)).
+The sites show a small, known set of photographs: the 2024 shoot, portraits, and later a few
+product visuals. These sources live on one shared Bunny storage zone with its own pull zone,
+`assets.sebastian-software.com`, with Bunny Optimizer enabled on that zone alone. Each
+placement requests the variant it needs through the Dynamic Images API (width, aspect ratio,
+focal crop, quality); the zone converts to WebP or AVIF for browsers that accept them and
+caches every variant at the edge. The sites' own pull zones stay without the Optimizer.
 
-Bunny Optimizer, the CDN-side image service, is not enabled on the pull zones. It stays an
-option for a future shared media zone if the number of images or their sources change.
+Client logos stay in the repository as SVG; they need no transformation.
 
 ## What Bunny offers (checked on 2026-10-06)
 
 - **Pricing:** Optimizer is a per-pull-zone add-on at 9.50 USD per month with unlimited
-  transformations. The sites use nine pull zones (eight variants and the brand site), so
-  enabling it everywhere would cost about 85 USD per month; one shared media zone would cost
-  9.50 USD.
+  transformations. One shared asset zone costs it once; enabling it on the nine site zones
+  would cost about 85 USD per month for the same images.
 - **Dynamic Images API** (URL query parameters, transformed on first request and cached at the
   edge): `width`, `height`; `crop=w,h` or `crop=w,h,x,y` with `crop_gravity` (`center`,
   `north`, `south`, `east`, `west`, `northeast`, `northwest`, `southeast`, `southwest`);
@@ -29,45 +27,54 @@ option for a future shared media zone if the number of images or their sources c
   `contrast`, `saturation`, `gamma`, `hue`, `tint`, `sepia`, `flip`, `flop`, `rotate`. Crops
   run before resizing. Images are not upscaled unless `upscaling=resampling` is set (up to
   24 megapixels). AVIF output is limited to 4 megapixels; larger results fall back to WebP or
-  JPEG.
+  JPEG, which never affects web sizes.
 - **Image classes:** named presets such as `?class=hero`; `OptimizerForceClasses` restricts
   the API to presets and answers other transformations with 403, which Bunny recommends for
   production.
-- **Automatic optimisation** per pull zone: `OptimizerAutomaticOptimizationEnabled`,
-  `OptimizerEnableWebP` (WebP for browsers that accept it, JPEG or PNG otherwise),
-  `OptimizerDesktopMaxWidth` and `OptimizerMobileMaxWidth` (0 to 5000),
-  `OptimizerImageQuality` and `OptimizerMobileImageQuality`, `EnableAvifVary` on the zone.
-  CSS and JavaScript minification are included but redundant next to Vite.
-- All of this is configurable through the pull zone API that `hosting/` already uses.
+- **Zone settings** through the pull zone API that `hosting/` already uses:
+  `OptimizerEnabled`, `OptimizerEnableManipulationEngine`, `OptimizerEnableWebP`,
+  `EnableAvifVary`, `OptimizerAutomaticOptimizationEnabled`, `OptimizerDesktopMaxWidth` and
+  `OptimizerMobileMaxWidth` (0 to 5000), `OptimizerImageQuality`, `OptimizerEnableUpscaling`,
+  `OptimizerClasses`, `OptimizerForceClasses`.
 
-## Why build time
+## Why a shared asset zone
 
-- **Crops are reviewed like code.** The round-2 and round-3 comps live from tight,
-  art-directed crops. A focal point and aspect ratio per placement in the repository is
-  reviewable in a pull request; a query string on a CDN URL is not.
-- **Development and previews match production.** The dev server and every preview show the
-  final variants without a CDN in the loop.
-- **No runtime dependency and no monthly fee** for a few dozen images. The build already
-  exists; adding `sharp` to it costs seconds.
-- **Dimensions are known at build time**, so every image gets `width`, `height`, and
-  `srcset`/`sizes` without layout shift, and the hero image can be preloaded.
+- **The public repository stays free of photographs.** Portraits of third parties need a
+  recorded permission before they appear anywhere ([ADR-0012](0012-public-repository.md)),
+  and large binaries do not belong in a public Git history. Sources are uploaded from a
+  private location by a hosting script, the same way the fonts are
+  ([ADR-0013](0013-brand-assets-in-monorepo-fonts-on-cdn.md)).
+- **One fee, every variant.** Eight site variants and the brand site reference the same
+  URLs, so the edge cache is shared and a new crop costs nothing but a query string.
+- **Crops stay reviewable.** The focal point and aspect ratio of a placement are parameters
+  in the component's code, visible in every pull request, exactly as a build-time crop would
+  be.
+- **Development and previews match production** without local image processing: they load
+  the same public URLs.
+- **Dimensions are known without a manifest.** A requested width and aspect ratio determine
+  the height, so every image gets `width`, `height`, `srcset`, and `sizes`, and the hero
+  image can be preloaded.
 
 ## Considered options
 
-- **Optimizer on every site zone.** Rejected: nine times the fee for the same handful of
-  images, and the transformations would happen outside the repository.
-- **One shared media pull zone with Optimizer and forced classes.** Deferred: the right shape
-  if images ever become numerous or come from outside the repository (neither is planned).
-  The hosting scripts could provision it later without changing the sites.
-- **Build-time pipeline.** Chosen.
+- **Optimizer on every site zone.** Rejected: nine fees for one set of images.
+- **Build-time pipeline with `sharp`.** Rejected for now: it needs the sources in the build,
+  which means either in the public repository or in a private build input, and it adds image
+  processing to every build. It remains the fallback if the asset host ever goes away.
+- **One shared asset zone with Optimizer.** Chosen; the owners pointed to it on 2026-10-06.
 
 ## Consequences
 
-- Source photos enter the repository at a working resolution (2400 px on the long edge, JPEG
-  quality 85); the shoot is company property. Portraits of third parties stay out until their
-  permission is recorded ([ADR-0012](0012-public-repository.md)).
-- A shared image component renders `<picture>` with AVIF, WebP, and JPEG sources, declared
-  widths, and the placement's crop. Whether this is `vite-imagetools` or a small `sharp`
-  script is decided in plan 06 when the Software site is rebuilt on the approved design.
-- The pull zones keep `OptimizerEnabled` at `false`; `hosting/provision.ts` does not touch the
-  Optimizer fields.
+- `hosting/` gains the target `sebastian-websites-assets` with the hostname
+  `assets.sebastian-software.com`. Provisioning sets `OptimizerEnabled`,
+  `OptimizerEnableManipulationEngine`, `OptimizerEnableWebP`, and `EnableAvifVary` to `true`,
+  and `OptimizerAutomaticOptimizationEnabled` and `OptimizerEnableUpscaling` to `false`: the
+  sites request variants explicitly.
+- A `publish-assets` script uploads sources with checksums from a private folder or
+  repository and purges changed paths. Everything on the asset host is public, so the
+  clearance rule of ADR-0012 applies to the upload, not only to the repository.
+- Sources are stored at a working resolution of about 3000 px on the long edge as JPEG.
+- A shared `image()` helper in `packages/web-core` composes the URL and the `width`/`height`
+  pair for a placement; components never write query strings by hand.
+- Image classes are defined once the placements are stable, and `OptimizerForceClasses` is
+  then switched on.
