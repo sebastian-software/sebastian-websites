@@ -129,7 +129,7 @@ function Products(): ReactElement {
     <Section tone="white">
       <SectionHead
         eyebrow={t`Products`}
-        intro={t`Each of our products grew out of a need of our own and is used by us every day. That is our standard: we would not sell anything we would not want to use ourselves. The products have their own sites with every detail; this is what they are for.`}
+        intro={t`Each of our products grew out of a gap we saw ourselves, and we use them in our own work wherever they fit. That is our standard: we would not sell anything we would not want to use ourselves. The products have their own sites with every detail; this is what they are for.`}
         title={t`We build what we need ourselves.`}
       />
       <ProductCards />

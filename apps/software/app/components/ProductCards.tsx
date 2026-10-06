@@ -15,8 +15,8 @@ export function ProductCards(): ReactElement {
       link: t`Visit terminaro.eu →`,
       name: "Terminaro",
       soon: false,
-      status: t`Available`,
-      text: t`Online appointment booking for small businesses. Customers book themselves; the business keeps hours, services, and reminders in hand. Set up quickly, without an agency and without training, and built so that it still does the same in three years.`,
+      status: t`Early access`,
+      text: t`Online appointment booking for the self-employed and small businesses. Customers book in seconds without an account, and the public booking page sets no cookies. Calendar sync with Google, iCloud, or CalDAV prevents double bookings, confirmations and reminders go out automatically, and booking data stays on servers in Germany.`,
     },
     {
       href: "https://palamedes.dev",
