@@ -1,0 +1,37 @@
+{
+  "name": "@sebastian-websites/legal",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "26.x"
+  },
+  "description": "Shared website legal models and reusable legal copy.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc",
+    "lint": "oxlint -c ../../oxlint.config.ts src && eslint src --config ../../eslint.config.ts",
+    "format": "prettier --write src",
+    "format:check": "prettier --check src",
+    "test": "vitest run",
+    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test"
+  },
+  "dependencies": {
+    "@palamedes/react": "catalog:",
+    "react": "catalog:"
+  },
+  "devDependencies": {
+    "@sebastian-websites/config": "workspace:*",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "eslint": "catalog:",
+    "oxlint": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:",
+    "jiti": "catalog:"
+  }
+}
