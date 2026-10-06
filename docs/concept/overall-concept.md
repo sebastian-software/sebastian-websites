@@ -42,7 +42,8 @@ That makes eight variants. The TLD selects the language
 
 The Software world separates two kinds of product, and all of them may be shown:
 
-- **Commercial products:** Terminaro, Palamedes+, and a third product in preparation.
+- **Commercial products:** Terminaro, Palamedes+ (announced as coming soon), and a third
+  product in preparation.
 - **Open-source products:** Palamedes (the open core), Dalo, Ardo, and the other open-source
   projects.
 
@@ -175,6 +176,8 @@ content.
   [ADR-0009](../adr/0009-delivery-model.md).
 - URLs, language switching, and redirects: [ADR-0010](../adr/0010-url-and-redirect-contract.md).
 - Analytics without cookies or a consent banner: [ADR-0011](../adr/0011-cookieless-analytics.md).
+- Delivery runs through repository-owned scripts against the Bunny API, not the private
+  hosting CLI; the owners confirmed this on 2026-10-06 (ADR-0009).
 - Rules that carry over from the July 2026 plan: one primary goal per site (Consulting "book an
   intro call", Software "discover a product", Open Source "open a project", Skills "install a
   skill"); every piece of content has exactly one home and other sites only summarise and

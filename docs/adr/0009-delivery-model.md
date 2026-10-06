@@ -33,9 +33,10 @@ the font CDN configuration and deployment.
   need versions, and the tag adds a step without adding safety.
 - **Deploying an earlier revision to recover.** Rejected: it hides the fix from `main` and
   makes the live state differ from the repository.
-- **Requiring the private hosting CLI.** Rejected: the direct Metrics scripts already show
-  the necessary API operations. Shared helpers can be extracted once deployment scripts
-  demonstrate repeated code with a clear common contract.
+- **Requiring the private hosting CLI.** Rejected by the owners on 2026-10-06 in favour of
+  the repository-owned scripts; the CLI needs 1Password and a private npm token. Shared
+  helpers may be extracted into a small reusable package once a second deploying repository
+  shows the same code.
 
 ## Consequences
 

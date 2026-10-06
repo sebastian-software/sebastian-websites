@@ -6,7 +6,7 @@
 - Effort: S
 - Risk: LOW
 - Depends on: none
-- State: done on 2026-10-06; the clearance of testimonials is open
+- State: done on 2026-10-06
 - Planned at: f007192, 2026-10-06
 
 ## Outcome
@@ -95,7 +95,8 @@ for it. Everything without a record stays out.
 
 - [x] The capture exists outside Git and is readable.
 - [x] Every content type is sorted into owned, reusable, or not cleared.
-- [ ] No portrait or testimonial is scheduled for reuse without a recorded permission.
+- [x] No portrait or testimonial is scheduled for reuse without a recorded permission: the
+      owners cleared the old site's testimonials and logos on 2026-10-06 (`packages/content`).
 
 ## Stop conditions
 

@@ -32,8 +32,8 @@ without the services, profiles, and booking prompts that now belong to Consultin
 - Analytics host `t.sebastian-software.de` (self-hosted, used by the Consulting site as well).
 - Information architecture: Products · Open source · Company · Contact
   ([overall concept, Information architecture](../concept/overall-concept.md#information-architecture)).
-- Commercial products: Terminaro (`terminaro.eu`), Palamedes+ (not yet public), a third
-  product in preparation. Open-source products: Palamedes, Dalo, Ardo, and the families.
+- Commercial products: Terminaro (`terminaro.eu`), Palamedes+ (announced as coming soon), a
+  third product in preparation. Open-source products: Palamedes, Dalo, Ardo, and the families.
 - Source material: the live-site capture sorted in plan 05; reusable home and mission copy is in `apps/software/content/legacy/`.
 
 ## Scope

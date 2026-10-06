@@ -67,7 +67,8 @@ logos and tokens by URL. It is not one of the four sites and does not appear in 
 ### Products
 
 **Commercial product**:
-A product that is sold: Terminaro, Palamedes+, and a third product in preparation.
+A product that is sold: Terminaro, Palamedes+ (announced as coming soon), and a third product
+in preparation.
 _Avoid_: product (unqualified)
 
 **Open-source product**:

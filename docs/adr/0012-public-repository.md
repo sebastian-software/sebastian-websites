@@ -11,11 +11,12 @@ open source without being published or versioned separately. Being public sets r
 may enter the repository:
 
 - No font files. The licensed typefaces are served from our own CDN and never committed here.
-- No personal data of third parties beyond what the sites themselves publish; in particular
-  no portraits or details of testimonial authors taken over from the old Sanity dataset
-  without clearance.
+- No personal data of third parties beyond what the sites themselves publish. The owners
+  cleared the testimonials and client logos of the old site for reuse on 2026-10-06; they live
+  in `packages/content`, while the authors' portraits and the logo files stay outside Git
+  until a page needs them.
 - No unannounced products by name. Until it is announced, a product in preparation is
-  described only as such.
+  described only as such. Palamedes+ is announced as "coming soon" and may be named.
 - No internal analyses. Research that counts customers or weighs internal contradictions stays
   outside; the concept documents here carry only confirmed statements.
 - No secrets. The Bunny API key lives in GitHub Actions secrets and is never committed.
