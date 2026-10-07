@@ -35,7 +35,7 @@ export default function Products(): ReactElement {
     },
   ]
   return (
-    <main>
+    <main id="main">
       <Section tone="white">
         <SectionHead
           eyebrow={t`Products`}

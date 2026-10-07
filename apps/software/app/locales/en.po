@@ -24,6 +24,49 @@ msgstr ""
 "for this do not apply. For data protection inquiries, you can contact the "
 "email address listed above."
 
+#: app/data/products.ts#getProducts
+msgid "A drawn desk calendar with one booked slot, a pen, and a potted plant."
+msgstr "A drawn desk calendar with one booked slot, a pen, and a potted plant."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "A drawn desk calendar with one marked appointment beside a potted plant."
+msgstr ""
+"A drawn desk calendar with one marked appointment beside a potted plant."
+
+#: app/components/RegionStory.tsx#RegionStory
+msgid ""
+"A drawn landscape with the cathedral of Mainz above and Heidelberg castle with"
+" its old bridge below."
+msgstr ""
+"A drawn landscape with the cathedral of Mainz above and Heidelberg castle with"
+" its old bridge below."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "A drawn road winding through a valley toward the mountains."
+msgstr "A drawn road winding through a valley toward the mountains."
+
+#: app/data/products.ts#getProducts
+msgid ""
+"A drawn shop front with a striped awning, a blank sandwich board, and potted "
+"trees."
+msgstr ""
+"A drawn shop front with a striped awning, a blank sandwich board, and potted "
+"trees."
+
+#~ #@ obsolete-since: 2026-10-07
+#~ #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+#~ msgid ""
+#~ "A drawn trail through the mountains with alternative routes and a marked "
+#~ "destination."
+#~ msgstr ""
+#~ "A drawn trail through the mountains with alternative routes and a marked "
+#~ "destination."
+
+#: app/components/OpenFoundations.tsx#OpenFoundations
+msgid "A family of Rust-native engines and applications for documents and text."
+msgstr ""
+"A family of Rust-native engines and applications for documents and text."
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/open-source.tsx
 #~ msgid ""
@@ -60,6 +103,18 @@ msgstr ""
 "daily work and we know it keeps what it promises. Until then: Palamedes, the "
 "open core, is here today."
 
+#: app/data/products.ts#getProducts
+msgid ""
+"A website only helps a local business while its opening hours, offers, and "
+"everyday information are current. VorOrt sets up a professional website and "
+"keeps it current: owners describe what changed in the website chat, confirm "
+"the update, and never have to work in a CMS."
+msgstr ""
+"A website only helps a local business while its opening hours, offers, and "
+"everyday information are current. VorOrt sets up a professional website and "
+"keeps it current: owners describe what changed in the website chat, confirm "
+"the update, and never have to work in a CMS."
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/home.tsx
 #~ msgid "About the company"
@@ -77,6 +132,10 @@ msgstr "Address"
 #: app/routes/open-source.tsx
 msgid "All projects on the Open Source site →"
 msgstr "All projects on the Open Source site →"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Almost done: please confirm the link we just sent you."
+msgstr "Almost done: please confirm the link we just sent you."
 
 #: app/routes/open-source.tsx
 msgid ""
@@ -111,9 +170,10 @@ msgstr ""
 "Approximate geographic location (country level, derived from the IP address, "
 "which itself is not stored)"
 
-#: app/routes/home.tsx#ProjectSupport
-msgid "Architecture reviews and modernization"
-msgstr "Architecture reviews and modernization"
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#ProjectSupport
+#~ msgid "Architecture reviews and modernization"
+#~ msgstr "Architecture reviews and modernization"
 
 #: app/routes/contact.tsx
 msgid ""
@@ -125,6 +185,10 @@ msgstr ""
 "Sebastian Consulting. Book a fifteen-minute intro call directly with one of "
 "the two founders."
 
+#: app/data/products.ts#getProducts
+msgid "Ask us about VorOrt"
+msgstr "Ask us about VorOrt"
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
 msgid "Automated Decision-Making"
 msgstr "Automated Decision-Making"
@@ -133,6 +197,18 @@ msgstr "Automated Decision-Making"
 #~ #: app/routes/home.tsx#ProductCards
 #~ msgid "Available"
 #~ msgstr "Available"
+
+#: app/components/RegionStory.tsx#RegionStory
+msgid ""
+"Based in Mainz and Heidelberg, rooted in the Rhine-Main and Rhine-Neckar "
+"regions. Two founders run the company themselves."
+msgstr ""
+"Based in Mainz and Heidelberg, rooted in the Rhine-Main and Rhine-Neckar "
+"regions. Two founders run the company themselves."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Book an intro call"
+msgstr "Book an intro call"
 
 #: app/routes/products.tsx
 msgid "Born from gaps we saw"
@@ -143,20 +219,25 @@ msgstr "Born from gaps we saw"
 #~ msgid "Born from our own need"
 #~ msgstr "Born from our own need"
 
-#: app/routes/home.tsx#ProjectSupport
-msgid ""
-"Bringing interfaces and user-generated content into many languages without "
-"slowing the product down and without translations taking weeks. Palamedes grew"
-" out of this, and Palamedes+ will."
-msgstr ""
-"Bringing interfaces and user-generated content into many languages without "
-"slowing the product down and without translations taking weeks. Palamedes grew"
-" out of this, and Palamedes+ will."
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#ProjectSupport
+#~ msgid ""
+#~ "Bringing interfaces and user-generated content into many languages without "
+#~ "slowing the product down and without translations taking weeks. Palamedes grew"
+#~ " out of this, and Palamedes+ will."
+#~ msgstr ""
+#~ "Bringing interfaces and user-generated content into many languages without "
+#~ "slowing the product down and without translations taking weeks. Palamedes grew"
+#~ " out of this, and Palamedes+ will."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/open-source.tsx
 #~ msgid "Browse the skills"
 #~ msgstr "Browse the skills"
+
+#: app/routes/home.tsx
+msgid "Built for everyday work."
+msgstr "Built for everyday work."
 
 #: app/routes/products.tsx
 msgid "Built to keep working"
@@ -204,7 +285,7 @@ msgstr ""
 msgid "CDN, hosting and edge scripting for this website"
 msgstr "CDN, hosting and edge scripting for this website"
 
-#: app/routes/home.tsx#Hero
+#: app/components/RegionStory.tsx#RegionStory
 msgid "Clarity."
 msgstr "Clarity."
 
@@ -236,18 +317,22 @@ msgstr ""
 "a project has ended."
 
 #: app/components/ProductCards.tsx#ProductCards
+#: app/data/products.ts#getProducts
 msgid "Coming soon"
 msgstr "Coming soon"
 
-#: app/components/MainNav.tsx#MainNav
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 #: app/routes/company.tsx
-#: app/routes/home.tsx#Company
 msgid "Company"
 msgstr "Company"
 
 #: app/routes/company.tsx#meta
 msgid "Company – Sebastian Software"
 msgstr "Company – Sebastian Software"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Company profiles"
+msgstr "Company profiles"
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/company.tsx
@@ -261,8 +346,8 @@ msgstr "Company – Sebastian Software"
 #~ "solutions."
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 #: app/components/Closing.tsx#Closing
-#: app/components/MainNav.tsx#MainNav
 #: app/routes/contact.tsx
 msgid "Contact"
 msgstr "Contact"
@@ -302,11 +387,22 @@ msgstr "Device information (screen size, operating system, browser)"
 #~ msgid "Discover our products"
 #~ msgstr "Discover our products"
 
-#: app/routes/home.tsx#Hero
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Discover Sebastian/Software"
+msgstr "Discover Sebastian/Software"
+
+#: app/routes/home.tsx
 msgid "Discover the products"
 msgstr "Discover the products"
 
-#: app/routes/home.tsx#Products
+#: app/data/products.ts#getProducts
+msgid ""
+"Drawn books and cards with a Latin letter and a Chinese character beside an "
+"open book."
+msgstr ""
+"Drawn books and cards with a Latin letter and a Chinese character beside an "
+"open book."
+
 #: app/routes/products.tsx
 msgid ""
 "Each of our products grew out of a gap we saw ourselves, and we use them in "
@@ -354,6 +450,7 @@ msgstr ""
 "no persistent storage takes place."
 
 #: app/components/ProductCards.tsx#ProductCards
+#: app/data/products.ts#getProducts
 msgid "Early access"
 msgstr "Early access"
 
@@ -365,12 +462,16 @@ msgstr "Edge Scripting for server-side logic at Bunny.net nodes"
 msgid "Editorially Responsible pursuant to § 18(2) MStV"
 msgstr "Editorially Responsible pursuant to § 18(2) MStV"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Email address"
+msgstr "Email address"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid "Email:"
 msgstr "Email:"
 
-#: app/routes/home.tsx#Hero
+#: app/components/RegionStory.tsx#RegionStory
 msgid "Enthusiasm."
 msgstr "Enthusiasm."
 
@@ -413,7 +514,7 @@ msgstr ""
 #~ "internationalize. We use them daily, which is the fastest way to notice what "
 #~ "is missing."
 
-#: app/routes/home.tsx#Hero
+#: app/components/RegionStory.tsx#RegionStory
 msgid "Experience."
 msgstr "Experience."
 
@@ -426,6 +527,18 @@ msgstr "Experience."
 #~ #: app/routes/home.tsx
 #~ msgid "Explore our open source"
 #~ msgstr "Explore our open source"
+
+#: app/components/OpenFoundations.tsx#OpenFoundations
+msgid "Explore our open source projects"
+msgstr "Explore our open source projects"
+
+#: app/data/products.ts#getProducts
+msgid "Explore Terminaro"
+msgstr "Explore Terminaro"
+
+#: app/data/products.ts#getProducts
+msgid "Explore the open core"
+msgstr "Explore the open core"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
 msgid "External Links"
@@ -477,29 +590,31 @@ msgstr ""
 "entirely without cookies and does not permanently store personal data (see "
 "section \"Web Analytics\")."
 
-#: app/routes/home.tsx#ProjectSupport
-msgid ""
-"Foundations on which several teams deliver in parallel, with conventions that "
-"prevail because they make everyday work easier. The Effective libraries are "
-"the tools we kept needing along the way."
-msgstr ""
-"Foundations on which several teams deliver in parallel, with conventions that "
-"prevail because they make everyday work easier. The Effective libraries are "
-"the tools we kept needing along the way."
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#ProjectSupport
+#~ msgid ""
+#~ "Foundations on which several teams deliver in parallel, with conventions that "
+#~ "prevail because they make everyday work easier. The Effective libraries are "
+#~ "the tools we kept needing along the way."
+#~ msgstr ""
+#~ "Foundations on which several teams deliver in parallel, with conventions that "
+#~ "prevail because they make everyday work easier. The Effective libraries are "
+#~ "the tools we kept needing along the way."
 
-#: app/routes/home.tsx#Hero
-msgid ""
-"Founded in 2014 by Sebastian Fastner and Sebastian Werner after many years in "
-"large frontend projects and in the open-source world. Three things come out of"
-" our work today: our own products such as Terminaro and Palamedes, a family of"
-" open tools in Rust and TypeScript, and, as Sebastian Consulting, project "
-"support for teams that want their frontend architecture to carry."
-msgstr ""
-"Founded in 2014 by Sebastian Fastner and Sebastian Werner after many years in "
-"large frontend projects and in the open-source world. Three things come out of"
-" our work today: our own products such as Terminaro and Palamedes, a family of"
-" open tools in Rust and TypeScript, and, as Sebastian Consulting, project "
-"support for teams that want their frontend architecture to carry."
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Hero
+#~ msgid ""
+#~ "Founded in 2014 by Sebastian Fastner and Sebastian Werner after many years in "
+#~ "large frontend projects and in the open-source world. Three things come out of"
+#~ " our work today: our own products such as Terminaro and Palamedes, a family of"
+#~ " open tools in Rust and TypeScript, and, as Sebastian Consulting, project "
+#~ "support for teams that want their frontend architecture to carry."
+#~ msgstr ""
+#~ "Founded in 2014 by Sebastian Fastner and Sebastian Werner after many years in "
+#~ "large frontend projects and in the open-source world. Three things come out of"
+#~ " our work today: our own products such as Terminaro and Palamedes, a family of"
+#~ " open tools in Rust and TypeScript, and, as Sebastian Consulting, project "
+#~ "support for teams that want their frontend architecture to carry."
 
 #: app/components/Founders.tsx#Founders
 msgid "Founder · Frontend architecture and developer experience"
@@ -542,26 +657,39 @@ msgstr ""
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 #: app/routes/contact.tsx
 msgid "Germany"
 msgstr "Germany"
 
-#: app/routes/home.tsx
+#: app/data/products.ts#getProducts
+msgid ""
+"Give your customers a simple way to book online, without an account and "
+"without cookies on the public booking page. Terminaro syncs with Google, "
+"iCloud, or CalDAV calendars to prevent double bookings, sends confirmations "
+"and reminders on its own, and keeps booking data on servers in Germany."
+msgstr ""
+"Give your customers a simple way to book online, without an account and "
+"without cookies on the public booking page. Terminaro syncs with Google, "
+"iCloud, or CalDAV calendars to prevent double bookings, sends confirmations "
+"and reminders on its own, and keeps booking data on servers in Germany."
+
 #: app/routes/open-source.tsx
 msgid "Giving back, with tools you can inspect."
 msgstr "Giving back, with tools you can inspect."
 
-#: app/routes/home.tsx#Stance
-msgid ""
-"Good architecture shows in how easy the next change is. So we choose the "
-"proven building block over the loud one, and we write down why. Software we "
-"build today should still be understandable in five years, for us and for those"
-" who work on it after us."
-msgstr ""
-"Good architecture shows in how easy the next change is. So we choose the "
-"proven building block over the loud one, and we write down why. Software we "
-"build today should still be understandable in five years, for us and for those"
-" who work on it after us."
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Stance
+#~ msgid ""
+#~ "Good architecture shows in how easy the next change is. So we choose the "
+#~ "proven building block over the loud one, and we write down why. Software we "
+#~ "build today should still be understandable in five years, for us and for those"
+#~ " who work on it after us."
+#~ msgstr ""
+#~ "Good architecture shows in how easy the next change is. So we choose the "
+#~ "proven building block over the loud one, and we write down why. Software we "
+#~ "build today should still be understandable in five years, for us and for those"
+#~ " who work on it after us."
 
 #: app/routes/open-source.tsx
 msgid "Gratitude"
@@ -616,10 +744,9 @@ msgstr "How to reach Sebastian Software GmbH in Mainz."
 msgid "How we build products"
 msgstr "How we build products"
 
-#~ #@ obsolete-since: 2026-10-06
-#~ #: app/root.tsx
-#~ msgid "Imprint"
-#~ msgstr "Imprint"
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Imprint"
+msgstr "Imprint"
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/imprint.tsx#meta
@@ -630,31 +757,57 @@ msgstr "How we build products"
 msgid "In preparation"
 msgstr "In preparation"
 
-#: app/routes/home.tsx#Stance
-msgid ""
-"In twenty years we have seen many technology waves come and go. What stayed "
-"was rarely the loudest, but what was well built, clearly documented, and "
-"honestly tested. That is how we direct our products, our open-source work, and"
-" our consulting."
-msgstr ""
-"In twenty years we have seen many technology waves come and go. What stayed "
-"was rarely the loudest, but what was well built, clearly documented, and "
-"honestly tested. That is how we direct our products, our open-source work, and"
-" our consulting."
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Stance
+#~ msgid ""
+#~ "In twenty years we have seen many technology waves come and go. What stayed "
+#~ "was rarely the loudest, but what was well built, clearly documented, and "
+#~ "honestly tested. That is how we direct our products, our open-source work, and"
+#~ " our consulting."
+#~ msgstr ""
+#~ "In twenty years we have seen many technology waves come and go. What stayed "
+#~ "was rarely the loudest, but what was well built, clearly documented, and "
+#~ "honestly tested. That is how we direct our products, our open-source work, and"
+#~ " our consulting."
+
+#: app/components/RegionStory.tsx#RegionStory
+msgid "Independent since 2014."
+msgstr "Independent since 2014."
+
+#: app/routes/home.tsx
+msgid "Independent software."
+msgstr "Independent software."
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Information pursuant to § 5 DDG"
 msgstr "Information pursuant to § 5 DDG"
 
-#: app/routes/home.tsx#ProjectSupport
-msgid "Internationalizing large codebases"
-msgstr "Internationalizing large codebases"
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid ""
+"Insights into our work across software and consulting: what we're building, "
+"exploring and thinking about."
+msgstr ""
+"Insights into our work across software and consulting: what we're building, "
+"exploring and thinking about."
+
+#: app/components/OpenFoundations.tsx#OpenFoundations
+msgid ""
+"Internationalization for TypeScript applications: message extraction, "
+"catalogs, and framework adapters."
+msgstr ""
+"Internationalization for TypeScript applications: message extraction, "
+"catalogs, and framework adapters."
+
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#ProjectSupport
+#~ msgid "Internationalizing large codebases"
+#~ msgstr "Internationalizing large codebases"
 
 #: app/routes/company.tsx#Mission
 msgid "Knowledge is the key to real progress"
 msgstr "Knowledge is the key to real progress"
 
-#: app/root.tsx
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Language"
 msgstr "Language"
 
@@ -662,15 +815,16 @@ msgstr "Language"
 msgid "Last updated: {formattedVersion}"
 msgstr "Last updated: {formattedVersion}"
 
-#: app/routes/home.tsx#Company
-msgid ""
-"Learning is our foundation. We read, try, and measure before we recommend, and"
-" we choose deliberately what really adds value. Not every novelty suits us, "
-"not even in AI."
-msgstr ""
-"Learning is our foundation. We read, try, and measure before we recommend, and"
-" we choose deliberately what really adds value. Not every novelty suits us, "
-"not even in AI."
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Company
+#~ msgid ""
+#~ "Learning is our foundation. We read, try, and measure before we recommend, and"
+#~ " we choose deliberately what really adds value. Not every novelty suits us, "
+#~ "not even in AI."
+#~ msgstr ""
+#~ "Learning is our foundation. We read, try, and measure before we recommend, and"
+#~ " we choose deliberately what really adds value. Not every novelty suits us, "
+#~ "not even in AI."
 
 #: app/routes/company.tsx#Mission
 msgid ""
@@ -682,7 +836,7 @@ msgstr ""
 "at conferences and developer meetings. Not every innovation is right for us; "
 "we deliberately select what offers real value."
 
-#: app/root.tsx
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Legal"
 msgstr "Legal"
 
@@ -696,7 +850,6 @@ msgid "Legal Basis and Retention Period"
 msgstr "Legal Basis and Retention Period"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
-#: app/root.tsx
 msgid "Legal Notice"
 msgstr "Legal Notice"
 
@@ -730,9 +883,10 @@ msgstr ""
 "icons, favicons, shadows, setting up a new machine. Small tools we need in "
 "every project and therefore maintain instead of rewriting them each time."
 
-#: app/routes/home.tsx#Stance
-msgid "Longevity before pace"
-msgstr "Longevity before pace"
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Stance
+#~ msgid "Longevity before pace"
+#~ msgstr "Longevity before pace"
 
 #: app/routes/contact.tsx
 msgid "Looking for project help?"
@@ -743,9 +897,13 @@ msgstr "Looking for project help?"
 #~ msgid "Looking for project help? That is the job of Sebastian Consulting."
 #~ msgstr "Looking for project help? That is the job of Sebastian Consulting."
 
-#: app/components/MainNav.tsx#MainNav
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Main navigation"
 msgstr "Main navigation"
+
+#: app/data/products.ts#getProducts
+msgid "Managed translations built around an open core."
+msgstr "Managed translations built around an open core."
 
 #: app/components/ProductCards.tsx#ProductCards
 msgid ""
@@ -759,6 +917,10 @@ msgstr ""
 "suggestions become a service. Born from internationalizing large codebases "
 "where translations should roll out in seconds rather than weeks."
 
+#: app/data/products.ts#getProducts
+msgid "Managed websites for local businesses."
+msgstr "Managed websites for local businesses."
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Managing Directors"
 msgstr "Managing Directors"
@@ -767,13 +929,18 @@ msgstr "Managing Directors"
 msgid "Managing Directors:"
 msgstr "Managing Directors:"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Meet Sebastian/Consulting"
+msgstr "Meet Sebastian/Consulting"
+
 #: app/routes/company.tsx#Mission
 msgid "Mission"
 msgstr "Mission"
 
-#: app/routes/home.tsx#ProjectSupport
-msgid "Monorepos and design systems"
-msgstr "Monorepos and design systems"
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#ProjectSupport
+#~ msgid "Monorepos and design systems"
+#~ msgstr "Monorepos and design systems"
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/company.tsx
@@ -784,6 +951,14 @@ msgstr "Monorepos and design systems"
 #~ "More than twenty years of web technology, clear design and clever interfaces, "
 #~ "UI frameworks, and open source since leading qooxdoo."
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Need a clearer direction for your software?"
+msgstr "Need a clearer direction for your software?"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Newsletter"
+msgstr "Newsletter"
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
 msgid ""
 "No automated decision-making, including profiling, pursuant to Art. 22 GDPR "
@@ -792,13 +967,18 @@ msgstr ""
 "No automated decision-making, including profiling, pursuant to Art. 22 GDPR "
 "takes place."
 
-#: app/routes/home.tsx#Hero
-msgid "nothing in between"
-msgstr "nothing in between"
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Hero
+#~ msgid "nothing in between"
+#~ msgstr "nothing in between"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Obligation to Provide Data"
 msgstr "Obligation to Provide Data"
+
+#: app/data/products.ts#getProducts
+msgid "Online appointment booking for small businesses."
+msgstr "Online appointment booking for small businesses."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/home.tsx#ProductCards
@@ -827,7 +1007,10 @@ msgstr ""
 "bookings, confirmations and reminders go out automatically, and booking data "
 "stays on servers in Germany."
 
-#: app/components/MainNav.tsx#MainNav
+#: app/components/OpenFoundations.tsx#OpenFoundations
+msgid "Open foundations"
+msgstr "Open foundations"
+
 #: app/components/MetricsBand.tsx#MetricsBand
 #: app/routes/open-source.tsx
 msgid "Open source"
@@ -848,17 +1031,18 @@ msgstr "Open source – Sebastian Software"
 #~ "Rust engines, the Effective libraries and skills, and the tools we use "
 #~ "ourselves."
 
-#: app/routes/home.tsx
-msgid ""
-"Open source shaped our careers: qooxdoo at 1&1, Unify at Deutsche Telekom, "
-"Jasy at Zynga. What we build for our products today we share again, as "
-"families of open tools whose numbers stand here live. Every library, engine, "
-"and skill is on GitHub, with tests, benchmarks, and decisions."
-msgstr ""
-"Open source shaped our careers: qooxdoo at 1&1, Unify at Deutsche Telekom, "
-"Jasy at Zynga. What we build for our products today we share again, as "
-"families of open tools whose numbers stand here live. Every library, engine, "
-"and skill is on GitHub, with tests, benchmarks, and decisions."
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx
+#~ msgid ""
+#~ "Open source shaped our careers: qooxdoo at 1&1, Unify at Deutsche Telekom, "
+#~ "Jasy at Zynga. What we build for our products today we share again, as "
+#~ "families of open tools whose numbers stand here live. Every library, engine, "
+#~ "and skill is on GitHub, with tests, benchmarks, and decisions."
+#~ msgstr ""
+#~ "Open source shaped our careers: qooxdoo at 1&1, Unify at Deutsche Telekom, "
+#~ "Jasy at Zynga. What we build for our products today we share again, as "
+#~ "families of open tools whose numbers stand here live. Every library, engine, "
+#~ "and skill is on GitHub, with tests, benchmarks, and decisions."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/open-source.tsx
@@ -891,9 +1075,22 @@ msgstr ""
 msgid "Open where it matters"
 msgstr "Open where it matters"
 
-#: app/routes/home.tsx#Hero
-msgid "open-source projects, counted live"
-msgstr "open-source projects, counted live"
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Hero
+#~ msgid "open-source projects, counted live"
+#~ msgstr "open-source projects, counted live"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Our agency"
+msgstr "Our agency"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid ""
+"Our agency helps teams with software architecture, engineering and technical "
+"direction."
+msgstr ""
+"Our agency helps teams with software architecture, engineering and technical "
+"direction."
 
 #: app/routes/open-source.tsx
 msgid ""
@@ -905,17 +1102,23 @@ msgstr ""
 "Jasy at Zynga. The tools and the people around them taught us most of what we "
 "know. Publishing what we build today is how we return the favor."
 
-#: app/routes/home.tsx#Stance
-msgid "Our stance"
-msgstr "Our stance"
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Our software"
+msgstr "Our software"
+
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Stance
+#~ msgid "Our stance"
+#~ msgstr "Our stance"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
 msgid "Overview of Data Processing"
 msgstr "Overview of Data Processing"
 
-#: app/routes/home.tsx#Hero
-msgid "owner-led, Mainz"
-msgstr "owner-led, Mainz"
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Hero
+#~ msgid "owner-led, Mainz"
+#~ msgstr "owner-led, Mainz"
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Page views (URL, referrer)"
@@ -931,7 +1134,6 @@ msgid "Palamedes, the open core →"
 msgstr "Palamedes, the open core →"
 
 #: app/routes/company.tsx
-#: app/routes/home.tsx#Company
 msgid ""
 "People who have worked with us tend to describe the same things: broad, "
 "current knowledge of web technologies; recommendations that are reasoned and "
@@ -955,7 +1157,11 @@ msgstr "Phone:"
 msgid "Place of Processing"
 msgstr "Place of Processing"
 
-#: app/root.tsx
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Please enter a complete email address, such as name@example.com."
+msgstr "Please enter a complete email address, such as name@example.com."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Privacy"
 msgstr "Privacy"
 
@@ -1016,8 +1222,7 @@ msgstr ""
 msgid "Processors"
 msgstr "Processors"
 
-#: app/components/MainNav.tsx#MainNav
-#: app/routes/home.tsx#Products
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 #: app/routes/products.tsx
 msgid "Products"
 msgstr "Products"
@@ -1035,28 +1240,33 @@ msgstr "Products – Sebastian Software"
 msgid "Profile and project list →"
 msgstr "Profile and project list →"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Profiles"
+msgstr "Profiles"
+
 #: app/routes/contact.tsx
-#: app/routes/home.tsx#ProjectSupport
 msgid "Project support"
 msgstr "Project support"
 
-#: app/routes/home.tsx#ProjectSupport
-msgid ""
-"Project support runs under Sebastian Consulting, with the same two people. "
-"Three kinds of work have recurred for years, and each has also produced "
-"something for our products and tools."
-msgstr ""
-"Project support runs under Sebastian Consulting, with the same two people. "
-"Three kinds of work have recurred for years, and each has also produced "
-"something for our products and tools."
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#ProjectSupport
+#~ msgid ""
+#~ "Project support runs under Sebastian Consulting, with the same two people. "
+#~ "Three kinds of work have recurred for years, and each has also produced "
+#~ "something for our products and tools."
+#~ msgstr ""
+#~ "Project support runs under Sebastian Consulting, with the same two people. "
+#~ "Three kinds of work have recurred for years, and each has also produced "
+#~ "something for our products and tools."
 
 #: app/components/MetricsBand.tsx#MetricsBand
 msgid "Projects on GitHub"
 msgstr "Projects on GitHub"
 
-#: app/routes/home.tsx#Stance
-msgid "Proof instead of claims"
-msgstr "Proof instead of claims"
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Stance
+#~ msgid "Proof instead of claims"
+#~ msgstr "Proof instead of claims"
 
 #: app/components/Founders.tsx#Founders
 msgid ""
@@ -1081,6 +1291,14 @@ msgstr "Register Entry"
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Register Number:"
 msgstr "Register Number:"
+
+#: app/components/RegionStory.tsx#RegionStory
+msgid "Rhine-Main"
+msgstr "Rhine-Main"
+
+#: app/components/RegionStory.tsx#RegionStory
+msgid "Rhine-Neckar"
+msgstr "Rhine-Neckar"
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid "Right of access (Art. 15 GDPR)"
@@ -1160,12 +1378,12 @@ msgstr ""
 "rotating random component (salt) resets this identifier every day, so tracking"
 " across days is ruled out."
 
-#: app/routes/home.tsx#Hero
-msgid "Sebastian Fastner and Sebastian Werner"
-msgstr "Sebastian Fastner and Sebastian Werner"
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Hero
+#~ msgid "Sebastian Fastner and Sebastian Werner"
+#~ msgstr "Sebastian Fastner and Sebastian Werner"
 
 #: app/routes/company.tsx
-#: app/routes/home.tsx#Company
 msgid ""
 "Sebastian Fastner and Sebastian Werner have run the company themselves since "
 "2014. Both have worked in professional software development since the early "
@@ -1177,17 +1395,23 @@ msgstr ""
 "2000s, for a long time in large frontend projects for corporations, in between"
 " on frameworks that many others have used."
 
-#: app/routes/home.tsx#meta
-msgid "Sebastian Software"
-msgstr "Sebastian Software"
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#meta
+#~ msgid "Sebastian Software"
+#~ msgstr "Sebastian Software"
 
 #: app/routes/home.tsx#meta
-msgid ""
-"Sebastian Software builds products that are meant to last and shares the tools"
-" behind them as open source."
-msgstr ""
-"Sebastian Software builds products that are meant to last and shares the tools"
-" behind them as open source."
+msgid "Sebastian Software – Independent software, built for everyday work"
+msgstr "Sebastian Software – Independent software, built for everyday work"
+
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#meta
+#~ msgid ""
+#~ "Sebastian Software builds products that are meant to last and shares the tools"
+#~ " behind them as open source."
+#~ msgstr ""
+#~ "Sebastian Software builds products that are meant to last and shares the tools"
+#~ " behind them as open source."
 
 #: app/routes/company.tsx
 msgid ""
@@ -1218,6 +1442,26 @@ msgstr ""
 "Sebastian Software GmbH: founded in 2014 in Mainz by Sebastian Fastner and "
 "Sebastian Werner. Our mission, our team, and how we build."
 
+#: app/routes/home.tsx#meta
+msgid ""
+"Sebastian Software is a product company from Mainz. We build what we use "
+"ourselves: Terminaro for appointment booking, Palamedes+ for managed "
+"translations, and VorOrt for local websites."
+msgstr ""
+"Sebastian Software is a product company from Mainz. We build what we use "
+"ourselves: Terminaro for appointment booking, Palamedes+ for managed "
+"translations, and VorOrt for local websites."
+
+#: app/routes/home.tsx
+msgid ""
+"Sebastian Software is a product company. We build what we use ourselves, from "
+"appointment booking to translation and local websites: practical tools, "
+"maintained with care."
+msgstr ""
+"Sebastian Software is a product company. We build what we use ourselves, from "
+"appointment booking to translation and local websites: practical tools, "
+"maintained with care."
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/home.tsx
 #~ msgid ""
@@ -1227,26 +1471,49 @@ msgstr ""
 #~ "Sebastian Software is a small German software company. We build products that "
 #~ "are meant to last and share the tools behind them as open source."
 
-#: app/routes/home.tsx#Hero
-msgid ""
-"Sebastian Software is a small software company from Mainz. We build products "
-"that are meant to last and share the tools behind them as open source."
-msgstr ""
-"Sebastian Software is a small software company from Mainz. We build products "
-"that are meant to last and share the tools behind them as open source."
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Hero
+#~ msgid ""
+#~ "Sebastian Software is a small software company from Mainz. We build products "
+#~ "that are meant to last and share the tools behind them as open source."
+#~ msgstr ""
+#~ "Sebastian Software is a small software company from Mainz. We build products "
+#~ "that are meant to last and share the tools behind them as open source."
 
-#: app/routes/home.tsx#ProjectSupport
-msgid "Services and profiles at Sebastian Consulting →"
-msgstr "Services and profiles at Sebastian Consulting →"
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "See what we build beyond consulting."
+msgstr "See what we build beyond consulting."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Services"
+msgstr "Services"
+
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#ProjectSupport
+#~ msgid "Services and profiles at Sebastian Consulting →"
+#~ msgstr "Services and profiles at Sebastian Consulting →"
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/products.tsx
 #~ msgid "Ship translations, not tickets."
 #~ msgstr "Ship translations, not tickets."
 
-#: app/routes/home.tsx#Hero
-msgid "Since 2014"
-msgstr "Since 2014"
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Sign-up opens soon. The newsletter has not started yet."
+msgstr "Sign-up opens soon. The newsletter has not started yet."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Signing you up…"
+msgstr "Signing you up…"
+
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Hero
+#~ msgid "Since 2014"
+#~ msgstr "Since 2014"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Site index"
+msgstr "Site index"
 
 #: app/components/Families.tsx#Families
 msgid ""
@@ -1262,6 +1529,10 @@ msgstr ""
 msgid "Skills for coding agents"
 msgstr "Skills for coding agents"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Skip to content"
+msgstr "Skip to content"
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/company.tsx
 #~ msgid ""
@@ -1275,31 +1546,38 @@ msgstr "Skills for coding agents"
 msgid "Small, lasting, inspectable."
 msgstr "Small, lasting, inspectable."
 
-#: app/routes/home.tsx#Stance
-msgid "Small, personal, accountable"
-msgstr "Small, personal, accountable"
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Stance
+#~ msgid "Small, personal, accountable"
+#~ msgstr "Small, personal, accountable"
 
 #: app/routes/company.tsx#Mission
 msgid "Software that lasts and inspires"
 msgstr "Software that lasts and inspires"
 
-#: app/routes/home.tsx#Stance
-msgid "Software that lasts. Tools you can inspect."
-msgstr "Software that lasts. Tools you can inspect."
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Stance
+#~ msgid "Software that lasts. Tools you can inspect."
+#~ msgstr "Software that lasts. Tools you can inspect."
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Storage for static files and assets"
 msgstr "Storage for static files and assets"
 
-#: app/routes/home.tsx#ProjectSupport
-msgid ""
-"Target picture, decision, migration path: reasoned, documented, and "
-"implemented together. Also for systems that have run for ten years and should "
-"run for ten more."
-msgstr ""
-"Target picture, decision, migration path: reasoned, documented, and "
-"implemented together. Also for systems that have run for ten years and should "
-"run for ten more."
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Subscribe"
+msgstr "Subscribe"
+
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#ProjectSupport
+#~ msgid ""
+#~ "Target picture, decision, migration path: reasoned, documented, and "
+#~ "implemented together. Also for systems that have run for ten years and should "
+#~ "run for ten more."
+#~ msgstr ""
+#~ "Target picture, decision, migration path: reasoned, documented, and "
+#~ "implemented together. Also for systems that have run for ten years and should "
+#~ "run for ten more."
 
 #: app/routes/company.tsx#Mission
 msgid "Technology that wins hearts and minds"
@@ -1322,9 +1600,10 @@ msgstr ""
 #~ "Terminaro keeps appointment booking simple for small businesses. Palamedes+ "
 #~ "will bring managed translations to teams that already use Palamedes."
 
-#: app/routes/home.tsx#Hero
-msgid "The company"
-msgstr "The company"
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Hero
+#~ msgid "The company"
+#~ msgstr "The company"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""
@@ -1405,6 +1684,10 @@ msgstr ""
 #~ msgid "The new Sebastian Software site is being built."
 #~ msgstr "The new Sebastian Software site is being built."
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "The sign-up did not go through. Please try again later."
+msgstr "The sign-up did not go through. Please try again later."
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/company.tsx
 #~ msgid "The team"
@@ -1423,7 +1706,6 @@ msgstr ""
 "contractual obligation to provide any further personal data."
 
 #: app/routes/company.tsx
-#: app/routes/home.tsx#Company
 msgid "The two founders at the laptop"
 msgstr "The two founders at the laptop"
 
@@ -1543,7 +1825,6 @@ msgstr ""
 "To exercise your rights, you may contact us at any time at: "
 "<0>{privacyEmail}</0>"
 
-#: app/components/Closing.tsx#Closing
 #: app/routes/contact.tsx
 msgid "To Sebastian Consulting"
 msgstr "To Sebastian Consulting"
@@ -1560,6 +1841,20 @@ msgstr "To the Skills site →"
 msgid "Trademark Notice"
 msgstr "Trademark Notice"
 
+#: app/data/products.ts#getProducts
+msgid ""
+"Translation belongs in the product workflow. Palamedes+ is for teams that "
+"build on Palamedes, our open-source internationalization core: the core stays "
+"open, while catalog upkeep, review, and AI-assisted suggestions become a "
+"managed service. It grew out of internationalizing large codebases, where "
+"translations should roll out in seconds rather than weeks."
+msgstr ""
+"Translation belongs in the product workflow. Palamedes+ is for teams that "
+"build on Palamedes, our open-source internationalization core: the core stays "
+"open, while catalog upkeep, review, and AI-assisted suggestions become a "
+"managed service. It grew out of internationalizing large codebases, where "
+"translations should roll out in seconds rather than weeks."
+
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""
 "Triggered interaction events (such as clicking the booking button or the PDF "
@@ -1572,23 +1867,26 @@ msgstr ""
 msgid "Trust through inspection"
 msgstr "Trust through inspection"
 
-#: app/components/LogoBand.tsx#LogoBand
-msgid "Trusted by teams at"
-msgstr "Trusted by teams at"
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/components/LogoBand.tsx#LogoBand
+#~ msgid "Trusted by teams at"
+#~ msgstr "Trusted by teams at"
 
-#: app/routes/home.tsx#Hero
-msgid "Two founders"
-msgstr "Two founders"
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Hero
+#~ msgid "Two founders"
+#~ msgstr "Two founders"
 
-#: app/routes/home.tsx#Stance
-msgid ""
-"Two founders, no layer in between. Whoever works with us talks to the people "
-"who decide and build. That keeps paths short, decisions reasoned, and quality "
-"where it is made: in the code, not on slides."
-msgstr ""
-"Two founders, no layer in between. Whoever works with us talks to the people "
-"who decide and build. That keeps paths short, decisions reasoned, and quality "
-"where it is made: in the code, not on slides."
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Stance
+#~ msgid ""
+#~ "Two founders, no layer in between. Whoever works with us talks to the people "
+#~ "who decide and build. That keeps paths short, decisions reasoned, and quality "
+#~ "where it is made: in the code, not on slides."
+#~ msgstr ""
+#~ "Two founders, no layer in between. Whoever works with us talks to the people "
+#~ "who decide and build. That keeps paths short, decisions reasoned, and quality "
+#~ "where it is made: in the code, not on slides."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/home.tsx
@@ -1600,7 +1898,6 @@ msgstr ""
 #~ "and longevity first."
 
 #: app/routes/company.tsx
-#: app/routes/home.tsx#Company
 msgid "Two founders. Nothing in between."
 msgstr "Two founders. Nothing in between."
 
@@ -1643,6 +1940,10 @@ msgid ""
 msgstr ""
 "VAT identification number pursuant to § 27a of the German Value Added Tax "
 "Act:"
+
+#: app/components/OpenFoundations.tsx#OpenFoundations
+msgid "View on GitHub"
+msgstr "View on GitHub"
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/open-source.tsx
@@ -1693,7 +1994,12 @@ msgstr ""
 #~ msgstr ""
 #~ "We build products we use ourselves, and we keep them deliberately small."
 
-#: app/routes/home.tsx#Products
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid ""
+"We build products, open-source projects and agent tools for everyday work."
+msgstr ""
+"We build products, open-source projects and agent tools for everyday work."
+
 #: app/routes/products.tsx
 msgid "We build what we need ourselves."
 msgstr "We build what we need ourselves."
@@ -1726,7 +2032,6 @@ msgstr ""
 "better."
 
 #: app/routes/company.tsx
-#: app/routes/home.tsx#Company
 msgid ""
 "We have stayed small on purpose. No juniors, no layer in between, no handover "
 "to third parties: whoever works with us works with us. That holds for our "
@@ -1740,15 +2045,24 @@ msgstr ""
 "Consulting. It is the way of working we have come to know as the most reliable"
 " in twenty years."
 
-#: app/routes/home.tsx#Stance
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#Stance
+#~ msgid ""
+#~ "We quote no numbers we do not measure live and no references that cannot be "
+#~ "checked. Our tools are open on GitHub, their use is counted every hour, and "
+#~ "our products run in our own daily work before anyone else gets them."
+#~ msgstr ""
+#~ "We quote no numbers we do not measure live and no references that cannot be "
+#~ "checked. Our tools are open on GitHub, their use is counted every hour, and "
+#~ "our products run in our own daily work before anyone else gets them."
+
+#: app/components/OpenFoundations.tsx#OpenFoundations
 msgid ""
-"We quote no numbers we do not measure live and no references that cannot be "
-"checked. Our tools are open on GitHub, their use is counted every hour, and "
-"our products run in our own daily work before anyone else gets them."
+"We share the tools behind our work as open source: Rust engines, TypeScript "
+"libraries, and skills for coding agents."
 msgstr ""
-"We quote no numbers we do not measure live and no references that cannot be "
-"checked. Our tools are open on GitHub, their use is counted every hour, and "
-"our products run in our own daily work before anyone else gets them."
+"We share the tools behind our work as open source: Rust engines, TypeScript "
+"libraries, and skills for coding agents."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid ""
@@ -1762,9 +2076,10 @@ msgstr ""
 msgid "Web analytics with Rybbit"
 msgstr "Web analytics with Rybbit"
 
-#: app/routes/home.tsx#ProjectSupport
-msgid "What teams call us for."
-msgstr "What teams call us for."
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/routes/home.tsx#ProjectSupport
+#~ msgid "What teams call us for."
+#~ msgstr "What teams call us for."
 
 #: app/routes/open-source.tsx
 msgid ""

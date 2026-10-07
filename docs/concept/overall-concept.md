@@ -55,7 +55,7 @@ other.
 ## Boundaries
 
 - Project sites such as palamedes.dev or dalo.sh stay independent and keep their identity.
-- Brand families get a prominent place on the Open Source site: not in the brand bar, but as
+- Brand families get a prominent place on the Open Source site: not in the site header, but as
   top-level sections of the page, below a highlights section and above the remaining projects.
   There are two: Ferramenta and Effective.
 - Effective comprises the `effective-*` repositories and skills. The repositories, with their
@@ -68,18 +68,18 @@ other.
 
 ## Navigation
 
-- A brand bar sits above the main navigation on every site. Each site keeps its own main
-  navigation.
-- The brand bar shows two groups of equal weight: Software with Open Source and Skills, and
-  Consulting with Services and Profiles. Services and Profiles lead into the Consulting site.
-  The bar must read as cleanly structured.
-- The language switch sits in the brand bar, in the same place on every site. On narrow
-  screens the bar collapses into a single "Sebastian" menu.
-- On the Consulting site, Services and Profiles appear in the bar and in the main navigation.
-  The design resolves the duplication by keeping the bar visibly secondary.
-- Open Source and Skills actively promote Consulting: a Consulting section on the home page and
-  on every project and skill page, in the way the Ferramenta site ends today. Cards and lists
-  stay free of it.
+- Every site has one floating site header. The current site's brand owns it: its complete
+  logo, its local navigation, and its language switch. Software, Open Source, and Skills share
+  the Software context (Products · Open Source · Agents & Skills); Consulting has its own
+  (Services · Profiles).
+- The other brand appears once in the header, as a small plain-text outward link ("Our
+  agency", "Our software"), never as a second logo. Cross-site links keep the current language.
+- Every page ends with the shared newsletter, an editorial invitation to the other brand, and
+  the current site's own footer. This is how Open Source and Skills promote Consulting; cards
+  and lists stay free of it.
+- The equal-brand bar of the first design rounds is superseded by this frame
+  ([implementation brief](../../design/IMPLEMENTATION-BRIEF.md)). Phone navigation is still
+  to be designed.
 
 ## Information architecture
 

@@ -12,24 +12,26 @@
       "transparent": false
     },
     {
-      "file": "app/assets/photography/founder-sebastian-werner.jpg",
+      "shared_asset": "shooting-2024/shoot-3.jpg",
       "width": 3907,
       "height": 5861,
       "sha256": "1c0ba1dff8008e0e71151ad8f91ee9ef0b31509445e30daf7f49a7a3b30d99e1",
       "title": "Sebastian Werner",
       "origin": "Unchanged original 2024 founder photograph",
       "original_source_name": "shoot-3.jpg",
-      "transparent": false
+      "transparent": false,
+      "note": "Private original; served from the shared asset zone (ADR-0014), not stored in this repository."
     },
     {
-      "file": "app/assets/photography/founder-sebastian-fastner.jpg",
+      "shared_asset": "shooting-2024/shoot-4.jpg",
       "width": 3927,
       "height": 5890,
       "sha256": "65198028f28753e436ee217ae782349bacfae59cb54b0eae2b6e1dd8510db512",
       "title": "Sebastian Fastner",
       "origin": "Unchanged original 2024 founder photograph",
       "original_source_name": "shoot-4.jpg",
-      "transparent": false
+      "transparent": false,
+      "note": "Private original; served from the shared asset zone (ADR-0014), not stored in this repository."
     }
   ],
   "concepts": [

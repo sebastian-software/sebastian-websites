@@ -6,7 +6,7 @@
       "runtimeExecutable": "mise",
       "runtimeArgs": [
         "-C",
-        "/Users/sebastian/Workspace/sebastian-websites/apps/software",
+        "apps/software",
         "exec",
         "--",
         "pnpm",
@@ -22,7 +22,7 @@
       "runtimeExecutable": "mise",
       "runtimeArgs": [
         "-C",
-        "/Users/sebastian/Workspace/sebastian-websites/apps/brand",
+        "apps/brand",
         "exec",
         "--",
         "pnpm",
@@ -32,6 +32,92 @@
         "--strictPort"
       ],
       "port": 5182
+    },
+    {
+      "name": "opensource",
+      "runtimeExecutable": "mise",
+      "runtimeArgs": [
+        "-C",
+        "apps/opensource",
+        "exec",
+        "--",
+        "pnpm",
+        "dev",
+        "--port",
+        "5183",
+        "--strictPort"
+      ],
+      "port": 5183
+    },
+    {
+      "name": "consulting",
+      "runtimeExecutable": "mise",
+      "runtimeArgs": [
+        "-C",
+        "apps/consulting",
+        "exec",
+        "--",
+        "pnpm",
+        "dev",
+        "--port",
+        "5184",
+        "--strictPort"
+      ],
+      "port": 5184
+    },
+    {
+      "name": "software-de",
+      "runtimeExecutable": "mise",
+      "runtimeArgs": [
+        "-C",
+        "apps/software",
+        "exec",
+        "--",
+        "env",
+        "SITE_VARIANT=software-de",
+        "pnpm",
+        "dev",
+        "--port",
+        "5191",
+        "--strictPort"
+      ],
+      "port": 5191
+    },
+    {
+      "name": "opensource-de",
+      "runtimeExecutable": "mise",
+      "runtimeArgs": [
+        "-C",
+        "apps/opensource",
+        "exec",
+        "--",
+        "env",
+        "SITE_VARIANT=opensource-de",
+        "pnpm",
+        "dev",
+        "--port",
+        "5193",
+        "--strictPort"
+      ],
+      "port": 5193
+    },
+    {
+      "name": "consulting-de",
+      "runtimeExecutable": "mise",
+      "runtimeArgs": [
+        "-C",
+        "apps/consulting",
+        "exec",
+        "--",
+        "env",
+        "SITE_VARIANT=consulting-de",
+        "pnpm",
+        "dev",
+        "--port",
+        "5194",
+        "--strictPort"
+      ],
+      "port": 5194
     }
   ]
 }

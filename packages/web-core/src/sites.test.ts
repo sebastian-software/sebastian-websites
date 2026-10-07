@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest"
 
-import { getBrandBar, getLanguageLinks } from "./brandBar.ts"
 import { defineVariants, getSiteOrigin, getVariant, SITES, VARIANTS } from "./sites.ts"
 
 describe("variants", () => {
@@ -70,46 +69,5 @@ describe("variants", () => {
         },
       })
     ).toThrow("in both languages or in neither")
-  })
-})
-
-describe("brand bar", () => {
-  it("shows two groups led by the two brands", () => {
-    const groups = getBrandBar("skills", "en")
-    expect(groups.map((group) => group.brand)).toStrictEqual(["software", "consulting"])
-    expect(groups.map((group) => group.links.map((link) => link.id))).toStrictEqual([
-      ["software", "opensource", "skills"],
-      ["consulting", "services", "profiles"],
-    ])
-  })
-
-  it("marks the current site and keeps the language", () => {
-    const links = getBrandBar("opensource", "de").flatMap((group) => group.links)
-    expect(links.filter((link) => link.current).map((link) => link.id)).toStrictEqual([
-      "opensource",
-    ])
-    expect(links.every((link) => new URL(link.href).hostname.endsWith(".de"))).toBe(true)
-    expect(links.find((link) => link.id === "profiles")?.href).toBe(
-      "https://sebastian-consulting.de/profiles"
-    )
-  })
-})
-
-describe("language links", () => {
-  it("keeps the path and swaps only the domain", () => {
-    expect(getLanguageLinks("software", "de", "/company")).toStrictEqual([
-      {
-        current: true,
-        href: "https://sebastian-software.de/company",
-        label: "Deutsch",
-        locale: "de",
-      },
-      {
-        current: false,
-        href: "https://sebastian-software.com/company",
-        label: "English",
-        locale: "en",
-      },
-    ])
   })
 })

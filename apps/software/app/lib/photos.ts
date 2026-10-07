@@ -1,9 +1,6 @@
 import type { BunnyImageProps } from "@sebastian-websites/ui"
 
-import { responsiveImage } from "@sebastian-websites/web-core"
-
 const CENTER = 0.5
-const HERO_FOCUS = 0.72
 const LAPTOP_FOCUS = 0.62
 const BUILDING_FOCUS = 0.76
 const PORTRAIT_FOCUS = 0.22
@@ -16,19 +13,6 @@ const PORTRAIT_LARGE = 216
 export type PhotoPlacement = Pick<BunnyImageProps, "crop" | "height" | "src" | "width" | "widths">
 
 export const PHOTO_SIZES = "(min-width: 1200px) 560px, (min-width: 900px) 45vw, 90vw"
-
-export const heroPhoto: PhotoPlacement = {
-  crop: { mode: "focus", point: [CENTER, HERO_FOCUS] },
-  height: PHOTO_WIDTH,
-  src: { height: 5397, path: "shooting-2024/shoot-39.jpg", width: 3598 },
-  width: PHOTO_WIDTH,
-}
-
-export const heroPreload = responsiveImage(heroPhoto.src, {
-  aspectRatio: [heroPhoto.width, heroPhoto.height],
-  crop: heroPhoto.crop,
-  width: heroPhoto.width,
-})
 
 export const laptopPhoto: PhotoPlacement = {
   crop: { mode: "focus", point: [CENTER, LAPTOP_FOCUS] },

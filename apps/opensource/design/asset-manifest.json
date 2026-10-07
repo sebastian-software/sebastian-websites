@@ -39,7 +39,7 @@
       "transparent": true
     },
     {
-      "file": "app/assets/illustrations/consulting-mountain-route.png",
+      "file": "../../packages/ui/src/assets/invitation-consulting.png",
       "width": 1536,
       "height": 1024,
       "sha256": "fc318a33c3d5217accedea7ae80dd9161dd974e086ba186956215e83fcf4d425",

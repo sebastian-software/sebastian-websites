@@ -12,6 +12,7 @@ const variant = getVariant(variantId)
 
 export default defineConfig({
   define: {
+    __BUILD_YEAR__: JSON.stringify(new Date().getFullYear()),
     __SITE_VARIANT__: JSON.stringify(variantId),
   },
   plugins: [
@@ -22,6 +23,9 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
+      // Shared packages (the frame copy) use the macro runtime too; resolve it to
+      // this app's i18n instance from outside the app as well.
+      "~/lib/i18n": fileURLToPath(new URL("./app/lib/i18n.ts", import.meta.url)),
       "virtual:active-catalog": fileURLToPath(
         new URL(`./app/locales/${variant.locale}.po`, import.meta.url)
       ),

@@ -64,7 +64,7 @@ function Mission(): ReactElement {
 export default function Company(): ReactElement {
   const consulting = getSiteOrigin("consulting", variant.locale)
   return (
-    <main>
+    <main id="main">
       <Section tone="white">
         <SectionHead
           eyebrow={t`Company`}

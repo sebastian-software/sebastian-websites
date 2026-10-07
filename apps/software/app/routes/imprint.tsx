@@ -14,5 +14,9 @@ export function meta(): Route.MetaDescriptors {
 }
 
 export default function Imprint(): ReactElement {
-  return <ImprintDocument classes={legalClassNames} config={legalConfig} />
+  return (
+    <main id="main">
+      <ImprintDocument classes={legalClassNames} config={legalConfig} />
+    </main>
+  )
 }

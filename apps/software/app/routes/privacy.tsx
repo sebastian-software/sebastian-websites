@@ -14,5 +14,9 @@ export function meta(): Route.MetaDescriptors {
 }
 
 export default function Privacy(): ReactElement {
-  return <PrivacyDocument classes={legalClassNames} config={legalConfig} />
+  return (
+    <main id="main">
+      <PrivacyDocument classes={legalClassNames} config={legalConfig} />
+    </main>
+  )
 }
