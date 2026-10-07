@@ -10,8 +10,8 @@ These are visual concepts. The reusable source images are collected in [app/asse
 
 ## Shared frame and current page ending
 
-The [current frame gallery](../../../packages/ui/design/refinements-r4/README.md) shows the neutral floating header and separated newsletter, sibling offer, and current-site footer. It supersedes the frame areas in the earlier homepage reference.
+The [current frame gallery](../../../packages/ui/design/refinements-r5/README.md) gives the current website the only logo and presents the other website as an editorial outward invitation. It supersedes the frame areas in the earlier homepage reference.
 
-The sequence is shared newsletter, standalone Consulting offer, then Software footer.
+The sequence is shared newsletter, illustrated Consulting invitation, then the inset Software footer.
 
-![Current Software page ending](page-ending-v4.png)
+![Current Software page ending](page-ending-v5.png)

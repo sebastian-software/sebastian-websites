@@ -1,26 +1,27 @@
 # Shared site frame
 
-The [current header and page endings](refinements-r4/README.md) use a compact floating header and three separate closing sections for Software, Open Source, Skills, and Consulting.
+The [current header and page endings](refinements-r5/README.md) distinguish the current website as the publisher and the other website as an outward editorial destination.
 
 ## Current direction
 
-Each page ends with the shared newsletter, a standalone offer for the other brand, and the current site's actual footer. Software uses **newsletter → Consulting offer → Software footer**; Consulting reverses the two brand roles. Generous white space separates the areas. The actual footer contains only current-site navigation and company/contact, social, and legal links.
+Only the current website displays its original logo. The compact floating header groups that identity with local navigation and language. A small neutral text capsule leads to **Our agency ↗** or **Our software ↗**, with no sibling logo. Continuous corners, a soft shadow and inset placement keep the header light. The implementation target is 48 CSS pixels.
 
-Surfaces are white and neutral gray. Original teal and berry logo colors provide identity, without pink and pale-blue background panels meeting. The header keeps its enclosing floating shell, continuous corners, and soft shadow, with a neutral white sibling zone. Current-site navigation and language remain together. All original logo lockups retain Sebastian/ and the slash. The header implementation target is 48 CSS pixels.
+Each page ends with the shared newsletter, an unboxed editorial invitation to the other website, and the current website's substantial inset footer. The invitation uses an explanatory sentence, a small illustration and one plain-text outward link. Generous white space replaces the newsletter divider. The actual footer contains the current logo, local index, registered company details, social links and legal baseline.
 
-- [Current gallery](refinements-r4/README.md)
-- [Current section order, navigation, copy, and links](refinements-r4/navigation-and-links.json)
-- [Exact prompts and image inputs](refinements-r4/prompts.json)
-- [Native dimensions and checksums](refinements-r4/manifest.json)
+White and neutral-gray surfaces avoid adjacent pink and pale-blue panels. Original teal and berry logo colors identify the current publisher; supporting illustrations use restrained accents. Complete original wordmarks retain Sebastian/ and the slash. New serif typography uses regular weight.
 
-These are visual studies generated with built-in ImageGen; application components are unchanged. Existing brand SVGs remain the source artwork for implementation. New serif text uses regular weight. Social glyphs use one text color. Registered address, email, company LinkedIn/GitHub profiles, and legal links remain; phone numbers and regional artwork are omitted.
+- [Current gallery](refinements-r5/README.md)
+- [Current hierarchy, navigation, copy, and links](refinements-r5/navigation-and-links.json)
+- [Exact prompts and image inputs](refinements-r5/prompts.json)
+- [Native dimensions and checksums](refinements-r5/manifest.json)
+
+These are visual studies generated with built-in ImageGen; application components are unchanged. Original brand SVGs remain the artwork for implementation. Open Source and Skills use the Software context. Mobile is outside the current round's scope.
 
 ## Earlier studies
 
+- [Round 4: separated newsletter, sibling offer, and footer](refinements-r4/README.md)
 - [Round 3: enclosed header and contextual footer studies](refinements-r3/README.md)
 - [Round 2: five desktop headers and five footers](alternatives-r2/README.md)
 - [Round 1: five desktop headers and five footers](alternatives/README.md)
 - Earlier complete [desktop](site-frame-desktop.png), [mobile](site-frame-mobile.png), and [mobile website switcher](site-frame-mobile-menu.png) studies
 - Earlier [navigation and links](site-frame-links.json), [prompts](site-frame-prompts.json), and [manifest](site-frame-manifest.json)
-
-Earlier nested newsletter/sibling entries, mixed pastel panels, equal-brand footer indexes, and global header navigation are superseded by the current direction. Mobile is outside the current round's scope.

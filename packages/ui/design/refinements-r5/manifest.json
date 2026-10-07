@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-07",
+  "mode": "Built-in ImageGen",
+  "processing": "Native ImageGen PNGs copied byte-for-byte; no resizing, cropping, or retouching.",
+  "finalConceptCount": 3,
+  "editingInputCount": 3,
+  "images": [
+    {
+      "id": "headerInitial",
+      "file": "references/header-initial.png",
+      "role": "editing-input",
+      "width": 1813,
+      "height": 868,
+      "bytes": 1468981,
+      "sha256": "60cd3ddbd6274315de9b48332e1454fb7cc5e01d33023b8cfc8d10b7b46bc584"
+    },
+    {
+      "id": "headerFinal",
+      "file": "header-current-and-outbound.png",
+      "role": "final-concept",
+      "width": 1812,
+      "height": 868,
+      "bytes": 1425846,
+      "sha256": "b7f0dfd7787039048db69f3cac87d8928094d42594d8fd3db4a6311bceacdf6b"
+    },
+    {
+      "id": "softwareInitial",
+      "file": "references/software-initial.png",
+      "role": "editing-input",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1683701,
+      "sha256": "20218d753bd9dd5bbc5b783ab3d91f79cb96276d250a5b2ea9e8e8e547be85d6"
+    },
+    {
+      "id": "softwareFinal",
+      "file": "../../../../apps/software/design/page-ending-v5.png",
+      "role": "final-concept",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1712155,
+      "sha256": "c895c97fe3f11d7bbb91b704eace88cbd0dca28eee39e04ba3c6d5970943de64"
+    },
+    {
+      "id": "consultingInitial",
+      "file": "references/consulting-initial.png",
+      "role": "editing-input",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1621538,
+      "sha256": "dbd54961677671a0944f0e35c8cf31e237ee7178100d92cc61e63215fdc15f07"
+    },
+    {
+      "id": "consultingFinal",
+      "file": "../../../../apps/consulting/design/page-ending-v5.png",
+      "role": "final-concept",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1774876,
+      "sha256": "467a34c58d91f738d9e9b040697d3d8544921892b76130b42bb4f2fc516c9fb8"
+    }
+  ]
+}

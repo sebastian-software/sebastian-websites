@@ -1,0 +1,336 @@
+{
+  "date": "2026-10-07",
+  "kind": "Visual design proposal",
+  "scope": "Desktop",
+  "appliesTo": ["software", "opensource", "skills", "consulting"],
+  "implementationStatus": "Design studies only; application components are unchanged.",
+  "branding": {
+    "completeWordmarksRequired": true,
+    "software": {
+      "wordmark": "Sebastian/Software",
+      "source": "../../../../apps/brand/public/sebastian-software/logo-software-transparent.svg"
+    },
+    "consulting": {
+      "wordmark": "Sebastian/Consulting",
+      "source": "../../../../apps/brand/public/sebastian-consulting/logo-consulting-transparent.svg"
+    },
+    "rule": "Only the current website displays the original emblem and complete wordmark, including Sebastian/ and the slash. The sibling website uses ordinary outbound text, never a second logo or an abbreviated lockup.",
+    "siblingLogoDisplayed": false
+  },
+  "header": {
+    "desktopHeightCssPx": 48,
+    "geometry": "One inset floating white shell with continuous corners and a diffuse shadow. The current logo, local navigation and language occupy the main area; a small neutral utility capsule at the far end contains an outbound text link.",
+    "hierarchy": "One current-site logo and local controls, followed by a visually secondary outward text destination. The sibling entry has no emblem or wordmark treatment.",
+    "languages": ["EN", "DE"],
+    "languageBehavior": "The language control belongs to the current site. Cross-site links retain the selected language.",
+    "contexts": {
+      "software": {
+        "appliesTo": ["software", "opensource", "skills"],
+        "currentBrand": "software",
+        "localLinks": [
+          {
+            "label": "Products",
+            "site": "software",
+            "path": "/products"
+          },
+          {
+            "label": "Open Source",
+            "site": "opensource",
+            "path": "/"
+          },
+          {
+            "label": "Agents & Skills",
+            "site": "skills",
+            "path": "/",
+            "status": "Proposed navigation label for the existing Skills website; no new app or route is implied."
+          }
+        ],
+        "crossSiteEntry": {
+          "brand": "consulting",
+          "site": "consulting",
+          "path": "/",
+          "label": "Our agency",
+          "presentation": "Small plain-text utility link",
+          "showLogo": false,
+          "outboundArrow": true
+        }
+      },
+      "consulting": {
+        "appliesTo": ["consulting"],
+        "currentBrand": "consulting",
+        "localLinks": [
+          {
+            "label": "Services",
+            "site": "consulting",
+            "path": "/services"
+          },
+          {
+            "label": "Profiles",
+            "site": "consulting",
+            "path": "/profiles"
+          },
+          {
+            "label": "References",
+            "site": "consulting",
+            "path": "/references"
+          }
+        ],
+        "crossSiteEntry": {
+          "brand": "software",
+          "site": "software",
+          "path": "/",
+          "label": "Our software",
+          "presentation": "Small plain-text utility link",
+          "showLogo": false,
+          "outboundArrow": true
+        }
+      }
+    },
+    "siblingEntryEnclosed": true,
+    "cornerTreatment": "Smooth continuous iOS-style corners on all four exterior corners.",
+    "shadow": "Subtle diffuse neutral shadow; one shadow for the whole shell.",
+    "siblingIdentityArtwork": false,
+    "rasterScaleNote": "48 CSS pixels is the implementation target; the generated artwork illustrates hierarchy rather than exact CSS measurements.",
+    "surfaces": {
+      "shell": "#ffffff",
+      "outboundCapsule": "#f4f4f5",
+      "rule": "Achromatic surfaces; no adjacent pink and pale-blue fields."
+    }
+  },
+  "footer": {
+    "sharedLayout": true,
+    "siteSpecificContent": true,
+    "equalBrandProminence": false,
+    "hierarchy": "The current website is the publisher: one substantial complete original logo, local navigation, registered company details, social links and legal baseline.",
+    "contexts": {
+      "software": {
+        "appliesTo": ["software", "opensource", "skills"],
+        "currentBrand": "software",
+        "localLinks": [
+          {
+            "label": "Products",
+            "site": "software",
+            "path": "/products"
+          },
+          {
+            "label": "Open Source",
+            "site": "opensource",
+            "path": "/"
+          },
+          {
+            "label": "Agents & Skills",
+            "site": "skills",
+            "path": "/",
+            "status": "Proposed navigation label for the existing Skills website; no new app or route is implied."
+          },
+          {
+            "label": "Company",
+            "site": "software",
+            "path": "/company"
+          },
+          {
+            "label": "Journal",
+            "site": "software",
+            "path": null,
+            "status": "Proposed destination; choose the route when the journal is implemented."
+          }
+        ]
+      },
+      "consulting": {
+        "appliesTo": ["consulting"],
+        "currentBrand": "consulting",
+        "localLinks": [
+          {
+            "label": "Services",
+            "site": "consulting",
+            "path": "/services"
+          },
+          {
+            "label": "Profiles",
+            "site": "consulting",
+            "path": "/profiles"
+          },
+          {
+            "label": "References",
+            "site": "consulting",
+            "path": "/references"
+          },
+          {
+            "label": "Book an intro call",
+            "site": "consulting",
+            "path": "/contact"
+          }
+        ]
+      }
+    },
+    "company": {
+      "name": "Sebastian Software GmbH",
+      "street": "Dalheimer Straße 12",
+      "postalCode": "55128",
+      "city": "Mainz",
+      "country": "Germany",
+      "email": "info@sebastian-software.de"
+    },
+    "socialLinks": [
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/company/sebastian-software/"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/sebastian-software"
+      }
+    ],
+    "socialIconStyle": {
+      "color": "Single current text color.",
+      "form": "Small outline or monoline UI glyphs.",
+      "iconLibrary": null,
+      "status": "Visual direction; choose final single-color SVG icons during implementation."
+    },
+    "legalLinks": [
+      {
+        "label": "Imprint",
+        "scope": "current-site",
+        "path": "/imprint"
+      },
+      {
+        "label": "Privacy",
+        "scope": "current-site",
+        "path": "/privacy"
+      },
+      {
+        "label": "Contact",
+        "scope": "current-site",
+        "path": "/contact"
+      }
+    ],
+    "copyright": "© 2026 Sebastian Software GmbH",
+    "contentRule": "Registered address, email and company social profiles. No phone, regional descriptions or geographical artwork.",
+    "siblingOfferInsideFooter": false,
+    "newsletterInsideFooter": false,
+    "surface": "Achromatic light gray; the current original logo provides the brand color.",
+    "geometry": "Large inset neutral-gray panel with continuous rounded exterior corners, a faint shadow and an aligned local index."
+  },
+  "canonicalOrigins": {
+    "software": {
+      "en": "https://sebastian-software.com",
+      "de": "https://sebastian-software.de"
+    },
+    "opensource": {
+      "en": "https://oss.sebastian-software.com",
+      "de": "https://oss.sebastian-software.de"
+    },
+    "skills": {
+      "en": "https://skills.sebastian-software.com",
+      "de": "https://skills.sebastian-software.de"
+    },
+    "consulting": {
+      "en": "https://sebastian-consulting.com",
+      "de": "https://sebastian-consulting.de"
+    }
+  },
+  "sourceReferences": [
+    "../../src/BrandBar.tsx",
+    "../../src/SiteFooter.tsx",
+    "../../../web-core/src/sites.ts",
+    "../../../legal/src/company.ts",
+    "../../../../apps/software/app/root.tsx"
+  ],
+  "visualReferences": [
+    {
+      "title": "Stripe",
+      "url": "https://stripe.com"
+    },
+    {
+      "title": "Set.Studio",
+      "url": "https://set.studio"
+    },
+    {
+      "title": "Thinkmill",
+      "url": "https://www.thinkmill.com.au"
+    }
+  ],
+  "artifactLocations": {
+    "header": "header-current-and-outbound.png",
+    "softwarePageEnding": "../../../../apps/software/design/page-ending-v5.png",
+    "consultingPageEnding": "../../../../apps/consulting/design/page-ending-v5.png"
+  },
+  "pageEnding": {
+    "sharedLayout": true,
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Insights into our work across software and consulting: what we're building, exploring and thinking about.",
+      "emailLabel": "Email address",
+      "action": "Subscribe",
+      "submissionEndpoint": null,
+      "status": "Visual signup proposal; service integration will be chosen when implemented.",
+      "scope": "Shared across Software and Consulting."
+    },
+    "contexts": {
+      "software": {
+        "appliesTo": ["software", "opensource", "skills"],
+        "artwork": "../../../../apps/software/design/page-ending-v5.png",
+        "sequence": [
+          {
+            "kind": "newsletter",
+            "scope": "shared"
+          },
+          {
+            "kind": "sibling-offer",
+            "brand": "consulting"
+          },
+          {
+            "kind": "footer",
+            "brand": "software"
+          }
+        ],
+        "siblingOffer": {
+          "brand": "consulting",
+          "site": "consulting",
+          "path": "/",
+          "description": "Our agency helps teams with software architecture, engineering and technical direction.",
+          "action": "Meet Sebastian/Consulting",
+          "showLogo": false,
+          "presentation": "Unboxed editorial invitation with a small illustration and plain-text external action.",
+          "outboundArrow": true,
+          "headline": "Need a clearer direction for your software?",
+          "illustration": "A pencil-drawn trail with considered alternatives and a destination marker; restrained berry accent."
+        }
+      },
+      "consulting": {
+        "appliesTo": ["consulting"],
+        "artwork": "../../../../apps/consulting/design/page-ending-v5.png",
+        "sequence": [
+          {
+            "kind": "newsletter",
+            "scope": "shared"
+          },
+          {
+            "kind": "sibling-offer",
+            "brand": "software"
+          },
+          {
+            "kind": "footer",
+            "brand": "consulting"
+          }
+        ],
+        "siblingOffer": {
+          "brand": "software",
+          "site": "software",
+          "path": "/",
+          "description": "We build products, open-source projects and agent tools for everyday work.",
+          "action": "Discover Sebastian/Software",
+          "showLogo": false,
+          "presentation": "Unboxed editorial invitation with a small illustration and plain-text external action.",
+          "outboundArrow": true,
+          "headline": "See what we build beyond consulting.",
+          "illustration": "A pencil-drawn still life of a book, calendar and modular pieces; restrained teal accent."
+        }
+      }
+    },
+    "separation": "A quiet shared newsletter passage, an unboxed editorial outward invitation with ample white space, and a substantial inset current-site footer. These areas have different composition, scale and purpose.",
+    "siblingOfferRole": "An editorial question or invitation, an explanatory sentence, one plain-text outward action and a small supporting illustration. No sibling logo, emblem, wordmark treatment or navigation index.",
+    "paletteRule": "Neutral surfaces, no pink/pale-blue panels or mixed pastel cards.",
+    "dividerRule": "White space separates newsletter and invitation; no divider line is needed there."
+  }
+}
