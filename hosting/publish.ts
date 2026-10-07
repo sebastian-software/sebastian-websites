@@ -100,17 +100,36 @@ const encodePath = (path: string): string =>
     .map((segment) => encodeURIComponent(segment))
     .join("/")
 
+/**
+ * Tells whether a failed request may succeed when repeated: it timed out, or
+ * the connection dropped before an answer arrived.
+ *
+ * @param error - What the request threw.
+ * @returns Whether to try again.
+ */
+function isTransient(error: unknown): boolean {
+  return error instanceof Error && (error.name === "TimeoutError" || error.name === "TypeError")
+}
+
+// Listings, uploads, and deletions are idempotent, so a timed-out or dropped
+// request is repeated like an answer with a retryable status.
 async function withRetries(request: Fetch, url: string, init: RequestInit): Promise<Response> {
   for (let attempt = 0; ; attempt += 1) {
+    const last = attempt === RETRIES - 1
     const response = await request(url, {
       ...init,
       redirect: "error",
       signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+    }).catch((error: unknown) => {
+      if (last || !isTransient(error)) {
+        throw error
+      }
+      return undefined
     })
-    if (!RETRY_STATUSES.has(response.status) || attempt === RETRIES - 1) {
+    if (response !== undefined && (last || !RETRY_STATUSES.has(response.status))) {
       return response
     }
-    await response.arrayBuffer()
+    await response?.arrayBuffer()
     await pause(RETRY_BASE_MS * 2 ** attempt)
   }
 }
