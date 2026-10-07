@@ -85,6 +85,7 @@ Consulting, and spelling-alias domains found these separate routes:
 | `sebastian-consulting.com` | `mail.sebastian-software.de` |
 | `sebastiansoftware.de`     | Google, five MX records      |
 | `sebastiansoftware.com`    | `mxext1.mailbox.org`         |
+| `sebastianconsulting.de`   | No MX records                |
 
 Before consolidating routes into Google Workspace, inventory the required domains, existing
 mailboxes, aliases, groups, and forwarding rules in the correct administration account.
