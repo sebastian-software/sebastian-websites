@@ -44,6 +44,8 @@ export type LegalSiteConfig = {
   readonly imprintReview: LegalReview
   readonly locale: "de" | "en"
   readonly operator: LegalOperator
+  /** Credited in the imprint when the site shows the business photos. */
+  readonly photographer?: string
   readonly privacyActivities: readonly PrivacyActivity[]
   readonly privacyEmail: string
   readonly privacyReview: LegalReview

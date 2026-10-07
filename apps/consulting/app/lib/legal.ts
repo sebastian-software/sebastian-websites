@@ -1,4 +1,5 @@
 import {
+  BUSINESS_PHOTOGRAPHER,
   defineLegalSiteConfig,
   type LegalSiteConfig,
   siteOperator,
@@ -21,16 +22,17 @@ export const legalConfig: LegalSiteConfig = defineLegalSiteConfig({
   imprintReview: {
     contentSource: "sebastian-consulting.de imprint",
     contentVerifiedOn: "2026-10-07",
-    legalReviewStatus: "review-required-before-production",
+    legalReviewStatus: "approved",
   },
   locale: variant.locale,
   operator: siteOperator({ brand: "Sebastian Consulting", email: CONTACT_EMAIL[variant.locale] }),
-  privacyActivities: ["hosting:bunny", "analytics:rybbit", "contact:email"],
+  photographer: BUSINESS_PHOTOGRAPHER,
+  privacyActivities: ["hosting:bunny", "analytics:rybbit", "contact:email", "booking:terminaro"],
   privacyEmail: PRIVACY_EMAIL[variant.locale],
   privacyReview: {
     contentSource: "sebastian-consulting.de privacy policy of 2026-03-09",
     contentVerifiedOn: "2026-10-07",
-    legalReviewStatus: "review-required-before-production",
+    legalReviewStatus: "approved",
     versionOn: "2026-03-09",
   },
 })

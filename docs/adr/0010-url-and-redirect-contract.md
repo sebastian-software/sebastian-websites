@@ -1,6 +1,6 @@
 ---
 status: accepted
-updated: 2026-10-06
+updated: 2026-10-07
 ---
 
 # URL and redirect contract
@@ -19,10 +19,12 @@ and redirect indefinitely: `www.` variants and typo domains to the canonical dom
 Consulting profiles. Removing one of them needs its own decision.
 
 Legacy paths of the old Software site: `/consulting` redirects to the Consulting site in the
-matching language, `/mission` to the new company page, `/privacy-policy` to `/privacy`;
-`/team` keeps its path; `/testimonials` redirects to the Consulting references once they
-exist and answers 410 until then. The old Consulting path `/fastner/projektprofil` becomes
-`/fastner/project-profile` with a redirect.
+matching language, `/fastner` and `/werner` to the Consulting profiles, `/team` to the
+Consulting team page, `/mission` to the new company page, `/privacy-policy` to `/privacy`;
+`/testimonials` redirects to the Consulting references once they exist and answers 410 until
+then. The old Consulting path `/fastner/projektprofil` becomes `/fastner/project-profile` with
+a redirect. Old PDF file names that only redirected to current ones are not carried over, and
+the fixed-price offer PDFs answer 410.
 
 ## Considered options
 
@@ -36,4 +38,6 @@ exist and answers 410 until then. The old Consulting path `/fastner/projektprofi
 - The redirect matrix of `sebastian-consulting.de` (its ADR-0002) is the reference for the
   concrete rules and is copied, not re-derived.
 - Redirects live in the repository as typed data with table-driven tests
-  ([ADR-0009](0009-delivery-model.md)).
+  ([ADR-0009](0009-delivery-model.md)), in `hosting/redirects.ts`.
+- Redirects drop the query string: the website zones ignore it in their cache key, so a
+  cached redirect must not carry one visitor's parameters to the next.

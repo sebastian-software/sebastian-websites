@@ -12,7 +12,7 @@ export function ImprintDocument({
   classes,
   config,
 }: LegalDocumentProperties): ReactNode {
-  const { operator } = config
+  const { operator, photographer } = config
 
   return (
     <LegalDocumentFrame
@@ -138,6 +138,17 @@ export function ImprintDocument({
           </Trans>
         </p>
       </section>
+
+      {photographer === undefined ? null : (
+        <section className={classes.section} data-legal-section="image-credits">
+          <h2 className={classes.sectionTitle}>
+            <Trans>Image Credits</Trans>
+          </h2>
+          <p className={classes.text}>
+            <Trans>The business photos were taken by {photographer}.</Trans>
+          </p>
+        </section>
+      )}
 
       {additionalSections}
     </LegalDocumentFrame>

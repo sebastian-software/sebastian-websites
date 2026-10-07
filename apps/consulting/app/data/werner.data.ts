@@ -52,7 +52,7 @@ export function getConsultant(): Consultant {
     },
     degree: t`IT Specialist (Fachinformatiker) / Advanced Technical College Entrance Qualification (Fachabitur)`,
     email: "s.werner@sebastian-software.de",
-    focus: t`Frontend-Architektur & Developer Experience`,
+    focus: t`Frontend Architecture & Developer Experience`,
     id: "werner",
     industryExperience: [
       { industry: t`Fintech`, years: 6 },

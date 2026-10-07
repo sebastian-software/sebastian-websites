@@ -1,4 +1,5 @@
 import {
+  BUSINESS_PHOTOGRAPHER,
   defineLegalSiteConfig,
   type LegalSiteConfig,
   siteOperator,
@@ -13,17 +14,18 @@ export const CONTACT_EMAIL = "info@sebastian-software.de"
 export const legalConfig: LegalSiteConfig = defineLegalSiteConfig({
   imprintReview: {
     contentSource: "sebastian-consulting.de imprint, adapted for Sebastian Software",
-    contentVerifiedOn: "2026-10-06",
-    legalReviewStatus: "review-required-before-production",
+    contentVerifiedOn: "2026-10-07",
+    legalReviewStatus: "approved",
   },
   locale: variant.locale,
   operator: siteOperator({ brand: "Sebastian Software", email: CONTACT_EMAIL }),
+  photographer: BUSINESS_PHOTOGRAPHER,
   privacyActivities: ["hosting:bunny", "analytics:rybbit", "contact:email"],
   privacyEmail: CONTACT_EMAIL,
   privacyReview: {
     contentSource: "sebastian-consulting.de privacy policy of 2026-03-09",
-    contentVerifiedOn: "2026-10-06",
-    legalReviewStatus: "review-required-before-production",
+    contentVerifiedOn: "2026-10-07",
+    legalReviewStatus: "approved",
     versionOn: "2026-03-09",
   },
 })

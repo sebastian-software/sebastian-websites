@@ -9,6 +9,7 @@ import { loadBunnyImages } from "./images.ts"
 import { originRequest, planPath, publicPath } from "./middleware-logic.ts"
 import { cacheRules, provision, pullZoneSettings } from "./provision.ts"
 import { checksum, loadAssets, publish } from "./publish.ts"
+import { runSmoke, smokeChecks } from "./smoke.ts"
 import {
   ASSET_TARGET,
   buildableTargets,
@@ -266,7 +267,141 @@ test("the middleware rewrites origin requests and redirects visitors to canonica
   )
   assert.ok(redirected instanceof Response)
   assert.equal(redirected.status, MOVED_PERMANENTLY)
-  assert.equal(redirected.headers.get("location"), "https://sebastian-software.com/imprint?q=1")
+  // The cache key ignores query strings, so redirects must not carry them.
+  assert.equal(redirected.headers.get("location"), "https://sebastian-software.com/imprint")
+})
+
+type LegacyCase = {
+  readonly host: string
+  readonly location: null | string
+  readonly path: string
+  readonly status: number
+  readonly zone: string
+}
+
+const GONE = 410
+const CONSULTING_DE = "sebastian-websites-consulting-de"
+const CONSULTING_EN = "sebastian-websites-consulting-en"
+const SOFTWARE_DE = "sebastian-websites-software-de"
+const SOFTWARE_EN = "sebastian-websites-software-en"
+
+// Every legacy rule of ADR-0010 with its expected answer, in both languages
+// where the rule depends on the host's language.
+const LEGACY_CASES: readonly LegacyCase[] = [
+  // CON-LOC and CON-CROSS: the prefix decides the language, the host does not.
+  ...[
+    ["/de", "https://sebastian-consulting.de/"],
+    ["/de/", "https://sebastian-consulting.de/"],
+    ["/de/werner", "https://sebastian-consulting.de/werner"],
+    ["/de/fastner/", "https://sebastian-consulting.de/fastner"],
+    ["/de/fastner/projektprofil", "https://sebastian-consulting.de/fastner/project-profile"],
+    ["/de/imprint", "https://sebastian-consulting.de/imprint"],
+    ["/de/privacy", "https://sebastian-consulting.de/privacy"],
+    ["/en", "https://sebastian-consulting.com/"],
+    ["/en/werner/", "https://sebastian-consulting.com/werner"],
+    ["/en/fastner/projektprofil", "https://sebastian-consulting.com/fastner/project-profile"],
+  ].flatMap(([path, location]) =>
+    [
+      [CONSULTING_DE, "sebastian-consulting.de"],
+      [CONSULTING_EN, "sebastian-consulting.com"],
+    ].map(([zone, host]) => ({ host, location, path, status: MOVED_PERMANENTLY, zone }))
+  ),
+  {
+    host: "sebastian-consulting.de",
+    location: "https://sebastian-consulting.de/fastner/project-profile",
+    path: "/fastner/projektprofil",
+    status: MOVED_PERMANENTLY,
+    zone: CONSULTING_DE,
+  },
+  {
+    host: "sebastian-consulting.com",
+    location: null,
+    path: "/pdfs/offer-global-saas-ai-localization-en.pdf",
+    status: GONE,
+    zone: CONSULTING_EN,
+  },
+  // Software: moves to Consulting keep the host's language.
+  ...[
+    ["/fastner", "/fastner"],
+    ["/werner/", "/werner"],
+    ["/consulting", "/"],
+    ["/team", "/team"],
+  ].flatMap(([path, moved]) => [
+    {
+      host: "sebastian-software.de",
+      location: `https://sebastian-consulting.de${moved}`,
+      path,
+      status: MOVED_PERMANENTLY,
+      zone: SOFTWARE_DE,
+    },
+    {
+      host: "sebastian-software.com",
+      location: `https://sebastian-consulting.com${moved}`,
+      path,
+      status: MOVED_PERMANENTLY,
+      zone: SOFTWARE_EN,
+    },
+  ]),
+  // Moves within a site keep the visitor's host, including the origin host.
+  {
+    host: "sebastian-software.de",
+    location: "https://sebastian-software.de/company",
+    path: "/mission",
+    status: MOVED_PERMANENTLY,
+    zone: SOFTWARE_DE,
+  },
+  {
+    host: `${SOFTWARE_EN}.b-cdn.net`,
+    location: `https://${SOFTWARE_EN}.b-cdn.net/privacy`,
+    path: "/privacy-policy",
+    status: MOVED_PERMANENTLY,
+    zone: SOFTWARE_EN,
+  },
+  {
+    host: "sebastian-software.com",
+    location: null,
+    path: "/testimonials",
+    status: GONE,
+    zone: SOFTWARE_EN,
+  },
+  {
+    host: "sebastian-software.de",
+    location: null,
+    path: "/testimonial/a-b",
+    status: GONE,
+    zone: SOFTWARE_DE,
+  },
+]
+
+test("legacy paths redirect permanently or answer 410 as ADR-0010 states", () => {
+  for (const legacy of LEGACY_CASES) {
+    const response = originRequest(
+      new Request(`https://origin.example/${legacy.zone}${legacy.path}?trk=a`, {
+        headers: { "cdn-host": legacy.host, "x-forwarded-proto": "https" },
+      }),
+      legacy.zone
+    )
+    const label = `${legacy.zone} ${legacy.path}`
+    assert.ok(response instanceof Response, label)
+    assert.equal(response.status, legacy.status, label)
+    assert.equal(response.headers.get("location"), legacy.location, label)
+  }
+})
+
+test("current, unknown, and other sites' paths are not legacy redirects", () => {
+  for (const [zone, path] of [
+    [CONSULTING_DE, "/werner"],
+    [CONSULTING_DE, "/de/unknown"],
+    [CONSULTING_EN, "/team"],
+    [SOFTWARE_DE, "/company"],
+    [SOFTWARE_DE, "/testimonial"],
+    ["sebastian-websites-opensource-en", "/team"],
+    ["sebastian-websites-brand", "/de"],
+  ] as const) {
+    const response = originRequest(new Request(`https://origin.example/${zone}${path}`), zone)
+    assert.ok(response instanceof Request, `${zone} ${path}`)
+    assert.equal(new URL(response.url).pathname, `/${zone}${path}/index.html`)
+  }
 })
 
 test("targets cover every variant, the brand site, and the build-free asset zone", () => {
@@ -485,5 +620,47 @@ test("asset verification checks the font stylesheet without assuming a website",
   const assets = [{ bytes: new Uint8Array(), path: "fonts/fonts.css" }]
   assert.deepEqual(checksFor(ASSET_TARGET, assets), [
     { cors: true, path: "/fonts/fonts.css", status: OK },
+  ])
+})
+
+/**
+ * A fetch that answers with the given statuses in order, then 404.
+ *
+ * @param statuses - The statuses of the successive responses.
+ * @returns The fake fetch.
+ */
+function answering(statuses: readonly number[]): typeof fetch {
+  const queue = [...statuses]
+  return async () => {
+    await Promise.resolve()
+    return new Response(null, { status: queue.shift() ?? NOT_FOUND })
+  }
+}
+
+test("the cutover smoke checks cover the home page, a missing path, and every legacy rule", async () => {
+  const origin = "https://sebastian-consulting.de"
+  const checks = smokeChecks("consulting-de", origin)
+  assert.deepEqual(checks.slice(0, 2), [
+    { path: "/", status: OK },
+    { path: "/no-such-page-smoke", status: NOT_FOUND },
+  ])
+  assert.deepEqual(
+    checks.filter((check) => check.path === "/en/fastner/projektprofil"),
+    [
+      {
+        location: "https://sebastian-consulting.com/fastner/project-profile",
+        path: "/en/fastner/projektprofil",
+        status: MOVED_PERMANENTLY,
+      },
+    ]
+  )
+  assert.deepEqual(
+    smokeChecks("software-en", "https://sebastian-software.com").filter(
+      (check) => check.path === "/testimonial/example"
+    ),
+    [{ path: "/testimonial/example", status: GONE }]
+  )
+  assert.deepEqual(await runSmoke(origin, checks.slice(0, 2), answering([OK, OK])), [
+    "/no-such-page-smoke: 200 , expected 404 ",
   ])
 })

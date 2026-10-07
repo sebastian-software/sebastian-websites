@@ -371,6 +371,10 @@ msgstr "Hosting of the Terminaro application and the Rybbit analytics server"
 msgid "How It Works"
 msgstr "How It Works"
 
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Image Credits"
+msgstr "Image Credits"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Imprint"
 msgstr "Imprint"
@@ -797,6 +801,10 @@ msgstr "Storage for static files and assets"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Subscribe"
 msgstr "Subscribe"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "The business photos were taken by {photographer}."
+msgstr "The business photos were taken by {photographer}."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""

@@ -87,7 +87,7 @@ const PRODUCTS: Destination = { id: "products", path: "/products", site: "softwa
 const OPEN_SOURCE: Destination = { id: "opensource", path: "/", site: "opensource" }
 const SKILLS: Destination = { id: "skills", path: "/", site: "skills" }
 const SERVICES: Destination = { id: "services", path: "/#services", site: "consulting" }
-const PROFILES: Destination = { id: "profiles", path: "/#profiles", site: "consulting" }
+const PROFILES: Destination = { id: "profiles", path: "/team", site: "consulting" }
 
 /**
  * The two frame contexts. Open Source and Skills belong to Software. Routes that

@@ -510,6 +510,7 @@ msgid "Company profiles"
 msgstr "Company profiles"
 
 #: app/components/profile-screen/ProfileRail.tsx#ProfileRail
+#: app/routes/team.tsx#MemberLinks
 msgid "Concise Project Profile"
 msgstr "Concise Project Profile"
 
@@ -649,6 +650,7 @@ msgstr ""
 " technical problem-solving."
 
 #: app/components/profile-screen/ProfileRail.tsx#PdfActions
+#: app/routes/team.tsx#MemberLinks
 msgid "Download PDF"
 msgstr "Download PDF"
 
@@ -958,6 +960,10 @@ msgstr "Frontend"
 msgid "Frontend & Fullstack"
 msgstr "Frontend & Fullstack"
 
+#: app/data/werner.data.ts#getConsultant
+msgid "Frontend Architecture & Developer Experience"
+msgstr "Frontend Architecture & Developer Experience"
+
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Frontend Developer"
@@ -967,12 +973,14 @@ msgstr "Frontend Developer"
 msgid "Frontend focus with an eye on user and developer experience."
 msgstr "Frontend focus with an eye on user and developer experience."
 
-#: app/data/werner.data.ts#getConsultant
-msgid "Frontend-Architektur & Developer Experience"
-msgstr "Frontend-Architektur & Developer Experience"
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/data/werner.data.ts#getConsultant
+#~ msgid "Frontend-Architektur & Developer Experience"
+#~ msgstr "Frontend-Architektur & Developer Experience"
 
 #: app/components/project-profile/ProjectProfile.tsx#FirstPage
 #: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
+#: app/routes/team.tsx#MemberLinks
 msgid "Full Consultant Profile"
 msgstr "Full Consultant Profile"
 
@@ -1192,6 +1200,10 @@ msgstr ""
 "Next.js, React, and Styled Components formed the frontend; Apollo GraphQL "
 "unified the backend services. AWS, Kubernetes, and Vault supported secure "
 "continuous deployment, while GraphQL query tests protected releases."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Image Credits"
+msgstr "Image Credits"
 
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
@@ -1876,6 +1888,34 @@ msgstr ""
 "Sebastian Consulting – Architecture and engineering for complex web "
 "applications"
 
+#: app/routes/team.tsx
+msgid ""
+"Sebastian Fastner and Sebastian Werner in conversation in front of a sandstone"
+" wall"
+msgstr ""
+"Sebastian Fastner and Sebastian Werner in conversation in front of a sandstone"
+" wall"
+
+#: app/routes/team.tsx
+msgid ""
+"Sebastian Werner and Sebastian Fastner founded Sebastian Software together. As"
+" Sebastian Consulting, both work directly in your project: architecture, "
+"hands-on development, and enablement, with no juniors and no handovers."
+msgstr ""
+"Sebastian Werner and Sebastian Fastner founded Sebastian Software together. As"
+" Sebastian Consulting, both work directly in your project: architecture, "
+"hands-on development, and enablement, with no juniors and no handovers."
+
+#: app/routes/team.tsx#meta
+msgid ""
+"Sebastian Werner and Sebastian Fastner: two senior architects for React, "
+"TypeScript, and complex web applications, with their focus areas and full "
+"profiles."
+msgstr ""
+"Sebastian Werner and Sebastian Fastner: two senior architects for React, "
+"TypeScript, and complex web applications, with their focus areas and full "
+"profiles."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "See what we build beyond consulting."
 msgstr "See what we build beyond consulting."
@@ -1918,6 +1958,7 @@ msgid "Sign-up opens soon. The newsletter has not started yet."
 msgstr "Sign-up opens soon. The newsletter has not started yet."
 
 #: app/components/profile-print/SkillTags.tsx#groups
+#: app/routes/team.tsx#TeamMember
 msgid "Signature skills"
 msgstr "Signature skills"
 
@@ -1991,6 +2032,10 @@ msgstr "Storage for static files and assets"
 msgid "Subscribe"
 msgstr "Subscribe"
 
+#: app/routes/team.tsx#meta
+msgid "Team – Sebastian Consulting"
+msgstr "Team – Sebastian Consulting"
+
 #: app/components/project-profile/ProjectProfile.tsx#FirstPage
 msgid "Technical Focus"
 msgstr "Technical Focus"
@@ -2039,6 +2084,10 @@ msgstr ""
 "deployed as a native app to mobile devices. The hybrid app architecture "
 "enabled rapid development while allowing native distribution through the app "
 "stores. The user interface was optimized for mobile use on the go."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "The business photos were taken by {photographer}."
+msgstr "The business photos were taken by {photographer}."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""
@@ -2129,6 +2178,10 @@ msgstr ""
 "website. Without this data transmission, no connection to the server can be "
 "established and the website cannot be displayed. There is no legal or "
 "contractual obligation to provide any further personal data."
+
+#: app/routes/team.tsx
+msgid "The two people you work with."
+msgstr "The two people you work with."
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""

@@ -20,6 +20,7 @@
     "hosting:typecheck": "tsc -p hosting",
     "hosting:lint": "oxlint -c oxlint.config.ts hosting && eslint hosting --config eslint.config.ts",
     "hosting:test": "node --test hosting/*.test.ts",
+    "hosting:smoke": "node hosting/smoke.ts",
     "hosting:check": "pnpm hosting:typecheck && pnpm hosting:lint && pnpm hosting:test"
   },
   "devDependencies": {
