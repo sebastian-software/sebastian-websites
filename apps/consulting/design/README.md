@@ -8,10 +8,10 @@ These are visual concepts. The reusable source images are collected in [app/asse
 
 ![Selected Consulting homepage, revision 9](homepage.png)
 
-## Shared frame and current footer
+## Shared frame and current page ending
 
-The [current frame gallery](../../../packages/ui/design/refinements-r3/README.md) shows the floating 48px header target, separate current-site navigation, and contextual footers. It supersedes the frame areas in the earlier homepage reference.
+The [current frame gallery](../../../packages/ui/design/refinements-r4/README.md) shows the neutral floating header and separated newsletter, sibling offer, and current-site footer. It supersedes the frame areas in the earlier homepage reference.
 
-The current site owns the main logo and local footer navigation. The other brand has a smaller explanatory entry; the newsletter spans both.
+The sequence is shared newsletter, standalone Software offer, then Consulting footer.
 
-![Current Consulting footer](footer-frame-v3.png)
+![Current Consulting page ending](page-ending-v4.png)

@@ -12,10 +12,10 @@ These are visual concepts. The reusable source images are collected in [app/asse
 
 ![Complete inline project section, revision 9](homepage-inline-projects.png)
 
-## Shared frame and current footer
+## Shared frame and current page ending
 
-The [current frame gallery](../../../packages/ui/design/refinements-r3/README.md) shows the floating 48px header target, separate current-site navigation, and contextual footers. It supersedes the frame areas in the earlier homepage reference.
+The [current frame gallery](../../../packages/ui/design/refinements-r4/README.md) shows the neutral floating header and separated newsletter, sibling offer, and current-site footer. It supersedes the frame areas in the earlier homepage reference.
 
-This site uses the Software navigation and footer context, with a smaller explanatory Consulting entry and the shared newsletter.
+This site uses the Software context: shared newsletter, standalone Consulting offer, then Software footer.
 
-![Current Software-context footer](../../software/design/footer-frame-v3.png)
+![Current Software-context page ending](../../software/design/page-ending-v4.png)
