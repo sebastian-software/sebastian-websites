@@ -8,9 +8,10 @@ import { appendFile } from "node:fs/promises"
 import { fileURLToPath } from "node:url"
 
 import { bunnyApi, required } from "./bunny.ts"
+import { loadBunnyImages } from "./images.ts"
 import { provision } from "./provision.ts"
 import { loadAssets, loadBuild, publish } from "./publish.ts"
-import { buildableTargets } from "./targets.ts"
+import { ASSET_TARGET, buildableTargets } from "./targets.ts"
 import { verify } from "./verify.ts"
 
 const root = fileURLToPath(new URL("..", import.meta.url))
@@ -20,6 +21,21 @@ if (targets.length === 0) {
   throw new Error("No target has a build; run pnpm build first")
 }
 const summary: string[] = ["### Website delivery", ""]
+// Every original must be available before any site document references it.
+const images = new Map<string, Awaited<ReturnType<typeof loadBunnyImages>>[number]>()
+for (const target of targets) {
+  if (target.buildDirectory === undefined) continue
+  for (const image of await loadBunnyImages(`${root}/${target.buildDirectory}`)) {
+    images.set(image.path, image)
+  }
+}
+if (images.size > 0) {
+  const assets = [...images.values()]
+  const ids = await provision(api, ASSET_TARGET)
+  const result = await publish({ api, assets, ids, purgeCache: false, target: ASSET_TARGET })
+  await verify({ assets, target: ASSET_TARGET })
+  summary.push(`- Shared images: ${result.uploaded} uploaded; existing originals preserved`)
+}
 for (const target of targets) {
   console.log(`\n${target.name}`)
   const ids = await provision(api, target)
@@ -28,7 +44,8 @@ for (const target of targets) {
     continue
   }
   const directory = `${root}/${target.buildDirectory}`
-  const assets = await (target.assets === true ? loadAssets(directory) : loadBuild(directory))
+  const build = await (target.assets === true ? loadAssets(directory) : loadBuild(directory))
+  const assets = build.filter((asset) => !images.has(asset.path))
   const result = await publish({ api, assets, ids, target })
   await verify({ assets, target })
   summary.push(

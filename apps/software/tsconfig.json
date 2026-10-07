@@ -2,6 +2,7 @@
   "extends": "@sebastian-websites/config/tsconfig/react.json",
   "include": ["**/*", ".react-router/types/**/*"],
   "compilerOptions": {
+    "types": ["node", "vite/client", "@sebastian-websites/web-core/bunny-images"],
     "rootDirs": [".", "./.react-router/types"],
     "paths": {
       "~/*": ["./app/*"]

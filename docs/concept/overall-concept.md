@@ -176,6 +176,12 @@ content.
   [ADR-0009](../adr/0009-delivery-model.md).
 - URLs, language switching, and redirects: [ADR-0010](../adr/0010-url-and-redirect-contract.md).
 - Analytics without cookies or a consent banner: [ADR-0011](../adr/0011-cookieless-analytics.md).
+- Images use the shared Bunny asset zone
+  ([ADR-0014](../adr/0014-images-from-shared-asset-zone.md)) and `BunnyImage` from
+  `@sebastian-websites/ui`
+  ([ADR-0015](../adr/0015-shared-bunny-image-component.md)). The
+  [responsive images guide](../operations/responsive-images.md) covers imports,
+  responsive sizes, crops, and art direction.
 - Delivery runs through repository-owned scripts against the Bunny API, not the private
   hosting CLI; the owners confirmed this on 2026-10-06 (ADR-0009).
 - Rules that carry over from the July 2026 plan: one primary goal per site (Consulting "book an

@@ -5,6 +5,7 @@ import { join } from "node:path"
 import { test } from "node:test"
 
 import { type BunnyApi, isJson, type Json } from "./bunny.ts"
+import { loadBunnyImages } from "./images.ts"
 import { originRequest, planPath, publicPath } from "./middleware-logic.ts"
 import { cacheRules, provision, pullZoneSettings } from "./provision.ts"
 import { checksum, loadAssets, publish } from "./publish.ts"
@@ -393,6 +394,52 @@ test("publishing photos preserves manual fonts and skips unchanged bytes on the 
   assert.deepEqual(await publish(options), { removed: 0, uploaded: 1 })
   assert.deepEqual(await publish(options), { removed: 0, uploaded: 0 })
   assert.equal(storage.uploads(), 1)
+  assert.equal(
+    bunny.calls.filter((call) => call.path.endsWith("/purgeCache")).length,
+    1,
+    "unchanged shared files must not flush image variants on the next deployment"
+  )
+})
+
+test("immutable image uploads preserve older files and skip both unchanged bytes and cache purges", async () => {
+  const bunny = account({ provisioned: true, target: ASSET_TARGET })
+  const bytes = new TextEncoder().encode("original JPEG bytes")
+  const storage = originalStorage(bytes)
+  const options = {
+    api: bunny.api,
+    assets: [{ bytes, path: "shooting-2024/shoot-3.jpg" }],
+    ids: { pullZoneId: 2, storageId: 1 },
+    log: silent,
+    purgeCache: false,
+    request: storage.request,
+    target: ASSET_TARGET,
+  }
+  assert.deepEqual(await publish(options), { removed: 0, uploaded: 1 })
+  assert.deepEqual(await publish(options), { removed: 0, uploaded: 0 })
+  assert.ok(bunny.calls.every((call) => !call.path.endsWith("/purgeCache")))
+})
+
+test("image manifests select hashed originals and reject traversal or changed bytes", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "bunny-images-"))
+  try {
+    assert.deepEqual(await loadBunnyImages(directory), [])
+    await mkdir(join(directory, "_bunny"))
+    await mkdir(join(directory, "images"))
+    const bytes = new TextEncoder().encode("original")
+    const path = `images/${checksum(bytes).toLowerCase()}.png`
+    await writeFile(join(directory, path), bytes)
+    const manifest = join(directory, "_bunny/images.json")
+    await writeFile(manifest, JSON.stringify([path, path]))
+    assert.deepEqual(await loadBunnyImages(directory), [{ bytes, path }])
+    const buildAssets = await loadAssets(directory)
+    assert.ok(buildAssets.every((asset) => !asset.path.startsWith("_bunny/")))
+    await writeFile(join(directory, path), "changed")
+    await assert.rejects(loadBunnyImages(directory), /checksum mismatch/v)
+    await writeFile(manifest, JSON.stringify(["../private.png"]))
+    await assert.rejects(loadBunnyImages(directory), /Invalid Bunny image manifest/v)
+  } finally {
+    await rm(directory, { force: true, recursive: true })
+  }
 })
 
 test("asset sources need no index, exclude private metadata, and reject empty collections", async () => {

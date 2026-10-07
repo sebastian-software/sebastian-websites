@@ -17,7 +17,7 @@ Licensed font binaries stay outside this public repository
 or CI pipeline. The private `sebastian-fonts` checkout retains the source files and licenses.
 
 The CSS is technical source code and belongs in Git. One `assets/fonts/fonts.css`
-includes all 29 Glober, Elena, and Elena Basic faces and declares their subset rules,
+includes all 26 Glober and full-featured Elena faces and declares their subset rules,
 relative binary URLs, and simple family variables with system fallbacks. CI publishes
 it to `fonts/` on the shared asset CDN without deleting its manually managed files.
 It contains no brand-specific adjustments or utility classes.

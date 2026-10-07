@@ -1,7 +1,7 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { blocks, button } from "@sebastian-websites/ui"
+import { blocks, BunnyImage, button } from "@sebastian-websites/ui"
 
 import { fastnerPhoto, wernerPhoto } from "~/lib/photos"
 
@@ -39,7 +39,7 @@ export function Founders(props: FoundersProps): ReactElement {
       {founders.map((founder) => (
         <div className={blocks.person} key={founder.id}>
           <span className={blocks.face}>
-            <img
+            <BunnyImage
               alt={founder.name}
               className={blocks.photoImage}
               loading="lazy"

@@ -33,6 +33,7 @@
   "devDependencies": {
     "@types/node": "catalog:",
     "eslint": "catalog:",
+    "eslint-import-resolver-node": "^0.3.10",
     "jiti": "catalog:",
     "prettier": "catalog:",
     "tsx": "catalog:",
