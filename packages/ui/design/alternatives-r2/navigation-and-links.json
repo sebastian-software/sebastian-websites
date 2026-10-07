@@ -1,0 +1,220 @@
+{
+  "date": "2026-10-07",
+  "kind": "Visual design proposal",
+  "scope": "Desktop",
+  "appliesTo": ["software", "opensource", "skills", "consulting"],
+  "implementationStatus": "Design studies only; application components are unchanged.",
+  "branding": {
+    "completeWordmarksRequired": true,
+    "software": {
+      "wordmark": "Sebastian/Software",
+      "source": "../../../../apps/brand/public/sebastian-software/logo-software-transparent.svg"
+    },
+    "consulting": {
+      "wordmark": "Sebastian/Consulting",
+      "source": "../../../../apps/brand/public/sebastian-consulting/logo-consulting-transparent.svg"
+    },
+    "rule": "Use the entire original emblem and wordmark, including Sebastian/ and the slash, for current and sibling brands."
+  },
+  "header": {
+    "desktopHeightCssPx": 48,
+    "geometry": "An inset compact strip with white space around it. The same positions and layout apply to both brand states.",
+    "hierarchy": "Current brand, local navigation, local language control, then a clearly separated sibling website entry.",
+    "languages": ["EN", "DE"],
+    "languageBehavior": "The language control belongs to the current site. Cross-site links retain the selected language.",
+    "contexts": {
+      "software": {
+        "appliesTo": ["software", "opensource", "skills"],
+        "currentBrand": "software",
+        "localLinks": [
+          {
+            "label": "Products",
+            "site": "software",
+            "path": "/products"
+          },
+          {
+            "label": "Open Source",
+            "site": "opensource",
+            "path": "/"
+          },
+          {
+            "label": "Agents & Skills",
+            "site": "skills",
+            "path": "/",
+            "status": "Proposed navigation label for the existing Skills website; no new app or route is implied."
+          }
+        ],
+        "crossSiteEntry": {
+          "brand": "consulting",
+          "site": "consulting",
+          "path": "/"
+        }
+      },
+      "consulting": {
+        "appliesTo": ["consulting"],
+        "currentBrand": "consulting",
+        "localLinks": [
+          {
+            "label": "Services",
+            "site": "consulting",
+            "path": "/services"
+          },
+          {
+            "label": "Profiles",
+            "site": "consulting",
+            "path": "/profiles"
+          },
+          {
+            "label": "References",
+            "site": "consulting",
+            "path": "/references"
+          }
+        ],
+        "crossSiteEntry": {
+          "brand": "software",
+          "site": "software",
+          "path": "/"
+        }
+      }
+    }
+  },
+  "footer": {
+    "sharedAcrossSites": true,
+    "equalBrandProminence": true,
+    "company": {
+      "name": "Sebastian Software GmbH",
+      "street": "Dalheimer Straße 12",
+      "postalCode": "55128",
+      "city": "Mainz",
+      "country": "Germany",
+      "email": "info@sebastian-software.de"
+    },
+    "softwareLinks": [
+      {
+        "label": "Products",
+        "site": "software",
+        "path": "/products"
+      },
+      {
+        "label": "Open Source",
+        "site": "opensource",
+        "path": "/"
+      },
+      {
+        "label": "Agents & Skills",
+        "site": "skills",
+        "path": "/",
+        "status": "Proposed navigation label for the existing Skills website; no new app or route is implied."
+      },
+      {
+        "label": "Company",
+        "site": "software",
+        "path": "/company"
+      },
+      {
+        "label": "Journal",
+        "site": "software",
+        "path": null,
+        "status": "Proposed destination; choose the route when the journal is implemented."
+      }
+    ],
+    "consultingLinks": [
+      {
+        "label": "Services",
+        "site": "consulting",
+        "path": "/services"
+      },
+      {
+        "label": "Profiles",
+        "site": "consulting",
+        "path": "/profiles"
+      },
+      {
+        "label": "References",
+        "site": "consulting",
+        "path": "/references"
+      },
+      {
+        "label": "Book an intro call",
+        "site": "consulting",
+        "path": "/contact"
+      }
+    ],
+    "socialLinks": [
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/company/sebastian-software/"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/sebastian-software"
+      }
+    ],
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Product releases, open-source updates and engineering notes.",
+      "emailLabel": "Email address",
+      "action": "Subscribe",
+      "submissionEndpoint": null,
+      "status": "Visual signup proposal; service integration will be chosen when implemented."
+    },
+    "legalLinks": [
+      {
+        "label": "Imprint",
+        "scope": "current-site",
+        "path": "/imprint"
+      },
+      {
+        "label": "Privacy",
+        "scope": "current-site",
+        "path": "/privacy"
+      },
+      {
+        "label": "Contact",
+        "path": "/contact",
+        "site": "software"
+      }
+    ],
+    "copyright": "© 2026 Sebastian Software GmbH",
+    "contentRule": "Registered address, email, company social profiles, newsletter, brand indexes, and legal links."
+  },
+  "canonicalOrigins": {
+    "software": {
+      "en": "https://sebastian-software.com",
+      "de": "https://sebastian-software.de"
+    },
+    "opensource": {
+      "en": "https://oss.sebastian-software.com",
+      "de": "https://oss.sebastian-software.de"
+    },
+    "skills": {
+      "en": "https://skills.sebastian-software.com",
+      "de": "https://skills.sebastian-software.de"
+    },
+    "consulting": {
+      "en": "https://sebastian-consulting.com",
+      "de": "https://sebastian-consulting.de"
+    }
+  },
+  "sourceReferences": [
+    "../../src/BrandBar.tsx",
+    "../../src/SiteFooter.tsx",
+    "../../../web-core/src/sites.ts",
+    "../../../legal/src/company.ts",
+    "../../../../apps/software/app/root.tsx"
+  ],
+  "visualReferences": [
+    {
+      "title": "Stripe",
+      "url": "https://stripe.com"
+    },
+    {
+      "title": "Set.Studio",
+      "url": "https://set.studio"
+    },
+    {
+      "title": "Thinkmill",
+      "url": "https://www.thinkmill.com.au"
+    }
+  ]
+}

@@ -1,39 +1,34 @@
 # Shared site frame
 
-One common header and footer for Software, Open Source, Skills, and Consulting. The frame uses neutral lightly textured paper and graphite type; the original teal and berry brand marks retain equal prominence. The page content belongs to each app.
+The [current desktop alternatives](alternatives-r2/README.md) provide five header ideas and five footer ideas for Software, Open Source, Skills, and Consulting. Headers and footers can be combined independently.
 
-## Header
+## Current direction
 
-The design target is one compact 48 CSS-pixel row on desktop and mobile. Desktop links are grouped by brand: Software, Products, Open Source, Skills; Consulting, Services, Profiles; then EN / DE. A short active-site underline changes without moving the links or changing the frame layout.
+The current site owns its complete logo, local navigation, and language control. The sibling website has a separate entry with its own complete original wordmark. Both Sebastian/Software and Sebastian/Consulting always retain the slash. The header target is a compact 48 CSS-pixel inset strip with white space around it.
 
-On mobile, a current-site trigger opens the grouped website switcher. Both original brand wordmarks link to their homepages, with the area links below them. Cross-site links retain the selected language.
+The shared footer gives both brand indexes equal prominence. It includes the registered address, email, company LinkedIn and GitHub profiles, newsletter, and legal links. The current studies omit phone numbers, regional descriptions, and city illustrations. Several alternatives use a colored footer surface.
 
-## Footer
+New serif text uses regular weight. Existing brand SVGs remain the source artwork for implementation. These are visual studies generated with built-in ImageGen; application components are unchanged.
 
-The desktop footer has four generously spaced columns: company/contact, Software, Consulting, and Newsletter. On mobile the two brand link groups stay adjacent, followed by the full-width company/contact and newsletter sections.
+- [Latest gallery: five headers and five footers](alternatives-r2/README.md)
+- [Current navigation and company links](alternatives-r2/navigation-and-links.json)
+- [Latest exact prompts and image inputs](alternatives-r2/prompts.json)
+- [Latest dimensions and checksums](alternatives-r2/manifest.json)
 
-The company address and phone come from the shared legal package. Mainz and Heidelberg remain named as the two locations; no separate Heidelberg street address is proposed. The bottom row contains copyright, Imprint, Privacy, and Contact.
+## Earlier studies
 
-Newsletter signup is a visual proposal. The service integration and the Software journal route can be configured when implemented. The existing brand SVGs remain the source artwork for implementation; logo renderings in these raster concepts are visual references.
+The [first desktop alternatives](alternatives/README.md) and the complete desktop/mobile proposal below preserve previous explorations. Their global header navigation, abbreviated sibling labels, and footer regional/contact details are superseded by the current direction. Mobile is outside the scope of the current round.
 
-## Desktop
+### Earlier desktop frame
 
-The Software excerpt provides context for the common frame.
+![Earlier shared desktop header and footer](site-frame-desktop.png)
 
-![Shared desktop header and footer](site-frame-desktop.png)
+### Earlier mobile frame
 
-## Mobile
+![Earlier shared mobile header and footer](site-frame-mobile.png)
 
-![Shared mobile header and footer](site-frame-mobile.png)
+### Earlier mobile website switcher
 
-## Open mobile website switcher
+![Earlier open mobile website switcher](site-frame-mobile-menu.png)
 
-![Open mobile website switcher](site-frame-mobile-menu.png)
-
-## Sources
-
-- [Navigation groups, company/contact data, proposed destinations, and layout targets](site-frame-links.json)
-- [Exact built-in ImageGen prompts and portable image inputs](site-frame-prompts.json)
-- [Image dimensions, selected versions, and checksums](site-frame-manifest.json)
-
-These are visual design studies generated with built-in ImageGen. The two earlier desktop variants in references preserve the editing inputs; the three images above are the selected concepts.
+Earlier source records: [navigation and links](site-frame-links.json), [prompts](site-frame-prompts.json), and [manifest](site-frame-manifest.json).

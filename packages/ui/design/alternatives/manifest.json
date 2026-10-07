@@ -1,0 +1,156 @@
+{
+  "date": "2026-10-07",
+  "mode": "built-in ImageGen",
+  "images": [
+    {
+      "id": "h01",
+      "element": "header",
+      "title": "Brand bookends",
+      "file": "references/h01-initial.png",
+      "comparisonSet": false,
+      "width": 1983,
+      "height": 793,
+      "sha256": "c79f496edc45e52058c1d09c6ea1ac74aabc58c7bff8f186b46f3ff20829a337"
+    },
+    {
+      "id": "h02",
+      "element": "header",
+      "title": "Central site rail",
+      "file": "references/h02-initial.png",
+      "comparisonSet": false,
+      "width": 1983,
+      "height": 793,
+      "sha256": "cf0ab131dd2565706b9b75c6eade3f7d1c9425197d1c443b57a459f34bdec62a"
+    },
+    {
+      "id": "h03",
+      "element": "header",
+      "title": "Centered twin wordmarks",
+      "file": "references/h03-initial.png",
+      "comparisonSet": false,
+      "width": 1983,
+      "height": 793,
+      "sha256": "5f866e377f4b2f22ee3dc606b355d20796beac7b05b41a66fc2af0f01702e657"
+    },
+    {
+      "id": "h04",
+      "element": "header",
+      "title": "Publication index",
+      "file": "references/h04-initial.png",
+      "comparisonSet": false,
+      "width": 1983,
+      "height": 793,
+      "sha256": "827eaaace6d158ab9b9bcca19a9697d44b8f72fe95da22e343418c49b1aed36a"
+    },
+    {
+      "id": "h05",
+      "element": "header",
+      "title": "Inset rounded bar",
+      "file": "references/h05-initial.png",
+      "comparisonSet": false,
+      "width": 1983,
+      "height": 793,
+      "sha256": "64b935fd7dc3d3cdd9b05b53452c10326dac8e682299ea134e795cc17c997bae"
+    },
+    {
+      "id": "f01",
+      "element": "footer",
+      "title": "Editorial colophon",
+      "file": "footer-01-editorial-colophon.png",
+      "comparisonSet": true,
+      "width": 1586,
+      "height": 992,
+      "sha256": "47bd46eb87a1f6c5f02c5eac0224adc12cef553adc7e556a031194d86a994b1e"
+    },
+    {
+      "id": "f02",
+      "element": "footer",
+      "title": "Newsletter first",
+      "file": "footer-02-newsletter-first.png",
+      "comparisonSet": true,
+      "width": 1586,
+      "height": 992,
+      "sha256": "83dd63160bc4f2c00a64fc94451abb28c486121eb87dbc43f8c55a8628c50858"
+    },
+    {
+      "id": "f03",
+      "element": "footer",
+      "title": "Two brand doorways",
+      "file": "footer-03-two-brand-doorways.png",
+      "comparisonSet": true,
+      "width": 1586,
+      "height": 992,
+      "sha256": "a182a215ba034ac3641fc205907bbbcf7bbfa7f977d1d854d128379c6e13f54e"
+    },
+    {
+      "id": "f04",
+      "element": "footer",
+      "title": "Regional colophon",
+      "file": "footer-04-regional-colophon.png",
+      "comparisonSet": true,
+      "width": 1586,
+      "height": 992,
+      "sha256": "48f879ea94bf5c63fa0224514f183a65f751866a3027f578b1ee0e7422a14b18"
+    },
+    {
+      "id": "f05",
+      "element": "footer",
+      "title": "Asymmetric inset sheet",
+      "file": "footer-05-asymmetric-inset-sheet.png",
+      "comparisonSet": true,
+      "width": 1586,
+      "height": 992,
+      "sha256": "a1eb31a586c9eec3d6b65325ce90f3b40a3ba6778399fbb9c1885532a363486a"
+    },
+    {
+      "id": "h01-compact",
+      "element": "header",
+      "title": "Brand bookends — compact revision",
+      "file": "header-01-brand-bookends.png",
+      "comparisonSet": true,
+      "width": 1983,
+      "height": 793,
+      "sha256": "3ac5ccaf89e4831257b4e78ad470a9c99d31234569f3a95796d8f055ebe4688e"
+    },
+    {
+      "id": "h02-compact",
+      "element": "header",
+      "title": "Central site rail — compact revision",
+      "file": "header-02-central-site-rail.png",
+      "comparisonSet": true,
+      "width": 1983,
+      "height": 793,
+      "sha256": "3df56a35e70c8c661118ce970e194cfc5b4329923110b98ca7c3ca4e2247bb38"
+    },
+    {
+      "id": "h03-compact",
+      "element": "header",
+      "title": "Centered twin wordmarks — compact revision",
+      "file": "header-03-centered-twin-wordmarks.png",
+      "comparisonSet": true,
+      "width": 1983,
+      "height": 793,
+      "sha256": "ff0b6fabbc40eb2c26ac159ebb5f7e8ed88f860a39edd36e72419a05f927abef"
+    },
+    {
+      "id": "h04-compact",
+      "element": "header",
+      "title": "Publication index — compact revision",
+      "file": "header-04-publication-index.png",
+      "comparisonSet": true,
+      "width": 1983,
+      "height": 793,
+      "sha256": "ee7c66b5345b6cd8981d72c0bbfd5190ec19cc4c633a3550ff25e8fa3800f7e5"
+    },
+    {
+      "id": "h05-compact",
+      "element": "header",
+      "title": "Inset rounded bar — compact revision",
+      "file": "header-05-inset-rounded-bar.png",
+      "comparisonSet": true,
+      "width": 1983,
+      "height": 793,
+      "sha256": "9c86223418f83360e9375d75aabc7380c257163d46aae438dea94ff9bc5d37f9"
+    }
+  ]
+}
