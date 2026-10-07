@@ -264,13 +264,15 @@ visual implementation brief. Existing launch plans continue to govern those task
 
 ## Work packages and acceptance
 
-One tracking issue links four implementation issues:
+The [tracking issue #15](https://github.com/sebastian-software/sebastian-websites/issues/15)
+links four implementation issues:
 
-1. Shared design system and frame in packages/tokens and packages/ui, integrated
-   in all site contexts.
-2. Software product homepage in apps/software.
-3. Complete illustrated Open Source homepage in apps/opensource.
-4. Consulting homepage and screen integration in apps/consulting.
+| Work package                               | Issue                                                                     | Main location                                      |
+| ------------------------------------------ | ------------------------------------------------------------------------- | -------------------------------------------------- |
+| Shared design system and contextual frame  | [#16](https://github.com/sebastian-software/sebastian-websites/issues/16) | packages/tokens and packages/ui; all site contexts |
+| Illustrated Software product homepage      | [#17](https://github.com/sebastian-software/sebastian-websites/issues/17) | apps/software                                      |
+| Complete Open Source homepage              | [#18](https://github.com/sebastian-software/sebastian-websites/issues/18) | apps/opensource                                    |
+| Consulting homepage and screen integration | [#19](https://github.com/sebastian-software/sebastian-websites/issues/19) | apps/consulting                                    |
 
 The shared package is the dependency for the final site integrations. Editorial
 data/copy work can proceed independently. Each issue identifies its selected

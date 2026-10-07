@@ -17,6 +17,9 @@ These are visual concepts. The reusable source images are collected in [app/asse
 Use the [implementation brief](../../../design/IMPLEMENTATION-BRIEF.md) for the
 current requirements, complete tile collection, metrics ordering, and completion criteria.
 
+Implementation is tracked in [#18](https://github.com/sebastian-software/sebastian-websites/issues/18),
+with the shared frame in [#16](https://github.com/sebastian-software/sebastian-websites/issues/16).
+
 The [editorial collection seed](collection-seed.json) records the initial thirteen
 additional projects, their public sources, classifications, family exclusions,
 and captured activity. It is a starting dataset, not a runtime count limit.

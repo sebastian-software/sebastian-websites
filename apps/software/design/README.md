@@ -13,6 +13,9 @@ These are visual concepts. The reusable source images are collected in [app/asse
 Use the [implementation brief](../../../design/IMPLEMENTATION-BRIEF.md) for the
 current requirements, product collection behavior, and completion criteria.
 
+Implementation is tracked in [#17](https://github.com/sebastian-software/sebastian-websites/issues/17),
+with the shared frame in [#16](https://github.com/sebastian-software/sebastian-websites/issues/16).
+
 The [current frame gallery](../../../packages/ui/design/refinements-r5/README.md) gives the current website the only logo and presents the other website as an editorial outward invitation. It supersedes the frame areas in the earlier homepage reference.
 
 The sequence is shared newsletter, illustrated Consulting invitation, then the inset Software footer.
