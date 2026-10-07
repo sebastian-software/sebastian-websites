@@ -2,22 +2,19 @@ import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
 import { blocks, button, layout, Section, typography } from "@sebastian-websites/ui"
-import { getSiteOrigin } from "@sebastian-websites/web-core"
 
 import { CONTACT_EMAIL } from "~/lib/legal"
 import { buildingPhoto } from "~/lib/photos"
-import { variant } from "~/lib/site"
 
 import { Photo } from "./Photo"
 
 /**
- * The closing call of every content page: headline, lead, the two actions, and the
- * building photo.
+ * The closing call of every content page: headline, lead, the contact action,
+ * and the building photo. The page ending introduces Sebastian Consulting.
  *
  * @returns The closing section.
  */
 export function Closing(): ReactElement {
-  const consulting = getSiteOrigin("consulting", variant.locale)
   return (
     <Section tone="white">
       <div className={blocks.finalGrid}>
@@ -30,9 +27,6 @@ export function Closing(): ReactElement {
           <div className={layout.ctas}>
             <a className={button.primary} href={`mailto:${CONTACT_EMAIL}`}>
               {CONTACT_EMAIL}
-            </a>
-            <a className={button.secondary} href={`${consulting}/`}>
-              {t`To Sebastian Consulting`}
             </a>
           </div>
         </div>

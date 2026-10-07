@@ -1,0 +1,994 @@
+msgid ""
+msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"X-Generator: palamedes\n"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid ""
+"{brand} is a registered trademark of {name}. This website is operated by "
+"{name}."
+msgstr ""
+"{brand} is a registered trademark of {name}. This website is operated by "
+"{name}."
+
+#: app/components/Closing.tsx#Closing
+msgid ""
+"15 minutes, no strings attached: you talk directly to one of the two "
+"Sebastians."
+msgstr ""
+"15 minutes, no strings attached: you talk directly to one of the two "
+"Sebastians."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
+msgid ""
+"A data protection officer has not been appointed, as the legal requirements "
+"for this do not apply. For data protection inquiries, you can contact the "
+"email address listed above."
+msgstr ""
+"A data protection officer has not been appointed, as the legal requirements "
+"for this do not apply. For data protection inquiries, you can contact the "
+"email address listed above."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "A drawn desk calendar with one marked appointment beside a potted plant."
+msgstr ""
+"A drawn desk calendar with one marked appointment beside a potted plant."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "A drawn road winding through a valley toward the mountains."
+msgstr "A drawn road winding through a valley toward the mountains."
+
+#: app/components/Closing.tsx#Closing
+msgid ""
+"A rocky ridge path at dusk leading toward a cairn on an overlook above layered"
+" hills."
+msgstr ""
+"A rocky ridge path at dusk leading toward a cairn on an overlook above layered"
+" hills."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Address"
+msgstr "Address"
+
+#: app/components/Judgment.tsx#Judgment
+msgid ""
+"AI accelerates implementation. What matters is what gets built, how it fits "
+"the architecture, and what quality looks like. That is where we take "
+"responsibility."
+msgstr ""
+"AI accelerates implementation. What matters is what gets built, how it fits "
+"the architecture, and what quality looks like. That is where we take "
+"responsibility."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Almost done: please confirm the link we just sent you."
+msgstr "Almost done: please confirm the link we just sent you."
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid "Appointment Booking via Terminaro"
+msgstr "Appointment Booking via Terminaro"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"Approximate geographic location (country level, derived from the IP address, "
+"which itself is not stored)"
+msgstr ""
+"Approximate geographic location (country level, derived from the IP address, "
+"which itself is not stored)"
+
+#: app/routes/home.tsx
+msgid "Architecture and engineering for complex web applications."
+msgstr "Architecture and engineering for complex web applications."
+
+#: app/routes/home.tsx
+msgid "Architecture reviews, hands-on development, and knowledge that stays."
+msgstr "Architecture reviews, hands-on development, and knowledge that stays."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
+msgid "Automated Decision-Making"
+msgstr "Automated Decision-Making"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+#: app/components/Closing.tsx#Closing
+#: app/components/Founders.tsx#Founders
+#: app/routes/home.tsx
+msgid "Book an intro call"
+msgstr "Book an intro call"
+
+#: app/components/Services.tsx#Services
+msgid "Bring the product into more languages."
+msgstr "Bring the product into more languages."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"Bunny.net is based in Slovenia (EU/EEA). This website is delivered exclusively"
+" via nodes located in EU member states; no connection data is transferred to "
+"third countries. Bunny.net contractually commits that connection data on CDN "
+"nodes is only processed transiently and not stored permanently. Furthermore, a"
+" data processing agreement pursuant to Art. 28 GDPR is in place, in which "
+"Bunny.net ensures that sub-processors implement adequate data protection "
+"measures in accordance with the GDPR."
+msgstr ""
+"Bunny.net is based in Slovenia (EU/EEA). This website is delivered exclusively"
+" via nodes located in EU member states; no connection data is transferred to "
+"third countries. Bunny.net contractually commits that connection data on CDN "
+"nodes is only processed transiently and not stored permanently. Furthermore, a"
+" data processing agreement pursuant to Art. 28 GDPR is in place, in which "
+"Bunny.net ensures that sub-processors implement adequate data protection "
+"measures in accordance with the GDPR."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
+msgid "BunnyWay d.o.o. (Bunny.net), Slovenia"
+msgstr "BunnyWay d.o.o. (Bunny.net), Slovenia"
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"CDN (Content Delivery Network) for delivering static files (HTML, JavaScript, "
+"CSS)"
+msgstr ""
+"CDN (Content Delivery Network) for delivering static files (HTML, JavaScript, "
+"CSS)"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
+msgid "CDN, hosting and edge scripting for this website"
+msgstr "CDN, hosting and edge scripting for this website"
+
+#: app/components/Founders.tsx#Founders
+msgid "Clarity."
+msgstr "Clarity."
+
+#: app/components/Founders.tsx#Founders
+msgid "Co-founder"
+msgstr "Co-founder"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Company"
+msgstr "Company"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Company profiles"
+msgstr "Company profiles"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Contact"
+msgstr "Contact"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#EmailContactSection
+msgid "Contact via Email"
+msgstr "Contact via Email"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
+msgid "Controller"
+msgstr "Controller"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid ""
+"Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit "
+"Rheinland-Pfalz<0/>Postfach 30 40<1/>55020 "
+"Mainz<2/><3>www.datenschutz.rlp.de</3>"
+msgstr ""
+"Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit "
+"Rheinland-Pfalz<0/>Postfach 30 40<1/>55020 "
+"Mainz<2/><3>www.datenschutz.rlp.de</3>"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid "Device information (screen size, operating system, browser)"
+msgstr "Device information (screen size, operating system, browser)"
+
+#: app/components/Founders.tsx#Founders
+msgid "Direct responsibility."
+msgstr "Direct responsibility."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Discover Sebastian/Software"
+msgstr "Discover Sebastian/Software"
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"Each page request processes the following categories of technical connection "
+"data: network identification data (IP address), time-related metadata "
+"(timestamp), usage data (requested URL), technical metadata (browser type, "
+"operating system, and device information), and the language preference "
+"transmitted by the browser (Accept-Language). According to a contractual "
+"assurance by Bunny.net, this data is held exclusively in working memory (RAM) "
+"and automatically deleted after 20–30 seconds. According to this assurance, "
+"no persistent storage takes place."
+msgstr ""
+"Each page request processes the following categories of technical connection "
+"data: network identification data (IP address), time-related metadata "
+"(timestamp), usage data (requested URL), technical metadata (browser type, "
+"operating system, and device information), and the language preference "
+"transmitted by the browser (Accept-Language). According to a contractual "
+"assurance by Bunny.net, this data is held exclusively in working memory (RAM) "
+"and automatically deleted after 20–30 seconds. According to this assurance, "
+"no persistent storage takes place."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid "Edge Scripting for server-side logic at Bunny.net nodes"
+msgstr "Edge Scripting for server-side logic at Bunny.net nodes"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Editorially Responsible pursuant to § 18(2) MStV"
+msgstr "Editorially Responsible pursuant to § 18(2) MStV"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Email address"
+msgstr "Email address"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+#: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
+msgid "Email:"
+msgstr "Email:"
+
+#: app/components/Founders.tsx#Founders
+msgid "Enthusiasm."
+msgstr "Enthusiasm."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Entry in the Commercial Register"
+msgstr "Entry in the Commercial Register"
+
+#: app/components/Founders.tsx#Founders
+msgid "Experience."
+msgstr "Experience."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
+msgid "External Links"
+msgstr "External Links"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Fax:"
+msgstr "Fax:"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"For more information about Rybbit, please visit the <0>Rybbit website</0>."
+msgstr ""
+"For more information about Rybbit, please visit the <0>Rybbit website</0>."
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid ""
+"For online appointment booking, we use our own service Terminaro. Terminaro is"
+" operated by the same controller (Sebastian Software GmbH) – this therefore "
+"does not constitute a transfer of data to a third party within the meaning of "
+"Art. 4(10) GDPR, but rather an internal processing operation by the same "
+"controller."
+msgstr ""
+"For online appointment booking, we use our own service Terminaro. Terminaro is"
+" operated by the same controller (Sebastian Software GmbH) – this therefore "
+"does not constitute a transfer of data to a third party within the meaning of "
+"Art. 4(10) GDPR, but rather an internal processing operation by the same "
+"controller."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
+msgid ""
+"For statistical analysis of website usage, we use Rybbit, which operates "
+"entirely without cookies and does not permanently store personal data (see "
+"section \"Web Analytics\")."
+msgstr ""
+"For statistical analysis of website usage, we use Rybbit, which operates "
+"entirely without cookies and does not permanently store personal data (see "
+"section \"Web Analytics\")."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"Further information can be found in the <0>Bunny.net privacy policy</0> and on"
+" the <1>Bunny.net GDPR page</1>."
+msgstr ""
+"Further information can be found in the <0>Bunny.net privacy policy</0> and on"
+" the <1>Bunny.net GDPR page</1>."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+#: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Germany"
+msgstr "Germany"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
+msgid "Hetzner Online GmbH, Germany"
+msgstr "Hetzner Online GmbH, Germany"
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid "Hosting and Content Delivery Network"
+msgstr "Hosting and Content Delivery Network"
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid "Hosting and Sub-processors"
+msgstr "Hosting and Sub-processors"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid "Hosting and Third-Country Transfer"
+msgstr "Hosting and Third-Country Transfer"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#HetznerProcessorDescription
+msgid "Hosting of the Rybbit analytics server"
+msgstr "Hosting of the Rybbit analytics server"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#HetznerProcessorDescription
+msgid "Hosting of the Terminaro application"
+msgstr "Hosting of the Terminaro application"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#HetznerProcessorDescription
+msgid "Hosting of the Terminaro application and the Rybbit analytics server"
+msgstr "Hosting of the Terminaro application and the Rybbit analytics server"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid "How It Works"
+msgstr "How It Works"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Imprint"
+msgstr "Imprint"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Information pursuant to § 5 DDG"
+msgstr "Information pursuant to § 5 DDG"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid ""
+"Insights into our work across software and consulting: what we're building, "
+"exploring and thinking about."
+msgstr ""
+"Insights into our work across software and consulting: what we're building, "
+"exploring and thinking about."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Language"
+msgstr "Language"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#PrivacyDocument
+msgid "Last updated: {formattedVersion}"
+msgstr "Last updated: {formattedVersion}"
+
+#: app/components/Services.tsx#Services
+msgid "Leave the team stronger."
+msgstr "Leave the team stronger."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Legal"
+msgstr "Legal"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid "Legal Basis"
+msgstr "Legal Basis"
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid "Legal Basis and Retention Period"
+msgstr "Legal Basis and Retention Period"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Legal Notice"
+msgstr "Legal Notice"
+
+#: app/routes/imprint.tsx#meta
+msgid "Legal Notice – Sebastian Consulting"
+msgstr "Legal Notice – Sebastian Consulting"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Main navigation"
+msgstr "Main navigation"
+
+#: app/components/Services.tsx#Services
+msgid "Make the next change easier."
+msgstr "Make the next change easier."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Managing Directors"
+msgstr "Managing Directors"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
+msgid "Managing Directors:"
+msgstr "Managing Directors:"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Meet Sebastian/Consulting"
+msgstr "Meet Sebastian/Consulting"
+
+#: app/components/Judgment.tsx#Judgment
+msgid "More speed needs better judgment."
+msgstr "More speed needs better judgment."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Need a clearer direction for your software?"
+msgstr "Need a clearer direction for your software?"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Newsletter"
+msgstr "Newsletter"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
+msgid ""
+"No automated decision-making, including profiling, pursuant to Art. 22 GDPR "
+"takes place."
+msgstr ""
+"No automated decision-making, including profiling, pursuant to Art. 22 GDPR "
+"takes place."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid "Obligation to Provide Data"
+msgstr "Obligation to Provide Data"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Our agency"
+msgstr "Our agency"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid ""
+"Our agency helps teams with software architecture, engineering and technical "
+"direction."
+msgstr ""
+"Our agency helps teams with software architecture, engineering and technical "
+"direction."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Our software"
+msgstr "Our software"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
+msgid "Overview of Data Processing"
+msgstr "Overview of Data Processing"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid "Page views (URL, referrer)"
+msgstr "Page views (URL, referrer)"
+
+#: app/components/Services.tsx#Services
+msgid ""
+"Pairing, reviews, and practical standards help teams build shared judgment, "
+"including clear guardrails for AI-assisted delivery. Knowledge, tools, and "
+"standards stay when we leave."
+msgstr ""
+"Pairing, reviews, and practical standards help teams build shared judgment, "
+"including clear guardrails for AI-assisted delivery. Knowledge, tools, and "
+"standards stay when we leave."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Phone:"
+msgstr "Phone:"
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid "Place of Processing"
+msgstr "Place of Processing"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Please enter a complete email address, such as name@example.com."
+msgstr "Please enter a complete email address, such as name@example.com."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Privacy"
+msgstr "Privacy"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#PrivacyDocument
+msgid "Privacy Policy"
+msgstr "Privacy Policy"
+
+#: app/routes/privacy.tsx#meta
+msgid "Privacy Policy – Sebastian Consulting"
+msgstr "Privacy Policy – Sebastian Consulting"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid "Processed Data"
+msgstr "Processed Data"
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid ""
+"Processing is based on Art. 6(1)(b) GDPR for the initiation of a consulting "
+"engagement (pre-contractual measures). Booking data is automatically deleted "
+"90 days after the appointment date. If a contractual relationship arises from "
+"the booking and tax or commercial law retention obligations apply (§ 257 HGB,"
+" § 147 AO), the relevant data will be retained for up to 10 years. Terminaro "
+"does not set any cookies on the public website and does not use tracking or "
+"web analytics."
+msgstr ""
+"Processing is based on Art. 6(1)(b) GDPR for the initiation of a consulting "
+"engagement (pre-contractual measures). Booking data is automatically deleted "
+"90 days after the appointment date. If a contractual relationship arises from "
+"the booking and tax or commercial law retention obligations apply (§ 257 HGB,"
+" § 147 AO), the relevant data will be retained for up to 10 years. Terminaro "
+"does not set any cookies on the public website and does not use tracking or "
+"web analytics."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"Processing is based on Art. 6(1)(f) GDPR. Our legitimate interest lies in "
+"ensuring the availability, integrity and security of the website. This "
+"interest outweighs the data subjects' interest in non-processing, as, "
+"according to a contractual assurance by Bunny.net, connection data is "
+"processed exclusively transiently in working memory and automatically deleted "
+"after a few seconds. Insofar as information on the user's terminal device is "
+"accessed (e.g. through edge scripting), this is permissible without consent "
+"pursuant to Section 25(2)(2) TDDDG, as the access is strictly necessary to "
+"provide the service explicitly requested by the user."
+msgstr ""
+"Processing is based on Art. 6(1)(f) GDPR. Our legitimate interest lies in "
+"ensuring the availability, integrity and security of the website. This "
+"interest outweighs the data subjects' interest in non-processing, as, "
+"according to a contractual assurance by Bunny.net, connection data is "
+"processed exclusively transiently in working memory and automatically deleted "
+"after a few seconds. Insofar as information on the user's terminal device is "
+"accessed (e.g. through edge scripting), this is permissible without consent "
+"pursuant to Section 25(2)(2) TDDDG, as the access is strictly necessary to "
+"provide the service explicitly requested by the user."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
+msgid "Processors"
+msgstr "Processors"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Products"
+msgstr "Products"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Profiles"
+msgstr "Profiles"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Register Court:"
+msgstr "Register Court:"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Register Entry"
+msgstr "Register Entry"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Register Number:"
+msgstr "Register Number:"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Right of access (Art. 15 GDPR)"
+msgstr "Right of access (Art. 15 GDPR)"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid ""
+"Right to data portability (Art. 20 GDPR) – applies only to processing based "
+"on a contract (Art. 6(1)(b) GDPR), that is, when booking appointments through "
+"Terminaro and for contract-related email communication"
+msgstr ""
+"Right to data portability (Art. 20 GDPR) – applies only to processing based "
+"on a contract (Art. 6(1)(b) GDPR), that is, when booking appointments through "
+"Terminaro and for contract-related email communication"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Right to erasure (Art. 17 GDPR)"
+msgstr "Right to erasure (Art. 17 GDPR)"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Right to Lodge a Complaint with a Supervisory Authority"
+msgstr "Right to Lodge a Complaint with a Supervisory Authority"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Right to object (Art. 21 GDPR)"
+msgstr "Right to object (Art. 21 GDPR)"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Right to object (Art. 21 GDPR) – see separate section below"
+msgstr "Right to object (Art. 21 GDPR) – see separate section below"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Right to rectification (Art. 16 GDPR)"
+msgstr "Right to rectification (Art. 16 GDPR)"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Right to restriction of processing (Art. 18 GDPR)"
+msgstr "Right to restriction of processing (Art. 18 GDPR)"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"Rybbit is operated on our own server, hosted by Hetzner Online GmbH in "
+"Germany. No third-country transfer takes place. This does not constitute a "
+"data processor within the meaning of Art. 28 GDPR, as data processing takes "
+"place exclusively on our own infrastructure."
+msgstr ""
+"Rybbit is operated on our own server, hosted by Hetzner Online GmbH in "
+"Germany. No third-country transfer takes place. This does not constitute a "
+"data processor within the meaning of Art. 28 GDPR, as data processing takes "
+"place exclusively on our own infrastructure."
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"Rybbit operates without cookies and without persistent identifiers. To count "
+"unique visitors, Rybbit generates a pseudonymised hash from the IP address and"
+" user agent. The IP address is processed only transiently in working memory "
+"for hash generation and is never permanently stored or logged. A daily "
+"rotating random component (salt) resets this identifier every day, so tracking"
+" across days is ruled out."
+msgstr ""
+"Rybbit operates without cookies and without persistent identifiers. To count "
+"unique visitors, Rybbit generates a pseudonymised hash from the IP address and"
+" user agent. The IP address is processed only transiently in working memory "
+"for hash generation and is never permanently stored or logged. A daily "
+"rotating random component (salt) resets this identifier every day, so tracking"
+" across days is ruled out."
+
+#: app/routes/home.tsx#meta
+msgid ""
+"Sebastian Consulting – Architecture and engineering for complex web "
+"applications"
+msgstr ""
+"Sebastian Consulting – Architecture and engineering for complex web "
+"applications"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "See what we build beyond consulting."
+msgstr "See what we build beyond consulting."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+#: app/components/Services.tsx#Services
+msgid "Services"
+msgstr "Services"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Sign-up opens soon. The newsletter has not started yet."
+msgstr "Sign-up opens soon. The newsletter has not started yet."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Signing you up…"
+msgstr "Signing you up…"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Site index"
+msgstr "Site index"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Skip to content"
+msgstr "Skip to content"
+
+#: app/routes/home.tsx#meta
+msgid ""
+"Software architecture, engineering, and technical direction for complex web "
+"applications: React and TypeScript modernization, internationalization, and "
+"team enablement, directly with two senior architects."
+msgstr ""
+"Software architecture, engineering, and technical direction for complex web "
+"applications: React and TypeScript modernization, internationalization, and "
+"team enablement, directly with two senior architects."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid "Storage for static files and assets"
+msgstr "Storage for static files and assets"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Subscribe"
+msgstr "Subscribe"
+
+#: app/components/Closing.tsx#Closing
+msgid ""
+"Tell us where architecture, delivery, or internationalization is getting in "
+"the way."
+msgstr ""
+"Tell us where architecture, delivery, or internationalization is getting in "
+"the way."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
+msgid ""
+"The controller within the meaning of the General Data Protection Regulation "
+"(GDPR) and other data protection legislation is:"
+msgstr ""
+"The controller within the meaning of the General Data Protection Regulation "
+"(GDPR) and other data protection legislation is:"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"The following data is collected and stored exclusively in aggregated form:"
+msgstr ""
+"The following data is collected and stored exclusively in aggregated form:"
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid ""
+"The information above covers all essential processing details regarding "
+"Terminaro. Since Terminaro is operated by the same controller, the data "
+"protection principles set out here apply equally. Additional technical details"
+" on data processing within Terminaro can be found in the <0>Terminaro privacy "
+"notice</0>, which specifies this policy for the booking service."
+msgstr ""
+"The information above covers all essential processing details regarding "
+"Terminaro. Since Terminaro is operated by the same controller, the data "
+"protection principles set out here apply equally. Additional technical details"
+" on data processing within Terminaro can be found in the <0>Terminaro privacy "
+"notice</0>, which specifies this policy for the booking service."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"The language preference is used solely to route the request to the matching "
+"language version. Since the German version is located at "
+"sebastian-consulting.de and the English one at sebastian-consulting.com, this "
+"redirect may also lead to the respective other domain. No cookie is set in the"
+" process."
+msgstr ""
+"The language preference is used solely to route the request to the matching "
+"language version. Since the German version is located at "
+"sebastian-consulting.de and the English one at sebastian-consulting.com, this "
+"redirect may also lead to the respective other domain. No cookie is set in the"
+" process."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "The sign-up did not go through. Please try again later."
+msgstr "The sign-up did not go through. Please try again later."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"The transmission of your IP address is technically necessary to access this "
+"website. Without this data transmission, no connection to the server can be "
+"established and the website cannot be displayed. There is no legal or "
+"contractual obligation to provide any further personal data."
+msgstr ""
+"The transmission of your IP address is technically necessary to access this "
+"website. Without this data transmission, no connection to the server can be "
+"established and the website cannot be displayed. There is no legal or "
+"contractual obligation to provide any further personal data."
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"The use of Rybbit is based on Art. 6(1)(f) GDPR. Our legitimate interest lies "
+"in analyzing website usage for the needs-based design and optimization of our "
+"website. This interest prevails because Rybbit is designed in such a way that "
+"no personal data is permanently processed and no conclusions can be drawn "
+"about individual users. Since Rybbit does not set cookies and does not access "
+"information already stored on the user's device, consent under § 25 TDDDG "
+"(German Telecommunications Digital Services Data Protection Act) is not "
+"required."
+msgstr ""
+"The use of Rybbit is based on Art. 6(1)(f) GDPR. Our legitimate interest lies "
+"in analyzing website usage for the needs-based design and optimization of our "
+"website. This interest prevails because Rybbit is designed in such a way that "
+"no personal data is permanently processed and no conclusions can be drawn "
+"about individual users. Since Rybbit does not set cookies and does not access "
+"information already stored on the user's device, consent under § 25 TDDDG "
+"(German Telecommunications Digital Services Data Protection Act) is not "
+"required."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
+msgid "There is no contact form – contact is made exclusively by email."
+msgstr "There is no contact form – contact is made exclusively by email."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
+msgid ""
+"This website contains links to third-party websites. When you click on these "
+"links, you will be redirected to the respective third-party site. The "
+"respective operators are responsible for data processing on these external "
+"sites. We recommend that you read the privacy policies of the linked sites."
+msgstr ""
+"This website contains links to third-party websites. When you click on these "
+"links, you will be redirected to the respective third-party site. The "
+"respective operators are responsible for data processing on these external "
+"sites. We recommend that you read the privacy policies of the linked sites."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
+msgid ""
+"This website does not process personal data beyond what is technically "
+"necessary. No cookies are set."
+msgstr ""
+"This website does not process personal data beyond what is technically "
+"necessary. No cookies are set."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
+msgid ""
+"This website does not process personal data beyond what is technically "
+"necessary. No cookies are set. For statistical analysis of website usage, we "
+"use Rybbit, which operates entirely without cookies and does not permanently "
+"store any personal data (see section \"Web Analytics\"). There is no contact "
+"form – contact is made exclusively by email."
+msgstr ""
+"This website does not process personal data beyond what is technically "
+"necessary. No cookies are set. For statistical analysis of website usage, we "
+"use Rybbit, which operates entirely without cookies and does not permanently "
+"store any personal data (see section \"Web Analytics\"). There is no contact "
+"form – contact is made exclusively by email."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"This website is operated via the infrastructure of Bunny.net (BunnyWay d.o.o.,"
+" Slovenia, EU). Bunny.net provides the following services:"
+msgstr ""
+"This website is operated via the infrastructure of Bunny.net (BunnyWay d.o.o.,"
+" Slovenia, EU). Bunny.net provides the following services:"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"This website uses Rybbit for statistical analysis of website usage. Rybbit is "
+"self-hosted on our own server at the domain t.sebastian-software.de. Data is "
+"not shared with third parties."
+msgstr ""
+"This website uses Rybbit for statistical analysis of website usage. Rybbit is "
+"self-hosted on our own server at the domain t.sebastian-software.de. Data is "
+"not shared with third parties."
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid ""
+"To exercise your right to object, you may contact us at any time at: "
+"<0>{privacyEmail}</0>"
+msgstr ""
+"To exercise your right to object, you may contact us at any time at: "
+"<0>{privacyEmail}</0>"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid ""
+"To exercise your rights, you may contact us at any time at: "
+"<0>{privacyEmail}</0>"
+msgstr ""
+"To exercise your rights, you may contact us at any time at: "
+"<0>{privacyEmail}</0>"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Trademark Notice"
+msgstr "Trademark Notice"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"Triggered interaction events (such as clicking the booking button or the PDF "
+"download), each without any personal reference"
+msgstr ""
+"Triggered interaction events (such as clicking the booking button or the PDF "
+"download), each without any personal reference"
+
+#: app/components/Founders.tsx#Founders
+msgid "Two architects."
+msgstr "Two architects."
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid ""
+"Under the GDPR, you have the following rights regarding your personal data:"
+msgstr ""
+"Under the GDPR, you have the following rights regarding your personal data:"
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid ""
+"User data is stored on servers of Hetzner Online GmbH in Germany. A data "
+"processing agreement pursuant to Art. 28 GDPR is in place with Hetzner. For "
+"the delivery of static content, Terminaro uses the CDN of Bunny.net (BunnyWay "
+"d.o.o., Slovenia), where data is processed exclusively transiently in working "
+"memory."
+msgstr ""
+"User data is stored on servers of Hetzner Online GmbH in Germany. A data "
+"processing agreement pursuant to Art. 28 GDPR is in place with Hetzner. For "
+"the delivery of static content, Terminaro uses the CDN of Bunny.net (BunnyWay "
+"d.o.o., Slovenia), where data is processed exclusively transiently in working "
+"memory."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "VAT ID"
+msgstr "VAT ID"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid ""
+"VAT identification number pursuant to § 27a of the German Value Added Tax "
+"Act:"
+msgstr ""
+"VAT identification number pursuant to § 27a of the German Value Added Tax "
+"Act:"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid ""
+"We build products, open-source projects and agent tools for everyday work."
+msgstr ""
+"We build products, open-source projects and agent tools for everyday work."
+
+#: app/routes/home.tsx
+msgid ""
+"We help engineering teams modernize React and TypeScript applications, bring "
+"products into more languages, and build a delivery process the team can "
+"maintain."
+msgstr ""
+"We help engineering teams modernize React and TypeScript applications, bring "
+"products into more languages, and build a delivery process the team can "
+"maintain."
+
+#: app/components/Services.tsx#Services
+msgid ""
+"We help turn internationalization into a maintainable product capability, from"
+" code and catalogs to context, translation workflows, and delivery, so new "
+"languages stop being a project of their own."
+msgstr ""
+"We help turn internationalization into a maintainable product capability, from"
+" code and catalogs to context, translation workflows, and delivery, so new "
+"languages stop being a project of their own."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
+msgid ""
+"We use the following processors pursuant to Art. 28 GDPR, with each of whom a "
+"data processing agreement is in place:"
+msgstr ""
+"We use the following processors pursuant to Art. 28 GDPR, with each of whom a "
+"data processing agreement is in place:"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid "Web analytics with Rybbit"
+msgstr "Web analytics with Rybbit"
+
+#: app/components/Closing.tsx#Closing
+msgid "What needs to become clearer?"
+msgstr "What needs to become clearer?"
+
+#: app/components/Services.tsx#Services
+msgid ""
+"When a web application has become hard to change, we review the architecture "
+"with your team, make tradeoffs visible, and help implement the next step in "
+"React and TypeScript. You get a target picture, a reasoned decision, and a "
+"migration path the team can carry."
+msgstr ""
+"When a web application has become hard to change, we review the architecture "
+"with your team, make tradeoffs visible, and help implement the next step in "
+"React and TypeScript. You get a target picture, a reasoned decision, and a "
+"migration path the team can carry."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#EmailContactSection
+msgid ""
+"When you contact us by email, the data you provide (email address, name if "
+"applicable, and message content) will be processed to handle your inquiry. If "
+"your inquiry is aimed at concluding or performing a contract, the legal basis "
+"is Art. 6(1)(b) GDPR (pre-contractual or contractual measures). For general "
+"inquiries without a contractual context, the legal basis is Art. 6(1)(f) GDPR;"
+" our legitimate interest lies in the proper handling of incoming inquiries. "
+"This interest prevails, as processing is limited to what is necessary for "
+"responding and data is deleted upon completion. Your data will be deleted once"
+" the inquiry has been fully resolved. Where tax or commercial law retention "
+"obligations apply (§ 257 HGB, § 147 AO), the relevant data will be retained "
+"for up to 10 years."
+msgstr ""
+"When you contact us by email, the data you provide (email address, name if "
+"applicable, and message content) will be processed to handle your inquiry. If "
+"your inquiry is aimed at concluding or performing a contract, the legal basis "
+"is Art. 6(1)(b) GDPR (pre-contractual or contractual measures). For general "
+"inquiries without a contractual context, the legal basis is Art. 6(1)(f) GDPR;"
+" our legitimate interest lies in the proper handling of incoming inquiries. "
+"This interest prevails, as processing is limited to what is necessary for "
+"responding and data is deleted upon completion. Your data will be deleted once"
+" the inquiry has been fully resolved. Where tax or commercial law retention "
+"obligations apply (§ 257 HGB, § 147 AO), the relevant data will be retained "
+"for up to 10 years."
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid ""
+"When you schedule an appointment via the booking link, the data you enter "
+"(name, email address, company if applicable, phone number and booking reason) "
+"will be processed by Terminaro."
+msgstr ""
+"When you schedule an appointment via the booking link, the data you enter "
+"(name, email address, company if applicable, phone number and booking reason) "
+"will be processed by Terminaro."
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid ""
+"Where we process your personal data on the basis of legitimate interests "
+"pursuant to Art. 6(1)(f) GDPR, you have the right to object to such processing"
+" at any time pursuant to Art. 21 GDPR. If you object, we will no longer "
+"process your personal data for these purposes unless we can demonstrate "
+"compelling legitimate grounds for the processing which override your "
+"interests, rights and freedoms, or the processing serves the establishment, "
+"exercise or defence of legal claims."
+msgstr ""
+"Where we process your personal data on the basis of legitimate interests "
+"pursuant to Art. 6(1)(f) GDPR, you have the right to object to such processing"
+" at any time pursuant to Art. 21 GDPR. If you object, we will no longer "
+"process your personal data for these purposes unless we can demonstrate "
+"compelling legitimate grounds for the processing which override your "
+"interests, rights and freedoms, or the processing serves the establishment, "
+"exercise or defence of legal claims."
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid ""
+"You have the right to lodge a complaint with a data protection supervisory "
+"authority regarding the processing of your personal data. The supervisory "
+"authority responsible for us is:"
+msgstr ""
+"You have the right to lodge a complaint with a data protection supervisory "
+"authority regarding the processing of your personal data. The supervisory "
+"authority responsible for us is:"
+
+#: app/components/Founders.tsx#Founders
+msgid ""
+"You work directly with the two architects doing the work: no bench, no "
+"juniors, no handover to third parties."
+msgstr ""
+"You work directly with the two architects doing the work: no bench, no "
+"juniors, no handover to third parties."
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Your Rights"
+msgstr "Your Rights"

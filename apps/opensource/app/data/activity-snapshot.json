@@ -1,0 +1,507 @@
+{
+  "generatedAt": "2026-10-07T11:34:34Z",
+  "repositories": {
+    "cuttledoc": {
+      "packages": [
+        {
+          "name": "@cuttledoc/llm",
+          "registry": "npm"
+        },
+        {
+          "name": "cuttledoc",
+          "registry": "npm"
+        },
+        {
+          "name": "@cuttledoc/ffmpeg",
+          "registry": "npm"
+        }
+      ],
+      "pushedAt": "2026-07-28T09:35:17Z",
+      "stars": 1
+    },
+    "offcourse": {
+      "packages": [
+        {
+          "name": "offcourse",
+          "registry": "npm"
+        }
+      ],
+      "pushedAt": "2026-09-25T07:26:15Z",
+      "stars": 3
+    },
+    "ardo": {
+      "packages": [
+        {
+          "name": "ardo",
+          "registry": "npm"
+        },
+        {
+          "name": "create-ardo",
+          "registry": "npm"
+        }
+      ],
+      "pushedAt": "2026-10-03T23:13:32Z",
+      "stars": 1
+    },
+    "ferromark": {
+      "packages": [
+        {
+          "name": "ferromark",
+          "registry": "npm"
+        },
+        {
+          "name": "ferromark",
+          "registry": "crates"
+        },
+        {
+          "name": "ferromark-transforms",
+          "registry": "crates"
+        }
+      ],
+      "pushedAt": "2026-10-05T12:41:18Z",
+      "stars": 9
+    },
+    "ferroni": {
+      "packages": [
+        {
+          "name": "ferroni",
+          "registry": "crates"
+        }
+      ],
+      "pushedAt": "2026-10-07T08:37:23Z",
+      "stars": 8
+    },
+    "xlsx-format": {
+      "packages": [
+        {
+          "name": "xlsx-format",
+          "registry": "npm"
+        }
+      ],
+      "pushedAt": "2026-09-14T13:52:10Z",
+      "stars": 2
+    },
+    "eslint-config-setup": {
+      "packages": [
+        {
+          "name": "eslint-config-setup",
+          "registry": "npm"
+        }
+      ],
+      "pushedAt": "2026-07-14T09:27:05Z",
+      "stars": 2
+    },
+    "ferriki": {
+      "packages": [
+        {
+          "name": "@ferriki/linux-x64-gnu",
+          "registry": "npm"
+        },
+        {
+          "name": "@ferriki/win32-x64-msvc",
+          "registry": "npm"
+        },
+        {
+          "name": "@ferriki/linux-arm64-musl",
+          "registry": "npm"
+        },
+        {
+          "name": "@ferriki/linux-arm64-gnu",
+          "registry": "npm"
+        },
+        {
+          "name": "@ferriki/darwin-arm64",
+          "registry": "npm"
+        },
+        {
+          "name": "@ferriki/core",
+          "registry": "npm"
+        },
+        {
+          "name": "@ferriki/win32-arm64-msvc",
+          "registry": "npm"
+        },
+        {
+          "name": "@ferriki/linux-x64-musl",
+          "registry": "npm"
+        },
+        {
+          "name": "@ferriki/vite",
+          "registry": "npm"
+        },
+        {
+          "name": "ferriki",
+          "registry": "crates"
+        },
+        {
+          "name": "ferriki-asset-gen",
+          "registry": "crates"
+        },
+        {
+          "name": "ferriki-textmate",
+          "registry": "crates"
+        }
+      ],
+      "pushedAt": "2026-10-05T17:43:48Z",
+      "stars": 1
+    },
+    "palamedes": {
+      "packages": [
+        {
+          "name": "@palamedes/react",
+          "registry": "npm"
+        },
+        {
+          "name": "@palamedes/next-plugin",
+          "registry": "npm"
+        },
+        {
+          "name": "@palamedes/cli",
+          "registry": "npm"
+        },
+        {
+          "name": "@palamedes/config",
+          "registry": "npm"
+        },
+        {
+          "name": "@palamedes/core-node",
+          "registry": "npm"
+        },
+        {
+          "name": "@palamedes/core",
+          "registry": "npm"
+        },
+        {
+          "name": "@palamedes/runtime",
+          "registry": "npm"
+        },
+        {
+          "name": "@palamedes/transform",
+          "registry": "npm"
+        },
+        {
+          "name": "@palamedes/extractor",
+          "registry": "npm"
+        },
+        {
+          "name": "@palamedes/solid",
+          "registry": "npm"
+        },
+        {
+          "name": "@palamedes/vite-plugin",
+          "registry": "npm"
+        },
+        {
+          "name": "@palamedes/tanstack",
+          "registry": "npm"
+        },
+        {
+          "name": "palamedes",
+          "registry": "npm"
+        },
+        {
+          "name": "create-palamedes",
+          "registry": "npm"
+        },
+        {
+          "name": "@palamedes/waku",
+          "registry": "npm"
+        },
+        {
+          "name": "@palamedes/remix",
+          "registry": "npm"
+        },
+        {
+          "name": "@palamedes/react-router-rsc",
+          "registry": "npm"
+        },
+        {
+          "name": "@palamedes/eslint-plugin",
+          "registry": "npm"
+        }
+      ],
+      "pushedAt": "2026-10-05T19:31:20Z",
+      "stars": 1
+    },
+    "paratix": {
+      "packages": [],
+      "pushedAt": "2026-10-07T07:52:54Z",
+      "stars": 0
+    },
+    "ferrocat": {
+      "packages": [
+        {
+          "name": "ferrocat",
+          "registry": "crates"
+        },
+        {
+          "name": "ferrocat-cli",
+          "registry": "crates"
+        },
+        {
+          "name": "ferrocat-icu",
+          "registry": "crates"
+        },
+        {
+          "name": "ferrocat-po",
+          "registry": "crates"
+        }
+      ],
+      "pushedAt": "2026-10-05T19:29:27Z",
+      "stars": 0
+    },
+    "effective-flow": {
+      "packages": [],
+      "pushedAt": "2026-10-07T10:32:57Z",
+      "stars": 1
+    },
+    "effective-icon": {
+      "packages": [
+        {
+          "name": "@icon-pkg/streamline-core-solid-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-flex-line-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-flex-solid-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-flex-remix-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-core-line-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-ultimate-bold-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-core-remix-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-ultimate-light-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-ultimate-regular-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@effective/icon",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-plump-remix-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-sharp-remix-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-plump-line-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-sharp-solid-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-plump-solid-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-material-pro-sharp-line-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-material-pro-sharp-fill-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-sharp-line-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-material-pro-outlined-fill-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-material-pro-rounded-fill-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-lucide-line",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-material-pro-outlined-line-free",
+          "registry": "npm"
+        },
+        {
+          "name": "@icon-pkg/streamline-material-pro-rounded-line-free",
+          "registry": "npm"
+        }
+      ],
+      "pushedAt": "2026-10-05T04:16:11Z",
+      "stars": 0
+    },
+    "antigraph": {
+      "packages": [
+        {
+          "name": "antigraph",
+          "registry": "npm"
+        }
+      ],
+      "pushedAt": "2026-08-05T16:33:41Z",
+      "stars": 1
+    },
+    "ferrolex": {
+      "packages": [],
+      "pushedAt": "2026-09-16T16:34:57Z",
+      "stars": 0
+    },
+    "naos-ui": {
+      "packages": [],
+      "pushedAt": "2026-07-22T08:22:00Z",
+      "stars": 1
+    },
+    "dalo": {
+      "packages": [
+        {
+          "name": "getdalo",
+          "registry": "npm"
+        },
+        {
+          "name": "dalo",
+          "registry": "crates"
+        }
+      ],
+      "pushedAt": "2026-10-05T19:22:43Z",
+      "stars": 1
+    },
+    "ferrugo": {
+      "packages": [
+        {
+          "name": "ferrugo",
+          "registry": "crates"
+        },
+        {
+          "name": "ferrugo-content",
+          "registry": "crates"
+        },
+        {
+          "name": "ferrugo-native",
+          "registry": "crates"
+        },
+        {
+          "name": "ferrugo-object",
+          "registry": "crates"
+        },
+        {
+          "name": "ferrugo-pdfium",
+          "registry": "crates"
+        },
+        {
+          "name": "ferrugo-render",
+          "registry": "crates"
+        },
+        {
+          "name": "ferrugo-simd",
+          "registry": "crates"
+        },
+        {
+          "name": "ferrugo-syntax",
+          "registry": "crates"
+        },
+        {
+          "name": "ferrugo-thumbnail",
+          "registry": "crates"
+        }
+      ],
+      "pushedAt": "2026-10-01T11:11:15Z",
+      "stars": 0
+    },
+    "pdfium-node": {
+      "packages": [
+        {
+          "name": "pdfium-node",
+          "registry": "npm"
+        }
+      ],
+      "pushedAt": "2026-07-09T14:18:40Z",
+      "stars": 0
+    },
+    "ferramenta": {
+      "packages": [
+        {
+          "name": "ferramenta-family",
+          "registry": "npm"
+        }
+      ],
+      "pushedAt": "2026-10-04T22:00:48Z",
+      "stars": 0
+    },
+    "oxlint-config-setup": {
+      "packages": [
+        {
+          "name": "oxlint-config-setup",
+          "registry": "npm"
+        }
+      ],
+      "pushedAt": "2026-08-13T16:59:35Z",
+      "stars": 0
+    },
+    "ferralk": {
+      "packages": [
+        {
+          "name": "ferralk",
+          "registry": "crates"
+        },
+        {
+          "name": "ferralk-glob",
+          "registry": "crates"
+        }
+      ],
+      "pushedAt": "2026-10-06T10:38:37Z",
+      "stars": 1
+    },
+    "harness-relay": {
+      "packages": [
+        {
+          "name": "harness-relay",
+          "registry": "npm"
+        }
+      ],
+      "pushedAt": "2026-10-06T14:18:02Z",
+      "stars": 0
+    },
+    "relanto": {
+      "packages": [],
+      "pushedAt": "2026-10-04T16:12:13Z",
+      "stars": 0
+    },
+    "stellara": {
+      "packages": [],
+      "pushedAt": "2026-09-24T18:05:33Z",
+      "stars": 0
+    },
+    "mdtheme": {
+      "packages": [
+        {
+          "name": "mdtheme",
+          "registry": "npm"
+        }
+      ],
+      "pushedAt": "2026-10-02T13:01:29Z",
+      "stars": 0
+    }
+  }
+}

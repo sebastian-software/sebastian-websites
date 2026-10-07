@@ -11,7 +11,8 @@ describe("image", () => {
     expect(url.hostname).toBe("assets.sebastian-software.com")
     expect(url.pathname).toBe("/shooting-2024/shoot-19.jpg")
     expect(url.searchParams.get("focus_crop")).toBe("3961,2970,0.5,0.62")
-    expect(url.searchParams.get("aspect_ratio")).toBe("4:3")
+    // Bunny would ignore the focal point next to an aspect ratio.
+    expect(url.searchParams.has("aspect_ratio")).toBe(false)
     expect(url.searchParams.get("quality")).toBe("85")
     expect(photo.width).toBe(800)
     expect(photo.height).toBe(600)
@@ -20,6 +21,25 @@ describe("image", () => {
       "800w",
       "1600w",
     ])
+  })
+
+  it("zooms a focus crop for comparable framing and bounds the variants by it", () => {
+    const portrait = responsiveImage(source, {
+      aspectRatio: [7, 10],
+      crop: { mode: "focus", point: [0.45, 0.38], zoom: 1.5 },
+      width: 360,
+    })
+    const url = new URL(portrait.src)
+    expect(url.searchParams.get("focus_crop")).toBe("2640,3771,0.45,0.38")
+    expect(portrait.height).toBe(514)
+    expect(portrait.srcSet).toContain(" 1080w")
+    expect(() =>
+      image(source, {
+        aspectRatio: [1, 1],
+        crop: { mode: "focus", point: [0.5, 0.5], zoom: 0.5 },
+        width: 400,
+      })
+    ).toThrow("zoom must be at least 1")
   })
 
   it("encodes paths and supports centered crops and small portrait variants", () => {

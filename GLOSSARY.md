@@ -51,10 +51,18 @@ _Avoid_: page (ambiguous), portal, microsite
 **Variant**:
 A site in exactly one language on exactly one domain. `.de` is German, `.com` is English.
 
-**Brand bar**:
-The bar above each site's main navigation, identical on all sites, that leads between the two
-brands and their areas.
-_Avoid_: family bar (collides with brand family), main navigation, global menu
+**Site header**:
+The floating bar at the top of every page. It belongs to the current site's brand: one complete
+logo, the local navigation, the language switch, and one outward link to the other brand.
+_Avoid_: brand bar (the superseded equal-brand bar), global menu
+
+**Outward link**:
+The plain-text link to the other brand: "Our agency" on Software, Open Source, and Skills;
+"Our software" on Consulting. It never shows the other brand's logo.
+
+**Page ending**:
+The three areas that close every page, in this order: the shared newsletter, the editorial
+invitation to the other brand, and the current site's footer.
 
 **Project site**:
 The own website of a product or open-source project, such as palamedes.dev. It is not one of
@@ -62,7 +70,7 @@ the four sites and keeps its own identity.
 
 **Brand site**:
 The reference page for the brand system at brand.sebastian-software.com, which also serves
-logos and tokens by URL. It is not one of the four sites and does not appear in the brand bar.
+logos and tokens by URL. It is not one of the four sites and does not appear in any site header.
 
 ### Products
 

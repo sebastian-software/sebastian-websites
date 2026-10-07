@@ -1,0 +1,1150 @@
+msgid ""
+msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"X-Generator: palamedes\n"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid ""
+"{brand} is a registered trademark of {name}. This website is operated by "
+"{name}."
+msgstr ""
+"{brand} ist eine eingetragene Marke der {name}. Betreiberin dieser Website ist"
+" die {name}."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
+msgid ""
+"A data protection officer has not been appointed, as the legal requirements "
+"for this do not apply. For data protection inquiries, you can contact the "
+"email address listed above."
+msgstr ""
+"Ein Datenschutzbeauftragter ist nicht bestellt, da die gesetzlichen "
+"Voraussetzungen hierfür nicht vorliegen. Bei Datenschutzfragen können Sie "
+"die oben genannte E-Mail-Adresse kontaktieren."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "A drawn desk calendar with one marked appointment beside a potted plant."
+msgstr ""
+"Ein gezeichneter Tischkalender mit einem markierten Termin neben einer "
+"Topfpflanze."
+
+#: app/data/featured.ts#getFeatured
+msgid ""
+"A drawn Ferromark document stamped “Markdown into documents” beside books "
+"and a wooden stamp."
+msgstr ""
+"Ein gezeichnetes Ferromark-Dokument mit dem Stempel „Markdown into "
+"documents“ neben Büchern und einem Holzstempel."
+
+#: app/data/featured.ts#getFeatured
+msgid ""
+"A drawn messages.po catalog in front of cards for German, French, Spanish, and"
+" Japanese."
+msgstr ""
+"Ein gezeichneter messages.po-Katalog vor Karten für Deutsch, Französisch, "
+"Spanisch und Japanisch."
+
+#: app/data/featured.ts#getFeatured
+msgid ""
+"A drawn open book with an Ardo table of contents and the line “Build "
+"beautiful docs with React”."
+msgstr ""
+"Ein gezeichnetes aufgeschlagenes Buch mit einem Ardo-Inhaltsverzeichnis und "
+"der Zeile „Build beautiful docs with React“."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "A drawn road winding through a valley toward the mountains."
+msgstr ""
+"Eine gezeichnete Straße, die sich durch ein Tal auf die Berge zuwindet."
+
+#: app/data/featured.ts#getFeatured
+msgid ""
+"A family of independent tools for document and text work: regular expressions,"
+" syntax highlighting, Markdown, spell checking, translation catalogs, file "
+"walking, and PDF previews. Choose the engine that solves your task; each one "
+"can be inspected and used on its own."
+msgstr ""
+"Eine Familie unabhängiger Werkzeuge für die Arbeit mit Dokumenten und Text: "
+"reguläre Ausdrücke, Syntaxhervorhebung, Markdown, Rechtschreibprüfung, "
+"Übersetzungskataloge, Dateisuche und PDF-Vorschauen. Wählen Sie die Engine, "
+"die Ihre Aufgabe löst; jede lässt sich einzeln prüfen und nutzen."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Address"
+msgstr "Anschrift"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Almost done: please confirm the link we just sent you."
+msgstr ""
+"Fast geschafft: Bitte bestätigen Sie den Link, den wir Ihnen gerade geschickt"
+" haben."
+
+#: app/data/projects.ts#descriptions
+msgid "Apply prebuilt, type-aware lint configurations to TypeScript projects."
+msgstr ""
+"Vorgefertigte, typbewusste Lint-Konfigurationen in TypeScript-Projekten "
+"anwenden."
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid "Appointment Booking via Terminaro"
+msgstr "Terminbuchung über Terminaro"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"Approximate geographic location (country level, derived from the IP address, "
+"which itself is not stored)"
+msgstr ""
+"Ungefähre geografische Zuordnung (auf Länderebene, abgeleitet aus der "
+"IP-Adresse, die selbst nicht gespeichert wird)"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
+msgid "Automated Decision-Making"
+msgstr "Automatisierte Entscheidungsfindung"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Book an intro call"
+msgstr "Erstgespräch buchen"
+
+#: app/data/projects.ts#descriptions
+msgid ""
+"Bring search, browser tools and memory behind one self-hosted AI gateway."
+msgstr ""
+"Suche, Browser-Werkzeuge und Gedächtnis hinter einem selbst gehosteten "
+"KI-Gateway bündeln."
+
+#: app/components/ProjectTiles.tsx#labels
+msgid "Browser + Node.js"
+msgstr "Browser + Node.js"
+
+#: app/data/featured.ts#getFeatured
+msgid ""
+"Build documentation with your React stack and keep the content in your "
+"repository. Ardo brings guides, API reference, and navigation into a site your"
+" team can maintain, without moving docs into a closed platform."
+msgstr ""
+"Bauen Sie Dokumentation mit Ihrem React-Stack und behalten Sie die Inhalte in "
+"Ihrem Repository. Ardo bringt Anleitungen, API-Referenz und Navigation in eine"
+" Website, die Ihr Team pflegen kann, ohne die Dokumentation auf eine "
+"geschlossene Plattform zu verlagern."
+
+#: app/components/ProjectTiles.tsx#labels
+msgid "Build tooling"
+msgstr "Build-Werkzeug"
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"Bunny.net is based in Slovenia (EU/EEA). This website is delivered exclusively"
+" via nodes located in EU member states; no connection data is transferred to "
+"third countries. Bunny.net contractually commits that connection data on CDN "
+"nodes is only processed transiently and not stored permanently. Furthermore, a"
+" data processing agreement pursuant to Art. 28 GDPR is in place, in which "
+"Bunny.net ensures that sub-processors implement adequate data protection "
+"measures in accordance with the GDPR."
+msgstr ""
+"Bunny.net hat seinen Sitz in Slowenien (EU/EWR). Die Auslieferung dieser "
+"Website erfolgt ausschließlich über Knoten in EU-Mitgliedstaaten; "
+"Verbindungsdaten werden dabei nicht in Drittländer übermittelt. Bunny.net "
+"verpflichtet sich vertraglich, dass Verbindungsdaten auf CDN-Knoten nur "
+"transient verarbeitet und nicht dauerhaft gespeichert werden. Darüber hinaus "
+"besteht ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO, in dem "
+"Bunny.net sicherstellt, dass Unterauftragsverarbeiter angemessene "
+"Datenschutzmaßnahmen nach DSGVO umsetzen."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
+msgid "BunnyWay d.o.o. (Bunny.net), Slovenia"
+msgstr "BunnyWay d.o.o. (Bunny.net), Slowenien"
+
+#: app/components/ProjectTiles.tsx#labels
+msgid "C++ core"
+msgstr "C++-Kern"
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"CDN (Content Delivery Network) for delivering static files (HTML, JavaScript, "
+"CSS)"
+msgstr ""
+"CDN (Content Delivery Network) zur Auslieferung statischer Dateien (HTML, "
+"JavaScript, CSS)"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
+msgid "CDN, hosting and edge scripting for this website"
+msgstr "CDN, Hosting und Edge Scripting für diese Website"
+
+#: app/components/ProjectTiles.tsx#labels
+msgid "CLI + library"
+msgstr "CLI + Bibliothek"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Company"
+msgstr "Unternehmen"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Company profiles"
+msgstr "Unternehmensprofile"
+
+#: app/data/projects.ts#descriptions
+msgid "Compile TSX into lightweight Web Components for the browser."
+msgstr "TSX in schlanke Web Components für den Browser kompilieren."
+
+#: app/components/ProjectTiles.tsx#labels
+msgid "Compiler"
+msgstr "Compiler"
+
+#: app/components/ProjectTiles.tsx#labels
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Contact"
+msgstr "Kontakt"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#EmailContactSection
+msgid "Contact via Email"
+msgstr "Kontaktaufnahme per E-Mail"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
+msgid "Controller"
+msgstr "Verantwortlicher"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid ""
+"Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit "
+"Rheinland-Pfalz<0/>Postfach 30 40<1/>55020 "
+"Mainz<2/><3>www.datenschutz.rlp.de</3>"
+msgstr ""
+"Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit "
+"Rheinland-Pfalz<0/>Postfach 30 40<1/>55020 "
+"Mainz<2/><3>www.datenschutz.rlp.de</3>"
+
+#: app/data/projects.ts#descriptions
+msgid "Describe a VPS in TypeScript and apply changes over SSH."
+msgstr "Einen VPS in TypeScript beschreiben und Änderungen per SSH anwenden."
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid "Device information (screen size, operating system, browser)"
+msgstr "Geräteinformationen (Bildschirmgröße, Betriebssystem, Browser)"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Discover Sebastian/Software"
+msgstr "Sebastian/Software entdecken"
+
+#: app/routes/home.tsx
+msgid ""
+"Documentation, internationalization, document engines, and tools for coding "
+"agents. Open projects with practical uses and foundations you can inspect."
+msgstr ""
+"Dokumentation, Internationalisierung, Dokument-Engines und Werkzeuge für "
+"Coding-Agents. Offene Projekte mit praktischem Nutzen und Grundlagen, die Sie "
+"prüfen können."
+
+#: app/data/featured.ts#getFeatured
+msgid "Drawn cards for skills, instructions, and hooks in a tray beside a mug."
+msgstr ""
+"Gezeichnete Karten für Skills, Instructions und Hooks in einer Ablage neben "
+"einer Tasse."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"Each page request processes the following categories of technical connection "
+"data: network identification data (IP address), time-related metadata "
+"(timestamp), usage data (requested URL), technical metadata (browser type, "
+"operating system, and device information), and the language preference "
+"transmitted by the browser (Accept-Language). According to a contractual "
+"assurance by Bunny.net, this data is held exclusively in working memory (RAM) "
+"and automatically deleted after 20–30 seconds. According to this assurance, "
+"no persistent storage takes place."
+msgstr ""
+"Bei jedem Seitenaufruf werden folgende Kategorien technischer Verbindungsdaten"
+" verarbeitet: Daten zur Netzwerkidentifikation (IP-Adresse), zeitbezogene "
+"Metadaten (Zeitstempel), Nutzungsdaten (aufgerufene URL), technische Metadaten"
+" (Browser-Typ, Betriebssystem und Geräteinformationen) sowie die vom Browser "
+"übermittelte Spracheinstellung (Accept-Language). Nach vertraglicher "
+"Zusicherung von Bunny.net werden diese Daten ausschließlich im "
+"Arbeitsspeicher (RAM) gehalten und nach 20–30 Sekunden automatisch "
+"gelöscht. Es erfolgt nach dieser Zusicherung keine dauerhafte Speicherung."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid "Edge Scripting for server-side logic at Bunny.net nodes"
+msgstr "Edge Scripting für serverseitige Logik an Bunny.net-Knoten"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Editorially Responsible pursuant to § 18(2) MStV"
+msgstr "Inhaltlich Verantwortlicher gemäß § 18 Abs. 2 MStV"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Email address"
+msgstr "E-Mail-Adresse"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+#: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
+msgid "Email:"
+msgstr "E-Mail:"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Entry in the Commercial Register"
+msgstr "Eintragung im Handelsregister"
+
+#: app/data/featured.ts#getFeatured
+msgid "Explore Ferramenta"
+msgstr "Ferramenta entdecken"
+
+#: app/data/featured.ts#getFeatured
+msgid "Explore Palamedes"
+msgstr "Palamedes entdecken"
+
+#: app/routes/home.tsx
+msgid "Explore the projects"
+msgstr "Projekte entdecken"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
+msgid "External Links"
+msgstr "Externe Links"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Fax:"
+msgstr "Telefax:"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"For more information about Rybbit, please visit the <0>Rybbit website</0>."
+msgstr ""
+"Weitere Informationen zu Rybbit finden Sie auf der <0>Website von Rybbit</0>."
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid ""
+"For online appointment booking, we use our own service Terminaro. Terminaro is"
+" operated by the same controller (Sebastian Software GmbH) – this therefore "
+"does not constitute a transfer of data to a third party within the meaning of "
+"Art. 4(10) GDPR, but rather an internal processing operation by the same "
+"controller."
+msgstr ""
+"Für die Online-Terminbuchung setzen wir unseren eigenen Dienst Terminaro ein."
+" Terminaro wird von derselben verantwortlichen Stelle (Sebastian Software "
+"GmbH) betrieben – es handelt sich daher nicht um eine Datenübermittlung an "
+"einen Dritten im Sinne von Art. 4 Nr. 10 DSGVO, sondern um eine interne "
+"Verarbeitung durch denselben Verantwortlichen."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
+msgid ""
+"For statistical analysis of website usage, we use Rybbit, which operates "
+"entirely without cookies and does not permanently store personal data (see "
+"section \"Web Analytics\")."
+msgstr ""
+"Zur statistischen Auswertung der Websitenutzung setzen wir Rybbit ein, das "
+"vollständig cookielos arbeitet und keine personenbezogenen Daten dauerhaft "
+"speichert (siehe Abschnitt „Webanalyse\")."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"Further information can be found in the <0>Bunny.net privacy policy</0> and on"
+" the <1>Bunny.net GDPR page</1>."
+msgstr ""
+"Weitere Informationen finden Sie in der <0>Datenschutzerklärung von "
+"Bunny.net</0> sowie auf der <1>DSGVO-Seite von Bunny.net</1>."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+#: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Germany"
+msgstr "Deutschland"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
+msgid "Hetzner Online GmbH, Germany"
+msgstr "Hetzner Online GmbH, Deutschland"
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid "Hosting and Content Delivery Network"
+msgstr "Hosting und Content Delivery Network"
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid "Hosting and Sub-processors"
+msgstr "Hosting und Unterauftragsverarbeiter"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid "Hosting and Third-Country Transfer"
+msgstr "Hosting und Drittlandtransfer"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#HetznerProcessorDescription
+msgid "Hosting of the Rybbit analytics server"
+msgstr "Hosting des Rybbit-Analytics-Servers"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#HetznerProcessorDescription
+msgid "Hosting of the Terminaro application"
+msgstr "Hosting der Terminaro-Anwendung"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#HetznerProcessorDescription
+msgid "Hosting of the Terminaro application and the Rybbit analytics server"
+msgstr "Hosting der Terminaro-Anwendung und des Rybbit-Analytics-Servers"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid "How It Works"
+msgstr "Funktionsweise"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Imprint"
+msgstr "Impressum"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Information pursuant to § 5 DDG"
+msgstr "Angaben gemäß § 5 DDG"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid ""
+"Insights into our work across software and consulting: what we're building, "
+"exploring and thinking about."
+msgstr ""
+"Einblicke in unsere Arbeit in Software und Beratung: was wir bauen, erkunden "
+"und durchdenken."
+
+#: app/data/projects.ts#descriptions
+msgid ""
+"Keep Markdown headers, footers, branding and badges consistent across "
+"repositories."
+msgstr ""
+"Markdown-Kopf- und Fußzeilen, Branding und Badges über Repositories hinweg "
+"einheitlich halten."
+
+#: app/data/projects.ts#descriptions
+msgid "Keep online courses available offline, with local transcription support."
+msgstr "Onlinekurse offline verfügbar halten, mit lokaler Transkription."
+
+#: app/data/featured.ts#getFeatured
+msgid ""
+"Keep skills, standing instructions, and hooks in Git. Dalo resolves one "
+"approved setup and delivers it to the folders your coding agents already read,"
+" so teams can keep shared practices across people and machines."
+msgstr ""
+"Behalten Sie Skills, dauerhafte Anweisungen und Hooks in Git. Dalo löst ein "
+"freigegebenes Setup auf und liefert es in die Ordner, die Ihre Coding-Agents "
+"bereits lesen. So pflegen Teams gemeinsame Praktiken über Menschen und "
+"Rechner hinweg."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Language"
+msgstr "Sprache"
+
+#: app/components/ProjectTiles.tsx#Updated
+msgid "Last update unknown"
+msgstr "Letzte Aktualisierung unbekannt"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#PrivacyDocument
+msgid "Last updated: {formattedVersion}"
+msgstr "Stand: {formattedVersion}"
+
+#: app/data/featured.ts#getFeatured
+msgid "Learn about Ferromark"
+msgstr "Mehr über Ferromark"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Legal"
+msgstr "Rechtliches"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid "Legal Basis"
+msgstr "Rechtsgrundlage"
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid "Legal Basis and Retention Period"
+msgstr "Rechtsgrundlage und Speicherdauer"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Legal Notice"
+msgstr "Impressum"
+
+#: app/routes/imprint.tsx#meta
+msgid "Legal Notice – Sebastian Software Open Source"
+msgstr "Impressum – Sebastian Software Open Source"
+
+#: app/data/projects.ts#descriptions
+msgid "Let one coding agent hand a bounded task to another local harness."
+msgstr ""
+"Eine abgegrenzte Aufgabe von einem Coding-Agent an ein anderes lokales Harness"
+" übergeben."
+
+#: app/components/ProjectTiles.tsx#labels
+msgid "Libraries & packages"
+msgstr "Bibliotheken & Pakete"
+
+#: app/components/ProjectTiles.tsx#labels
+msgid "Library"
+msgstr "Bibliothek"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Main navigation"
+msgstr "Hauptnavigation"
+
+#: app/data/featured.ts#getFeatured
+msgid "Manage your agent's setup. Just ask."
+msgstr "Das Setup Ihres Agents verwalten. Einfach fragen."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Managing Directors"
+msgstr "Geschäftsführer"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
+msgid "Managing Directors:"
+msgstr "Geschäftsführer:"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Meet Sebastian/Consulting"
+msgstr "Sebastian/Consulting kennenlernen"
+
+#: app/data/featured.ts#getFeatured
+msgid "Modern, open documentation for React teams."
+msgstr "Moderne, offene Dokumentation für React-Teams."
+
+#: app/routes/home.tsx
+msgid "More open projects."
+msgstr "Weitere offene Projekte."
+
+#: app/components/ProjectTiles.tsx#labels
+msgid "Native"
+msgstr "Nativ"
+
+#: app/components/ProjectTiles.tsx#labels
+msgid "Native · Node.js"
+msgstr "Nativ · Node.js"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Need a clearer direction for your software?"
+msgstr "Brauchen Sie eine klarere Richtung für Ihre Software?"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Newsletter"
+msgstr "Newsletter"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
+msgid ""
+"No automated decision-making, including profiling, pursuant to Art. 22 GDPR "
+"takes place."
+msgstr ""
+"Es findet keine automatisierte Entscheidungsfindung einschließlich Profiling "
+"gemäß Art. 22 DSGVO statt."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid "Obligation to Provide Data"
+msgstr "Pflicht zur Bereitstellung der Daten"
+
+#: app/data/featured.ts#getFeatured
+msgid "Open Ardo"
+msgstr "Ardo öffnen"
+
+#: app/data/featured.ts#getFeatured
+msgid "Open Dalo"
+msgstr "Dalo öffnen"
+
+#: app/routes/home.tsx#meta
+msgid ""
+"Open projects by Sebastian Software: Palamedes, Ferramenta, Dalo, Ardo, and "
+"the tools and libraries around them."
+msgstr ""
+"Offene Projekte von Sebastian Software: Palamedes, Ferramenta, Dalo, Ardo und "
+"die Werkzeuge und Bibliotheken rund um sie."
+
+#: app/routes/home.tsx
+msgid "Open software you can build on."
+msgstr "Offene Software, auf die Sie bauen können."
+
+#: app/routes/home.tsx#meta
+msgid "Open Source – Sebastian Software"
+msgstr "Open Source – Sebastian Software"
+
+#: app/components/FeaturedStory.tsx#FeaturedStory
+msgid "Open source project"
+msgstr "Open-Source-Projekt"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Our agency"
+msgstr "Unsere Agentur"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid ""
+"Our agency helps teams with software architecture, engineering and technical "
+"direction."
+msgstr ""
+"Unsere Agentur unterstützt Teams bei Softwarearchitektur, Engineering und "
+"technischer Ausrichtung."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Our software"
+msgstr "Unsere Software"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
+msgid "Overview of Data Processing"
+msgstr "Überblick über die Datenverarbeitung"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid "Page views (URL, referrer)"
+msgstr "Seitenaufrufe (URL, Referrer)"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Phone:"
+msgstr "Telefon:"
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid "Place of Processing"
+msgstr "Ort der Verarbeitung"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Please enter a complete email address, such as name@example.com."
+msgstr ""
+"Bitte geben Sie eine vollständige E-Mail-Adresse ein, etwa name@example.com."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Privacy"
+msgstr "Datenschutz"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#PrivacyDocument
+msgid "Privacy Policy"
+msgstr "Datenschutzerklärung"
+
+#: app/routes/privacy.tsx#meta
+msgid "Privacy Policy – Sebastian Software Open Source"
+msgstr "Datenschutzerklärung – Sebastian Software Open Source"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid "Processed Data"
+msgstr "Verarbeitete Daten"
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid ""
+"Processing is based on Art. 6(1)(b) GDPR for the initiation of a consulting "
+"engagement (pre-contractual measures). Booking data is automatically deleted "
+"90 days after the appointment date. If a contractual relationship arises from "
+"the booking and tax or commercial law retention obligations apply (§ 257 HGB,"
+" § 147 AO), the relevant data will be retained for up to 10 years. Terminaro "
+"does not set any cookies on the public website and does not use tracking or "
+"web analytics."
+msgstr ""
+"Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO zur "
+"Anbahnung eines Beratungsmandats (vorvertragliche Maßnahmen). Buchungsdaten "
+"werden 90 Tage nach dem Terminzeitpunkt automatisch gelöscht. Sofern aus der "
+"Buchung ein Vertragsverhältnis entsteht und steuerrechtliche oder "
+"handelsrechtliche Aufbewahrungspflichten greifen (§ 257 HGB, § 147 AO), "
+"werden die betreffenden Daten für bis zu 10 Jahre aufbewahrt. Terminaro setzt"
+" keine Cookies auf der öffentlichen Website ein und verwendet kein Tracking "
+"oder Webanalyse."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"Processing is based on Art. 6(1)(f) GDPR. Our legitimate interest lies in "
+"ensuring the availability, integrity and security of the website. This "
+"interest outweighs the data subjects' interest in non-processing, as, "
+"according to a contractual assurance by Bunny.net, connection data is "
+"processed exclusively transiently in working memory and automatically deleted "
+"after a few seconds. Insofar as information on the user's terminal device is "
+"accessed (e.g. through edge scripting), this is permissible without consent "
+"pursuant to Section 25(2)(2) TDDDG, as the access is strictly necessary to "
+"provide the service explicitly requested by the user."
+msgstr ""
+"Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser "
+"berechtigtes Interesse liegt in der Sicherstellung der Erreichbarkeit, "
+"Integrität und Sicherheit der Website. Dieses Interesse überwiegt das "
+"Interesse der Nutzer an der Nichtverarbeitung, da die Verbindungsdaten nach "
+"vertraglicher Zusicherung von Bunny.net ausschließlich transient im "
+"Arbeitsspeicher verarbeitet und nach wenigen Sekunden automatisch gelöscht "
+"werden. Soweit dabei auf Informationen im Endgerät des Nutzers zugegriffen "
+"wird (z. B. durch Edge Scripting), ist dies nach § 25 Abs. 2 Nr. 2 TDDDG ohne"
+" Einwilligung zulässig, da der Zugriff technisch unbedingt erforderlich ist, "
+"um den vom Nutzer ausdrücklich gewünschten Dienst bereitzustellen."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
+msgid "Processors"
+msgstr "Eingesetzte Auftragsverarbeiter"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Products"
+msgstr "Produkte"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Profiles"
+msgstr "Profile"
+
+#: app/data/projects.ts#descriptions
+msgid "Read and write modern Excel files in the browser and Node.js."
+msgstr "Moderne Excel-Dateien im Browser und in Node.js lesen und schreiben."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Register Court:"
+msgstr "Registergericht:"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Register Entry"
+msgstr "Registereintrag"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Register Number:"
+msgstr "Registernummer:"
+
+#: app/data/projects.ts#descriptions
+msgid "Render selected PDF pages as thumbnails through native PDFium bindings."
+msgstr ""
+"Ausgewählte PDF-Seiten über native PDFium-Bindings als Vorschaubilder "
+"rendern."
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Right of access (Art. 15 GDPR)"
+msgstr "Recht auf Auskunft (Art. 15 DSGVO)"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid ""
+"Right to data portability (Art. 20 GDPR) – applies only to processing based "
+"on a contract (Art. 6(1)(b) GDPR), that is, when booking appointments through "
+"Terminaro and for contract-related email communication"
+msgstr ""
+"Recht auf Datenübertragbarkeit (Art. 20 DSGVO) – gilt ausschließlich für "
+"Verarbeitungen auf Grundlage eines Vertrags (Art. 6 Abs. 1 lit. b DSGVO), "
+"d. h. bei Nutzung der Terminbuchung über Terminaro sowie bei "
+"vertragsbezogener E-Mail-Kommunikation"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Right to erasure (Art. 17 GDPR)"
+msgstr "Recht auf Löschung (Art. 17 DSGVO)"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Right to Lodge a Complaint with a Supervisory Authority"
+msgstr "Beschwerderecht bei einer Aufsichtsbehörde"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Right to object (Art. 21 GDPR)"
+msgstr "Widerspruchsrecht (Art. 21 DSGVO)"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Right to object (Art. 21 GDPR) – see separate section below"
+msgstr ""
+"Recht auf Widerspruch (Art. 21 DSGVO) – siehe gesonderter Abschnitt unten"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Right to rectification (Art. 16 GDPR)"
+msgstr "Recht auf Berichtigung (Art. 16 DSGVO)"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Right to restriction of processing (Art. 18 GDPR)"
+msgstr "Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)"
+
+#: app/components/ProjectTiles.tsx#labels
+msgid "Rust core"
+msgstr "Rust-Kern"
+
+#: app/data/featured.ts#getFeatured
+msgid "Rust engines and applications for documents and text."
+msgstr "Rust-Engines und Anwendungen für Dokumente und Text."
+
+#: app/data/featured.ts#getFeatured
+msgid "Rust-powered internationalization."
+msgstr "Internationalisierung, angetrieben von Rust."
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"Rybbit is operated on our own server, hosted by Hetzner Online GmbH in "
+"Germany. No third-country transfer takes place. This does not constitute a "
+"data processor within the meaning of Art. 28 GDPR, as data processing takes "
+"place exclusively on our own infrastructure."
+msgstr ""
+"Rybbit wird auf einem eigenen Server betrieben, der bei Hetzner Online GmbH in"
+" Deutschland gehostet wird. Ein Drittlandtransfer findet nicht statt. Es "
+"handelt sich nicht um einen Auftragsverarbeiter im Sinne von Art. 28 DSGVO, da"
+" die Datenverarbeitung ausschließlich auf unserer eigenen Infrastruktur "
+"erfolgt."
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"Rybbit operates without cookies and without persistent identifiers. To count "
+"unique visitors, Rybbit generates a pseudonymised hash from the IP address and"
+" user agent. The IP address is processed only transiently in working memory "
+"for hash generation and is never permanently stored or logged. A daily "
+"rotating random component (salt) resets this identifier every day, so tracking"
+" across days is ruled out."
+msgstr ""
+"Rybbit arbeitet ohne Cookies und ohne persistente Identifier. Zur Zählung "
+"eindeutiger Besucher erzeugt Rybbit aus der IP-Adresse und dem User-Agent "
+"einen pseudonymisierten Hash. Die IP-Adresse wird dabei ausschließlich "
+"transient zur Hash-Erzeugung im Arbeitsspeicher verarbeitet, jedoch zu keinem "
+"Zeitpunkt dauerhaft gespeichert oder protokolliert. Durch eine täglich "
+"wechselnde Zufallskomponente (Salt) wird die Kennung täglich zurückgesetzt, "
+"sodass eine Nachverfolgung über Tage hinweg ausgeschlossen ist."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "See what we build beyond consulting."
+msgstr "Sehen Sie, was wir jenseits der Beratung bauen."
+
+#: app/components/ProjectTiles.tsx#labels
+msgid "Self-hosted"
+msgstr "Selbst gehostet"
+
+#: app/data/projects.ts#descriptions
+msgid ""
+"Send application email through your own SMTP servers and a shared HTTP API."
+msgstr ""
+"Anwendungs-E-Mails über eigene SMTP-Server und eine gemeinsame HTTP-API "
+"versenden."
+
+#: app/components/ProjectTiles.tsx#labels
+msgid "Service"
+msgstr "Dienst"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Services"
+msgstr "Leistungen"
+
+#: app/data/projects.ts#descriptions
+msgid ""
+"Share prebuilt lint rules and practical guardrails across TypeScript teams."
+msgstr ""
+"Vorgefertigte Lint-Regeln und praktische Leitplanken über TypeScript-Teams "
+"hinweg teilen."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Sign-up opens soon. The newsletter has not started yet."
+msgstr "Die Anmeldung öffnet bald. Der Newsletter ist noch nicht gestartet."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Signing you up…"
+msgstr "Anmeldung läuft …"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Site index"
+msgstr "Seitenübersicht"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Skip to content"
+msgstr "Zum Inhalt springen"
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid "Storage for static files and assets"
+msgstr "Storage für statische Dateien und Assets"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Subscribe"
+msgstr "Abonnieren"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
+msgid ""
+"The controller within the meaning of the General Data Protection Regulation "
+"(GDPR) and other data protection legislation is:"
+msgstr ""
+"Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer "
+"datenschutzrechtlicher Bestimmungen ist:"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"The following data is collected and stored exclusively in aggregated form:"
+msgstr ""
+"Folgende Daten werden ausschließlich in aggregierter Form erhoben und "
+"gespeichert:"
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid ""
+"The information above covers all essential processing details regarding "
+"Terminaro. Since Terminaro is operated by the same controller, the data "
+"protection principles set out here apply equally. Additional technical details"
+" on data processing within Terminaro can be found in the <0>Terminaro privacy "
+"notice</0>, which specifies this policy for the booking service."
+msgstr ""
+"Die vorstehenden Angaben decken alle wesentlichen Verarbeitungsinformationen "
+"zu Terminaro ab. Da Terminaro vom selben Verantwortlichen betrieben wird, "
+"gelten die hier dargestellten Datenschutzgrundsätze gleichermaßen. "
+"Ergänzende technische Details zur Datenverarbeitung innerhalb von Terminaro "
+"finden Sie im <0>Datenschutzhinweis von Terminaro</0>, der diese Erklärung "
+"für den Buchungsdienst konkretisiert."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"The language preference is used solely to route the request to the matching "
+"language version. Since the German version is located at "
+"sebastian-consulting.de and the English one at sebastian-consulting.com, this "
+"redirect may also lead to the respective other domain. No cookie is set in the"
+" process."
+msgstr ""
+"Die Spracheinstellung wird ausschließlich dazu verwendet, den Aufruf auf die "
+"passende Sprachfassung weiterzuleiten. Da die deutsche Fassung unter "
+"sebastian-consulting.de und die englische unter sebastian-consulting.com "
+"liegt, kann diese Weiterleitung auch auf die jeweils andere Domain führen. "
+"Ein Cookie wird dabei nicht gesetzt."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "The sign-up did not go through. Please try again later."
+msgstr ""
+"Die Anmeldung hat nicht geklappt. Bitte versuchen Sie es später noch einmal."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"The transmission of your IP address is technically necessary to access this "
+"website. Without this data transmission, no connection to the server can be "
+"established and the website cannot be displayed. There is no legal or "
+"contractual obligation to provide any further personal data."
+msgstr ""
+"Die Übermittlung Ihrer IP-Adresse ist technisch zwingend erforderlich, um "
+"diese Website aufzurufen. Ohne diese Datenübermittlung kann keine Verbindung "
+"zum Server hergestellt und die Website nicht angezeigt werden. Eine "
+"gesetzliche oder vertragliche Pflicht zur Bereitstellung weiterer "
+"personenbezogener Daten besteht nicht."
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"The use of Rybbit is based on Art. 6(1)(f) GDPR. Our legitimate interest lies "
+"in analyzing website usage for the needs-based design and optimization of our "
+"website. This interest prevails because Rybbit is designed in such a way that "
+"no personal data is permanently processed and no conclusions can be drawn "
+"about individual users. Since Rybbit does not set cookies and does not access "
+"information already stored on the user's device, consent under § 25 TDDDG "
+"(German Telecommunications Digital Services Data Protection Act) is not "
+"required."
+msgstr ""
+"Die Nutzung von Rybbit erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. "
+"Unser berechtigtes Interesse liegt in der Analyse der Websitenutzung zur "
+"bedarfsgerechten Gestaltung und Optimierung unseres Internetangebots. Dieses "
+"Interesse überwiegt, da Rybbit so konzipiert ist, dass keine "
+"personenbezogenen Daten dauerhaft verarbeitet werden und kein Rückschluss auf"
+" einzelne Nutzer möglich ist. Da Rybbit keine Cookies setzt und nicht auf "
+"Informationen zugreift, die bereits im Endgerät des Nutzers gespeichert sind,"
+" ist eine Einwilligung nach § 25 TDDDG nicht erforderlich."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
+msgid "There is no contact form – contact is made exclusively by email."
+msgstr ""
+"Es gibt kein Kontaktformular – die Kontaktaufnahme erfolgt ausschließlich "
+"per E-Mail."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
+msgid ""
+"This website contains links to third-party websites. When you click on these "
+"links, you will be redirected to the respective third-party site. The "
+"respective operators are responsible for data processing on these external "
+"sites. We recommend that you read the privacy policies of the linked sites."
+msgstr ""
+"Diese Website enthält Links zu externen Webseiten Dritter. Beim Anklicken "
+"dieser Links werden Sie auf die jeweilige Drittseite weitergeleitet. Für die "
+"Datenverarbeitung auf diesen externen Seiten sind die jeweiligen Betreiber "
+"verantwortlich. Wir empfehlen Ihnen, die Datenschutzerklärungen der "
+"verlinkten Seiten zu lesen."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
+msgid ""
+"This website does not process personal data beyond what is technically "
+"necessary. No cookies are set."
+msgstr ""
+"Diese Website verarbeitet keine personenbezogenen Daten über das technisch "
+"Notwendige hinaus. Es werden keine Cookies gesetzt."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
+msgid ""
+"This website does not process personal data beyond what is technically "
+"necessary. No cookies are set. For statistical analysis of website usage, we "
+"use Rybbit, which operates entirely without cookies and does not permanently "
+"store any personal data (see section \"Web Analytics\"). There is no contact "
+"form – contact is made exclusively by email."
+msgstr ""
+"Diese Website verarbeitet keine personenbezogenen Daten über das technisch "
+"Notwendige hinaus. Es werden keine Cookies gesetzt. Zur statistischen "
+"Auswertung der Websitenutzung setzen wir Rybbit ein, das vollständig "
+"cookielos arbeitet und keine personenbezogenen Daten dauerhaft speichert "
+"(siehe Abschnitt „Webanalyse\"). Es gibt kein Kontaktformular – die "
+"Kontaktaufnahme erfolgt ausschließlich per E-Mail."
+
+#: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
+msgid ""
+"This website is operated via the infrastructure of Bunny.net (BunnyWay d.o.o.,"
+" Slovenia, EU). Bunny.net provides the following services:"
+msgstr ""
+"Diese Website wird über die Infrastruktur von Bunny.net (BunnyWay d.o.o., "
+"Slowenien, EU) betrieben. Bunny.net stellt folgende Dienste bereit:"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"This website uses Rybbit for statistical analysis of website usage. Rybbit is "
+"self-hosted on our own server at the domain t.sebastian-software.de. Data is "
+"not shared with third parties."
+msgstr ""
+"Diese Website verwendet Rybbit zur statistischen Auswertung der "
+"Websitenutzung. Rybbit wird von uns selbst auf einem eigenen Server unter der "
+"Domain t.sebastian-software.de betrieben (Self-Hosting). Daten werden nicht an"
+" Dritte weitergegeben."
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid ""
+"To exercise your right to object, you may contact us at any time at: "
+"<0>{privacyEmail}</0>"
+msgstr ""
+"Zur Ausübung Ihres Widerspruchsrechts können Sie sich jederzeit an uns "
+"wenden unter: <0>{privacyEmail}</0>"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid ""
+"To exercise your rights, you may contact us at any time at: "
+"<0>{privacyEmail}</0>"
+msgstr ""
+"Zur Ausübung Ihrer Rechte können Sie sich jederzeit an uns wenden unter: "
+"<0>{privacyEmail}</0>"
+
+#: app/components/ProjectTiles.tsx#labels
+msgid "Tools & services"
+msgstr "Werkzeuge & Dienste"
+
+#: app/routes/home.tsx
+msgid "Tools, services and libraries for the next part of your work."
+msgstr ""
+"Werkzeuge, Dienste und Bibliotheken für den nächsten Teil Ihrer Arbeit."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Trademark Notice"
+msgstr "Markenhinweis"
+
+#: app/data/projects.ts#descriptions
+msgid "Transcribe speech locally with a Rust core and native CLI."
+msgstr "Sprache lokal transkribieren, mit Rust-Kern und nativer CLI."
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid ""
+"Triggered interaction events (such as clicking the booking button or the PDF "
+"download), each without any personal reference"
+msgstr ""
+"Ausgelöste Interaktionsereignisse (etwa der Klick auf den Termin-Button oder "
+"auf den PDF-Download), jeweils ohne Personenbezug"
+
+#: app/data/projects.ts#descriptions
+msgid "Turn books from your Kindle library into searchable Markdown."
+msgstr ""
+"Bücher aus Ihrer Kindle-Bibliothek in durchsuchbares Markdown verwandeln."
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid ""
+"Under the GDPR, you have the following rights regarding your personal data:"
+msgstr ""
+"Sie haben gemäß DSGVO folgende Rechte hinsichtlich Ihrer personenbezogenen "
+"Daten:"
+
+#: app/components/ProjectTiles.tsx#Updated
+msgid "Updated"
+msgstr "Aktualisiert"
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid ""
+"User data is stored on servers of Hetzner Online GmbH in Germany. A data "
+"processing agreement pursuant to Art. 28 GDPR is in place with Hetzner. For "
+"the delivery of static content, Terminaro uses the CDN of Bunny.net (BunnyWay "
+"d.o.o., Slovenia), where data is processed exclusively transiently in working "
+"memory."
+msgstr ""
+"Die Nutzerdaten werden auf Servern der Hetzner Online GmbH in Deutschland "
+"gespeichert. Mit Hetzner besteht ein Auftragsverarbeitungsvertrag gemäß Art."
+" 28 DSGVO. Für die Auslieferung statischer Inhalte nutzt Terminaro das CDN "
+"von Bunny.net (BunnyWay d.o.o., Slowenien), wobei Daten ausschließlich "
+"transient im Arbeitsspeicher verarbeitet werden."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "VAT ID"
+msgstr "Umsatzsteuer-ID"
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid ""
+"VAT identification number pursuant to § 27a of the German Value Added Tax "
+"Act:"
+msgstr "Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid ""
+"We build products, open-source projects and agent tools for everyday work."
+msgstr ""
+"Wir entwickeln Produkte, Open-Source-Projekte und Agent-Tools für den "
+"Arbeitsalltag."
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
+msgid ""
+"We use the following processors pursuant to Art. 28 GDPR, with each of whom a "
+"data processing agreement is in place:"
+msgstr ""
+"Wir setzen die folgenden Auftragsverarbeiter gemäß Art. 28 DSGVO ein, mit "
+"denen jeweils ein Auftragsverarbeitungsvertrag besteht:"
+
+#: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
+msgid "Web analytics with Rybbit"
+msgstr "Webanalyse mit Rybbit"
+
+#: ../../packages/legal/src/PrivacyDocument.tsx#EmailContactSection
+msgid ""
+"When you contact us by email, the data you provide (email address, name if "
+"applicable, and message content) will be processed to handle your inquiry. If "
+"your inquiry is aimed at concluding or performing a contract, the legal basis "
+"is Art. 6(1)(b) GDPR (pre-contractual or contractual measures). For general "
+"inquiries without a contractual context, the legal basis is Art. 6(1)(f) GDPR;"
+" our legitimate interest lies in the proper handling of incoming inquiries. "
+"This interest prevails, as processing is limited to what is necessary for "
+"responding and data is deleted upon completion. Your data will be deleted once"
+" the inquiry has been fully resolved. Where tax or commercial law retention "
+"obligations apply (§ 257 HGB, § 147 AO), the relevant data will be retained "
+"for up to 10 years."
+msgstr ""
+"Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen mitgeteilten Daten "
+"(E-Mail-Adresse, ggf. Name und Inhalt der Nachricht) zur Bearbeitung Ihrer "
+"Anfrage verarbeitet. Zielt Ihre Anfrage auf den Abschluss oder die "
+"Durchführung eines Vertrags ab, ist die Rechtsgrundlage Art. 6 Abs. 1 lit. b "
+"DSGVO (vorvertragliche bzw. vertragliche Maßnahmen). Für allgemeine Anfragen"
+" ohne vertraglichen Bezug ist die Rechtsgrundlage Art. 6 Abs. 1 lit. f DSGVO; "
+"unser berechtigtes Interesse liegt in der ordnungsgemäßen Beantwortung "
+"eingehender Anfragen. Dieses Interesse überwiegt, da die Verarbeitung auf das"
+" für die Beantwortung Erforderliche beschränkt bleibt und die Daten nach "
+"Erledigung gelöscht werden. Ihre Daten werden gelöscht, sobald die Anfrage "
+"abschließend bearbeitet ist. Sofern steuerrechtliche oder handelsrechtliche "
+"Aufbewahrungspflichten bestehen (§ 257 HGB, § 147 AO), werden die "
+"betreffenden Daten für bis zu 10 Jahre aufbewahrt."
+
+#: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
+msgid ""
+"When you schedule an appointment via the booking link, the data you enter "
+"(name, email address, company if applicable, phone number and booking reason) "
+"will be processed by Terminaro."
+msgstr ""
+"Wenn Sie über den Buchungslink einen Termin vereinbaren, werden die von Ihnen"
+" eingegebenen Daten (Name, E-Mail-Adresse, ggf. Unternehmen, Telefonnummer und"
+" Buchungsgrund) durch Terminaro verarbeitet."
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid ""
+"Where we process your personal data on the basis of legitimate interests "
+"pursuant to Art. 6(1)(f) GDPR, you have the right to object to such processing"
+" at any time pursuant to Art. 21 GDPR. If you object, we will no longer "
+"process your personal data for these purposes unless we can demonstrate "
+"compelling legitimate grounds for the processing which override your "
+"interests, rights and freedoms, or the processing serves the establishment, "
+"exercise or defence of legal claims."
+msgstr ""
+"Soweit wir Ihre personenbezogenen Daten auf Grundlage berechtigter Interessen "
+"gemäß Art. 6 Abs. 1 lit. f DSGVO verarbeiten, haben Sie das Recht, gemäß "
+"Art. 21 DSGVO jederzeit Widerspruch gegen diese Verarbeitung einzulegen. Legen"
+" Sie Widerspruch ein, werden wir Ihre personenbezogenen Daten nicht mehr zu "
+"diesen Zwecken verarbeiten, es sei denn, wir können zwingende schutzwürdige "
+"Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und "
+"Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, "
+"Ausübung oder Verteidigung von Rechtsansprüchen."
+
+#: app/data/featured.ts#getFeatured
+msgid ""
+"Write messages close to the code, keep source-string catalogs in your "
+"repository, and let a native toolchain extract, validate, and compile them. "
+"Palamedes brings TypeScript applications into more languages with one runtime "
+"model."
+msgstr ""
+"Schreiben Sie Texte nah am Code, halten Sie Quelltext-Kataloge in Ihrem "
+"Repository und lassen Sie eine native Toolchain sie extrahieren, prüfen und "
+"kompilieren. Palamedes bringt TypeScript-Anwendungen mit einem Laufzeitmodell "
+"in weitere Sprachen."
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid ""
+"You have the right to lodge a complaint with a data protection supervisory "
+"authority regarding the processing of your personal data. The supervisory "
+"authority responsible for us is:"
+msgstr ""
+"Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die "
+"Verarbeitung Ihrer personenbezogenen Daten zu beschweren. Die für uns "
+"zuständige Aufsichtsbehörde ist:"
+
+#: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
+msgid "Your Rights"
+msgstr "Ihre Rechte"

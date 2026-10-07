@@ -1,150 +1,121 @@
 # Design system
 
-**Status:** historical implementation notes from the October 6 HTML comps.
-The [implementation brief](IMPLEMENTATION-BRIEF.md) now governs visual implementation.
-Its selected ImageGen pages and version-5 frame supersede conflicting layout,
-typography, and equal-brand navigation rules below. Existing brand artwork and
-architecture decisions still apply. Keep this record for comparison; finalize the
-new token specification during the shared design-system work package.
+**Status:** implemented for desktop on 2026-10-07 from the
+[implementation brief](IMPLEMENTATION-BRIEF.md) and its selected references. The phone
+composition is the next milestone. The October 6 HTML-comp notes that this file held before
+are in its Git history; the comps themselves stay in `design/comps/`.
 
-Implementation: `packages/tokens` (scale, palettes, neutrals), `packages/ui` (theme, global
-styles, layout, typography, buttons, blocks, Section and SectionHead, brand bar, footer).
+Implementation: `packages/tokens/src/editorial.ts` (page, type scale, rhythm, frame, editorial
+colors), `packages/ui` (frame and editorial primitives), and the three homepages in
+`apps/software`, `apps/opensource`, and `apps/consulting`.
 
 ## Principles
 
-1. **Variety matched to content.** Each content type has its own form (see the table below).
-   Boxes are fine where the content is an object; never boxes inside boxes.
-2. **One spacing scale, kept everywhere.** Cramped sections lose their context.
-3. **One alignment rule.** Whatever shares a row shares font size and line height, so first
-   lines meet. Alignment is checked section by section before anything is shown.
-4. **Photos cropped to their subject.** Faces, not walls. Photos never overlap or cut each
-   other.
-5. **Text-rich.** Sections explain what we do, what it brings, and what drives us. Claims are
-   qualitative; numbers are live or absent.
-6. **Proof over adjectives, in this order:** client marks, live open-source numbers, curated
-   testimonials, the products.
-7. **Motion is abstract and rare.** The Consulting terrain hero is the one moving element.
+1. **The current site owns the page.** One complete logo in the header and one in the footer,
+   both the current brand's. The other brand is plain outward text and one editorial
+   invitation.
+2. **An editorial page, not a stack of bands.** Stories alternate illustration and text on one
+   12-column grid; white space separates sections instead of rules and tinted bands.
+3. **Fixed measure on desktop.** The page is 1040 px wide. Wider windows get wider margins,
+   never larger type or wider text.
+4. **Explain before persuading.** Each homepage says what the site offers before founders,
+   values, or slogans carry the message.
 
-## Brand
+## Page and grid
 
-- Wordmark and icon as delivered by the brand repository; Open Source and Skills run under the
-  Software wordmark with the area named in text.
-- **Typefaces:** Glober in Light (300) for display and headlines, Regular (400) for
-  text, Medium (500) for titles inside sections and names, Semibold (600) for buttons,
-  labels, and small caps. Elena appears only in the wordmark and as the quotation
-  mark of a quote. Fonts load from `https://sebastian-websites-brand.b-cdn.net/fonts-all.css`
-  (ADR-0013).
-- **Palette roles per brand** (OKLCH, one hue in six lightness steps; `packages/tokens`):
+| Token           | Value                  | Use                                                      |
+| --------------- | ---------------------- | -------------------------------------------------------- |
+| `PAGE.width`    | 1040 px                | the text edge; 12 columns with 32 px gaps                |
+| `PAGE.margin`   | 48 px                  | the smallest margin on narrow desktop windows            |
+| `PAGE.overhang` | 24 px                  | header shell and footer panel reach beyond the text edge |
+| Story media     | 7 or 6 columns + 40 px | the illustration bleeds 40 px past the page edge         |
 
-  | Role     | Software (hue 218) | Consulting (hue 2) | Use                                           |
-  | -------- | ------------------ | ------------------ | --------------------------------------------- |
-  | `night`  | Space              | Plum               | the Midnight band, the Consulting hero ground |
-  | `dark`   | Midnight           | Mulberry           | primary buttons, large numbers, facts         |
-  | `base`   | Teal               | Burgundy           | icon fills, the terrain tint                  |
-  | `vivid`  | Lagoon             | Ruby               | the one accent: a coloured word, links, marks |
-  | `bright` | Signal             | Ember              | accents on dark ground, live dots, glows      |
-  | `paper`  | Frost              | Linen              | the page background                           |
+Stories alternate by position (`alternate(index)`): text in columns 1–5 beside an illustration
+in 6–12, then the illustration in 1–6 beside text in 7–12. Any number of stories keeps the
+rhythm; odd collections need no special layout.
 
-- **Neutrals** derived from the hue with low chroma: `ink` (text, L 0.2), `muted` (secondary
-  text, L 0.48), `line` (hairlines, L 0.88), `white` (panels and white sections).
-- On `night` ground, text is white at 80 % for introductions and labels, 60 % for footnotes;
-  rules are white at 15 %. These do not depend on the hue.
+## Type
 
-## Type scale
+Elena Regular (400) sets headings and editorial passages; Glober sets practical text,
+navigation, and actions. New serif text never uses a heavier weight. Original logos keep their
+own letterforms.
 
-| Token    | Size                      | Weight | Notes                                      |
-| -------- | ------------------------- | ------ | ------------------------------------------ |
-| display  | clamp(56px, 6.4vw, 108px) | 300    | line height 0.98, tracking −0.035em        |
-| h2       | clamp(28px, 3.6vw, 44px)  | 300    | line height 1.08, tracking −0.02em         |
-| h2 large | clamp(40px, 4.6vw, 72px)  | 300    | the closing headline, max 18ch             |
-| h3       | 22px                      | 500    | titles inside sections, tracking −0.01em   |
-| card     | 26px                      | 400    | card titles                                |
-| lead     | 22px                      | 300    | muted, line height 1.5, max 46ch           |
-| intro    | 18px / 1.65               | 400    | muted, max 60ch, the right column of heads |
-| body     | 17px / 1.65               | 400    | all running text, max 60ch                 |
-| small    | 14px                      | 400    | roles, captions, footers                   |
-| tiny     | 13px                      | 400    | facts labels, live notes, brand bar        |
-| eyebrow  | 12px                      | 600    | uppercase, tracking 0.12em, muted          |
-| numeral  | 80px                      | 300    | live numbers, line height 0.95             |
+| Step         | Size / line height | Face   | Use                                               |
+| ------------ | ------------------ | ------ | ------------------------------------------------- |
+| `display`    | 52 / 1.2           | Elena  | the page headline; 56–64 px where a page has room |
+| `title`      | 40 / 1.2           | Elena  | section headings; the invitation uses 46 px       |
+| `heading`    | 34 / 1.28          | Elena  | story headings                                    |
+| `subheading` | 26 / 1.3           | Elena  | quiet headings                                    |
+| `lead`       | 24 / 1.45          | Elena  | the invitation's explanation                      |
+| `bodySerif`  | 20 / 1.5           | Elena  | editorial running text                            |
+| `action`     | 19 / 1.4           | Glober | inline actions with an arrow                      |
+| `body`       | 18 / 1.6           | Glober | practical running text                            |
+| `small`      | 16 / 1.5           | Glober | navigation, metadata                              |
+| `caption`    | 14 / 1.45          | Glober | captions, the legal baseline                      |
 
-## Spacing scale
+Elena's small x-height is why editorial text runs at 20 px while Glober text runs at 18 px:
+both read at the same size.
 
-An 8 px base: **8, 16, 24, 40, 64, 96, 128.**
+## Rhythm
 
-- Sections: 128 px top and bottom. A section that continues the previous one: 96 px top.
-- Section head to content: 72 px. Eyebrow to headline: 24 px.
-- Columns and split layouts: 64 px apart (80 px for text beside a photo).
-- Ruled rows: 36 px of padding. Cards: 40 px of padding. Column rules: 28 px above content.
-- Container: 1320 px, 1480 px from 1700 px viewports, 24 px gutters.
-- Radii: 999 px for pills, 24 px for cards and photos, 16 px for small tiles.
+Sections are 160 px apart, consecutive stories 160 px. Inside a block: 24 px between heading
+and text, 32 px before an action. The newsletter is followed by about 190 px, the invitation by
+88 px, and the footer panel keeps 24 px to the bottom of the page.
 
-## Forms by content type
+## Color
 
-| Content                   | Form                                                                           |
-| ------------------------- | ------------------------------------------------------------------------------ |
-| Hero                      | Three-line value statement left, square photo right with a caption pill        |
-| Client marks              | A white strip, eyebrow left, seven grey marks in a row                         |
-| Stance, reasons, families | Three open text columns with a rule above, optional numeral, title, text, link |
-| Products, services        | Cards on the opposite tone: status pill, title, text, link at the bottom       |
-| Live numbers              | A `night` band: head, three numerals on a rule, a source line                  |
-| Results, recurring work   | Ruled rows: title left, text right, one size for both                          |
-| People                    | Portrait rows: round 72 px portrait, name, role, one line of text, link        |
-| Quotes                    | Three open columns with a slab quotation mark, quote, attribution              |
-| Closing                   | Eyebrow, large headline, lead, two buttons, landscape photo right              |
+Each brand keeps its palette (`PALETTES`, six OKLCH lightness steps) and adds editorial roles
+(`EDITORIAL_COLORS`). Components read roles only.
 
-Sections alternate `paper` and `white`; the `night` band appears once per page. Only one
-surface level: a card sits on a section, nothing sits in a card but text.
+| Role           | Software                     | Consulting                    |
+| -------------- | ---------------------------- | ----------------------------- |
+| `canvas`       | near-white with a cool trace | neutral warm paper with grain |
+| `heading`      | deep teal navy               | dark charcoal                 |
+| `text`         | slate                        | warm grey                     |
+| `accent`       | Lagoon                       | berry                         |
+| `accentStrong` | Midnight                     | berry (filled buttons)        |
+| `tint`         | pale teal panels             | not used                      |
+| `passage`      | not used                     | the one pink judgment passage |
 
-## Alignment rules
+Header, capsule, and footer panel are achromatic (`FRAME`), so pink and pale-blue fields never
+meet. The outward link takes the color of the brand it leads to. Open Source groups use Teal
+(tools and services) and Lagoon on Frost (libraries and packages), always with a written
+heading.
 
-- A section head puts the eyebrow above both columns; the introduction is offset 10 px so its
-  first line meets the headline's cap height.
-- A row shares one font size and line height across its cells (ruled rows, person rows).
-- Big numbers align at the top; their labels reserve two lines.
-- Links under columns of unequal length are pushed to a common bottom edge.
-- Ghost links carry no inline padding, so they start flush with the text above.
+## Frame
 
-## Components
+- **Site header** (`SiteHeader`): a 48 px white shell, 16 px from the top and sticky, with
+  continuous corners (`corner-shape: squircle` where supported, a 14 px radius elsewhere) and
+  one diffuse shadow. Logo at 32 px, local links at 16 px, EN / DE, and a 36 px neutral capsule
+  with the outward link and an outward arrow. A skip link is the first focus stop.
+- **Newsletter** (`Newsletter`): a quiet heading and description beside an email field and
+  Subscribe. A React 19 form action handles pending, success, invalid, and failure states in a
+  live region. No service is connected yet; until one is, the form says that sign-up opens
+  soon and never claims a subscription.
+- **Invitation** (`SiblingInvitation`): an unboxed question, one sentence, one underlined
+  outward link, and a small drawing; no logo of the other brand.
+- **Footer** (`SiteFooter`): an inset grey panel with the current logo at 88 px, the local
+  index, the registered address and email, LinkedIn and GitHub glyphs, and the legal baseline.
+- Destinations come from `getSiteFrame()` in `@sebastian-websites/web-core`. Same-site links
+  stay relative; cross-site links keep the language. Routes that do not exist yet (the Software
+  journal, Consulting references) are left out until they do.
 
-`packages/ui` exports the design as class names and a few components:
+## Imagery
 
-- `Section` (tone `paper` | `white` | `night`, `follow`) and `SectionHead` (eyebrow, title,
-  intro, `titleAs`).
-- `button.primary`, `button.secondary`, `button.ghost`; on `night` ground primary turns white.
-- `layout`: container, eyebrow, sectionHead, intro, columns, columnsTwo, split, ctas.
-- `typography`: display, displayAccent, h2, h2Large, h3, lead, text, textMuted, prose,
-  numeral.
-- `blocks`: hero, facts, photo frames and caption, logo band, columns, cards and status,
-  ruled rows, numbers, persons, closing grid.
-- `BrandBar` and `SiteFooter`, identical on every site.
-
-Sites add their own small components where content meets markup: the Software app has
-`Photo`, `LogoBand`, `MetricsBand`, and `Founders`.
-
-## Photos
-
-- Frames: square (hero), landscape 4:3 (company, closing), portrait 4:5 (reserved).
-- Every placement declares its focal point as `object-position`; the crop is reviewed with
-  the code. The founders' photos from the 2024 shoot: frames 4, 6, 7, 17, 18, 22, 23, 31, 36,
-  42, 43 show Sebastian Fastner; 3, 8, 12, 15, 16, 20, 21, 24, 25, 32, 33, 37, 40, 44, 45
-  show Sebastian Werner.
-- Photos are served from the shared asset zone with Bunny Optimizer (ADR-0014). Until that
-  zone is filled, the six photos the Software site uses ship with the app at 1400 px.
+Repository illustrations use `BunnyImage` with `?bunny` imports and reserved dimensions. The
+founder portraits come from the shared asset zone with a zoomed focus crop
+(`{ mode: "focus", point, zoom }`) tuned per photo, so both heads appear at the same scale in
+equal 7:10 frames. Region names on the Mainz–Heidelberg drawing are HTML, so they translate.
 
 ## Motion
 
-The Consulting hero carries the current site's terrain: the tinted relief, the route drawn in
-on load, the luminous flow, the travelling pulse, and the breathing summit. It honours
-`prefers-reduced-motion` and falls back to a static line, and the WebGL flow field is taken
-over from the Consulting repository. Nothing else on the sites moves.
-
-## Responsiveness
-
-Desktop first. Below 900 px every grid collapses to one column so that pages stay usable;
-the phone design is still to be done and is a launch requirement, not optional.
+Arrows nudge toward their destination on hover, only when the visitor has not asked for
+reduced motion. Nothing else moves.
 
 ## Open
 
-- The Consulting, Open Source, and Skills pages have comps for the Consulting home only; the
-  other two sites follow the same system when they are built (plans 07 and 08).
-- Icons: Streamline style not chosen yet; the system uses none so far.
+- Phone composition and navigation.
+- The newsletter service, the Software journal, the VorOrt logo, and cleared Consulting
+  references.
+- The invitation drawings reuse existing illustrations; standalone drawings in the style of the
+  frame reference can replace them later.

@@ -20,7 +20,12 @@ export type ImageSource = {
 export type ImageCrop =
   | { readonly mode: "center" }
   | { readonly mode: "faces" }
-  | { readonly mode: "focus"; readonly point: readonly [number, number] }
+  | {
+      readonly mode: "focus"
+      readonly point: readonly [number, number]
+      /** Crops tighter than the largest rectangle, for comparable framing; at least 1. */
+      readonly zoom?: number
+    }
 
 export type ImageOptions = {
   readonly aspectRatio: readonly [number, number]
@@ -59,7 +64,11 @@ function geometry(source: ImageSource, options: ImageOptions): Geometry {
   ) {
     throw new Error("Image dimensions must be positive")
   }
-  const cropWidth = Math.floor(Math.min(source.width, source.height * ratio))
+  const zoom = options.crop?.mode === "focus" ? (options.crop.zoom ?? 1) : 1
+  if (!Number.isFinite(zoom) || zoom < 1) {
+    throw new Error("Image zoom must be at least 1")
+  }
+  const cropWidth = Math.floor(Math.min(source.width, source.height * ratio) / zoom)
   const cropHeight = Math.floor(cropWidth / ratio)
   const widths = [
     ...new Set(options.widths ?? [Math.round(options.width / 2), options.width, options.width * 2]),
@@ -116,12 +125,13 @@ export function image(source: ImageSource, options: ImageOptions): ResponsiveIma
     const url = new URL(path, `${origin}/`)
     url.searchParams.set("width", String(width))
     const focus = options.crop?.mode === "focus" ? options.crop.point : options.focus
+    // Bunny ignores `focus_crop` when `aspect_ratio` is present; the focus
+    // rectangle already carries the ratio, so each crop sends one parameter.
     if (options.crop?.mode === "faces") {
       url.searchParams.set("face_crop", `${dimensions.cropWidth},${dimensions.cropHeight}`)
-    } else {
+    } else if (focus === undefined) {
       url.searchParams.set("aspect_ratio", options.aspectRatio.join(":"))
-    }
-    if (focus !== undefined) {
+    } else {
       url.searchParams.set(
         "focus_crop",
         `${dimensions.cropWidth},${dimensions.cropHeight},${focus.join(",")}`

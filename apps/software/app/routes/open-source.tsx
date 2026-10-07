@@ -45,7 +45,7 @@ export default function OpenSource({ loaderData }: Route.ComponentProps): ReactE
     },
   ]
   return (
-    <main>
+    <main id="main">
       <Section>
         <SectionHead
           eyebrow={t`Open source`}

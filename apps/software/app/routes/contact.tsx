@@ -21,7 +21,7 @@ export function meta(): Route.MetaDescriptors {
 export default function Contact(): ReactElement {
   const consulting = getSiteOrigin("consulting", variant.locale)
   return (
-    <main>
+    <main id="main">
       <Section>
         <SectionHead
           eyebrow={t`Contact`}

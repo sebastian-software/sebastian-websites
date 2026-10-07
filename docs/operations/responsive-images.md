@@ -78,7 +78,10 @@ override the candidate list, for example `[72, 144, 216]` for a small portrait.
 The limit still applies, and width descriptors describe actual output widths.
 
 The default crop is centered. Set `crop` to `{ mode: "faces" }` for face detection,
-or `{ mode: "focus", point: [0.45, 0.35] }` for a fixed relative focal point.
+or `{ mode: "focus", point: [0.45, 0.35] }` for a fixed relative focal point. Add
+`zoom` (at least 1) to a focus crop to cut a tighter rectangle around that point, for
+example to give two portraits the same head size. A focus crop sends Bunny's
+`focus_crop` without `aspect_ratio`; Bunny ignores the focal point when both are present.
 Face detection falls back to the center when no faces are found. With multiple
 faces it centers between them; an especially narrow crop may exclude some people.
 Review important crops, particularly hero images. Crops are calculated from the
