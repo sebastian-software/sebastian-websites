@@ -32,6 +32,15 @@ Removing them too early breaks hot-links and loses the only copy of some content
 - `sebastian-brand`: the npm package, the Vercel project `sebastian-brand.vercel.app`, the
   presentation template, and the social banners under `services/`.
 
+## Production observation dates
+
+Software, Open Source, and Consulting moved to their new canonical targets on 2026-10-07
+([cutover record](../operations/domain-cutover-2026-10-07.md)). Their earliest retirement
+review is 2026-11-06, after 30 incident-free days. This is an eligibility date, not an
+instruction to remove resources: existing aliases and hot-links must be migrated first.
+Skills and other successors retain their own observation periods. The Consulting PDF-name
+rules remain protected until 2027-06-13.
+
 ## Scope
 
 In scope, each after at least 30 days of the successor in production without incidents:
