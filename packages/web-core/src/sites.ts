@@ -135,14 +135,14 @@ export const VARIANTS = defineVariants({
     canonicalOrigin: "https://oss.sebastian-software.de",
     deploymentTarget: "sebastian-websites-opensource-de",
     locale: "de",
-    productionActive: false,
+    productionActive: true,
     site: "opensource",
   },
   "opensource-en": {
     canonicalOrigin: "https://oss.sebastian-software.com",
     deploymentTarget: "sebastian-websites-opensource-en",
     locale: "en",
-    productionActive: false,
+    productionActive: true,
     site: "opensource",
   },
   "skills-de": {
