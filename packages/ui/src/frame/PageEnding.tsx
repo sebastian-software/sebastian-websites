@@ -6,6 +6,7 @@ import type { SubscribeAction } from "./subscribe.ts"
 
 import { page } from "../editorial/editorial.css.ts"
 import { Newsletter } from "./Newsletter.tsx"
+import { ending } from "./PageEnding.css.ts"
 import { SiblingInvitation } from "./SiblingInvitation.tsx"
 import { SiteFooter } from "./SiteFooter.tsx"
 
@@ -26,7 +27,7 @@ export function PageEnding(props: PageEndingProps): ReactElement {
   const { copy, frame, subscribe } = props
   return (
     <>
-      <div className={page}>
+      <div className={`${page} ${ending}`}>
         <Newsletter copy={copy.newsletter} subscribe={subscribe} />
         <SiblingInvitation
           brand={frame.outbound.brand}

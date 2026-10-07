@@ -6,6 +6,8 @@ import { createSeoLinks, getSiteFrame } from "@sebastian-websites/web-core"
 import { Links, Meta, Outlet, Scripts, useLocation } from "react-router"
 import "@sebastian-websites/ui/brand-consulting.css"
 
+import "~/styles/print-pages.css"
+import "~/styles/print.css"
 import { variant } from "~/lib/site"
 
 export function Layout({ children }: { readonly children: ReactNode }): ReactElement {

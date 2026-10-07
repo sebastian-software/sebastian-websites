@@ -31,6 +31,9 @@ jobs:
             echo "::error::BUNNY_API_KEY is not available to this repository; add it as an organization or repository secret (ADR-0009)."
             exit 1
           fi
+      # The Consulting build renders its profile PDFs in Chromium.
+      - name: Install the PDF browser
+        run: pnpm --filter @sebastian-websites/consulting exec playwright install --with-deps chromium
       - name: Build all variants
         run: pnpm build
       - name: Provision, publish, and verify

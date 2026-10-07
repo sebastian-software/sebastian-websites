@@ -1,0 +1,18 @@
+/*
+ * Page size and the "page / total" counter for printed profiles. Margin boxes
+ * such as @bottom-center cannot be expressed in vanilla-extract, so this file
+ * stays raw CSS. Page margins belong to the @page rule in
+ * app/components/profile-print/printPageMargin.css.ts; do not declare them
+ * here, or the two rules compete via cascade order and the 1:1 screen/print
+ * match breaks.
+ */
+@page {
+  size: A4 portrait;
+
+  @bottom-center {
+    content: counter(page) " / " counter(pages);
+    font-family: Glober, system-ui, sans-serif;
+    font-size: 9pt;
+    color: oklch(0.45 0.12 2);
+  }
+}

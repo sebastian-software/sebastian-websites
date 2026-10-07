@@ -15,6 +15,9 @@ const END_HALF = "7 / span 6"
 /** Neutral slate for the newsletter action, shared by both brands. */
 const ACTION = "oklch(0.33 0.012 250)"
 
+/** The page ending belongs to the screen; printed documents end with their own content. */
+export const ending = style({ "@media": { print: { display: "none" } } })
+
 // ---- Newsletter: a quiet utility passage ------------------------------------
 
 export const newsletter = style([grid, { alignItems: "start", paddingBottom: "148px" }])
@@ -117,7 +120,7 @@ export const invitationImage = style({ display: "block", height: "auto", width: 
 
 // ---- Footer: the current site's substantial inset panel -----------------------
 
-export const footer = style({ paddingBottom: "24px" })
+export const footer = style([ending, { paddingBottom: "24px" }])
 
 export const panel = style([
   continuousCorners(PANEL_RADIUS),
