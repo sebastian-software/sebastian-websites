@@ -70,7 +70,16 @@ unchanged Google SMTP/IMAP CNAMEs varied with Google's DNS responses. One baseli
 probe had timed out and subsequently returned no records. Neither difference changes the
 configured mail route. End-to-end mail delivery was not tested.
 
-Search Console sitemap submission remains open pending access to the correct properties.
+Search Console domain properties for Software and Consulting `.de` and `.com` were
+verified on 2026-10-08 (local time). Each received an additional Google verification TXT
+record; existing verification and SPF records were preserved. The Software properties also
+cover their Open Source subdomains. All six canonical HTTPS sitemaps were submitted.
+
+Google initially showed “Could not fetch” with no last-read date for the new submissions.
+All six sitemap and `robots.txt` endpoints answered 200 with a Googlebot user agent, and
+crawling is allowed. Sitemap processing and indexing are not confirmed by submission alone;
+recheck Google's fetch status after processing. The Consulting sitemaps contain no locale
+prefixes.
 
 ## Email consolidation follow-up
 
