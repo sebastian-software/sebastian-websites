@@ -237,6 +237,42 @@ test("publishing uploads changed files, keeps unchanged ones, removes stale ones
   assert.ok(bunny.calls.some((call) => call.path === "/pullzone/2/purgeCache"))
 })
 
+/**
+ * Storage that lets the first upload time out, as Bunny did on 2026-10-07.
+ *
+ * @returns The fake fetch and how many timeouts are still pending.
+ */
+function storageTimingOutOnce(): {
+  readonly pending: () => number
+  readonly request: typeof fetch
+} {
+  const { request: storage } = storageFixture(new Uint8Array())
+  let timeouts = 1
+  const request: typeof fetch = async (input, init) => {
+    if (init?.method === "PUT" && timeouts > 0) {
+      timeouts -= 1
+      throw new DOMException("The operation was aborted due to timeout", "TimeoutError")
+    }
+    return storage(input, init)
+  }
+  return { pending: () => timeouts, request }
+}
+
+test("publishing repeats an upload that timed out instead of failing the deploy", async () => {
+  const bunny = account({ provisioned: true })
+  const storage = storageTimingOutOnce()
+  const result = await publish({
+    api: bunny.api,
+    assets: [{ bytes: new TextEncoder().encode("<html>"), path: "index.html" }],
+    ids: { pullZoneId: 2, storageId: 1 },
+    log: silent,
+    request: storage.request,
+    target,
+  })
+  assert.equal(result.uploaded, 1)
+  assert.equal(storage.pending(), 0)
+})
+
 test("paths resolve to index files, trailing slashes redirect, files pass through", () => {
   assert.deepEqual(planPath("/"), { kind: "rewrite", pathname: "/index.html" })
   assert.deepEqual(planPath("/imprint"), { kind: "rewrite", pathname: "/imprint/index.html" })
