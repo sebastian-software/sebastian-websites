@@ -1,0 +1,173 @@
+{
+  "date": "2026-10-07",
+  "kind": "Visual design proposal",
+  "appliesTo": ["software", "opensource", "skills", "consulting"],
+  "ownership": "Shared UI; apps reference one common frame.",
+  "header": {
+    "desktopHeightCssPx": 48,
+    "mobileHeightCssPx": 48,
+    "brandOrder": ["software", "consulting"],
+    "currentState": "A short underline and slightly darker ink; layout stays identical.",
+    "links": [
+      {
+        "label": "Software",
+        "site": "software",
+        "path": "/"
+      },
+      {
+        "label": "Products",
+        "site": "software",
+        "path": "/products"
+      },
+      {
+        "label": "Open Source",
+        "site": "opensource",
+        "path": "/"
+      },
+      {
+        "label": "Skills",
+        "site": "skills",
+        "path": "/"
+      },
+      {
+        "label": "Consulting",
+        "site": "consulting",
+        "path": "/"
+      },
+      {
+        "label": "Services",
+        "site": "consulting",
+        "path": "/services"
+      },
+      {
+        "label": "Profiles",
+        "site": "consulting",
+        "path": "/profiles"
+      }
+    ],
+    "languages": ["EN", "DE"],
+    "languageBehavior": "Use the selected locale's canonical domain for cross-site links.",
+    "mobileBehavior": "A compact current-site trigger opens a grouped website menu with both original brand marks."
+  },
+  "footer": {
+    "desktopColumns": ["Company and contact", "Software", "Consulting", "Newsletter"],
+    "company": {
+      "name": "Sebastian Software GmbH",
+      "street": "Dalheimer Stra\u00dfe 12",
+      "postalCode": "55128",
+      "city": "Mainz",
+      "country": "Germany",
+      "locations": ["Mainz", "Heidelberg"],
+      "regionLabel": "Rhine-Main \u00b7 Rhine-Neckar",
+      "email": "info@sebastian-software.de",
+      "phone": "+49 6131 9729 830",
+      "phoneHref": "tel:+4961319729830"
+    },
+    "softwareLinks": [
+      {
+        "label": "Products",
+        "site": "software",
+        "path": "/products"
+      },
+      {
+        "label": "Open Source",
+        "site": "opensource",
+        "path": "/"
+      },
+      {
+        "label": "Skills",
+        "site": "skills",
+        "path": "/"
+      },
+      {
+        "label": "Company",
+        "site": "software",
+        "path": "/company"
+      },
+      {
+        "label": "Journal",
+        "site": "software",
+        "path": null,
+        "status": "Proposed destination; choose the route when the journal is implemented."
+      }
+    ],
+    "consultingLinks": [
+      {
+        "label": "Services",
+        "site": "consulting",
+        "path": "/services"
+      },
+      {
+        "label": "Profiles",
+        "site": "consulting",
+        "path": "/profiles"
+      },
+      {
+        "label": "References",
+        "site": "consulting",
+        "path": "/references"
+      },
+      {
+        "label": "Book an intro call",
+        "site": "consulting",
+        "path": "/contact"
+      }
+    ],
+    "newsletter": {
+      "title": "Newsletter",
+      "description": "Product releases, open-source updates and engineering notes.",
+      "emailLabel": "Email address",
+      "action": "Subscribe",
+      "submissionEndpoint": null,
+      "status": "Visual signup proposal; service integration will be chosen when implemented."
+    },
+    "legalLinks": [
+      {
+        "label": "Imprint",
+        "scope": "current-site",
+        "path": "/imprint"
+      },
+      {
+        "label": "Privacy",
+        "scope": "current-site",
+        "path": "/privacy"
+      },
+      {
+        "label": "Contact",
+        "path": "/contact",
+        "site": "software"
+      }
+    ],
+    "copyright": "\u00a9 2026 Sebastian Software GmbH",
+    "mobileBehavior": "Both brand navigation columns stay adjacent; company/contact and newsletter stack below them.",
+    "equalBrandProminence": true
+  },
+  "canonicalOrigins": {
+    "software": {
+      "en": "https://sebastian-software.com",
+      "de": "https://sebastian-software.de"
+    },
+    "opensource": {
+      "en": "https://oss.sebastian-software.com",
+      "de": "https://oss.sebastian-software.de"
+    },
+    "skills": {
+      "en": "https://skills.sebastian-software.com",
+      "de": "https://skills.sebastian-software.de"
+    },
+    "consulting": {
+      "en": "https://sebastian-consulting.com",
+      "de": "https://sebastian-consulting.de"
+    }
+  },
+  "sources": [
+    "../src/BrandBar.tsx",
+    "../src/SiteFooter.tsx",
+    "../../web-core/src/brandBar.ts",
+    "../../web-core/src/sites.ts",
+    "../../legal/src/company.ts",
+    "../../../apps/software/app/lib/legal.ts",
+    "../../../apps/brand/public/sebastian-software/logo-software-transparent.svg",
+    "../../../apps/brand/public/sebastian-consulting/logo-consulting-transparent.svg"
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-07",
+  "mode": "Built-in ImageGen",
+  "processing": "Native ImageGen PNGs copied byte-for-byte; no cropping, resizing, or raster retouching.",
+  "finalConceptCount": 10,
+  "editingInputCount": 10,
+  "images": [
+    {
+      "file": "references/h01-initial.png",
+      "width": 1729,
+      "height": 910,
+      "bytes": 1679255,
+      "sha256": "4ab7c741a977987c1f6ec630ed910e509dda784e6dd374f3896b5a928e36198f",
+      "role": "editing-input"
+    },
+    {
+      "file": "references/h01-complete-wordmarks.png",
+      "width": 1729,
+      "height": 910,
+      "bytes": 1495046,
+      "sha256": "a7dbb6a6606cb1d29eaf13ceeb9fbd3d45611f386b39df6a47ac5f70c397f5eb",
+      "role": "editing-input"
+    },
+    {
+      "file": "header-01-tinted-local-zone.png",
+      "width": 1728,
+      "height": 910,
+      "bytes": 1503821,
+      "sha256": "9acec86ed3de9f7e2cc157943cc6dec67eacc3b07a4e62b2562949d0b6b963fc",
+      "id": "h01",
+      "role": "final-concept"
+    },
+    {
+      "file": "references/h02-initial.png",
+      "width": 1731,
+      "height": 909,
+      "bytes": 1625454,
+      "sha256": "42d5b14baeb1f8484bd10e110e81e51165800c1e82fb8fe07019f0818d73d6ec",
+      "role": "editing-input"
+    },
+    {
+      "file": "references/h02-complete-wordmarks.png",
+      "width": 1731,
+      "height": 909,
+      "bytes": 1415859,
+      "sha256": "f75cce463fce5b5272b0bca6642ebffe5988763515db5a31cf7913b7a02a4d17",
+      "role": "editing-input"
+    },
+    {
+      "file": "header-02-inset-local-bar.png",
+      "width": 1731,
+      "height": 909,
+      "bytes": 1463947,
+      "sha256": "f04012ca99388dd04ab52bc5eee75d10be3c2f2cdbac44f3771b47930f682f09",
+      "id": "h02",
+      "role": "final-concept"
+    },
+    {
+      "file": "references/h03-initial.png",
+      "width": 1731,
+      "height": 909,
+      "bytes": 1762358,
+      "sha256": "42556f2c14d7cab1a76b3794ccb5f71e969ef09e08f21dff457ea5fe2ea4cadd",
+      "role": "editing-input"
+    },
+    {
+      "file": "references/h03-complete-wordmarks.png",
+      "width": 1731,
+      "height": 909,
+      "bytes": 1639877,
+      "sha256": "5396f66aba981c38af4c2e38d91b6cbdd33b944e7445c8374d83d1f078c7988f",
+      "role": "editing-input"
+    },
+    {
+      "file": "header-03-separated-color-tab.png",
+      "width": 1731,
+      "height": 909,
+      "bytes": 1592760,
+      "sha256": "9a7b4d3625fe502c44ffc8185084d16afb6e95f7e64f8b4d259fecd69bf9fc80",
+      "id": "h03",
+      "role": "final-concept"
+    },
+    {
+      "file": "references/h04-initial.png",
+      "width": 1730,
+      "height": 909,
+      "bytes": 1758889,
+      "sha256": "ae8bc167444bfdabe368052a6231bce07da3cd7ff3342fbf13018d0579209b6f",
+      "role": "editing-input"
+    },
+    {
+      "file": "references/h04-complete-wordmarks.png",
+      "width": 1730,
+      "height": 909,
+      "bytes": 1493801,
+      "sha256": "b859b22881ba4ae8a3dfd6b6abf355d11863b32cd510332f1a2eb9414215f21a",
+      "role": "editing-input"
+    },
+    {
+      "file": "header-04-current-brand-color-band.png",
+      "width": 1730,
+      "height": 909,
+      "bytes": 1325294,
+      "sha256": "37219f510ae330f09a0a4ee5504b83f1ee9b4ef0b467f42643d1db5447e67764",
+      "id": "h04",
+      "role": "final-concept"
+    },
+    {
+      "file": "references/h05-initial.png",
+      "width": 1731,
+      "height": 909,
+      "bytes": 1717714,
+      "sha256": "4223de00c9fdc0424c42dd2ff13e01c64d8b173d5617e9b51b36048dd45abeff",
+      "role": "editing-input"
+    },
+    {
+      "file": "references/h05-complete-wordmarks.png",
+      "width": 1731,
+      "height": 909,
+      "bytes": 1617299,
+      "sha256": "6282252bd1d0be2c5e0afe4ee67ddbccb0ae81f67504cbb6b18382a66dbff1c2",
+      "role": "editing-input"
+    },
+    {
+      "file": "header-05-brand-flag-quiet-bridge.png",
+      "width": 1730,
+      "height": 909,
+      "bytes": 1512606,
+      "sha256": "c80569f6f83964321664a5f1ee0b4fb6d1f2f35edec71bc33972fc29ce2cfaa3",
+      "id": "h05",
+      "role": "final-concept"
+    },
+    {
+      "file": "footer-01-frost-endpaper.png",
+      "width": 1547,
+      "height": 1016,
+      "bytes": 1831915,
+      "sha256": "e2f90ad8df9c5048b20001a901c3daf85dabb7e67a758654daa530c6b9687a16",
+      "id": "f01",
+      "role": "final-concept"
+    },
+    {
+      "file": "footer-02-muted-teal-social-colophon.png",
+      "width": 1546,
+      "height": 1017,
+      "bytes": 1784324,
+      "sha256": "97bef989fd1e5ea3e94793aba200ce9c8a1677f950df6a7b4e4ceb63eebc8d85",
+      "id": "f02",
+      "role": "final-concept"
+    },
+    {
+      "file": "footer-03-two-tone-publication-spread.png",
+      "width": 1547,
+      "height": 1016,
+      "bytes": 1809414,
+      "sha256": "98c1663eb12540f7e683e6a1c54b8ec84aed3f632308b59cf4ab73ab3fe11426",
+      "id": "f03",
+      "role": "final-concept"
+    },
+    {
+      "file": "footer-04-sloped-paper-colophon.png",
+      "width": 1547,
+      "height": 1017,
+      "bytes": 1870867,
+      "sha256": "bcc79f2e6efc46803b5f2c1573b98e4709aba8ff9990a4ecf6cb4cd38d14362e",
+      "id": "f04",
+      "role": "final-concept"
+    },
+    {
+      "file": "footer-05-linen-newsletter-leaf.png",
+      "width": 1547,
+      "height": 1017,
+      "bytes": 1651923,
+      "sha256": "3a317a9783ee0fe651070ee26d3efca173a0de5ae1ed98e054bf99f0357353ca",
+      "id": "f05",
+      "role": "final-concept"
+    }
+  ]
+}

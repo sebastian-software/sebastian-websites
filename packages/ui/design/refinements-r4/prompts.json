@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-07",
+  "mode": "Built-in ImageGen",
+  "pathBase": "All image inputs and outputs are relative to this file.",
+  "concepts": [
+    {
+      "id": "header",
+      "element": "header",
+      "output": "header-neutral-sibling-zone.png",
+      "stages": [
+        {
+          "intent": "edit",
+          "output": "header-neutral-sibling-zone.png",
+          "referenced_image_paths": ["../refinements-r3/header-floating-enclosed-switch.png"],
+          "prompt": "Use case: precise-object-edit. Make ONLY a mature neutral palette correction to the two floating headers in this image. In the TOP Software state, replace the pink/berry-tinted right sibling zone with PURE WHITE. In the BOTTOM Consulting state, replace the blue-tinted right sibling zone with PURE WHITE, and make the current-site left background a NEUTRAL light gray #f1f1f2 instead of pink. The top current Software zone may remain a very restrained gray-teal #edf1f2. No pink and light-blue background surfaces may meet anywhere. Retain the complete enclosing floating shell, the same continuous iOS-style corner treatment, delicate diffuse shadow, compact 48-CSS-pixel height target, positions, wording, logo artwork and full Sebastian/Software and Sebastian/Consulting wordmarks including the slash. The sibling entry remains enclosed and is distinguished by neutral white and the existing brand-color wordmark, not by a pink or blue panel. Keep navigation and language inside the current site zone. Preserve both regular-serif context sentences and all white outer margins. Do not redesign shapes, enlarge logos, add captions, change copy or add anything else.",
+          "transparent_background": false
+        }
+      ]
+    },
+    {
+      "id": "software-ending",
+      "element": "page-ending",
+      "brand": "software",
+      "output": "../../../../apps/software/design/page-ending-v4.png",
+      "stages": [
+        {
+          "intent": "generate",
+          "output": "references/software-ending-initial.png",
+          "referenced_image_paths": [
+            "../../../../apps/software/design/footer-frame-v3.png",
+            "../../../../apps/brand/public/sebastian-software/logo-software.png",
+            "../../../../apps/brand/public/sebastian-consulting/logo-consulting.png"
+          ],
+          "prompt": "Use case: ui-mockup.\nAsset type: desktop page ending for Sebastian/Software, composed of THREE separate vertically stacked sections.\nInput images: Image 1 provides the existing exact copy, navigation, logo hierarchy and outline social direction, but its nested footer composition and mixed pastel palette must be REPLACED. Image 2 and Image 3 provide the complete original Software and Consulting logo lockups.\nPrimary request: A clear publication-like closing sequence: FIRST the shared newsletter, THEN a standalone Consulting offer, THEN the Software footer. These must read as three separate page areas. The other brand's offer is OUTSIDE and ABOVE the actual current-site footer, never embedded inside it.\nPalette: Mature white and achromatic light-gray surfaces, neutral graphite body ink, original deep teal and berry only in the logo artwork and small actions. NO pale pink backgrounds, baby blue backgrounds, pink/blue juxtaposition, two-tone pastel splits or tinted sibling cards. The true footer can have one restrained neutral-gray surface #eceff0 to distinguish it from the two white areas above.\nCanvas: One complete desktop closing composition, approximately 2000x1900, flat straight-on website screenshot, no browser chrome, header or hero. Use a consistent grid and wide 80 CSS px outer margins. Give each area ample internal vertical padding and keep 90-120 CSS px of CLEAR WHITE AIR between the newsletter and the Consulting offer, and again between the Consulting offer and the actual footer. Do not compress the three areas to fit. Keep all typography at a believable web scale: ordinary links and paragraphs 16 CSS px, headings regular serif about 28px. No giant logo headline, no label identifying the three bands, no excessive divider rules.\nSection 1, top, WHITE shared newsletter area: Left has regular/book serif \"Newsletter\" and exact readable sans description: \"Insights into our work across software and consulting: what we're building, exploring and thinking about.\" Right has an \"Email address\" input and \"Subscribe\" button, aligned to the newsletter text. This is a broad horizontal section, not a right-hand box embedded next to the footer. Use a small deep graphite or teal action button. It belongs to BOTH sites and does not promise a sending frequency.\nSection 2, middle, WHITE standalone sibling offer: Modest COMPLETE original Sebastian/CONSULTING logo on left, around 170 CSS px wide, with exact copy on the right: \"Our agency helps teams with software architecture, engineering and technical direction.\" A single \"Discover Consulting\" text action with small outward arrow follows. This area is a quiet independent editorial row, with no colored enclosing card, second footer index or inflated logo. Original berry wordmark provides identity; its SURROUNDING background stays white/neutral. Generous white space surrounds this offer.\nSection 3, bottom, ACTUAL Software footer on a neutral-gray #eceff0 surface: The current COMPLETE original Sebastian/SOFTWARE logo is primary, around 260 CSS px wide. Current-site navigation only: \"Products\", \"Open Source\", \"Agents & Skills\", \"Company\", \"Journal\", arranged on an aligned desktop grid, with company/contact details in their own neighboring column or lower band. Include exactly \"Sebastian Software GmbH\", \"Dalheimer Straße 12\", \"55128 Mainz\", \"Germany\", \"info@sebastian-software.de\". Social links: \"LinkedIn\" and \"GitHub\", small single-color outline UI glyphs with outward arrows; same dark ink as their labels, no colored official brand tiles. Bottom legal baseline: \"© 2026 Sebastian Software GmbH\", \"Imprint\", \"Privacy\", \"Contact\". No Consulting logo or Consulting submenu or newsletter INSIDE this actual footer; they have their own preceding sections.\nConstraints: Full wordmarks everywhere, including emblem and Sebastian/ with slash; never crop, abbreviate, retype or redesign the original logos. Preserve original letterform weights and colors. All NEW serif text must be regular/book, never bold. Clear vertical rhythm, generous line height, no photos, maps, city illustrations, phone numbers, Heidelberg/regional labels, extra slogans or invented nav. This is a visual layout study, no code.",
+          "transparent_background": false
+        },
+        {
+          "intent": "edit",
+          "output": "../../../../apps/software/design/page-ending-v4.png",
+          "referenced_image_paths": ["references/software-ending-initial.png"],
+          "prompt": "Use case: precise-object-edit. Change ONLY the full Sebastian/CONSULTING logo in the MIDDLE standalone offer section of this Software page ending. Make this whole logo exactly HALF its current width and height, preserving its left position and vertical center in that middle white section. Preserve every part of the original lockup, including emblem, Sebastian/ and the slash. This is a small secondary cross-site offer, so its logo must be clearly smaller than the primary Software logo in the gray footer beneath it. Keep the offer description and Discover Consulting link exactly where they are. Preserve the newsletter above, all white space between the three sections, the full primary Software footer, all text and controls, neutral palette, address/social/legal content and image canvas. No other changes, no new outlines or color panels.",
+          "transparent_background": false
+        }
+      ]
+    },
+    {
+      "id": "consulting-ending",
+      "element": "page-ending",
+      "brand": "consulting",
+      "output": "../../../../apps/consulting/design/page-ending-v4.png",
+      "stages": [
+        {
+          "intent": "edit",
+          "output": "../../../../apps/consulting/design/page-ending-v4.png",
+          "referenced_image_paths": [
+            "../../../../apps/software/design/page-ending-v4.png",
+            "../../../../apps/brand/public/sebastian-software/logo-software.png",
+            "../../../../apps/brand/public/sebastian-consulting/logo-consulting.png"
+          ],
+          "prompt": "Use case: precise-object-edit.\nAsset type: matching Consulting desktop page ending.\nInput images: Image 1 is the exact final Software closing sequence and EDIT TARGET. Images 2 and 3 are the complete original Software and Consulting logos.\nMake the CONSULTING state of this same composition. Preserve the three DISTINCT areas and all generous white air, in this exact order: FIRST shared newsletter; SECOND standalone Software offer; THIRD the true Consulting footer. Neither the shared newsletter nor the sibling offer may be placed inside the actual footer.\nChange ONLY the MIDDLE small sibling logo to the COMPLETE original Sebastian/SOFTWARE lockup at the same small optical size and position of the secondary Consulting logo in Image 1. Change its adjacent explanatory copy exactly to \"We build products, open-source projects and agent tools for everyday work.\" Change its single action to \"Discover Software\" with outward arrow. Keep the entire middle offer area WHITE with no enclosing tinted card. The teal logo and action supply the identity.\nChange the LARGE primary logo in the LOWER actual footer to the complete original Sebastian/CONSULTING lockup, retaining the current primary logo's large optical size and position. Change the footer's local index to \"Services\", \"Profiles\", \"References\" in the left link column and \"Book an intro call\" in the right column. Remove all Software product/index links from that actual footer. Do not add a Software logo or Software submenu inside the actual footer.\nKeep the true footer surface ACHROMATIC neutral light gray #eeedef, with no pink tint or blue tint. Do not introduce pink or pale-blue background surfaces in any area. Original berry and teal logo artwork and small action colors remain intact; ordinary text stays graphite. No pastel split, gradients, brand-colored enclosing panels or extra labels.\nThe TOP shared newsletter must stay IDENTICAL, including layout, white background, regular-weight serif \"Newsletter\", exact sentence \"Insights into our work across software and consulting: what we're building, exploring and thinking about.\", \"Email address\" input and \"Subscribe\" button. Do not rewrite it as Consulting-only or change its position.\nKeep unchanged in the BOTTOM actual footer: \"Sebastian Software GmbH\", \"Dalheimer Straße 12\", \"55128 Mainz\", \"Germany\", \"info@sebastian-software.de\"; small single-color outline LinkedIn and GitHub glyphs/labels/outward arrows; \"© 2026 Sebastian Software GmbH\", \"Imprint\", \"Privacy\", \"Contact\".\nPreserve the full original logo lockups everywhere, including emblems and Sebastian/ with the slash. Never abbreviate, crop or redesign a logo. No phone, regional labels, photos or illustrations. Maintain the same desktop grid, typography weights, wide margins, white separation between sections and canvas. All new serif text remains regular. No other changes.",
+          "transparent_background": false
+        }
+      ]
+    }
+  ]
+}

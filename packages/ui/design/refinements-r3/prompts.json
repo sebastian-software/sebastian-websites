@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-07",
+  "mode": "Built-in ImageGen",
+  "pathBase": "All image inputs and outputs are relative to this file.",
+  "concepts": [
+    {
+      "id": "header",
+      "element": "header",
+      "title": "Floating frame with enclosed brand switch",
+      "output": "header-floating-enclosed-switch.png",
+      "stages": [
+        {
+          "intent": "edit",
+          "output": "references/header-enclosed-initial.png",
+          "referenced_image_paths": [
+            "../alternatives-r2/references/h01-complete-wordmarks.png",
+            "../../../../apps/brand/public/sebastian-software/logo-software.png",
+            "../../../../apps/brand/public/sebastian-consulting/logo-consulting.png"
+          ],
+          "prompt": "Use case: precise-object-edit.\nAsset type: refined desktop website header study, two brand states of the same layout.\nInput images: Image 1 is the selected edit target. Image 2 is the complete original Sebastian/SOFTWARE logo. Image 3 is the complete original Sebastian/CONSULTING logo.\nPrimary request: Retain the selected design and all its wording, but complete its floating header shell. Enclose the sibling brand link inside the same overall floating header, in a separate extremely desaturated tint belonging to that sibling. Round ALL FOUR outer corners using smooth iOS app-icon style continuous squircle corners, approximately 14 CSS pixels at a 48px bar height. Use soft continuous corners rather than hard rounded rectangles or fully semicircular capsule ends. Add one subtle diffuse neutral shadow beneath the entire shell, approximately 0 6px 20px -6px at 12% opacity.\nComposition: One wide white sheet, approximately 2000x1050, with Software above and Consulting below. Preserve the white air around each inset floating header and the same small regular-serif context sentences from Image 1 beneath each. The complete header shell uses only about 90% of the page width, leaving white outer margins. The primary area occupies about 76% and the sibling link area about 24% of this shell. Both have the SAME height and share one continuous exterior silhouette and one shadow. The internal color transition is straight and quiet; do not independently round the interior joining corners, add gaps, or let either panel spill outside the shell.\nCompact proportions: The header target is 48 CSS pixels at a 1440px desktop viewport. Keep the complete strip about 3.3% of the full image width, around 66 raster pixels at 2000px wide. Navigation text is about 15 CSS px, complete logo artwork about 25 CSS px high, all vertically centered.\nTop state: Main pale teal-gray surface #edf4f5, original full Sebastian/SOFTWARE logo, then ONLY \"Products\", \"Open Source\", \"Agents & Skills\", and \"EN / DE\". The far-right sibling surface is extremely pale berry-gray #f7f3f5, containing the COMPLETE original Sebastian/CONSULTING logo followed by a small outward arrow.\nBottom state: Main extremely pale berry-gray #f7f3f5, original full Sebastian/CONSULTING logo, then ONLY \"Services\", \"Profiles\", \"References\", and \"EN / DE\". The far-right sibling surface is pale teal-gray #edf4f5, containing the COMPLETE original Sebastian/SOFTWARE logo followed by a small outward arrow.\nConstraints: Every logo includes the entire original emblem and wordmark with the slash. Never shorten to Software or Consulting, remove Sebastian/, crop an emblem, redraw letters or invent a new mark. Preserve the original logo colors and letterform proportions. The sibling can be modestly smaller but fully legible. Language remains within the current brand zone, visibly before the sibling tint. Keep the wording and regular-weight serif context text unchanged. No hard border around the whole shell, no extra lines beyond a faint short language separator, no heavy shadow, no 3D, no new captions, no footer, no newsletter, no giant hero, no mobile views. This is a focused refinement of Image 1, not a new header concept.",
+          "transparent_background": false
+        },
+        {
+          "intent": "edit",
+          "output": "references/header-size-first-pass.png",
+          "referenced_image_paths": ["references/header-enclosed-initial.png"],
+          "prompt": "Use case: precise-object-edit. Change ONLY the vertical size of both floating header strips in this image. Each filled strip is currently about 90 raster pixels high; reduce its complete surface to ONLY 58px high on this same 1730px-wide canvas, corresponding to the agreed 48 CSS-pixel desktop header. Keep the same horizontal width and center positions. Reduce BOTH full current and sibling logo artwork to around 34px high and navigation/language text to about 18px. Center them in the thin strip. Preserve the single unified continuous squircle silhouette with all four corners smoothly rounded, the separate extremely pale current/sibling tints, the complete original Sebastian/Software and Sebastian/Consulting wordmarks WITH slash, ALL navigation wording, language before the sister zone, soft diffuse shadow and all white outside margins. All context headings and remaining image pixels remain visually unchanged. This is a focused size correction, not a new concept. No captions or measurements visible. Do not remove or abbreviate any part of any wordmark.",
+          "transparent_background": false
+        },
+        {
+          "intent": "edit",
+          "output": "header-floating-enclosed-switch.png",
+          "referenced_image_paths": ["references/header-size-first-pass.png"],
+          "prompt": "Use case: precise-object-edit. This is ONLY a physical thickness correction of two floating header bars. On this same 1730px-wide sheet, make BOTH the top and bottom complete rounded bar surfaces exactly 58 raster pixels tall, about two-thirds their current thickness, with identical height and identical corner shape. Keep their full horizontal extent, tint boundary, shadow and vertical center. Reduce every full logo proportionally to about 32px tall and all navigation text to 18px; do not retain the oversized 45px emblem. The fully enclosed sibling brand panel is part of the SAME thin 58px strip. All four outside corners are continuous rounded squircle corners, about 16px radius at this raster scale, and the diffuse shadow is delicate. Preserve all full Sebastian/Software and Sebastian/Consulting wordmarks with the slash, exact words, current-site local navigation and language followed by the sibling zone, pale teal and berry-gray surfaces, outer margins and ALL large white areas and context text. Keep the image canvas unchanged. No redesign, no measurements printed. Both strips must visibly become THINNER by one-third.",
+          "transparent_background": false
+        }
+      ]
+    },
+    {
+      "id": "software-footer",
+      "element": "footer",
+      "brand": "software",
+      "output": "../../../../apps/software/design/footer-frame-v3.png",
+      "stages": [
+        {
+          "intent": "generate",
+          "output": "references/footer-software-initial.png",
+          "referenced_image_paths": [
+            "../alternatives-r2/footer-05-linen-newsletter-leaf.png",
+            "../../../../apps/brand/public/sebastian-software/logo-software.png",
+            "../../../../apps/brand/public/sebastian-consulting/logo-consulting.png"
+          ],
+          "prompt": "Use case: ui-mockup.\nAsset type: one complete desktop footer for the Sebastian/Software website.\nInput images: Image 1 is only an editorial spacing and newsletter style reference; REPLACE its equal-brand hierarchy. Image 2 is the complete original Sebastian/SOFTWARE logo. Image 3 is the complete original Sebastian/CONSULTING logo.\nPrimary request: Treat Software and Consulting as separate websites. Design a polished, airy footer where the CURRENT Software site is primary. Include ONE smaller explanatory bridge to Consulting and ONE shared company newsletter. The primary site, sibling bridge, and newsletter must be immediately distinguishable.\nComposition: One complete footer on a wide canvas approximately 2000x1350, with a slim white strip of preceding page content above. No header or hero. Overall footer is light pale teal-gray #edf3f4, deep teal-gray ink, extremely subtle paper character. Use an aligned grid, generous 80-100 CSS px exterior padding, 60-80px between groups. Main body has a broad left 60% column and a right 34% newsletter column, with a generous gutter. Never crowd rows.\nPrimary left section: Full original Sebastian/SOFTWARE logo, clearly the dominant brand, roughly 300 CSS px wide. Under it a well-spaced two-column LOCAL index: \"Products\", \"Open Source\", \"Agents & Skills\", \"Company\", \"Journal\". Local links are ordinary readable 16 CSS px sans, not gigantic headings.\nSecondary bridge lower in the left column: ONE smaller softly inset pale berry-gray surface #f7f3f5 with smooth continuous 14px corners, generous internal padding. Full ORIGINAL Sebastian/CONSULTING logo around 165 CSS px wide, noticeably smaller than the primary. Beside or below the wordmark use this precise explanatory copy in readable 15-16px sans: \"Our agency helps teams with software architecture, engineering and technical direction.\" End with one text action \"Discover Consulting\" and a small outward arrow. Do not add a full Consulting submenu, second major brand column or equal-size wordmark.\nShared newsletter right: One light neutral/white editorial sheet with smooth continuous corners; restrained, regular-weight serif title \"Newsletter\", around 30 CSS px. Body text exact: \"Insights into our work across software and consulting: what we're building, exploring and thinking about.\" Set in readable sans, around 16 CSS px with open line-height and a comfortable text measure. Below: \"Email address\" input and \"Subscribe\" button. Neutral shared-company tone, do not make the newsletter belong only to Software and do not invent a sending frequency.\nLower contact band spans the aligned grid, separated by spacious white space and at most one delicate rule: \"Sebastian Software GmbH\", \"Dalheimer Straße 12\", \"55128 Mainz\", \"Germany\"; \"info@sebastian-software.de\"; and social links \"LinkedIn\" and \"GitHub\" with outward arrows. Social icons are SMALL SIMPLE SINGLE-COLOR UI GLYPHS, outline/monoline, like a minimal icon library: an outlined in-square LinkedIn glyph and an outlined GitHub cat-head glyph. All icons use exactly the SAME muted teal-gray ink as the nearby text. NO official LinkedIn blue tiles, multicolor assets, large corporate logo lockups, colored icon circles or brand-specific fills.\nFinal quiet baseline: \"© 2026 Sebastian Software GmbH\" on left; \"Imprint\", \"Privacy\", \"Contact\" on right.\nStyle and constraints: Light refined editorial web design, clear rhythm, credible hierarchy. Primary full logo larger; sibling full logo smaller, complete and never cropped or abbreviated, ALWAYS preserving Sebastian/ and the slash. Original logo artwork remains invariant. All NEW serif text regular/book weight, never bold. Keep enough vertical air even if the canvas becomes taller. No phone number, Heidelberg or regional labels, geographical artwork, photos, people, decorative illustration, browser chrome, metadata captions, fake headings or invented navigation. This is a visual footer concept, not code.",
+          "transparent_background": false
+        },
+        {
+          "intent": "edit",
+          "output": "../../../../apps/software/design/footer-frame-v3.png",
+          "referenced_image_paths": ["references/footer-software-initial.png"],
+          "prompt": "Use case: precise-object-edit. Change ONLY the size of the complete Sebastian/CONSULTING logo inside the SMALLER pale berry secondary bridge box in the lower-left of this footer. It is currently too close to the primary Software logo in scale. Make the Consulting lockup about 55% of its CURRENT width and height, preserving its top-left position inside the same box and keeping its entire emblem plus exact Sebastian/CONSULTING wordmark including the slash. It should be about 250 raster pixels wide on this 1526px-wide sheet, compared with the primary Software logo around 575px wide. This brand entry is secondary. Preserve the big PRIMARY Software logo, the bridge explanation and Discover Consulting action, the bridge surface dimensions and rounded corners, local navigation, newsletter panel and all its exact wording, subscription controls, registered address, email, monochrome social glyphs, legal line, all spacing and background. No other changes and never crop or abbreviate the secondary logo.",
+          "transparent_background": false
+        }
+      ]
+    },
+    {
+      "id": "consulting-footer",
+      "element": "footer",
+      "brand": "consulting",
+      "output": "../../../../apps/consulting/design/footer-frame-v3.png",
+      "stages": [
+        {
+          "intent": "edit",
+          "output": "../../../../apps/consulting/design/footer-frame-v3.png",
+          "referenced_image_paths": [
+            "../../../../apps/software/design/footer-frame-v3.png",
+            "../../../../apps/brand/public/sebastian-software/logo-software.png",
+            "../../../../apps/brand/public/sebastian-consulting/logo-consulting.png"
+          ],
+          "prompt": "Use case: precise-object-edit.\nAsset type: matching desktop footer for the Consulting website.\nInput images: Image 1 is the final Software footer and exact layout/edit target. Image 2 is the original complete Sebastian/SOFTWARE logo. Image 3 is the original complete Sebastian/CONSULTING logo.\nPrimary request: Create the CONSULTING state of precisely this footer. Treat the current website as primary and its sibling as a small explanatory entry. Preserve the target's canvas, composition, grid, relative sizing, vertical spacing, rounded panel shapes, shared newsletter, address/contact/social band and legal baseline. This must look like the SAME footer template in its other current-brand state.\nChange the BIG primary logo at upper left to the complete original Sebastian/CONSULTING lockup. Preserve the primary artwork's large optical size and the exact position occupied by Software in Image 1.\nChange ONLY the primary local link index to \"Services\", \"Profiles\", \"References\" in the left link column, and \"Book an intro call\" in the right link column. Remove Products, Open Source, Agents & Skills, Company and Journal from the primary index. Do not add extra links.\nChange the small lower-left sibling entry to SOFTWARE. Use the entire original Sebastian/SOFTWARE lockup including slash, at the same SMALL scale of the existing secondary Consulting lockup, approximately half the primary logo width. Exact explanatory copy: \"We build products, open-source projects and agent tools for everyday work.\" Exact action: \"Discover Software\" followed by the same small outward arrow. This is one secondary entry, not another full navigation section.\nSwap only the pale footer surface tints: the overall current Consulting endpaper becomes extremely desaturated warm berry-gray #f7f3f5; the small Software bridge uses extremely pale teal-gray #edf3f4. Keep text neutral deep graphite/teal-gray, avoid tinting everything pink. Keep original berry and teal logo colors intact. No beige or saturated pink, no dark large blocks.\nThe shared WHITE newsletter sheet remains IDENTICAL in size, location, regular-weight serif heading and copy: \"Newsletter\"; \"Insights into our work across software and consulting: what we're building, exploring and thinking about.\"; \"Email address\"; \"Subscribe\". Keep the exact line breaks if possible and the existing small neutral/deep teal button. The newsletter spans both brands conceptually and must not be rewritten as Consulting-only.\nKeep exactly: \"Sebastian Software GmbH\", \"Dalheimer Straße 12\", \"55128 Mainz\", \"Germany\", \"info@sebastian-software.de\"; small outline single-color LinkedIn and GitHub glyphs and labels/outward arrows in the same body ink; \"© 2026 Sebastian Software GmbH\", \"Imprint\", \"Privacy\", \"Contact\". No phone number, regional labels or city artwork. Never abbreviate any logo to Consulting or Software, remove Sebastian/, crop an emblem, invent a new mark, or add official multicolor social-brand tiles. No other layout changes, footer slogans, extra headings, header or mobile view.",
+          "transparent_background": false
+        }
+      ]
+    }
+  ]
+}

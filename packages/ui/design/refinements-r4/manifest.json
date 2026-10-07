@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-07",
+  "mode": "Built-in ImageGen",
+  "processing": "Native ImageGen PNGs copied byte-for-byte; no resizing, cropping, or retouching.",
+  "finalConceptCount": 3,
+  "editingInputCount": 1,
+  "images": [
+    {
+      "id": "headerFinal",
+      "file": "header-neutral-sibling-zone.png",
+      "role": "final-concept",
+      "width": 1730,
+      "height": 909,
+      "bytes": 1456965,
+      "sha256": "e8ee16975a866e0f1a0af9e4f851ecaa88e12de170d012bad09cd6cba1638970"
+    },
+    {
+      "id": "softwareInitial",
+      "file": "references/software-ending-initial.png",
+      "role": "editing-input",
+      "width": 1286,
+      "height": 1223,
+      "bytes": 1289285,
+      "sha256": "4e9c928fc8adc2a95cbf65a481edce57dca546b1eee6a192e55405e5bb1cb392"
+    },
+    {
+      "id": "softwareFinal",
+      "file": "../../../../apps/software/design/page-ending-v4.png",
+      "role": "final-concept",
+      "width": 1286,
+      "height": 1223,
+      "bytes": 1602034,
+      "sha256": "5f65fa162ee0a962ef97e9646ec5aeb762e96f0d1f533fc6980fbdf01d83fbee"
+    },
+    {
+      "id": "consultingFinal",
+      "file": "../../../../apps/consulting/design/page-ending-v4.png",
+      "role": "final-concept",
+      "width": 1286,
+      "height": 1223,
+      "bytes": 1280480,
+      "sha256": "dbfff97fda07d8bc167c686edabcfa50a1957b8e27bc551a93695ea3e43985fa"
+    }
+  ]
+}

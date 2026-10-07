@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-07",
+  "mode": "built-in ImageGen",
+  "images": [
+    {
+      "id": "desktop-v1",
+      "file": "references/desktop-frame-v1.png",
+      "selected": false,
+      "width": 1374,
+      "height": 1145,
+      "sha256": "1c3cc6c7f22a8f703669263218fbf2361b52b3838f5dcd0f9e6b3458d65527f1"
+    },
+    {
+      "id": "desktop-refined",
+      "file": "references/desktop-frame-v2.png",
+      "selected": false,
+      "width": 1374,
+      "height": 1145,
+      "sha256": "f4afc5f53c257fdcd6bb1c186e8fdea42e5de14ec9566878fa6ac8470a043ad1"
+    },
+    {
+      "id": "desktop-compact-bar",
+      "file": "site-frame-desktop.png",
+      "selected": true,
+      "width": 1374,
+      "height": 1145,
+      "sha256": "f03c0ad2fd456d8c064e7a040225f7b6515c3dfabbc6e1733eef4e215b340b3d"
+    },
+    {
+      "id": "mobile",
+      "file": "site-frame-mobile.png",
+      "selected": true,
+      "width": 725,
+      "height": 2170,
+      "sha256": "b0bbaa2ba6019812c0b03fac158084b93d6de319df0bc7717e45316f2b5776aa"
+    },
+    {
+      "id": "mobile-menu",
+      "file": "site-frame-mobile-menu.png",
+      "selected": true,
+      "width": 976,
+      "height": 1612,
+      "sha256": "8ada4162726098658fb943fde5b5188730e3fbd03740fe6a86f96c37d210986e"
+    }
+  ]
+}
