@@ -1,9 +1,10 @@
 # Production domain cutover
 
 The runbook is [issue #41](https://github.com/sebastian-software/sebastian-websites/issues/41).
-Software, Open Source, and Consulting move in that order. DNS providers and registrar
-nameservers stay in place. Skills, brand assets, analytics, and legacy alias infrastructure
-remain on their existing targets.
+Software, Open Source, and Consulting moved in that order. DNS providers and registrar
+nameservers stayed in place for the initial website cutover. Skills, brand assets, analytics,
+and legacy alias infrastructure retained their existing targets. The subsequent DNS and
+email changes are recorded in the [migration follow-up](dns-email-migration-2026-10-08.md).
 
 ## Rollback inventory
 
@@ -16,7 +17,7 @@ remain on their existing targets.
 | `sebastian-consulting.de`    | `sebastian-consulting.b-cdn.net`, TTL 1                       | `sebastian-consulting` (5412514)          | `sebastian-websites-consulting-de` (6757792) |
 | `sebastian-consulting.com`   | `sebastian-consulting.b-cdn.net`, TTL 1                       | `sebastian-consulting` (5412514)          | `sebastian-websites-consulting-en` (6757797) |
 
-Software rollback restores only the apex CNAME target in Cloudflare. It does not require
+Software rollback restores only the apex CNAME target at the current DNS provider. It does not require
 removing the new Bunny hostname. Open Source and Consulting rollback moves only the
 canonical hostnames back to the old pull zone, loads free certificates, enables Force SSL,
 and restores the old CNAME target. Consulting profile subdomains stay on the legacy zone.
@@ -36,8 +37,8 @@ Software `.de` retains its five Google MX records. Consulting `.de` and `.com` r
 priority 10 to `mail.sebastian-software.de`, their SPF, `dkim._domainkey` records, and DMARC.
 The mail host retains IPv4 `152.53.179.119` and IPv6
 `2a0a:4cc0:c0:d28e:d4e1:5ff:fe13:a363`. Software `.com` had no MX records before the cutover.
-No email records, mail-host addresses, registrar settings, or nameservers are part of this
-change.
+Email records, mail-host addresses, registrar settings, and nameservers were outside the
+initial website cutover. The follow-up records later DNS and sender-authentication changes.
 
 ## Verification
 
@@ -83,8 +84,9 @@ prefixes.
 
 ## Email consolidation follow-up
 
-The website cutover does not migrate mail. The public DNS audit of the known Software,
-Consulting, and spelling-alias domains found these separate routes:
+The initial website cutover did not migrate mail. Its public DNS audit of the known
+Software, Consulting, and spelling-alias domains found these separate routes. This table
+is the baseline; subsequent changes appear in the migration follow-up:
 
 | Domain                     | Existing inbound mail route  |
 | -------------------------- | ---------------------------- |
