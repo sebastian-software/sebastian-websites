@@ -4,6 +4,11 @@ Work packages that turn the [overall concept](../concept/overall-concept.md) int
 plan is self-contained and records the commit it was planned against; check for drift before
 executing one. Decisions and their reasons live in the [ADRs](../adr/), not here.
 
+Current visual implementation follows the
+[implementation brief](../../design/IMPLEMENTATION-BRIEF.md) and its linked work
+packages. The existing plans continue to govern route migration, hosting, domain
+cutover, and retirement; desktop design completion does not complete those plans.
+
 | Plan                                | Outcome                                                        | Depends on              |
 | ----------------------------------- | -------------------------------------------------------------- | ----------------------- |
 | [01](01-design-phase.md)            | Approved drafts of the brand bar and the four home pages       | —                       |

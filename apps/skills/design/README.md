@@ -1,5 +1,8 @@
 # Skills site frame
 
+Use the [implementation brief](../../../design/IMPLEMENTATION-BRIEF.md) for the
+shared frame requirements. A new Skills homepage is outside its scope.
+
 The planned Skills application uses the Software brand and the [current shared frame](../../../packages/ui/design/refinements-r5/README.md). “Agents & Skills” is the proposed navigation label for this existing site.
 
 The compact floating header has a 48 CSS-pixel implementation target. Its single complete Software logo, local navigation and language belong to the current site. A small neutral **Our agency ↗** text capsule leads outward to Consulting, without a second logo.

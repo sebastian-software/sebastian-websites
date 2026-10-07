@@ -2,6 +2,10 @@
 
 The [current header and page endings](refinements-r5/README.md) distinguish the current website as the publisher and the other website as an outward editorial destination.
 
+The [implementation brief](../../../design/IMPLEMENTATION-BRIEF.md) defines the
+selected references, shared requirements, open decisions, and completion criteria
+for the shared frame and the three homepage work packages.
+
 ## Current direction
 
 Only the current website displays its original logo. The compact floating header groups that identity with local navigation and language. A small neutral text capsule leads to **Our agency ↗** or **Our software ↗**, with no sibling logo. Continuous corners, a soft shadow and inset placement keep the header light. The implementation target is 48 CSS pixels.

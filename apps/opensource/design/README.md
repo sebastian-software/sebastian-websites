@@ -14,6 +14,13 @@ These are visual concepts. The reusable source images are collected in [app/asse
 
 ## Shared frame and current page ending
 
+Use the [implementation brief](../../../design/IMPLEMENTATION-BRIEF.md) for the
+current requirements, complete tile collection, metrics ordering, and completion criteria.
+
+The [editorial collection seed](collection-seed.json) records the initial thirteen
+additional projects, their public sources, classifications, family exclusions,
+and captured activity. It is a starting dataset, not a runtime count limit.
+
 The [current frame gallery](../../../packages/ui/design/refinements-r5/README.md) gives the current website the only logo and presents the other website as an editorial outward invitation. It supersedes the frame areas in the earlier homepage reference.
 
 This site uses the Software context: shared newsletter, illustrated Consulting invitation, then the inset Software footer.

@@ -24,6 +24,7 @@ The same sequence introduces Software through a short editorial story and an ill
 
 ## Sources and provenance
 
+- [Implementation requirements and work packages](../../../../design/IMPLEMENTATION-BRIEF.md)
 - [Hierarchy, section order, current navigation, copy, and links](navigation-and-links.json)
 - [Exact generation and refinement prompts, with portable inputs](prompts.json)
 - [Native PNG dimensions and SHA-256 checksums](manifest.json)

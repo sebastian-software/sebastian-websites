@@ -1,5 +1,9 @@
 # Design direction, round 1
 
+The [implementation brief](IMPLEMENTATION-BRIEF.md) is the current visual
+implementation source. The comp rounds below are historical; their conflicting
+visual prescriptions are superseded by its selected homepage and frame references.
+
 **Status:** round 1 (three directions) was reviewed on 2026-10-06; the owners chose
 direction B, "Statement", with its pastel-teal background. Round 2 refines it on four page
 types under `comps/r2-*.html`. Nothing here is built into the sites yet.

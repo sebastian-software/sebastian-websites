@@ -1,10 +1,11 @@
 # Design system
 
-**Status:** approved by the owners on 2026-10-06 from the round-5 comps
-(`comps/r5-software-home.html`, `comps/r5-consulting-home.html`); see
-[DIRECTION.md](DIRECTION.md) for how it was reached. This document is the reference the
-sites are built against. It is a living document: change it when the design changes, and
-record why in DIRECTION.md.
+**Status:** historical implementation notes from the October 6 HTML comps.
+The [implementation brief](IMPLEMENTATION-BRIEF.md) now governs visual implementation.
+Its selected ImageGen pages and version-5 frame supersede conflicting layout,
+typography, and equal-brand navigation rules below. Existing brand artwork and
+architecture decisions still apply. Keep this record for comparison; finalize the
+new token specification during the shared design-system work package.
 
 Implementation: `packages/tokens` (scale, palettes, neutrals), `packages/ui` (theme, global
 styles, layout, typography, buttons, blocks, Section and SectionHead, brand bar, footer).

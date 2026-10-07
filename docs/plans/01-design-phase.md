@@ -1,5 +1,11 @@
 # Design the brand bar and the four home pages together
 
+Current visual implementation follows the
+[implementation brief](../../design/IMPLEMENTATION-BRIEF.md), including the
+current-site identity and secondary outward text link. The equal-brand bar,
+earlier comp selection, and visual completion criteria below are historical.
+Architecture and delivery decisions remain in the ADRs.
+
 ## Status
 
 - Priority: P1

@@ -1,0 +1,192 @@
+{
+  "revision": 9,
+  "snapshotUrl": "https://metrics.sebastian-software.com/v1/metrics.json",
+  "generatedAt": "2026-10-06T21:06:09Z",
+  "featuredRoots": ["palamedes", "ferramenta", "dalo", "ardo"],
+  "collapsedFerramentaEngines": [
+    "ferralk",
+    "ferriki",
+    "ferrocat",
+    "ferrolex",
+    "ferromark",
+    "ferroni",
+    "ferrugo"
+  ],
+  "withheld": ["effective-flow", "effective-icon"],
+  "additionalProjectCount": 13,
+  "groups": [
+    {
+      "name": "Tools & services",
+      "colors": {
+        "accent": "#005164",
+        "surface": "#f0f7f8",
+        "sourceRoles": ["Teal", "Midnight"]
+      },
+      "projects": [
+        {
+          "displayName": "Paratix",
+          "group": "Tools & services",
+          "technology": "TypeScript",
+          "kind": "CLI",
+          "runtime": "Node.js",
+          "description": "Describe a VPS in TypeScript and apply changes over SSH.",
+          "repo": "paratix",
+          "pushedAt": "2026-10-06T19:48:06Z",
+          "metadataSource": "https://github.com/sebastian-software/paratix"
+        },
+        {
+          "displayName": "Harness Relay",
+          "group": "Tools & services",
+          "technology": "TypeScript",
+          "kind": "CLI",
+          "runtime": "Node.js",
+          "description": "Let one coding agent hand a bounded task to another local harness.",
+          "repo": "harness-relay",
+          "pushedAt": "2026-10-06T14:18:02Z",
+          "metadataSource": "https://github.com/sebastian-software/harness-relay"
+        },
+        {
+          "displayName": "Relanto",
+          "group": "Tools & services",
+          "technology": "TypeScript",
+          "kind": "Service",
+          "runtime": "Self-hosted",
+          "description": "Send application email through your own SMTP servers and a shared HTTP API.",
+          "repo": "relanto",
+          "pushedAt": "2026-10-04T16:12:13Z",
+          "metadataSource": "https://github.com/sebastian-software/relanto"
+        },
+        {
+          "displayName": "mdtheme",
+          "group": "Tools & services",
+          "technology": "Rust",
+          "kind": "CLI",
+          "runtime": "Native",
+          "description": "Keep Markdown headers, footers, branding and badges consistent across repositories.",
+          "repo": "mdtheme",
+          "pushedAt": "2026-10-02T13:01:29Z",
+          "metadataSource": "https://github.com/sebastian-software/mdtheme"
+        },
+        {
+          "displayName": "Offcourse",
+          "group": "Tools & services",
+          "technology": "TypeScript",
+          "kind": "CLI",
+          "runtime": "Node.js",
+          "description": "Keep online courses available offline, with local transcription support.",
+          "repo": "offcourse",
+          "pushedAt": "2026-09-25T07:26:15Z",
+          "metadataSource": "https://github.com/sebastian-software/offcourse"
+        },
+        {
+          "displayName": "Stellara",
+          "group": "Tools & services",
+          "technology": "TypeScript",
+          "kind": "Service",
+          "runtime": "Self-hosted",
+          "description": "Bring search, browser tools and memory behind one self-hosted AI gateway.",
+          "repo": "stellara",
+          "pushedAt": "2026-09-24T18:05:33Z",
+          "metadataSource": "https://github.com/sebastian-software/stellara"
+        },
+        {
+          "displayName": "Antigraph",
+          "group": "Tools & services",
+          "technology": "TypeScript",
+          "kind": "CLI",
+          "runtime": "Node.js",
+          "description": "Turn books from your Kindle library into searchable Markdown.",
+          "repo": "antigraph",
+          "pushedAt": "2026-08-05T16:33:41Z",
+          "metadataSource": "https://github.com/sebastian-software/antigraph"
+        },
+        {
+          "displayName": "Cuttledoc",
+          "group": "Tools & services",
+          "technology": "Rust core",
+          "kind": "CLI + Library",
+          "runtime": "Native",
+          "description": "Transcribe speech locally with a Rust core and native CLI.",
+          "repo": "cuttledoc",
+          "pushedAt": "2026-07-28T09:35:17Z",
+          "metadataSource": "https://github.com/sebastian-software/cuttledoc"
+        },
+        {
+          "displayName": "Naos",
+          "group": "Tools & services",
+          "technology": "TypeScript",
+          "kind": "Compiler",
+          "runtime": "Build tooling",
+          "description": "Compile TSX into lightweight Web Components for the browser.",
+          "repo": "naos-ui",
+          "pushedAt": "2026-07-22T08:22:00Z",
+          "metadataSource": "https://github.com/sebastian-software/naos-ui"
+        }
+      ]
+    },
+    {
+      "name": "Libraries & packages",
+      "colors": {
+        "accent": "#00718d",
+        "surface": "#e7f0f3",
+        "sourceRoles": ["Lagoon", "Frost", "Signal"]
+      },
+      "projects": [
+        {
+          "displayName": "xlsx-format",
+          "group": "Libraries & packages",
+          "technology": "TypeScript",
+          "kind": "Library",
+          "runtime": "Browser + Node.js",
+          "description": "Read and write modern Excel files in the browser and Node.js.",
+          "repo": "xlsx-format",
+          "pushedAt": "2026-09-14T13:52:10Z",
+          "metadataSource": "https://github.com/sebastian-software/xlsx-format"
+        },
+        {
+          "displayName": "Oxlint Config Setup",
+          "group": "Libraries & packages",
+          "technology": "TypeScript",
+          "kind": "Configuration",
+          "runtime": "Build tooling",
+          "description": "Apply prebuilt, type-aware lint configurations to TypeScript projects.",
+          "repo": "oxlint-config-setup",
+          "pushedAt": "2026-08-13T16:59:35Z",
+          "metadataSource": "https://github.com/sebastian-software/oxlint-config-setup"
+        },
+        {
+          "displayName": "ESLint Config Setup",
+          "group": "Libraries & packages",
+          "technology": "TypeScript",
+          "kind": "Configuration",
+          "runtime": "Build tooling",
+          "description": "Share prebuilt lint rules and practical guardrails across TypeScript teams.",
+          "repo": "eslint-config-setup",
+          "pushedAt": "2026-07-14T09:27:05Z",
+          "metadataSource": "https://github.com/sebastian-software/eslint-config-setup"
+        },
+        {
+          "displayName": "pdfium-node",
+          "group": "Libraries & packages",
+          "technology": "C++ core",
+          "kind": "Library",
+          "runtime": "Native · Node.js",
+          "description": "Render selected PDF pages as thumbnails through native PDFium bindings.",
+          "repo": "pdfium-node",
+          "pushedAt": "2026-07-09T14:18:40Z",
+          "metadataSource": "https://github.com/sebastian-software/pdfium-node"
+        }
+      ]
+    }
+  ],
+  "placement": "A complete inline continuation on the same Open Source homepage, after the four featured stories and before the Consulting bridge.",
+  "navigation": "No table, overlay, pagination, search, Explore all projects, hidden collection, or load-more step.",
+  "classificationSource": "Technology, kind, runtime and descriptions are editorial metadata grounded in the inspected project sources. Activity comes from the captured metrics document.",
+  "paletteSource": "../../../packages/tokens/src/palettes.ts",
+  "notes": [
+    "Every eligible additional project appears exactly once. Ferramenta stays grouped.",
+    "The final Libraries row has one real tile and two empty grid positions, allowing future growth without placeholders.",
+    "Cuttledoc labels reflect the current Rust-core project direction; no package-version claim is made."
+  ],
+  "kind": "Editorial collection seed from the October 6 design snapshot; not a fixed project-count limit."
+}
