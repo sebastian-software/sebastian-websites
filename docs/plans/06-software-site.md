@@ -47,7 +47,8 @@ In scope:
   team, product development), Contact, Legal.
 - English source copy and German translation for every page.
 - Redirects: the alias domains, `/consulting` to the Consulting site in the matching
-  language, `/mission` to the company page, `/privacy-policy` to `/privacy`, `/team` kept,
+  language, `/mission` to the company page, `/privacy-policy` to `/privacy`, `/team` to the Consulting
+  team page,
   `/testimonials` and `/testimonial/*` to 410 until the Consulting references exist.
 - Bunny targets `sebastian-websites-software-de` and `sebastian-websites-software-en`, the canonical domains attached, TLS, and the
   DNS move for the two canonical domains and the aliases.

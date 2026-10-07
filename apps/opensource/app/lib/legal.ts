@@ -13,8 +13,8 @@ export const CONTACT_EMAIL = "info@sebastian-software.de"
 export const legalConfig: LegalSiteConfig = defineLegalSiteConfig({
   imprintReview: {
     contentSource: "sebastian-consulting.de imprint, adapted for Sebastian Software",
-    contentVerifiedOn: "2026-10-06",
-    legalReviewStatus: "review-required-before-production",
+    contentVerifiedOn: "2026-10-07",
+    legalReviewStatus: "approved",
   },
   locale: variant.locale,
   operator: siteOperator({ brand: "Sebastian Software", email: CONTACT_EMAIL }),
@@ -22,8 +22,8 @@ export const legalConfig: LegalSiteConfig = defineLegalSiteConfig({
   privacyEmail: CONTACT_EMAIL,
   privacyReview: {
     contentSource: "sebastian-consulting.de privacy policy of 2026-03-09",
-    contentVerifiedOn: "2026-10-06",
-    legalReviewStatus: "review-required-before-production",
+    contentVerifiedOn: "2026-10-07",
+    legalReviewStatus: "approved",
     versionOn: "2026-03-09",
   },
 })

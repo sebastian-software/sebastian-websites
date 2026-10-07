@@ -22,6 +22,9 @@ export const COMPANY = {
   vatId: "DE295226721",
 } as const
 
+/** The photographer of the current business photos (the 2024 shoot). */
+export const BUSINESS_PHOTOGRAPHER = "Sylviane Brauer"
+
 export type SiteOperatorOptions = {
   readonly brand: string
   readonly email: string

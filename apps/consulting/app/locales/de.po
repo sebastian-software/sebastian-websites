@@ -538,6 +538,7 @@ msgid "Company profiles"
 msgstr "Unternehmensprofile"
 
 #: app/components/profile-screen/ProfileRail.tsx#ProfileRail
+#: app/routes/team.tsx#MemberLinks
 msgid "Concise Project Profile"
 msgstr "Kompaktes Projektprofil"
 
@@ -676,6 +677,7 @@ msgstr ""
 "Kundenbedürfnisse und technische Lösungsfindung."
 
 #: app/components/profile-screen/ProfileRail.tsx#PdfActions
+#: app/routes/team.tsx#MemberLinks
 msgid "Download PDF"
 msgstr "PDF herunterladen"
 
@@ -990,6 +992,10 @@ msgstr "Frontend"
 msgid "Frontend & Fullstack"
 msgstr "Frontend & Fullstack"
 
+#: app/data/werner.data.ts#getConsultant
+msgid "Frontend Architecture & Developer Experience"
+msgstr "Frontend-Architektur & Developer Experience"
+
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Frontend Developer"
@@ -999,12 +1005,14 @@ msgstr "Frontend-Entwickler"
 msgid "Frontend focus with an eye on user and developer experience."
 msgstr "Frontend-Fokus mit Blick auf Nutzer- und Entwicklererlebnis."
 
-#: app/data/werner.data.ts#getConsultant
-msgid "Frontend-Architektur & Developer Experience"
-msgstr "Frontend-Architektur & Developer Experience"
+#~ #@ obsolete-since: 2026-10-07
+#~ #: app/data/werner.data.ts#getConsultant
+#~ msgid "Frontend-Architektur & Developer Experience"
+#~ msgstr "Frontend-Architektur & Developer Experience"
 
 #: app/components/project-profile/ProjectProfile.tsx#FirstPage
 #: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
+#: app/routes/team.tsx#MemberLinks
 msgid "Full Consultant Profile"
 msgstr "Ausführliches Beraterprofil"
 
@@ -1234,6 +1242,10 @@ msgstr ""
 "Deployment-Infrastruktur mit Kubernetes und Vault auf AWS ermöglichte "
 "sicheres Continuous Deployment. Eine automatische Testinfrastruktur mit "
 "GraphQL-Query-Tests sicherte die Release-Qualität."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Image Credits"
+msgstr "Bildnachweise"
 
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
@@ -1932,6 +1944,26 @@ msgstr ""
 "Sebastian Consulting – Architektur und Engineering für komplexe "
 "Webanwendungen"
 
+#: app/routes/team.tsx
+msgid ""
+"Sebastian Fastner and Sebastian Werner in conversation in front of a sandstone"
+" wall"
+msgstr "Sebastian Fastner und Sebastian Werner im Gespräch vor einer Sandsteinwand"
+
+#: app/routes/team.tsx
+msgid ""
+"Sebastian Werner and Sebastian Fastner founded Sebastian Software together. As"
+" Sebastian Consulting, both work directly in your project: architecture, "
+"hands-on development, and enablement, with no juniors and no handovers."
+msgstr "Sebastian Werner und Sebastian Fastner haben Sebastian Software gemeinsam gegründet. Als Sebastian Consulting arbeiten beide direkt in Ihrem Projekt: Architektur, Umsetzung und Befähigung Ihres Teams – ohne Juniors und ohne Übergaben."
+
+#: app/routes/team.tsx#meta
+msgid ""
+"Sebastian Werner and Sebastian Fastner: two senior architects for React, "
+"TypeScript, and complex web applications, with their focus areas and full "
+"profiles."
+msgstr "Sebastian Werner und Sebastian Fastner: zwei erfahrene Architekten für React, TypeScript und komplexe Webanwendungen – mit ihren Schwerpunkten und vollständigen Profilen."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "See what we build beyond consulting."
 msgstr "Sehen Sie, was wir jenseits der Beratung bauen."
@@ -1975,6 +2007,7 @@ msgid "Sign-up opens soon. The newsletter has not started yet."
 msgstr "Die Anmeldung öffnet bald. Der Newsletter ist noch nicht gestartet."
 
 #: app/components/profile-print/SkillTags.tsx#groups
+#: app/routes/team.tsx#TeamMember
 msgid "Signature skills"
 msgstr "Schwerpunkte"
 
@@ -2050,6 +2083,10 @@ msgstr "Storage für statische Dateien und Assets"
 msgid "Subscribe"
 msgstr "Abonnieren"
 
+#: app/routes/team.tsx#meta
+msgid "Team – Sebastian Consulting"
+msgstr "Team – Sebastian Consulting"
+
 #: app/components/project-profile/ProjectProfile.tsx#FirstPage
 msgid "Technical Focus"
 msgstr "Technischer Schwerpunkt"
@@ -2100,6 +2137,10 @@ msgstr ""
 " eine schnelle Entwicklung bei gleichzeitiger nativer Distribution über die "
 "App Stores. Die Benutzeroberfläche war für die mobile Nutzung unterwegs "
 "optimiert."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "The business photos were taken by {photographer}."
+msgstr "Die Businessfotos wurden von {photographer} aufgenommen."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""
@@ -2194,6 +2235,10 @@ msgstr ""
 "zum Server hergestellt und die Website nicht angezeigt werden. Eine "
 "gesetzliche oder vertragliche Pflicht zur Bereitstellung weiterer "
 "personenbezogener Daten besteht nicht."
+
+#: app/routes/team.tsx
+msgid "The two people you work with."
+msgstr "Die beiden, mit denen Sie arbeiten."
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""

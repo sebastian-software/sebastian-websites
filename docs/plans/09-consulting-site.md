@@ -9,6 +9,11 @@
 - Depends on: 02, 03
 - Planned at: f007192, 2026-10-06
 - Working state: clean
+- State on 2026-10-07: home, team, profiles, project profile, and legal pages are built
+  (#20, #24, #25); the profile PDFs are generated and verified in every build; the legacy
+  paths redirect through `hosting/redirects.ts`. The fixed-price offers are not carried over
+  (they need their own concept), and the old PDF-name rules are dropped. Cutover is open
+  (#23), desktop-first; mobile follows in #32.
 
 ## Why this matters
 
@@ -97,7 +102,7 @@ redirect sources. Leave the legacy target in place until plan 10.
 ## Done criteria
 
 - [ ] Both canonical domains serve pathless pages from the new targets.
-- [ ] All profile and offer PDFs are reachable under their existing names.
+- [ ] All profile PDFs are reachable under their existing names.
 - [ ] Every redirect source in ADR-0010 for Consulting answers with the documented target.
 - [ ] The personal domains land on the Consulting profiles.
 - [ ] Legal texts were reviewed before launch.

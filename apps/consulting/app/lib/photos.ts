@@ -66,3 +66,13 @@ export const PROFILE_PHOTOS = {
     },
   },
 } as const satisfies Readonly<Record<string, Readonly<Record<"sheet" | "teaser", Portrait>>>>
+
+// Both founders in conversation in front of the sandstone wall, cropped wide.
+const TEAM_CENTER = 0.55
+const TEAM_HEIGHT = 0.62
+
+/** The team page's opening photograph. */
+export const TEAM_PHOTO = {
+  crop: { mode: "focus", point: [TEAM_CENTER, TEAM_HEIGHT], zoom: 1.3 },
+  src: { height: 3977, path: "shooting-2024/shoot-34.jpg", width: 5965 },
+} as const satisfies Portrait

@@ -744,6 +744,10 @@ msgstr "How to reach Sebastian Software GmbH in Mainz."
 msgid "How we build products"
 msgstr "How we build products"
 
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "Image Credits"
+msgstr "Image Credits"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Imprint"
 msgstr "Imprint"
@@ -1599,6 +1603,10 @@ msgstr ""
 #~ msgstr ""
 #~ "Terminaro keeps appointment booking simple for small businesses. Palamedes+ "
 #~ "will bring managed translations to teams that already use Palamedes."
+
+#: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+msgid "The business photos were taken by {photographer}."
+msgstr "The business photos were taken by {photographer}."
 
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#Hero

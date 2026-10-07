@@ -50,12 +50,11 @@ describe("site frame", () => {
   it("leads Consulting to its sections, the booking calendar, and Software", () => {
     const frame = getSiteFrame("consulting", "de", "/imprint")
     expect(frame.brand).toBe("consulting")
-    expect(frame.navigation.map((link) => link.href)).toStrictEqual(["/#services", "/#profiles"])
-    expect(frame.index.map((link) => link.href)).toStrictEqual([
-      "/#services",
-      "/#profiles",
-      BOOKING_URL,
-    ])
+    expect(frame.navigation.map((link) => link.href)).toStrictEqual(["/#services", "/team"])
+    expect(frame.index.map((link) => link.href)).toStrictEqual(["/#services", "/team", BOOKING_URL])
+    expect(
+      getSiteFrame("consulting", "en", "/team").navigation.find((link) => link.current)?.id
+    ).toBe("profiles")
     expect(frame.outbound).toStrictEqual({
       brand: "software",
       href: "https://sebastian-software.de/",
