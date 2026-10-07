@@ -1,7 +1,11 @@
 # Skills site frame
 
-The planned Skills application uses the Software brand and the [shared site frame](../../../packages/ui/design/README.md) used by all four websites.
+The planned Skills application uses the Software brand and the [current shared frame](../../../packages/ui/design/refinements-r3/README.md). “Agents & Skills” is the proposed navigation label for this existing site.
 
-The compact header has a 48 CSS-pixel height target and marks Skills as the current site without changing the common layout. The large footer includes both original brand marks, the company address and contact details, Software and Consulting destinations, newsletter signup, and legal links.
+The compact floating header has a 48 CSS-pixel height target. Software navigation and the language control stay together, with the full Consulting wordmark in a separate pale zone within the same shell.
 
-The shared gallery includes desktop and mobile concepts and the open mobile website switcher.
+The footer uses the Software context: primary Software navigation, a smaller explanatory Consulting entry, and the shared newsletter, company/contact details, single-color social glyphs, and legal links.
+
+![Current Software-context footer](../../software/design/footer-frame-v3.png)
+
+The current round covers desktop. Earlier mobile studies remain in the shared frame archive.

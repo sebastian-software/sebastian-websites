@@ -1,34 +1,27 @@
 # Shared site frame
 
-The [current desktop alternatives](alternatives-r2/README.md) provide five header ideas and five footer ideas for Software, Open Source, Skills, and Consulting. Headers and footers can be combined independently.
+The [current header and contextual footers](refinements-r3/README.md) refine the selected desktop direction for Software, Open Source, Skills, and Consulting.
 
 ## Current direction
 
-The current site owns its complete logo, local navigation, and language control. The sibling website has a separate entry with its own complete original wordmark. Both Sebastian/Software and Sebastian/Consulting always retain the slash. The header target is a compact 48 CSS-pixel inset strip with white space around it.
+The compact floating header encloses both the current site and a separate sibling website entry in one shell. Four continuous iOS-style corners, extremely pale brand color zones, and a soft shadow create the floating appearance. The current site owns its full logo, local navigation, and language control. Both Sebastian/Software and Sebastian/Consulting wordmarks always retain the slash. The implementation height target is 48 CSS pixels.
 
-The shared footer gives both brand indexes equal prominence. It includes the registered address, email, company LinkedIn and GitHub profiles, newsletter, and legal links. The current studies omit phone numbers, regional descriptions, and city illustrations. Several alternatives use a colored footer surface.
+The footer layout is shared, with current-site content taking priority. Each site's primary logo and local index sit beside a shared newsletter. A smaller sibling entry explains the other offering and provides one link. The newsletter covers insights into the work, current projects, and topics being explored across both brands.
 
-New serif text uses regular weight. Existing brand SVGs remain the source artwork for implementation. These are visual studies generated with built-in ImageGen; application components are unchanged.
+Company contact details and legal links remain shared. Social glyphs use one text color and a small outline style. Registered address, email, company LinkedIn/GitHub profiles, newsletter, and legal links are included; phone numbers and regional artwork are omitted.
 
-- [Latest gallery: five headers and five footers](alternatives-r2/README.md)
-- [Current navigation and company links](alternatives-r2/navigation-and-links.json)
-- [Latest exact prompts and image inputs](alternatives-r2/prompts.json)
-- [Latest dimensions and checksums](alternatives-r2/manifest.json)
+- [Current gallery: header in both states and two app-specific footers](refinements-r3/README.md)
+- [Current navigation and footer contexts](refinements-r3/navigation-and-links.json)
+- [Exact prompts and editing inputs](refinements-r3/prompts.json)
+- [Dimensions and checksums](refinements-r3/manifest.json)
+
+These are visual studies generated with built-in ImageGen; application components are unchanged. Existing brand SVGs remain the source artwork for implementation. New serif text uses regular weight.
 
 ## Earlier studies
 
-The [first desktop alternatives](alternatives/README.md) and the complete desktop/mobile proposal below preserve previous explorations. Their global header navigation, abbreviated sibling labels, and footer regional/contact details are superseded by the current direction. Mobile is outside the scope of the current round.
+- [Round 2: five desktop headers and five footers](alternatives-r2/README.md)
+- [Round 1: five desktop headers and five footers](alternatives/README.md)
+- Earlier complete [desktop](site-frame-desktop.png), [mobile](site-frame-mobile.png), and [mobile website switcher](site-frame-mobile-menu.png) studies
+- Earlier [navigation and links](site-frame-links.json), [prompts](site-frame-prompts.json), and [manifest](site-frame-manifest.json)
 
-### Earlier desktop frame
-
-![Earlier shared desktop header and footer](site-frame-desktop.png)
-
-### Earlier mobile frame
-
-![Earlier shared mobile header and footer](site-frame-mobile.png)
-
-### Earlier mobile website switcher
-
-![Earlier open mobile website switcher](site-frame-mobile-menu.png)
-
-Earlier source records: [navigation and links](site-frame-links.json), [prompts](site-frame-prompts.json), and [manifest](site-frame-manifest.json).
+Previous equal-brand footer indexes, global header navigation, abbreviated sibling labels, and regional/contact details are superseded by the current direction. Mobile is outside the current round's scope.

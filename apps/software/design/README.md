@@ -8,6 +8,10 @@ These are visual concepts. The reusable source images are collected in [app/asse
 
 ![Selected commercial product atlas, revision 6](homepage.png)
 
-## Shared header and footer
+## Shared frame and current footer
 
-The [shared site frame](../../../packages/ui/design/README.md) supplies the common 48px header and generous footer for all four websites. It supersedes the corresponding frame areas shown in this earlier full-page reference.
+The [current frame gallery](../../../packages/ui/design/refinements-r3/README.md) shows the floating 48px header target, separate current-site navigation, and contextual footers. It supersedes the frame areas in the earlier homepage reference.
+
+The current site owns the main logo and local footer navigation. The other brand has a smaller explanatory entry; the newsletter spans both.
+
+![Current Software footer](footer-frame-v3.png)
