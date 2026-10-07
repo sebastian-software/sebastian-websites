@@ -38,7 +38,7 @@ export const ASSET_TARGET: Target = {
  * site and asset zone. A variant's canonical hostname is attached only when it is active in
  * production (ADR-0009); until then the variant lives on its origin host.
  */
-// Widened on purpose: the literal list knows every variant is inactive today.
+// Widened so activation can change without changing the target construction.
 const variants: Readonly<Record<string, VariantDefinition>> = VARIANTS
 
 export const TARGETS: readonly Target[] = [

@@ -163,14 +163,14 @@ export const VARIANTS = defineVariants({
     canonicalOrigin: "https://sebastian-software.de",
     deploymentTarget: "sebastian-websites-software-de",
     locale: "de",
-    productionActive: false,
+    productionActive: true,
     site: "software",
   },
   "software-en": {
     canonicalOrigin: "https://sebastian-software.com",
     deploymentTarget: "sebastian-websites-software-en",
     locale: "en",
-    productionActive: false,
+    productionActive: true,
     site: "software",
   },
 } as const)
