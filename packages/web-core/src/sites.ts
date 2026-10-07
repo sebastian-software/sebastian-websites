@@ -121,14 +121,14 @@ export const VARIANTS = defineVariants({
     canonicalOrigin: "https://sebastian-consulting.de",
     deploymentTarget: "sebastian-websites-consulting-de",
     locale: "de",
-    productionActive: false,
+    productionActive: true,
     site: "consulting",
   },
   "consulting-en": {
     canonicalOrigin: "https://sebastian-consulting.com",
     deploymentTarget: "sebastian-websites-consulting-en",
     locale: "en",
-    productionActive: false,
+    productionActive: true,
     site: "consulting",
   },
   "opensource-de": {
