@@ -4,6 +4,7 @@ import { tmpdir } from "node:os"
 import { join } from "node:path"
 import { test } from "node:test"
 
+import { VARIANTS } from "../packages/web-core/src/sites.ts"
 import { type BunnyApi, isJson, type Json } from "./bunny.ts"
 import { loadBunnyImages } from "./images.ts"
 import { originRequest, planPath, publicPath } from "./middleware-logic.ts"
@@ -443,12 +444,15 @@ test("current, unknown, and other sites' paths are not legacy redirects", () => 
 test("targets cover every variant, the brand site, and the build-free asset zone", () => {
   assert.equal(TARGETS.length, 10)
   assert.ok(TARGETS.every((entry) => entry.name.startsWith("sebastian-websites-")))
-  assert.ok(
-    TARGETS.filter((entry) => entry.assets !== true)
-      .filter((entry) => entry.name !== "sebastian-websites-brand")
-      .every((entry) => entry.hostname === undefined),
-    "no variant is active yet"
-  )
+  for (const variant of Object.values(VARIANTS).filter((entry) => entry.productionActive)) {
+    const activeTarget = TARGETS.find((entry) => entry.name === variant.deploymentTarget)
+    assert.equal(activeTarget?.hostname, new URL(variant.canonicalOrigin).hostname)
+  }
+  for (const variant of Object.values(VARIANTS).filter((entry) => !entry.productionActive)) {
+    const inactiveTarget = TARGETS.find((entry) => entry.name === variant.deploymentTarget)
+    assert.ok(inactiveTarget, `${variant.deploymentTarget} has a target`)
+    assert.equal(inactiveTarget.hostname, undefined)
+  }
   const brand = TARGETS.find((entry) => entry.name === "sebastian-websites-brand")
   assert.deepEqual(brand?.corsExtensions, ["css", "svg", "png"])
   assert.equal(brand.hostname, "brand.sebastian-software.com")
