@@ -27,6 +27,7 @@ export const skip = style({
 
 /** The header floats above the page and stays in reach while scrolling. */
 export const area = style({
+  "@media": { print: { display: "none" } },
   marginTop: FRAME.headerTop,
   position: "sticky",
   top: FRAME.headerTop,

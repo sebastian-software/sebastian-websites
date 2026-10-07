@@ -21,6 +21,8 @@ catalog:
   happy-dom: ^20.0.10
   jiti: ^2.6.1
   oxlint: ^1.77.0
+  pdfjs-dist: 6.2.108
+  playwright: ^1.61.1
   prettier: ^3.9.6
   react: ^19.2.8
   react-dom: ^19.2.8

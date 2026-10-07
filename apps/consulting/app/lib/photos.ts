@@ -24,3 +24,45 @@ export const PORTRAITS = {
     src: { height: 5861, path: "shooting-2024/shoot-3.jpg", width: 3907 },
   },
 } as const satisfies Readonly<Record<string, Portrait>>
+
+const SHOOT_15 = { height: 3843, path: "shooting-2024/shoot-15.jpg", width: 5765 } as const
+const SHOOT_31 = { height: 5985, path: "shooting-2024/shoot-31.jpg", width: 3990 } as const
+const SHOOT_32 = { height: 3802, path: "shooting-2024/shoot-32.jpg", width: 5703 } as const
+
+/**
+ * The printable profile's photo frame (128 × 170 pt). One 532 px variant gives
+ * about 300 ppi on paper, matching the former print assets.
+ */
+export const SHEET_PHOTO = { height: 709, width: 532 } as const
+
+// Focal points and zoom reproduce the framing of the former print assets,
+// which were cropped by hand from the same originals.
+const FASTNER_CENTER = 0.575
+const FASTNER_SHEET_HEIGHT = 0.467
+const FASTNER_TEASER_HEIGHT = 0.423
+const WERNER_TEASER_CENTER = 0.533
+const WERNER_TEASER_HEIGHT = 0.362
+
+/**
+ * Profile photographs from the shared asset zone: `sheet` fills the printable
+ * profile's frame, `teaser` the 7:9 rail link to the other consultant.
+ */
+export const PROFILE_PHOTOS = {
+  fastner: {
+    sheet: {
+      crop: { mode: "focus", point: [FASTNER_CENTER, FASTNER_SHEET_HEIGHT], zoom: 1.564 },
+      src: SHOOT_31,
+    },
+    teaser: {
+      crop: { mode: "focus", point: [FASTNER_CENTER, FASTNER_TEASER_HEIGHT], zoom: 3.406 },
+      src: SHOOT_31,
+    },
+  },
+  werner: {
+    sheet: { crop: { mode: "center" }, src: SHOOT_15 },
+    teaser: {
+      crop: { mode: "focus", point: [WERNER_TEASER_CENTER, WERNER_TEASER_HEIGHT], zoom: 1.429 },
+      src: SHOOT_32,
+    },
+  },
+} as const satisfies Readonly<Record<string, Readonly<Record<"sheet" | "teaser", Portrait>>>>

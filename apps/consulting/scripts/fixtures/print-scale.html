@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Browser print scale calibration</title>
+    <style>
+      @page {
+        size: A4 portrait;
+        margin: 20mm;
+      }
+
+      :root {
+        color-scheme: light;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: white;
+        color: black;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      main {
+        width: 140mm;
+      }
+
+      h1 {
+        font-size: 16pt;
+        line-height: 1.15;
+        margin: 0 0 4mm;
+      }
+
+      p {
+        font-size: 9pt;
+        line-height: 1.35;
+        margin: 0 0 4mm;
+      }
+
+      table {
+        border-collapse: collapse;
+        font-size: 9pt;
+        width: 140mm;
+      }
+
+      th,
+      td {
+        border-bottom: 0.25pt solid #aaa;
+        padding: 2.5mm 0;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th:first-child,
+      td:first-child {
+        width: 34mm;
+      }
+
+      th:nth-child(2),
+      td:nth-child(2) {
+        width: 30mm;
+      }
+
+      .bar {
+        height: 8px;
+      }
+
+      .mm {
+        background: #d94b3d;
+        width: 25.4mm;
+      }
+
+      .inch {
+        background: #2676d2;
+        width: 1in;
+      }
+
+      .point {
+        background: #25865b;
+        width: 72pt;
+      }
+
+      .pixel {
+        background: #7b4bc4;
+        width: 96px;
+      }
+
+      .rem {
+        background: #d47a16;
+        width: 6rem;
+      }
+
+      .legacy-pixel {
+        background: #168b9b;
+        width: 90px;
+      }
+
+      .type-samples {
+        display: grid;
+        gap: 2mm;
+        margin-top: 6mm;
+      }
+
+      .type-samples p {
+        line-height: 1;
+        margin: 0;
+      }
+
+      .type-12pt {
+        font-size: 12pt;
+      }
+
+      .type-16px {
+        font-size: 16px;
+      }
+
+      .type-1rem {
+        font-size: 1rem;
+      }
+
+      .page-origin {
+        border-left: 0.5pt solid black;
+        border-top: 0.5pt solid black;
+        height: 4mm;
+        margin-bottom: 3mm;
+        width: 4mm;
+      }
+
+      @media screen {
+        body {
+          margin: 20mm;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="page-origin" aria-label="Origin of the print content box"></div>
+      <h1>Browser print scale calibration</h1>
+      <p>
+        Print as A4 at 100 percent. Disable headers and footers. Keep the margins supplied by the
+        page. Every row except the final control should be exactly 72 PDF points wide.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>CSS length</th>
+            <th>Expected PDF width</th>
+            <th>Reference bar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>25.4mm</td>
+            <td>72pt</td>
+            <td><div class="bar mm"></div></td>
+          </tr>
+          <tr>
+            <td>1in</td>
+            <td>72pt</td>
+            <td><div class="bar inch"></div></td>
+          </tr>
+          <tr>
+            <td>72pt</td>
+            <td>72pt</td>
+            <td><div class="bar point"></div></td>
+          </tr>
+          <tr>
+            <td>96px</td>
+            <td>72pt</td>
+            <td><div class="bar pixel"></div></td>
+          </tr>
+          <tr>
+            <td>6rem at 16px root</td>
+            <td>72pt</td>
+            <td><div class="bar rem"></div></td>
+          </tr>
+          <tr>
+            <td>90px control</td>
+            <td>67.5pt</td>
+            <td><div class="bar legacy-pixel"></div></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="type-samples" aria-label="Equivalent type size samples">
+        <p class="type-12pt">12pt: The quick brown fox jumps over the lazy dog.</p>
+        <p class="type-16px">16px: The quick brown fox jumps over the lazy dog.</p>
+        <p class="type-1rem">1rem: The quick brown fox jumps over the lazy dog.</p>
+      </div>
+    </main>
+  </body>
+</html>

@@ -14,6 +14,51 @@ msgstr ""
 "{brand} is a registered trademark of {name}. This website is operated by "
 "{name}."
 
+#: app/data/werner.data.ts#getConsultant
+msgid ""
+"{experience} years of frontend work – I started when web applications did "
+"not have frameworks yet. At 1&1 I led the development of qooxdoo, one of the "
+"first large open-source UI frameworks for the web, publicly maintained for "
+"more than a decade. Since then I have helped build interfaces for millions of "
+"users: Deutsche Telekom's set-top boxes, the ARD Mediathek, and the national "
+"ticket booking flow of the Swiss Federal Railways."
+msgstr ""
+"{experience} years of frontend work – I started when web applications did "
+"not have frameworks yet. At 1&1 I led the development of qooxdoo, one of the "
+"first large open-source UI frameworks for the web, publicly maintained for "
+"more than a decade. Since then I have helped build interfaces for millions of "
+"users: Deutsche Telekom's set-top boxes, the ARD Mediathek, and the national "
+"ticket booking flow of the Swiss Federal Railways."
+
+#: app/data/fastner.data.ts#getConsultant
+msgid ""
+"{experience} years of software development leave a mark – in my case, "
+"products running in more than ten countries. At DWS Group, I built an "
+"investment platform serving European and Asian markets. At Witt, I laid the "
+"technical foundation for 17 online shops. For Regrello, I developed an AI "
+"translation pipeline that enables users of different languages to collaborate "
+"seamlessly."
+msgstr ""
+"{experience} years of software development leave a mark – in my case, "
+"products running in more than ten countries. At DWS Group, I built an "
+"investment platform serving European and Asian markets. At Witt, I laid the "
+"technical foundation for 17 online shops. For Regrello, I developed an AI "
+"translation pipeline that enables users of different languages to collaborate "
+"seamlessly."
+
+#: app/components/profile-print/helpers.ts#formatDateRange
+msgid "{startMonth}/{startYear} – {endMonth}/{endYear}"
+msgstr "{startMonth}/{startYear} – {endMonth}/{endYear}"
+
+#: app/components/profile-print/IndustryExperience.tsx#IndustryExperience
+msgid "{years, plural, one {year} other {years}}"
+msgstr "{years, plural, one {year} other {years}}"
+
+#: app/components/profile-screen/ProfileRail.tsx#ProfileRail
+#: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
+msgid "15 minutes, no obligation — straight into the calendar."
+msgstr "15 minutes, no obligation — straight into the calendar."
+
 #: app/components/Closing.tsx#Closing
 msgid ""
 "15 minutes, no strings attached: you talk directly to one of the two "
@@ -21,6 +66,40 @@ msgid ""
 msgstr ""
 "15 minutes, no strings attached: you talk directly to one of the two "
 "Sebastians."
+
+#: app/data/werner.projects-featured.ts#getFeaturedProjects
+msgid ""
+"3Degrees in San Francisco developed Meridian, an energy management solution "
+"for customers who buy Energy Attribute Certificates, manage shares in "
+"facilities, and match them with their consumption data. I support the small "
+"product team as Senior Principal Frontend Architect, bringing the architecture"
+" perspective across the visible customer application, an internal admin "
+"application, and statically pre-rendered information pages. One focus is "
+"making frontend decisions technically sound early and helping the team with "
+"i18n, code quality, and durable platform structures.\n"
+"\n"
+"Meridian is built with TypeScript, React, Next.js, and Vite; Lingui provides "
+"the foundation for internationalization. Supabase handles backend and "
+"authentication capabilities, while Vercel hosts the platform. I also "
+"established AI-assisted development workflows around MCP services, custom "
+"agents, skills, and automation so recurring architecture, review, and "
+"translation tasks are embedded more reliably in the development process."
+msgstr ""
+"3Degrees in San Francisco developed Meridian, an energy management solution "
+"for customers who buy Energy Attribute Certificates, manage shares in "
+"facilities, and match them with their consumption data. I support the small "
+"product team as Senior Principal Frontend Architect, bringing the architecture"
+" perspective across the visible customer application, an internal admin "
+"application, and statically pre-rendered information pages. One focus is "
+"making frontend decisions technically sound early and helping the team with "
+"i18n, code quality, and durable platform structures.\n"
+"\n"
+"Meridian is built with TypeScript, React, Next.js, and Vite; Lingui provides "
+"the foundation for internationalization. Supabase handles backend and "
+"authentication capabilities, while Vercel hosts the platform. I also "
+"established AI-assisted development workflows around MCP services, custom "
+"agents, skills, and automation so recurring architecture, review, and "
+"translation tasks are embedded more reliably in the development process."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""
@@ -41,6 +120,14 @@ msgstr ""
 msgid "A drawn road winding through a valley toward the mountains."
 msgstr "A drawn road winding through a valley toward the mountains."
 
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"A one-off on-site assignment in the US demonstrates willingness to travel "
+"internationally."
+msgstr ""
+"A one-off on-site assignment in the US demonstrates willingness to travel "
+"internationally."
+
 #: app/components/Closing.tsx#Closing
 msgid ""
 "A rocky ridge path at dusk leading toward a cairn on an overlook above layered"
@@ -48,6 +135,10 @@ msgid ""
 msgstr ""
 "A rocky ridge path at dusk leading toward a cairn on an overlook above layered"
 " hills."
+
+#: app/components/profile-print/AdditionalProjects.tsx#AdditionalProjects
+msgid "Additional Projects"
+msgstr "Additional Projects"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Address"
@@ -63,9 +154,49 @@ msgstr ""
 "the architecture, and what quality looks like. That is where we take "
 "responsibility."
 
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "AI Applications"
+msgstr "AI Applications"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "AI-Powered Internationalization"
+msgstr "AI-Powered Internationalization"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "AI-Powered Localization Platform"
+msgstr "AI-Powered Localization Platform"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Almost done: please confirm the link we just sent you."
 msgstr "Almost done: please confirm the link we just sent you."
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid ""
+"Alongside my computer science studies, I worked as an IT system administrator "
+"at Bingen University of Applied Sciences. The responsibility for the "
+"university's web and mail servers provided practical experience in server "
+"administration and the operation of critical IT infrastructure. This role "
+"connected academic learning with practical application.\n"
+"\n"
+"Linux-based servers formed the backbone of the administered systems. "
+"Maintenance included security updates, backup strategies, and service "
+"monitoring. The experience with production systems in an academic environment "
+"laid the foundation for my later career in software development."
+msgstr ""
+"Alongside my computer science studies, I worked as an IT system administrator "
+"at Bingen University of Applied Sciences. The responsibility for the "
+"university's web and mail servers provided practical experience in server "
+"administration and the operation of critical IT infrastructure. This role "
+"connected academic learning with practical application.\n"
+"\n"
+"Linux-based servers formed the backbone of the administered systems. "
+"Maintenance included security updates, backup strategies, and service "
+"monitoring. The experience with production systems in an academic environment "
+"laid the foundation for my later career in software development."
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Appointment Booking System"
+msgstr "Appointment Booking System"
 
 #: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
 msgid "Appointment Booking via Terminaro"
@@ -87,9 +218,183 @@ msgstr "Architecture and engineering for complex web applications."
 msgid "Architecture reviews, hands-on development, and knowledge that stays."
 msgstr "Architecture reviews, hands-on development, and knowledge that stays."
 
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid ""
+"As a Java developer at 3ado AG in Mainz, I developed 'JourFixe' – a web "
+"application for meeting management and minutes tracking. The SaaS solution "
+"enabled companies to professionally manage their meetings and maintain "
+"structured documentation of meeting outcomes. The product was operated as a "
+"SaaS model and targeted business clients with regular meeting needs.\n"
+"\n"
+"Full-stack development from database to user interface was my responsibility. "
+"The backend used MySQL as the database and Spring as the framework, while "
+"Hibernate served as the ORM layer abstracting database access. The web "
+"interface was built on HTML templates enriched with JavaScript to provide a "
+"responsive user experience."
+msgstr ""
+"As a Java developer at 3ado AG in Mainz, I developed 'JourFixe' – a web "
+"application for meeting management and minutes tracking. The SaaS solution "
+"enabled companies to professionally manage their meetings and maintain "
+"structured documentation of meeting outcomes. The product was operated as a "
+"SaaS model and targeted business clients with regular meeting needs.\n"
+"\n"
+"Full-stack development from database to user interface was my responsibility. "
+"The backend used MySQL as the database and Spring as the framework, while "
+"Hibernate served as the ORM layer abstracting database access. The web "
+"interface was built on HTML templates enriched with JavaScript to provide a "
+"responsive user experience."
+
+#: app/components/project-profile/ProjectProfile.tsx#FirstPage
+msgid "as of {availabilityMonth}"
+msgstr "as of {availabilityMonth}"
+
+#: app/components/profile-print/CompanyContact.tsx#CompanyContact
+#: app/components/profile-screen/ProfileRail.tsx#PdfActions
+#: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
+msgid "As of:"
+msgstr "As of:"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid ""
+"As part of my full-time internship during my computer science studies, I "
+"developed backend components for the credit portfolio management tool 'Value "
+"Manager' at Commerzbank. The tool used aggregated data from Commerzbank's "
+"backend for the management and analysis of credit portfolios. The data "
+"collection and aggregation formed the basis for strategic decisions in the "
+"lending business.\n"
+"\n"
+"Java and SAS were used for data collection and processing. The backend "
+"development involved connecting to Commerzbank's complex data sources and "
+"transforming raw data into meaningful key performance indicators. The "
+"aggregated data was made available to the Value Manager for visualization and "
+"analysis."
+msgstr ""
+"As part of my full-time internship during my computer science studies, I "
+"developed backend components for the credit portfolio management tool 'Value "
+"Manager' at Commerzbank. The tool used aggregated data from Commerzbank's "
+"backend for the management and analysis of credit portfolios. The data "
+"collection and aggregation formed the basis for strategic decisions in the "
+"lending business.\n"
+"\n"
+"Java and SAS were used for data collection and processing. The backend "
+"development involved connecting to Commerzbank's complex data sources and "
+"transforming raw data into meaningful key performance indicators. The "
+"aggregated data was made available to the Value Manager for visualization and "
+"analysis."
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid ""
+"As Senior Frontend Architect, I continued the DWS Robo-Advisor WISE after its "
+"2022 transfer to MorgenFund. I modernized it on Azure, ported the dashboard "
+"from React to React Native, and rolled it out to further European and Asian "
+"markets.\n"
+"\n"
+"I introduced continuous deployment for faster, reliable releases and a shared "
+"web/mobile architecture. Jest and React Testing Library covered core UI "
+"behavior across varying regulatory and localization requirements."
+msgstr ""
+"As Senior Frontend Architect, I continued the DWS Robo-Advisor WISE after its "
+"2022 transfer to MorgenFund. I modernized it on Azure, ported the dashboard "
+"from React to React Native, and rolled it out to further European and Asian "
+"markets.\n"
+"\n"
+"I introduced continuous deployment for faster, reliable releases and a shared "
+"web/mobile architecture. Jest and React Testing Library covered core UI "
+"behavior across varying regulatory and localization requirements."
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid ""
+"As Senior Frontend Architect, I took WISE from DWS prototype to production. "
+"Its sales-pitch prototype included an investment-profile wizard; the "
+"production platform added risk profiling, DocuSign onboarding, and a dashboard"
+" across more than ten European and Asian portals.\n"
+"\n"
+"After a Vue.js/MobX prototype, I ported the frontend to React and TypeScript, "
+"built an enterprise React component library, and owned the Webpack, Babel, and"
+" ESLint tooling. Spring Boot connected investment and CRM systems; Keycloak "
+"handled OpenID/OAuth. REST services and CI/CD ran on Microsoft Azure."
+msgstr ""
+"As Senior Frontend Architect, I took WISE from DWS prototype to production. "
+"Its sales-pitch prototype included an investment-profile wizard; the "
+"production platform added risk profiling, DocuSign onboarding, and a dashboard"
+" across more than ten European and Asian portals.\n"
+"\n"
+"After a Vue.js/MobX prototype, I ported the frontend to React and TypeScript, "
+"built an enterprise React component library, and owned the Webpack, Babel, and"
+" ESLint tooling. Spring Boot connected investment and CRM systems; Keycloak "
+"handled OpenID/OAuth. REST services and CI/CD ran on Microsoft Azure."
+
+#: app/data/werner.data.ts#getConsultant
+msgid ""
+"At Sebastian Software – founded together with Sebastian Fastner – I advise"
+" teams as Principal Technology Consultant on making their frontend "
+"sustainable. No slideware architecture, but work in the code: analysis, "
+"refactoring, enablement. And an honest answer on when the simpler solution is "
+"the better one."
+msgstr ""
+"At Sebastian Software – founded together with Sebastian Fastner – I advise"
+" teams as Principal Technology Consultant on making their frontend "
+"sustainable. No slideware architecture, but work in the code: analysis, "
+"refactoring, enablement. And an honest answer on when the simpler solution is "
+"the better one."
+
+#: app/data/fastner.data.ts#getConsultant
+msgid ""
+"At Sebastian Software, I work as a Senior Technology Consultant where frontend"
+" architecture, full-stack SaaS, mobile, and internationalization intersect. "
+"Not as an external contractor who simply delivers code, but as a partner who "
+"shares knowledge, makes product decisions technically robust, and helps teams "
+"move forward."
+msgstr ""
+"At Sebastian Software, I work as a Senior Technology Consultant where frontend"
+" architecture, full-stack SaaS, mobile, and internationalization intersect. "
+"Not as an external contractor who simply delivers code, but as a partner who "
+"shares knowledge, makes product decisions technically robust, and helps teams "
+"move forward."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
 msgid "Automated Decision-Making"
 msgstr "Automated Decision-Making"
+
+#: app/data/fastner.project-profile.ts#createFastnerProjectProfile
+msgid "Available immediately"
+msgstr "Available immediately"
+
+#: app/components/profile-screen/ProfileRail.tsx#ProfileRail
+msgid "Back to home"
+msgstr "Back to home"
+
+#: app/components/profile-print/SkillStack.tsx#SkillStack
+#: app/components/profile-print/SkillTags.tsx#groups
+msgid "Backend"
+msgstr "Backend"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Bad Rodach, Germany"
+msgstr "Bad Rodach, Germany"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Bensheim, Germany"
+msgstr "Bensheim, Germany"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Bingen am Rhein, Germany"
+msgstr "Bingen am Rhein, Germany"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Bingen, Germany"
+msgstr "Bingen, Germany"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Bonn, Germany"
+msgstr "Bonn, Germany"
+
+#: app/components/profile-screen/ProfileMobileBar.tsx#ProfileMobileBar
+#: app/components/profile-screen/ProfileOutro.tsx#ProfileOutro
+#: app/components/profile-screen/ProfileRail.tsx#ProfileRail
+#: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
+msgid "Book a call"
+msgstr "Book a call"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 #: app/components/Closing.tsx#Closing
@@ -101,6 +406,22 @@ msgstr "Book an intro call"
 #: app/components/Services.tsx#Services
 msgid "Bring the product into more languages."
 msgstr "Bring the product into more languages."
+
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"Built a Next.js/React/TypeScript frontend, an Apollo GraphQL layer, and "
+"automated test infrastructure."
+msgstr ""
+"Built a Next.js/React/TypeScript frontend, an Apollo GraphQL layer, and "
+"automated test infrastructure."
+
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"Built the WISE white-label investment platform for more than ten European and "
+"Asian investment portals."
+msgstr ""
+"Built the WISE white-label investment platform for more than ten European and "
+"Asian investment portals."
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -124,6 +445,34 @@ msgstr ""
 msgid "BunnyWay d.o.o. (Bunny.net), Slovenia"
 msgstr "BunnyWay d.o.o. (Bunny.net), Slovenia"
 
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid ""
+"Business end-users of Deutsche Telekom needed a mobile application for "
+"configuring OneNumber on various devices. The app I developed supported iOS, "
+"Android, BlackBerry, Amazon Fire Phone, and Windows Phone – broad device "
+"coverage that addressed the heterogeneous device landscape in enterprises. "
+"Seamless authentication via the Telekom Identity Management system provided "
+"secure and convenient access for corporate clients.\n"
+"\n"
+"PhoneGap served as the cross-platform foundation for the app development. The "
+"UI was implemented as a single page application in JavaScript, while "
+"configuration was retrieved and set via REST API. Authentication was handled "
+"via OAuth/OpenID using the SIM card's phone number. The app was implemented in"
+" German and English, with translations managed via PO files."
+msgstr ""
+"Business end-users of Deutsche Telekom needed a mobile application for "
+"configuring OneNumber on various devices. The app I developed supported iOS, "
+"Android, BlackBerry, Amazon Fire Phone, and Windows Phone – broad device "
+"coverage that addressed the heterogeneous device landscape in enterprises. "
+"Seamless authentication via the Telekom Identity Management system provided "
+"secure and convenient access for corporate clients.\n"
+"\n"
+"PhoneGap served as the cross-platform foundation for the app development. The "
+"UI was implemented as a single page application in JavaScript, while "
+"configuration was retrieved and set via REST API. Authentication was handled "
+"via OAuth/OpenID using the SIM card's phone number. The app was implemented in"
+" German and English, with translations managed via PO files."
+
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
 "CDN (Content Delivery Network) for delivering static files (HTML, JavaScript, "
@@ -136,9 +485,17 @@ msgstr ""
 msgid "CDN, hosting and edge scripting for this website"
 msgstr "CDN, hosting and edge scripting for this website"
 
+#: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
+msgid "Citizenship"
+msgstr "Citizenship"
+
 #: app/components/Founders.tsx#Founders
 msgid "Clarity."
 msgstr "Clarity."
+
+#: app/components/profile-print/AdditionalProjects.tsx#AdditionalProjects
+msgid "Client"
+msgstr "Client"
 
 #: app/components/Founders.tsx#Founders
 msgid "Co-founder"
@@ -152,8 +509,21 @@ msgstr "Company"
 msgid "Company profiles"
 msgstr "Company profiles"
 
+#: app/components/profile-screen/ProfileRail.tsx#ProfileRail
+msgid "Concise Project Profile"
+msgstr "Concise Project Profile"
+
+#: app/routes/profile.fastner.project.tsx#meta
+msgid ""
+"Concise project profile for Sebastian Fastner covering React, TypeScript, and "
+"frontend projects, including availability, skills, and project experience."
+msgstr ""
+"Concise project profile for Sebastian Fastner covering React, TypeScript, and "
+"frontend projects, including availability, skills, and project experience."
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+#: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
 msgid "Contact"
 msgstr "Contact"
 
@@ -165,6 +535,39 @@ msgstr "Contact via Email"
 msgid "Controller"
 msgstr "Controller"
 
+#: app/components/profile-print/SkillTags.tsx#SkillTags
+msgid "Core Competencies"
+msgstr "Core Competencies"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Credit Portfolio Management Tool"
+msgstr "Credit Portfolio Management Tool"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Darmstadt, Germany"
+msgstr "Darmstadt, Germany"
+
+#: app/components/project-profile/ProjectProfile.tsx#CareerPage
+msgid "Degree"
+msgstr "Degree"
+
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"Delivered from sales prototype through to a production white-label "
+"robo-advisor."
+msgstr ""
+"Delivered from sales prototype through to a production white-label "
+"robo-advisor."
+
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"Delivered the website, newsletter backend, authentication, and API and "
+"pipeline infrastructure."
+msgstr ""
+"Delivered the website, newsletter backend, authentication, and API and "
+"pipeline infrastructure."
+
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
 "Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit "
@@ -175,9 +578,33 @@ msgstr ""
 "Rheinland-Pfalz<0/>Postfach 30 40<1/>55020 "
 "Mainz<2/><3>www.datenschutz.rlp.de</3>"
 
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"Designed and implemented a CLI-first workflow, translation pipeline, QA "
+"reports, and terminology features."
+msgstr ""
+"Designed and implemented a CLI-first workflow, translation pipeline, QA "
+"reports, and terminology features."
+
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"Developer-first platform for AI-assisted localization within Git and release "
+"workflows."
+msgstr ""
+"Developer-first platform for AI-assisted localization within Git and release "
+"workflows."
+
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Device information (screen size, operating system, browser)"
 msgstr "Device information (screen size, operating system, browser)"
+
+#: app/data/fastner.data.ts#getConsultant
+msgid "Diplom-Informatiker (FH) – German diploma in computer science"
+msgstr "Diplom-Informatiker (FH) – German diploma in computer science"
+
+#: app/components/project-profile/ProjectProfile.tsx#FirstPage
+msgid "Direct Contact"
+msgstr "Direct Contact"
 
 #: app/components/Founders.tsx#Founders
 msgid "Direct responsibility."
@@ -186,6 +613,57 @@ msgstr "Direct responsibility."
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Discover Sebastian/Software"
 msgstr "Discover Sebastian/Software"
+
+#: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
+msgid "Discuss Availability"
+msgstr "Discuss Availability"
+
+#: app/components/profile-screen/ProfileOutro.tsx#ProfileOutro
+msgid "Does the profile fit?"
+msgstr "Does the profile fit?"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid ""
+"DoubleF IT – my first own company – provided residential customers with "
+"broadband internet access via Wireless LAN. At a time when DSL was not yet "
+"widely available, this solution offered an alternative for underserved areas. "
+"The business model combined hardware installation with software development "
+"and network operations.\n"
+"\n"
+"Server and software development took place in parallel with the physical "
+"installation of the WLAN connections. Customers were connected via directional"
+" radio links to our main site, from which internet access was provided. This "
+"early entrepreneurial experience shaped my understanding of customer needs and"
+" technical problem-solving."
+msgstr ""
+"DoubleF IT – my first own company – provided residential customers with "
+"broadband internet access via Wireless LAN. At a time when DSL was not yet "
+"widely available, this solution offered an alternative for underserved areas. "
+"The business model combined hardware installation with software development "
+"and network operations.\n"
+"\n"
+"Server and software development took place in parallel with the physical "
+"installation of the WLAN connections. Customers were connected via directional"
+" radio links to our main site, from which internet access was provided. This "
+"early entrepreneurial experience shaped my understanding of customer needs and"
+" technical problem-solving."
+
+#: app/components/profile-screen/ProfileRail.tsx#PdfActions
+msgid "Download PDF"
+msgstr "Download PDF"
+
+#: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
+msgid "Download the concise five-page profile as a PDF."
+msgstr "Download the concise five-page profile as a PDF."
+
+#: app/data/fastner.data.ts#getConsultant
+#: app/data/werner.data.ts#getConsultant
+msgid "E-Commerce"
+msgstr "E-Commerce"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "E-Learning Platform"
+msgstr "E-Learning Platform"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -215,6 +693,14 @@ msgstr "Edge Scripting for server-side logic at Bunny.net nodes"
 msgid "Editorially Responsible pursuant to § 18(2) MStV"
 msgstr "Editorially Responsible pursuant to § 18(2) MStV"
 
+#: app/components/project-profile/ProjectProfile.tsx#CareerPage
+msgid "Education, Languages & Contact"
+msgstr "Education, Languages & Contact"
+
+#: app/components/project-profile/ProjectProfile.tsx#ContactDetails
+msgid "Email"
+msgstr "Email"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Email address"
 msgstr "Email address"
@@ -224,6 +710,23 @@ msgstr "Email address"
 msgid "Email:"
 msgstr "Email:"
 
+#: app/data/werner.data.ts#getConsultant
+msgid "Energy"
+msgstr "Energy"
+
+#: app/data/fastner.project-profile.ts#createFastnerProjectProfile
+msgid "Engagement via Sebastian Software GmbH"
+msgstr "Engagement via Sebastian Software GmbH"
+
+#: app/data/fastner.data.ts#getConsultant
+#: app/data/werner.data.ts#getConsultant
+msgid "English"
+msgstr "English"
+
+#: app/data/fastner.data.ts#getConsultant
+msgid "Enterprise Software / SaaS"
+msgstr "Enterprise Software / SaaS"
+
 #: app/components/Founders.tsx#Founders
 msgid "Enthusiasm."
 msgstr "Enthusiasm."
@@ -231,6 +734,14 @@ msgstr "Enthusiasm."
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Entry in the Commercial Register"
 msgstr "Entry in the Commercial Register"
+
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"Established the technical foundation for 17 multi-brand online shops across "
+"international markets."
+msgstr ""
+"Established the technical foundation for 17 multi-brand online shops across "
+"international markets."
 
 #: app/components/Founders.tsx#Founders
 msgid "Experience."
@@ -243,6 +754,63 @@ msgstr "External Links"
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Fax:"
 msgstr "Fax:"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "FIFA World Cup 2010 App"
+msgstr "FIFA World Cup 2010 App"
+
+#: app/data/fastner.data.ts#getConsultant
+#: app/data/werner.data.ts#getConsultant
+msgid "Fintech"
+msgstr "Fintech"
+
+#: app/components/profile-screen/ProfileRail.tsx#ProfileRail
+msgid "Five pages covering role, availability, skills, and project experience."
+msgstr "Five pages covering role, availability, skills, and project experience."
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid ""
+"For a supplier of Deutsche Bank, I developed a web frontend for configuring "
+"virtual data centers via drag-and-drop and obtaining quotes from various data "
+"center operators. The intuitive user interface significantly simplified the "
+"complex procurement process for IT infrastructure.\n"
+"\n"
+"Ember.js served as the framework for the HTML5 interface, optimized for "
+"desktops and tablets. I set up the complete tooling with Grunt, Bower, and "
+"QUnit as well as the CI pipeline. The drag-and-drop functionality enabled "
+"intuitive configuration, while backend integration allowed real-time quotes "
+"from various providers."
+msgstr ""
+"For a supplier of Deutsche Bank, I developed a web frontend for configuring "
+"virtual data centers via drag-and-drop and obtaining quotes from various data "
+"center operators. The intuitive user interface significantly simplified the "
+"complex procurement process for IT infrastructure.\n"
+"\n"
+"Ember.js served as the framework for the HTML5 interface, optimized for "
+"desktops and tablets. I set up the complete tooling with Grunt, Bower, and "
+"QUnit as well as the CI pipeline. The drag-and-drop functionality enabled "
+"intuitive configuration, while backend integration allowed real-time quotes "
+"from various providers."
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid ""
+"For Creative Communications, I developed a web application for managing "
+"promotion assignments and promoters. The solution centralized promoter data "
+"and supported communication by SMS, enabling assignments and deployment "
+"information to be managed efficiently.\n"
+"\n"
+"The application was built with PHP, HTML, and MySQL. Alongside data "
+"management, SMS-based communication between scheduling staff and promoters was"
+" one of its core capabilities."
+msgstr ""
+"For Creative Communications, I developed a web application for managing "
+"promotion assignments and promoters. The solution centralized promoter data "
+"and supported communication by SMS, enabling assignments and deployment "
+"information to be managed efficiently.\n"
+"\n"
+"The application was built with PHP, HTML, and MySQL. Alongside data "
+"management, SMS-based communication between scheduling staff and promoters was"
+" one of its core capabilities."
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""
@@ -264,6 +832,48 @@ msgstr ""
 "Art. 4(10) GDPR, but rather an internal processing operation by the same "
 "controller."
 
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid ""
+"For Palamedes, a product by Sebastian Software GmbH, I was responsible as "
+"Product Architect for a developer-first product for AI-powered localization "
+"designed to move translation work out of the release bottleneck. Instead of "
+"optimizing traditional translation tickets, manual exports, and downstream "
+"review loops, it focuses on a CLI-first workflow for PO- and "
+"MessageFormat-based projects. I brought product strategy, positioning, the "
+"open-core split, website, newsletter backend, and API/pipeline infrastructure "
+"into a cohesive product approach.\n"
+"\n"
+"The product core separates an open, local i18n foundation from a commercial "
+"translation and control layer. Delta translations, terminology and protected "
+"terms, context enrichment, QA reports, targeted retries, and traceable PO "
+"metadata form the central product functionality. The website was built with "
+"React Router 7, Vanilla Extract, Lingui, and self-hosted Convex; newsletter "
+"flows, a preference center, double opt-in, unsubscribe mechanics, Relanto "
+"email delivery, Pocket ID admin authentication, and a Convex-based API key and"
+" pipeline structure support the product architecture."
+msgstr ""
+"For Palamedes, a product by Sebastian Software GmbH, I was responsible as "
+"Product Architect for a developer-first product for AI-powered localization "
+"designed to move translation work out of the release bottleneck. Instead of "
+"optimizing traditional translation tickets, manual exports, and downstream "
+"review loops, it focuses on a CLI-first workflow for PO- and "
+"MessageFormat-based projects. I brought product strategy, positioning, the "
+"open-core split, website, newsletter backend, and API/pipeline infrastructure "
+"into a cohesive product approach.\n"
+"\n"
+"The product core separates an open, local i18n foundation from a commercial "
+"translation and control layer. Delta translations, terminology and protected "
+"terms, context enrichment, QA reports, targeted retries, and traceable PO "
+"metadata form the central product functionality. The website was built with "
+"React Router 7, Vanilla Extract, Lingui, and self-hosted Convex; newsletter "
+"flows, a preference center, double opt-in, unsubscribe mechanics, Relanto "
+"email delivery, Pocket ID admin authentication, and a Convex-based API key and"
+" pipeline structure support the product architecture."
+
+#: app/components/profile-screen/ProfileRail.tsx#ProfileRail
+msgid "For Recruiters"
+msgstr "For Recruiters"
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
 msgid ""
 "For statistical analysis of website usage, we use Rybbit, which operates "
@@ -274,6 +884,118 @@ msgstr ""
 "entirely without cookies and does not permanently store personal data (see "
 "section \"Web Analytics\")."
 
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid ""
+"For Terminaro, a product by Sebastian Software GmbH, I built a web-based "
+"appointment booking system for freelancers and companies as a Product "
+"Engineer, moving scheduling coordination out of email threads and into a "
+"shareable, multilingual booking link. Visitors can view available time slots "
+"without registration, book in their own time zone, and cancel appointments "
+"through a personal link. I owned the product from the public booking page to "
+"the administration area, with a strong focus on GDPR-oriented workflows, a "
+"cookie-free booking page, and reliable availability calculation.\n"
+"\n"
+"React Router 7, TypeScript, and Convex form the technical foundation. The "
+"application integrates Google Calendar via OAuth as well as CalDAV-compatible "
+"calendars such as iCloud and Fastmail, generates iCal feeds, sends "
+"customizable email templates through customer-owned SMTP servers, and protects"
+" sensitive credentials through encryption. Better Auth with Pocket ID, "
+"Bunny.net Static Hosting with Edge Middleware, security headers, rate limits, "
+"health checks, and an extensive Vitest-/Playwright-oriented test base support "
+"operations and ongoing development."
+msgstr ""
+"For Terminaro, a product by Sebastian Software GmbH, I built a web-based "
+"appointment booking system for freelancers and companies as a Product "
+"Engineer, moving scheduling coordination out of email threads and into a "
+"shareable, multilingual booking link. Visitors can view available time slots "
+"without registration, book in their own time zone, and cancel appointments "
+"through a personal link. I owned the product from the public booking page to "
+"the administration area, with a strong focus on GDPR-oriented workflows, a "
+"cookie-free booking page, and reliable availability calculation.\n"
+"\n"
+"React Router 7, TypeScript, and Convex form the technical foundation. The "
+"application integrates Google Calendar via OAuth as well as CalDAV-compatible "
+"calendars such as iCloud and Fastmail, generates iCal feeds, sends "
+"customizable email templates through customer-owned SMTP servers, and protects"
+" sensitive credentials through encryption. Better Auth with Pocket ID, "
+"Bunny.net Static Hosting with Edge Middleware, security headers, rate limits, "
+"health checks, and an extensive Vitest-/Playwright-oriented test base support "
+"operations and ongoing development."
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid ""
+"For the introduction of the BIX@ supply chain management software, I developed"
+" a software-based requirements management solution with automated regression "
+"tests. The automated checks and accompanying documentation supported the "
+"reliable implementation of new requirements.\n"
+"\n"
+"The solution connected business requirements with repeatable tests, creating a"
+" traceable foundation for quality assurance across supply chain processes."
+msgstr ""
+"For the introduction of the BIX@ supply chain management software, I developed"
+" a software-based requirements management solution with automated regression "
+"tests. The automated checks and accompanying documentation supported the "
+"reliable implementation of new requirements.\n"
+"\n"
+"The solution connected business requirements with repeatable tests, creating a"
+" traceable foundation for quality assurance across supply chain processes."
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Founder & Managing Director"
+msgstr "Founder & Managing Director"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Frankfurt am Main, Germany"
+msgstr "Frankfurt am Main, Germany"
+
+#: app/components/profile-print/SkillStack.tsx#SkillStack
+#: app/components/profile-print/SkillTags.tsx#groups
+msgid "Frontend"
+msgstr "Frontend"
+
+#: app/data/fastner.data.ts#getConsultant
+msgid "Frontend & Fullstack"
+msgstr "Frontend & Fullstack"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Frontend Developer"
+msgstr "Frontend Developer"
+
+#: app/data/werner.data.ts#getConsultant
+msgid "Frontend focus with an eye on user and developer experience."
+msgstr "Frontend focus with an eye on user and developer experience."
+
+#: app/data/werner.data.ts#getConsultant
+msgid "Frontend-Architektur & Developer Experience"
+msgstr "Frontend-Architektur & Developer Experience"
+
+#: app/components/project-profile/ProjectProfile.tsx#FirstPage
+#: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
+msgid "Full Consultant Profile"
+msgstr "Full Consultant Profile"
+
+#: app/data/fastner.data.ts#getConsultant
+msgid ""
+"Full-stack approach across the entire application – from frontend to "
+"infrastructure."
+msgstr ""
+"Full-stack approach across the entire application – from frontend to "
+"infrastructure."
+
+#: app/data/fastner.project-profile.ts#createFastnerProjectProfile
+msgid "Full-time"
+msgstr "Full-time"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Fullstack UI Architect"
+msgstr "Fullstack UI Architect"
+
+#: app/components/project-profile/ProjectProfile.tsx#CareerPage
+msgid "Further experience · complete career history"
+msgstr "Further experience · complete career history"
+
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
 "Further information can be found in the <0>Bunny.net privacy policy</0> and on"
@@ -282,15 +1004,44 @@ msgstr ""
 "Further information can be found in the <0>Bunny.net privacy policy</0> and on"
 " the <1>Bunny.net GDPR page</1>."
 
+#: app/data/fastner.data.ts#getConsultant
+#: app/data/werner.data.ts#getConsultant
+msgid "German"
+msgstr "German"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Germany"
 msgstr "Germany"
 
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Gift Registry & Gift Advisor"
+msgstr "Gift Registry & Gift Advisor"
+
+#: app/data/fastner.project-profile.ts#createFastnerProjectProfile
+msgid ""
+"Hands-on frontend architect and senior React/TypeScript developer with more "
+"than 20 years of project experience. Builds and modernizes international "
+"platforms in banking and asset management, e-commerce, and enterprise SaaS –"
+" from component architecture and testing to CI/CD and cloud migration. "
+"Particularly effective in demanding product and transformation phases where "
+"architectural decisions and hands-on delivery need to come together."
+msgstr ""
+"Hands-on frontend architect and senior React/TypeScript developer with more "
+"than 20 years of project experience. Builds and modernizes international "
+"platforms in banking and asset management, e-commerce, and enterprise SaaS –"
+" from component architecture and testing to CI/CD and cloud migration. "
+"Particularly effective in demanding product and transformation phases where "
+"architectural decisions and hands-on delivery need to come together."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid "Hetzner Online GmbH, Germany"
 msgstr "Hetzner Online GmbH, Germany"
+
+#: app/components/profile-screen/ProfileMobileBar.tsx#ProfileMobileBar
+msgid "Home"
+msgstr "Home"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Hosting and Content Delivery Network"
@@ -320,13 +1071,160 @@ msgstr "Hosting of the Terminaro application and the Rybbit analytics server"
 msgid "How It Works"
 msgstr "How It Works"
 
+#: app/data/fastner.data.ts#getConsultant
+msgid ""
+"I am at home in TypeScript, React, and Convex. Alongside that comes a tooling "
+"stack that shows frontend has long been more than just UI: Vite, Vitest, "
+"Playwright, Infrastructure as Code, CI/CD, authentication, secure deployments,"
+" and production-grade backends. But technology alone does not interest me "
+"much. What drives me: architectures that can grow without collapsing under "
+"their own weight. Code that the next team can understand too. And an honest "
+"assessment of when a new tool adds real value – and when it merely adds "
+"complexity."
+msgstr ""
+"I am at home in TypeScript, React, and Convex. Alongside that comes a tooling "
+"stack that shows frontend has long been more than just UI: Vite, Vitest, "
+"Playwright, Infrastructure as Code, CI/CD, authentication, secure deployments,"
+" and production-grade backends. But technology alone does not interest me "
+"much. What drives me: architectures that can grow without collapsing under "
+"their own weight. Code that the next team can understand too. And an honest "
+"assessment of when a new tool adds real value – and when it merely adds "
+"complexity."
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid ""
+"I developed an e-learning platform for Suzuki Germany that enables German "
+"Suzuki dealers to prepare for certifications, including the end-user interface"
+" as well as the editorial and administration interface. This tool enabled "
+"dealers to gain a much better overview of their current status, and the "
+"certification process could be significantly professionalized and made more "
+"efficient for dealers.\n"
+"\n"
+"The REST API of the existing backend system containing the learning content "
+"and dealer status formed the data foundation. Since the legacy system was "
+"based on PHP, the e-learning platform was also developed as a PHP project. The"
+" user interface offers intuitive progress tracking and clear navigation "
+"through the learning content."
+msgstr ""
+"I developed an e-learning platform for Suzuki Germany that enables German "
+"Suzuki dealers to prepare for certifications, including the end-user interface"
+" as well as the editorial and administration interface. This tool enabled "
+"dealers to gain a much better overview of their current status, and the "
+"certification process could be significantly professionalized and made more "
+"efficient for dealers.\n"
+"\n"
+"The REST API of the existing backend system containing the learning content "
+"and dealer status formed the data foundation. Since the legacy system was "
+"based on PHP, the e-learning platform was also developed as a PHP project. The"
+" user interface offers intuitive progress tracking and clear navigation "
+"through the learning content."
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid ""
+"I developed DINA Frontend Neu – a web application for analyzing KPIs of "
+"Deutsche Telekom's company-wide infrastructure in the T-Home division – from"
+" conception through prototype development to production deployment. The "
+"visualization of aggregated statistical data enabled management to make "
+"data-driven decisions about infrastructure performance. The application became"
+" a central tool for infrastructure monitoring.\n"
+"\n"
+"Ext JS served as the framework for the implementation, connected to the APIs "
+"of the statistics systems that collected and aggregated the data. The "
+"challenge lay in finding the right data partitioning so that the frontend was "
+"not overloaded while ensuring no relevant data was lost. The balance between "
+"data volume and performance was achieved through intelligent paging and "
+"filtering."
+msgstr ""
+"I developed DINA Frontend Neu – a web application for analyzing KPIs of "
+"Deutsche Telekom's company-wide infrastructure in the T-Home division – from"
+" conception through prototype development to production deployment. The "
+"visualization of aggregated statistical data enabled management to make "
+"data-driven decisions about infrastructure performance. The application became"
+" a central tool for infrastructure monitoring.\n"
+"\n"
+"Ext JS served as the framework for the implementation, connected to the APIs "
+"of the statistics systems that collected and aggregated the data. The "
+"challenge lay in finding the right data partitioning so that the frontend was "
+"not overloaded while ensuring no relevant data was lost. The balance between "
+"data volume and performance was achieved through intelligent paging and "
+"filtering."
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid ""
+"I developed the UnifyJS framework in parallel with application development as "
+"a commission for Deutsche Telekom. It enabled the development of hybrid apps "
+"running on iOS, Android, and WebOS. Providing UI concepts that mirrored native"
+" mobile device interfaces ensured a familiar user experience. The framework "
+"served as the foundation for several successful Telekom applications.\n"
+"\n"
+"PhoneGap handled the deployment and execution of web applications on mobile "
+"devices. The UI and tooling components were based on Qooxdoo but were further "
+"developed for mobile devices, as the original UI components did not perform "
+"well enough on mobile. Optimizations such as virtual lists significantly "
+"improved scroll performance."
+msgstr ""
+"I developed the UnifyJS framework in parallel with application development as "
+"a commission for Deutsche Telekom. It enabled the development of hybrid apps "
+"running on iOS, Android, and WebOS. Providing UI concepts that mirrored native"
+" mobile device interfaces ensured a familiar user experience. The framework "
+"served as the foundation for several successful Telekom applications.\n"
+"\n"
+"PhoneGap handled the deployment and execution of web applications on mobile "
+"devices. The UI and tooling components were based on Qooxdoo but were further "
+"developed for mobile devices, as the original UI components did not perform "
+"well enough on mobile. Optimizations such as virtual lists significantly "
+"improved scroll performance."
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid ""
+"I led the rebuild of 17 Witt Group online shops as a scalable multi-brand "
+"platform for international markets. Contentful enabled reusable, "
+"SEO-controlled pages and faster launches.\n"
+"\n"
+"Next.js, React, and Styled Components formed the frontend; Apollo GraphQL "
+"unified the backend services. AWS, Kubernetes, and Vault supported secure "
+"continuous deployment, while GraphQL query tests protected releases."
+msgstr ""
+"I led the rebuild of 17 Witt Group online shops as a scalable multi-brand "
+"platform for international markets. Contentful enabled reusable, "
+"SEO-controlled pages and faster launches.\n"
+"\n"
+"Next.js, React, and Styled Components formed the frontend; Apollo GraphQL "
+"unified the backend services. AWS, Kubernetes, and Vault supported secure "
+"continuous deployment, while GraphQL query tests protected releases."
+
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"Implemented public booking, administration, calendar integration, email "
+"delivery, and secure deployments."
+msgstr ""
+"Implemented public booking, administration, calendar integration, email "
+"delivery, and secure deployments."
+
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid "Implemented the migration to Azure and a continuous deployment strategy."
+msgstr ""
+"Implemented the migration to Azure and a continuous deployment strategy."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Imprint"
 msgstr "Imprint"
 
+#: app/components/profile-print/IndustryExperience.tsx#IndustryExperience
+msgid "Industry Experience"
+msgstr "Industry Experience"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Information pursuant to § 5 DDG"
 msgstr "Information pursuant to § 5 DDG"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Infrastructure Monitoring"
+msgstr "Infrastructure Monitoring"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Ingelheim am Rhein, Germany"
+msgstr "Ingelheim am Rhein, Germany"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid ""
@@ -336,17 +1234,100 @@ msgstr ""
 "Insights into our work across software and consulting: what we're building, "
 "exploring and thinking about."
 
+#: app/components/profile-screen/ProfileRail.tsx#ProfileRail
+msgid "Intro call"
+msgstr "Intro call"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Investment Management Platform"
+msgstr "Investment Management Platform"
+
+#: app/data/werner.data.ts#getConsultant
+msgid ""
+"IT Specialist (Fachinformatiker) / Advanced Technical College Entrance "
+"Qualification (Fachabitur)"
+msgstr ""
+"IT Specialist (Fachinformatiker) / Advanced Technical College Entrance "
+"Qualification (Fachabitur)"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "IT System Administration"
+msgstr "IT System Administration"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "IT System Administrator"
+msgstr "IT System Administrator"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid ""
+"Jako-o – a leading children's retailer – needed two new features: the Gift"
+" Registry and the Gift Advisor, which I designed and implemented. The Gift "
+"Registry functions as an extended wish list for events like birthdays, where "
+"purchased gifts are automatically hidden to prevent duplicate purchases. The "
+"Gift Advisor helps find suitable gifts through filters such as gender, age, "
+"preferences, and price range. Both features increased customer satisfaction "
+"and conversion rates in the shop.\n"
+"\n"
+"Both applications were built as single page applications in JavaScript with "
+"optimizations for mobile devices. Product data and status information were "
+"sourced via REST API from the Jako-o shop system. Integration into the main "
+"shop was seamless, with the user interface providing a responsive, modern "
+"shopping experience."
+msgstr ""
+"Jako-o – a leading children's retailer – needed two new features: the Gift"
+" Registry and the Gift Advisor, which I designed and implemented. The Gift "
+"Registry functions as an extended wish list for events like birthdays, where "
+"purchased gifts are automatically hidden to prevent duplicate purchases. The "
+"Gift Advisor helps find suitable gifts through filters such as gender, age, "
+"preferences, and price range. Both features increased customer satisfaction "
+"and conversion rates in the shop.\n"
+"\n"
+"Both applications were built as single page applications in JavaScript with "
+"optimizations for mobile devices. Product data and status information were "
+"sourced via REST API from the Jako-o shop system. Integration into the main "
+"shop was seamless, with the user interface providing a responsive, modern "
+"shopping experience."
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Java Developer"
+msgstr "Java Developer"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Java Fullstack Developer"
+msgstr "Java Fullstack Developer"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "JavaScript Developer"
+msgstr "JavaScript Developer"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "JourFixe Meeting Management"
+msgstr "JourFixe Meeting Management"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Language"
 msgstr "Language"
+
+#: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
+#: app/components/project-profile/ProjectProfile.tsx#ContactDetails
+msgid "Languages"
+msgstr "Languages"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#PrivacyDocument
 msgid "Last updated: {formattedVersion}"
 msgstr "Last updated: {formattedVersion}"
 
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Lead Application Architect"
+msgstr "Lead Application Architect"
+
 #: app/components/Services.tsx#Services
 msgid "Leave the team stronger."
 msgstr "Leave the team stronger."
+
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid "Led the frontend rebuild for the Witt Group within the Otto Group."
+msgstr "Led the frontend rebuild for the Witt Group within the Otto Group."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Legal"
@@ -369,9 +1350,47 @@ msgstr "Legal Notice"
 msgid "Legal Notice – Sebastian Consulting"
 msgstr "Legal Notice – Sebastian Consulting"
 
+#: app/components/profile-screen/ProfileOutro.tsx#ProfileOutro
+msgid ""
+"Let's get to know each other — 15 minutes, no obligation, straight into the "
+"calendar."
+msgstr ""
+"Let's get to know each other — 15 minutes, no obligation, straight into the "
+"calendar."
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Localization"
+msgstr "Localization"
+
+#: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
+#: app/components/project-profile/ProjectProfile.tsx#ContactDetails
+msgid "Location"
+msgstr "Location"
+
+#: app/components/profile-print/Tier1Projects.tsx#ProjectLogo
+msgid "Logo"
+msgstr "Logo"
+
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"Long-term development of an international investment management platform as "
+"Senior Frontend Architect."
+msgstr ""
+"Long-term development of an international investment management platform as "
+"Senior Frontend Architect."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Main navigation"
 msgstr "Main navigation"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Mainz, Germany"
+msgstr "Mainz, Germany"
+
+#: app/data/fastner.data.ts#getConsultant
+msgctxt "contact location"
+msgid "Mainz, Germany"
+msgstr "Mainz, Germany"
 
 #: app/components/Services.tsx#Services
 msgid "Make the next change easier."
@@ -389,9 +1408,47 @@ msgstr "Managing Directors:"
 msgid "Meet Sebastian/Consulting"
 msgstr "Meet Sebastian/Consulting"
 
+#: app/data/werner.projects-featured.ts#getFeaturedProjects
+msgid "Meridian Energy Management Portal"
+msgstr "Meridian Energy Management Portal"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Mobile Developer"
+msgstr "Mobile Developer"
+
+#: app/components/profile-print/SkillTags.tsx#groups
+msgid "More"
+msgstr "More"
+
 #: app/components/Judgment.tsx#Judgment
 msgid "More speed needs better judgment."
 msgstr "More speed needs better judgment."
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Multi-Brand E-Commerce Platforms"
+msgstr "Multi-Brand E-Commerce Platforms"
+
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"Multilingual appointment scheduling system with a public booking page and "
+"integrated administration."
+msgstr ""
+"Multilingual appointment scheduling system with a public booking page and "
+"integrated administration."
+
+#: app/components/profile-print/SkillStack.tsx#SkillStack
+msgid "My Stack ({quarterYear})"
+msgstr "My Stack ({quarterYear})"
+
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"Near-real-time internationalization of an enterprise SaaS platform using "
+"React, TypeScript, Go, GraphQL, encrypted Temporal workflows, and AI-assisted "
+"translation."
+msgstr ""
+"Near-real-time internationalization of an enterprise SaaS platform using "
+"React, TypeScript, Go, GraphQL, encrypted Temporal workflows, and AI-assisted "
+"translation."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Need a clearer direction for your software?"
@@ -413,6 +1470,22 @@ msgstr ""
 msgid "Obligation to Provide Data"
 msgstr "Obligation to Provide Data"
 
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "OneNumber Mobile App"
+msgstr "OneNumber Mobile App"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "OneNumber Mobile App (Phase 2)"
+msgstr "OneNumber Mobile App (Phase 2)"
+
+#: app/components/profile-screen/ProfileOutro.tsx#ProfileOutro
+msgid "Or meet the second consultant:"
+msgstr "Or meet the second consultant:"
+
+#: app/components/profile-screen/ProfileRail.tsx#PdfActions
+msgid "Or print directly"
+msgstr "Or print directly"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Our agency"
 msgstr "Our agency"
@@ -433,9 +1506,47 @@ msgstr "Our software"
 msgid "Overview of Data Processing"
 msgstr "Overview of Data Processing"
 
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"Owned a React/TypeScript component library, REST integration, and CI/CD on "
+"Microsoft Azure."
+msgstr ""
+"Owned a React/TypeScript component library, REST integration, and CI/CD on "
+"Microsoft Azure."
+
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Page views (URL, referrer)"
 msgstr "Page views (URL, referrer)"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid ""
+"PagePlace, later launched as Tolino to compete with Amazon Kindle for major "
+"German booksellers Thalia, Hugendubel, and Weltbild, needed a web frontend for"
+" Deutsche Telekom. I developed it so customers could manage their accounts and"
+" read purchased e-books directly in the browser. The platform offered a "
+"seamless alternative to proprietary e-book ecosystems and strengthened the "
+"German book trade.\n"
+"\n"
+"UnifyJS formed the basis of the frontend, which was integrated into existing "
+"native iOS and Android applications through PhoneGap. The web frontend also "
+"served as the EPUB reader engine in the native apps, enabling code sharing "
+"between web and mobile. The reader technology parsed and rendered complex EPUB"
+" documents with images, formatting, and navigation, and displayed PDF "
+"documents correctly."
+msgstr ""
+"PagePlace, later launched as Tolino to compete with Amazon Kindle for major "
+"German booksellers Thalia, Hugendubel, and Weltbild, needed a web frontend for"
+" Deutsche Telekom. I developed it so customers could manage their accounts and"
+" read purchased e-books directly in the browser. The platform offered a "
+"seamless alternative to proprietary e-book ecosystems and strengthened the "
+"German book trade.\n"
+"\n"
+"UnifyJS formed the basis of the frontend, which was integrated into existing "
+"native iOS and Android applications through PhoneGap. The web frontend also "
+"served as the EPUB reader engine in the native apps, enabling code sharing "
+"between web and mobile. The reader technology parsed and rendered complex EPUB"
+" documents with images, formatting, and navigation, and displayed PDF "
+"documents correctly."
 
 #: app/components/Services.tsx#Services
 msgid ""
@@ -447,9 +1558,30 @@ msgstr ""
 "including clear guardrails for AI-assisted delivery. Knowledge, tools, and "
 "standards stay when we leave."
 
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Palamedes · Product by Sebastian Software GmbH · Dev Tools"
+msgstr "Palamedes · Product by Sebastian Software GmbH · Dev Tools"
+
+#: app/components/profile-print/AdditionalProjects.tsx#AdditionalProjects
+msgid "Period"
+msgstr "Period"
+
+#: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
+msgid "Personal Details"
+msgstr "Personal Details"
+
+#: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
+#: app/components/project-profile/ProjectProfile.tsx#ContactDetails
+msgid "Phone"
+msgstr "Phone"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Phone:"
 msgstr "Phone:"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "PHP Developer"
+msgstr "PHP Developer"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Place of Processing"
@@ -458,6 +1590,32 @@ msgstr "Place of Processing"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Please enter a complete email address, such as name@example.com."
 msgstr "Please enter a complete email address, such as name@example.com."
+
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"Ported a React dashboard to React Native, covered it with Jest and React "
+"Testing Library, and rolled it out to additional European and Asian markets."
+msgstr ""
+"Ported a React dashboard to React Native, covered it with Jest and React "
+"Testing Library, and rolled it out to additional European and Asian markets."
+
+#: app/data/fastner.data.ts#getConsultant
+#: app/data/werner.data.ts#getConsultant
+msgid "preferably remote + occasional on-site"
+msgstr "preferably remote + occasional on-site"
+
+#: app/components/profile-print/helpers.ts#formatDateRange
+#: app/components/profile-print/helpers.ts#formatPeriod
+msgid "present"
+msgstr "present"
+
+#: app/data/werner.data.ts#getConsultant
+msgid "Principal Technology Consultant"
+msgstr "Principal Technology Consultant"
+
+#: app/components/profile-screen/ProfileRail.tsx#PdfActions
+msgid "Printable profile"
+msgstr "Printable profile"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Privacy"
@@ -524,9 +1682,43 @@ msgstr "Processors"
 msgid "Products"
 msgstr "Products"
 
+#: app/components/profile-screen/ProfileRail.tsx#ProfileRail
+msgid "Profile actions"
+msgstr "Profile actions"
+
+#: app/components/project-profile/ProjectProfile.tsx#FirstPage
+msgid "Profile Summary"
+msgstr "Profile Summary"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Profiles"
 msgstr "Profiles"
+
+#: app/components/profile-print/Tier1Projects.tsx#Tier1Projects
+msgid "Project Experience"
+msgstr "Project Experience"
+
+#: app/components/project-profile/ProjectProfile.tsx#PageMarker
+#: app/components/project-profile/ProjectProfile.tsx#ProfileHeader
+#: app/components/project-profile/ProjectProfile.tsx#ProjectProfile
+msgid "Project Profile"
+msgstr "Project Profile"
+
+#: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
+msgid "Project Profile Actions"
+msgstr "Project Profile Actions"
+
+#: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
+msgid "Project Profile PDF"
+msgstr "Project Profile PDF"
+
+#: app/routes/profile.fastner.project.tsx#meta
+msgid "Project Profile Sebastian Fastner – React & TypeScript"
+msgstr "Project Profile Sebastian Fastner – React & TypeScript"
+
+#: app/components/project-profile/ProjectProfile.tsx#EvidenceAndProductsPage
+msgid "Recent Hands-on Products"
+msgstr "Recent Hands-on Products"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Register Court:"
@@ -539,6 +1731,60 @@ msgstr "Register Entry"
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Register Number:"
 msgstr "Register Number:"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid ""
+"Regrello Corp., an AI-focused supply chain management startup acquired by "
+"Salesforce in late 2025, needed full internationalization using large language"
+" models. I led the initiative and evaluated translation quality from English "
+"into six target languages: French, German, Chinese, Spanish, Korean, and Thai."
+" The plugin system translated new or changed app content, workflow titles, and"
+" task descriptions within seconds using an event-driven workflow, first into "
+"participants' native languages and then into all available languages.\n"
+"\n"
+"A plugin system for GraphQL resolvers and mutations in the Go backend formed "
+"the core of the solution. Translations were integrated transparently into the "
+"service APIs and cached in Redis. Temporal workflows with queues, workers, "
+"retry mechanisms, throttling, and rate limiting controlled processing. Because"
+" plain-text user content could not be stored in the queue for security "
+"reasons, I developed a performant encryption system for Temporal. I also built"
+" CLI and operations tools for job management, testing new workflows, and "
+"retrying failed translations. The backend was restructured and decoupled, "
+"making it easier to maintain and understand."
+msgstr ""
+"Regrello Corp., an AI-focused supply chain management startup acquired by "
+"Salesforce in late 2025, needed full internationalization using large language"
+" models. I led the initiative and evaluated translation quality from English "
+"into six target languages: French, German, Chinese, Spanish, Korean, and Thai."
+" The plugin system translated new or changed app content, workflow titles, and"
+" task descriptions within seconds using an event-driven workflow, first into "
+"participants' native languages and then into all available languages.\n"
+"\n"
+"A plugin system for GraphQL resolvers and mutations in the Go backend formed "
+"the core of the solution. Translations were integrated transparently into the "
+"service APIs and cached in Redis. Temporal workflows with queues, workers, "
+"retry mechanisms, throttling, and rate limiting controlled processing. Because"
+" plain-text user content could not be stored in the queue for security "
+"reasons, I developed a performant encryption system for Temporal. I also built"
+" CLI and operations tools for job management, testing new workflows, and "
+"retrying failed translations. The backend was restructured and decoupled, "
+"making it easier to maintain and understand."
+
+#: app/data/fastner.project-profile.ts#createFastnerProjectProfile
+msgid ""
+"Remote-first; occasional on-site work throughout Germany, Austria, "
+"Switzerland, and the Benelux. More distant locations by arrangement."
+msgstr ""
+"Remote-first; occasional on-site work throughout Germany, Austria, "
+"Switzerland, and the Benelux. More distant locations by arrangement."
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Requirements Management for BIX@"
+msgstr "Requirements Management for BIX@"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Rhine-Main, Germany"
+msgstr "Rhine-Main, Germany"
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid "Right of access (Art. 15 GDPR)"
@@ -578,6 +1824,14 @@ msgstr "Right to rectification (Art. 16 GDPR)"
 msgid "Right to restriction of processing (Art. 18 GDPR)"
 msgstr "Right to restriction of processing (Art. 18 GDPR)"
 
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Robo-Advisor Investment Platform"
+msgstr "Robo-Advisor Investment Platform"
+
+#: app/components/profile-print/AdditionalProjects.tsx#AdditionalProjects
+msgid "Role"
+msgstr "Role"
+
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""
 "Rybbit is operated on our own server, hosted by Hetzner Online GmbH in "
@@ -605,6 +1859,14 @@ msgstr ""
 "for hash generation and is never permanently stored or logged. A daily "
 "rotating random component (salt) resets this identifier every day, so tracking"
 " across days is ruled out."
+
+#: app/data/werner.projects-featured.ts#getFeaturedProjects
+msgid "San Francisco, USA"
+msgstr "San Francisco, USA"
+
+#: app/components/profile-screen/ProfileRail.tsx#PdfActions
+msgid "Save or share this profile as a PDF."
+msgstr "Save or share this profile as a PDF."
 
 #: app/routes/home.tsx#meta
 msgid ""
@@ -618,14 +1880,46 @@ msgstr ""
 msgid "See what we build beyond consulting."
 msgstr "See what we build beyond consulting."
 
+#: app/components/project-profile/ProjectProfile.tsx#EvidenceAndProductsPage
+msgid "Selected Project Experience · Enterprise SaaS & Internationalization"
+msgstr "Selected Project Experience · Enterprise SaaS & Internationalization"
+
+#: app/components/project-profile/ProjectProfile.tsx#ProjectProfile
+msgid "Selected Project Experience · Fintech & E-Commerce"
+msgstr "Selected Project Experience · Fintech & E-Commerce"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Senior Application Architect"
+msgstr "Senior Application Architect"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Senior Frontend Architect"
+msgstr "Senior Frontend Architect"
+
+#: app/data/werner.projects-featured.ts#getFeaturedProjects
+msgid "Senior Principal Frontend Architect"
+msgstr "Senior Principal Frontend Architect"
+
+#: app/data/fastner.data.ts#getConsultant
+msgid "Senior Technology Consultant"
+msgstr "Senior Technology Consultant"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 #: app/components/Services.tsx#Services
 msgid "Services"
 msgstr "Services"
 
+#: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
+msgid "Share Project Profile"
+msgstr "Share Project Profile"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Sign-up opens soon. The newsletter has not started yet."
 msgstr "Sign-up opens soon. The newsletter has not started yet."
+
+#: app/components/profile-print/SkillTags.tsx#groups
+msgid "Signature skills"
+msgstr "Signature skills"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Signing you up…"
@@ -639,6 +1933,10 @@ msgstr "Site index"
 msgid "Skip to content"
 msgstr "Skip to content"
 
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Social Shopping Platform"
+msgstr "Social Shopping Platform"
+
 #: app/routes/home.tsx#meta
 msgid ""
 "Software architecture, engineering, and technical direction for complex web "
@@ -649,6 +1947,42 @@ msgstr ""
 "applications: React and TypeScript modernization, internationalization, and "
 "team enablement, directly with two senior architects."
 
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Software Developer"
+msgstr "Software Developer"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid ""
+"soSmart.de, a social shopping platform for netz98 GmbH in Mainz, was created "
+"as part of my diploma thesis on Web 2.0. The platform aggregated product data "
+"from various affiliate networks and presented it in a social shopping "
+"environment. Combining e-commerce with Web 2.0 paradigms created an innovative"
+" shopping experience.\n"
+"\n"
+"I led the integration of the affiliate networks that supplied the product "
+"data. The end-user interface was built with JavaScript and PHP and combined an"
+" intelligent near-real-time search with a fuzzy parser and then-new UI "
+"patterns such as annotating HTML with JavaScript, preloading, and endless "
+"scrolling. These techniques anticipated the later development of single-page "
+"applications."
+msgstr ""
+"soSmart.de, a social shopping platform for netz98 GmbH in Mainz, was created "
+"as part of my diploma thesis on Web 2.0. The platform aggregated product data "
+"from various affiliate networks and presented it in a social shopping "
+"environment. Combining e-commerce with Web 2.0 paradigms created an innovative"
+" shopping experience.\n"
+"\n"
+"I led the integration of the affiliate networks that supplied the product "
+"data. The end-user interface was built with JavaScript and PHP and combined an"
+" intelligent near-real-time search with a fuzzy parser and then-new UI "
+"patterns such as annotating HTML with JavaScript, preloading, and endless "
+"scrolling. These techniques anticipated the later development of single-page "
+"applications."
+
+#: app/components/profile-print/SkillTags.tsx#groups
+msgid "Specialization"
+msgstr "Specialization"
+
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Storage for static files and assets"
 msgstr "Storage for static files and assets"
@@ -657,6 +1991,19 @@ msgstr "Storage for static files and assets"
 msgid "Subscribe"
 msgstr "Subscribe"
 
+#: app/components/project-profile/ProjectProfile.tsx#FirstPage
+msgid "Technical Focus"
+msgstr "Technical Focus"
+
+#: app/components/profile-print/AdditionalProjects.tsx#AdditionalProjects
+msgid "Technologies"
+msgstr "Technologies"
+
+#: app/data/fastner.data.ts#getConsultant
+#: app/data/werner.data.ts#getConsultant
+msgid "Telecommunications"
+msgstr "Telecommunications"
+
 #: app/components/Closing.tsx#Closing
 msgid ""
 "Tell us where architecture, delivery, or internationalization is getting in "
@@ -664,6 +2011,34 @@ msgid ""
 msgstr ""
 "Tell us where architecture, delivery, or internationalization is getting in "
 "the way."
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Terminaro · Product by Sebastian Software GmbH · SaaS"
+msgstr "Terminaro · Product by Sebastian Software GmbH · SaaS"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid ""
+"The 2010 FIFA World Cup in South Africa required a companion mobile app for "
+"Deutsche Telekom – I developed this as a web application. The app delivered "
+"current information, match schedules, and results directly to fans' mobile "
+"devices. Deployment as an app on various mobile platforms enabled broad reach "
+"among football fans.\n"
+"\n"
+"The UnifyJS framework formed the basis of the web application, which was "
+"deployed as a native app to mobile devices. The hybrid app architecture "
+"enabled rapid development while allowing native distribution through the app "
+"stores. The user interface was optimized for mobile use on the go."
+msgstr ""
+"The 2010 FIFA World Cup in South Africa required a companion mobile app for "
+"Deutsche Telekom – I developed this as a web application. The app delivered "
+"current information, match schedules, and results directly to fans' mobile "
+"devices. Deployment as an app on various mobile platforms enabled broad reach "
+"among football fans.\n"
+"\n"
+"The UnifyJS framework formed the basis of the web application, which was "
+"deployed as a native app to mobile devices. The hybrid app architecture "
+"enabled rapid development while allowing native distribution through the app "
+"stores. The user interface was optimized for mobile use on the go."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""
@@ -707,6 +2082,38 @@ msgstr ""
 "redirect may also lead to the respective other domain. No cookie is set in the"
 " process."
 
+#: app/components/profile-screen/ProfileRail.tsx#ProfileRail
+msgid "The second consultant"
+msgstr "The second consultant"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid ""
+"The second project phase of the OneNumber app for Deutsche Telekom's business "
+"customers encompassed further development and optimization of the mobile "
+"application. The app enabled business customers to configure OneNumber on "
+"various devices – iOS, Android, BlackBerry, Amazon Fire Phone, and Windows "
+"Phone. The broad device support addressed the heterogeneous device landscape "
+"in enterprises.\n"
+"\n"
+"Development was carried out using HTML5 and AngularJS for the mobile frontend."
+" Integration of the respective platform's address book and connection to "
+"Deutsche Telekom's MultiManager on Android extended the functionality. "
+"REST-based backend communication and OAuth2 authentication via the Telekom "
+"Identity Management system secured the data exchange."
+msgstr ""
+"The second project phase of the OneNumber app for Deutsche Telekom's business "
+"customers encompassed further development and optimization of the mobile "
+"application. The app enabled business customers to configure OneNumber on "
+"various devices – iOS, Android, BlackBerry, Amazon Fire Phone, and Windows "
+"Phone. The broad device support addressed the heterogeneous device landscape "
+"in enterprises.\n"
+"\n"
+"Development was carried out using HTML5 and AngularJS for the mobile frontend."
+" Integration of the respective platform's address book and connection to "
+"Deutsche Telekom's MultiManager on Android extended the functionality. "
+"REST-based backend communication and OAuth2 authentication via the Telekom "
+"Identity Management system secured the data exchange."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "The sign-up did not go through. Please try again later."
 msgstr "The sign-up did not go through. Please try again later."
@@ -746,6 +2153,14 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
 msgid "There is no contact form – contact is made exclusively by email."
 msgstr "There is no contact form – contact is made exclusively by email."
+
+#: app/components/profile-print/CompanyContact.tsx#CompanyContact
+msgid ""
+"This profile may be shared, used, and stored for project inquiries and "
+"proposals."
+msgstr ""
+"This profile may be shared, used, and stored for project inquiries and "
+"proposals."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
 msgid ""
@@ -815,9 +2230,46 @@ msgstr ""
 "To exercise your rights, you may contact us at any time at: "
 "<0>{privacyEmail}</0>"
 
+#: app/data/werner.data.ts#getConsultant
+msgid ""
+"Today I am at home where codebases grow large: internationalization that goes "
+"beyond translation files. Monorepos that make teams faster, not slower. "
+"Component libraries that keep design and code together. Most recently I led "
+"the internationalization of Regrello's enterprise platform – acquired by "
+"Salesforce in late 2025 – reorganizing more than 2,000 files along the way. "
+"Code quality is not an end in itself to me but developer experience: you can "
+"tell good architecture by how easy the next change is."
+msgstr ""
+"Today I am at home where codebases grow large: internationalization that goes "
+"beyond translation files. Monorepos that make teams faster, not slower. "
+"Component libraries that keep design and code together. Most recently I led "
+"the internationalization of Regrello's enterprise platform – acquired by "
+"Salesforce in late 2025 – reorganizing more than 2,000 files along the way. "
+"Code quality is not an end in itself to me but developer experience: you can "
+"tell good architecture by how easy the next change is."
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Tolino E-Book Platform"
+msgstr "Tolino E-Book Platform"
+
+#: app/components/profile-print/SkillStack.tsx#SkillStack
+#: app/components/profile-print/SkillTags.tsx#groups
+msgid "Tools"
+msgstr "Tools"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Trademark Notice"
 msgstr "Trademark Notice"
+
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"Translated new and changed content within seconds using an event-driven "
+"workflow, prioritizing participants' native languages before rolling out to "
+"all available languages."
+msgstr ""
+"Translated new and changed content within seconds using an event-driven "
+"workflow, prioritizing participants' native languages before rolling out to "
+"all available languages."
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""
@@ -836,6 +2288,18 @@ msgid ""
 "Under the GDPR, you have the following rights regarding your personal data:"
 msgstr ""
 "Under the GDPR, you have the following rights regarding your personal data:"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "UnifyJS Mobile Framework"
+msgstr "UnifyJS Mobile Framework"
+
+#: app/data/fastner.project-profile.ts#staffingCopy
+msgid ""
+"Used React Router, TypeScript, Convex, and automated tests as an end-to-end "
+"product stack."
+msgstr ""
+"Used React Router, TypeScript, Convex, and automated tests as an end-to-end "
+"product stack."
 
 #: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
 msgid ""
@@ -862,6 +2326,10 @@ msgid ""
 msgstr ""
 "VAT identification number pursuant to § 27a of the German Value Added Tax "
 "Act:"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Virtual Data Centers"
+msgstr "Virtual Data Centers"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid ""
@@ -900,6 +2368,14 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Web analytics with Rybbit"
 msgstr "Web analytics with Rybbit"
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Web-Based Promotion Management"
+msgstr "Web-Based Promotion Management"
+
+#: app/data/fastner.projects-featured.ts#getFeaturedProjects
+msgid "Weiden in der Oberpfalz, Germany"
+msgstr "Weiden in der Oberpfalz, Germany"
 
 #: app/components/Closing.tsx#Closing
 msgid "What needs to become clearer?"
@@ -970,6 +2446,14 @@ msgstr ""
 "compelling legitimate grounds for the processing which override your "
 "interests, rights and freedoms, or the processing serves the establishment, "
 "exercise or defence of legal claims."
+
+#: app/data/fastner.projects-additional.ts#getAdditionalProjects
+msgid "Wireless LAN Infrastructure"
+msgstr "Wireless LAN Infrastructure"
+
+#: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
+msgid "Work Model"
+msgstr "Work Model"
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""

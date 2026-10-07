@@ -10,15 +10,19 @@
   "scripts": {
     "dev": "react-router dev",
     "build": "pnpm build:de && pnpm build:en",
-    "build:de": "SITE_VARIANT=consulting-de react-router build",
-    "build:en": "SITE_VARIANT=consulting-en react-router build",
+    "build:de": "SITE_VARIANT=consulting-de pnpm build:variant",
+    "build:en": "SITE_VARIANT=consulting-en pnpm build:variant",
+    "build:variant": "rm -rf public/pdfs && pnpm generate:pdf && react-router build && pnpm verify:build",
+    "generate:pdf": "tsx scripts/generatePdfs.ts",
+    "verify:build": "tsx scripts/verifyBuild.ts",
     "typecheck": "react-router typegen && tsc",
-    "lint": "oxlint -c ../../oxlint.config.ts app && eslint app --config ../../eslint.config.ts",
-    "format": "prettier --write app",
-    "format:check": "prettier --check app",
+    "lint": "oxlint -c ../../oxlint.config.ts app scripts && eslint app scripts --config ../../eslint.config.ts",
+    "format": "prettier --write app scripts",
+    "format:check": "prettier --check app scripts",
+    "test": "vitest run",
     "palamedes:extract": "pmds extract",
     "check:translations": "pmds audit --fail-on warning",
-    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm check:translations"
+    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm check:translations && pnpm test"
   },
   "dependencies": {
     "@palamedes/core": "catalog:",
@@ -45,8 +49,12 @@
     "eslint": "catalog:",
     "jiti": "catalog:",
     "oxlint": "catalog:",
+    "pdfjs-dist": "catalog:",
+    "playwright": "catalog:",
     "prettier": "catalog:",
+    "tsx": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:"
+    "vite": "catalog:",
+    "vitest": "catalog:"
   }
 }
