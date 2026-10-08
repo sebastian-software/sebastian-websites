@@ -30,6 +30,7 @@ export function createFrameCopy(year: number): FrameCopy {
     },
     header: {
       language: t`Language`,
+      menu: t`Menu`,
       navigation: t`Main navigation`,
       outbound: { consulting: t`Our agency`, software: t`Our software` },
       skip: t`Skip to content`,

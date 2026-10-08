@@ -1,7 +1,14 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { alternate, ArrowLink, BunnyImage, editorial, Story } from "@sebastian-websites/ui"
+import {
+  alternate,
+  ArrowLink,
+  BunnyImage,
+  editorial,
+  editorialSizes,
+  Story,
+} from "@sebastian-websites/ui"
 
 import type { FeaturedId, FeaturedProject } from "~/data/featured"
 
@@ -97,7 +104,7 @@ export function FeaturedStory(props: FeaturedStoryProps): ReactElement {
           className={editorial.media}
           height={media.height}
           priority={index === 0}
-          sizes={`${media.width}px`}
+          sizes={editorialSizes(media.width)}
           src={project.illustration.src}
           width={media.width}
         />

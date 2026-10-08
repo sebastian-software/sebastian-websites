@@ -1,4 +1,4 @@
-import { color, editorial, font } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, PHONE } from "@sebastian-websites/ui"
 import { style, styleVariants } from "@vanilla-extract/css"
 
 export const content = style({ position: "relative", zIndex: 1 })
@@ -8,12 +8,21 @@ export const content = style({ position: "relative", zIndex: 1 })
  * into the drawing's margin; on the right-hand side it stays inside the page and
  * the status wraps below the wordmark.
  */
+/** Stacked on compact screens, the row stays inside the page and may wrap. */
+const wrapping = { "@media": { [COMPACT]: { flexWrap: "wrap", width: "auto" } } } as const
+
 export const identity = styleVariants({
-  end: [editorial.storyIdentity, { flexWrap: "nowrap", width: "max-content" }],
-  start: [editorial.storyIdentity, { flexWrap: "nowrap" }],
+  end: [editorial.storyIdentity, { ...wrapping, flexWrap: "nowrap", width: "max-content" }],
+  start: [editorial.storyIdentity, { ...wrapping, flexWrap: "nowrap" }],
 })
 
-export const mark = style({ display: "block", flexShrink: 0, height: "92px", width: "auto" })
+export const mark = style({
+  "@media": { [PHONE]: { height: "72px" } },
+  display: "block",
+  flexShrink: 0,
+  height: "92px",
+  width: "auto",
+})
 
 export const name = style({
   alignItems: "baseline",
@@ -30,6 +39,7 @@ export const wordmark = styleVariants({
 
 /** VorOrt keeps its name as ordinary text until its logo is settled. */
 export const textName = style({
+  "@media": { [PHONE]: { fontSize: "44px" } },
   color: color.heading,
   fontFamily: font.serif,
   fontSize: "60px",

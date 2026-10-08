@@ -1,21 +1,41 @@
-import { color, editorial, font } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, PHONE } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 export const title = style([
   editorial.display,
-  { fontSize: "60px", lineHeight: 1.12, marginBottom: "60px" },
+  {
+    "@media": {
+      [COMPACT]: { fontSize: "46px", marginBottom: "44px" },
+      [PHONE]: { fontSize: "36px", marginBottom: "32px" },
+    },
+    fontSize: "60px",
+    lineHeight: 1.12,
+    marginBottom: "60px",
+  },
 ])
 
 /** The second line steps in, as in the selected composition. */
-export const titleIndent = style({ display: "block", paddingLeft: "84px" })
+export const titleIndent = style({
+  "@media": { [COMPACT]: { paddingLeft: "48px" }, [PHONE]: { paddingLeft: "28px" } },
+  display: "block",
+  paddingLeft: "84px",
+})
 
-export const row = style([editorial.grid, { alignItems: "center" }])
+export const row = style([
+  editorial.grid,
+  { "@media": { [COMPACT]: { rowGap: "48px" } }, alignItems: "center" },
+])
 
 export const intro = style({ gridColumn: "1 / span 3" })
 
 export const values = style([
   editorial.heading,
-  { fontSize: "36px", lineHeight: 1.22, marginBottom: "22px" },
+  {
+    "@media": { [COMPACT]: { fontSize: "30px" }, [PHONE]: { fontSize: "26px" } },
+    fontSize: "36px",
+    lineHeight: 1.22,
+    marginBottom: "22px",
+  },
 ])
 
 export const text = style([
@@ -24,6 +44,7 @@ export const text = style([
 ])
 
 export const portraits = style({
+  "@media": { [PHONE]: { columnGap: "16px" } },
   columnGap: "32px",
   display: "grid",
   gridColumn: "4 / span 9",

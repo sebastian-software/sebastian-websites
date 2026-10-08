@@ -937,6 +937,10 @@ msgstr "Managing Directors:"
 msgid "Meet Sebastian/Consulting"
 msgstr "Meet Sebastian/Consulting"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Menu"
+msgstr "Menu"
+
 #: app/routes/company.tsx#Mission
 msgid "Mission"
 msgstr "Mission"

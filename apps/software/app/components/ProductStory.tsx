@@ -1,6 +1,13 @@
 import type { ReactElement } from "react"
 
-import { alternate, ArrowLink, BunnyImage, editorial, Story } from "@sebastian-websites/ui"
+import {
+  alternate,
+  ArrowLink,
+  BunnyImage,
+  editorial,
+  editorialSizes,
+  Story,
+} from "@sebastian-websites/ui"
 
 import type { Product, ProductId } from "~/data/products"
 
@@ -94,7 +101,7 @@ export function ProductStory(props: ProductStoryProps): ReactElement {
           className={editorial.media}
           height={media.height}
           priority={index === 0}
-          sizes={`${media.width}px`}
+          sizes={editorialSizes(media.width)}
           src={product.illustration.src}
           width={media.width}
         />

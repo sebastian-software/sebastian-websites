@@ -1,7 +1,7 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { ArrowLink, BunnyImage } from "@sebastian-websites/ui"
+import { ArrowLink, BunnyImage, editorialSizes } from "@sebastian-websites/ui"
 
 import type { Consultant } from "~/components/profile-print/types"
 import type { Portrait } from "~/lib/photos"
@@ -27,6 +27,9 @@ export function meta(): Route.MetaDescriptors {
     },
   ]
 }
+
+/** The team photograph spans the page: 1040 CSS pixels on desktop. */
+const TEAM_PHOTO_WIDTH = 1040
 
 type Member = {
   readonly consultant: Consultant
@@ -70,7 +73,7 @@ function TeamMember({ member }: { readonly member: Member }): ReactElement {
             className={styles.portrait}
             crop={member.portrait.crop}
             height={471}
-            sizes="330px"
+            sizes="(max-width: 639px) 240px, (max-width: 1023px) 320px, 330px"
             src={member.portrait.src}
             width={330}
           />
@@ -130,9 +133,9 @@ export default function Team(): ReactElement {
           crop={TEAM_PHOTO.crop}
           height={520}
           priority
-          sizes="1040px"
+          sizes={editorialSizes(TEAM_PHOTO_WIDTH)}
           src={TEAM_PHOTO.src}
-          width={1040}
+          width={TEAM_PHOTO_WIDTH}
         />
       </figure>
       <ul className={styles.members}>

@@ -25,6 +25,7 @@ const copy: FrameCopy = {
   footer: { index: "Site index", legal: "Legal", profiles: "Company profiles" },
   header: {
     language: "Language",
+    menu: "Menu",
     navigation: "Main navigation",
     outbound: { consulting: "Our agency", software: "Our software" },
     skip: "Skip to content",
@@ -99,6 +100,18 @@ describe("SiteHeader", () => {
     expect(outbound?.textContent).toBe("Our agency")
     expect(outbound?.getAttribute("href")).toBe("https://sebastian-consulting.de/")
     expect(outbound?.querySelector("img")).toBeNull()
+  })
+
+  it("opens the same controls as a popover menu on compact screens", () => {
+    const frame = getSiteFrame("consulting", "en", "/")
+    const header = parse(renderToStaticMarkup(<SiteHeader copy={copy} frame={frame} />))
+    const button = header.querySelector("button[popovertarget]")
+    expect(button?.getAttribute("type")).toBe("button")
+    expect(button?.textContent).toBe("Menu")
+    const menu = header.querySelector(`[id="${String(button?.getAttribute("popovertarget"))}"]`)
+    expect(menu?.getAttribute("popover")).toBe("auto")
+    expect(menu?.querySelectorAll('nav[aria-label="Main navigation"]')).toHaveLength(1)
+    expect(header.querySelectorAll('nav[aria-label="Main navigation"]')).toHaveLength(1)
   })
 
   it("gives Consulting its own logo, navigation, and the way to Software", () => {

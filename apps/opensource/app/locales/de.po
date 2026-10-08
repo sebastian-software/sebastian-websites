@@ -497,6 +497,10 @@ msgstr "Geschäftsführer:"
 msgid "Meet Sebastian/Consulting"
 msgstr "Sebastian/Consulting kennenlernen"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Menu"
+msgstr "Menü"
+
 #: app/data/featured.ts#getFeatured
 msgid "Modern, open documentation for React teams."
 msgstr "Moderne, offene Dokumentation für React-Teams."

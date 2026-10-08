@@ -1462,6 +1462,10 @@ msgstr "Geschäftsführer:"
 msgid "Meet Sebastian/Consulting"
 msgstr "Sebastian/Consulting kennenlernen"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Menu"
+msgstr "Menü"
+
 #: app/data/werner.projects-featured.ts#getFeaturedProjects
 msgid "Meridian Energy Management Portal"
 msgstr "Meridian Energy-Management-Portal"
@@ -1948,21 +1952,29 @@ msgstr ""
 msgid ""
 "Sebastian Fastner and Sebastian Werner in conversation in front of a sandstone"
 " wall"
-msgstr "Sebastian Fastner und Sebastian Werner im Gespräch vor einer Sandsteinwand"
+msgstr ""
+"Sebastian Fastner und Sebastian Werner im Gespräch vor einer Sandsteinwand"
 
 #: app/routes/team.tsx
 msgid ""
 "Sebastian Werner and Sebastian Fastner founded Sebastian Software together. As"
 " Sebastian Consulting, both work directly in your project: architecture, "
 "hands-on development, and enablement, with no juniors and no handovers."
-msgstr "Sebastian Werner und Sebastian Fastner haben Sebastian Software gemeinsam gegründet. Als Sebastian Consulting arbeiten beide direkt in Ihrem Projekt: Architektur, Umsetzung und Befähigung Ihres Teams – ohne Juniors und ohne Übergaben."
+msgstr ""
+"Sebastian Werner und Sebastian Fastner haben Sebastian Software gemeinsam "
+"gegründet. Als Sebastian Consulting arbeiten beide direkt in Ihrem Projekt: "
+"Architektur, Umsetzung und Befähigung Ihres Teams – ohne Juniors und ohne "
+"Übergaben."
 
 #: app/routes/team.tsx#meta
 msgid ""
 "Sebastian Werner and Sebastian Fastner: two senior architects for React, "
 "TypeScript, and complex web applications, with their focus areas and full "
 "profiles."
-msgstr "Sebastian Werner und Sebastian Fastner: zwei erfahrene Architekten für React, TypeScript und komplexe Webanwendungen – mit ihren Schwerpunkten und vollständigen Profilen."
+msgstr ""
+"Sebastian Werner und Sebastian Fastner: zwei erfahrene Architekten für React,"
+" TypeScript und komplexe Webanwendungen – mit ihren Schwerpunkten und "
+"vollständigen Profilen."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "See what we build beyond consulting."

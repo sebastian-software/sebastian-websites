@@ -1,11 +1,14 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { BunnyImage, editorial } from "@sebastian-websites/ui"
+import { BunnyImage, editorial, editorialSizes } from "@sebastian-websites/ui"
 
 import region from "~/assets/illustrations/mainz-heidelberg-region.png?bunny"
 
 import * as styles from "./RegionStory.css.ts"
+
+/** The drawing's rendered desktop width in CSS pixels. */
+const MAP_WIDTH = 720
 
 /** Positions in percent of the drawing, beside the landmark each name belongs to. */
 const PLACES = [
@@ -35,9 +38,9 @@ export function RegionStory(): ReactElement {
           alt={t`A drawn landscape with the cathedral of Mainz above and Heidelberg castle with its old bridge below.`}
           className={editorial.media}
           height={480}
-          sizes="720px"
+          sizes={editorialSizes(MAP_WIDTH)}
           src={region}
-          width={720}
+          width={MAP_WIDTH}
         />
         {PLACES.map((place) => (
           <span

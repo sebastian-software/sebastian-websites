@@ -1,4 +1,4 @@
-import { color, editorial, font } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, PHONE } from "@sebastian-websites/ui"
 import { style, styleVariants } from "@vanilla-extract/css"
 
 import type { FeaturedId } from "~/data/featured"
@@ -14,18 +14,33 @@ export const eyebrow = style({
 })
 
 /** The lockup may reach past the text column; the drawing leaves room for it. */
+/** Stacked on compact screens, the lockup stays inside the page and may wrap. */
+const wrapping = {
+  "@media": { [COMPACT]: { flexWrap: "wrap", marginBottom: "28px", width: "auto" } },
+} as const
+
 export const identity = styleVariants({
   end: [
     editorial.storyIdentity,
-    { columnGap: "22px", flexWrap: "nowrap", marginBottom: "36px", width: "max-content" },
+    {
+      ...wrapping,
+      columnGap: "22px",
+      flexWrap: "nowrap",
+      marginBottom: "36px",
+      width: "max-content",
+    },
   ],
-  start: [editorial.storyIdentity, { columnGap: "22px", flexWrap: "nowrap", marginBottom: "36px" }],
+  start: [
+    editorial.storyIdentity,
+    { ...wrapping, columnGap: "22px", flexWrap: "nowrap", marginBottom: "36px" },
+  ],
 })
 
 export const artwork = style({ display: "block", flexShrink: 0, width: "auto" })
 
 /** Ardo's name is set in its own system sans, as on its documentation site. */
 export const ardoName = style({
+  "@media": { [PHONE]: { fontSize: "38px" } },
   color: "oklch(0.28 0.07 330)",
   fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif',
   fontSize: "46px",
@@ -34,7 +49,10 @@ export const ardoName = style({
   lineHeight: 1,
 })
 
-export const title = style([editorial.storyHeading, { fontSize: "29px", lineHeight: 1.3 }])
+export const title = style([
+  editorial.storyHeading,
+  { "@media": { [PHONE]: { fontSize: "25px" } }, fontSize: "29px", lineHeight: 1.3 },
+])
 
 export const text = style([editorial.body, { color: color.text }])
 

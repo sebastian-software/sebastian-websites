@@ -1,4 +1,4 @@
-import { color, editorial, font } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, PHONE } from "@sebastian-websites/ui"
 import { createVar, style, styleVariants } from "@vanilla-extract/css"
 
 import type { GroupId } from "~/lib/collection"
@@ -12,25 +12,38 @@ export const groupTone = styleVariants({
   tools: { vars: { [groupAccent]: "#005164", [groupSurface]: "#f0f7f8" } },
 } satisfies Record<GroupId, unknown>)
 
-export const head = style({ marginBottom: "64px" })
+export const head = style({
+  "@media": { [COMPACT]: { marginBottom: "48px" }, [PHONE]: { marginBottom: "36px" } },
+  marginBottom: "64px",
+})
 
 export const title = style([
   editorial.display,
-  { fontSize: "60px", lineHeight: 1.15, marginBottom: "10px" },
+  {
+    "@media": { [COMPACT]: { fontSize: "46px" }, [PHONE]: { fontSize: "36px" } },
+    fontSize: "60px",
+    lineHeight: 1.15,
+    marginBottom: "10px",
+  },
 ])
 
 export const subtitle = style({
+  "@media": { [PHONE]: { fontSize: "20px" } },
   color: color.accent,
   fontFamily: font.sans,
   fontSize: "24px",
   lineHeight: 1.4,
 })
 
-export const group = style({ selectors: { "& + &": { marginTop: "96px" } } })
+export const group = style({
+  "@media": { [PHONE]: { selectors: { "& + &": { marginTop: "64px" } } } },
+  selectors: { "& + &": { marginTop: "96px" } },
+})
 
 export const groupTitle = style([
   editorial.title,
   {
+    "@media": { [COMPACT]: { fontSize: "36px" }, [PHONE]: { fontSize: "30px" } },
     fontSize: "44px",
     marginBottom: "16px",
     selectors: { [`${groupTone.libraries} &`]: { color: groupAccent } },
@@ -38,6 +51,10 @@ export const groupTitle = style([
 ])
 
 export const grid = style({
+  "@media": {
+    [COMPACT]: { gridTemplateColumns: "repeat(2, minmax(0, 1fr))" },
+    [PHONE]: { gridTemplateColumns: "minmax(0, 1fr)" },
+  },
   display: "grid",
   gap: "22px 20px",
   gridTemplateColumns: "repeat(3, minmax(0, 1fr))",

@@ -1,7 +1,8 @@
-import { FRAME, PAGE, PALETTES, RHYTHM, TYPE_SCALE } from "@sebastian-websites/tokens"
+import { FRAME, PALETTES, RHYTHM, TYPE_SCALE } from "@sebastian-websites/tokens"
 import { style, styleVariants } from "@vanilla-extract/css"
 
 import { grid, heading, lead, outboundAccent, title } from "../editorial/editorial.css.ts"
+import { COMPACT, FRAME_WIDTH, PHONE } from "../responsive.ts"
 import { color, font } from "../theme.css.ts"
 import { continuousCorners } from "./corners.ts"
 
@@ -20,7 +21,14 @@ export const ending = style({ "@media": { print: { display: "none" } } })
 
 // ---- Newsletter: a quiet utility passage ------------------------------------
 
-export const newsletter = style([grid, { alignItems: "start", paddingBottom: "148px" }])
+export const newsletter = style([
+  grid,
+  {
+    "@media": { [COMPACT]: { paddingBottom: "104px" }, [PHONE]: { paddingBottom: "80px" } },
+    alignItems: "start",
+    paddingBottom: "148px",
+  },
+])
 
 export const newsletterTitle = style([heading, { gridColumn: "1 / span 6", marginBottom: "12px" }])
 
@@ -34,6 +42,10 @@ export const newsletterText = style({
 })
 
 export const form = style({
+  "@media": {
+    [COMPACT]: { marginTop: "28px", maxWidth: "560px" },
+    [PHONE]: { flexDirection: "column", rowGap: "12px" },
+  },
   columnGap: "16px",
   display: "flex",
   gridColumn: END_HALF,
@@ -45,6 +57,7 @@ export const field = style([
   continuousCorners(FIELD_RADIUS),
   {
     "::placeholder": { color: color.subtle, opacity: 1 },
+    "@media": { [PHONE]: { flex: "none", fontSize: "18px", height: "52px" } },
     backgroundColor: FRAME.shell,
     border: `1px solid ${color.rule}`,
     color: color.heading,
@@ -64,6 +77,7 @@ export const field = style([
 export const submit = style([
   continuousCorners(FIELD_RADIUS),
   {
+    "@media": { [PHONE]: { fontSize: "18px", height: "52px" } },
     backgroundColor: ACTION,
     border: 0,
     color: "#fff",
@@ -95,7 +109,14 @@ export const statusProblem = style({ color: "oklch(0.48 0.17 25)" })
 
 // ---- Invitation: an unboxed editorial spread ---------------------------------
 
-export const invitation = style([grid, { alignItems: "center", paddingBottom: "88px" }])
+export const invitation = style([
+  grid,
+  {
+    "@media": { [COMPACT]: { rowGap: "40px" }, [PHONE]: { paddingBottom: "64px" } },
+    alignItems: "center",
+    paddingBottom: "88px",
+  },
+])
 
 /** The outward link takes the color of the brand it leads to. */
 export const invitationAccent = styleVariants({
@@ -107,14 +128,26 @@ export const invitationCopy = style({ gridColumn: "1 / span 6" })
 
 export const invitationTitle = style([
   title,
-  { fontSize: "46px", lineHeight: 1.16, marginBottom: "28px" },
+  {
+    "@media": {
+      [COMPACT]: { fontSize: "38px" },
+      [PHONE]: { fontSize: "30px", marginBottom: "20px" },
+    },
+    fontSize: "46px",
+    lineHeight: 1.16,
+    marginBottom: "28px",
+  },
 ])
 
 export const invitationText = style([lead, { maxWidth: "20em" }])
 
 export const invitationAction = style({ marginTop: RHYTHM.action })
 
-export const invitationArt = style({ gridColumn: END_HALF, paddingLeft: "40px" })
+export const invitationArt = style({
+  "@media": { [COMPACT]: { maxWidth: "420px", paddingLeft: 0 } },
+  gridColumn: END_HALF,
+  paddingLeft: "40px",
+})
 
 export const invitationImage = style({ display: "block", height: "auto", width: "100%" })
 
@@ -125,17 +158,22 @@ export const footer = style([ending, { paddingBottom: "24px" }])
 export const panel = style([
   continuousCorners(PANEL_RADIUS),
   {
+    "@media": {
+      [COMPACT]: { padding: "44px 40px 28px", width: FRAME_WIDTH.compact },
+      [PHONE]: { padding: "32px 24px 24px", width: FRAME_WIDTH.phone },
+    },
     backgroundColor: FRAME.panel,
     boxShadow: FRAME.panelShadow,
     color: color.text,
     fontFamily: font.sans,
     marginInline: "auto",
     padding: "56px 56px 32px",
-    width: `min(calc(${PAGE.width} + 2 * ${PAGE.overhang}), 100% - 2 * (${PAGE.margin} - ${PAGE.overhang}))`,
+    width: FRAME_WIDTH.desktop,
   },
 ])
 
 export const footerTop = style({
+  "@media": { [PHONE]: { gridTemplateColumns: "minmax(0, 1fr)", rowGap: "36px" } },
   columnGap: "48px",
   display: "grid",
   gridTemplateColumns: "1fr auto",
@@ -143,7 +181,12 @@ export const footerTop = style({
 
 export const footerHome = style({ borderRadius: "8px", display: "inline-block" })
 
-export const footerLogo = style({ display: "block", height: "88px", width: "auto" })
+export const footerLogo = style({
+  "@media": { [PHONE]: { height: "64px" } },
+  display: "block",
+  height: "88px",
+  width: "auto",
+})
 
 export const address = style({
   fontSize: "16px",
@@ -155,6 +198,7 @@ export const address = style({
 export const plainLink = style({ selectors: { "&:hover": { color: color.accent } } })
 
 export const aside = style({
+  "@media": { [PHONE]: { minWidth: 0, rowGap: "28px" } },
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
@@ -163,6 +207,7 @@ export const aside = style({
 })
 
 export const index = style({
+  "@media": { [PHONE]: { lineHeight: "40px" } },
   display: "grid",
   fontSize: "17px",
   lineHeight: "28.5px",
@@ -188,6 +233,9 @@ export const profile = style([
 export const glyph = style({ color: color.heading, flexShrink: 0, height: "20px", width: "20px" })
 
 export const baseline = style({
+  "@media": {
+    [PHONE]: { alignItems: "flex-start", flexDirection: "column", rowGap: "12px" },
+  },
   alignItems: "baseline",
   borderTop: `1px solid ${color.rule}`,
   display: "flex",
@@ -198,6 +246,7 @@ export const baseline = style({
 })
 
 export const legal = style({
+  "@media": { [PHONE]: { flexWrap: "wrap", lineHeight: "40px" } },
   columnGap: "24px",
   display: "flex",
   listStyle: "none",

@@ -1,16 +1,34 @@
-import { color, editorial, font } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, PHONE } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
-export const main = style([editorial.page, { paddingTop: "112px" }])
+export const main = style([
+  editorial.page,
+  {
+    "@media": { [COMPACT]: { paddingTop: "72px" }, [PHONE]: { paddingTop: "48px" } },
+    paddingTop: "112px",
+  },
+])
 
-export const hero = style([editorial.section, { paddingBottom: "136px" }])
+export const hero = style([
+  editorial.section,
+  {
+    "@media": { [COMPACT]: { paddingBottom: "96px" }, [PHONE]: { paddingBottom: "72px" } },
+    paddingBottom: "136px",
+  },
+])
 
 export const heroTitle = style([
   editorial.display,
-  { fontSize: "64px", lineHeight: 1.16, maxWidth: "12em" },
+  {
+    "@media": { [COMPACT]: { fontSize: "50px" }, [PHONE]: { fontSize: "38px" } },
+    fontSize: "64px",
+    lineHeight: 1.16,
+    maxWidth: "12em",
+  },
 ])
 
 export const heroLead = style({
+  "@media": { [PHONE]: { fontSize: "20px" } },
   color: color.text,
   fontFamily: font.sans,
   fontSize: "24px",
