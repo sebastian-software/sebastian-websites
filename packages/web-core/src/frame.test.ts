@@ -62,7 +62,7 @@ describe("site frame", () => {
     expect(frame.legal.map((link) => link.href)).toStrictEqual([
       "/imprint",
       "/privacy",
-      "mailto:kontakt@sebastian-consulting.de",
+      "mailto:info@sebastian-consulting.de",
     ])
   })
 

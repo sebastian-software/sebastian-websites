@@ -26,8 +26,8 @@ export type CompanyProfile = (typeof COMPANY_PROFILES)[number]
 
 /** Consulting's contact mailbox carries the variant's language. */
 const CONSULTING_CONTACT = {
-  de: "kontakt@sebastian-consulting.de",
-  en: "contact@sebastian-consulting.com",
+  de: "info@sebastian-consulting.de",
+  en: "info@sebastian-consulting.com",
 } as const satisfies Readonly<Record<Locale, string>>
 
 export type FrameLinkId =

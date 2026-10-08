@@ -7,15 +7,13 @@ import {
 
 import { variant } from "~/lib/site"
 
-/** The Consulting mailboxes carry the variant's language, as on the current site. */
+/**
+ * One Consulting mailbox for contact and privacy requests, on the variant's
+ * domain; it reaches both company accounts.
+ */
 const CONTACT_EMAIL = {
-  de: "kontakt@sebastian-consulting.de",
-  en: "contact@sebastian-consulting.com",
-} as const
-
-const PRIVACY_EMAIL = {
-  de: "datenschutz@sebastian-consulting.de",
-  en: "privacy@sebastian-consulting.com",
+  de: "info@sebastian-consulting.de",
+  en: "info@sebastian-consulting.com",
 } as const
 
 export const legalConfig: LegalSiteConfig = defineLegalSiteConfig({
@@ -28,7 +26,7 @@ export const legalConfig: LegalSiteConfig = defineLegalSiteConfig({
   operator: siteOperator({ brand: "Sebastian Consulting", email: CONTACT_EMAIL[variant.locale] }),
   photographer: BUSINESS_PHOTOGRAPHER,
   privacyActivities: ["hosting:bunny", "analytics:rybbit", "contact:email", "booking:terminaro"],
-  privacyEmail: PRIVACY_EMAIL[variant.locale],
+  privacyEmail: CONTACT_EMAIL[variant.locale],
   privacyReview: {
     contentSource: "sebastian-consulting.de privacy policy of 2026-03-09",
     contentVerifiedOn: "2026-10-07",

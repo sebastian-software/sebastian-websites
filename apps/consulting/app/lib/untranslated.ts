@@ -42,16 +42,6 @@ export const COMPANY_ADDRESS = {
   zip: "55128",
 }
 
-export const COMPANY_CONTACT_CONSULTING_EMAIL: Record<string, string> = {
-  de: "kontakt@sebastian-consulting.de",
-  en: "contact@sebastian-consulting.com",
-}
-
-export const COMPANY_PRIVACY_EMAIL: Record<string, string> = {
-  de: "datenschutz@sebastian-consulting.de",
-  en: "privacy@sebastian-consulting.com",
-}
-
 export const LEGAL_CONTENT_SOURCES = {
   imprint: "consulting-imprint-existing-copy",
   privacy: "consulting-privacy-2026-03-09",
