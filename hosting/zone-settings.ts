@@ -181,3 +181,39 @@ export function canonicalRedirectRules(target: Target): readonly EdgeRule[] {
     ],
   }))
 }
+
+/** File types whose content type Bunny Storage does not derive from the extension. */
+const CONTENT_TYPES = [
+  {
+    contentType: "application/manifest+json; charset=utf-8",
+    description: "websites: web manifests are served as manifest JSON",
+    pattern: "*.webmanifest",
+  },
+] as const
+
+/**
+ * Corrects response content types that Bunny Storage gets wrong: it serves
+ * `.webmanifest` as `application/octet-stream`. Asset zones serve no manifests.
+ *
+ * @param target - The target whose responses the rules adjust.
+ * @returns The rules, matched by description on later runs.
+ */
+export function contentTypeRules(target: Target): readonly EdgeRule[] {
+  if (target.assets === true) {
+    return []
+  }
+  const firstIndex = cacheRules(target).length + (target.aliasHostnames?.length ?? 0)
+  return CONTENT_TYPES.map((entry, index) => ({
+    ActionParameter1: "Content-Type",
+    ActionParameter2: entry.contentType,
+    ActionType: ACTION.setResponseHeader,
+    Description: entry.description,
+    Enabled: true,
+    ExtraActions: [],
+    OrderIndex: firstIndex + index,
+    TriggerMatchingType: MATCH.any,
+    Triggers: [
+      { PatternMatches: [entry.pattern], PatternMatchingType: MATCH.any, Type: TRIGGER_URL },
+    ],
+  }))
+}
