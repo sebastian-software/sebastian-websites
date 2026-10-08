@@ -8,7 +8,7 @@ const FIVE_MINUTES = 300
 const MAX_PATTERNS_PER_TRIGGER = 5
 
 // Bunny edge-rule and trigger codes, as its API names them.
-const ACTION = { browserCacheTime: 16, cacheTime: 3, setResponseHeader: 5 } as const
+const ACTION = { browserCacheTime: 16, cacheTime: 3, redirect: 1, setResponseHeader: 5 } as const
 const TRIGGER_URL = 0
 const MATCH = { any: 0, none: 2 } as const
 
@@ -150,4 +150,34 @@ export function cacheRules(target?: Target): readonly EdgeRule[] {
       patterns: ["*/assets/*"],
     }),
   ]
+}
+
+/**
+ * Redirect each alias to its canonical HTTPS hostname before the cache lookup.
+ * Bunny's Request.Path expansion includes the original path and query string.
+ *
+ * @param target - The canonical hostname and its aliases.
+ * @returns The rules, matched by description on later runs.
+ */
+export function canonicalRedirectRules(target: Target): readonly EdgeRule[] {
+  if (target.hostname === undefined) {
+    return []
+  }
+  return (target.aliasHostnames ?? []).map((hostname, index) => ({
+    ActionParameter1: `https://${target.hostname}%{Request.Path}`,
+    ActionParameter2: "301",
+    ActionType: ACTION.redirect,
+    Description: `websites: redirect ${hostname} to canonical hostname`,
+    Enabled: true,
+    ExtraActions: [],
+    OrderIndex: cacheRules(target).length + index,
+    TriggerMatchingType: MATCH.any,
+    Triggers: [
+      {
+        PatternMatches: [`*://${hostname}/*`],
+        PatternMatchingType: MATCH.any,
+        Type: TRIGGER_URL,
+      },
+    ],
+  }))
 }

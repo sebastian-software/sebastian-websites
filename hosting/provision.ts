@@ -1,6 +1,6 @@
 /**
  * Converges one target's Bunny resources: the storage zone, the pull zone with
- * its caching rules, the path-resolving middleware, and the canonical hostname
+ * its edge rules, the path-resolving middleware, and the canonical and alias hostnames
  * once the variant is active. Idempotent: every resource is looked up by name,
  * and a setting is written only when it differs.
  */
@@ -22,7 +22,12 @@ import {
   text,
   type Zone,
 } from "./bunny.ts"
-import { cacheRules, type EdgeRule, pullZoneSettings } from "./zone-settings.ts"
+import {
+  cacheRules,
+  canonicalRedirectRules,
+  type EdgeRule,
+  pullZoneSettings,
+} from "./zone-settings.ts"
 
 export { cacheRules, pullZoneSettings } from "./zone-settings.ts"
 
@@ -88,7 +93,7 @@ async function applyRule(context: Context, pull: Zone, rule: EdgeRule): Promise<
     (entry) => entry.Description === rule.Description
   )
   if (matches.length > 1) {
-    throw new Error(`Conflicting cache rules: ${rule.Description}`)
+    throw new Error(`Conflicting edge rules: ${rule.Description}`)
   }
   const current = matches.at(0)
   if (contains(current, rule)) {
@@ -103,7 +108,7 @@ async function applyRule(context: Context, pull: Zone, rule: EdgeRule): Promise<
 }
 
 async function ensureEdgeRules(context: Context, pull: Zone): Promise<void> {
-  for (const rule of cacheRules(context.target)) {
+  for (const rule of [...cacheRules(context.target), ...canonicalRedirectRules(context.target)]) {
     await applyRule(context, pull, rule)
   }
 }
@@ -211,12 +216,8 @@ async function issueCertificate(context: Context, hostname: string): Promise<boo
   }
 }
 
-async function ensureHostname(context: Context, pullZone: Zone): Promise<void> {
+async function ensureHostname(context: Context, pullZone: Zone, hostname: string): Promise<void> {
   const { api, log, target } = context
-  const hostname = target.hostname
-  if (hostname === undefined) {
-    return
-  }
   let pull = pullZone
   if (hostEntry(pull, hostname) === undefined) {
     await api("POST", `/pullzone/${pull.Id}/addHostname`, { Hostname: hostname })
@@ -252,6 +253,10 @@ export async function provision(
   if (target.assets !== true) {
     await ensureMiddleware(context, pull)
   }
-  await ensureHostname(context, pull)
+  if (target.hostname !== undefined) {
+    for (const hostname of [target.hostname, ...(target.aliasHostnames ?? [])]) {
+      await ensureHostname(context, await getZone(api, PULL_ZONES, pull.Id), hostname)
+    }
+  }
   return { pullZoneId: pull.Id, storageId: storage.Id }
 }

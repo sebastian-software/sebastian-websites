@@ -5,7 +5,7 @@ import { join } from "node:path"
 import { test } from "node:test"
 
 import { VARIANTS } from "../packages/web-core/src/sites.ts"
-import { type BunnyApi, isJson, type Json } from "./bunny.ts"
+import { type BunnyApi, bunnyError, isJson, type Json, records } from "./bunny.ts"
 import { loadBunnyImages } from "./images.ts"
 import { originRequest, planPath, publicPath } from "./middleware-logic.ts"
 import { cacheRules, provision, pullZoneSettings } from "./provision.ts"
@@ -19,6 +19,7 @@ import {
   TARGETS,
 } from "./targets.ts"
 import { checksFor } from "./verify.ts"
+import { canonicalRedirectRules } from "./zone-settings.ts"
 
 const target: Target = {
   buildDirectory: "apps/software/build/software-en/client",
@@ -38,9 +39,16 @@ type Call = { readonly body?: unknown; readonly method: string; readonly path: s
  * @param options - Whether the target already exists.
  * @param options.provisioned - Whether resources already exist.
  * @param options.target - Optional target whose resources are modeled.
+ * @param options.pendingCertificates - Hostnames whose DNS is not ready for issuance.
+ * @param options.extraRules - Rules outside the repository configuration to preserve.
  * @returns A fake API, its call log, and the current middleware script.
  */
-function account(options: { readonly provisioned: boolean; readonly target?: Target }) {
+function account(options: {
+  readonly extraRules?: readonly Json[]
+  readonly pendingCertificates?: Set<string>
+  readonly provisioned: boolean
+  readonly target?: Target
+}) {
   const deployedTarget = options.target ?? target
   const calls: Call[] = []
   const middlewareName = `${deployedTarget.name}-middleware`
@@ -49,10 +57,10 @@ function account(options: { readonly provisioned: boolean; readonly target?: Tar
     : undefined
   let pull: Json | undefined = options.provisioned
     ? {
-        EdgeRules: cacheRules(deployedTarget).map((rule, index) => ({
-          ...rule,
-          Guid: `rule-${index}`,
-        })),
+        EdgeRules: [
+          ...cacheRules(deployedTarget).map((rule, index) => ({ ...rule, Guid: `rule-${index}` })),
+          ...(options.extraRules ?? []),
+        ],
         Hostnames: [],
         Id: 2,
         MiddlewareScriptId: 3,
@@ -74,6 +82,16 @@ function account(options: { readonly provisioned: boolean; readonly target?: Tar
       if (path === "/storagezone/1") return structuredClone(storage)
       if (path === "/pullzone/2") return structuredClone(pull)
       if (path === "/compute/script/3/code") return { Code: script?.Code }
+      if (path.startsWith("/pullzone/loadFreeCertificate?") && pull !== undefined) {
+        const hostname = new URL(path, "https://api.bunny.net").searchParams.get("hostname")
+        if (hostname !== null && options.pendingCertificates?.has(hostname)) {
+          throw bunnyError(method, path, 400)
+        }
+        const host = records(pull, "Hostnames").find((entry) => entry.Value === hostname)
+        assert.ok(host, "certificate issuance needs an attached hostname")
+        host.HasCertificate = true
+        return
+      }
     }
     if (method === "POST" && path === "/storagezone") {
       storage = { Id: 1, Password: "secret", Rewrite404To200: true, ...(isJson(body) ? body : {}) }
@@ -103,6 +121,29 @@ function account(options: { readonly provisioned: boolean; readonly target?: Tar
     }
     if (
       method === "POST" &&
+      path === "/pullzone/2/addHostname" &&
+      pull !== undefined &&
+      isJson(body)
+    ) {
+      pull.Hostnames = [
+        ...records(pull, "Hostnames"),
+        { ForceSSL: false, HasCertificate: false, Value: body.Hostname },
+      ]
+      return
+    }
+    if (
+      method === "POST" &&
+      path === "/pullzone/2/setForceSSL" &&
+      pull !== undefined &&
+      isJson(body)
+    ) {
+      const host = records(pull, "Hostnames").find((entry) => entry.Value === body.Hostname)
+      assert.equal(host?.HasCertificate, true, "never force HTTPS without a certificate")
+      host.ForceSSL = body.ForceSSL
+      return
+    }
+    if (
+      method === "POST" &&
       path === "/pullzone/2/edgerules/addOrUpdate" &&
       pull !== undefined &&
       isJson(body)
@@ -110,7 +151,7 @@ function account(options: { readonly provisioned: boolean; readonly target?: Tar
       const rules = Array.isArray(pull.EdgeRules) ? pull.EdgeRules.filter(isJson) : []
       pull.EdgeRules = [
         ...rules.filter((rule) => rule.Guid !== body.Guid),
-        { ...body, Guid: body.Guid ?? "new" },
+        { ...body, Guid: body.Guid ?? `new-${calls.length}` },
       ]
       return
     }
@@ -131,7 +172,7 @@ function account(options: { readonly provisioned: boolean; readonly target?: Tar
     }
     throw new Error(`Unexpected call ${method} ${path}`)
   }
-  return { api, calls, script: () => script }
+  return { api, calls, pull: () => pull, script: () => script }
 }
 
 const silent = (): void => undefined
@@ -206,6 +247,107 @@ test("an empty account gets storage, pull zone, rules, and a linked middleware",
     String(bunny.script()?.Code).includes(target.name),
     "the bundle carries its storage zone"
   )
+})
+
+const consultingTarget: Target = {
+  ...target,
+  aliasHostnames: ["www.sebastian-consulting.de"],
+  hostname: "sebastian-consulting.de",
+  name: "sebastian-websites-consulting-de",
+}
+
+test("only the active Consulting targets declare www aliases", () => {
+  const consulting = TARGETS.filter((entry) =>
+    entry.name.startsWith("sebastian-websites-consulting-")
+  )
+  assert.deepEqual(
+    consulting.map((entry) => entry.aliasHostnames),
+    [["www.sebastian-consulting.de"], ["www.sebastian-consulting.com"]]
+  )
+  const otherTargets = TARGETS.filter(
+    (entry) => !entry.name.startsWith("sebastian-websites-consulting-")
+  )
+  assert.ok(otherTargets.every((entry) => entry.aliasHostnames === undefined))
+})
+
+test("Consulting aliases have exact-host HTTPS redirects with the full path and query", () => {
+  for (const entry of TARGETS.filter((item) => item.aliasHostnames !== undefined)) {
+    const rules = canonicalRedirectRules(entry)
+    assert.equal(rules.length, 1)
+    assert.equal(rules[0]?.ActionType, 1)
+    assert.equal(rules[0]?.ActionParameter1, `https://${entry.hostname}%{Request.Path}`)
+    assert.equal(rules[0]?.ActionParameter2, "301")
+    assert.deepEqual(rules[0]?.Triggers, [
+      {
+        PatternMatches: [`*://${entry.aliasHostnames?.[0]}/*`],
+        PatternMatchingType: 0,
+        Type: 0,
+      },
+    ])
+  }
+  assert.deepEqual(canonicalRedirectRules(target), [])
+  assert.deepEqual(canonicalRedirectRules({ ...target, aliasHostnames: ["www.example.com"] }), [])
+})
+
+test("provisioning secures canonical and alias hosts, adopts existing redirects, and preserves other rules", async () => {
+  const redirect = canonicalRedirectRules(consultingTarget)[0]
+  const manualRule = { Description: "operations: unrelated rule", Enabled: true, Guid: "manual" }
+  const bunny = account({
+    extraRules: [manualRule, { ...redirect, ActionParameter2: "302", Guid: "existing-redirect" }],
+    provisioned: true,
+    target: consultingTarget,
+  })
+  await provision(bunny.api, consultingTarget, silent)
+  const pull = bunny.pull()
+  assert.ok(pull)
+  assert.deepEqual(records(pull, "Hostnames"), [
+    { ForceSSL: true, HasCertificate: true, Value: "sebastian-consulting.de" },
+    { ForceSSL: true, HasCertificate: true, Value: "www.sebastian-consulting.de" },
+  ])
+  const rules = records(pull, "EdgeRules")
+  assert.deepEqual(
+    rules.find((rule) => rule.Guid === "manual"),
+    manualRule
+  )
+  assert.deepEqual(
+    rules.find((rule) => rule.Guid === "existing-redirect"),
+    {
+      ...redirect,
+      Guid: "existing-redirect",
+    }
+  )
+  bunny.calls.length = 0
+  await provision(bunny.api, consultingTarget, silent)
+  assert.ok(
+    bunny.calls.every((call) => call.method === "GET"),
+    "repeated provisioning reads only"
+  )
+  assert.ok(bunny.calls.every((call) => !call.path.includes("loadFreeCertificate")))
+})
+
+test("an alias waiting for DNS does not force HTTPS before its certificate or block the canonical host", async () => {
+  const pendingCertificates = new Set(["www.sebastian-consulting.de"])
+  const bunny = account({ pendingCertificates, provisioned: true, target: consultingTarget })
+  const log: string[] = []
+  await provision(bunny.api, consultingTarget, (message) => log.push(message))
+  const pull = bunny.pull()
+  assert.ok(pull)
+  assert.deepEqual(records(pull, "Hostnames"), [
+    { ForceSSL: true, HasCertificate: true, Value: "sebastian-consulting.de" },
+    { ForceSSL: false, HasCertificate: false, Value: "www.sebastian-consulting.de" },
+  ])
+  assert.ok(
+    log.some((message) => message.includes("No certificate for www.sebastian-consulting.de"))
+  )
+  pendingCertificates.clear()
+  bunny.calls.length = 0
+  await provision(bunny.api, consultingTarget, silent)
+  assert.deepEqual(records(pull, "Hostnames")[1], {
+    ForceSSL: true,
+    HasCertificate: true,
+    Value: "www.sebastian-consulting.de",
+  })
+  assert.equal(bunny.calls.filter((call) => isPost(call, "/pullzone/2/addHostname")).length, 0)
 })
 
 test("publishing uploads changed files, keeps unchanged ones, removes stale ones, and purges", async () => {
@@ -446,12 +588,14 @@ test("targets cover every variant, the brand site, and the build-free asset zone
   assert.ok(TARGETS.every((entry) => entry.name.startsWith("sebastian-websites-")))
   for (const variant of Object.values(VARIANTS).filter((entry) => entry.productionActive)) {
     const activeTarget = TARGETS.find((entry) => entry.name === variant.deploymentTarget)
-    assert.equal(activeTarget?.hostname, new URL(variant.canonicalOrigin).hostname)
+    const hostname = new URL(variant.canonicalOrigin).hostname
+    assert.equal(activeTarget?.hostname, hostname)
   }
   for (const variant of Object.values(VARIANTS).filter((entry) => !entry.productionActive)) {
     const inactiveTarget = TARGETS.find((entry) => entry.name === variant.deploymentTarget)
     assert.ok(inactiveTarget, `${variant.deploymentTarget} has a target`)
     assert.equal(inactiveTarget.hostname, undefined)
+    assert.equal(inactiveTarget.aliasHostnames, undefined)
   }
   const brand = TARGETS.find((entry) => entry.name === "sebastian-websites-brand")
   assert.deepEqual(brand?.corsExtensions, ["css", "svg", "png"])
