@@ -51,17 +51,22 @@ light variants and their transparent counterparts are currently published.
 
 ### Favicons
 
-Every site serves the same six files from its own public folder, following
+Every site uses the same six files, following
 [How to Favicon in 2021](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs):
-`favicon.ico` (32 px, always at the root), `icon.svg`, `apple-touch-icon.png` (the icon at
-140 px on the brand's paper, 180 px in all), `icon-192.png`, `icon-512.png`, and `icon-mask.png`
-(maskable, the icon in the 409 px safe zone on paper), plus `manifest.webmanifest`. Software and
-Open Source use the Software icon, Consulting its own. `FaviconLinks` from `@sebastian-websites/ui`
-adds the head links.
+`favicon.ico` (32 px), `icon.svg`, `apple-touch-icon.png` (the icon at 140 px on the brand's
+paper, 180 px in all), `icon-192.png`, `icon-512.png`, and `icon-mask.png` (maskable, the icon in
+the 409 px safe zone on paper). Software and Open Source use the Software icon, Consulting its own.
+
+All six live once per brand in `packages/ui/src/assets/favicons/`, where Vite hashes their names
+so the CDN caches them as immutable assets. `FaviconLinks` from `@sebastian-websites/ui` adds the
+head links, and each app serves `/manifest.webmanifest` from a prerendered route built with
+`createWebManifest`. Each app also keeps an unhashed copy of `favicon.ico` in its public folder,
+because some clients request `/favicon.ico` without reading a page: a PDF opened in a browser
+tab, feed readers, crawlers.
 
 The files are generated from the transparent icons and committed. After an icon changes, run
 `pnpm --filter @sebastian-websites/brand favicons`; it needs ImageMagick 7 (`magick`) for the
-ICO and renders with Playwright's Chromium. There is no dark variant yet.
+ICO and renders with Playwright's Chromium. There is no dark variant yet (#50).
 
 ## Typography
 

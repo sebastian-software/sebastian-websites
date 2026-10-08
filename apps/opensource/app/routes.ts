@@ -6,4 +6,5 @@ export default [
   route("privacy", "routes/privacy.tsx"),
   route("sitemap.xml", "routes/sitemap.ts"),
   route("robots.txt", "routes/robots.ts"),
+  route("manifest.webmanifest", "routes/manifest.ts"),
 ] satisfies RouteConfig
