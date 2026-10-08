@@ -105,6 +105,9 @@ Upload source files manually through Bunny's file manager. Keep local backups ou
     shoot-1.jpg
     ...
     shoot-46.jpg
+  shooting-2024-edit/
+    color_09092024-1-retouched.png
+    ...
   fonts/
     Glober/
       GloberRegular-latin-<hash>.woff2
@@ -121,6 +124,11 @@ source `color_09092024-N.jpg` maps to `shooting-2024/shoot-N.jpg`; no recompress
 resizing occurs during publishing. Only the requested CDN variants are resized. The
 initial local upload folder is `~/Workspace/sebastian-photos-2024/publish`, containing
 byte-identical copies of the originals in `shooting-2024/`.
+
+Retouched edits of the shoot are uploaded manually to `shooting-2024-edit/` as
+`color_09092024-N-retouched.png` (1024 × 1536 or 1536 × 1024). The sites reference these
+edits; crops keep their relative focal points, so a replaced edit only needs its path and
+dimensions updated in the app's `photos.ts`.
 
 ```bash
 BUNNY_API_KEY=… node hosting/publish-assets.ts

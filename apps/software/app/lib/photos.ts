@@ -19,21 +19,21 @@ export const PHOTO_SIZES =
 export const laptopPhoto: PhotoPlacement = {
   crop: { mode: "focus", point: [CENTER, LAPTOP_FOCUS] },
   height: LANDSCAPE_HEIGHT,
-  src: { height: 5942, path: "shooting-2024/shoot-19.jpg", width: 3961 },
+  src: { height: 1536, path: "shooting-2024-edit/color_09092024-19-retouched.png", width: 1024 },
   width: PHOTO_WIDTH,
 }
 
 export const buildingPhoto: PhotoPlacement = {
   crop: { mode: "focus", point: [CENTER, BUILDING_FOCUS] },
   height: LANDSCAPE_HEIGHT,
-  src: { height: 5166, path: "shooting-2024/shoot-26.jpg", width: 3444 },
+  src: { height: 1536, path: "shooting-2024-edit/color_09092024-26-retouched.png", width: 1024 },
   width: PHOTO_WIDTH,
 }
 
 export const wernerPhoto: PhotoPlacement = {
   crop: { mode: "focus", point: [CENTER, PORTRAIT_FOCUS] },
   height: PORTRAIT_MEDIUM,
-  src: { height: 5861, path: "shooting-2024/shoot-3.jpg", width: 3907 },
+  src: { height: 1536, path: "shooting-2024-edit/color_09092024-3-retouched.png", width: 1024 },
   width: PORTRAIT_MEDIUM,
   widths: [PORTRAIT_SMALL, PORTRAIT_MEDIUM, PORTRAIT_LARGE],
 }
@@ -41,7 +41,7 @@ export const wernerPhoto: PhotoPlacement = {
 export const fastnerPhoto: PhotoPlacement = {
   crop: { mode: "focus", point: [CENTER, PORTRAIT_FOCUS] },
   height: PORTRAIT_MEDIUM,
-  src: { height: 5890, path: "shooting-2024/shoot-4.jpg", width: 3927 },
+  src: { height: 1536, path: "shooting-2024-edit/color_09092024-4-retouched.png", width: 1024 },
   width: PORTRAIT_MEDIUM,
   widths: [PORTRAIT_SMALL, PORTRAIT_MEDIUM, PORTRAIT_LARGE],
 }
