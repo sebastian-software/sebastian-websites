@@ -287,6 +287,10 @@ msgstr "E-Mail:"
 msgid "Entry in the Commercial Register"
 msgstr "Eintragung im Handelsregister"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Error 404"
+msgstr "Fehler 404"
+
 #: app/data/featured.ts#getFeatured
 msgid "Explore Ferramenta"
 msgstr "Ferramenta entdecken"
@@ -354,6 +358,10 @@ msgstr "Deutschland"
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid "Hetzner Online GmbH, Germany"
 msgstr "Hetzner Online GmbH, Deutschland"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Home page"
+msgstr "Startseite"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Hosting and Content Delivery Network"
@@ -584,6 +592,10 @@ msgstr "Unsere Software"
 #: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
 msgid "Overview of Data Processing"
 msgstr "Überblick über die Datenverarbeitung"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Page not found"
+msgstr "Seite nicht gefunden"
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Page views (URL, referrer)"
@@ -880,6 +892,12 @@ msgstr ""
 "Ein Cookie wird dabei nicht gesetzt."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid ""
+"The link may be outdated, or the address may contain a typo. These pages lead "
+"on:"
+msgstr "Vielleicht ist der Link veraltet oder die Adresse enthält einen Tippfehler. Hier geht es weiter:"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "The sign-up did not go through. Please try again later."
 msgstr ""
 "Die Anmeldung hat nicht geklappt. Bitte versuchen Sie es später noch einmal."
@@ -922,6 +940,10 @@ msgid "There is no contact form – contact is made exclusively by email."
 msgstr ""
 "Es gibt kein Kontaktformular – die Kontaktaufnahme erfolgt ausschließlich "
 "per E-Mail."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "This page does not exist."
+msgstr "Diese Seite gibt es nicht."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
 msgid ""

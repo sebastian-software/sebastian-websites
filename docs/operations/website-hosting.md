@@ -56,7 +56,11 @@ For website targets:
    five minutes in browsers), publishes the path-resolving middleware and links it, and
    attaches each declared canonical and alias hostname with a free certificate and forced
    HTTPS. Alias edge rules redirect to the canonical hostname with status 301. Site variants
-   declare their hostnames only when active; the brand site is already active.
+   declare their hostnames only when active; the brand site is already active. A content-type
+   rule serves `*.webmanifest` as `application/manifest+json`. Site variants point the storage
+   zone's custom 404 file at their prerendered not-found page (`/404/index.html`), so a missing
+   path answers 404 with the branded page in the site's language; redirects and 410 answers of
+   the middleware come first.
 2. `publish.ts`: uploads new and changed files by checksum, deletes files the build no longer
    contains, and purges the pull zone.
 3. `verify.ts`: fetches the home page, one prerendered route with and without a trailing

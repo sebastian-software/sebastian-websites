@@ -1,18 +1,35 @@
 import type { ReactElement, ReactNode } from "react"
 
-import { FaviconLinks, FONT_STYLESHEET, PageEnding, SiteHeader } from "@sebastian-websites/ui"
+import {
+  FaviconLinks,
+  FONT_STYLESHEET,
+  isNotFoundHandle,
+  PageEnding,
+  SiteHeader,
+} from "@sebastian-websites/ui"
 import { createFrameCopy } from "@sebastian-websites/ui/frame-copy"
 import { createSeoLinks, getSiteFrame, SITE_BRAND } from "@sebastian-websites/web-core"
-import { Links, Meta, Outlet, Scripts, useLocation } from "react-router"
+import { Links, Meta, Outlet, Scripts, useLocation, useMatches } from "react-router"
 import "@sebastian-websites/ui/brand-consulting.css"
 
 import "~/styles/print-pages.css"
 import "~/styles/print.css"
 import { variant } from "~/lib/site"
 
+/**
+ * Whether the current page is the not-found route, which has no canonical
+ * address and no counterpart in the other language.
+ *
+ * @returns True on the not-found page.
+ */
+function useNotFound(): boolean {
+  return useMatches().some((match) => isNotFoundHandle(match.handle))
+}
+
 export function Layout({ children }: { readonly children: ReactNode }): ReactElement {
   const { pathname } = useLocation()
-  const seoLinks = createSeoLinks(variant.site, variant.locale, pathname)
+  const notFound = useNotFound()
+  const seoLinks = notFound ? [] : createSeoLinks(variant.site, variant.locale, pathname)
 
   return (
     <html lang={variant.locale}>
@@ -42,7 +59,9 @@ export function Layout({ children }: { readonly children: ReactNode }): ReactEle
 
 export default function App(): ReactElement {
   const { pathname } = useLocation()
-  const frame = getSiteFrame(variant.site, variant.locale, pathname)
+  const notFound = useNotFound()
+  // The language switch of the not-found page leads to the other home page.
+  const frame = getSiteFrame(variant.site, variant.locale, notFound ? "/" : pathname)
   const copy = createFrameCopy(__BUILD_YEAR__)
 
   return (

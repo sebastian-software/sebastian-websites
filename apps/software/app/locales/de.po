@@ -487,6 +487,10 @@ msgstr "Begeisterung."
 msgid "Entry in the Commercial Register"
 msgstr "Eintragung im Handelsregister"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Error 404"
+msgstr "Fehler 404"
+
 #: app/routes/open-source.tsx
 msgid ""
 "Every number here is live from the metrics service, refreshed hourly from "
@@ -710,6 +714,10 @@ msgstr "Dankbarkeit"
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid "Hetzner Online GmbH, Germany"
 msgstr "Hetzner Online GmbH, Deutschland"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Home page"
+msgstr "Startseite"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Hosting and Content Delivery Network"
@@ -1145,6 +1153,10 @@ msgstr "Überblick über die Datenverarbeitung"
 #~ #: app/routes/home.tsx#Hero
 #~ msgid "owner-led, Mainz"
 #~ msgstr "inhabergeführt, Mainz"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Page not found"
+msgstr "Seite nicht gefunden"
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Page views (URL, referrer)"
@@ -1714,6 +1726,12 @@ msgstr ""
 "liegt, kann diese Weiterleitung auch auf die jeweils andere Domain führen. "
 "Ein Cookie wird dabei nicht gesetzt."
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid ""
+"The link may be outdated, or the address may contain a typo. These pages lead "
+"on:"
+msgstr "Vielleicht ist der Link veraltet oder die Adresse enthält einen Tippfehler. Hier geht es weiter:"
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/products.tsx
 #~ msgid ""
@@ -1791,6 +1809,10 @@ msgstr ""
 #: app/components/ProductCards.tsx#ProductCards
 msgid "Third product"
 msgstr "Drittes Produkt"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "This page does not exist."
+msgstr "Diese Seite gibt es nicht."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
 msgid ""

@@ -764,6 +764,10 @@ msgstr "Begeisterung."
 msgid "Entry in the Commercial Register"
 msgstr "Eintragung im Handelsregister"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Error 404"
+msgstr "Fehler 404"
+
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
 "Established the technical foundation for 17 multi-brand online shops across "
@@ -1081,6 +1085,10 @@ msgstr "Hetzner Online GmbH, Deutschland"
 
 #: app/components/profile-screen/ProfileMobileBar.tsx#ProfileMobileBar
 msgid "Home"
+msgstr "Startseite"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Home page"
 msgstr "Startseite"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
@@ -1571,6 +1579,10 @@ msgid ""
 msgstr ""
 "React-/TypeScript-Komponentenbibliothek, REST-Anbindung sowie CI/CD auf "
 "Microsoft Azure verantwortet."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Page not found"
+msgstr "Seite nicht gefunden"
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Page views (URL, referrer)"
@@ -2198,6 +2210,12 @@ msgstr ""
 "liegt, kann diese Weiterleitung auch auf die jeweils andere Domain führen. "
 "Ein Cookie wird dabei nicht gesetzt."
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid ""
+"The link may be outdated, or the address may contain a typo. These pages lead "
+"on:"
+msgstr "Vielleicht ist der Link veraltet oder die Adresse enthält einen Tippfehler. Hier geht es weiter:"
+
 #: app/components/profile-screen/ProfileRail.tsx#ProfileRail
 msgid "The second consultant"
 msgstr "Der zweite Berater"
@@ -2277,6 +2295,10 @@ msgid "There is no contact form – contact is made exclusively by email."
 msgstr ""
 "Es gibt kein Kontaktformular – die Kontaktaufnahme erfolgt ausschließlich "
 "per E-Mail."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "This page does not exist."
+msgstr "Diese Seite gibt es nicht."
 
 #: app/components/profile-print/CompanyContact.tsx#CompanyContact
 msgid ""

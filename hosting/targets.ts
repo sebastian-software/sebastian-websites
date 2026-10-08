@@ -16,7 +16,15 @@ export type Target = {
   readonly hostname?: string
   /** The zone name; also the `<name>.b-cdn.net` origin host, unique across Bunny. */
   readonly name: string
+  /**
+   * The prerendered page the storage zone returns, with status 404, for files
+   * it does not have: the site's branded not-found page.
+   */
+  readonly notFoundPage?: string
 }
+
+/** Where every app prerenders its not-found route (React Router writes `<path>/index.html`). */
+export const NOT_FOUND_PAGE = "/404/index.html"
 
 const BRAND_TARGET: Target = {
   buildDirectory: "apps/brand/build/client",
@@ -56,6 +64,7 @@ export const TARGETS: readonly Target[] = [
           }
         : {}),
       name: variant.deploymentTarget,
+      notFoundPage: NOT_FOUND_PAGE,
     }
   }),
   BRAND_TARGET,
