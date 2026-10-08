@@ -4,6 +4,8 @@ import { type VariantDefinition, VARIANTS } from "../packages/web-core/src/sites
 
 /** One Bunny storage and pull zone pair serving a site or shared assets. */
 export type Target = {
+  /** Additional hostnames to secure and redirect to the canonical hostname. */
+  readonly aliasHostnames?: readonly string[]
   /** Asset zones omit site middleware and preserve manually uploaded files. */
   readonly assets?: boolean
   /** The public build output or asset source folder, relative to the repository root. */
@@ -42,12 +44,20 @@ export const ASSET_TARGET: Target = {
 const variants: Readonly<Record<string, VariantDefinition>> = VARIANTS
 
 export const TARGETS: readonly Target[] = [
-  ...Object.entries(variants).map(([variantId, variant]): Target => ({
-    buildDirectory: `apps/${variant.site}/build/${variantId}/client`,
-    corsExtensions: [],
-    ...(variant.productionActive ? { hostname: new URL(variant.canonicalOrigin).hostname } : {}),
-    name: variant.deploymentTarget,
-  })),
+  ...Object.entries(variants).map(([variantId, variant]): Target => {
+    const hostname = new URL(variant.canonicalOrigin).hostname
+    return {
+      buildDirectory: `apps/${variant.site}/build/${variantId}/client`,
+      corsExtensions: [],
+      ...(variant.productionActive
+        ? {
+            ...(variant.site === "consulting" ? { aliasHostnames: [`www.${hostname}`] } : {}),
+            hostname,
+          }
+        : {}),
+      name: variant.deploymentTarget,
+    }
+  }),
   BRAND_TARGET,
   ASSET_TARGET,
 ]

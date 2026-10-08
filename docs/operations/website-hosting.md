@@ -19,6 +19,27 @@ and redirects HTTP to HTTPS. The brand target declares this hostname so provisio
 maintains its certificate and HTTPS settings. The existing logo, token, and font CSS
 paths are available under the canonical domain.
 
+## Consulting www aliases
+
+The active Consulting targets declare `www.sebastian-consulting.de` and
+`www.sebastian-consulting.com` as aliases. Bunny DNS has a `www` CNAME to
+`sebastian-websites-consulting-de.b-cdn.net` and
+`sebastian-websites-consulting-en.b-cdn.net`, respectively. DNS records are managed
+separately from deployment; establish them before certificate issuance.
+
+Provisioning attaches each alias, issues its certificate, enables forced HTTPS only
+once a certificate exists, and maintains a 301 edge rule matching only that alias.
+The redirect target is `https://<canonical-host>%{Request.Path}`. Bunny's
+[variable expansion](https://bunny.net/docs/cdn/edge-rules/variable-expansion)
+retains the original path and query before the cache lookup. Rules are reconciled by
+description, so existing matching dashboard rules are adopted and unrelated rules
+are preserved. A certificate waiting for DNS is retried on a later deployment.
+
+Both aliases were activated on October 8, 2026. Public HTTPS redirects passed for
+root, profile, PDF, and encoded asset paths with query strings; HTTP requests
+followed through to the canonical HTTPS site. MX, SPF, DKIM, DMARC, profile aliases,
+CAA, and nameservers were compared before and after and remained unchanged.
+
 ## What a deployment does
 
 Before publishing websites, deployment collects Vite's `?bunny` image manifests,
@@ -33,8 +54,9 @@ For website targets:
    pull zone (EU and US delivery, cookies off, query strings ignored), applies the two cache
    rules (hashed `assets/` immutable for a year, everything else purged on publish and kept
    five minutes in browsers), publishes the path-resolving middleware and links it, and
-   attaches each declared canonical hostname with a free certificate. Site variants
-   declare their hostname only when active; the brand site is already active.
+   attaches each declared canonical and alias hostname with a free certificate and forced
+   HTTPS. Alias edge rules redirect to the canonical hostname with status 301. Site variants
+   declare their hostnames only when active; the brand site is already active.
 2. `publish.ts`: uploads new and changed files by checksum, deletes files the build no longer
    contains, and purges the pull zone.
 3. `verify.ts`: fetches the home page, one prerendered route with and without a trailing
