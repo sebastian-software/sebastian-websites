@@ -10,11 +10,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "format": "prettier --write README.md vite.config.ts",
-    "format:check": "prettier --check README.md vite.config.ts",
-    "agent:check": "pnpm format:check && pnpm build"
+    "format": "prettier --write README.md vite.config.ts scripts",
+    "format:check": "prettier --check README.md vite.config.ts scripts",
+    "agent:check": "pnpm format:check && pnpm build",
+    "favicons": "node scripts/favicons.ts"
   },
   "devDependencies": {
+    "playwright": "catalog:",
     "prettier": "catalog:",
     "vite": "catalog:"
   }
