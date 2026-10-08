@@ -1420,6 +1420,10 @@ msgstr "Managing Directors:"
 msgid "Meet Sebastian/Consulting"
 msgstr "Meet Sebastian/Consulting"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Menu"
+msgstr "Menu"
+
 #: app/data/werner.projects-featured.ts#getFeaturedProjects
 msgid "Meridian Energy Management Portal"
 msgstr "Meridian Energy Management Portal"

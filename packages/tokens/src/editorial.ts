@@ -16,10 +16,36 @@ export const PAGE = {
   width: "1040px",
 } as const
 
-/** One step of the type scale: size, line height, and tracking. */
+/**
+ * The layouts below the fixed desktop page. Compact screens (tablets, small
+ * windows) stack the grid into one column and fold the header into a menu;
+ * phones also step down type, margins, and rhythm. From 1024 px the desktop
+ * page applies unchanged, so these are overrides for narrower screens only.
+ */
+export const BREAKPOINTS = {
+  compact: "1023px",
+  phone: "639px",
+} as const
+
+/** Page margins, frame overhang, and rhythm of the compact and phone layouts. */
+export const COMPACT_PAGE = {
+  compactMargin: "32px",
+  compactOverhang: "12px",
+  compactSection: "112px",
+  phoneMargin: "20px",
+  phoneOverhang: "8px",
+  phoneSection: "88px",
+} as const
+
+/**
+ * One step of the type scale: size, line height, and tracking. Large steps name
+ * smaller sizes for compact screens and phones; small steps keep their size.
+ */
 export type TypeStep = {
+  readonly compactSize?: string
   readonly letterSpacing: string
   readonly lineHeight: number
+  readonly phoneSize?: string
   readonly size: string
 }
 
@@ -29,25 +55,55 @@ export type TypeStep = {
  */
 export const TYPE_SCALE = {
   /** Inline actions such as "Explore Terminaro →". */
-  action: { letterSpacing: "0", lineHeight: 1.4, size: "19px" },
+  action: { letterSpacing: "0", lineHeight: 1.4, phoneSize: "18px", size: "19px" },
   /** Practical running text in Glober. */
-  body: { letterSpacing: "0", lineHeight: 1.6, size: "18px" },
+  body: { letterSpacing: "0", lineHeight: 1.6, phoneSize: "17px", size: "18px" },
   /** Editorial running text in Elena, whose small x-height needs a larger size. */
-  bodySerif: { letterSpacing: "0", lineHeight: 1.5, size: "20px" },
+  bodySerif: { letterSpacing: "0", lineHeight: 1.5, phoneSize: "18px", size: "20px" },
   /** Captions, badges, and the legal baseline. */
   caption: { letterSpacing: "0", lineHeight: 1.45, size: "14px" },
   /** The page's main editorial headline. */
-  display: { letterSpacing: "-0.015em", lineHeight: 1.2, size: "52px" },
+  display: {
+    compactSize: "44px",
+    letterSpacing: "-0.015em",
+    lineHeight: 1.2,
+    phoneSize: "34px",
+    size: "52px",
+  },
   /** Story and passage headings. */
-  heading: { letterSpacing: "-0.01em", lineHeight: 1.28, size: "34px" },
+  heading: {
+    compactSize: "30px",
+    letterSpacing: "-0.01em",
+    lineHeight: 1.28,
+    phoneSize: "26px",
+    size: "34px",
+  },
   /** Editorial introductions. */
-  lead: { letterSpacing: "-0.005em", lineHeight: 1.45, size: "24px" },
+  lead: {
+    compactSize: "22px",
+    letterSpacing: "-0.005em",
+    lineHeight: 1.45,
+    phoneSize: "20px",
+    size: "24px",
+  },
   /** Navigation, links, and secondary text. */
   small: { letterSpacing: "0", lineHeight: 1.5, size: "16px" },
   /** Quiet headings such as the newsletter and tile titles. */
-  subheading: { letterSpacing: "-0.01em", lineHeight: 1.3, size: "26px" },
+  subheading: {
+    compactSize: "24px",
+    letterSpacing: "-0.01em",
+    lineHeight: 1.3,
+    phoneSize: "22px",
+    size: "26px",
+  },
   /** Section headings. */
-  title: { letterSpacing: "-0.012em", lineHeight: 1.2, size: "40px" },
+  title: {
+    compactSize: "34px",
+    letterSpacing: "-0.012em",
+    lineHeight: 1.2,
+    phoneSize: "30px",
+    size: "40px",
+  },
 } as const satisfies Readonly<Record<string, TypeStep>>
 
 /** Vertical rhythm, from the gap inside a block to the space between sections. */

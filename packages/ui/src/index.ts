@@ -22,6 +22,7 @@ export {
 } from "./frame/subscribe.ts"
 export * as layout from "./layout.css.ts"
 export { legalClassNames } from "./legal.css.ts"
+export { COMPACT, DESKTOP, editorialSizes, PHONE } from "./responsive.ts"
 export { Section, type SectionProps, type SectionTone } from "./Section.tsx"
 export { SectionHead, type SectionHeadProps } from "./SectionHead.tsx"
 export { color, font, FONT_STYLESHEET, NARROW, ON_NIGHT } from "./theme.css.ts"

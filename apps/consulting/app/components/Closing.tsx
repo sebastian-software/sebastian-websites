@@ -1,7 +1,7 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { BunnyImage, ButtonLink } from "@sebastian-websites/ui"
+import { BunnyImage, ButtonLink, editorialSizes } from "@sebastian-websites/ui"
 import { BOOKING_URL } from "@sebastian-websites/web-core"
 
 import ridgePath from "~/assets/photography/consulting-ridge-path.png?bunny"
@@ -11,6 +11,8 @@ import * as styles from "./Closing.css.ts"
 // Keeps the cairn and the end of the path in the frame.
 const OVERLOOK_X = 0.62
 const OVERLOOK_Y = 0.5
+/** The photograph's rendered desktop width in CSS pixels. */
+const ART_WIDTH = 569
 
 /**
  * The invitation to talk, beside a ridge path that leads toward an overlook:
@@ -39,9 +41,9 @@ export function Closing(): ReactElement {
           className={styles.image}
           crop={{ mode: "focus", point: [OVERLOOK_X, OVERLOOK_Y] }}
           height={474}
-          sizes="569px"
+          sizes={editorialSizes(ART_WIDTH)}
           src={ridgePath}
-          width={569}
+          width={ART_WIDTH}
         />
       </div>
     </section>

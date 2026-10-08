@@ -1,33 +1,71 @@
-import { PAGE, RHYTHM, TYPE_SCALE, type TypeStep } from "@sebastian-websites/tokens"
-import { createVar, style, styleVariants } from "@vanilla-extract/css"
+import { COMPACT_PAGE, PAGE, RHYTHM, TYPE_SCALE, type TypeStep } from "@sebastian-websites/tokens"
+import { createVar, globalStyle, style, styleVariants } from "@vanilla-extract/css"
 
+import { COMPACT, COMPACT_WIDTH, PHONE, PHONE_WIDTH } from "../responsive.ts"
 import { color, font } from "../theme.css.ts"
 
-function step(value: TypeStep): {
+type StepStyle = {
+  "@media"?: Record<string, { fontSize: string }>
   fontSize: string
   letterSpacing: string
   lineHeight: number
-} {
-  return { fontSize: value.size, letterSpacing: value.letterSpacing, lineHeight: value.lineHeight }
+}
+
+/**
+ * One type step as style, with its smaller compact and phone sizes.
+ *
+ * @param value - The step from the type scale.
+ * @returns Font size, tracking, and line height, plus the narrower overrides.
+ */
+function step(value: TypeStep): StepStyle {
+  const narrower: Record<string, { fontSize: string }> = {}
+  if (value.compactSize !== undefined) narrower[COMPACT] = { fontSize: value.compactSize }
+  if (value.phoneSize !== undefined) narrower[PHONE] = { fontSize: value.phoneSize }
+  return {
+    ...(Object.keys(narrower).length > 0 ? { "@media": narrower } : {}),
+    fontSize: value.size,
+    letterSpacing: value.letterSpacing,
+    lineHeight: value.lineHeight,
+  }
 }
 
 // ---- Page and grid ---------------------------------------------------------
 
-/** The 1040 px editorial page; wider windows get wider margins, not wider text. */
+/**
+ * The 1040 px editorial page; wider windows get wider margins, not wider text.
+ * Compact screens and phones use the full width minus a smaller margin.
+ */
 export const page = style({
+  "@media": { [COMPACT]: { width: COMPACT_WIDTH }, [PHONE]: { width: PHONE_WIDTH } },
   marginInline: "auto",
   width: `min(${PAGE.width}, 100% - 2 * ${PAGE.margin})`,
 })
 
-/** The shared 12-column grid. Children place themselves with `gridColumn`. */
+/**
+ * The shared 12-column grid. Children place themselves with `gridColumn`. On
+ * compact screens it is a single column, so the desktop placements fall away.
+ */
 export const grid = style({
+  "@media": { [COMPACT]: { columnGap: 0, gridTemplateColumns: "minmax(0, 1fr)" } },
   columnGap: PAGE.gap,
   display: "grid",
   gridTemplateColumns: `repeat(${PAGE.columns}, minmax(0, 1fr))`,
 })
 
+// Placements are written for twelve columns and set by each component's own
+// class; on compact screens every child spans the single column in source order.
+globalStyle(`${grid} > *`, {
+  "@media": { [COMPACT]: { gridColumn: "1 / -1 !important", gridRow: "auto !important" } },
+})
+
 /** Vertical space after a section; the next section starts without its own top. */
-export const section = style({ paddingBottom: RHYTHM.section })
+export const section = style({
+  "@media": {
+    [COMPACT]: { paddingBottom: COMPACT_PAGE.compactSection },
+    [PHONE]: { paddingBottom: COMPACT_PAGE.phoneSection },
+  },
+  paddingBottom: RHYTHM.section,
+})
 
 // ---- Type ------------------------------------------------------------------
 
@@ -189,12 +227,29 @@ export const storyContent = styleVariants({
   start: { gridColumn: "7 / span 6", gridRow: 1 },
 })
 
+/** Stacked on compact screens, the illustration stays inside the page. */
+const stackedMedia = { "@media": { [COMPACT]: { marginInline: 0, marginTop: "8px" } } }
+
 export const storyMedia = styleVariants({
-  end: { gridColumn: "6 / span 7", gridRow: 1, marginRight: `calc(-1 * ${MEDIA_BLEED})` },
-  start: { gridColumn: "1 / span 6", gridRow: 1, marginLeft: `calc(-1 * ${MEDIA_BLEED})` },
+  end: {
+    ...stackedMedia,
+    gridColumn: "6 / span 7",
+    gridRow: 1,
+    marginRight: `calc(-1 * ${MEDIA_BLEED})`,
+  },
+  start: {
+    ...stackedMedia,
+    gridColumn: "1 / span 6",
+    gridRow: 1,
+    marginLeft: `calc(-1 * ${MEDIA_BLEED})`,
+  },
 })
 
 export const storyList = style({
+  "@media": {
+    [COMPACT]: { rowGap: COMPACT_PAGE.compactSection },
+    [PHONE]: { rowGap: COMPACT_PAGE.phoneSection },
+  },
   display: "grid",
   rowGap: RHYTHM.story,
 })

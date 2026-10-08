@@ -1,9 +1,9 @@
 # Design system
 
 **Status:** implemented for desktop on 2026-10-07 from the
-[implementation brief](IMPLEMENTATION-BRIEF.md) and its selected references. The phone
-composition is the next milestone. The October 6 HTML-comp notes that this file held before
-are in its Git history; the comps themselves stay in `design/comps/`.
+[implementation brief](IMPLEMENTATION-BRIEF.md) and its selected references, and for compact
+screens and phones on 2026-10-08 (#32). The October 6 HTML-comp notes that this file held
+before are in its Git history; the comps themselves stay in `design/comps/`.
 
 Implementation: `packages/tokens/src/editorial.ts` (page, type scale, rhythm, frame, editorial
 colors), `packages/ui` (frame and editorial primitives), and the three homepages in
@@ -56,11 +56,42 @@ own letterforms.
 Elena's small x-height is why editorial text runs at 20 px while Glober text runs at 18 px:
 both read at the same size.
 
+On compact screens `display` steps down to 44 px, `title` to 34, `heading` to 30, `subheading`
+to 24, and `lead` to 22; on phones to 34, 30, 26, 22, and 20, with `bodySerif` at 18, `body`
+at 17, and `action` at 18 (`compactSize` and `phoneSize` in `TYPE_SCALE`). Headlines that are
+larger than a step on desktop name their own smaller sizes beside them.
+
 ## Rhythm
 
 Sections are 160 px apart, consecutive stories 160 px. Inside a block: 24 px between heading
 and text, 32 px before an action. The newsletter is followed by about 190 px, the invitation by
 88 px, and the footer panel keeps 24 px to the bottom of the page.
+
+## Compact screens and phones
+
+Desktop from 1024 px is the base style and stays unchanged; every narrower rule is an override
+(`COMPACT`, `PHONE`, and `editorialSizes()` in `packages/ui/src/responsive.ts`).
+
+| Layout  | Width         | Page margin | Section rhythm | Frame overhang |
+| ------- | ------------- | ----------- | -------------- | -------------- |
+| Compact | up to 1023 px | 32 px       | 112 px         | 12 px          |
+| Phone   | up to 639 px  | 20 px       | 88 px          | 8 px           |
+
+- **One column:** below 1024 px the 12-column grid becomes a single column, and every child
+  spans it in source order; the desktop placements fall away in one rule (`editorial.grid`).
+  Bleeds and negative offsets return to the page edge.
+- **Hairline asides** (hero introductions, the region aside, the judgment passage) keep their
+  left rule with 24 px, on phones 20 px, of padding.
+- **Header:** the logo and one 44 px menu button. The local links, the language switch, and the
+  outward capsule are the same markup as on desktop, shown as a native popover panel below the
+  shell: 56 px link rows, EN and DE as a two-option switch, the capsule last. Escape and a tap
+  outside close it; no script is involved.
+- **Page ending:** the newsletter field and button stack on phones; the invitation drawing
+  follows its text at up to 420 px; the footer panel stacks logo, address, index, and profiles.
+- **Images** request a candidate for the page width on compact screens (`editorialSizes`).
+  Portrait pairs stay side by side; the team portraits stand alone at up to 320 px.
+- Touch targets in the menu are at least 44 px. Verified on 2026-10-08 at 320, 360, 390, 430,
+  768, and 1024 px without horizontal scrolling.
 
 ## Color
 
@@ -114,7 +145,6 @@ reduced motion. Nothing else moves.
 
 ## Open
 
-- Phone composition and navigation.
 - The newsletter service, the Software journal, the VorOrt logo, and cleared Consulting
   references.
 - The invitation drawings reuse existing illustrations; standalone drawings in the style of the

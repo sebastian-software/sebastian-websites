@@ -1,9 +1,13 @@
-import { color, editorial, font } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, PHONE } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
-export const region = style([editorial.grid, { alignItems: "center" }])
+export const region = style([
+  editorial.grid,
+  { "@media": { [COMPACT]: { rowGap: "40px" } }, alignItems: "center" },
+])
 
 export const map = style({
+  "@media": { [COMPACT]: { marginLeft: 0 } },
   gridColumn: "1 / span 8",
   margin: "0 0 0 -40px",
   position: "relative",
@@ -22,6 +26,10 @@ export const place = style({
 })
 
 export const aside = style({
+  "@media": {
+    [COMPACT]: { marginLeft: 0, paddingLeft: "28px" },
+    [PHONE]: { paddingLeft: "20px" },
+  },
   borderLeft: `1px solid ${color.rule}`,
   gridColumn: "9 / span 4",
   marginLeft: "-48px",
@@ -40,4 +48,11 @@ export const rule = style({
   opacity: 0.45,
 })
 
-export const values = style([editorial.title, { fontSize: "44px", lineHeight: 1.16 }])
+export const values = style([
+  editorial.title,
+  {
+    "@media": { [COMPACT]: { fontSize: "36px" }, [PHONE]: { fontSize: "30px" } },
+    fontSize: "44px",
+    lineHeight: 1.16,
+  },
+])

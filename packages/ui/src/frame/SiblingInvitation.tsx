@@ -59,7 +59,7 @@ export function SiblingInvitation(props: SiblingInvitationProps): ReactElement {
           alt={copy.illustrationAlt}
           className={styles.invitationImage}
           height={art.height}
-          sizes={`${art.width}px`}
+          sizes={`(max-width: 1023px) min(420px, 100vw - 40px), ${String(art.width)}px`}
           src={art.src}
           width={art.width}
         />

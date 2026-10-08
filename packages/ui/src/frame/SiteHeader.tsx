@@ -1,5 +1,6 @@
 import type { SiteFrame } from "@sebastian-websites/web-core"
-import type { ReactElement } from "react"
+
+import { type ReactElement, useId } from "react"
 
 import type { FrameCopy } from "./copy.ts"
 
@@ -15,13 +16,16 @@ export type SiteHeaderProps = {
 
 /**
  * The floating header: the current brand's only logo, its local navigation and
- * language switch, and one small outward capsule to the other brand.
+ * language switch, and one small outward capsule to the other brand. On compact
+ * screens the controls become a popover menu behind one button; the markup is
+ * the same, so there is a single navigation landmark on every layout.
  *
  * @param props - The resolved frame of the page and the translated labels.
  * @returns The page header.
  */
 export function SiteHeader(props: SiteHeaderProps): ReactElement {
   const { copy, frame } = props
+  const menuId = useId()
   return (
     <header className={styles.area}>
       <a className={styles.skip} href="#main">
@@ -36,7 +40,13 @@ export function SiteHeader(props: SiteHeaderProps): ReactElement {
             height={32}
           />
         </a>
-        <div className={styles.controls}>
+        <button className={styles.menuButton} popoverTarget={menuId} type="button">
+          <svg aria-hidden="true" className={styles.menuIcon} viewBox="0 0 24 24">
+            <path d="M4 8h16M4 16h16" />
+          </svg>
+          <span className={visuallyHidden}>{copy.header.menu}</span>
+        </button>
+        <div className={styles.controls} id={menuId} popover="auto">
           <nav aria-label={copy.header.navigation}>
             <ul className={styles.list}>
               {frame.navigation.map((link) => (

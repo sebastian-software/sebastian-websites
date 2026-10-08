@@ -47,6 +47,8 @@ export type FrameCopy = {
   }
   readonly header: {
     readonly language: string
+    /** The button that opens the navigation on compact screens. */
+    readonly menu: string
     readonly navigation: string
     readonly outbound: Readonly<Record<BrandId, string>>
     /** The first focus stop, leading past the header to the page's main content. */
