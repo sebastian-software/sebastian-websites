@@ -96,3 +96,6 @@ art direction, and center, face, or focal-point crops. See
   under `shooting-2024/`. Software placements use responsive URLs from the shared asset
   host with focal crops, intrinsic dimensions, and a hero preload. The six interim JPEGs
   are removed from the application; existing Git history is unchanged.
+- **Updated (2026-10-08):** placements use retouched edits of the 2024 shoot from
+  `shooting-2024-edit/` (`color_09092024-N-retouched.png`, 1024 × 1536 or 1536 × 1024 PNG).
+  The originals in `shooting-2024/` remain published but are no longer referenced by the sites.
