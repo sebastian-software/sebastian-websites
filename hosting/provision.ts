@@ -83,7 +83,10 @@ async function ensureStorage(context: Context): Promise<Zone> {
   }
   await patchSettings(context, {
     current: storage,
-    desired: { Rewrite404To200: false },
+    desired: {
+      Rewrite404To200: false,
+      ...(target.notFoundPage === undefined ? {} : { Custom404FilePath: target.notFoundPage }),
+    },
     resource: `/storagezone/${storage.Id}`,
   })
   return storage

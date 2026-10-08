@@ -275,6 +275,10 @@ msgstr "Email:"
 msgid "Entry in the Commercial Register"
 msgstr "Entry in the Commercial Register"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Error 404"
+msgstr "Error 404"
+
 #: app/data/featured.ts#getFeatured
 msgid "Explore Ferramenta"
 msgstr "Explore Ferramenta"
@@ -342,6 +346,10 @@ msgstr "Germany"
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid "Hetzner Online GmbH, Germany"
 msgstr "Hetzner Online GmbH, Germany"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Home page"
+msgstr "Home page"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Hosting and Content Delivery Network"
@@ -570,6 +578,10 @@ msgstr "Our software"
 #: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
 msgid "Overview of Data Processing"
 msgstr "Overview of Data Processing"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Page not found"
+msgstr "Page not found"
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Page views (URL, referrer)"
@@ -853,6 +865,14 @@ msgstr ""
 " process."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid ""
+"The link may be outdated, or the address may contain a typo. These pages lead "
+"on:"
+msgstr ""
+"The link may be outdated, or the address may contain a typo. These pages lead "
+"on:"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "The sign-up did not go through. Please try again later."
 msgstr "The sign-up did not go through. Please try again later."
 
@@ -891,6 +911,10 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
 msgid "There is no contact form – contact is made exclusively by email."
 msgstr "There is no contact form – contact is made exclusively by email."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "This page does not exist."
+msgstr "This page does not exist."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
 msgid ""

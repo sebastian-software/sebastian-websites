@@ -15,6 +15,7 @@ import {
   ASSET_TARGET,
   buildableTargets,
   IMAGE_EXTENSIONS,
+  NOT_FOUND_PAGE,
   type Target,
   TARGETS,
 } from "./targets.ts"
@@ -174,7 +175,7 @@ function account(options: {
     }
     throw new Error(`Unexpected call ${method} ${path}`)
   }
-  return { api, calls, pull: () => pull, script: () => script }
+  return { api, calls, pull: () => pull, script: () => script, storage: () => storage }
 }
 
 const silent = (): void => undefined
@@ -796,6 +797,46 @@ test("asset sources need no index, exclude private metadata, and reject empty co
   } finally {
     await rm(directory, { force: true, recursive: true })
   }
+})
+
+test("every site serves its prerendered not-found page; the brand site and assets keep Bunny's", () => {
+  const variantZones = new Set<string>(
+    Object.values(VARIANTS).map((variant) => variant.deploymentTarget)
+  )
+  const sites = TARGETS.filter((entry) => variantZones.has(entry.name))
+  assert.equal(sites.length, variantZones.size)
+  assert.ok(sites.every((entry) => entry.notFoundPage === NOT_FOUND_PAGE))
+  assert.ok(
+    TARGETS.filter((entry) => !sites.includes(entry)).every(
+      (entry) => entry.notFoundPage === undefined
+    )
+  )
+})
+
+test("provisioning points the storage zone at the not-found page once", async () => {
+  const site: Target = { ...target, notFoundPage: NOT_FOUND_PAGE }
+  const bunny = account({ provisioned: true, target: site })
+  await provision(bunny.api, site, silent)
+  assert.equal(bunny.storage()?.Custom404FilePath, NOT_FOUND_PAGE)
+  assert.equal(bunny.storage()?.Rewrite404To200, false)
+  bunny.calls.length = 0
+  await provision(bunny.api, site, silent)
+  assert.ok(
+    bunny.calls.every((call) => call.method === "GET"),
+    "repeated provisioning reads only"
+  )
+})
+
+test("verification expects the branded not-found page where a site has one", () => {
+  const assets = [{ bytes: new Uint8Array(), path: "index.html" }]
+  const missing = (entry: Target) =>
+    checksFor(entry, assets).find((check) => check.path === "/no-such-page-verification")
+  assert.deepEqual(missing({ ...target, notFoundPage: NOT_FOUND_PAGE }), {
+    path: "/no-such-page-verification",
+    status: NOT_FOUND,
+    text: "data-not-found",
+  })
+  assert.deepEqual(missing(target), { path: "/no-such-page-verification", status: NOT_FOUND })
 })
 
 test("verification checks the home page, one route both ways, a missing path, and CORS assets", () => {

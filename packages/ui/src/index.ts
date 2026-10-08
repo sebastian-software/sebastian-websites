@@ -12,6 +12,12 @@ export { createWebManifest, FAVICONS, type FaviconSet, WEB_MANIFEST_PATH } from 
 export { BrandLogo, type BrandLogoProps } from "./frame/BrandLogo.tsx"
 export type { CompanyDetails, FrameCopy, InvitationCopy, NewsletterCopy } from "./frame/copy.ts"
 export { Newsletter, type NewsletterProps } from "./frame/Newsletter.tsx"
+export {
+  isNotFoundHandle,
+  NOT_FOUND_HANDLE,
+  NotFound,
+  type NotFoundProps,
+} from "./frame/NotFound.tsx"
 export { PageEnding, type PageEndingProps } from "./frame/PageEnding.tsx"
 export { SiblingInvitation, type SiblingInvitationProps } from "./frame/SiblingInvitation.tsx"
 export { SiteFooter, type SiteFooterProps } from "./frame/SiteFooter.tsx"

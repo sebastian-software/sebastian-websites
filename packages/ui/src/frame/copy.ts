@@ -57,5 +57,13 @@ export type FrameCopy = {
   readonly invitation: Readonly<Record<BrandId, InvitationCopy>>
   readonly links: Readonly<Record<FrameLinkId, string>>
   readonly newsletter: NewsletterCopy
+  /** The page for unknown addresses, inside the frame. */
+  readonly notFound: {
+    readonly eyebrow: string
+    readonly home: string
+    readonly pageTitle: string
+    readonly text: string
+    readonly title: string
+  }
   readonly profiles: Readonly<Record<CompanyProfile["id"], string>>
 }

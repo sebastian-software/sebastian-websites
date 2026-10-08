@@ -737,6 +737,10 @@ msgstr "Enthusiasm."
 msgid "Entry in the Commercial Register"
 msgstr "Entry in the Commercial Register"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Error 404"
+msgstr "Error 404"
+
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
 "Established the technical foundation for 17 multi-brand online shops across "
@@ -1050,6 +1054,10 @@ msgstr "Hetzner Online GmbH, Germany"
 #: app/components/profile-screen/ProfileMobileBar.tsx#ProfileMobileBar
 msgid "Home"
 msgstr "Home"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Home page"
+msgstr "Home page"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Hosting and Content Delivery Network"
@@ -1529,6 +1537,10 @@ msgid ""
 msgstr ""
 "Owned a React/TypeScript component library, REST integration, and CI/CD on "
 "Microsoft Azure."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Page not found"
+msgstr "Page not found"
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Page views (URL, referrer)"
@@ -2135,6 +2147,14 @@ msgstr ""
 "redirect may also lead to the respective other domain. No cookie is set in the"
 " process."
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid ""
+"The link may be outdated, or the address may contain a typo. These pages lead "
+"on:"
+msgstr ""
+"The link may be outdated, or the address may contain a typo. These pages lead "
+"on:"
+
 #: app/components/profile-screen/ProfileRail.tsx#ProfileRail
 msgid "The second consultant"
 msgstr "The second consultant"
@@ -2210,6 +2230,10 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
 msgid "There is no contact form – contact is made exclusively by email."
 msgstr "There is no contact form – contact is made exclusively by email."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "This page does not exist."
+msgstr "This page does not exist."
 
 #: app/components/profile-print/CompanyContact.tsx#CompanyContact
 msgid ""

@@ -72,6 +72,13 @@ export function createFrameCopy(year: number): FrameCopy {
       title: t`Newsletter`,
       unavailable: t`Sign-up opens soon. The newsletter has not started yet.`,
     },
+    notFound: {
+      eyebrow: t`Error 404`,
+      home: t`Home page`,
+      pageTitle: t`Page not found`,
+      text: t`The link may be outdated, or the address may contain a typo. These pages lead on:`,
+      title: t`This page does not exist.`,
+    },
     profiles: { github: "GitHub", linkedin: "LinkedIn" },
   }
 }

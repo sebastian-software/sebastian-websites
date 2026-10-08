@@ -479,6 +479,10 @@ msgstr "Enthusiasm."
 msgid "Entry in the Commercial Register"
 msgstr "Entry in the Commercial Register"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Error 404"
+msgstr "Error 404"
+
 #: app/routes/open-source.tsx
 msgid ""
 "Every number here is live from the metrics service, refreshed hourly from "
@@ -698,6 +702,10 @@ msgstr "Gratitude"
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid "Hetzner Online GmbH, Germany"
 msgstr "Hetzner Online GmbH, Germany"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Home page"
+msgstr "Home page"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Hosting and Content Delivery Network"
@@ -1127,6 +1135,10 @@ msgstr "Overview of Data Processing"
 #~ #: app/routes/home.tsx#Hero
 #~ msgid "owner-led, Mainz"
 #~ msgstr "owner-led, Mainz"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Page not found"
+msgstr "Page not found"
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Page views (URL, referrer)"
@@ -1680,6 +1692,14 @@ msgstr ""
 "redirect may also lead to the respective other domain. No cookie is set in the"
 " process."
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid ""
+"The link may be outdated, or the address may contain a typo. These pages lead "
+"on:"
+msgstr ""
+"The link may be outdated, or the address may contain a typo. These pages lead "
+"on:"
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/products.tsx
 #~ msgid ""
@@ -1752,6 +1772,10 @@ msgstr "There is no contact form – contact is made exclusively by email."
 #: app/components/ProductCards.tsx#ProductCards
 msgid "Third product"
 msgstr "Third product"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "This page does not exist."
+msgstr "This page does not exist."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
 msgid ""

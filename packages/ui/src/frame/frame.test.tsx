@@ -67,6 +67,13 @@ const copy: FrameCopy = {
     title: "Newsletter",
     unavailable: "Sign-up opens soon.",
   },
+  notFound: {
+    eyebrow: "Error 404",
+    home: "Home page",
+    pageTitle: "Page not found",
+    text: "These pages lead on:",
+    title: "This page does not exist.",
+  },
   profiles: { github: "GitHub", linkedin: "LinkedIn" },
 }
 

@@ -18,6 +18,8 @@ const REQUEST_TIMEOUT_MS = 15_000
 const ATTEMPTS = 6
 const RETRY_BASE_MS = 2000
 const INDEX_SUFFIX = "/index.html"
+/** The attribute the branded not-found page carries on its main element. */
+const NOT_FOUND_MARKER = "data-not-found"
 
 export type Check = {
   readonly cors?: boolean
@@ -46,7 +48,11 @@ export function checksFor(target: Target, assets: readonly Asset[]): readonly Ch
   }
   const checks: Check[] = [
     { path: "/", status: OK, text: "<html" },
-    { path: "/no-such-page-verification", status: NOT_FOUND },
+    {
+      path: "/no-such-page-verification",
+      status: NOT_FOUND,
+      ...(target.notFoundPage === undefined ? {} : { text: NOT_FOUND_MARKER }),
+    },
   ]
   const route = assets.find(
     (asset) => asset.path.endsWith(INDEX_SUFFIX) && !asset.path.startsWith("assets/")

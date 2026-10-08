@@ -127,6 +127,10 @@ heading.
   outward link, and a small drawing; no logo of the other brand.
 - **Footer** (`SiteFooter`): an inset grey panel with the current logo at 88 px, the local
   index, the registered address and email, LinkedIn and GitHub glyphs, and the legal baseline.
+- **Not found** (`NotFound`): inside the full frame, an accent eyebrow ("Error 404"), the display
+  headline, one sentence in the lead style, and the ways back as 56 px rows: the home page, then
+  the site index, with an outward arrow where a row leaves the site. The page is `noindex`, has
+  no canonical or language alternates, and its language switch leads to the other home page.
 - Destinations come from `getSiteFrame()` in `@sebastian-websites/web-core`. Same-site links
   stay relative; cross-site links keep the language. Routes that do not exist yet (the Software
   journal, Consulting references) are left out until they do.
