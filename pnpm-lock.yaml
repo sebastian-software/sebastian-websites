@@ -277,6 +277,9 @@ importers:
 
   apps/brand:
     devDependencies:
+      playwright:
+        specifier: 'catalog:'
+        version: 1.63.0
       prettier:
         specifier: 'catalog:'
         version: 3.9.9
