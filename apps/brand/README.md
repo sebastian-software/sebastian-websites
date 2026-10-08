@@ -57,11 +57,12 @@ Every site uses the same six files, following
 paper, 180 px in all), `icon-192.png`, `icon-512.png`, and `icon-mask.png` (maskable, the icon in
 the 409 px safe zone on paper). Software and Open Source use the Software icon, Consulting its own.
 
-Only `favicon.ico` lives in each app's public folder, because some clients request
-`/favicon.ico` without reading the page. The other icons live once per brand in
-`packages/ui/src/assets/favicons/`, where Vite hashes their names so the CDN caches them as
-immutable assets. `FaviconLinks` from `@sebastian-websites/ui` adds the head links, and each app
-serves `/manifest.webmanifest` from a prerendered route built with `createWebManifest`.
+All six live once per brand in `packages/ui/src/assets/favicons/`, where Vite hashes their names
+so the CDN caches them as immutable assets. `FaviconLinks` from `@sebastian-websites/ui` adds the
+head links, and each app serves `/manifest.webmanifest` from a prerendered route built with
+`createWebManifest`. Each app also keeps an unhashed copy of `favicon.ico` in its public folder,
+because some clients request `/favicon.ico` without reading a page: a PDF opened in a browser
+tab, feed readers, crawlers.
 
 The files are generated from the transparent icons and committed. After an icon changes, run
 `pnpm --filter @sebastian-websites/brand favicons`; it needs ImageMagick 7 (`magick`) for the

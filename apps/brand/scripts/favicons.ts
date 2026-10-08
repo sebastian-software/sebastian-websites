@@ -2,16 +2,17 @@
  * Generates the favicon set of every site from the brand marks, following
  * Evil Martians' "How to Favicon in 2021: six files that fit most needs":
  *
- * - favicon.ico: 32 px, always at the site root without a hash, so it goes to
- *   each app's public folder
+ * - favicon.ico: 32 px; a copy stays at each app's root without a hash for
+ *   clients that request /favicon.ico without reading a page (PDFs, feed
+ *   readers), and the head links a hashed copy
  * - icon.svg: the square mark
  * - apple-touch-icon.png: 180 px, the mark at 140 px on the brand's paper
  * - icon-192.png and icon-512.png: the mark for the web manifest
  * - icon-mask.png: 512 px maskable, the mark in the 409 px safe zone on paper
  *
- * Everything but the ICO goes to `packages/ui/src/assets/favicons/<brand>`, where
- * Vite gives each file a content hash; `FaviconLinks` and `createWebManifest`
- * in `@sebastian-websites/ui` reference them. The files are committed; run this
+ * Every file goes to `packages/ui/src/assets/favicons/<brand>`, where Vite gives
+ * it a content hash; `FaviconLinks` and `createWebManifest` in
+ * `@sebastian-websites/ui` reference those copies. The files are committed; run this
  * again only when a mark changes:
  *
  *   pnpm --filter @sebastian-websites/brand favicons
@@ -116,6 +117,7 @@ try {
     const hashed = join(ROOT, "packages/ui/src/assets/favicons", brand.id)
     await mkdir(hashed, { recursive: true })
     await writeFile(join(hashed, "icon.svg"), svg)
+    await writeFile(join(hashed, "favicon.ico"), await readFile(ico))
     for (const [file, bytes] of images) {
       if (file !== "favicon-32.png") await writeFile(join(hashed, file), bytes)
     }

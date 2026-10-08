@@ -5,9 +5,9 @@ import { FaviconLinks } from "./FaviconLinks.tsx"
 import { createWebManifest, FAVICONS, WEB_MANIFEST_PATH } from "./favicons.ts"
 
 describe("favicons", () => {
-  it("links the root ICO, the brand's hashed icons, and the stable manifest", () => {
+  it("links the brand's hashed icons and the stable manifest", () => {
     const view = renderToStaticMarkup(<FaviconLinks brand="consulting" />)
-    expect(view).toContain('<link href="/favicon.ico" rel="icon" sizes="32x32"/>')
+    expect(view).toContain(`<link href="${FAVICONS.consulting.ico}" rel="icon" sizes="32x32"/>`)
     expect(view).toContain(
       `<link href="${FAVICONS.consulting.svg}" rel="icon" type="image/svg+xml"/>`
     )
