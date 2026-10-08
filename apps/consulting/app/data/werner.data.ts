@@ -51,7 +51,7 @@ export function getConsultant(): Consultant {
       statement: t`Frontend focus with an eye on user and developer experience.`,
     },
     degree: t`IT Specialist (Fachinformatiker) / Advanced Technical College Entrance Qualification (Fachabitur)`,
-    email: "s.werner@sebastian-software.de",
+    email: "s.werner@sebastian-consulting.de",
     focus: t`Frontend Architecture & Developer Experience`,
     id: "werner",
     industryExperience: [
