@@ -8,7 +8,7 @@ import { VARIANTS } from "../packages/web-core/src/sites.ts"
 import { type BunnyApi, bunnyError, isJson, type Json, records } from "./bunny.ts"
 import { loadBunnyImages } from "./images.ts"
 import { originRequest, planPath, publicPath } from "./middleware-logic.ts"
-import { cacheRules, provision, pullZoneSettings } from "./provision.ts"
+import { cacheRules, contentTypeRules, provision, pullZoneSettings } from "./provision.ts"
 import { checksum, loadAssets, publish } from "./publish.ts"
 import { runSmoke, smokeChecks } from "./smoke.ts"
 import {
@@ -58,7 +58,9 @@ function account(options: {
   let pull: Json | undefined = options.provisioned
     ? {
         EdgeRules: [
-          ...cacheRules(deployedTarget).map((rule, index) => ({ ...rule, Guid: `rule-${index}` })),
+          ...[...cacheRules(deployedTarget), ...contentTypeRules(deployedTarget)].map(
+            (rule, index) => ({ ...rule, Guid: `rule-${index}` })
+          ),
           ...(options.extraRules ?? []),
         ],
         Hostnames: [],
@@ -239,7 +241,10 @@ test("an empty account gets storage, pull zone, rules, and a linked middleware",
   assert.ok(writes.includes("/pullzone"))
   assert.ok(writes.includes("/compute/script"))
   assert.ok(writes.includes("/compute/script/3/publish"))
-  assert.equal(writes.filter((path) => path === "/pullzone/2/edgerules/addOrUpdate").length, 2)
+  assert.equal(
+    writes.filter((path) => path === "/pullzone/2/edgerules/addOrUpdate").length,
+    cacheRules(target).length + contentTypeRules(target).length
+  )
   const link = bunny.calls.find((call) => isPost(call, "/pullzone/2"))
   assert.deepEqual(link?.body, { MiddlewareScriptId: 3 })
   assert.ok(log.some((line) => line.includes("Created storage zone")))
@@ -268,6 +273,18 @@ test("only the active Consulting targets declare www aliases", () => {
     (entry) => !entry.name.startsWith("sebastian-websites-consulting-")
   )
   assert.ok(otherTargets.every((entry) => entry.aliasHostnames === undefined))
+})
+
+test("website zones serve web manifests as manifest JSON; the asset zone has no such rule", () => {
+  const [rule] = contentTypeRules(target)
+  assert.equal(rule.ActionType, 5)
+  assert.equal(rule.ActionParameter1, "Content-Type")
+  assert.equal(rule.ActionParameter2, "application/manifest+json; charset=utf-8")
+  assert.deepEqual(rule.Triggers, [
+    { PatternMatches: ["*.webmanifest"], PatternMatchingType: 0, Type: 0 },
+  ])
+  assert.equal(rule.OrderIndex, cacheRules(target).length)
+  assert.deepEqual(contentTypeRules(ASSET_TARGET), [])
 })
 
 test("Consulting aliases have exact-host HTTPS redirects with the full path and query", () => {

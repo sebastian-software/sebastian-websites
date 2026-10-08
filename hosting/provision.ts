@@ -25,11 +25,12 @@ import {
 import {
   cacheRules,
   canonicalRedirectRules,
+  contentTypeRules,
   type EdgeRule,
   pullZoneSettings,
 } from "./zone-settings.ts"
 
-export { cacheRules, pullZoneSettings } from "./zone-settings.ts"
+export { cacheRules, contentTypeRules, pullZoneSettings } from "./zone-settings.ts"
 
 export type Log = (message: string) => void
 
@@ -108,7 +109,12 @@ async function applyRule(context: Context, pull: Zone, rule: EdgeRule): Promise<
 }
 
 async function ensureEdgeRules(context: Context, pull: Zone): Promise<void> {
-  for (const rule of [...cacheRules(context.target), ...canonicalRedirectRules(context.target)]) {
+  const rules = [
+    ...cacheRules(context.target),
+    ...canonicalRedirectRules(context.target),
+    ...contentTypeRules(context.target),
+  ]
+  for (const rule of rules) {
     await applyRule(context, pull, rule)
   }
 }
