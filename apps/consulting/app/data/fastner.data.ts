@@ -39,7 +39,7 @@ export function getConsultant(): Consultant {
       statement: t`Full-stack approach across the entire application – from frontend to infrastructure.`,
     },
     degree: t`Diplom-Informatiker (FH) – German diploma in computer science`,
-    email: "s.fastner@sebastian-software.de",
+    email: "s.fastner@sebastian-consulting.de",
     focus: t`Frontend & Fullstack`,
     id: "fastner",
     industryExperience: [
