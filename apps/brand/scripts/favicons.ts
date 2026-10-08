@@ -2,14 +2,17 @@
  * Generates the favicon set of every site from the brand marks, following
  * Evil Martians' "How to Favicon in 2021: six files that fit most needs":
  *
- * - favicon.ico: 32 px, always at the site root without a hash
+ * - favicon.ico: 32 px, always at the site root without a hash, so it goes to
+ *   each app's public folder
  * - icon.svg: the square mark
  * - apple-touch-icon.png: 180 px, the mark at 140 px on the brand's paper
  * - icon-192.png and icon-512.png: the mark for the web manifest
  * - icon-mask.png: 512 px maskable, the mark in the 409 px safe zone on paper
- * - manifest.webmanifest: the site's name and the three manifest icons
  *
- * The files are committed; run this again only when a mark changes:
+ * Everything but the ICO goes to `packages/ui/src/assets/favicons/<brand>`, where
+ * Vite gives each file a content hash; `FaviconLinks` and `createWebManifest`
+ * in `@sebastian-websites/ui` reference them. The files are committed; run this
+ * again only when a mark changes:
  *
  *   pnpm --filter @sebastian-websites/brand favicons
  *
@@ -17,7 +20,7 @@
  * ImageMagick 7 (`magick`) packs the ICO.
  */
 import { execFileSync } from "node:child_process"
-import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises"
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises"
 import { tmpdir } from "node:os"
 import { join } from "node:path"
 import { fileURLToPath } from "node:url"
@@ -26,27 +29,27 @@ import { chromium, type Page } from "playwright"
 const ROOT = fileURLToPath(new URL("../../..", import.meta.url))
 
 type Brand = {
+  /** The apps that use the brand; each serves the ICO from its public folder. */
+  readonly apps: readonly string[]
+  readonly id: string
   /** The transparent mark in the brand site's public folder. */
   readonly mark: string
   /** The brand's paper tone, behind the Apple touch and maskable icons. */
   readonly paper: string
-  /** Each app that uses the brand, with the name its manifest carries. */
-  readonly sites: ReadonlyArray<{ readonly app: string; readonly name: string }>
 }
 
 const BRANDS: readonly Brand[] = [
   {
+    apps: ["software", "opensource"],
+    id: "software",
     mark: "apps/brand/public/sebastian-software/icon-software-light-transparent.svg",
     paper: "#e7f0f3",
-    sites: [
-      { app: "software", name: "Sebastian Software" },
-      { app: "opensource", name: "Open Source – Sebastian Software" },
-    ],
   },
   {
+    apps: ["consulting"],
+    id: "consulting",
     mark: "apps/brand/public/sebastian-consulting/icon-consulting-light-transparent.svg",
     paper: "#f5ecee",
-    sites: [{ app: "consulting", name: "Sebastian Consulting" }],
   },
 ]
 
@@ -96,15 +99,6 @@ async function render(page: Page, svg: string, raster: Raster, paper: string): P
   return page.screenshot({ omitBackground: raster.background === undefined })
 }
 
-function manifest(name: string): string {
-  const icons = [
-    { sizes: "192x192", src: "/icon-192.png", type: "image/png" },
-    { purpose: "maskable", sizes: "512x512", src: "/icon-mask.png", type: "image/png" },
-    { sizes: "512x512", src: "/icon-512.png", type: "image/png" },
-  ]
-  return `${JSON.stringify({ icons, name }, null, 2)}\n`
-}
-
 const browser = await chromium.launch()
 const page = await browser.newPage({ deviceScaleFactor: 1 })
 const work = await mkdtemp(join(tmpdir(), "favicons-"))
@@ -119,15 +113,16 @@ try {
     await writeFile(png32, images.get("favicon-32.png") ?? Buffer.alloc(0))
     const ico = join(work, "favicon.ico")
     execFileSync("magick", [png32, ico])
-    for (const site of brand.sites) {
-      const target = join(ROOT, "apps", site.app, "public")
-      await writeFile(join(target, "favicon.ico"), await readFile(ico))
-      await writeFile(join(target, "icon.svg"), svg)
-      for (const [file, bytes] of images) {
-        if (file !== "favicon-32.png") await writeFile(join(target, file), bytes)
-      }
-      await writeFile(join(target, "manifest.webmanifest"), manifest(site.name))
-      console.log(`Wrote the favicon set of ${site.app}`)
+    const hashed = join(ROOT, "packages/ui/src/assets/favicons", brand.id)
+    await mkdir(hashed, { recursive: true })
+    await writeFile(join(hashed, "icon.svg"), svg)
+    for (const [file, bytes] of images) {
+      if (file !== "favicon-32.png") await writeFile(join(hashed, file), bytes)
+    }
+    console.log(`Wrote the ${brand.id} icons to packages/ui`)
+    for (const app of brand.apps) {
+      await writeFile(join(ROOT, "apps", app, "public", "favicon.ico"), await readFile(ico))
+      console.log(`Wrote favicon.ico of ${app}`)
     }
   }
 } finally {

@@ -2,7 +2,7 @@ import type { ReactElement, ReactNode } from "react"
 
 import { FaviconLinks, FONT_STYLESHEET, PageEnding, SiteHeader } from "@sebastian-websites/ui"
 import { createFrameCopy } from "@sebastian-websites/ui/frame-copy"
-import { createSeoLinks, getSiteFrame } from "@sebastian-websites/web-core"
+import { createSeoLinks, getSiteFrame, SITE_BRAND } from "@sebastian-websites/web-core"
 import { Links, Meta, Outlet, Scripts, useLocation } from "react-router"
 import "@sebastian-websites/ui/brand-consulting.css"
 
@@ -19,7 +19,7 @@ export function Layout({ children }: { readonly children: ReactNode }): ReactEle
       <head>
         <meta charSet="utf-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <FaviconLinks />
+        <FaviconLinks brand={SITE_BRAND[variant.site]} />
         <link crossOrigin="anonymous" href={FONT_STYLESHEET} rel="stylesheet" />
         <Meta />
         {seoLinks.map((link) => (
