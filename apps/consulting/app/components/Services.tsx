@@ -1,7 +1,6 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { editorial } from "@sebastian-websites/ui"
 
 import * as styles from "./Services.css.ts"
 
@@ -28,7 +27,7 @@ export function Services(): ReactElement {
   ]
   return (
     <section aria-labelledby="services-title" id="services">
-      <h2 className={editorial.visuallyHidden} id="services-title">
+      <h2 className={styles.heading} id="services-title">
         {t`Services`}
       </h2>
       <ul className={styles.list}>

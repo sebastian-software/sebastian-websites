@@ -1,5 +1,15 @@
-import { COMPACT, editorial, PHONE, scaled } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, PHONE, scaled } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
+
+/** A quiet visible heading, so the header's Services link lands on its name. */
+export const heading = style([
+  editorial.subheading,
+  {
+    "@media": { [PHONE]: { marginBottom: scaled("28px") } },
+    color: color.muted,
+    marginBottom: scaled("40px"),
+  },
+])
 
 export const list = style([
   editorial.grid,
