@@ -49,6 +49,16 @@ export const ardoName = style({
   lineHeight: 1,
 })
 
+/** A project without a mark sets its name in the editorial serif. */
+export const textName = style({
+  "@media": { [PHONE]: { fontSize: "34px" } },
+  color: color.heading,
+  fontFamily: font.serif,
+  fontSize: "42px",
+  letterSpacing: "-0.01em",
+  lineHeight: 1,
+})
+
 export const title = style([
   editorial.storyHeading,
   { "@media": { [PHONE]: { fontSize: "25px" } }, fontSize: "29px", lineHeight: 1.3 },
@@ -60,6 +70,7 @@ export const text = style([editorial.body, { color: color.text }])
 export const projectLink = styleVariants({
   ardo: { color: "#b72a6f" },
   dalo: { color: "oklch(0.55 0.17 35)" },
+  "effective-agent": { color: color.accent },
   ferramenta: { color: "oklch(0.52 0.15 38)" },
   palamedes: { color: "oklch(0.53 0.15 55)" },
 } satisfies Record<FeaturedId, { color: string }>)

@@ -13,7 +13,7 @@ and icons come from Streamline under the existing Pro licence, in a style still 
 
 The workspace has one app per site under `apps/` and shared packages under `packages/`.
 Design tokens, the brand bar, the footer, legal texts, web fundamentals (variants, SEO, i18n),
-and tooling configuration are shared from the start, because they are designed for four sites
+and tooling configuration are shared from the start, because they are designed for three sites
 at once. Content components move into a shared package only when a second site needs them.
 Apps import packages; packages never import apps.
 
@@ -25,7 +25,7 @@ is no custom orchestration script.
 - **Keep lucide icons** as the old Consulting site did. Rejected in favour of the licensed
   Streamline set.
 - **Share code only once two sites need it**, the July 2026 rule. Kept for content components,
-  dropped for the shell, because a shell designed for four sites is shared by definition.
+  dropped for the shell, because a shell designed for three sites is shared by definition.
 
 ## Consequences
 

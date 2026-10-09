@@ -27,9 +27,9 @@ Sebastian Software in its internal role as the organisational parent of everythi
 outside, Consulting stands beside it as an equal.
 
 **Area**:
-A field of activity beneath a brand. Open Source and Skills belong to Software; Services and
-Profiles belong to Consulting.
-_Avoid_: brand (for Open Source or Skills), sub-site
+A field of activity beneath a brand. Open Source belongs to Software; Services and Profiles
+belong to Consulting.
+_Avoid_: brand (for Open Source), sub-site
 
 **World**:
 A brand together with its areas: the Software world and the Consulting world. Tone and form of
@@ -38,14 +38,19 @@ address may differ between the two worlds.
 **Brand family**:
 A named group of related open-source projects with its own identity. There are two: Ferramenta
 (Rust-native engines and applications, with its own family site) and Effective (the
-`effective-*` libraries and skills).
+`effective-*` libraries).
 _Avoid_: product line, suite
+
+**Effective Agent**:
+The open-source product made of the `effective-*` skills for coding agents, with its own
+project site. A working name until name, domain, and logo are settled.
+_Avoid_: Skills (as a site or area), Effective Skills
 
 ### Site
 
 **Site**:
-An independently deployed website on its own domain. There are four: Software, Consulting,
-Open Source, and Skills.
+An independently deployed website on its own domain. There are three: Software, Consulting,
+and Open Source.
 _Avoid_: page (ambiguous), portal, microsite
 
 **Variant**:
@@ -57,20 +62,22 @@ logo, the local navigation, the language switch, and one outward link to the oth
 _Avoid_: brand bar (the superseded equal-brand bar), global menu
 
 **Outward link**:
-The plain-text link to the other brand: "Our agency" on Software, Open Source, and Skills;
-"Our software" on Consulting. It never shows the other brand's logo.
+The plain-text link to the other brand: "Our agency" on Software and Open Source; "Our
+software" on Consulting. It never shows the other brand's logo.
 
 **Page ending**:
 The three areas that close every page, in this order: the shared newsletter, the editorial
 invitation to the other brand, and the current site's footer.
 
 **Project site**:
-The own website of a product or open-source project, such as palamedes.dev. It is not one of
-the four sites and keeps its own identity.
+The own website of a product or open-source project, such as palamedes.dev or the Effective
+Agent site at skills.sebastian-software.com. It is not one of the three sites and keeps its own
+identity.
 
 **Brand site**:
 The reference page for the brand system at brand.sebastian-software.com, which also serves
-logos and tokens by URL. It is not one of the four sites and does not appear in any site header.
+logos and tokens by URL. It is not one of the three sites and does not appear in any site
+header.
 
 ### Products
 
@@ -80,5 +87,6 @@ in preparation.
 _Avoid_: product (unqualified)
 
 **Open-source product**:
-A freely available project that is presented as a product, such as Palamedes, Dalo, or Ardo.
+A freely available project that is presented as a product, such as Palamedes, Dalo, Ardo, or
+Effective Agent.
 _Avoid_: product (unqualified), tool

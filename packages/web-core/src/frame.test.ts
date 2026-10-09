@@ -22,10 +22,11 @@ describe("site frame", () => {
   it("keeps same-site links relative and resolves the other sites in the current language", () => {
     const frame = getSiteFrame("software", "de", "/company")
     expect(frame.home).toBe("/")
+    // The Skills site is English only, so it keeps its .com address.
     expect(frame.navigation.map((link) => link.href)).toStrictEqual([
       "/products",
       "https://oss.sebastian-software.de/",
-      "https://skills.sebastian-software.de/",
+      "https://skills.sebastian-software.com/",
     ])
     expect(frame.outbound.href).toBe("https://sebastian-consulting.de/")
     expect(frame.index.find((link) => link.id === "company")).toStrictEqual({

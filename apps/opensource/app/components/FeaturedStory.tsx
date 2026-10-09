@@ -21,12 +21,13 @@ import palamedesMark from "~/assets/brands/palamedes-mark.svg"
 import palamedesWordmark from "~/assets/brands/palamedes-wordmark.svg"
 
 import * as styles from "./FeaturedStory.css.ts"
+import { SkillsPanel } from "./SkillsPanel"
 
 type Artwork = { readonly height: number; readonly src: string; readonly width: number }
 
-/** Each project's original mark and wordmark at its display size. */
+/** Each project's original mark and wordmark at its display size; Effective Agent has none yet. */
 const IDENTITIES: Readonly<
-  Record<FeaturedId, { readonly mark: Artwork; readonly wordmark?: Artwork }>
+  Partial<Record<FeaturedId, { readonly mark: Artwork; readonly wordmark?: Artwork }>>
 > = {
   ardo: { mark: { height: 68, src: ardoMark, width: 68 } },
   dalo: {
@@ -48,7 +49,15 @@ function Identity(props: {
   readonly side: "end" | "start"
 }): ReactElement {
   const { project, side } = props
-  const { mark, wordmark } = IDENTITIES[project.id]
+  const identity = IDENTITIES[project.id]
+  if (identity === undefined) {
+    return (
+      <div className={styles.identity[side]}>
+        <span className={styles.textName}>{project.name}</span>
+      </div>
+    )
+  }
+  const { mark, wordmark } = identity
   return (
     <div className={styles.identity[side]}>
       <img
@@ -99,15 +108,19 @@ export function FeaturedStory(props: FeaturedStoryProps): ReactElement {
     <Story
       aria-labelledby={headingId}
       media={
-        <BunnyImage
-          alt={project.illustration.alt}
-          className={editorial.media}
-          height={media.height}
-          priority={index === 0}
-          sizes={editorialSizes(media.width)}
-          src={project.illustration.src}
-          width={media.width}
-        />
+        project.illustration === undefined ? (
+          <SkillsPanel />
+        ) : (
+          <BunnyImage
+            alt={project.illustration.alt}
+            className={editorial.media}
+            height={media.height}
+            priority={index === 0}
+            sizes={editorialSizes(media.width)}
+            src={project.illustration.src}
+            width={media.width}
+          />
+        )
       }
       mediaPosition={side}
     >

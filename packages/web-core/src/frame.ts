@@ -85,7 +85,11 @@ type ContextSpec = {
 
 const PRODUCTS: Destination = { id: "products", path: "/products", site: "software" }
 const OPEN_SOURCE: Destination = { id: "opensource", path: "/", site: "opensource" }
-const SKILLS: Destination = { id: "skills", path: "/", site: "skills" }
+/**
+ * The Skills site stays a standalone, English-only site for now (plan 08,
+ * 2026-10-09), so every language links to its `.com` origin.
+ */
+const SKILLS: Destination = { href: () => `${getSiteOrigin("skills", "en")}/`, id: "skills" }
 const SERVICES: Destination = { id: "services", path: "/#services", site: "consulting" }
 const PROFILES: Destination = { id: "profiles", path: "/team", site: "consulting" }
 

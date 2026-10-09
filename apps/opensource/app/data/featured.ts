@@ -1,6 +1,7 @@
 import type { ImageSource } from "@sebastian-websites/web-core"
 
 import { t } from "@palamedes/core/macro"
+import { getSiteOrigin } from "@sebastian-websites/web-core"
 
 import ardoBook from "~/assets/illustrations/ardo-documentation-book.png?bunny"
 import daloSetup from "~/assets/illustrations/dalo-agent-setup.png?bunny"
@@ -11,19 +12,24 @@ import type { FEATURED } from "./projects"
 
 export type FeaturedId = (typeof FEATURED)[number]
 
+/** The Skills site; English only for now, so every language links to it. */
+export const SKILLS_SITE = `${getSiteOrigin("skills", "en")}/`
+
 /** One featured project as an illustrated story with its own identity. */
 export type FeaturedProject = {
   readonly actions: ReadonlyArray<{ readonly href: string; readonly label: string }>
   readonly description: string
   readonly id: FeaturedId
-  readonly illustration: { readonly alt: string; readonly src: ImageSource }
+  /** The drawing beside the text; a project without one shows its catalog panel. */
+  readonly illustration?: { readonly alt: string; readonly src: ImageSource }
   readonly name: string
   readonly title: string
 }
 
 /**
- * The four featured projects in editorial order. Ferramenta stays one family:
- * its engines appear inside its story, never as tiles of their own.
+ * The featured projects in editorial order. Ferramenta stays one family: its
+ * engines appear inside its story, never as tiles of their own. Effective Agent
+ * closes the list and leads to the Skills site.
  *
  * @returns The featured projects in the active language.
  */
@@ -75,6 +81,19 @@ export function getFeatured(): readonly FeaturedProject[] {
       },
       name: "Ardo",
       title: t`Modern, open documentation for React teams.`,
+    },
+    {
+      actions: [
+        { href: SKILLS_SITE, label: t`Explore Effective Agent` },
+        {
+          href: "https://github.com/sebastian-software/skills.sebastian-software.com",
+          label: t`View on GitHub`,
+        },
+      ],
+      description: t`Seven open-source skills that put our way of working into instructions a coding agent can follow: product decisions, web, engineering, delivery, writing, marketing, and image work. Install one for your next task, read every reference before you trust it, and combine them when the work crosses disciplines.`,
+      id: "effective-agent",
+      name: "Effective Agent",
+      title: t`Better judgment for coding agents.`,
     },
   ]
 }
