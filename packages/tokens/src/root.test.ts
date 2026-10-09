@@ -4,10 +4,32 @@ import { evaluateCss } from "./evaluateCss.ts"
 import { em, ROOT_FONT_SIZE, ROOT_MAX_SCALE, scaled, scaledBetween } from "./root.ts"
 
 /**
- * A length in CSS pixels at a short viewport side, with the fluid root applied.
+ * A viewport for the evaluator.
+ *
+ * @param width - The viewport width in CSS pixels.
+ * @param height - The viewport height in CSS pixels.
+ * @returns The size each fluid unit follows.
+ */
+function viewport(width: number, height: number): { cqi: number; svmin: number; vw: number } {
+  return { cqi: width, svmin: Math.min(width, height), vw: width }
+}
+
+/**
+ * The root font size of a viewport.
+ *
+ * @param width - The viewport width in CSS pixels.
+ * @param height - The viewport height in CSS pixels.
+ * @returns The root font size in CSS pixels.
+ */
+function rootAt(width: number, height: number): number {
+  return evaluateCss(ROOT_FONT_SIZE, viewport(width, height))
+}
+
+/**
+ * A length in CSS pixels on a square viewport, with the fluid root applied.
  *
  * @param css - The length.
- * @param size - The shorter viewport side in CSS pixels.
+ * @param size - The viewport side in CSS pixels.
  * @returns The length in CSS pixels.
  */
 function at(css: string, size: number): number {
@@ -16,17 +38,22 @@ function at(css: string, size: number): number {
 
 describe("root font size", () => {
   it.each([
-    [320, 16],
-    [360, 16],
-    [400, 17],
-    [440, 18],
-    [820, 18],
-    [1024, 18],
-    [1152, 19],
-    [1280, 20],
-    [2160, 20],
-  ])("follows the shorter viewport side (%i px → %i px)", (size, expected) => {
-    expect(evaluateCss(ROOT_FONT_SIZE, size)).toBeCloseTo(expected, 2)
+    { expected: 16, height: 780, name: "small phone", width: 360 },
+    { expected: 17, height: 870, name: "iPhone", width: 400 },
+    { expected: 18, height: 956, name: "large phone", width: 440 },
+    { expected: 17, height: 400, name: "phone in landscape", width: 900 },
+    { expected: 18, height: 1180, name: "tablet", width: 820 },
+    { expected: 18, height: 900, name: "laptop", width: 1440 },
+    { expected: 18, height: 1300, name: "half of a large monitor", width: 1280 },
+    { expected: 20, height: 1300, name: "large monitor", width: 2560 },
+    { expected: 18, height: 960, name: "1920 × 1080 desktop", width: 1920 },
+  ])("fits a $name ($width × $height → $expected px)", ({ expected, height, width }) => {
+    expect(rootAt(width, height)).toBeCloseTo(expected, 1)
+  })
+
+  it("grows when a tall window widens, not when a wide window grows taller", () => {
+    expect(rootAt(1920, 1300)).toBeGreaterThan(rootAt(1440, 1300))
+    expect(rootAt(1440, 1300)).toBeCloseTo(rootAt(1440, 1024), 0)
   })
 
   it("never exceeds the desktop design by more than its largest scale", () => {
@@ -38,7 +65,7 @@ describe("scaled", () => {
   it("renders the desktop design exactly at an 18 px root", () => {
     expect(scaled("36px")).toBe("2rem")
     expect(at(scaled("24px"), 1024)).toBeCloseTo(24, 2)
-    expect(at(scaled("24px"), 1280)).toBeCloseTo(24 * (20 / 18), 2)
+    expect(at(scaled("24px"), 2560)).toBeCloseTo(24 * (20 / 18), 2)
   })
 
   it("joins several lengths and keeps zero unitless", () => {
@@ -53,7 +80,7 @@ describe("scaledBetween", () => {
     [360, (34 / 17) * 16],
     [400, 34],
     [1024, 52],
-    [1280, 52 * (20 / 18)],
+    [2560, 52 * (20 / 18)],
   ])("renders both designs exactly and scales beyond (%i px)", (size, expected) => {
     expect(at(display, size)).toBeCloseTo(expected, 2)
   })

@@ -10,6 +10,7 @@ const FUNCTIONS: ReadonlyMap<string, (values: readonly number[]) => number> = ne
   ["atan2", ([y = 0, x = 1]) => Math.atan2(y, x)],
   ["calc", ([value = Number.NaN]) => value],
   ["clamp", ([min = 0, preferred = 0, max = 0]) => Math.max(min, Math.min(preferred, max))],
+  ["min", (values) => Math.min(...values)],
   ["round", ([value = 0, grid = 1]) => Math.round(value / grid) * grid],
   ["tan", ([angle = 0]) => Math.tan(angle)],
 ])
