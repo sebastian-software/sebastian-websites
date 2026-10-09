@@ -20,8 +20,11 @@ export type Project = {
   readonly technology: Technology
 } & CuratedEntry
 
-/** The four featured projects, in editorial order. */
-export const FEATURED = ["palamedes", "ferramenta", "dalo", "ardo"] as const
+/**
+ * The featured projects, in editorial order. Effective Agent is the skills
+ * collection; it has no repository entry in the metrics service of its own.
+ */
+export const FEATURED = ["palamedes", "ferramenta", "dalo", "ardo", "effective-agent"] as const
 
 /**
  * Repositories without a tile: the featured stories, the Ferramenta engines

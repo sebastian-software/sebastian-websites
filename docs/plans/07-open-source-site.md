@@ -74,7 +74,7 @@ categories, and write the one-liners in English. Translate through the catalog.
 ### 2. Build the page
 
 Highlights, family blocks (Ferramenta leading to ferramenta.dev; Effective with libraries and
-skills leading to the Skills site), the category grid, the Consulting section.
+Effective Agent leading to its site), the category grid, the Consulting section.
 
 ### 3. Hosting and cutover
 

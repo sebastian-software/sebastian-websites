@@ -885,15 +885,26 @@ msgstr "Let's talk about what is meant to last."
 #~ "pipeline, engineering workflows for coding agents, and six skills covering "
 #~ "product, web, engineering, delivery, marketing, and writing."
 
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/Families.tsx#Families
+#~ msgid ""
+#~ "Libraries and skills for everyday work in TypeScript projects: colors, CSS, "
+#~ "icons, favicons, shadows, setting up a new machine. Small tools we need in "
+#~ "every project and therefore maintain instead of rewriting them each time."
+#~ msgstr ""
+#~ "Libraries and skills for everyday work in TypeScript projects: colors, CSS, "
+#~ "icons, favicons, shadows, setting up a new machine. Small tools we need in "
+#~ "every project and therefore maintain instead of rewriting them each time."
+
 #: app/components/Families.tsx#Families
 msgid ""
-"Libraries and skills for everyday work in TypeScript projects: colors, CSS, "
-"icons, favicons, shadows, setting up a new machine. Small tools we need in "
-"every project and therefore maintain instead of rewriting them each time."
+"Libraries for everyday work in TypeScript projects: colors, CSS, icons, "
+"favicons, shadows, setting up a new machine. Small tools we need in every "
+"project and therefore maintain instead of rewriting them each time."
 msgstr ""
-"Libraries and skills for everyday work in TypeScript projects: colors, CSS, "
-"icons, favicons, shadows, setting up a new machine. Small tools we need in "
-"every project and therefore maintain instead of rewriting them each time."
+"Libraries for everyday work in TypeScript projects: colors, CSS, icons, "
+"favicons, shadows, setting up a new machine. Small tools we need in every "
+"project and therefore maintain instead of rewriting them each time."
 
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#Stance
@@ -1513,6 +1524,18 @@ msgstr "Services"
 #~ msgid "Services and profiles at Sebastian Consulting →"
 #~ msgstr "Services and profiles at Sebastian Consulting →"
 
+#: app/components/Families.tsx#Families
+msgid ""
+"Seven skills that put our way of working into verifiable instructions for "
+"coding agents: product, web, engineering, delivery, writing, marketing, and "
+"image work. Expertise you can read before you install it, with results that "
+"still depend on the model."
+msgstr ""
+"Seven skills that put our way of working into verifiable instructions for "
+"coding agents: product, web, engineering, delivery, writing, marketing, and "
+"image work. Expertise you can read before you install it, with results that "
+"still depend on the model."
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/products.tsx
 #~ msgid "Ship translations, not tickets."
@@ -1535,19 +1558,21 @@ msgstr "Signing you up…"
 msgid "Site index"
 msgstr "Site index"
 
-#: app/components/Families.tsx#Families
-msgid ""
-"Six skills that put our way of working into verifiable instructions, so agents"
-" work the way we would expect in a review. Expertise you can read before you "
-"install it, with results that still depend on the model."
-msgstr ""
-"Six skills that put our way of working into verifiable instructions, so agents"
-" work the way we would expect in a review. Expertise you can read before you "
-"install it, with results that still depend on the model."
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/Families.tsx#Families
+#~ msgid ""
+#~ "Six skills that put our way of working into verifiable instructions, so agents"
+#~ " work the way we would expect in a review. Expertise you can read before you "
+#~ "install it, with results that still depend on the model."
+#~ msgstr ""
+#~ "Six skills that put our way of working into verifiable instructions, so agents"
+#~ " work the way we would expect in a review. Expertise you can read before you "
+#~ "install it, with results that still depend on the model."
 
-#: app/components/Families.tsx#Families
-msgid "Skills for coding agents"
-msgstr "Skills for coding agents"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/Families.tsx#Families
+#~ msgid "Skills for coding agents"
+#~ msgstr "Skills for coding agents"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Skip to content"
@@ -1866,12 +1891,17 @@ msgid "To Sebastian Consulting"
 msgstr "To Sebastian Consulting"
 
 #: app/components/Families.tsx#Families
+msgid "To the Effective Agent site →"
+msgstr "To the Effective Agent site →"
+
+#: app/components/Families.tsx#Families
 msgid "To the Open Source site →"
 msgstr "To the Open Source site →"
 
-#: app/components/Families.tsx#Families
-msgid "To the Skills site →"
-msgstr "To the Skills site →"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/Families.tsx#Families
+#~ msgid "To the Skills site →"
+#~ msgstr "To the Skills site →"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Trademark Notice"
