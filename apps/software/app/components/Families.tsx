@@ -27,8 +27,7 @@ export function Families(): ReactElement {
       title: "Effective",
     },
     {
-      // The Skills site is English only for now; every language links to it.
-      href: `${getSiteOrigin("skills", "en")}/`,
+      href: "https://effective-agent.dev",
       link: t`To the Effective Agent site →`,
       text: t`Seven skills that put our way of working into verifiable instructions for coding agents: product, web, engineering, delivery, writing, marketing, and image work. Expertise you can read before you install it, with results that still depend on the model.`,
       title: "Effective Agent",

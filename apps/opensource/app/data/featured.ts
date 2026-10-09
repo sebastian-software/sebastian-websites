@@ -1,7 +1,6 @@
 import type { ImageSource } from "@sebastian-websites/web-core"
 
 import { t } from "@palamedes/core/macro"
-import { getSiteOrigin } from "@sebastian-websites/web-core"
 
 import ardoBook from "~/assets/illustrations/ardo-documentation-book.png?bunny"
 import daloSetup from "~/assets/illustrations/dalo-agent-setup.png?bunny"
@@ -12,9 +11,6 @@ import palamedesCatalogs from "~/assets/illustrations/palamedes-catalogs.png?bun
 import type { FEATURED } from "./projects"
 
 export type FeaturedId = (typeof FEATURED)[number]
-
-/** The Skills site; English only for now, so every language links to it. */
-export const SKILLS_SITE = `${getSiteOrigin("skills", "en")}/`
 
 /** One featured project as an illustrated story with its own identity. */
 export type FeaturedProject = {
@@ -30,7 +26,7 @@ export type FeaturedProject = {
 /**
  * The featured projects in editorial order. Ferramenta stays one family: its
  * engines appear inside its story, never as tiles of their own. Effective Agent
- * closes the list and leads to the Skills site.
+ * closes the list and leads to its own site.
  *
  * @returns The featured projects in the active language.
  */
@@ -85,9 +81,9 @@ export function getFeatured(): readonly FeaturedProject[] {
     },
     {
       actions: [
-        { href: SKILLS_SITE, label: t`Explore Effective Agent` },
+        { href: "https://effective-agent.dev", label: t`Explore Effective Agent` },
         {
-          href: "https://github.com/sebastian-software/skills.sebastian-software.com",
+          href: "https://github.com/sebastian-software/effective-agent",
           label: t`View on GitHub`,
         },
       ],
