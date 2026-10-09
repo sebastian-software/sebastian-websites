@@ -1,14 +1,14 @@
-import { color, COMPACT, editorial, font, PHONE, scaled } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 export const title = style([
   editorial.display,
   {
     "@media": {
-      [COMPACT]: { fontSize: scaled("46px"), marginBottom: scaled("44px") },
-      [PHONE]: { fontSize: scaled("36px"), marginBottom: scaled("32px") },
+      [COMPACT]: { marginBottom: scaled("44px") },
+      [PHONE]: { marginBottom: scaled("32px") },
     },
-    fontSize: scaled("60px"),
+    fontSize: typeStep("5"),
     lineHeight: 1.12,
     marginBottom: scaled("60px"),
   },
@@ -34,8 +34,7 @@ export const intro = style({ gridColumn: "1 / span 3" })
 export const values = style([
   editorial.heading,
   {
-    "@media": { [COMPACT]: { fontSize: scaled("30px") }, [PHONE]: { fontSize: scaled("26px") } },
-    fontSize: scaled("36px"),
+    fontSize: typeStep("3"),
     lineHeight: 1.22,
     marginBottom: scaled("22px"),
   },
@@ -43,7 +42,7 @@ export const values = style([
 
 export const text = style([
   editorial.body,
-  { fontSize: scaled("19px"), lineHeight: 1.5, marginBottom: scaled("36px") },
+  { fontSize: typeStep("0"), lineHeight: 1.5, marginBottom: scaled("36px") },
 ])
 
 export const portraits = style({
@@ -70,7 +69,7 @@ export const photo = style({ display: "block", height: "100%", objectFit: "cover
 export const name = style({
   color: color.accent,
   fontFamily: font.sans,
-  fontSize: scaled("13px"),
+  fontSize: typeStep("-2"),
   fontWeight: 600,
   letterSpacing: "0.22em",
   marginTop: scaled("20px"),
@@ -80,6 +79,6 @@ export const name = style({
 export const role = style({
   color: color.accent,
   fontFamily: font.sans,
-  fontSize: scaled("16px"),
+  fontSize: typeStep("-1"),
   marginTop: scaled("6px"),
 })

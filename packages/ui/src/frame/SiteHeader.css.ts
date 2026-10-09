@@ -1,4 +1,4 @@
-import { FRAME, scaled } from "@sebastian-websites/tokens"
+import { FRAME, scaled, typeStep } from "@sebastian-websites/tokens"
 import { style } from "@vanilla-extract/css"
 
 import { COMPACT, FRAME_INSET, FRAME_OVERHANG, FRAME_WIDTH, PHONE } from "../responsive.ts"
@@ -22,7 +22,7 @@ export const skip = style({
   boxShadow: FRAME.shadow,
   color: color.heading,
   fontFamily: font.sans,
-  fontSize: scaled("16px"),
+  fontSize: typeStep("-1"),
   left: scaled("16px"),
   padding: scaled("10px 16px"),
   position: "absolute",
@@ -160,14 +160,14 @@ export const link = style({
       alignItems: "center",
       borderBottom: `1px solid ${color.rule}`,
       display: "flex",
-      fontSize: scaled("20px"),
+      fontSize: typeStep("1"),
       minHeight: scaled("56px"),
       paddingBlock: scaled("12px"),
     },
   },
   color: color.heading,
   fontFamily: font.sans,
-  fontSize: scaled("16px"),
+  fontSize: typeStep("-1"),
   lineHeight: 1,
   paddingBlock: scaled("8px"),
   selectors: {
@@ -212,7 +212,7 @@ export const language = style([
       [COMPACT]: {
         borderBottom: 0,
         borderRadius: scaled("10px"),
-        fontSize: scaled("17px"),
+        fontSize: typeStep("0"),
         justifyContent: "center",
         minHeight: TOUCH_TARGET,
         minWidth: scaled("56px"),
@@ -229,7 +229,7 @@ export const slash = style({
   "@media": { [COMPACT]: { display: "none" } },
   color: color.rule,
   fontFamily: font.sans,
-  fontSize: scaled("16px"),
+  fontSize: typeStep("-1"),
 })
 
 /** A smaller neutral utility capsule: plain outward text, never a second logo. */
@@ -239,7 +239,7 @@ export const outbound = style([
     "@media": {
       [COMPACT]: {
         alignSelf: "flex-start",
-        fontSize: scaled("16px"),
+        fontSize: typeStep("-1"),
         height: TOUCH_TARGET,
         marginTop: scaled("16px"),
       },
@@ -251,7 +251,7 @@ export const outbound = style([
     display: "inline-flex",
     flexShrink: 0,
     fontFamily: font.sans,
-    fontSize: scaled("15px"),
+    fontSize: typeStep("-1"),
     height: scaled("36px"),
     lineHeight: 1,
     paddingInline: scaled("16px 14px"),

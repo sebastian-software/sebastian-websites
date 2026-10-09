@@ -1,4 +1,4 @@
-import { color, COMPACT, editorial, font, PHONE, scaled } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 export const main = style([
@@ -26,18 +26,16 @@ export const hero = style([
 export const heroTitle = style([
   editorial.display,
   {
-    "@media": { [COMPACT]: { fontSize: scaled("50px") }, [PHONE]: { fontSize: scaled("38px") } },
-    fontSize: scaled("64px"),
+    fontSize: typeStep("6"),
     lineHeight: 1.16,
     maxWidth: "12em",
   },
 ])
 
 export const heroLead = style({
-  "@media": { [PHONE]: { fontSize: scaled("20px") } },
   color: color.text,
   fontFamily: font.sans,
-  fontSize: scaled("24px"),
+  fontSize: typeStep("1"),
   lineHeight: 1.45,
   marginTop: scaled("24px"),
   maxWidth: "26em",

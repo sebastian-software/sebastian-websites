@@ -1,4 +1,11 @@
-import { PAGE, RHYTHM, scaled, TYPE_SCALE, type TypeStep } from "@sebastian-websites/tokens"
+import {
+  PAGE,
+  RHYTHM,
+  scaled,
+  TYPE_SCALE,
+  type TypeStep,
+  typeStep,
+} from "@sebastian-websites/tokens"
 import { createVar, globalStyle, style, styleVariants } from "@vanilla-extract/css"
 
 import { bleed, COMPACT, PAGE_WIDTH, PHONE } from "../responsive.ts"
@@ -151,7 +158,7 @@ export const outboundLink = style({
   borderBottom: `2px solid ${outboundAccent}`,
   color: color.heading,
   columnGap: "0.55em",
-  fontSize: scaled("19px"),
+  fontSize: typeStep("0"),
   lineHeight: 1.5,
   paddingBottom: scaled("4px"),
 })
@@ -164,7 +171,7 @@ export const button = style({
   color: "#fff",
   columnGap: scaled("14px"),
   flexShrink: 0,
-  fontSize: scaled("19px"),
+  fontSize: typeStep("0"),
   height: scaled("56px"),
   lineHeight: 1,
   paddingInline: scaled("26px"),
@@ -243,7 +250,11 @@ export const storyIdentity = style({
   rowGap: scaled("12px"),
 })
 
-export const storyHeading = style([heading, { marginBottom: scaled("20px") }])
+/** Stories sit in a narrow column, so their headings take the step below `heading`. */
+export const storyHeading = style([
+  heading,
+  { fontSize: typeStep("2"), marginBottom: scaled("20px") },
+])
 
 export const storyActions = style({
   alignItems: "center",

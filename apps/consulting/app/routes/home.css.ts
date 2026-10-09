@@ -1,4 +1,4 @@
-import { color, COMPACT, editorial, PHONE, scaled } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 /** The opening photograph starts close below the header. */
@@ -37,14 +37,12 @@ export const hero = style([
   },
 ])
 
+/** One step below the display size, so the claim keeps to two lines beside the offer. */
 export const heroTitle = style([
   editorial.display,
   {
-    "@media": {
-      [COMPACT]: { fontSize: scaled("46px"), marginRight: 0 },
-      [PHONE]: { fontSize: scaled("36px") },
-    },
-    fontSize: scaled("56px"),
+    "@media": { [COMPACT]: { marginRight: 0 } },
+    fontSize: typeStep("4"),
     gridColumn: "1 / span 7",
     lineHeight: 1.16,
     marginRight: scaled("-32px"),
@@ -64,7 +62,7 @@ export const heroAside = style({
   paddingLeft: scaled("32px"),
 })
 
-export const heroText = style([editorial.body, { fontSize: scaled("19px"), lineHeight: 1.55 }])
+export const heroText = style([editorial.body, { fontSize: typeStep("0"), lineHeight: 1.55 }])
 
 export const heroMore = style([heroText, { marginTop: scaled("16px") }])
 

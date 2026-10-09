@@ -1,6 +1,7 @@
 import { type PaletteId, PALETTES } from "./palettes.ts"
-import { scaled, scaledBetween } from "./root.ts"
+import { scaled } from "./root.ts"
 import { SPACE_SCALE } from "./space.ts"
+import { typeStep } from "./type.ts"
 
 /**
  * The spacing names of the first Software design (design/DESIGN.md), mapped to
@@ -27,15 +28,15 @@ export const RADIUS = {
 export const TYPE = {
   body: "1rem",
   bodyLineHeight: 1.65,
-  display: scaledBetween("56px", "92px"),
-  eyebrow: scaled("12px"),
-  h2: scaledBetween("28px", "44px"),
-  h3: scaled("22px"),
-  intro: scaled("18px"),
-  lead: scaled("22px"),
-  numeral: scaled("80px"),
-  small: scaled("14px"),
-  tiny: scaled("13px"),
+  display: typeStep("7"),
+  eyebrow: typeStep("-2"),
+  h2: typeStep("3"),
+  h3: typeStep("1"),
+  intro: typeStep("0"),
+  lead: typeStep("1"),
+  numeral: typeStep("7"),
+  small: typeStep("-2"),
+  tiny: typeStep("-2"),
 } as const
 
 export type NeutralRole = "ink" | "line" | "muted" | "white"

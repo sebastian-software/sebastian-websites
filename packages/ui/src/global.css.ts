@@ -36,6 +36,8 @@ globalStyle("body", {
 globalStyle("img", { display: "block", maxWidth: "100%" })
 globalStyle("a", { color: "inherit", textDecoration: "none" })
 globalStyle("p", { margin: 0 })
+// Running text avoids single words on its last line and ragged short lines.
+globalStyle("p, li, dd, blockquote", { textWrap: "pretty" })
 globalStyle("h1, h2, h3, h4", {
   fontFamily: font.serif,
   fontKerning: "normal",

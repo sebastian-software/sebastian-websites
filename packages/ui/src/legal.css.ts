@@ -1,4 +1,4 @@
-import { scaled, scaledBetween } from "@sebastian-websites/tokens"
+import { scaled, typeStep } from "@sebastian-websites/tokens"
 import { style } from "@vanilla-extract/css"
 
 import { PHONE } from "./responsive.ts"
@@ -20,7 +20,7 @@ export const legalClassNames = {
   list: style({ paddingInlineStart: scaled("20px") }),
   page: style({
     "@media": { [PHONE]: { padding: scaled("48px 20px 88px") } },
-    fontSize: scaled("17px"),
+    fontSize: typeStep("0"),
     lineHeight: 1.65,
     marginInline: "auto",
     maxWidth: scaled("816px"),
@@ -29,19 +29,19 @@ export const legalClassNames = {
   pageContent: style({ marginInline: "auto", maxWidth: scaled("768px") }),
   pageTitle: style({
     "@media": { [PHONE]: { marginBottom: scaled("28px") } },
-    fontSize: scaledBetween("32px", "56px"),
+    fontSize: typeStep("5"),
     marginBottom: scaled("40px"),
   }),
   section: style({ marginTop: scaled("56px") }),
   sectionTitle: style({
-    fontSize: scaledBetween("24px", "28px"),
+    fontSize: typeStep("2"),
     marginBottom: scaled("16px"),
   }),
   subsectionTitle: style({
-    fontSize: scaled("20px"),
+    fontSize: typeStep("1"),
     fontWeight: 500,
     margin: scaled("24px 0 8px"),
   }),
-  subtitle: style({ color: color.muted, fontSize: scaled("20px"), fontWeight: 300 }),
+  subtitle: style({ color: color.muted, fontSize: typeStep("1"), fontWeight: 300 }),
   text: style({ marginBottom: scaled("16px") }),
 } as const

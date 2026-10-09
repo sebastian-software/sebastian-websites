@@ -1,4 +1,4 @@
-import { color, COMPACT, editorial, font, PHONE, scaled } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 export const region = style([
@@ -17,7 +17,7 @@ export const map = style({
 export const place = style({
   color: color.heading,
   fontFamily: font.serif,
-  fontSize: scaled("17px"),
+  fontSize: typeStep("0"),
   lineHeight: 1,
   position: "absolute",
   textShadow: "0 0 6px #fff, 0 0 2px #fff",
@@ -39,7 +39,7 @@ export const aside = style({
 
 export const since = style([
   editorial.subheading,
-  { fontSize: scaled("28px"), marginBottom: scaled("14px") },
+  { fontSize: typeStep("2"), marginBottom: scaled("14px") },
 ])
 
 export const rule = style({
@@ -54,8 +54,7 @@ export const rule = style({
 export const values = style([
   editorial.title,
   {
-    "@media": { [COMPACT]: { fontSize: scaled("36px") }, [PHONE]: { fontSize: scaled("30px") } },
-    fontSize: scaled("44px"),
+    fontSize: typeStep("4"),
     lineHeight: 1.16,
   },
 ])

@@ -1,4 +1,4 @@
-import { scaled } from "@sebastian-websites/tokens"
+import { scaled, typeStep } from "@sebastian-websites/tokens"
 import { style } from "@vanilla-extract/css"
 
 import { caption, display, lead, page } from "../editorial/editorial.css.ts"
@@ -48,7 +48,7 @@ export const link = style({
   columnGap: scaled("12px"),
   display: "flex",
   fontFamily: font.sans,
-  fontSize: scaled("19px"),
+  fontSize: typeStep("0"),
   justifyContent: "space-between",
   minHeight: scaled("56px"),
   paddingBlock: scaled("12px"),

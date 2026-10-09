@@ -1,6 +1,7 @@
 import { type PaletteId, PALETTES } from "./palettes.ts"
 import { em, scaled, scaledBetween } from "./root.ts"
 import { SPACE_SCALE } from "./space.ts"
+import { typeStep } from "./type.ts"
 
 /** The widest column of the page grid; it grows with the root. */
 const COLUMN = scaled("52px")
@@ -36,7 +37,7 @@ export const DESIGN_PAGE_WIDTH = 1040
  * Compact screens (phones, portrait tablets, small windows) stack the grid into
  * one column and fold the header into a menu; from 960 px the column layout
  * applies, which also starts its own space range. Phones change layout details
- * only. Sizes need no breakpoints: the root, `scaledBetween`, and the space
+ * only. Sizes need no breakpoints: the root, the type scale, and the space
  * scale move them continuously.
  */
 export const BREAKPOINTS = {
@@ -52,32 +53,42 @@ export type TypeStep = {
 }
 
 /**
- * The editorial type scale. Headings and leads are set in Elena Regular, body
- * text in Glober or Elena depending on the passage, labels in Glober. Steps
- * with two sizes move from the phone to the desktop design; body text is the
- * root itself.
+ * Elena's small x-height needs a slightly larger size to match Glober at the
+ * same step.
+ */
+const ELENA_OPTICAL_SIZE = 1.1
+
+/**
+ * The editorial roles on the type scale. Headings and leads are set in Elena
+ * Regular, body text in Glober or Elena depending on the passage, labels in
+ * Glober. A component may choose a smaller step for a heading in a narrow
+ * column.
  */
 export const TYPE_SCALE = {
   /** Inline actions such as "Explore Terminaro →". */
-  action: { letterSpacing: "0", lineHeight: 1.4, size: scaledBetween("18px", "19px") },
+  action: { letterSpacing: "0", lineHeight: 1.4, size: typeStep("0") },
   /** Practical running text in Glober. */
-  body: { letterSpacing: "0", lineHeight: 1.6, size: scaledBetween("17px", "18px") },
-  /** Editorial running text in Elena, whose small x-height needs a larger size. */
-  bodySerif: { letterSpacing: "0", lineHeight: 1.5, size: scaledBetween("18px", "20px") },
+  body: { letterSpacing: "0", lineHeight: 1.6, size: typeStep("0") },
+  /** Editorial running text in Elena. */
+  bodySerif: {
+    letterSpacing: "0",
+    lineHeight: 1.5,
+    size: `calc(${typeStep("0")} * ${String(ELENA_OPTICAL_SIZE)})`,
+  },
   /** Captions, badges, and the legal baseline. */
-  caption: { letterSpacing: "0", lineHeight: 1.45, size: scaled("14px") },
+  caption: { letterSpacing: "0", lineHeight: 1.45, size: typeStep("-2") },
   /** The page's main editorial headline. */
-  display: { letterSpacing: "-0.015em", lineHeight: 1.2, size: scaledBetween("34px", "52px") },
+  display: { letterSpacing: "-0.015em", lineHeight: 1.2, size: typeStep("5") },
   /** Story and passage headings. */
-  heading: { letterSpacing: "-0.01em", lineHeight: 1.28, size: scaledBetween("26px", "34px") },
+  heading: { letterSpacing: "-0.01em", lineHeight: 1.28, size: typeStep("3") },
   /** Editorial introductions. */
-  lead: { letterSpacing: "-0.005em", lineHeight: 1.45, size: scaledBetween("20px", "24px") },
+  lead: { letterSpacing: "-0.005em", lineHeight: 1.45, size: typeStep("1") },
   /** Navigation, links, and secondary text. */
-  small: { letterSpacing: "0", lineHeight: 1.5, size: scaled("16px") },
+  small: { letterSpacing: "0", lineHeight: 1.5, size: typeStep("-1") },
   /** Quiet headings such as the newsletter and tile titles. */
-  subheading: { letterSpacing: "-0.01em", lineHeight: 1.3, size: scaledBetween("22px", "26px") },
+  subheading: { letterSpacing: "-0.01em", lineHeight: 1.3, size: typeStep("2") },
   /** Section headings. */
-  title: { letterSpacing: "-0.012em", lineHeight: 1.2, size: scaledBetween("30px", "40px") },
+  title: { letterSpacing: "-0.012em", lineHeight: 1.2, size: typeStep("4") },
 } as const satisfies Readonly<Record<string, TypeStep>>
 
 /** Vertical rhythm, from the gap inside a block to the space between sections. */
