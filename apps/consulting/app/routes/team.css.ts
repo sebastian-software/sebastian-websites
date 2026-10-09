@@ -55,17 +55,6 @@ export const heroText = style([editorial.body, { fontSize: scaled("19px"), lineH
 
 export const photoFrame = style([editorial.section, { display: "block", margin: 0 }])
 
-/** Wide on desktop; phones get a taller crop so both people stay large enough. */
-export const photo = style({
-  "@media": { [PHONE]: { aspectRatio: "4 / 3" } },
-  aspectRatio: "2 / 1",
-  backgroundColor: color.tint,
-  display: "block",
-  height: "auto",
-  objectFit: "cover",
-  width: "100%",
-})
-
 export const members = style({
   "@media": { [COMPACT]: { rowGap: scaled("88px") }, [PHONE]: { rowGap: scaled("72px") } },
   display: "grid",

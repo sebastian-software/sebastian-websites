@@ -1,7 +1,7 @@
 import { PAGE, RHYTHM, scaled, TYPE_SCALE, type TypeStep } from "@sebastian-websites/tokens"
 import { createVar, globalStyle, style, styleVariants } from "@vanilla-extract/css"
 
-import { COMPACT, PAGE_WIDTH } from "../responsive.ts"
+import { COMPACT, PAGE_WIDTH, PHONE } from "../responsive.ts"
 import { color, font } from "../theme.css.ts"
 
 /**
@@ -40,6 +40,17 @@ globalStyle(`${grid} > *`, {
 })
 
 /** Vertical space after a section; the next section starts without its own top. */
+/** A photograph across the page: 2:1 on desktop, 4:3 on phones so faces stay large. */
+export const widePhoto = style({
+  "@media": { [PHONE]: { aspectRatio: "4 / 3" } },
+  aspectRatio: "2 / 1",
+  backgroundColor: color.tint,
+  display: "block",
+  height: "auto",
+  objectFit: "cover",
+  width: "100%",
+})
+
 export const section = style({ paddingBottom: RHYTHM.section })
 
 // ---- Type ------------------------------------------------------------------

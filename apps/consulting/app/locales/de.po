@@ -1960,6 +1960,11 @@ msgstr ""
 "Sebastian Consulting – Architektur und Engineering für komplexe "
 "Webanwendungen"
 
+#: app/routes/home.tsx
+msgid ""
+"Sebastian Fastner and Sebastian Werner in conversation at a table with coffee"
+msgstr "Sebastian Fastner und Sebastian Werner im Gespräch an einem Tisch mit Kaffee"
+
 #: app/routes/team.tsx
 msgid ""
 "Sebastian Fastner and Sebastian Werner in conversation in front of a sandstone"
@@ -2214,7 +2219,9 @@ msgstr ""
 msgid ""
 "The link may be outdated, or the address may contain a typo. These pages lead "
 "on:"
-msgstr "Vielleicht ist der Link veraltet oder die Adresse enthält einen Tippfehler. Hier geht es weiter:"
+msgstr ""
+"Vielleicht ist der Link veraltet oder die Adresse enthält einen Tippfehler. "
+"Hier geht es weiter:"
 
 #: app/components/profile-screen/ProfileRail.tsx#ProfileRail
 msgid "The second consultant"

@@ -1,12 +1,13 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { ArrowLink } from "@sebastian-websites/ui"
+import { ArrowLink, BunnyImage, editorial, editorialSizes } from "@sebastian-websites/ui"
 
 import { OpenFoundations } from "~/components/OpenFoundations"
 import { ProductStory } from "~/components/ProductStory"
 import { RegionStory } from "~/components/RegionStory"
 import { getProducts } from "~/data/products"
+import { teamPhoto } from "~/lib/photos"
 
 import type { Route } from "./+types/home"
 
@@ -22,6 +23,9 @@ export function meta(): Route.MetaDescriptors {
     },
   ]
 }
+
+/** The founders' photograph spans the page: 1040 CSS pixels on desktop. */
+const TEAM_PHOTO_WIDTH = 1040
 
 export default function Home(): ReactElement {
   const products = getProducts()
@@ -42,6 +46,17 @@ export default function Home(): ReactElement {
           </p>
         </div>
       </section>
+      <figure className={styles.photoFrame}>
+        <BunnyImage
+          alt={t`Sebastian Werner and Sebastian Fastner in the office lounge`}
+          className={editorial.widePhoto}
+          crop={teamPhoto.crop}
+          height={520}
+          sizes={editorialSizes(TEAM_PHOTO_WIDTH)}
+          src={teamPhoto.src}
+          width={TEAM_PHOTO_WIDTH}
+        />
+      </figure>
       <div className={styles.stories}>
         {products.map((product, index) => (
           <ProductStory index={index} key={product.id} product={product} />

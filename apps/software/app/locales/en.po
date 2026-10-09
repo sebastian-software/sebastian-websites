@@ -1511,6 +1511,10 @@ msgstr ""
 #~ "Sebastian Software is a small software company from Mainz. We build products "
 #~ "that are meant to last and share the tools behind them as open source."
 
+#: app/routes/home.tsx
+msgid "Sebastian Werner and Sebastian Fastner in the office lounge"
+msgstr "Sebastian Werner and Sebastian Fastner in the office lounge"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "See what we build beyond consulting."
 msgstr "See what we build beyond consulting."
