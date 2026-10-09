@@ -60,8 +60,8 @@ palette: Space, Midnight, Teal, Lagoon, Signal, Frost on hue 218 (ADR-0008, plan
 3. **Lagoon is the single accent**: one coloured word in the headline, links, status marks.
 4. **Proof over adjectives, in this order:** client logos, live open-source numbers from the
    metrics service, curated testimonials from `packages/content`, the products.
-5. **Photos are real and large.** The founders appear once per page at most, in colour or
-   black-and-white depending on the direction, never as a cut-out stock figure.
+5. **Photos are real and large.** The founders appear in colour or black-and-white depending
+   on the direction, never as a cut-out stock figure.
 6. **The brand bar stays a hairline strip** in Frost above the header, two groups, language
    switch right, visibly secondary to the site's own navigation.
 
