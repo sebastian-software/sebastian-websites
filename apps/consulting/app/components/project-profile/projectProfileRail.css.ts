@@ -2,31 +2,31 @@ import { style } from "@vanilla-extract/css"
 
 import { variables } from "~/styles/theme.css"
 
+import { DOCKED, dockedRail, STACKED } from "../profile-screen/stage.css"
+
 const PAPER_WIDTH = "210mm"
 const MOBILE = "screen and (max-width: 800px)"
-const RAIL = "screen and (min-width: 1240px)"
 
 export const rail = style({
   "@media": {
-    [MOBILE]: {
-      padding: "0 1.25rem 2rem",
-    },
-    print: { display: "none" },
-    [RAIL]: {
+    [DOCKED]: {
+      ...dockedRail,
       display: "flex",
       flexDirection: "column",
-      flexShrink: 0,
       gap: "2rem",
-      margin: 0,
-      position: "sticky",
-      top: "5.5rem",
-      width: "19rem",
     },
-    screen: {
+    [MOBILE]: {
       display: "grid",
       gap: "1.5rem",
       margin: "2.5rem auto 0",
       maxWidth: PAPER_WIDTH,
+      padding: "0 1.25rem 2rem",
+    },
+    print: { display: "none" },
+    [STACKED]: {
+      display: "grid",
+      gap: "1.5rem",
+      marginTop: "2.5rem",
     },
   },
   fontFamily: variables.font.body,

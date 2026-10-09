@@ -2,38 +2,32 @@ import { style } from "@vanilla-extract/css"
 
 import { printColors, variables } from "~/styles/theme.css"
 
+import { DOCKED, dockedRail, STACKED } from "./stage.css"
+
 // Screen-only chrome around the printable A4 sheet: the two-column shell,
 // the sticky info rail, the closing CTA section and the mobile booking bar.
 // Everything in this file is invisible in print — the sheet stays the single
 // source for the PDF/print output.
 
-// Rail and sheet sit side by side from RAIL_UP; in the RAIL_DOWN band the
-// rail's modules form a grid under the sheet; on PHONE they stack single
-// column. The three queries are disjoint so cascade order never matters.
-// 794px sheet + 19rem rail + gaps ≈ 1240px.
-const RAIL_UP = "screen and (min-width: 1240px)"
-const RAIL_DOWN = "screen and (min-width: 801px) and (max-width: 1239px)"
+// The rail docks beside the sheet in the page margin where it fits (DOCKED,
+// see stage.css.ts), forms a grid of modules under the sheet otherwise
+// (STACKED), and stacks single column on PHONE. The three queries are
+// disjoint so cascade order never matters.
 const PHONE = "screen and (max-width: 800px)"
 
 // Shared small-copy size for the rail modules (13px).
 const FONT_SMALL = "0.8125rem"
 const INLINE_FLEX = "inline-flex"
 
-// ─── Two-column shell ───────────────────────────────────────
-export const layoutShell = style({
-  "@media": {
-    [RAIL_UP]: {
-      alignItems: "flex-start",
-      display: "flex",
-      gap: "clamp(2.5rem, 3.5vw, 4rem)",
-      justifyContent: "center",
-    },
-  },
-})
-
 // ─── Info rail ──────────────────────────────────────────────
 export const rail = style({
   "@media": {
+    [DOCKED]: {
+      ...dockedRail,
+      display: "flex",
+      flexDirection: "column",
+      gap: "2rem",
+    },
     [PHONE]: {
       display: "grid",
       gap: "1.5rem",
@@ -44,22 +38,11 @@ export const rail = style({
     print: {
       display: "none",
     },
-    [RAIL_DOWN]: {
+    [STACKED]: {
       display: "grid",
       gap: "1.5rem 2rem",
       gridTemplateColumns: "repeat(auto-fit, minmax(15rem, 1fr))",
-      margin: "2.5rem auto 0",
-      maxWidth: "210mm",
-    },
-    [RAIL_UP]: {
-      display: "flex",
-      flexDirection: "column",
-      flexShrink: 0,
-      gap: "2rem",
-      position: "sticky",
-      // Header (4rem) plus breathing room.
-      top: "5.5rem",
-      width: "19rem",
+      marginTop: "2.5rem",
     },
   },
   fontFamily: variables.font.body,
@@ -77,7 +60,7 @@ export const railBooking = style({
     [PHONE]: {
       display: "none",
     },
-    [RAIL_DOWN]: {
+    [STACKED]: {
       display: "none",
     },
   },
