@@ -44,9 +44,9 @@ The Skills site at `skills.sebastian-software.com` is not one of the sites. It i
 site of Effective Agent, English only, hand-written, and published from the skills
 repository, where it is reworked. The decision of 9 October 2026 reversed the earlier plan to
 rebuild it here as an area under Software: a product with its own name deserves its own site,
-and the "Effective" name belongs to the skills. The site header's "Agents & Skills" entry leads
-there in every language, and the Open Source site presents Effective Agent as a featured
-product. The `skills` variant definitions and hosting targets stay reserved but unused.
+and the "Effective" name belongs to the skills. Like every product, it is reached through the
+Open Source site, which presents Effective Agent as a featured product; it has no entry in the
+site header. The `skills` variant definitions and hosting targets stay reserved but unused.
 
 ## Products
 
@@ -82,8 +82,7 @@ other.
 
 - Every site has one floating site header. The current site's brand owns it: its complete
   logo, its local navigation, and its language switch. Software and Open Source share the
-  Software context (Products · Open Source · Agents & Skills, the last leading to the Effective
-  Agent site); Consulting has its own (Services · Profiles).
+  Software context (Products · Open Source); Consulting has its own (Services · Profiles).
 - The other brand appears once in the header, as a small plain-text outward link ("Our
   agency", "Our software"), never as a second logo. Cross-site links keep the current language.
 - Every page ends with the shared newsletter, an editorial invitation to the other brand, and

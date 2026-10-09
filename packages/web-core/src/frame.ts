@@ -40,7 +40,6 @@ export type FrameLinkId =
   | "products"
   | "profiles"
   | "services"
-  | "skills"
 
 /** A resolved link of the frame; labels belong to the rendering site's catalog. */
 export type FrameLink = {
@@ -85,18 +84,15 @@ type ContextSpec = {
 
 const PRODUCTS: Destination = { id: "products", path: "/products", site: "software" }
 const OPEN_SOURCE: Destination = { id: "opensource", path: "/", site: "opensource" }
-/**
- * The Skills site stays a standalone, English-only site for now (plan 08,
- * 2026-10-09), so every language links to its `.com` origin.
- */
-const SKILLS: Destination = { href: () => `${getSiteOrigin("skills", "en")}/`, id: "skills" }
 const SERVICES: Destination = { id: "services", path: "/#services", site: "consulting" }
 const PROFILES: Destination = { id: "profiles", path: "/team", site: "consulting" }
 
 /**
- * The two frame contexts. Open Source and Skills belong to Software. Routes that
- * do not exist yet (the Software journal, Consulting references) stay out until
- * they can be validated; the booking link replaces a contact route on Consulting.
+ * The two frame contexts. Open Source belongs to Software; Effective Agent is a
+ * product and is reached through Open Source, not the header (2026-10-09). Routes
+ * that do not exist yet (the Software journal, Consulting references) stay out
+ * until they can be validated; the booking link replaces a contact route on
+ * Consulting.
  */
 const CONTEXTS: Readonly<Record<BrandId, ContextSpec>> = {
   consulting: {
@@ -107,8 +103,8 @@ const CONTEXTS: Readonly<Record<BrandId, ContextSpec>> = {
   },
   software: {
     home: "software",
-    index: [PRODUCTS, OPEN_SOURCE, SKILLS, { id: "company", path: "/company", site: "software" }],
-    navigation: [PRODUCTS, OPEN_SOURCE, SKILLS],
+    index: [PRODUCTS, OPEN_SOURCE, { id: "company", path: "/company", site: "software" }],
+    navigation: [PRODUCTS, OPEN_SOURCE],
     outbound: "consulting",
   },
 }
