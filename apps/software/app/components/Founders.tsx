@@ -1,7 +1,7 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { blocks, BunnyImage, button } from "@sebastian-websites/ui"
+import { blocks, BunnyImage, button, scaledSizes } from "@sebastian-websites/ui"
 
 import { fastnerPhoto, wernerPhoto } from "~/lib/photos"
 
@@ -44,7 +44,7 @@ export function Founders(props: FoundersProps): ReactElement {
               className={blocks.photoImage}
               loading="lazy"
               {...founder.image}
-              sizes="72px"
+              sizes={scaledSizes("72px")}
             />
           </span>
           <div>

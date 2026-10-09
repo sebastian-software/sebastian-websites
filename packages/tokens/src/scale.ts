@@ -1,47 +1,48 @@
 import { type PaletteId, PALETTES } from "./palettes.ts"
+import { em, scaled, scaledBetween } from "./root.ts"
 
 /**
  * The spacing scale of the design system: an 8 px base, used for every gap,
  * padding, and section rhythm (design/DESIGN.md).
  */
 export const SPACE = {
-  lg: "40px",
-  md: "24px",
-  section: "128px",
-  sm: "16px",
-  xl: "64px",
-  xs: "8px",
-  xxl: "96px",
+  lg: scaled("40px"),
+  md: scaled("24px"),
+  section: scaled("128px"),
+  sm: scaled("16px"),
+  xl: scaled("64px"),
+  xs: scaled("8px"),
+  xxl: scaled("96px"),
 } as const
 
 /** Corner radii: pills for buttons and status marks, panels for cards and photos. */
 export const RADIUS = {
-  card: "16px",
-  panel: "24px",
+  card: scaled("16px"),
+  panel: scaled("24px"),
   pill: "999px",
 } as const
 
-/** The page container: 1320 px, widening to 1480 px on very large screens. */
+/** The page container: 1320 design pixels, widening to 1480 on very wide screens. */
 export const CONTAINER = {
-  gutter: "24px",
-  max: "1320px",
-  wide: "1480px",
-  wideFrom: "1700px",
+  gutter: scaled("24px"),
+  max: scaled("1320px"),
+  wide: scaled("1480px"),
+  wideFrom: em("1700px"),
 } as const
 
-/** The type scale. Display and headline sizes are fluid; text sizes are fixed. */
+/** The type scale. Body text is the root; display and headline sizes move from the phone to the desktop design. */
 export const TYPE = {
-  body: "17px",
+  body: "1rem",
   bodyLineHeight: 1.65,
-  display: "clamp(56px, 6.4vw, 108px)",
-  eyebrow: "12px",
-  h2: "clamp(28px, 3.6vw, 44px)",
-  h3: "22px",
-  intro: "18px",
-  lead: "22px",
-  numeral: "80px",
-  small: "14px",
-  tiny: "13px",
+  display: scaledBetween("56px", "92px"),
+  eyebrow: scaled("12px"),
+  h2: scaledBetween("28px", "44px"),
+  h3: scaled("22px"),
+  intro: scaled("18px"),
+  lead: scaled("22px"),
+  numeral: scaled("80px"),
+  small: scaled("14px"),
+  tiny: scaled("13px"),
 } as const
 
 export type NeutralRole = "ink" | "line" | "muted" | "white"

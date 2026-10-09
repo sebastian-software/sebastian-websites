@@ -1,4 +1,4 @@
-import { RADIUS, SPACE, TYPE } from "@sebastian-websites/tokens"
+import { RADIUS, scaled, SPACE, TYPE } from "@sebastian-websites/tokens"
 import { style, styleVariants } from "@vanilla-extract/css"
 
 import { color, NARROW, ON_NIGHT } from "./theme.css.ts"
@@ -8,7 +8,7 @@ import { color, NARROW, ON_NIGHT } from "./theme.css.ts"
 export const hero = style({
   background: `radial-gradient(55% 60% at 78% 35%, color-mix(in oklch, ${color.bright} 22%, ${color.paper}), transparent 72%)`,
   overflow: "hidden",
-  padding: "112px 0 104px",
+  padding: scaled("112px 0 104px"),
   position: "relative",
 })
 
@@ -16,26 +16,26 @@ export const heroGrid = style({
   "@media": { [NARROW]: { gridTemplateColumns: "1fr" } },
   alignItems: "center",
   display: "grid",
-  gap: "80px",
+  gap: scaled("80px"),
   gridTemplateColumns: "1.1fr 0.9fr",
 })
 
-export const heroLead = style({ margin: "32px 0 20px" })
-export const heroMore = style({ margin: "0 0 40px" })
+export const heroLead = style({ margin: scaled("32px 0 20px") })
+export const heroMore = style({ margin: scaled("0 0 40px") })
 
 export const facts = style({
   borderTop: `1px solid ${color.line}`,
   display: "flex",
   flexWrap: "wrap",
-  gap: "56px",
-  marginTop: "56px",
-  paddingTop: "28px",
+  gap: scaled("56px"),
+  marginTop: scaled("56px"),
+  paddingTop: scaled("28px"),
 })
 
 export const factValue = style({
   color: color.dark,
   display: "block",
-  fontSize: "28px",
+  fontSize: scaled("28px"),
   fontWeight: 300,
   letterSpacing: "-0.02em",
   lineHeight: 1.1,
@@ -71,13 +71,13 @@ export const caption = style({
   backdropFilter: "blur(6px)",
   backgroundColor: "oklch(1 0 0 / 0.86)",
   borderRadius: RADIUS.pill,
-  bottom: "20px",
+  bottom: scaled("20px"),
   color: color.ink,
   display: "flex",
   fontSize: TYPE.tiny,
-  gap: "10px",
-  left: "20px",
-  padding: "8px 14px",
+  gap: scaled("10px"),
+  left: scaled("20px"),
+  padding: scaled("8px 14px"),
   position: "absolute",
 })
 
@@ -86,19 +86,19 @@ export const dot = style({
   borderRadius: "50%",
   display: "inline-block",
   flexShrink: 0,
-  height: "7px",
-  width: "7px",
+  height: scaled("7px"),
+  width: scaled("7px"),
 })
 
 // ---- Logo strip ------------------------------------------------------------
 
-export const band = style({ backgroundColor: color.white, padding: "36px 0" })
+export const band = style({ backgroundColor: color.white, padding: scaled("36px 0") })
 
 export const bandInner = style({
   "@media": { [NARROW]: { flexDirection: "column", gap: SPACE.md } },
   alignItems: "center",
   display: "flex",
-  gap: "48px",
+  gap: scaled("48px"),
 })
 
 export const bandLabel = style({ marginBottom: 0, whiteSpace: "nowrap" })
@@ -118,9 +118,9 @@ export const logos = style({
 
 export const logo = style({
   filter: "grayscale(1) contrast(0.6) brightness(0.9)",
-  height: "22px",
+  height: scaled("22px"),
   marginInline: "auto",
-  maxWidth: "120px",
+  maxWidth: scaled("120px"),
   opacity: 0.8,
   width: "auto",
 })
@@ -131,7 +131,7 @@ export const column = style({
   borderTop: `1px solid ${color.line}`,
   display: "flex",
   flexDirection: "column",
-  paddingTop: "28px",
+  paddingTop: scaled("28px"),
 })
 
 export const columnNumber = style({
@@ -140,7 +140,7 @@ export const columnNumber = style({
   fontSize: TYPE.tiny,
   fontWeight: 600,
   letterSpacing: "0.08em",
-  marginBottom: "20px",
+  marginBottom: scaled("20px"),
 })
 
 export const columnLink = style({ marginTop: "auto", paddingTop: SPACE.md })
@@ -161,15 +161,15 @@ export const card = style({
 })
 
 export const cardTitle = style({
-  fontSize: "26px",
+  fontSize: scaled("26px"),
   fontWeight: 400,
   letterSpacing: "-0.015em",
-  margin: "0 0 14px",
+  margin: scaled("0 0 14px"),
 })
 
 export const cardText = style({
   color: color.muted,
-  fontSize: "16px",
+  fontSize: scaled("16px"),
   lineHeight: TYPE.bodyLineHeight,
 })
 
@@ -183,7 +183,7 @@ export const status = style({
   fontWeight: 600,
   letterSpacing: "0.06em",
   marginBottom: SPACE.md,
-  padding: "6px 10px",
+  padding: scaled("6px 10px"),
   textTransform: "uppercase",
   whiteSpace: "nowrap",
 })
@@ -198,7 +198,7 @@ export const lineRow = style({
   display: "grid",
   gap: SPACE.xl,
   gridTemplateColumns: "1fr 2fr",
-  padding: "36px 0",
+  padding: scaled("36px 0"),
 })
 
 export const lineTitle = style({
@@ -215,7 +215,7 @@ export const lineText = style({
   maxWidth: "62ch",
 })
 
-export const linesFoot = style({ paddingTop: "32px" })
+export const linesFoot = style({ paddingTop: scaled("32px") })
 
 // ---- Numbers ---------------------------------------------------------------
 
@@ -224,7 +224,7 @@ export const numbers = style({
   alignItems: "start",
   borderTop: `1px solid ${ON_NIGHT.rule}`,
   display: "grid",
-  gap: "48px",
+  gap: scaled("48px"),
   gridTemplateColumns: "repeat(3, 1fr)",
   paddingTop: SPACE.lg,
 })
@@ -234,9 +234,9 @@ export const numberValue = style({ color: color.white, display: "block" })
 export const numberLabel = style({
   color: ON_NIGHT.text,
   display: "block",
-  fontSize: "15px",
+  fontSize: scaled("15px"),
   lineHeight: 1.4,
-  marginTop: "14px",
+  marginTop: scaled("14px"),
   minHeight: "2.8em",
 })
 
@@ -245,9 +245,9 @@ export const numbersFoot = style({
   color: ON_NIGHT.muted,
   display: "flex",
   fontSize: TYPE.tiny,
-  gap: "8px",
+  gap: scaled("8px"),
   justifyContent: "flex-end",
-  marginTop: "32px",
+  marginTop: scaled("32px"),
 })
 
 export const liveDot = style([dot, { backgroundColor: color.bright }])
@@ -259,7 +259,7 @@ export const persons = style({
   display: "grid",
   gap: SPACE.xl,
   gridTemplateColumns: "1fr 1fr",
-  marginTop: "80px",
+  marginTop: scaled("80px"),
 })
 
 export const person = style({
@@ -267,21 +267,21 @@ export const person = style({
   borderTop: `1px solid ${color.line}`,
   display: "grid",
   gap: SPACE.md,
-  gridTemplateColumns: "72px 1fr",
-  paddingTop: "28px",
+  gridTemplateColumns: `${scaled("72px")} 1fr`,
+  paddingTop: scaled("28px"),
 })
 
 export const face = style({
   borderRadius: "50%",
-  height: "72px",
+  height: scaled("72px"),
   overflow: "hidden",
   position: "relative",
-  width: "72px",
+  width: scaled("72px"),
 })
 
 export const personName = style({
   display: "block",
-  fontSize: "18px",
+  fontSize: scaled("18px"),
   fontWeight: 500,
   lineHeight: 1.3,
 })
@@ -291,10 +291,10 @@ export const personRole = style({
   display: "block",
   fontSize: TYPE.small,
   lineHeight: 1.4,
-  margin: "4px 0 12px",
+  margin: scaled("4px 0 12px"),
 })
 
-export const personText = style({ color: color.muted, fontSize: "16px", lineHeight: 1.6 })
+export const personText = style({ color: color.muted, fontSize: scaled("16px"), lineHeight: 1.6 })
 
 // ---- Closing ---------------------------------------------------------------
 
@@ -302,8 +302,8 @@ export const finalGrid = style({
   "@media": { [NARROW]: { gridTemplateColumns: "1fr" } },
   alignItems: "center",
   display: "grid",
-  gap: "80px",
+  gap: scaled("80px"),
   gridTemplateColumns: "1.2fr 0.8fr",
 })
 
-export const finalLead = style({ margin: "24px 0 36px" })
+export const finalLead = style({ margin: scaled("24px 0 36px") })

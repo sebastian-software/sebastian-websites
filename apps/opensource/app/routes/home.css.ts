@@ -1,44 +1,50 @@
-import { color, COMPACT, editorial, font, PHONE } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, PHONE, scaled } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 export const main = style([
   editorial.page,
   {
-    "@media": { [COMPACT]: { paddingTop: "72px" }, [PHONE]: { paddingTop: "48px" } },
-    paddingTop: "112px",
+    "@media": {
+      [COMPACT]: { paddingTop: scaled("72px") },
+      [PHONE]: { paddingTop: scaled("48px") },
+    },
+    paddingTop: scaled("112px"),
   },
 ])
 
 export const hero = style([
   editorial.section,
   {
-    "@media": { [COMPACT]: { paddingBottom: "96px" }, [PHONE]: { paddingBottom: "72px" } },
-    paddingBottom: "136px",
+    "@media": {
+      [COMPACT]: { paddingBottom: scaled("96px") },
+      [PHONE]: { paddingBottom: scaled("72px") },
+    },
+    paddingBottom: scaled("136px"),
   },
 ])
 
 export const heroTitle = style([
   editorial.display,
   {
-    "@media": { [COMPACT]: { fontSize: "50px" }, [PHONE]: { fontSize: "38px" } },
-    fontSize: "64px",
+    "@media": { [COMPACT]: { fontSize: scaled("50px") }, [PHONE]: { fontSize: scaled("38px") } },
+    fontSize: scaled("64px"),
     lineHeight: 1.16,
     maxWidth: "12em",
   },
 ])
 
 export const heroLead = style({
-  "@media": { [PHONE]: { fontSize: "20px" } },
+  "@media": { [PHONE]: { fontSize: scaled("20px") } },
   color: color.text,
   fontFamily: font.sans,
-  fontSize: "24px",
+  fontSize: scaled("24px"),
   lineHeight: 1.45,
-  marginTop: "24px",
+  marginTop: scaled("24px"),
   maxWidth: "26em",
 })
 
-export const heroAction = style({ marginTop: "28px" })
+export const heroAction = style({ marginTop: scaled("28px") })
 
 export const stories = style([editorial.storyList, editorial.section])
 
-export const projects = style([editorial.section, { scrollMarginTop: "96px" }])
+export const projects = style([editorial.section, { scrollMarginTop: scaled("96px") }])

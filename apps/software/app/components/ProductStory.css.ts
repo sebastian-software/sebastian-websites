@@ -1,4 +1,4 @@
-import { color, COMPACT, editorial, font, PHONE } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, PHONE, scaled } from "@sebastian-websites/ui"
 import { style, styleVariants } from "@vanilla-extract/css"
 
 export const content = style({ position: "relative", zIndex: 1 })
@@ -17,32 +17,32 @@ export const identity = styleVariants({
 })
 
 export const mark = style({
-  "@media": { [PHONE]: { height: "72px" } },
+  "@media": { [PHONE]: { height: scaled("72px") } },
   display: "block",
   flexShrink: 0,
-  height: "92px",
+  height: scaled("92px"),
   width: "auto",
 })
 
 export const name = style({
   alignItems: "baseline",
-  columnGap: "28px",
+  columnGap: scaled("28px"),
   display: "flex",
   flexWrap: "wrap",
-  rowGap: "10px",
+  rowGap: scaled("10px"),
 })
 
 export const wordmark = styleVariants({
-  "palamedes-plus": { display: "block", height: "34px", width: "auto" },
-  terminaro: { display: "block", height: "33px", width: "auto" },
+  "palamedes-plus": { display: "block", height: scaled("34px"), width: "auto" },
+  terminaro: { display: "block", height: scaled("33px"), width: "auto" },
 })
 
 /** VorOrt keeps its name as ordinary text until its logo is settled. */
 export const textName = style({
-  "@media": { [PHONE]: { fontSize: "44px" } },
+  "@media": { [PHONE]: { fontSize: scaled("44px") } },
   color: color.heading,
   fontFamily: font.serif,
-  fontSize: "60px",
+  fontSize: scaled("60px"),
   letterSpacing: "-0.02em",
   lineHeight: 1,
 })
@@ -51,7 +51,7 @@ export const status = style({
   borderBottom: `1px solid currentColor`,
   color: color.accent,
   fontFamily: font.sans,
-  fontSize: "17px",
+  fontSize: scaled("17px"),
   lineHeight: 1.3,
   paddingBottom: "2px",
   whiteSpace: "nowrap",
