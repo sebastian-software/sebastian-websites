@@ -74,7 +74,7 @@ export const text = style([editorial.body, { color: color.text }])
 export const projectLink = styleVariants({
   ardo: { color: "#b72a6f" },
   dalo: { color: "oklch(0.55 0.17 35)" },
-  "effective-agent": { color: color.accent },
+  "effective-agent": { color: "#a54e2c" },
   ferramenta: { color: "oklch(0.52 0.15 38)" },
   palamedes: { color: "oklch(0.53 0.15 55)" },
 } satisfies Record<FeaturedId, { color: string }>)

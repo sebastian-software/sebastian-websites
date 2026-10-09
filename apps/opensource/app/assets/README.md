@@ -13,15 +13,15 @@ moved to the shared frame (`packages/ui/src/assets/invitation-consulting.png`).
 
 ## Project marks
 
-| Asset                                                                      | Source                                                                                                                                                   |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Palamedes mark](brands/palamedes-mark.svg)                                | `palamedes/site/public/logo.svg`                                                                                                                         |
-| [Palamedes wordmark](brands/palamedes-wordmark.svg)                        | Set in Cinzel Hellenic (OFL), the Palamedes display face, as paths                                                                                       |
-| [Ferramenta mark](brands/ferramenta-mark.svg)                              | `ferramenta/app/assets/brand/logo-light.svg`                                                                                                             |
-| [Ferramenta wordmark](brands/ferramenta-wordmark.svg)                      | Set in Barlow Condensed 700 (OFL), the Ferramenta display face                                                                                           |
-| [Dalo mark](brands/dalo-mark.svg) and [wordmark](brands/dalo-wordmark.svg) | `dalo/logo.svg` and `dalo/site/assets/img/wordmark.svg`                                                                                                  |
-| [Ardo mark](brands/ardo-mark.svg)                                          | `ardo/logo.svg`; the name is set as text in Ardo's system face                                                                                           |
-| [Effective Agent mark](brands/effective-agent-mark.svg)                    | The Sebastian Software icon from `skills.sebastian-software.com/site/assets/brand/software-on-light.svg`, as on the Skills site; the name is set as text |
+| Asset                                                                      | Source                                                                                              |
+| -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [Palamedes mark](brands/palamedes-mark.svg)                                | `palamedes/site/public/logo.svg`                                                                    |
+| [Palamedes wordmark](brands/palamedes-wordmark.svg)                        | Set in Cinzel Hellenic (OFL), the Palamedes display face, as paths                                  |
+| [Ferramenta mark](brands/ferramenta-mark.svg)                              | `ferramenta/app/assets/brand/logo-light.svg`                                                        |
+| [Ferramenta wordmark](brands/ferramenta-wordmark.svg)                      | Set in Barlow Condensed 700 (OFL), the Ferramenta display face                                      |
+| [Dalo mark](brands/dalo-mark.svg) and [wordmark](brands/dalo-wordmark.svg) | `dalo/logo.svg` and `dalo/site/assets/img/wordmark.svg`                                             |
+| [Ardo mark](brands/ardo-mark.svg)                                          | `ardo/logo.svg`; the name is set as text in Ardo's system face                                      |
+| [Effective Agent mark](brands/effective-agent-mark.svg)                    | `effective-agent.dev/assets/brand/field-guide.svg`; the name is set as text, as on the project site |
 
 All illustrations are PNGs with alpha transparency. The first four were reconstructed from the selected concept using built-in ImageGen, so fine details can differ from the small drawings in the concept; the Effective Agent drawing was generated new with Codex's built-in ImageGen, using the Dalo and Palamedes drawings as style references and the selected cartridge device from an earlier draft.
 

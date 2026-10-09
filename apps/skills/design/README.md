@@ -8,7 +8,11 @@ site until that identity exists, and is reworked there.
 
 In this repository, Effective Agent appears as an open-source product: as a featured story on
 the Open Source site and as a family column on the Software open-source page, both leading to
-the Skills site. Like the other products, it has no entry in the site header.
+the project's own site. Like the other products, it has no entry in the site header.
+
+Effective Agent now has that identity: its field-guide mark and its own site at
+https://effective-agent.dev, with the repository at `sebastian-software/effective-agent`. Both
+stories link there.
 
 An earlier build of the site as `apps/skills` on the shared frame was discarded; plan 08
 records the decision.
