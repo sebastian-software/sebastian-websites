@@ -14,6 +14,14 @@ msgstr ""
 "{brand} ist eine eingetragene Marke der {name}. Betreiberin dieser Website ist"
 " die {name}."
 
+#: app/routes/products.tsx#meta
+msgid ""
+"{names}: the products of Sebastian Software, each grown out of a gap we saw "
+"ourselves and used in our own work."
+msgstr ""
+"{names}: die Produkte von Sebastian Software, jedes aus einer Lücke entstanden, "
+"die wir selbst gesehen haben, und im eigenen Alltag im Einsatz."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""
 "A data protection officer has not been appointed, as the legal requirements "
@@ -97,15 +105,16 @@ msgstr ""
 #~ msgid "A third product is in preparation and will be announced here."
 #~ msgstr "Ein drittes Produkt ist in Vorbereitung und wird hier angekündigt."
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid ""
-"A third product is in the works. We will announce it once it runs in our own "
-"daily work and we know it keeps what it promises. Until then: Palamedes, the "
-"open core, is here today."
-msgstr ""
-"Ein drittes Produkt ist in Arbeit. Wir kündigen es an, sobald es bei uns "
-"selbst im Einsatz ist und wir wissen, dass es hält, was es verspricht. Bis "
-"dahin: Palamedes, der offene Kern, ist heute schon da."
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid ""
+#~ "A third product is in the works. We will announce it once it runs in our own "
+#~ "daily work and we know it keeps what it promises. Until then: Palamedes, the "
+#~ "open core, is here today."
+#~ msgstr ""
+#~ "Ein drittes Produkt ist in Arbeit. Wir kündigen es an, sobald es bei uns "
+#~ "selbst im Einsatz ist und wir wissen, dass es hält, was es verspricht. Bis "
+#~ "dahin: Palamedes, der offene Kern, ist heute schon da."
 
 #: app/data/products.ts#getProducts
 msgid ""
@@ -324,7 +333,6 @@ msgstr ""
 "Teams unserer Partner, damit sie gemeinsam mehr erreichen, auch lange nachdem "
 "ein Projekt beendet ist."
 
-#: app/components/ProductCards.tsx#ProductCards
 #: app/data/products.ts#getProducts
 msgid "Coming soon"
 msgstr "Demnächst"
@@ -457,7 +465,6 @@ msgstr ""
 "Arbeitsspeicher (RAM) gehalten und nach 20–30 Sekunden automatisch "
 "gelöscht. Es erfolgt nach dieser Zusicherung keine dauerhafte Speicherung."
 
-#: app/components/ProductCards.tsx#ProductCards
 #: app/data/products.ts#getProducts
 msgid "Early access"
 msgstr "Früher Zugang"
@@ -777,9 +784,10 @@ msgstr "Impressum"
 #~ msgid "Imprint – Sebastian Software"
 #~ msgstr "Impressum – Sebastian Software"
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid "In preparation"
-msgstr "In Vorbereitung"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid "In preparation"
+#~ msgstr "In Vorbereitung"
 
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#Stance
@@ -944,18 +952,19 @@ msgstr "Hauptnavigation"
 msgid "Managed translations built around an open core."
 msgstr "Verwaltete Übersetzungen rund um einen offenen Kern."
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid ""
-"Managed translations for teams that use our open core Palamedes. The core "
-"stays open source; maintaining catalogs, approvals, and AI-assisted "
-"suggestions become a service. Born from internationalizing large codebases "
-"where translations should roll out in seconds rather than weeks."
-msgstr ""
-"Verwaltete Übersetzungen für Teams, die unseren offenen Kern Palamedes "
-"einsetzen. Der Kern bleibt Open Source; die Pflege der Kataloge, Freigaben und"
-" KI-gestützte Vorschläge werden zum Dienst. Entstanden aus der "
-"Internationalisierung großer Codebasen, in denen Übersetzungen in Sekunden "
-"statt in Wochen ausgerollt werden sollten."
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid ""
+#~ "Managed translations for teams that use our open core Palamedes. The core "
+#~ "stays open source; maintaining catalogs, approvals, and AI-assisted "
+#~ "suggestions become a service. Born from internationalizing large codebases "
+#~ "where translations should roll out in seconds rather than weeks."
+#~ msgstr ""
+#~ "Verwaltete Übersetzungen für Teams, die unseren offenen Kern Palamedes "
+#~ "einsetzen. Der Kern bleibt Open Source; die Pflege der Kataloge, Freigaben und"
+#~ " KI-gestützte Vorschläge werden zum Dienst. Entstanden aus der "
+#~ "Internationalisierung großer Codebasen, in denen Übersetzungen in Sekunden "
+#~ "statt in Wochen ausgerollt werden sollten."
 
 #: app/data/products.ts#getProducts
 msgid "Managed websites for local businesses."
@@ -1037,19 +1046,20 @@ msgstr "Online-Terminbuchung für kleine Betriebe."
 #~ "eingerichtet, ohne Agentur und ohne Schulung, und so gebaut, dass es auch in "
 #~ "drei Jahren noch dasselbe tut."
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid ""
-"Online appointment booking for the self-employed and small businesses. "
-"Customers book in seconds without an account, and the public booking page sets"
-" no cookies. Calendar sync with Google, iCloud, or CalDAV prevents double "
-"bookings, confirmations and reminders go out automatically, and booking data "
-"stays on servers in Germany."
-msgstr ""
-"Online-Terminbuchung für Selbstständige und kleine Betriebe. Kundinnen und "
-"Kunden buchen in Sekunden ohne Konto, und die öffentliche Buchungsseite setzt"
-" keine Cookies. Der Kalenderabgleich mit Google, iCloud oder CalDAV verhindert"
-" Doppelbuchungen, Bestätigungen und Erinnerungen gehen automatisch raus, und "
-"Buchungsdaten bleiben auf Servern in Deutschland."
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid ""
+#~ "Online appointment booking for the self-employed and small businesses. "
+#~ "Customers book in seconds without an account, and the public booking page sets"
+#~ " no cookies. Calendar sync with Google, iCloud, or CalDAV prevents double "
+#~ "bookings, confirmations and reminders go out automatically, and booking data "
+#~ "stays on servers in Germany."
+#~ msgstr ""
+#~ "Online-Terminbuchung für Selbstständige und kleine Betriebe. Kundinnen und "
+#~ "Kunden buchen in Sekunden ohne Konto, und die öffentliche Buchungsseite setzt"
+#~ " keine Cookies. Der Kalenderabgleich mit Google, iCloud oder CalDAV verhindert"
+#~ " Doppelbuchungen, Bestätigungen und Erinnerungen gehen automatisch raus, und "
+#~ "Buchungsdaten bleiben auf Servern in Deutschland."
 
 #: app/components/OpenFoundations.tsx#OpenFoundations
 msgid "Open foundations"
@@ -1179,9 +1189,10 @@ msgstr "Seitenaufrufe (URL, Referrer)"
 #~ msgid "Palamedes, the open core"
 #~ msgstr "Palamedes, der offene Kern"
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid "Palamedes, the open core →"
-msgstr "Palamedes, der offene Kern →"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid "Palamedes, the open core →"
+#~ msgstr "Palamedes, der offene Kern →"
 
 #: app/routes/company.tsx
 msgid ""
@@ -1663,13 +1674,14 @@ msgstr "Abonnieren"
 msgid "Technology that wins hearts and minds"
 msgstr "Technologie, die Herzen und Köpfe gewinnt"
 
-#: app/routes/products.tsx#meta
-msgid ""
-"Terminaro for appointment booking, Palamedes+ for managed translations: the "
-"products of Sebastian Software."
-msgstr ""
-"Terminaro für die Terminbuchung, Palamedes+ für verwaltete Übersetzungen: "
-"die Produkte von Sebastian Software."
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/routes/products.tsx#meta
+#~ msgid ""
+#~ "Terminaro for appointment booking, Palamedes+ for managed translations: the "
+#~ "products of Sebastian Software."
+#~ msgstr ""
+#~ "Terminaro für die Terminbuchung, Palamedes+ für verwaltete Übersetzungen: "
+#~ "die Produkte von Sebastian Software."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/home.tsx
@@ -1838,9 +1850,10 @@ msgstr ""
 "Es gibt kein Kontaktformular – die Kontaktaufnahme erfolgt ausschließlich "
 "per E-Mail."
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid "Third product"
-msgstr "Drittes Produkt"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid "Third product"
+#~ msgstr "Drittes Produkt"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "This page does not exist."
@@ -2063,18 +2076,20 @@ msgstr "Auf GitHub ansehen"
 #~ msgid "Visit ferramenta.dev"
 #~ msgstr "Zu ferramenta.dev"
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid "Visit palamedes.dev →"
-msgstr "Zu palamedes.dev →"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid "Visit palamedes.dev →"
+#~ msgstr "Zu palamedes.dev →"
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/products.tsx
 #~ msgid "Visit terminaro.eu"
 #~ msgstr "Zu terminaro.eu"
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid "Visit terminaro.eu →"
-msgstr "Zu terminaro.eu →"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid "Visit terminaro.eu →"
+#~ msgstr "Zu terminaro.eu →"
 
 #: app/routes/company.tsx#Mission
 msgid ""

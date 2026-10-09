@@ -17,6 +17,8 @@ export type Product = {
   readonly id: ProductId
   readonly illustration: { readonly alt: string; readonly src: ImageSource }
   readonly name: string
+  /** Whether customers can use the product today; the others are announced. */
+  readonly released: boolean
   /** The public availability, as the product's own site states it. */
   readonly status: string
   readonly title: string
@@ -41,6 +43,7 @@ export function getProducts(): readonly Product[] {
         src: terminaroCalendar,
       },
       name: "Terminaro",
+      released: true,
       status: t`Early access`,
       title: t`Online appointment booking for small businesses.`,
     },
@@ -53,6 +56,7 @@ export function getProducts(): readonly Product[] {
         src: palamedesPlusBooks,
       },
       name: "Palamedes+",
+      released: false,
       status: t`Coming soon`,
       title: t`Managed translations built around an open core.`,
     },
@@ -65,6 +69,7 @@ export function getProducts(): readonly Product[] {
         src: vorortStorefront,
       },
       name: "VorOrt",
+      released: false,
       status: t`Coming soon`,
       title: t`Managed websites for local businesses.`,
     },
