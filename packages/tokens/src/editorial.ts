@@ -1,136 +1,95 @@
 import { type PaletteId, PALETTES } from "./palettes.ts"
+import { em, scaled, scaledBetween } from "./root.ts"
 
 /**
  * The editorial system of the selected designs (design/IMPLEMENTATION-BRIEF.md):
- * a 12-column page of 1040 px, Elena for headings and editorial passages, Glober
- * for practical text, and generous, evenly distributed vertical rhythm. Sizes are
- * fixed on desktop; extra viewport width becomes margin, not larger content.
+ * a 12-column page of 1040 design pixels, Elena for headings and editorial
+ * passages, Glober for practical text, and generous, evenly distributed vertical
+ * rhythm. Lengths are in rem and follow the fluid root (`ROOT_FONT_SIZE`), so the
+ * whole page grows with the screen; margins take the rest of the width.
  */
 export const PAGE = {
   columns: 12,
-  gap: "32px",
-  /** The smallest margin beside the page on narrow desktop windows. */
-  margin: "48px",
+  gap: scaled("32px"),
+  /** The smallest margin beside the page: 20 px on phones, 48 px on desktop. */
+  margin: scaledBetween("20px", "48px"),
   /** Header shell and footer panel reach this far beyond the text edge. */
-  overhang: "24px",
-  width: "1040px",
+  overhang: scaledBetween("8px", "24px"),
+  width: scaled("1040px"),
 } as const
 
 /**
- * The layouts below the fixed desktop page. Compact screens (tablets, small
- * windows) stack the grid into one column and fold the header into a menu;
- * phones also step down type, margins, and rhythm. From 1024 px the desktop
- * page applies unchanged, so these are overrides for narrower screens only.
+ * Layout breakpoints, in em so they follow the reader's default font size.
+ * Compact screens (tablets, small windows) stack the grid into one column and
+ * fold the header into a menu; phones change layout details only. Sizes need
+ * no breakpoints, the fluid root and `scaledBetween` move them continuously.
  */
 export const BREAKPOINTS = {
-  compact: "1023px",
-  phone: "639px",
+  compact: em("1023px"),
+  phone: em("639px"),
 } as const
 
-/** Page margins, frame overhang, and rhythm of the compact and phone layouts. */
-export const COMPACT_PAGE = {
-  compactMargin: "32px",
-  compactOverhang: "12px",
-  compactSection: "112px",
-  phoneMargin: "20px",
-  phoneOverhang: "8px",
-  phoneSection: "88px",
-} as const
-
-/**
- * One step of the type scale: size, line height, and tracking. Large steps name
- * smaller sizes for compact screens and phones; small steps keep their size.
- */
+/** One step of the type scale: size, line height, and tracking. */
 export type TypeStep = {
-  readonly compactSize?: string
   readonly letterSpacing: string
   readonly lineHeight: number
-  readonly phoneSize?: string
   readonly size: string
 }
 
 /**
  * The editorial type scale. Headings and leads are set in Elena Regular, body
- * text in Glober or Elena depending on the passage, labels in Glober.
+ * text in Glober or Elena depending on the passage, labels in Glober. Steps
+ * with two sizes move from the phone to the desktop design; body text is the
+ * root itself.
  */
 export const TYPE_SCALE = {
   /** Inline actions such as "Explore Terminaro →". */
-  action: { letterSpacing: "0", lineHeight: 1.4, phoneSize: "18px", size: "19px" },
+  action: { letterSpacing: "0", lineHeight: 1.4, size: scaledBetween("18px", "19px") },
   /** Practical running text in Glober. */
-  body: { letterSpacing: "0", lineHeight: 1.6, phoneSize: "17px", size: "18px" },
+  body: { letterSpacing: "0", lineHeight: 1.6, size: scaledBetween("17px", "18px") },
   /** Editorial running text in Elena, whose small x-height needs a larger size. */
-  bodySerif: { letterSpacing: "0", lineHeight: 1.5, phoneSize: "18px", size: "20px" },
+  bodySerif: { letterSpacing: "0", lineHeight: 1.5, size: scaledBetween("18px", "20px") },
   /** Captions, badges, and the legal baseline. */
-  caption: { letterSpacing: "0", lineHeight: 1.45, size: "14px" },
+  caption: { letterSpacing: "0", lineHeight: 1.45, size: scaled("14px") },
   /** The page's main editorial headline. */
-  display: {
-    compactSize: "44px",
-    letterSpacing: "-0.015em",
-    lineHeight: 1.2,
-    phoneSize: "34px",
-    size: "52px",
-  },
+  display: { letterSpacing: "-0.015em", lineHeight: 1.2, size: scaledBetween("34px", "52px") },
   /** Story and passage headings. */
-  heading: {
-    compactSize: "30px",
-    letterSpacing: "-0.01em",
-    lineHeight: 1.28,
-    phoneSize: "26px",
-    size: "34px",
-  },
+  heading: { letterSpacing: "-0.01em", lineHeight: 1.28, size: scaledBetween("26px", "34px") },
   /** Editorial introductions. */
-  lead: {
-    compactSize: "22px",
-    letterSpacing: "-0.005em",
-    lineHeight: 1.45,
-    phoneSize: "20px",
-    size: "24px",
-  },
+  lead: { letterSpacing: "-0.005em", lineHeight: 1.45, size: scaledBetween("20px", "24px") },
   /** Navigation, links, and secondary text. */
-  small: { letterSpacing: "0", lineHeight: 1.5, size: "16px" },
+  small: { letterSpacing: "0", lineHeight: 1.5, size: scaled("16px") },
   /** Quiet headings such as the newsletter and tile titles. */
-  subheading: {
-    compactSize: "24px",
-    letterSpacing: "-0.01em",
-    lineHeight: 1.3,
-    phoneSize: "22px",
-    size: "26px",
-  },
+  subheading: { letterSpacing: "-0.01em", lineHeight: 1.3, size: scaledBetween("22px", "26px") },
   /** Section headings. */
-  title: {
-    compactSize: "34px",
-    letterSpacing: "-0.012em",
-    lineHeight: 1.2,
-    phoneSize: "30px",
-    size: "40px",
-  },
+  title: { letterSpacing: "-0.012em", lineHeight: 1.2, size: scaledBetween("30px", "40px") },
 } as const satisfies Readonly<Record<string, TypeStep>>
 
 /** Vertical rhythm, from the gap inside a block to the space between sections. */
 export const RHYTHM = {
   /** Between text and its action. */
-  action: "32px",
+  action: scaled("32px"),
   /** Between heading, text, and action inside a block. */
-  block: "24px",
+  block: scaled("24px"),
   /** Between a section heading and its content. */
-  head: "56px",
+  head: scaled("56px"),
   /** Between the end of one section and the start of the next. */
-  section: "160px",
+  section: scaledBetween("88px", "160px"),
   /** Between consecutive illustrated stories. */
-  story: "160px",
+  story: scaledBetween("88px", "160px"),
 } as const
 
 /** The floating header shell and the footer panel. */
 export const FRAME = {
   capsule: "#f3f4f6",
-  /** The desktop header height (implementation brief: 48 CSS pixels). */
-  headerHeight: "48px",
-  headerTop: "16px",
+  /** The desktop header height (implementation brief: 48 design pixels). */
+  headerHeight: scaled("48px"),
+  headerTop: scaled("16px"),
   panel: "#f1f2f3",
-  panelRadius: "28px",
+  panelRadius: scaled("28px"),
   panelShadow: "0 1px 2px oklch(0.2 0.01 250 / 0.04), 0 18px 40px -18px oklch(0.2 0.01 250 / 0.2)",
   /** Corner radii; `corner-shape: squircle` makes them continuous where supported. */
-  radius: "18px",
+  radius: scaled("18px"),
   shadow: "0 1px 2px oklch(0.2 0.01 250 / 0.05), 0 10px 30px -8px oklch(0.2 0.01 250 / 0.14)",
   /** Achromatic surfaces shared by both brands. */
   shell: "#ffffff",

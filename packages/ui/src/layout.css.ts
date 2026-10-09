@@ -1,4 +1,4 @@
-import { CONTAINER, SPACE, TYPE } from "@sebastian-websites/tokens"
+import { CONTAINER, scaled, SPACE, TYPE } from "@sebastian-websites/tokens"
 import { style, styleVariants } from "@vanilla-extract/css"
 
 import { PHONE } from "./responsive.ts"
@@ -8,7 +8,7 @@ import { color, NARROW, ON_NIGHT } from "./theme.css.ts"
 export const container = style({
   "@media": {
     [`(min-width: ${CONTAINER.wideFrom})`]: { maxWidth: CONTAINER.wide },
-    [PHONE]: { paddingInline: "20px" },
+    [PHONE]: { paddingInline: scaled("20px") },
   },
   marginInline: "auto",
   maxWidth: CONTAINER.max,
@@ -16,7 +16,7 @@ export const container = style({
 })
 
 export const section = style({
-  "@media": { [PHONE]: { paddingBlock: "64px" } },
+  "@media": { [PHONE]: { paddingBlock: scaled("64px") } },
   paddingBlock: SPACE.section,
 })
 
@@ -29,7 +29,7 @@ export const sectionTone = styleVariants({
 
 /** A section that continues the previous one, with a shorter top. */
 export const sectionFollow = style({
-  "@media": { [PHONE]: { paddingTop: "48px" } },
+  "@media": { [PHONE]: { paddingTop: scaled("48px") } },
   paddingTop: SPACE.xxl,
 })
 
@@ -47,13 +47,13 @@ export const eyebrow = style({
 export const sectionHead = style({
   "@media": {
     [NARROW]: { gridTemplateColumns: "1fr" },
-    [PHONE]: { gap: "20px", marginBottom: "40px" },
+    [PHONE]: { gap: scaled("20px"), marginBottom: scaled("40px") },
   },
   alignItems: "start",
   display: "grid",
   gap: SPACE.xl,
   gridTemplateColumns: "1fr 1.5fr",
-  marginBottom: "72px",
+  marginBottom: scaled("72px"),
 })
 
 /** Offset by 10 px so its first line meets the headline's cap height. */
@@ -63,19 +63,19 @@ export const intro = style({
   fontSize: TYPE.intro,
   lineHeight: TYPE.bodyLineHeight,
   maxWidth: "60ch",
-  paddingTop: "10px",
+  paddingTop: scaled("10px"),
   selectors: { [`${sectionTone.night} &`]: { color: ON_NIGHT.text } },
 })
 
 export const columns = style({
-  "@media": { [NARROW]: { gridTemplateColumns: "1fr" }, [PHONE]: { gap: "40px" } },
+  "@media": { [NARROW]: { gridTemplateColumns: "1fr" }, [PHONE]: { gap: scaled("40px") } },
   display: "grid",
   gap: SPACE.xl,
   gridTemplateColumns: "repeat(3, 1fr)",
 })
 
 export const columnsTwo = style({
-  "@media": { [NARROW]: { gridTemplateColumns: "1fr" }, [PHONE]: { gap: "40px" } },
+  "@media": { [NARROW]: { gridTemplateColumns: "1fr" }, [PHONE]: { gap: scaled("40px") } },
   display: "grid",
   gap: SPACE.xl,
   gridTemplateColumns: "repeat(2, 1fr)",
@@ -83,11 +83,11 @@ export const columnsTwo = style({
 
 /** Text on the left, a photo on the right. */
 export const split = style({
-  "@media": { [NARROW]: { gridTemplateColumns: "1fr" }, [PHONE]: { gap: "40px" } },
+  "@media": { [NARROW]: { gridTemplateColumns: "1fr" }, [PHONE]: { gap: scaled("40px") } },
   alignItems: "start",
   display: "grid",
-  gap: "80px",
+  gap: scaled("80px"),
   gridTemplateColumns: "1.1fr 0.9fr",
 })
 
-export const ctas = style({ display: "flex", flexWrap: "wrap", gap: "14px" })
+export const ctas = style({ display: "flex", flexWrap: "wrap", gap: scaled("14px") })

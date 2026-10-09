@@ -12,7 +12,9 @@ const PORTRAIT_LARGE = 216
 
 export type PhotoPlacement = Pick<BunnyImageProps, "crop" | "height" | "src" | "width" | "widths">
 
-export const PHOTO_SIZES = "(min-width: 1200px) 560px, (min-width: 900px) 45vw, 90vw"
+// 560 design pixels grow to 623 px where the root reaches its largest size.
+export const PHOTO_SIZES =
+  "(min-width: 1200px) and (min-height: 1025px) 623px, (min-width: 1200px) 560px, (min-width: 900px) 45vw, 90vw"
 
 export const laptopPhoto: PhotoPlacement = {
   crop: { mode: "focus", point: [CENTER, LAPTOP_FOCUS] },

@@ -5,7 +5,7 @@ updated: 2026-10-06
 
 # Content lives in the repository as files; no CMS
 
-All four sites author content as `.tsx`, `.mdx`, or `.md` files in this repository, mixed as
+All three sites author content as `.tsx`, `.mdx`, or `.md` files in this repository, mixed as
 each page needs, and translate it through Palamedes. The previous Sebastian Software site kept
 all copy, projects, and testimonials in Sanity, with a hosted Studio, request-time queries, and
 a live edit mode; the public content was captured once from the live site (plan 05), and

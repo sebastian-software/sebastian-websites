@@ -7,12 +7,12 @@ updated: 2026-10-05
 
 Every site is published in German and English. The `.de` domain serves German and the `.com`
 domain serves English; switching language means switching domain. Palamedes provides the
-catalogs and the TLD switching. English is the source language of all four sites and German is
+catalogs and the TLD switching. English is the source language of all three sites and German is
 always a translation, so untranslated content appears in English everywhere.
 
 ## Considered options
 
-- **English only for Open Source and Skills.** Rejected: all four sites follow one language
+- **English only for Open Source.** Rejected: all three sites follow one language
   rule, and the TLD switch behaves the same everywhere.
 - **German as the source for Consulting and Software.** Rejected: gaps would then appear in
   German on the `.com` sites, and each site would follow a different rule.

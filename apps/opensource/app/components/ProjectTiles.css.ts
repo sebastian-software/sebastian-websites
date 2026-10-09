@@ -1,4 +1,4 @@
-import { color, COMPACT, editorial, font, PHONE } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, PHONE, scaled } from "@sebastian-websites/ui"
 import { createVar, style, styleVariants } from "@vanilla-extract/css"
 
 import type { GroupId } from "~/lib/collection"
@@ -13,39 +13,42 @@ export const groupTone = styleVariants({
 } satisfies Record<GroupId, unknown>)
 
 export const head = style({
-  "@media": { [COMPACT]: { marginBottom: "48px" }, [PHONE]: { marginBottom: "36px" } },
-  marginBottom: "64px",
+  "@media": {
+    [COMPACT]: { marginBottom: scaled("48px") },
+    [PHONE]: { marginBottom: scaled("36px") },
+  },
+  marginBottom: scaled("64px"),
 })
 
 export const title = style([
   editorial.display,
   {
-    "@media": { [COMPACT]: { fontSize: "46px" }, [PHONE]: { fontSize: "36px" } },
-    fontSize: "60px",
+    "@media": { [COMPACT]: { fontSize: scaled("46px") }, [PHONE]: { fontSize: scaled("36px") } },
+    fontSize: scaled("60px"),
     lineHeight: 1.15,
-    marginBottom: "10px",
+    marginBottom: scaled("10px"),
   },
 ])
 
 export const subtitle = style({
-  "@media": { [PHONE]: { fontSize: "20px" } },
+  "@media": { [PHONE]: { fontSize: scaled("20px") } },
   color: color.accent,
   fontFamily: font.sans,
-  fontSize: "24px",
+  fontSize: scaled("24px"),
   lineHeight: 1.4,
 })
 
 export const group = style({
-  "@media": { [PHONE]: { selectors: { "& + &": { marginTop: "64px" } } } },
-  selectors: { "& + &": { marginTop: "96px" } },
+  "@media": { [PHONE]: { selectors: { "& + &": { marginTop: scaled("64px") } } } },
+  selectors: { "& + &": { marginTop: scaled("96px") } },
 })
 
 export const groupTitle = style([
   editorial.title,
   {
-    "@media": { [COMPACT]: { fontSize: "36px" }, [PHONE]: { fontSize: "30px" } },
-    fontSize: "44px",
-    marginBottom: "16px",
+    "@media": { [COMPACT]: { fontSize: scaled("36px") }, [PHONE]: { fontSize: scaled("30px") } },
+    fontSize: scaled("44px"),
+    marginBottom: scaled("16px"),
     selectors: { [`${groupTone.libraries} &`]: { color: groupAccent } },
   },
 ])
@@ -56,7 +59,7 @@ export const grid = style({
     [PHONE]: { gridTemplateColumns: "minmax(0, 1fr)" },
   },
   display: "grid",
-  gap: "22px 20px",
+  gap: scaled("22px 20px"),
   gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
   listStyle: "none",
   margin: 0,
@@ -66,13 +69,13 @@ export const grid = style({
 export const tile = style({
   backgroundColor: groupSurface,
   border: "1px solid oklch(0.9 0.02 215)",
-  borderRadius: "6px",
+  borderRadius: scaled("6px"),
   // The accent bar follows the rounded corners instead of cutting them.
   boxShadow: `inset 0 5px 0 ${groupAccent}`,
   display: "flex",
   flexDirection: "column",
   height: "100%",
-  padding: "20px 24px 18px",
+  padding: scaled("20px 24px 18px"),
   position: "relative",
   selectors: { "&:hover": { borderColor: `color-mix(in oklch, ${groupAccent} 30%, white)` } },
 })
@@ -80,11 +83,11 @@ export const tile = style({
 export const name = style({
   color: color.heading,
   fontFamily: font.serif,
-  fontSize: "29px",
+  fontSize: scaled("29px"),
   fontWeight: 400,
   letterSpacing: "-0.01em",
   lineHeight: 1.2,
-  marginBottom: "4px",
+  marginBottom: scaled("4px"),
 })
 
 /** The whole tile is the link target; the title carries the accessible name. */
@@ -93,7 +96,7 @@ export const link = style({
     "&::after": { content: '""', inset: 0, position: "absolute" },
     "&:focus-visible": { outline: "none" },
     "&:focus-visible::after": {
-      borderRadius: "6px",
+      borderRadius: scaled("6px"),
       outline: `2px solid ${color.accent}`,
       outlineOffset: "2px",
     },
@@ -103,17 +106,17 @@ export const link = style({
 export const description = style({
   color: color.text,
   fontFamily: font.sans,
-  fontSize: "17px",
+  fontSize: scaled("17px"),
   lineHeight: 1.4,
-  marginBottom: "14px",
+  marginBottom: scaled("14px"),
 })
 
 export const badges = style({
   display: "flex",
   flexWrap: "wrap",
-  gap: "10px",
+  gap: scaled("10px"),
   listStyle: "none",
-  margin: "0 0 12px",
+  margin: scaled("0 0 12px"),
   padding: 0,
 })
 
@@ -122,16 +125,16 @@ export const badge = style({
   borderRadius: "999px",
   color: groupAccent,
   fontFamily: font.sans,
-  fontSize: "16px",
+  fontSize: scaled("16px"),
   lineHeight: 1,
-  padding: "6px 14px",
+  padding: scaled("6px 14px"),
 })
 
 export const runtime = style({
   color: color.text,
   fontFamily: font.sans,
-  fontSize: "16px",
-  marginBottom: "12px",
+  fontSize: scaled("16px"),
+  marginBottom: scaled("12px"),
 })
 
 export const updated = style({
@@ -139,9 +142,9 @@ export const updated = style({
   color: color.subtle,
   display: "flex",
   fontFamily: font.sans,
-  fontSize: "16px",
+  fontSize: scaled("16px"),
   justifyContent: "space-between",
   marginTop: "auto",
 })
 
-export const arrow = style({ color: groupAccent, height: "22px", width: "22px" })
+export const arrow = style({ color: groupAccent, height: scaled("22px"), width: scaled("22px") })

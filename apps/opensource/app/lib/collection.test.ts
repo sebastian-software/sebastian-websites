@@ -125,6 +125,12 @@ describe("the curated collection", () => {
       expect(tiles.has(repo)).toBe(false)
     }
     expect(EXCLUSIONS.family).toContain("ferromark")
-    expect(EXCLUSIONS.featured).toStrictEqual(["palamedes", "ferramenta", "dalo", "ardo"])
+    expect(EXCLUSIONS.featured).toStrictEqual([
+      "palamedes",
+      "ferramenta",
+      "dalo",
+      "ardo",
+      "effective-agent",
+    ])
   })
 })

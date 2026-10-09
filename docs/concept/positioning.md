@@ -63,7 +63,8 @@ businesses, Palamedes and Dalo address developers.
 - **Claims.** Qualitative and written for marketing, for example "one of the fastest Markdown
   parsers" or "built in modern Rust". No hand-maintained figures; live numbers come from the
   metrics service.
-- **Consulting on the developer sites.** Open Source and Skills actively promote Consulting.
+- **Consulting on the developer sites.** Open Source actively promotes Consulting; the Effective
+  Agent site does so on its own.
 - **Old sites.** The old Software site and the old Open Source site are outdated and carry
   little weight as references.
 

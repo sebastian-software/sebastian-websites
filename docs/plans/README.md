@@ -35,7 +35,9 @@ external consumers are open), 04 is in review
 done, 01 reached an approved design in five comp rounds (`design/DIRECTION.md`,
 `design/DESIGN.md`), and 06 has its pages (home, products, open source, company, contact,
 legal) rebuilt on that design system with live numbers from the metrics service, on the
-origin hosts in both languages; its domain cutover is open.
+origin hosts in both languages; its domain cutover is open. On 2026-10-09, 08 was paused:
+the Skills site stays standalone as the future product site of "Effective Agent", and the
+Open Source site presents it as a featured product (see the plan's decision note).
 
 The Software home and mission copy in both languages is preserved in
 `apps/software/content/legacy/`. The build order of the sites is Software, Open Source,

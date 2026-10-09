@@ -7,7 +7,7 @@ updated: 2026-10-05
 
 All company websites live in this new repository, which starts empty. In July 2026 the
 `sebastian-consulting.de` repository was chosen as the basis of the website monorepo and was to
-be renamed `sebastian-websites`. The concept has changed materially since then: four sites
+be renamed `sebastian-websites`. The concept has changed materially since then: three sites
 instead of three, a shared brand bar, a redesign that is not bound to the current Consulting
 look, and eight language variants. A clean cut is cheap and reversible, because the Consulting
 repository keeps serving production untouched until its successor here replaces it.

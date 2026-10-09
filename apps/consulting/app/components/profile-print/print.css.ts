@@ -235,3 +235,7 @@ globalStyle(`${langDe} q`, {
 globalStyle(`${langEn} q`, {
   quotes: "'\\201C' '\\201D' '\\2018' '\\2019'",
 })
+
+// The sheet is set in rem against the reader's default size and zooms on its
+// own; the fluid root of the editorial pages would change it on screen.
+globalStyle(`html:has(${document})`, { fontSize: "100%" })

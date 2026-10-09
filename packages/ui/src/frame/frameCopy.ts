@@ -59,7 +59,6 @@ export function createFrameCopy(year: number): FrameCopy {
       products: t`Products`,
       profiles: t`Profiles`,
       services: t`Services`,
-      skills: "Agents & Skills",
     },
     newsletter: {
       action: t`Subscribe`,
