@@ -16,7 +16,6 @@ const copy: FrameCopy = {
   company: {
     city: "Mainz",
     country: "Germany",
-    email: "info@sebastian-software.de",
     name: "Sebastian Software GmbH",
     postalCode: "55128",
     street: "Dalheimer Straße 12",

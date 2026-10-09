@@ -24,11 +24,11 @@ export const COMPANY_PROFILES = [
 
 export type CompanyProfile = (typeof COMPANY_PROFILES)[number]
 
-/** Consulting's contact mailbox carries the variant's language. */
-const CONSULTING_CONTACT = {
-  de: "info@sebastian-consulting.de",
-  en: "info@sebastian-consulting.com",
-} as const satisfies Readonly<Record<Locale, string>>
+/** Each brand's contact mailbox; Consulting's carries the variant's language. */
+const CONTACT_EMAIL = {
+  consulting: { de: "info@sebastian-consulting.de", en: "info@sebastian-consulting.com" },
+  software: { de: "info@sebastian-software.de", en: "info@sebastian-software.de" },
+} as const satisfies Readonly<Record<BrandId, Readonly<Record<Locale, string>>>>
 
 export type FrameLinkId =
   | "booking"
@@ -59,6 +59,8 @@ export type LanguageLink = {
 export type SiteFrame = {
   /** The brand that publishes the current site; it owns the only logo. */
   readonly brand: BrandId
+  /** The brand's contact mailbox in the page's language, shown in the footer address. */
+  readonly email: string
   /** The current brand's home page. */
   readonly home: string
   /** The footer's local index. */
@@ -113,7 +115,7 @@ const LEGAL: Readonly<Record<BrandId, readonly Destination[]>> = {
   consulting: [
     { id: "imprint", path: "/imprint", site: "current" },
     { id: "privacy", path: "/privacy", site: "current" },
-    { href: (locale) => `mailto:${CONSULTING_CONTACT[locale]}`, id: "contact" },
+    { href: (locale) => `mailto:${CONTACT_EMAIL.consulting[locale]}`, id: "contact" },
   ],
   software: [
     { id: "imprint", path: "/imprint", site: "current" },
@@ -201,6 +203,7 @@ export function getSiteFrame(site: SiteId, locale: Locale, pathname: string): Si
   const link = (destination: Destination): FrameLink => resolve(destination, rendering)
   return {
     brand,
+    email: CONTACT_EMAIL[brand][locale],
     home: context.home === site ? "/" : toHref(getSiteOrigin(context.home, locale), "/"),
     index: context.index.map((destination) => link(destination)),
     languages: getLanguageLinks(site, locale, rendering.path),

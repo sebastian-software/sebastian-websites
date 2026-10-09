@@ -17,7 +17,6 @@ export function createFrameCopy(year: number): FrameCopy {
     company: {
       city: COMPANY.address.city,
       country: t`Germany`,
-      email: "info@sebastian-software.de",
       name: COMPANY.name,
       postalCode: COMPANY.address.postalCode,
       street: COMPANY.address.street,
