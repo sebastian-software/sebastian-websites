@@ -24,11 +24,23 @@ export const COMPANY_PROFILES = [
 
 export type CompanyProfile = (typeof COMPANY_PROFILES)[number]
 
-/** Consulting's contact mailbox carries the variant's language. */
-const CONSULTING_CONTACT = {
-  de: "info@sebastian-consulting.de",
-  en: "info@sebastian-consulting.com",
-} as const satisfies Readonly<Record<Locale, string>>
+/** Each brand's contact mailbox; Consulting's carries the variant's language. */
+const CONTACT_EMAIL = {
+  consulting: { de: "info@sebastian-consulting.de", en: "info@sebastian-consulting.com" },
+  software: { de: "info@sebastian-software.de", en: "info@sebastian-software.de" },
+} as const satisfies Readonly<Record<BrandId, Readonly<Record<Locale, string>>>>
+
+/**
+ * The brand's contact mailbox in one language, for footers, legal texts, and
+ * printed profiles alike.
+ *
+ * @param brand - The brand whose mailbox is wanted.
+ * @param locale - The language of the page or document.
+ * @returns The mailbox address.
+ */
+export function contactEmail(brand: BrandId, locale: Locale): string {
+  return CONTACT_EMAIL[brand][locale]
+}
 
 export type FrameLinkId =
   | "booking"
@@ -40,7 +52,6 @@ export type FrameLinkId =
   | "products"
   | "profiles"
   | "services"
-  | "skills"
 
 /** A resolved link of the frame; labels belong to the rendering site's catalog. */
 export type FrameLink = {
@@ -60,6 +71,8 @@ export type LanguageLink = {
 export type SiteFrame = {
   /** The brand that publishes the current site; it owns the only logo. */
   readonly brand: BrandId
+  /** The brand's contact mailbox in the page's language, shown in the footer address. */
+  readonly email: string
   /** The current brand's home page. */
   readonly home: string
   /** The footer's local index. */
@@ -85,14 +98,15 @@ type ContextSpec = {
 
 const PRODUCTS: Destination = { id: "products", path: "/products", site: "software" }
 const OPEN_SOURCE: Destination = { id: "opensource", path: "/", site: "opensource" }
-const SKILLS: Destination = { id: "skills", path: "/", site: "skills" }
 const SERVICES: Destination = { id: "services", path: "/#services", site: "consulting" }
 const PROFILES: Destination = { id: "profiles", path: "/team", site: "consulting" }
 
 /**
- * The two frame contexts. Open Source and Skills belong to Software. Routes that
- * do not exist yet (the Software journal, Consulting references) stay out until
- * they can be validated; the booking link replaces a contact route on Consulting.
+ * The two frame contexts. Open Source belongs to Software; Effective Agent is a
+ * product and is reached through Open Source, not the header (2026-10-09). Routes
+ * that do not exist yet (the Software journal, Consulting references) stay out
+ * until they can be validated; the booking link replaces a contact route on
+ * Consulting.
  */
 const CONTEXTS: Readonly<Record<BrandId, ContextSpec>> = {
   consulting: {
@@ -103,8 +117,8 @@ const CONTEXTS: Readonly<Record<BrandId, ContextSpec>> = {
   },
   software: {
     home: "software",
-    index: [PRODUCTS, OPEN_SOURCE, SKILLS, { id: "company", path: "/company", site: "software" }],
-    navigation: [PRODUCTS, OPEN_SOURCE, SKILLS],
+    index: [PRODUCTS, OPEN_SOURCE, { id: "company", path: "/company", site: "software" }],
+    navigation: [PRODUCTS, OPEN_SOURCE],
     outbound: "consulting",
   },
 }
@@ -113,7 +127,7 @@ const LEGAL: Readonly<Record<BrandId, readonly Destination[]>> = {
   consulting: [
     { id: "imprint", path: "/imprint", site: "current" },
     { id: "privacy", path: "/privacy", site: "current" },
-    { href: (locale) => `mailto:${CONSULTING_CONTACT[locale]}`, id: "contact" },
+    { href: (locale) => `mailto:${CONTACT_EMAIL.consulting[locale]}`, id: "contact" },
   ],
   software: [
     { id: "imprint", path: "/imprint", site: "current" },
@@ -201,6 +215,7 @@ export function getSiteFrame(site: SiteId, locale: Locale, pathname: string): Si
   const link = (destination: Destination): FrameLink => resolve(destination, rendering)
   return {
     brand,
+    email: CONTACT_EMAIL[brand][locale],
     home: context.home === site ? "/" : toHref(getSiteOrigin(context.home, locale), "/"),
     index: context.index.map((destination) => link(destination)),
     languages: getLanguageLinks(site, locale, rendering.path),

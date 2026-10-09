@@ -1,16 +1,18 @@
-# Skills site frame
+# Skills site
 
-Use the [implementation brief](../../../design/IMPLEMENTATION-BRIEF.md) for the
-shared frame requirements. A new Skills homepage is outside its scope.
+The Skills site stays a standalone site for now. On 2026-10-09 the owners decided against
+building it as an application in this repository: the skills are to become an open-source
+product of their own, working name "Effective Agent", with its own identity and site, like
+Palamedes or Dalo. The existing site at skills.sebastian-software.com remains the product
+site until that identity exists, and is reworked there.
 
-The shared frame is tracked in [#16](https://github.com/sebastian-software/sebastian-websites/issues/16).
+In this repository, Effective Agent appears as an open-source product: as a featured story on
+the Open Source site and as a family column on the Software open-source page, both leading to
+the project's own site. Like the other products, it has no entry in the site header.
 
-The planned Skills application uses the Software brand and the [current shared frame](../../../packages/ui/design/refinements-r5/README.md). “Agents & Skills” is the proposed navigation label for this existing site.
+Effective Agent now has that identity: its field-guide mark and its own site at
+https://effective-agent.dev, with the repository at `sebastian-software/effective-agent`. Both
+stories link there.
 
-The compact floating header has a 48 CSS-pixel implementation target. Its single complete Software logo, local navigation and language belong to the current site. A small neutral **Our agency ↗** text capsule leads outward to Consulting, without a second logo.
-
-The page ending has three separate areas: shared newsletter, an unboxed illustrated Consulting invitation, then the substantial inset Software footer. Generous white space separates the areas; the actual footer contains current-site navigation, registered company details, single-color social links and legal links.
-
-![Current Software-context page ending](../../software/design/page-ending-v5.png)
-
-The current round covers desktop. Earlier mobile studies remain in the shared frame archive.
+An earlier build of the site as `apps/skills` on the shared frame was discarded; plan 08
+records the decision.

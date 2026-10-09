@@ -51,7 +51,7 @@ the public tree.
 ## Consequences
 
 - The brand site is English only, is not part of the brand bar, and does not count as one of
-  the four sites.
+  the three sites.
 - The README theme's logo link and every README that points to the Vercel page move to
   `brand.sebastian-software.com` before the old repositories are archived.
 - PDF rendering of the Consulting profiles must allow requests to the font host.

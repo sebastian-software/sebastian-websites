@@ -24,6 +24,15 @@ msgstr ""
 "for this do not apply. For data protection inquiries, you can contact the "
 "email address listed above."
 
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/data/featured.ts#getFeatured
+#~ msgid ""
+#~ "A drawn brass compass on a folded trail map, with seven colored pins along a "
+#~ "dotted route to a flagged summit."
+#~ msgstr ""
+#~ "A drawn brass compass on a folded trail map, with seven colored pins along a "
+#~ "dotted route to a flagged summit."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "A drawn desk calendar with one marked appointment beside a potted plant."
 msgstr ""
@@ -36,6 +45,14 @@ msgid ""
 msgstr ""
 "A drawn Ferromark document stamped “Markdown into documents” beside books "
 "and a wooden stamp."
+
+#: app/data/featured.ts#getFeatured
+msgid ""
+"A drawn little tin robot with glowing eyes, connected by a cable to a device "
+"holding seven colored cartridges."
+msgstr ""
+"A drawn little tin robot with glowing eyes, connected by a cable to a device "
+"holding seven colored cartridges."
 
 #: app/data/featured.ts#getFeatured
 msgid ""
@@ -96,6 +113,10 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
 msgid "Automated Decision-Making"
 msgstr "Automated Decision-Making"
+
+#: app/data/featured.ts#getFeatured
+msgid "Better judgment for coding agents."
+msgstr "Better judgment for coding agents."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Book an intro call"
@@ -200,6 +221,11 @@ msgstr "Contact via Email"
 msgid "Controller"
 msgstr "Controller"
 
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Delivery"
+#~ msgstr "Delivery"
+
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
 "Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit "
@@ -271,6 +297,11 @@ msgstr "Email address"
 msgid "Email:"
 msgstr "Email:"
 
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Engineering"
+#~ msgstr "Engineering"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Entry in the Commercial Register"
 msgstr "Entry in the Commercial Register"
@@ -278,6 +309,10 @@ msgstr "Entry in the Commercial Register"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Error 404"
 msgstr "Error 404"
+
+#: app/data/featured.ts#getFeatured
+msgid "Explore Effective Agent"
+msgstr "Explore Effective Agent"
 
 #: app/data/featured.ts#getFeatured
 msgid "Explore Ferramenta"
@@ -378,6 +413,11 @@ msgstr "Hosting of the Terminaro application and the Rybbit analytics server"
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "How It Works"
 msgstr "How It Works"
+
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Image"
+#~ msgstr "Image"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Image Credits"
@@ -486,6 +526,11 @@ msgstr "Managing Directors"
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid "Managing Directors:"
 msgstr "Managing Directors:"
+
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Marketing"
+#~ msgstr "Marketing"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Meet Sebastian/Consulting"
@@ -660,6 +705,11 @@ msgstr ""
 msgid "Processors"
 msgstr "Processors"
 
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Product"
+#~ msgstr "Product"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Products"
 msgstr "Products"
@@ -787,6 +837,25 @@ msgstr "Service"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Services"
 msgstr "Services"
+
+#: app/data/featured.ts#getFeatured
+msgid ""
+"Seven open-source skills that put our way of working into instructions a "
+"coding agent can follow: product decisions, web, engineering, delivery, "
+"writing, marketing, and image work. Install one for your next task, read every"
+" reference before you trust it, and combine them when the work crosses "
+"disciplines."
+msgstr ""
+"Seven open-source skills that put our way of working into instructions a "
+"coding agent can follow: product decisions, web, engineering, delivery, "
+"writing, marketing, and image work. Install one for your next task, read every"
+" reference before you trust it, and combine them when the work crosses "
+"disciplines."
+
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#SkillsPanel
+#~ msgid "Seven skills, one install each"
+#~ msgstr "Seven skills, one install each"
 
 #: app/data/projects.ts#descriptions
 msgid ""
@@ -1048,6 +1117,10 @@ msgstr ""
 "VAT identification number pursuant to § 27a of the German Value Added Tax "
 "Act:"
 
+#: app/data/featured.ts#getFeatured
+msgid "View on GitHub"
+msgstr "View on GitHub"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid ""
 "We build products, open-source projects and agent tools for everyday work."
@@ -1061,6 +1134,11 @@ msgid ""
 msgstr ""
 "We use the following processors pursuant to Art. 28 GDPR, with each of whom a "
 "data processing agreement is in place:"
+
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Web"
+#~ msgstr "Web"
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Web analytics with Rybbit"
@@ -1120,6 +1198,11 @@ msgstr ""
 "interests, rights and freedoms, or the processing serves the establishment, "
 "exercise or defence of legal claims."
 
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#SkillsPanel
+#~ msgid "Works with every agent that supports Agent Skills."
+#~ msgstr "Works with every agent that supports Agent Skills."
+
 #: app/data/featured.ts#getFeatured
 msgid ""
 "Write messages close to the code, keep source-string catalogs in your "
@@ -1131,6 +1214,11 @@ msgstr ""
 "repository, and let a native toolchain extract, validate, and compile them. "
 "Palamedes brings TypeScript applications into more languages with one runtime "
 "model."
+
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Writing"
+#~ msgstr "Writing"
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""

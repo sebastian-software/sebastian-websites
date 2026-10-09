@@ -1,21 +1,15 @@
 import { globalStyle, style } from "@vanilla-extract/css"
 
-import { printColors, printFonts, printHeadingMetrics } from "~/styles/theme.css"
+import { printColors, printFonts } from "~/styles/theme.css"
 
 import "./printPageMargin.css"
 
 const borderBox = "border-box"
 
 // ─── Document wrapper ───────────────────────────────────────
-// `zoom` (Baseline 2024, reflows unlike transform:scale) upscales the whole
-// pt-based sheet on screen: the print typography stays untouched while the
-// browser rendering gains real reading size. Screen-only — print keeps 1:1.
-//
-// The zoom is fluid, not breakpointed: tan(atan2(x, y)) divides two lengths
-// into the plain number `zoom` needs (calc() length division is not widely
-// supported yet). The subtrahend is the space around the sheet — page padding
-// alone below the rail breakpoint, rail + gap + padding (~26rem) above it.
-// Capped at 1.3 so body text stays book-sized on very wide screens.
+// On screen the sheet zooms to the width of the site header
+// (profile-screen/stage.css.ts); `zoom` reflows unlike transform:scale, so the
+// pt-based print typography stays untouched. Print keeps 1:1.
 export const document = style({
   "@media": {
     print: {
@@ -28,21 +22,12 @@ export const document = style({
     },
     screen: {
       // Layered paper shadow: a hairline ring plus three soft falloffs make
-      // the sheet read as a physical page lifted off the pale desk.
+      // the sheet read as a physical page lifted off the page canvas.
       boxShadow: `0 0 0 1px oklch(0.15 0.05 2 / 0.05), 0 2px 4px oklch(0.15 0.05 2 / 0.1), 0 12px 28px oklch(0.15 0.05 2 / 0.13), 0 32px 64px oklch(0.15 0.05 2 / 0.13)`,
-      margin: "0 auto",
       width: "fit-content",
     },
     "screen and (max-width: 800px)": {
       boxShadow: "none",
-    },
-    "screen and (min-width: 1240px)": {
-      // Flex item next to the rail: no auto margins, the shell centers the pair.
-      margin: 0,
-      zoom: "clamp(1, tan(atan2(100vw - 26rem, 794px)), 1.3)",
-    },
-    "screen and (min-width: 801px) and (max-width: 1239px)": {
-      zoom: "clamp(1, tan(atan2(100vw - 4rem, 794px)), 1.3)",
     },
   },
   position: "relative",
@@ -59,9 +44,9 @@ export const page = style({
       // is about block-level normal flow versus flex layout, and `flow-root` stays
       // on the block-level side of it; only Chromium prints from CI, so the
       // `flow-root` variant itself is unverified in WebKit.
-      // The block formatting context it adds keeps `industryGrid`'s bottom
-      // margin (firstPage.css.ts) inside the white sheet instead of letting it
-      // collapse out through this edge into the seam below.
+      // The block formatting context it adds keeps the last block's bottom
+      // margin inside the white sheet instead of letting it collapse out
+      // through this edge into the seam below.
       display: "flow-root",
       margin: 0,
       minHeight: "auto",
@@ -136,19 +121,6 @@ export const pageFlow = style({
   lineHeight: 1.4,
 })
 
-// ─── Section Headings ───────────────────────────────────────
-export const sectionHeading = style({
-  borderBottom: `1.5pt solid ${printColors.base}`,
-  breakAfter: "avoid",
-  color: printColors.base,
-  fontFamily: printFonts.slab,
-  fontSize: "1.25rem",
-  fontWeight: 500,
-  ...printHeadingMetrics,
-  marginBottom: "1rem",
-  paddingBottom: "0.3rem",
-})
-
 // ─── Global styles for print body ───────────────────────────
 export const printBody = style({
   "@media": {
@@ -157,14 +129,8 @@ export const printBody = style({
       margin: 0,
       padding: 0,
     },
-    screen: {
-      background: printColors.pale,
-      // Belt and braces: the zoomed sheet must never create a horizontal
-      // scrollbar. `clip` (not `hidden`) keeps position:sticky working for
-      // the rail.
-      overflowX: "clip",
-      padding: "2.5rem 1rem",
-    },
+    // Phones show the sheet as a plain white page; wider screens set it on
+    // the site canvas (profile-screen/stage.css.ts).
     "screen and (max-width: 800px)": {
       background: "white",
       padding: 0,
@@ -175,26 +141,6 @@ export const printBody = style({
 // Paragraphs avoid orphaned last words. `:where` keeps the rule below any
 // component class that sets its own wrapping.
 globalStyle(`:where(${printBody}) p`, { textWrap: "pretty" })
-
-// ─── Typography helpers ─────────────────────────────────────
-export const paragraph = style({
-  "@media": {
-    print: {
-      orphans: 3,
-      widows: 3,
-    },
-    // Narrow columns turn justified text into rivers and chopped words
-    // ("Con-sultant"); ragged right reads better on phones. Print keeps
-    // the justified document register.
-    "screen and (max-width: 800px)": {
-      textAlign: "left",
-    },
-  },
-  lineHeight: 1.5,
-  marginBottom: "0.4rem",
-  textAlign: "justify",
-  textWrap: "pretty",
-})
 
 export const link = style({
   "@media": {
@@ -235,3 +181,7 @@ globalStyle(`${langDe} q`, {
 globalStyle(`${langEn} q`, {
   quotes: "'\\201C' '\\201D' '\\2018' '\\2019'",
 })
+
+// The sheet is set in rem against the reader's default size and zooms on its
+// own; the fluid root of the editorial pages would change it on screen.
+globalStyle(`html:has(${document})`, { fontSize: "100%" })

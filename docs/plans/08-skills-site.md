@@ -7,7 +7,18 @@
 - Risk: MEDIUM (moves a live site off GitHub Pages and changes a public repository's CI)
 - Depends on: 02, 03, 04
 - Planned at: f007192, 2026-10-06
-- Working state: clean
+- Working state: paused on 2026-10-09; see "Decision" below
+
+## Decision of 2026-10-09
+
+The Skills site stays standalone. The skills are to become an open-source product of their
+own (working name "Effective Agent") with its own identity, which makes a project site the
+right home, as for Palamedes or Dalo, rather than an area under Software. The existing site
+at skills.sebastian-software.com is reworked in its repository; this repository presents
+Effective Agent as a featured open-source product on the Open Source site and on the Software
+open-source page. Like the other products, it has no entry in the site header. The `skills`
+variants stay defined but unused. The overall concept, the glossary, and ADR-0005 were updated
+the same day; the build of this plan's app was discarded.
 
 ## Why this matters
 

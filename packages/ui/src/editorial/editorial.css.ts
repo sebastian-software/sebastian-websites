@@ -1,45 +1,33 @@
-import { COMPACT_PAGE, PAGE, RHYTHM, TYPE_SCALE, type TypeStep } from "@sebastian-websites/tokens"
+import {
+  PAGE,
+  RHYTHM,
+  scaled,
+  TYPE_SCALE,
+  type TypeStep,
+  typeStep,
+} from "@sebastian-websites/tokens"
 import { createVar, globalStyle, style, styleVariants } from "@vanilla-extract/css"
 
-import { COMPACT, COMPACT_WIDTH, PHONE, PHONE_WIDTH } from "../responsive.ts"
+import { bleed, COMPACT, PAGE_WIDTH, PHONE } from "../responsive.ts"
 import { color, font } from "../theme.css.ts"
 
-type StepStyle = {
-  "@media"?: Record<string, { fontSize: string }>
-  fontSize: string
-  letterSpacing: string
-  lineHeight: number
-}
-
 /**
- * One type step as style, with its smaller compact and phone sizes.
+ * One type step as style.
  *
  * @param value - The step from the type scale.
- * @returns Font size, tracking, and line height, plus the narrower overrides.
+ * @returns Font size, tracking, and line height.
  */
-function step(value: TypeStep): StepStyle {
-  const narrower: Record<string, { fontSize: string }> = {}
-  if (value.compactSize !== undefined) narrower[COMPACT] = { fontSize: value.compactSize }
-  if (value.phoneSize !== undefined) narrower[PHONE] = { fontSize: value.phoneSize }
-  return {
-    ...(Object.keys(narrower).length > 0 ? { "@media": narrower } : {}),
-    fontSize: value.size,
-    letterSpacing: value.letterSpacing,
-    lineHeight: value.lineHeight,
-  }
+function step(value: TypeStep): { fontSize: string; letterSpacing: string; lineHeight: number } {
+  return { fontSize: value.size, letterSpacing: value.letterSpacing, lineHeight: value.lineHeight }
 }
 
 // ---- Page and grid ---------------------------------------------------------
 
 /**
- * The 1040 px editorial page; wider windows get wider margins, not wider text.
- * Compact screens and phones use the full width minus a smaller margin.
+ * The editorial page of 1040 design pixels. It grows with the root; the rest
+ * of the width becomes margin, which narrows smoothly toward phones.
  */
-export const page = style({
-  "@media": { [COMPACT]: { width: COMPACT_WIDTH }, [PHONE]: { width: PHONE_WIDTH } },
-  marginInline: "auto",
-  width: `min(${PAGE.width}, 100% - 2 * ${PAGE.margin})`,
-})
+export const page = style({ marginInline: "auto", width: PAGE_WIDTH })
 
 /**
  * The shared 12-column grid. Children place themselves with `gridColumn`. On
@@ -59,13 +47,18 @@ globalStyle(`${grid} > *`, {
 })
 
 /** Vertical space after a section; the next section starts without its own top. */
-export const section = style({
-  "@media": {
-    [COMPACT]: { paddingBottom: COMPACT_PAGE.compactSection },
-    [PHONE]: { paddingBottom: COMPACT_PAGE.phoneSection },
-  },
-  paddingBottom: RHYTHM.section,
+/** A photograph across the page: 2:1 on desktop, 4:3 on phones so faces stay large. */
+export const widePhoto = style({
+  "@media": { [PHONE]: { aspectRatio: "4 / 3" } },
+  aspectRatio: "2 / 1",
+  backgroundColor: color.tint,
+  display: "block",
+  height: "auto",
+  objectFit: "cover",
+  width: "100%",
 })
+
+export const section = style({ paddingBottom: RHYTHM.section })
 
 // ---- Type ------------------------------------------------------------------
 
@@ -155,7 +148,7 @@ export const arrowLink = style({
 /** Inline actions on project pages carry a thin underline in their own color. */
 export const arrowLinkUnderlined = style({
   borderBottom: "1px solid currentColor",
-  paddingBottom: "4px",
+  paddingBottom: scaled("4px"),
   selectors: { "&:hover": { textDecoration: "none" } },
 })
 
@@ -165,22 +158,23 @@ export const outboundLink = style({
   borderBottom: `2px solid ${outboundAccent}`,
   color: color.heading,
   columnGap: "0.55em",
-  fontSize: "19px",
+  fontSize: typeStep("0"),
   lineHeight: 1.5,
-  paddingBottom: "4px",
+  paddingBottom: scaled("4px"),
 })
 
 export const button = style({
   ...inlineAction,
   backgroundColor: color.accentStrong,
-  borderRadius: "4px",
+  // In em, so the corner keeps its proportion to the label.
+  borderRadius: "0.21em",
   color: "#fff",
-  columnGap: "14px",
+  columnGap: scaled("14px"),
   flexShrink: 0,
-  fontSize: "19px",
-  height: "56px",
+  fontSize: typeStep("0"),
+  height: scaled("56px"),
   lineHeight: 1,
-  paddingInline: "26px",
+  paddingInline: scaled("26px"),
   selectors: {
     "&:hover": { backgroundColor: `color-mix(in oklch, ${color.accentStrong} 88%, black)` },
   },
@@ -211,7 +205,7 @@ export const outboundArrow = style([
 // ---- Illustrated story -------------------------------------------------------
 
 /** Media reaches this far beyond the text edge on its outer side. */
-const MEDIA_BLEED = "40px"
+const MEDIA_BLEED = bleed("40px")
 
 export const story = style([
   grid,
@@ -228,7 +222,7 @@ export const storyContent = styleVariants({
 })
 
 /** Stacked on compact screens, the illustration stays inside the page. */
-const stackedMedia = { "@media": { [COMPACT]: { marginInline: 0, marginTop: "8px" } } }
+const stackedMedia = { "@media": { [COMPACT]: { marginInline: 0, marginTop: scaled("8px") } } }
 
 export const storyMedia = styleVariants({
   end: {
@@ -245,33 +239,30 @@ export const storyMedia = styleVariants({
   },
 })
 
-export const storyList = style({
-  "@media": {
-    [COMPACT]: { rowGap: COMPACT_PAGE.compactSection },
-    [PHONE]: { rowGap: COMPACT_PAGE.phoneSection },
-  },
-  display: "grid",
-  rowGap: RHYTHM.story,
-})
+export const storyList = style({ display: "grid", rowGap: RHYTHM.story })
 
 export const storyIdentity = style({
   alignItems: "center",
-  columnGap: "20px",
+  columnGap: scaled("20px"),
   display: "flex",
   flexWrap: "wrap",
-  marginBottom: "32px",
-  rowGap: "12px",
+  marginBottom: scaled("32px"),
+  rowGap: scaled("12px"),
 })
 
-export const storyHeading = style([heading, { marginBottom: "20px" }])
+/** Stories sit in a narrow column, so their headings take the step below `heading`. */
+export const storyHeading = style([
+  heading,
+  { fontSize: typeStep("2"), marginBottom: scaled("20px") },
+])
 
 export const storyActions = style({
   alignItems: "center",
-  columnGap: "32px",
+  columnGap: scaled("32px"),
   display: "flex",
   flexWrap: "wrap",
   marginTop: RHYTHM.action,
-  rowGap: "12px",
+  rowGap: scaled("12px"),
 })
 
 export const media = style({ display: "block", height: "auto", width: "100%" })

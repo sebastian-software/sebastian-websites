@@ -1,14 +1,24 @@
-import { COMPACT, editorial, PHONE } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
+
+/** A quiet visible heading, so the header's Services link lands on its name. */
+export const heading = style([
+  editorial.subheading,
+  {
+    "@media": { [PHONE]: { marginBottom: scaled("28px") } },
+    color: color.muted,
+    marginBottom: scaled("40px"),
+  },
+])
 
 export const list = style([
   editorial.grid,
   {
-    "@media": { [PHONE]: { rowGap: "40px" } },
+    "@media": { [PHONE]: { rowGap: scaled("40px") } },
     listStyle: "none",
     margin: 0,
     padding: 0,
-    rowGap: "48px",
+    rowGap: scaled("48px"),
   },
 ])
 
@@ -18,13 +28,13 @@ export const title = style([
   editorial.heading,
   {
     "@media": {
-      [COMPACT]: { fontSize: "30px", marginBottom: "20px" },
-      [PHONE]: { fontSize: "26px", marginBottom: "16px" },
+      [COMPACT]: { marginBottom: scaled("20px") },
+      [PHONE]: { marginBottom: scaled("16px") },
     },
-    fontSize: "36px",
+    fontSize: typeStep("3"),
     lineHeight: 1.22,
-    marginBottom: "28px",
+    marginBottom: scaled("28px"),
   },
 ])
 
-export const text = style([editorial.body, { fontSize: "19px", lineHeight: 1.55 }])
+export const text = style([editorial.body, { fontSize: typeStep("0"), lineHeight: 1.55 }])

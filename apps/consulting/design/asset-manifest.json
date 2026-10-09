@@ -12,26 +12,26 @@
       "transparent": false
     },
     {
-      "shared_asset": "shooting-2024/shoot-3.jpg",
-      "width": 3907,
-      "height": 5861,
-      "sha256": "1c0ba1dff8008e0e71151ad8f91ee9ef0b31509445e30daf7f49a7a3b30d99e1",
+      "shared_asset": "shooting-2024/color_09092024-3-retouched.png",
+      "width": 2352,
+      "height": 3520,
+      "sha256": "81404de1bd22c8e0ffc8d0f86d501d26485e5832a734b13515238e2904441fab",
       "title": "Sebastian Werner",
-      "origin": "Unchanged original 2024 founder photograph",
-      "original_source_name": "shoot-3.jpg",
+      "origin": "Retouched edit of the 2024 founder photograph",
+      "original_source_name": "color_09092024-3.jpg",
       "transparent": false,
-      "note": "Private original; served from the shared asset zone (ADR-0014), not stored in this repository."
+      "note": "Private photograph; served from the shared asset zone (ADR-0014), not stored in this repository."
     },
     {
-      "shared_asset": "shooting-2024/shoot-4.jpg",
-      "width": 3927,
-      "height": 5890,
-      "sha256": "65198028f28753e436ee217ae782349bacfae59cb54b0eae2b6e1dd8510db512",
+      "shared_asset": "shooting-2024/color_09092024-4-retouched.png",
+      "width": 2352,
+      "height": 3520,
+      "sha256": "d46ed4f37946236d4a9e0f0b3c89801aec8c3d64f79aeb4002a656bcd91bd858",
       "title": "Sebastian Fastner",
-      "origin": "Unchanged original 2024 founder photograph",
-      "original_source_name": "shoot-4.jpg",
+      "origin": "Retouched edit of the 2024 founder photograph",
+      "original_source_name": "color_09092024-4.jpg",
       "transparent": false,
-      "note": "Private original; served from the shared asset zone (ADR-0014), not stored in this repository."
+      "note": "Private photograph; served from the shared asset zone (ADR-0014), not stored in this repository."
     }
   ],
   "concepts": [

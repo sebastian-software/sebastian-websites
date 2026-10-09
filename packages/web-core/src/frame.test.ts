@@ -1,17 +1,13 @@
 import { describe, expect, it } from "vitest"
 
-import { BOOKING_URL, getLanguageLinks, getSiteFrame } from "./frame.ts"
+import { BOOKING_URL, contactEmail, getLanguageLinks, getSiteFrame } from "./frame.ts"
 
 describe("site frame", () => {
-  it("gives Software, Open Source, and Skills the Software context", () => {
+  it("gives Software and Open Source the Software context without a Skills entry", () => {
     for (const site of ["software", "opensource", "skills"] as const) {
       const frame = getSiteFrame(site, "en", "/")
       expect(frame.brand).toBe("software")
-      expect(frame.navigation.map((link) => link.id)).toStrictEqual([
-        "products",
-        "opensource",
-        "skills",
-      ])
+      expect(frame.navigation.map((link) => link.id)).toStrictEqual(["products", "opensource"])
       expect(frame.outbound).toStrictEqual({
         brand: "consulting",
         href: "https://sebastian-consulting.com/",
@@ -25,7 +21,6 @@ describe("site frame", () => {
     expect(frame.navigation.map((link) => link.href)).toStrictEqual([
       "/products",
       "https://oss.sebastian-software.de/",
-      "https://skills.sebastian-software.de/",
     ])
     expect(frame.outbound.href).toBe("https://sebastian-consulting.de/")
     expect(frame.index.find((link) => link.id === "company")).toStrictEqual({
@@ -64,6 +59,16 @@ describe("site frame", () => {
       "/privacy",
       "mailto:info@sebastian-consulting.de",
     ])
+  })
+
+  it("prints the same mailbox in the address as the contact link", () => {
+    for (const locale of ["de", "en"] as const) {
+      const frame = getSiteFrame("consulting", locale, "/")
+      expect(frame.legal.find((link) => link.id === "contact")?.href).toBe(`mailto:${frame.email}`)
+    }
+    expect(getSiteFrame("consulting", "en", "/").email).toBe("info@sebastian-consulting.com")
+    expect(getSiteFrame("software", "en", "/").email).toBe("info@sebastian-software.de")
+    expect(contactEmail("consulting", "de")).toBe("info@sebastian-consulting.de")
   })
 
   it("sends Software-context legal contact to the Software contact page", () => {

@@ -26,7 +26,6 @@ export type InvitationCopy = {
 export type CompanyDetails = {
   readonly city: string
   readonly country: string
-  readonly email: string
   readonly name: string
   readonly postalCode: string
   readonly street: string

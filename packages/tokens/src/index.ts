@@ -1,3 +1,7 @@
 export * from "./editorial.ts"
+export * from "./fluid.ts"
 export * from "./palettes.ts"
+export * from "./root.ts"
 export * from "./scale.ts"
+export * from "./space.ts"
+export * from "./type.ts"

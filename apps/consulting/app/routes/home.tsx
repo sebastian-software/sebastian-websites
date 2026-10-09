@@ -1,13 +1,14 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { ButtonLink } from "@sebastian-websites/ui"
+import { BunnyImage, ButtonLink, editorial, editorialSizes } from "@sebastian-websites/ui"
 import { BOOKING_URL } from "@sebastian-websites/web-core"
 
 import { Closing } from "~/components/Closing"
 import { Founders } from "~/components/Founders"
 import { Judgment } from "~/components/Judgment"
 import { Services } from "~/components/Services"
+import { HOME_PHOTO } from "~/lib/photos"
 
 import type { Route } from "./+types/home"
 
@@ -24,9 +25,24 @@ export function meta(): Route.MetaDescriptors {
   ]
 }
 
+/** The opening photograph spans the page: 1040 CSS pixels on desktop. */
+const HOME_PHOTO_WIDTH = 1040
+
 export default function Home(): ReactElement {
   return (
     <main className={styles.main} id="main">
+      <figure className={styles.photoFrame}>
+        <BunnyImage
+          alt={t`Sebastian Fastner and Sebastian Werner in conversation at a table with coffee`}
+          className={editorial.widePhoto}
+          crop={HOME_PHOTO.crop}
+          height={520}
+          priority
+          sizes={editorialSizes(HOME_PHOTO_WIDTH)}
+          src={HOME_PHOTO.src}
+          width={HOME_PHOTO_WIDTH}
+        />
+      </figure>
       <section aria-labelledby="home-title" className={styles.hero}>
         <h1 className={styles.heroTitle} id="home-title">
           {t`Architecture and engineering for complex web applications.`}

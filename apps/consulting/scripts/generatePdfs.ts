@@ -25,6 +25,13 @@ const PROJECT_PROFILE_WIDTH_CSS_PIXELS =
 const PROJECT_PROFILE_HEIGHT_CSS_PIXELS =
   (PROJECT_PROFILE_PRINT_HEIGHT_MILLIMETERS / MILLIMETERS_PER_INCH) * CSS_PIXELS_PER_INCH
 const LAYOUT_TOLERANCE_CSS_PIXELS = 2
+const A4_HEIGHT_MILLIMETERS = 297
+const CONSULTANT_PROFILE_PAGE_MARGIN_MILLIMETERS = 50
+/** The executive summary must fit the first sheet's content box. */
+const CONSULTANT_PROFILE_SUMMARY_MAX_HEIGHT_CSS_PIXELS =
+  ((A4_HEIGHT_MILLIMETERS - CONSULTANT_PROFILE_PAGE_MARGIN_MILLIMETERS) / MILLIMETERS_PER_INCH) *
+  CSS_PIXELS_PER_INCH
+const EXPECTED_CONSULTANT_PROFILE_SECTIONS = ["summary", "reports", "archive"] as const
 const PROJECT_PROFILE_PAGE_COUNT = 5
 const PROJECT_PROFILE_PAGE_MARGIN = "25mm"
 const EXPECTED_PROJECT_PROFILE_MARKERS = ["1", "2", "3", "4", "5"] as const
@@ -161,6 +168,23 @@ export type ConsultantProfileFinalContent = {
     readonly text: string
   }>
   readonly profileContentText: string
+}
+
+/** A boxed region of the consultant profile and whether its content fits inside it. */
+export type ConsultantProfileBoxLayout = {
+  readonly clientHeight: number
+  readonly key: string
+  readonly scrollHeight: number
+}
+
+export type ConsultantProfilePrintLayout = {
+  readonly boxes: readonly ConsultantProfileBoxLayout[]
+  readonly fontsReady: boolean
+  readonly headingFontLoaded: boolean
+  readonly language: string
+  readonly sections: readonly string[]
+  readonly summaryHeight: number
+  readonly textFontLoaded: boolean
 }
 
 /** Hosts the documents may load besides the dev server: brand fonts and shared photos. */
@@ -546,6 +570,38 @@ export function assertProjectProfilePrintLayout(layout: ProjectProfilePrintLayou
   assertProjectProfileScreenMarkers(layout)
 }
 
+export function assertConsultantProfileLayout(
+  layout: ConsultantProfilePrintLayout,
+  locale: string
+): void {
+  if (layout.language !== locale) {
+    throw new Error(
+      `Consultant profile language is ${JSON.stringify(layout.language)}, expected ${JSON.stringify(locale)}.`
+    )
+  }
+  if (!layout.fontsReady || !layout.headingFontLoaded || !layout.textFontLoaded) {
+    throw new Error("Consultant profile fonts Elena and Glober are not loaded.")
+  }
+  if (JSON.stringify(layout.sections) !== JSON.stringify(EXPECTED_CONSULTANT_PROFILE_SECTIONS)) {
+    throw new Error(
+      `Consultant profile sections are ${JSON.stringify(layout.sections)}, expected ${JSON.stringify(EXPECTED_CONSULTANT_PROFILE_SECTIONS)}.`
+    )
+  }
+  if (
+    layout.summaryHeight >
+    CONSULTANT_PROFILE_SUMMARY_MAX_HEIGHT_CSS_PIXELS + LAYOUT_TOLERANCE_CSS_PIXELS
+  ) {
+    throw new Error(
+      `Consultant profile summary is ${layout.summaryHeight.toFixed(2)}px high and overflows the first A4 page (${CONSULTANT_PROFILE_SUMMARY_MAX_HEIGHT_CSS_PIXELS.toFixed(2)}px).`
+    )
+  }
+  for (const box of layout.boxes) {
+    if (box.scrollHeight > box.clientHeight + LAYOUT_TOLERANCE_CSS_PIXELS) {
+      throw new Error(`Consultant profile box ${box.key} clips its content.`)
+    }
+  }
+}
+
 function assertConsultantProfilePermissionContent(
   permission: ConsultantProfileFinalContent["items"][number],
   locale: string
@@ -848,11 +904,32 @@ async function inspectProjectProfileLayout(browserPage: Page, locale: string): P
   assertProjectProfilePrintLayout(layout)
 }
 
-async function inspectConsultantProfileFinalContent(
-  browserPage: Page,
-  locale: string
-): Promise<void> {
+async function inspectConsultantProfile(browserPage: Page, locale: string): Promise<void> {
   await browserPage.emulateMedia({ media: "print" })
+  const layout = await browserPage.evaluate(() => {
+    const profile = document.querySelector<HTMLElement>("article")
+    if (profile === null) throw new Error("Consultant profile document is missing.")
+    const summary = profile.querySelector<HTMLElement>('[data-profile-page="summary"]')
+    return {
+      boxes: [...profile.querySelectorAll<HTMLElement>("[data-profile-box]")].map((box) => ({
+        clientHeight: box.clientHeight,
+        key: box.dataset.profileBox ?? "",
+        scrollHeight: box.scrollHeight,
+      })),
+      fontsReady: document.fonts.status === "loaded",
+      headingFontLoaded: document.fonts.check('16pt "Elena"'),
+      language: document.documentElement.lang,
+      sections: [
+        ...(summary === null ? [] : ["summary"]),
+        ...[...profile.querySelectorAll<HTMLElement>("[data-profile-section]")].map(
+          (section) => section.dataset.profileSection ?? ""
+        ),
+      ],
+      summaryHeight: summary?.getBoundingClientRect().height ?? 0,
+      textFontLoaded: document.fonts.check('11pt "Glober"'),
+    }
+  })
+  assertConsultantProfileLayout(layout, locale)
   const content = await browserPage.evaluate(() => {
     const profile = document.querySelector<HTMLElement>("article")
     if (profile === null) throw new Error("Consultant profile document is missing.")
@@ -870,7 +947,7 @@ async function inspectConsultantProfileFinalContent(
 async function inspectProfilePage(browserPage: Page, page: ProfilePdfPage): Promise<void> {
   await (page.kind === "project_profile"
     ? inspectProjectProfileLayout(browserPage, page.locale)
-    : inspectConsultantProfileFinalContent(browserPage, page.locale))
+    : inspectConsultantProfile(browserPage, page.locale))
 }
 
 async function generateSinglePdf(

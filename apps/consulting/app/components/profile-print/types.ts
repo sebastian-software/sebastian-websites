@@ -64,10 +64,9 @@ export type Skills = {
   tools?: string[]
 }
 
-export type ProfilePrintV2Properties = {
+export type ConsultantProfileProperties = {
   consultant: Consultant
   lang?: "de" | "en"
   projectProfile?: ProfileDocumentDescriptor
   projects: Project[]
-  skills: Skills
 }

@@ -1,3 +1,4 @@
+import { BREAKPOINTS } from "@sebastian-websites/tokens"
 import { createThemeContract } from "@vanilla-extract/css"
 
 /**
@@ -53,4 +54,4 @@ export const ON_NIGHT = {
 } as const
 
 /** The breakpoint below which the desktop grids collapse to one column. */
-export const NARROW = "(max-width: 900px)"
+export const NARROW = `(max-width: ${BREAKPOINTS.compact})`

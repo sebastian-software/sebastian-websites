@@ -17,17 +17,29 @@ const WERNER_ZOOM = 1.48
 export const PORTRAITS = {
   fastner: {
     crop: { mode: "focus", point: [FASTNER_FACE, FACE_HEIGHT], zoom: FASTNER_ZOOM },
-    src: { height: 5890, path: "shooting-2024/shoot-4.jpg", width: 3927 },
+    src: { height: 3520, path: "shooting-2024/color_09092024-4-retouched.png", width: 2352 },
   },
   werner: {
     crop: { mode: "focus", point: [WERNER_FACE, FACE_HEIGHT], zoom: WERNER_ZOOM },
-    src: { height: 5861, path: "shooting-2024/shoot-3.jpg", width: 3907 },
+    src: { height: 3520, path: "shooting-2024/color_09092024-3-retouched.png", width: 2352 },
   },
 } as const satisfies Readonly<Record<string, Portrait>>
 
-const SHOOT_15 = { height: 3843, path: "shooting-2024/shoot-15.jpg", width: 5765 } as const
-const SHOOT_31 = { height: 5985, path: "shooting-2024/shoot-31.jpg", width: 3990 } as const
-const SHOOT_32 = { height: 3802, path: "shooting-2024/shoot-32.jpg", width: 5703 } as const
+const SHOOT_15 = {
+  height: 2352,
+  path: "shooting-2024/color_09092024-15-retouched.png",
+  width: 3520,
+} as const
+const SHOOT_31 = {
+  height: 3520,
+  path: "shooting-2024/color_09092024-31-retouched.png",
+  width: 2352,
+} as const
+const SHOOT_32 = {
+  height: 2352,
+  path: "shooting-2024/color_09092024-32-retouched.png",
+  width: 3520,
+} as const
 
 /**
  * The printable profile's photo frame (128 × 170 pt). One 532 px variant gives
@@ -40,6 +52,8 @@ export const SHEET_PHOTO = { height: 709, width: 532 } as const
 const FASTNER_CENTER = 0.575
 const FASTNER_SHEET_HEIGHT = 0.467
 const FASTNER_TEASER_HEIGHT = 0.423
+const WERNER_SHEET_CENTER = 0.5
+const WERNER_SHEET_HEIGHT = 0.36
 const WERNER_TEASER_CENTER = 0.533
 const WERNER_TEASER_HEIGHT = 0.362
 
@@ -59,7 +73,12 @@ export const PROFILE_PHOTOS = {
     },
   },
   werner: {
-    sheet: { crop: { mode: "center" }, src: SHOOT_15 },
+    // The editorial profile prints the portrait small; a closer crop keeps
+    // the face legible at 30 × 40 mm.
+    sheet: {
+      crop: { mode: "focus", point: [WERNER_SHEET_CENTER, WERNER_SHEET_HEIGHT], zoom: 1.6 },
+      src: SHOOT_15,
+    },
     teaser: {
       crop: { mode: "focus", point: [WERNER_TEASER_CENTER, WERNER_TEASER_HEIGHT], zoom: 1.429 },
       src: SHOOT_32,
@@ -74,5 +93,14 @@ const TEAM_HEIGHT = 0.62
 /** The team page's opening photograph. */
 export const TEAM_PHOTO = {
   crop: { mode: "focus", point: [TEAM_CENTER, TEAM_HEIGHT], zoom: 1.3 },
-  src: { height: 3977, path: "shooting-2024/shoot-34.jpg", width: 5965 },
+  src: { height: 2352, path: "shooting-2024/color_09092024-34-retouched.png", width: 3520 },
+} as const satisfies Portrait
+
+// Both founders at a table with coffee, cropped low enough to keep the cups.
+const HOME_CENTER = 0.5
+
+/** The Consulting homepage opens with the founders in conversation. */
+export const HOME_PHOTO = {
+  crop: { mode: "focus", point: [HOME_CENTER, HOME_CENTER] },
+  src: { height: 2352, path: "shooting-2024/color_09092024-11-retouched.png", width: 3520 },
 } as const satisfies Portrait

@@ -10,6 +10,7 @@ import softwareArt from "../assets/invitation-software.png?bunny"
 import { BunnyImage } from "../BunnyImage.tsx"
 import { Arrow } from "../editorial/Arrow.tsx"
 import { outboundArrow, outboundLink } from "../editorial/editorial.css.ts"
+import { scaledSizes } from "../responsive.ts"
 import * as styles from "./PageEnding.css.ts"
 
 /** A small drawing per destination: a considered route for Consulting, the desk of a product company for Software. */
@@ -59,7 +60,7 @@ export function SiblingInvitation(props: SiblingInvitationProps): ReactElement {
           alt={copy.illustrationAlt}
           className={styles.invitationImage}
           height={art.height}
-          sizes={`(max-width: 1023px) min(420px, 100vw - 40px), ${String(art.width)}px`}
+          sizes={`(max-width: 959px) min(420px, 100vw - 40px), ${scaledSizes(art.width)}`}
           src={art.src}
           width={art.width}
         />

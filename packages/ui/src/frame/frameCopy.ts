@@ -17,7 +17,6 @@ export function createFrameCopy(year: number): FrameCopy {
     company: {
       city: COMPANY.address.city,
       country: t`Germany`,
-      email: "info@sebastian-software.de",
       name: COMPANY.name,
       postalCode: COMPANY.address.postalCode,
       street: COMPANY.address.street,
@@ -59,7 +58,6 @@ export function createFrameCopy(year: number): FrameCopy {
       products: t`Products`,
       profiles: t`Profiles`,
       services: t`Services`,
-      skills: "Agents & Skills",
     },
     newsletter: {
       action: t`Subscribe`,

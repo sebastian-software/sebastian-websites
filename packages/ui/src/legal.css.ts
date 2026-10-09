@@ -1,3 +1,4 @@
+import { scaled, typeStep } from "@sebastian-websites/tokens"
 import { style } from "@vanilla-extract/css"
 
 import { PHONE } from "./responsive.ts"
@@ -7,37 +8,40 @@ import { color } from "./theme.css.ts"
 
 export const legalClassNames = {
   address: style({ fontStyle: "normal" }),
-  definitionDescription: style({ margin: "0 0 0.5rem", overflowWrap: "anywhere" }),
+  definitionDescription: style({ margin: scaled("0 0 8px"), overflowWrap: "anywhere" }),
   definitionList: style({
     "@media": { [PHONE]: { gridTemplateColumns: "minmax(0, 1fr)" } },
     display: "grid",
-    gap: "0.25rem 1.5rem",
+    gap: scaled("4px 24px"),
     gridTemplateColumns: "auto 1fr",
   }),
   definitionTerm: style({ fontWeight: 600 }),
   link: style({ color: color.vivid, overflowWrap: "anywhere", textDecoration: "underline" }),
-  list: style({ paddingInlineStart: "1.25rem" }),
+  list: style({ paddingInlineStart: scaled("20px") }),
   page: style({
-    "@media": { [PHONE]: { padding: "48px 20px 88px" } },
-    fontSize: "17px",
+    "@media": { [PHONE]: { padding: scaled("48px 20px 88px") } },
+    fontSize: typeStep("0"),
     lineHeight: 1.65,
     marginInline: "auto",
-    maxWidth: "calc(48rem + 48px)",
-    padding: "96px 24px 128px",
+    maxWidth: scaled("816px"),
+    padding: scaled("96px 24px 128px"),
   }),
-  pageContent: style({ marginInline: "auto", maxWidth: "48rem" }),
+  pageContent: style({ marginInline: "auto", maxWidth: scaled("768px") }),
   pageTitle: style({
-    "@media": { [PHONE]: { fontSize: "32px", marginBottom: "28px" } },
-    fontSize: "clamp(36px, 4vw, 56px)",
-    marginBottom: "40px",
+    "@media": { [PHONE]: { marginBottom: scaled("28px") } },
+    fontSize: typeStep("5"),
+    marginBottom: scaled("40px"),
   }),
-  section: style({ marginTop: "56px" }),
+  section: style({ marginTop: scaled("56px") }),
   sectionTitle: style({
-    "@media": { [PHONE]: { fontSize: "24px" } },
-    fontSize: "28px",
-    marginBottom: "16px",
+    fontSize: typeStep("2"),
+    marginBottom: scaled("16px"),
   }),
-  subsectionTitle: style({ fontSize: "20px", fontWeight: 500, margin: "24px 0 8px" }),
-  subtitle: style({ color: color.muted, fontSize: "20px", fontWeight: 300 }),
-  text: style({ marginBottom: "16px" }),
+  subsectionTitle: style({
+    fontSize: typeStep("1"),
+    fontWeight: 500,
+    margin: scaled("24px 0 8px"),
+  }),
+  subtitle: style({ color: color.muted, fontSize: typeStep("1"), fontWeight: 300 }),
+  text: style({ marginBottom: scaled("16px") }),
 } as const

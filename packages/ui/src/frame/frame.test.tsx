@@ -16,7 +16,6 @@ const copy: FrameCopy = {
   company: {
     city: "Mainz",
     country: "Germany",
-    email: "info@sebastian-software.de",
     name: "Sebastian Software GmbH",
     postalCode: "55128",
     street: "Dalheimer Straße 12",
@@ -54,7 +53,6 @@ const copy: FrameCopy = {
     products: "Products",
     profiles: "Profiles",
     services: "Services",
-    skills: "Agents & Skills",
   },
   newsletter: {
     action: "Subscribe",
@@ -94,7 +92,6 @@ describe("SiteHeader", () => {
     expect(texts(header.querySelectorAll('nav[aria-label="Main navigation"] a'))).toStrictEqual([
       "Products",
       "Open Source",
-      "Agents & Skills",
     ])
     expect(header.querySelector("a")?.getAttribute("href")).toBe("#main")
     const languages = header.querySelectorAll('nav[aria-label="Language"] a')

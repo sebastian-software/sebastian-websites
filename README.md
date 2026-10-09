@@ -1,8 +1,9 @@
 # Sebastian Websites
 
 Monorepo for the websites of Sebastian Software GmbH: Sebastian Software, Sebastian Consulting,
-Open Source, and Skills. One shared design system and brand bar, one static site per brand
-site and language, hosted on Bunny.
+and Open Source. One shared design system and brand bar, one static site per brand site and
+language, hosted on Bunny. The skills for coding agents, Effective Agent, keep their own site
+in the skills repository and are presented here as an open-source product.
 
 **Status:** the workspace, shared packages, the design system (`design/DESIGN.md`), the
 Software application in German and English on that system, the brand asset application,

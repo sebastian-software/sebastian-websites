@@ -5,7 +5,7 @@ updated: 2026-10-06
 
 # Delivery model: one static artifact per variant, published from `main`
 
-Each of the eight variants (four sites, two languages) is built as its own static artifact for
+Each of the six variants (three sites, two languages) is built as its own static artifact for
 exactly one domain, driven by one central, typed list of variants. Every push to `main` builds,
 tests, and publishes every variant that has a build to its own origin host
 (`<target>.b-cdn.net`); whether a variant is active in production only decides whether its

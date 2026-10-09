@@ -14,6 +14,14 @@ msgstr ""
 "{brand} is a registered trademark of {name}. This website is operated by "
 "{name}."
 
+#: app/routes/products.tsx#meta
+msgid ""
+"{names}: the products of Sebastian Software, each grown out of a gap we saw "
+"ourselves and used in our own work."
+msgstr ""
+"{names}: the products of Sebastian Software, each grown out of a gap we saw "
+"ourselves and used in our own work."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""
 "A data protection officer has not been appointed, as the legal requirements "
@@ -33,13 +41,22 @@ msgid "A drawn desk calendar with one marked appointment beside a potted plant."
 msgstr ""
 "A drawn desk calendar with one marked appointment beside a potted plant."
 
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/RegionStory.tsx#RegionStory
+#~ msgid ""
+#~ "A drawn landscape with the cathedral of Mainz above and Heidelberg castle with"
+#~ " its old bridge below."
+#~ msgstr ""
+#~ "A drawn landscape with the cathedral of Mainz above and Heidelberg castle with"
+#~ " its old bridge below."
+
 #: app/components/RegionStory.tsx#RegionStory
 msgid ""
-"A drawn landscape with the cathedral of Mainz above and Heidelberg castle with"
-" its old bridge below."
+"A drawn map of the region with Mainz Cathedral at the top, a river through "
+"fields and vineyards, and Heidelberg Castle at the bottom."
 msgstr ""
-"A drawn landscape with the cathedral of Mainz above and Heidelberg castle with"
-" its old bridge below."
+"A drawn map of the region with Mainz Cathedral at the top, a river through "
+"fields and vineyards, and Heidelberg Castle at the bottom."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "A drawn road winding through a valley toward the mountains."
@@ -93,15 +110,16 @@ msgstr ""
 #~ msgid "A third product is in preparation and will be announced here."
 #~ msgstr "A third product is in preparation and will be announced here."
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid ""
-"A third product is in the works. We will announce it once it runs in our own "
-"daily work and we know it keeps what it promises. Until then: Palamedes, the "
-"open core, is here today."
-msgstr ""
-"A third product is in the works. We will announce it once it runs in our own "
-"daily work and we know it keeps what it promises. Until then: Palamedes, the "
-"open core, is here today."
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid ""
+#~ "A third product is in the works. We will announce it once it runs in our own "
+#~ "daily work and we know it keeps what it promises. Until then: Palamedes, the "
+#~ "open core, is here today."
+#~ msgstr ""
+#~ "A third product is in the works. We will announce it once it runs in our own "
+#~ "daily work and we know it keeps what it promises. Until then: Palamedes, the "
+#~ "open core, is here today."
 
 #: app/data/products.ts#getProducts
 msgid ""
@@ -316,7 +334,6 @@ msgstr ""
 "strengthen our partners' teams so that they achieve more together, long after "
 "a project has ended."
 
-#: app/components/ProductCards.tsx#ProductCards
 #: app/data/products.ts#getProducts
 msgid "Coming soon"
 msgstr "Coming soon"
@@ -449,7 +466,6 @@ msgstr ""
 "and automatically deleted after 20–30 seconds. According to this assurance, "
 "no persistent storage takes place."
 
-#: app/components/ProductCards.tsx#ProductCards
 #: app/data/products.ts#getProducts
 msgid "Early access"
 msgstr "Early access"
@@ -765,9 +781,10 @@ msgstr "Imprint"
 #~ msgid "Imprint – Sebastian Software"
 #~ msgstr "Imprint – Sebastian Software"
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid "In preparation"
-msgstr "In preparation"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid "In preparation"
+#~ msgstr "In preparation"
 
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#Stance
@@ -885,15 +902,26 @@ msgstr "Let's talk about what is meant to last."
 #~ "pipeline, engineering workflows for coding agents, and six skills covering "
 #~ "product, web, engineering, delivery, marketing, and writing."
 
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/Families.tsx#Families
+#~ msgid ""
+#~ "Libraries and skills for everyday work in TypeScript projects: colors, CSS, "
+#~ "icons, favicons, shadows, setting up a new machine. Small tools we need in "
+#~ "every project and therefore maintain instead of rewriting them each time."
+#~ msgstr ""
+#~ "Libraries and skills for everyday work in TypeScript projects: colors, CSS, "
+#~ "icons, favicons, shadows, setting up a new machine. Small tools we need in "
+#~ "every project and therefore maintain instead of rewriting them each time."
+
 #: app/components/Families.tsx#Families
 msgid ""
-"Libraries and skills for everyday work in TypeScript projects: colors, CSS, "
-"icons, favicons, shadows, setting up a new machine. Small tools we need in "
-"every project and therefore maintain instead of rewriting them each time."
+"Libraries for everyday work in TypeScript projects: colors, CSS, icons, "
+"favicons, shadows, setting up a new machine. Small tools we need in every "
+"project and therefore maintain instead of rewriting them each time."
 msgstr ""
-"Libraries and skills for everyday work in TypeScript projects: colors, CSS, "
-"icons, favicons, shadows, setting up a new machine. Small tools we need in "
-"every project and therefore maintain instead of rewriting them each time."
+"Libraries for everyday work in TypeScript projects: colors, CSS, icons, "
+"favicons, shadows, setting up a new machine. Small tools we need in every "
+"project and therefore maintain instead of rewriting them each time."
 
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#Stance
@@ -917,17 +945,18 @@ msgstr "Main navigation"
 msgid "Managed translations built around an open core."
 msgstr "Managed translations built around an open core."
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid ""
-"Managed translations for teams that use our open core Palamedes. The core "
-"stays open source; maintaining catalogs, approvals, and AI-assisted "
-"suggestions become a service. Born from internationalizing large codebases "
-"where translations should roll out in seconds rather than weeks."
-msgstr ""
-"Managed translations for teams that use our open core Palamedes. The core "
-"stays open source; maintaining catalogs, approvals, and AI-assisted "
-"suggestions become a service. Born from internationalizing large codebases "
-"where translations should roll out in seconds rather than weeks."
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid ""
+#~ "Managed translations for teams that use our open core Palamedes. The core "
+#~ "stays open source; maintaining catalogs, approvals, and AI-assisted "
+#~ "suggestions become a service. Born from internationalizing large codebases "
+#~ "where translations should roll out in seconds rather than weeks."
+#~ msgstr ""
+#~ "Managed translations for teams that use our open core Palamedes. The core "
+#~ "stays open source; maintaining catalogs, approvals, and AI-assisted "
+#~ "suggestions become a service. Born from internationalizing large codebases "
+#~ "where translations should roll out in seconds rather than weeks."
 
 #: app/data/products.ts#getProducts
 msgid "Managed websites for local businesses."
@@ -1009,19 +1038,20 @@ msgstr "Online appointment booking for small businesses."
 #~ "without an agency and without training, and built so that it still does the "
 #~ "same in three years."
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid ""
-"Online appointment booking for the self-employed and small businesses. "
-"Customers book in seconds without an account, and the public booking page sets"
-" no cookies. Calendar sync with Google, iCloud, or CalDAV prevents double "
-"bookings, confirmations and reminders go out automatically, and booking data "
-"stays on servers in Germany."
-msgstr ""
-"Online appointment booking for the self-employed and small businesses. "
-"Customers book in seconds without an account, and the public booking page sets"
-" no cookies. Calendar sync with Google, iCloud, or CalDAV prevents double "
-"bookings, confirmations and reminders go out automatically, and booking data "
-"stays on servers in Germany."
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid ""
+#~ "Online appointment booking for the self-employed and small businesses. "
+#~ "Customers book in seconds without an account, and the public booking page sets"
+#~ " no cookies. Calendar sync with Google, iCloud, or CalDAV prevents double "
+#~ "bookings, confirmations and reminders go out automatically, and booking data "
+#~ "stays on servers in Germany."
+#~ msgstr ""
+#~ "Online appointment booking for the self-employed and small businesses. "
+#~ "Customers book in seconds without an account, and the public booking page sets"
+#~ " no cookies. Calendar sync with Google, iCloud, or CalDAV prevents double "
+#~ "bookings, confirmations and reminders go out automatically, and booking data "
+#~ "stays on servers in Germany."
 
 #: app/components/OpenFoundations.tsx#OpenFoundations
 msgid "Open foundations"
@@ -1149,9 +1179,10 @@ msgstr "Page views (URL, referrer)"
 #~ msgid "Palamedes, the open core"
 #~ msgstr "Palamedes, the open core"
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid "Palamedes, the open core →"
-msgstr "Palamedes, the open core →"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid "Palamedes, the open core →"
+#~ msgstr "Palamedes, the open core →"
 
 #: app/routes/company.tsx
 msgid ""
@@ -1500,6 +1531,10 @@ msgstr ""
 #~ "Sebastian Software is a small software company from Mainz. We build products "
 #~ "that are meant to last and share the tools behind them as open source."
 
+#: app/routes/home.tsx
+msgid "Sebastian Werner and Sebastian Fastner in the office lounge"
+msgstr "Sebastian Werner and Sebastian Fastner in the office lounge"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "See what we build beyond consulting."
 msgstr "See what we build beyond consulting."
@@ -1512,6 +1547,18 @@ msgstr "Services"
 #~ #: app/routes/home.tsx#ProjectSupport
 #~ msgid "Services and profiles at Sebastian Consulting →"
 #~ msgstr "Services and profiles at Sebastian Consulting →"
+
+#: app/components/Families.tsx#Families
+msgid ""
+"Seven skills that put our way of working into verifiable instructions for "
+"coding agents: product, web, engineering, delivery, writing, marketing, and "
+"image work. Expertise you can read before you install it, with results that "
+"still depend on the model."
+msgstr ""
+"Seven skills that put our way of working into verifiable instructions for "
+"coding agents: product, web, engineering, delivery, writing, marketing, and "
+"image work. Expertise you can read before you install it, with results that "
+"still depend on the model."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/products.tsx
@@ -1535,19 +1582,21 @@ msgstr "Signing you up…"
 msgid "Site index"
 msgstr "Site index"
 
-#: app/components/Families.tsx#Families
-msgid ""
-"Six skills that put our way of working into verifiable instructions, so agents"
-" work the way we would expect in a review. Expertise you can read before you "
-"install it, with results that still depend on the model."
-msgstr ""
-"Six skills that put our way of working into verifiable instructions, so agents"
-" work the way we would expect in a review. Expertise you can read before you "
-"install it, with results that still depend on the model."
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/Families.tsx#Families
+#~ msgid ""
+#~ "Six skills that put our way of working into verifiable instructions, so agents"
+#~ " work the way we would expect in a review. Expertise you can read before you "
+#~ "install it, with results that still depend on the model."
+#~ msgstr ""
+#~ "Six skills that put our way of working into verifiable instructions, so agents"
+#~ " work the way we would expect in a review. Expertise you can read before you "
+#~ "install it, with results that still depend on the model."
 
-#: app/components/Families.tsx#Families
-msgid "Skills for coding agents"
-msgstr "Skills for coding agents"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/Families.tsx#Families
+#~ msgid "Skills for coding agents"
+#~ msgstr "Skills for coding agents"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Skip to content"
@@ -1603,13 +1652,14 @@ msgstr "Subscribe"
 msgid "Technology that wins hearts and minds"
 msgstr "Technology that wins hearts and minds"
 
-#: app/routes/products.tsx#meta
-msgid ""
-"Terminaro for appointment booking, Palamedes+ for managed translations: the "
-"products of Sebastian Software."
-msgstr ""
-"Terminaro for appointment booking, Palamedes+ for managed translations: the "
-"products of Sebastian Software."
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/routes/products.tsx#meta
+#~ msgid ""
+#~ "Terminaro for appointment booking, Palamedes+ for managed translations: the "
+#~ "products of Sebastian Software."
+#~ msgstr ""
+#~ "Terminaro for appointment booking, Palamedes+ for managed translations: the "
+#~ "products of Sebastian Software."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/home.tsx
@@ -1769,9 +1819,10 @@ msgstr ""
 msgid "There is no contact form – contact is made exclusively by email."
 msgstr "There is no contact form – contact is made exclusively by email."
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid "Third product"
-msgstr "Third product"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid "Third product"
+#~ msgstr "Third product"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "This page does not exist."
@@ -1866,12 +1917,17 @@ msgid "To Sebastian Consulting"
 msgstr "To Sebastian Consulting"
 
 #: app/components/Families.tsx#Families
+msgid "To the Effective Agent site →"
+msgstr "To the Effective Agent site →"
+
+#: app/components/Families.tsx#Families
 msgid "To the Open Source site →"
 msgstr "To the Open Source site →"
 
-#: app/components/Families.tsx#Families
-msgid "To the Skills site →"
-msgstr "To the Skills site →"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/Families.tsx#Families
+#~ msgid "To the Skills site →"
+#~ msgstr "To the Skills site →"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Trademark Notice"
@@ -1986,18 +2042,20 @@ msgstr "View on GitHub"
 #~ msgid "Visit ferramenta.dev"
 #~ msgstr "Visit ferramenta.dev"
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid "Visit palamedes.dev →"
-msgstr "Visit palamedes.dev →"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid "Visit palamedes.dev →"
+#~ msgstr "Visit palamedes.dev →"
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/products.tsx
 #~ msgid "Visit terminaro.eu"
 #~ msgstr "Visit terminaro.eu"
 
-#: app/components/ProductCards.tsx#ProductCards
-msgid "Visit terminaro.eu →"
-msgstr "Visit terminaro.eu →"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/ProductCards.tsx#ProductCards
+#~ msgid "Visit terminaro.eu →"
+#~ msgstr "Visit terminaro.eu →"
 
 #: app/routes/company.tsx#Mission
 msgid ""

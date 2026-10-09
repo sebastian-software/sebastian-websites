@@ -7,7 +7,8 @@ import { getSiteOrigin } from "@sebastian-websites/web-core"
 import { variant } from "~/lib/site"
 
 /**
- * The open-source families as three text columns: Ferramenta, Effective, and the skills.
+ * The open-source families as three text columns: Ferramenta, the Effective
+ * libraries, and Effective Agent, the skills for coding agents.
  *
  * @returns The column grid.
  */
@@ -22,14 +23,14 @@ export function Families(): ReactElement {
     {
       href: `${getSiteOrigin("opensource", variant.locale)}/`,
       link: t`To the Open Source site →`,
-      text: t`Libraries and skills for everyday work in TypeScript projects: colors, CSS, icons, favicons, shadows, setting up a new machine. Small tools we need in every project and therefore maintain instead of rewriting them each time.`,
+      text: t`Libraries for everyday work in TypeScript projects: colors, CSS, icons, favicons, shadows, setting up a new machine. Small tools we need in every project and therefore maintain instead of rewriting them each time.`,
       title: "Effective",
     },
     {
-      href: `${getSiteOrigin("skills", variant.locale)}/`,
-      link: t`To the Skills site →`,
-      text: t`Six skills that put our way of working into verifiable instructions, so agents work the way we would expect in a review. Expertise you can read before you install it, with results that still depend on the model.`,
-      title: t`Skills for coding agents`,
+      href: "https://effective-agent.dev",
+      link: t`To the Effective Agent site →`,
+      text: t`Seven skills that put our way of working into verifiable instructions for coding agents: product, web, engineering, delivery, writing, marketing, and image work. Expertise you can read before you install it, with results that still depend on the model.`,
+      title: "Effective Agent",
     },
   ]
   return (

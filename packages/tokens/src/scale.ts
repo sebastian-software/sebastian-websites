@@ -1,47 +1,42 @@
 import { type PaletteId, PALETTES } from "./palettes.ts"
+import { scaled } from "./root.ts"
+import { SPACE_SCALE } from "./space.ts"
+import { typeStep } from "./type.ts"
 
 /**
- * The spacing scale of the design system: an 8 px base, used for every gap,
- * padding, and section rhythm (design/DESIGN.md).
+ * The spacing names of the first Software design (design/DESIGN.md), mapped to
+ * the steps of the space scale that match them on a laptop.
  */
 export const SPACE = {
-  lg: "40px",
-  md: "24px",
-  section: "128px",
-  sm: "16px",
-  xl: "64px",
-  xs: "8px",
-  xxl: "96px",
+  lg: SPACE_SCALE.l,
+  md: SPACE_SCALE.s,
+  section: SPACE_SCALE["3xl"],
+  sm: SPACE_SCALE.xs,
+  xl: SPACE_SCALE.xl,
+  xs: SPACE_SCALE["2xs"],
+  xxl: SPACE_SCALE["2xl"],
 } as const
 
 /** Corner radii: pills for buttons and status marks, panels for cards and photos. */
 export const RADIUS = {
-  card: "16px",
-  panel: "24px",
+  card: scaled("16px"),
+  panel: scaled("24px"),
   pill: "999px",
 } as const
 
-/** The page container: 1320 px, widening to 1480 px on very large screens. */
-export const CONTAINER = {
-  gutter: "24px",
-  max: "1320px",
-  wide: "1480px",
-  wideFrom: "1700px",
-} as const
-
-/** The type scale. Display and headline sizes are fluid; text sizes are fixed. */
+/** The type scale. Body text is the root; display and headline sizes move from the phone to the desktop design. */
 export const TYPE = {
-  body: "17px",
+  body: "1rem",
   bodyLineHeight: 1.65,
-  display: "clamp(56px, 6.4vw, 108px)",
-  eyebrow: "12px",
-  h2: "clamp(28px, 3.6vw, 44px)",
-  h3: "22px",
-  intro: "18px",
-  lead: "22px",
-  numeral: "80px",
-  small: "14px",
-  tiny: "13px",
+  display: typeStep("7"),
+  eyebrow: typeStep("-2"),
+  h2: typeStep("3"),
+  h3: typeStep("1"),
+  intro: typeStep("0"),
+  lead: typeStep("1"),
+  numeral: typeStep("7"),
+  small: typeStep("-2"),
+  tiny: typeStep("-2"),
 } as const
 
 export type NeutralRole = "ink" | "line" | "muted" | "white"

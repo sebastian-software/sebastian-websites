@@ -1,4 +1,4 @@
-import { RADIUS } from "@sebastian-websites/tokens"
+import { RADIUS, scaled, typeStep } from "@sebastian-websites/tokens"
 import { style, styleVariants } from "@vanilla-extract/css"
 
 import { sectionTone } from "./layout.css.ts"
@@ -9,11 +9,11 @@ const base = style({
   border: "1px solid transparent",
   borderRadius: RADIUS.pill,
   display: "inline-flex",
-  fontSize: "15px",
+  fontSize: typeStep("-1"),
   fontWeight: 600,
-  gap: "8px",
+  gap: scaled("8px"),
   lineHeight: 1,
-  padding: "14px 24px",
+  padding: scaled("14px 24px"),
 })
 
 /** Primary for the one main action, secondary beside it, ghost for inline links. */
