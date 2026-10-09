@@ -2,7 +2,9 @@ import { describe, expect, it } from "vitest"
 
 import {
   assertConsultantProfileFinalContent,
+  assertConsultantProfileLayout,
   assertProjectProfilePrintLayout,
+  type ConsultantProfilePrintLayout,
   getPdfPages,
   isAllowedBrowserRequest,
   type ProjectProfilePrintLayout,
@@ -695,5 +697,47 @@ describe("consultant profile final content", () => {
         "de"
       )
     }).toThrow("Consultant profile permission content")
+  })
+})
+
+describe("consultant profile print layout", () => {
+  const layout: ConsultantProfilePrintLayout = {
+    boxes: [{ clientHeight: 320, key: "work-in-practice", scrollHeight: 320 }],
+    fontsReady: true,
+    headingFontLoaded: true,
+    language: "en",
+    sections: ["summary", "reports", "archive"],
+    summaryHeight: 900,
+    textFontLoaded: true,
+  }
+
+  it("accepts a one-page summary followed by reports and the archive", () => {
+    expect(() => {
+      assertConsultantProfileLayout(layout, "en")
+    }).not.toThrow()
+  })
+
+  it("rejects a summary that spills onto the second page", () => {
+    expect(() => {
+      assertConsultantProfileLayout({ ...layout, summaryHeight: 960 }, "en")
+    }).toThrow("overflows the first A4 page")
+  })
+
+  it("rejects missing brand fonts, sections, and clipped boxes", () => {
+    expect(() => {
+      assertConsultantProfileLayout({ ...layout, headingFontLoaded: false }, "en")
+    }).toThrow("Elena and Glober")
+    expect(() => {
+      assertConsultantProfileLayout({ ...layout, sections: ["summary", "reports"] }, "en")
+    }).toThrow("Consultant profile sections")
+    expect(() => {
+      assertConsultantProfileLayout(
+        { ...layout, boxes: [{ clientHeight: 100, key: "glance-regrello", scrollHeight: 140 }] },
+        "en"
+      )
+    }).toThrow("glance-regrello clips its content")
+    expect(() => {
+      assertConsultantProfileLayout(layout, "de")
+    }).toThrow("Consultant profile language")
   })
 })

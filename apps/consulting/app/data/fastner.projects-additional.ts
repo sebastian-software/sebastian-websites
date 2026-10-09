@@ -14,7 +14,7 @@ export function getAdditionalProjects(): Project[] {
 
   return [
     {
-      customer: "Deutsche Telekom / Tolino\u2011Allianz",
+      customer: "Deutsche Telekom / Tolino-Allianz",
       description: t`PagePlace, later launched as Tolino to compete with Amazon Kindle for major German booksellers Thalia, Hugendubel, and Weltbild, needed a web frontend for Deutsche Telekom. I developed it so customers could manage their accounts and read purchased e-books directly in the browser. The platform offered a seamless alternative to proprietary e-book ecosystems and strengthened the German book trade.
 
 UnifyJS formed the basis of the frontend, which was integrated into existing native iOS and Android applications through PhoneGap. The web frontend also served as the EPUB reader engine in the native apps, enabling code sharing between web and mobile. The reader technology parsed and rendered complex EPUB documents with images, formatting, and navigation, and displayed PDF documents correctly.`,

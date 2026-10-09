@@ -50,7 +50,7 @@ msgstr ""
 msgid "{startMonth}/{startYear} – {endMonth}/{endYear}"
 msgstr "{startMonth}/{startYear} – {endMonth}/{endYear}"
 
-#: app/components/profile-print/IndustryExperience.tsx#IndustryExperience
+#: app/components/profile-print/SummaryPage.tsx#IndustryPanel
 msgid "{years, plural, one {year} other {years}}"
 msgstr "{years, plural, one {year} other {years}}"
 
@@ -136,7 +136,7 @@ msgstr ""
 "A rocky ridge path at dusk leading toward a cairn on an overlook above layered"
 " hills."
 
-#: app/components/profile-print/AdditionalProjects.tsx#AdditionalProjects
+#: app/components/profile-print/EarlierExperience.tsx#EarlierExperience
 msgid "Additional Projects"
 msgstr "Additional Projects"
 
@@ -364,10 +364,11 @@ msgstr "Available immediately"
 msgid "Back to home"
 msgstr "Back to home"
 
-#: app/components/profile-print/SkillStack.tsx#SkillStack
-#: app/components/profile-print/SkillTags.tsx#groups
-msgid "Backend"
-msgstr "Backend"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/profile-print/SkillStack.tsx#SkillStack
+#~ #: app/components/profile-print/SkillTags.tsx#groups
+#~ msgid "Backend"
+#~ msgstr "Backend"
 
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Bad Rodach, Germany"
@@ -485,17 +486,19 @@ msgstr ""
 msgid "CDN, hosting and edge scripting for this website"
 msgstr "CDN, hosting and edge scripting for this website"
 
-#: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
-msgid "Citizenship"
-msgstr "Citizenship"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
+#~ msgid "Citizenship"
+#~ msgstr "Citizenship"
 
 #: app/components/Founders.tsx#Founders
 msgid "Clarity."
 msgstr "Clarity."
 
-#: app/components/profile-print/AdditionalProjects.tsx#AdditionalProjects
-msgid "Client"
-msgstr "Client"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/profile-print/AdditionalProjects.tsx#AdditionalProjects
+#~ msgid "Client"
+#~ msgstr "Client"
 
 #: app/components/Founders.tsx#Founders
 msgid "Co-founder"
@@ -524,7 +527,7 @@ msgstr ""
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
-#: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
+#: app/components/profile-print/SummaryPage.tsx#PersonalDetails
 msgid "Contact"
 msgstr "Contact"
 
@@ -536,9 +539,10 @@ msgstr "Contact via Email"
 msgid "Controller"
 msgstr "Controller"
 
-#: app/components/profile-print/SkillTags.tsx#SkillTags
-msgid "Core Competencies"
-msgstr "Core Competencies"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/profile-print/SkillTags.tsx#SkillTags
+#~ msgid "Core Competencies"
+#~ msgstr "Core Competencies"
 
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid "Credit Portfolio Management Tool"
@@ -955,10 +959,11 @@ msgstr "Founder & Managing Director"
 msgid "Frankfurt am Main, Germany"
 msgstr "Frankfurt am Main, Germany"
 
-#: app/components/profile-print/SkillStack.tsx#SkillStack
-#: app/components/profile-print/SkillTags.tsx#groups
-msgid "Frontend"
-msgstr "Frontend"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/profile-print/SkillStack.tsx#SkillStack
+#~ #: app/components/profile-print/SkillTags.tsx#groups
+#~ msgid "Frontend"
+#~ msgstr "Frontend"
 
 #: app/data/fastner.data.ts#getConsultant
 msgid "Frontend & Fullstack"
@@ -1230,7 +1235,7 @@ msgstr ""
 msgid "Imprint"
 msgstr "Imprint"
 
-#: app/components/profile-print/IndustryExperience.tsx#IndustryExperience
+#: app/components/profile-print/SummaryPage.tsx#IndustryPanel
 msgid "Industry Experience"
 msgstr "Industry Experience"
 
@@ -1328,7 +1333,7 @@ msgstr "JourFixe Meeting Management"
 msgid "Language"
 msgstr "Language"
 
-#: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
+#: app/components/profile-print/SummaryPage.tsx#PersonalDetails
 #: app/components/project-profile/ProjectProfile.tsx#ContactDetails
 msgid "Languages"
 msgstr "Languages"
@@ -1382,14 +1387,15 @@ msgstr ""
 msgid "Localization"
 msgstr "Localization"
 
-#: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
+#: app/components/profile-print/SummaryPage.tsx#PersonalDetails
 #: app/components/project-profile/ProjectProfile.tsx#ContactDetails
 msgid "Location"
 msgstr "Location"
 
-#: app/components/profile-print/Tier1Projects.tsx#ProjectLogo
-msgid "Logo"
-msgstr "Logo"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/profile-print/Tier1Projects.tsx#ProjectLogo
+#~ msgid "Logo"
+#~ msgstr "Logo"
 
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
@@ -1440,9 +1446,10 @@ msgstr "Meridian Energy Management Portal"
 msgid "Mobile Developer"
 msgstr "Mobile Developer"
 
-#: app/components/profile-print/SkillTags.tsx#groups
-msgid "More"
-msgstr "More"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/profile-print/SkillTags.tsx#groups
+#~ msgid "More"
+#~ msgstr "More"
 
 #: app/components/Judgment.tsx#Judgment
 msgid "More speed needs better judgment."
@@ -1460,9 +1467,10 @@ msgstr ""
 "Multilingual appointment scheduling system with a public booking page and "
 "integrated administration."
 
-#: app/components/profile-print/SkillStack.tsx#SkillStack
-msgid "My Stack ({quarterYear})"
-msgstr "My Stack ({quarterYear})"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/profile-print/SkillStack.tsx#SkillStack
+#~ msgid "My Stack ({quarterYear})"
+#~ msgstr "My Stack ({quarterYear})"
 
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
@@ -1590,15 +1598,16 @@ msgstr ""
 msgid "Palamedes · Product by Sebastian Software GmbH · Dev Tools"
 msgstr "Palamedes · Product by Sebastian Software GmbH · Dev Tools"
 
-#: app/components/profile-print/AdditionalProjects.tsx#AdditionalProjects
-msgid "Period"
-msgstr "Period"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/profile-print/AdditionalProjects.tsx#AdditionalProjects
+#~ msgid "Period"
+#~ msgstr "Period"
 
-#: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
+#: app/components/profile-print/SummaryPage.tsx#PersonalDetails
 msgid "Personal Details"
 msgstr "Personal Details"
 
-#: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
+#: app/components/profile-print/SummaryPage.tsx#PersonalDetails
 #: app/components/project-profile/ProjectProfile.tsx#ContactDetails
 msgid "Phone"
 msgstr "Phone"
@@ -1633,6 +1642,7 @@ msgid "preferably remote + occasional on-site"
 msgstr "preferably remote + occasional on-site"
 
 #: app/components/profile-print/helpers.ts#formatDateRange
+#: app/components/profile-print/helpers.ts#formatMonthRange
 #: app/components/profile-print/helpers.ts#formatPeriod
 msgid "present"
 msgstr "present"
@@ -1722,7 +1732,7 @@ msgstr "Profile Summary"
 msgid "Profiles"
 msgstr "Profiles"
 
-#: app/components/profile-print/Tier1Projects.tsx#Tier1Projects
+#: app/components/profile-print/ProjectReports.tsx#ProjectReports
 msgid "Project Experience"
 msgstr "Project Experience"
 
@@ -1856,9 +1866,10 @@ msgstr "Right to restriction of processing (Art. 18 GDPR)"
 msgid "Robo-Advisor Investment Platform"
 msgstr "Robo-Advisor Investment Platform"
 
-#: app/components/profile-print/AdditionalProjects.tsx#AdditionalProjects
-msgid "Role"
-msgstr "Role"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/profile-print/AdditionalProjects.tsx#AdditionalProjects
+#~ msgid "Role"
+#~ msgstr "Role"
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""
@@ -1979,7 +1990,6 @@ msgstr "Share Project Profile"
 msgid "Sign-up opens soon. The newsletter has not started yet."
 msgstr "Sign-up opens soon. The newsletter has not started yet."
 
-#: app/components/profile-print/SkillTags.tsx#groups
 #: app/routes/team.tsx#TeamMember
 msgid "Signature skills"
 msgstr "Signature skills"
@@ -2042,9 +2052,10 @@ msgstr ""
 "scrolling. These techniques anticipated the later development of single-page "
 "applications."
 
-#: app/components/profile-print/SkillTags.tsx#groups
-msgid "Specialization"
-msgstr "Specialization"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/profile-print/SkillTags.tsx#groups
+#~ msgid "Specialization"
+#~ msgstr "Specialization"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Storage for static files and assets"
@@ -2062,9 +2073,10 @@ msgstr "Team – Sebastian Consulting"
 msgid "Technical Focus"
 msgstr "Technical Focus"
 
-#: app/components/profile-print/AdditionalProjects.tsx#AdditionalProjects
-msgid "Technologies"
-msgstr "Technologies"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/profile-print/AdditionalProjects.tsx#AdditionalProjects
+#~ msgid "Technologies"
+#~ msgstr "Technologies"
 
 #: app/data/fastner.data.ts#getConsultant
 #: app/data/werner.data.ts#getConsultant
@@ -2339,10 +2351,11 @@ msgstr ""
 msgid "Tolino E-Book Platform"
 msgstr "Tolino E-Book Platform"
 
-#: app/components/profile-print/SkillStack.tsx#SkillStack
-#: app/components/profile-print/SkillTags.tsx#groups
-msgid "Tools"
-msgstr "Tools"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/profile-print/SkillStack.tsx#SkillStack
+#~ #: app/components/profile-print/SkillTags.tsx#groups
+#~ msgid "Tools"
+#~ msgstr "Tools"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Trademark Notice"
@@ -2538,7 +2551,7 @@ msgstr ""
 msgid "Wireless LAN Infrastructure"
 msgstr "Wireless LAN Infrastructure"
 
-#: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
+#: app/components/profile-print/SummaryPage.tsx#PersonalDetails
 msgid "Work Model"
 msgstr "Work Model"
 

@@ -2,15 +2,7 @@ import { t } from "@palamedes/core/macro"
 
 import type { Project } from "./types"
 
-const MONTHS_PER_QUARTER = 3
 const DEFAULT_TIER1_COUNT = 3
-export const MAX_DISPLAY_TECHNOLOGIES = 4
-export function getCurrentQuarterYear(): string {
-  const now = new Date()
-  const quarter = Math.ceil((now.getMonth() + 1) / MONTHS_PER_QUARTER)
-  const year = now.getFullYear()
-  return `Q${String(quarter)}/${String(year)}`
-}
 
 export function formatDateRange(startDate: Date, endDate: Date | null): string {
   const startMonth = String(startDate.getMonth() + 1).padStart(2, "0")
@@ -25,6 +17,16 @@ export function formatDateRange(startDate: Date, endDate: Date | null): string {
   const endYear = String(endDate.getFullYear())
 
   return t`${startMonth}/${startYear} – ${endMonth}/${endYear}`
+}
+
+// Month and year of a report period, e.g. "January – August 2026".
+export function formatMonthRange(startDate: Date, endDate: Date | null, lang: "de" | "en"): string {
+  const format = new Intl.DateTimeFormat(lang, { month: "long", timeZone: "UTC", year: "numeric" })
+  if (endDate === null) {
+    const present = t`present`
+    return `${format.format(startDate)} – ${present}`
+  }
+  return format.formatRange(startDate, endDate)
 }
 
 export function formatPeriod(startDate: Date, endDate: Date | null): string {

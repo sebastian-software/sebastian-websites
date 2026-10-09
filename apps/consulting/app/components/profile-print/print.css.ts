@@ -1,6 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css"
 
-import { printColors, printFonts, printHeadingMetrics } from "~/styles/theme.css"
+import { printColors, printFonts } from "~/styles/theme.css"
 
 import "./printPageMargin.css"
 
@@ -59,9 +59,9 @@ export const page = style({
       // is about block-level normal flow versus flex layout, and `flow-root` stays
       // on the block-level side of it; only Chromium prints from CI, so the
       // `flow-root` variant itself is unverified in WebKit.
-      // The block formatting context it adds keeps `industryGrid`'s bottom
-      // margin (firstPage.css.ts) inside the white sheet instead of letting it
-      // collapse out through this edge into the seam below.
+      // The block formatting context it adds keeps the last block's bottom
+      // margin inside the white sheet instead of letting it collapse out
+      // through this edge into the seam below.
       display: "flow-root",
       margin: 0,
       minHeight: "auto",
@@ -136,19 +136,6 @@ export const pageFlow = style({
   lineHeight: 1.4,
 })
 
-// ─── Section Headings ───────────────────────────────────────
-export const sectionHeading = style({
-  borderBottom: `1.5pt solid ${printColors.base}`,
-  breakAfter: "avoid",
-  color: printColors.base,
-  fontFamily: printFonts.slab,
-  fontSize: "1.25rem",
-  fontWeight: 500,
-  ...printHeadingMetrics,
-  marginBottom: "1rem",
-  paddingBottom: "0.3rem",
-})
-
 // ─── Global styles for print body ───────────────────────────
 export const printBody = style({
   "@media": {
@@ -175,26 +162,6 @@ export const printBody = style({
 // Paragraphs avoid orphaned last words. `:where` keeps the rule below any
 // component class that sets its own wrapping.
 globalStyle(`:where(${printBody}) p`, { textWrap: "pretty" })
-
-// ─── Typography helpers ─────────────────────────────────────
-export const paragraph = style({
-  "@media": {
-    print: {
-      orphans: 3,
-      widows: 3,
-    },
-    // Narrow columns turn justified text into rivers and chopped words
-    // ("Con-sultant"); ragged right reads better on phones. Print keeps
-    // the justified document register.
-    "screen and (max-width: 800px)": {
-      textAlign: "left",
-    },
-  },
-  lineHeight: 1.5,
-  marginBottom: "0.4rem",
-  textAlign: "justify",
-  textWrap: "pretty",
-})
 
 export const link = style({
   "@media": {
