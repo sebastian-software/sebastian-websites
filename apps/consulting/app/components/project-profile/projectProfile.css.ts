@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css"
+import { globalStyle, style } from "@vanilla-extract/css"
 
 import { printColors, printFonts, printHeadingMetrics } from "~/styles/theme.css"
 
@@ -316,3 +316,7 @@ export const pageMarker = style({
   paddingTop: "0.45rem",
   textAlign: "right",
 })
+
+// The sheet is set in rem against the reader's default size and zooms on its
+// own; the fluid root of the editorial pages would change it on screen.
+globalStyle(`html:has(${document})`, { fontSize: "100%" })

@@ -1,13 +1,18 @@
+import { ROOT_FONT_SIZE, scaled } from "@sebastian-websites/tokens"
 import { globalStyle } from "@vanilla-extract/css"
 
 import { color, font } from "./theme.css.ts"
 
-// The base every site shares: box sizing, the sans as body face, the canvas
-// background, Elena Regular for headings, and quiet defaults for images and links.
+// The base every site shares: box sizing, the fluid root, the sans as body face,
+// the canvas background, Elena Regular for headings, and quiet defaults for
+// images and links.
 globalStyle("*, *::before, *::after", { boxSizing: "border-box" })
 globalStyle("html", {
+  // The root follows the screen (see ROOT_FONT_SIZE); every rem length grows
+  // with it. Print keeps the reader's default size.
+  "@media": { screen: { fontSize: ROOT_FONT_SIZE } },
   MozOsxFontSmoothing: "grayscale",
-  scrollPaddingTop: "96px",
+  scrollPaddingTop: scaled("96px"),
   textRendering: "optimizeLegibility",
   WebkitFontSmoothing: "antialiased",
 })
@@ -15,6 +20,9 @@ globalStyle("body", {
   backgroundColor: color.canvas,
   color: color.ink,
   fontFamily: font.sans,
+  // Fallback fonts take the x-height of the loaded face, so text keeps its
+  // size and length while web fonts load.
+  fontSizeAdjust: "from-font",
   fontWeight: 400,
   lineHeight: 1.55,
   margin: 0,

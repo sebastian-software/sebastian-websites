@@ -1,17 +1,15 @@
-import { COMPACT_PAGE, FRAME, PAGE } from "@sebastian-websites/tokens"
+import { FRAME, PAGE, scaled } from "@sebastian-websites/tokens"
 import { style } from "@vanilla-extract/css"
 
-import { COMPACT, FRAME_WIDTH, PHONE } from "../responsive.ts"
+import { COMPACT, FRAME_INSET, FRAME_WIDTH, PHONE } from "../responsive.ts"
 import { color, font } from "../theme.css.ts"
 import { continuousCorners } from "./corners.ts"
 
 /** The menu opens just below the header shell, inset like the shell itself. */
-const MENU_TOP = `calc(${FRAME.headerTop} + ${FRAME.headerHeight} + 8px)`
-const COMPACT_INSET = `calc(${COMPACT_PAGE.compactMargin} - ${COMPACT_PAGE.compactOverhang})`
-const PHONE_INSET = `calc(${COMPACT_PAGE.phoneMargin} - ${COMPACT_PAGE.phoneOverhang})`
+const MENU_TOP = `calc(${FRAME.headerTop} + ${FRAME.headerHeight} + ${scaled("8px")})`
 
-/** Touch targets in the compact menu are at least this tall. */
-const TOUCH_TARGET = "44px"
+/** Touch targets in the compact menu grow with the root but never fall below 44 px. */
+const TOUCH_TARGET = `max(44px, ${scaled("44px")})`
 
 const HEADER_RADIUS = 14
 const CAPSULE_RADIUS = 11
@@ -20,18 +18,18 @@ const MENU_BUTTON_RADIUS = 10
 /** Hidden until focused; then it sits above the header as the first stop. */
 export const skip = style({
   backgroundColor: FRAME.shell,
-  borderRadius: "8px",
+  borderRadius: scaled("8px"),
   boxShadow: FRAME.shadow,
   color: color.heading,
   fontFamily: font.sans,
-  fontSize: "16px",
-  left: "16px",
-  padding: "10px 16px",
+  fontSize: scaled("16px"),
+  left: scaled("16px"),
+  padding: scaled("10px 16px"),
   position: "absolute",
   selectors: {
     "&:not(:focus)": { clipPath: "inset(50%)", height: "1px", overflow: "hidden", width: "1px" },
   },
-  top: "16px",
+  top: scaled("16px"),
   zIndex: 30,
 })
 
@@ -49,8 +47,8 @@ export const shell = style([
   continuousCorners(HEADER_RADIUS),
   {
     "@media": {
-      [COMPACT]: { paddingInline: "16px 2px", width: FRAME_WIDTH.compact },
-      [PHONE]: { paddingInline: "12px 2px", width: FRAME_WIDTH.phone },
+      [COMPACT]: { paddingInline: scaled("16px 2px") },
+      [PHONE]: { paddingInline: scaled("12px 2px") },
     },
     alignItems: "center",
     backgroundColor: FRAME.shell,
@@ -58,20 +56,20 @@ export const shell = style([
     display: "flex",
     height: FRAME.headerHeight,
     marginInline: "auto",
-    paddingInline: `${PAGE.overhang} 6px`,
-    width: FRAME_WIDTH.desktop,
+    paddingInline: `${PAGE.overhang} ${scaled("6px")}`,
+    width: FRAME_WIDTH,
   },
 ])
 
 export const home = style({
   alignItems: "center",
-  borderRadius: "6px",
+  borderRadius: scaled("6px"),
   display: "flex",
   flexShrink: 0,
   height: "100%",
 })
 
-export const logo = style({ display: "block", height: "32px", width: "auto" })
+export const logo = style({ display: "block", height: scaled("32px"), width: "auto" })
 
 /** Opens the menu on compact screens; desktop shows the controls inline. */
 export const menuButton = style([
@@ -99,11 +97,11 @@ export const menuButton = style([
 
 export const menuIcon = style({
   fill: "none",
-  height: "24px",
+  height: scaled("24px"),
   stroke: "currentColor",
   strokeLinecap: "round",
   strokeWidth: 1.75,
-  width: "24px",
+  width: scaled("24px"),
 })
 
 /**
@@ -121,14 +119,14 @@ export const controls = style({
       display: "none",
       flexDirection: "column",
       height: "auto",
-      inset: `${MENU_TOP} ${COMPACT_INSET} auto`,
-      maxHeight: `calc(100dvh - ${MENU_TOP} - 16px)`,
+      inset: `${MENU_TOP} ${FRAME_INSET} auto`,
+      maxHeight: `calc(100dvh - ${MENU_TOP} - ${scaled("16px")})`,
       overflowY: "auto",
-      padding: "8px 24px 24px",
+      padding: scaled("8px 24px 24px"),
       position: "fixed",
       selectors: { "&:popover-open": { display: "flex" } },
     },
-    [PHONE]: { inset: `${MENU_TOP} ${PHONE_INSET} auto`, padding: "4px 20px 20px" },
+    [PHONE]: { padding: scaled("4px 20px 20px") },
   },
   alignItems: "center",
   backgroundColor: "transparent",
@@ -149,7 +147,7 @@ export const list = style({
     [COMPACT]: { alignItems: "stretch", flexDirection: "column" },
   },
   alignItems: "center",
-  columnGap: "40px",
+  columnGap: scaled("40px"),
   display: "flex",
   listStyle: "none",
   margin: 0,
@@ -162,16 +160,16 @@ export const link = style({
       alignItems: "center",
       borderBottom: `1px solid ${color.rule}`,
       display: "flex",
-      fontSize: "20px",
-      minHeight: "56px",
-      paddingBlock: "12px",
+      fontSize: scaled("20px"),
+      minHeight: scaled("56px"),
+      paddingBlock: scaled("12px"),
     },
   },
   color: color.heading,
   fontFamily: font.sans,
-  fontSize: "16px",
+  fontSize: scaled("16px"),
   lineHeight: 1,
-  paddingBlock: "8px",
+  paddingBlock: scaled("8px"),
   selectors: {
     "&:hover": { color: color.accent },
     '&[aria-current="page"]': {
@@ -187,8 +185,8 @@ export const separator = style({
   "@media": { [COMPACT]: { display: "none" } },
   backgroundColor: color.rule,
   flexShrink: 0,
-  height: "20px",
-  marginInline: "32px",
+  height: scaled("20px"),
+  marginInline: scaled("32px"),
   width: "1px",
 })
 
@@ -198,12 +196,12 @@ export const languages = style([
     "@media": {
       [COMPACT]: {
         alignItems: "center",
-        columnGap: "4px",
+        columnGap: scaled("4px"),
         flexDirection: "row",
-        marginTop: "12px",
+        marginTop: scaled("12px"),
       },
     },
-    columnGap: "8px",
+    columnGap: scaled("8px"),
   },
 ])
 
@@ -213,11 +211,11 @@ export const language = style([
     "@media": {
       [COMPACT]: {
         borderBottom: 0,
-        borderRadius: "10px",
-        fontSize: "17px",
+        borderRadius: scaled("10px"),
+        fontSize: scaled("17px"),
         justifyContent: "center",
         minHeight: TOUCH_TARGET,
-        minWidth: "56px",
+        minWidth: scaled("56px"),
         selectors: { '&[aria-current="true"]': { backgroundColor: FRAME.capsule } },
       },
     },
@@ -231,7 +229,7 @@ export const slash = style({
   "@media": { [COMPACT]: { display: "none" } },
   color: color.rule,
   fontFamily: font.sans,
-  fontSize: "16px",
+  fontSize: scaled("16px"),
 })
 
 /** A smaller neutral utility capsule: plain outward text, never a second logo. */
@@ -241,24 +239,24 @@ export const outbound = style([
     "@media": {
       [COMPACT]: {
         alignSelf: "flex-start",
-        fontSize: "16px",
+        fontSize: scaled("16px"),
         height: TOUCH_TARGET,
-        marginTop: "16px",
+        marginTop: scaled("16px"),
       },
     },
     alignItems: "center",
     backgroundColor: FRAME.capsule,
     color: color.heading,
-    columnGap: "8px",
+    columnGap: scaled("8px"),
     display: "inline-flex",
     flexShrink: 0,
     fontFamily: font.sans,
-    fontSize: "15px",
-    height: "36px",
+    fontSize: scaled("15px"),
+    height: scaled("36px"),
     lineHeight: 1,
-    paddingInline: "16px 14px",
+    paddingInline: scaled("16px 14px"),
     selectors: { "&:hover": { backgroundColor: "#e8e9ec" } },
   },
 ])
 
-export const outboundArrow = style({ height: "14px", width: "14px" })
+export const outboundArrow = style({ height: scaled("14px"), width: scaled("14px") })

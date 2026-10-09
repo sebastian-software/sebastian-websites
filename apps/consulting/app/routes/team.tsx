@@ -1,7 +1,7 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { ArrowLink, BunnyImage, editorialSizes } from "@sebastian-websites/ui"
+import { ArrowLink, BunnyImage, editorialSizes, scaledSizes } from "@sebastian-websites/ui"
 
 import type { Consultant } from "~/components/profile-print/types"
 import type { Portrait } from "~/lib/photos"
@@ -73,7 +73,7 @@ function TeamMember({ member }: { readonly member: Member }): ReactElement {
             className={styles.portrait}
             crop={member.portrait.crop}
             height={471}
-            sizes="(max-width: 639px) 240px, (max-width: 1023px) 320px, 330px"
+            sizes={`(max-width: 639px) 240px, (max-width: 1023px) 320px, ${scaledSizes("330px")}`}
             src={member.portrait.src}
             width={330}
           />

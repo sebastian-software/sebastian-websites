@@ -1,37 +1,60 @@
-import { BREAKPOINTS, COMPACT_PAGE, PAGE } from "@sebastian-websites/tokens"
+import {
+  BREAKPOINTS,
+  type DesignLength,
+  em,
+  PAGE,
+  ROOT_MAX_SCALE,
+} from "@sebastian-websites/tokens"
 
 /**
- * Media queries for the layouts below the fixed desktop page. Desktop from
- * 1024 px is the base style everywhere, so these queries only override it.
+ * Media queries for layout changes below the desktop page. Desktop is the
+ * base style everywhere, so these queries only override it. Sizes need no
+ * queries: they follow the fluid root.
  */
 export const COMPACT = `screen and (max-width: ${BREAKPOINTS.compact})`
 export const PHONE = `screen and (max-width: ${BREAKPOINTS.phone})`
 
 /** The desktop page, for rules that must not reach compact screens. */
-export const DESKTOP = `screen and (min-width: calc(${BREAKPOINTS.compact} + 1px))`
+export const DESKTOP = `screen and (min-width: ${em("1024px")})`
 
-/** The page width on compact screens and phones: the viewport minus the margins. */
-export const COMPACT_WIDTH = `calc(100% - 2 * ${COMPACT_PAGE.compactMargin})`
-export const PHONE_WIDTH = `calc(100% - 2 * ${COMPACT_PAGE.phoneMargin})`
+/** The page width: the design width, or the viewport minus the margins. */
+export const PAGE_WIDTH = `min(${PAGE.width}, 100% - 2 * ${PAGE.margin})`
 
-/** Header shell and footer panel reach slightly beyond the page on every layout. */
-export const FRAME_WIDTH = {
-  compact: `calc(100% - 2 * (${COMPACT_PAGE.compactMargin} - ${COMPACT_PAGE.compactOverhang}))`,
-  desktop: `min(calc(${PAGE.width} + 2 * ${PAGE.overhang}), 100% - 2 * (${PAGE.margin} - ${PAGE.overhang}))`,
-  phone: `calc(100% - 2 * (${COMPACT_PAGE.phoneMargin} - ${COMPACT_PAGE.phoneOverhang}))`,
-} as const
+/** Header shell and footer panel keep this distance to the viewport edge on narrow screens. */
+export const FRAME_INSET = `calc(${PAGE.margin} - ${PAGE.overhang})`
+
+/** Header shell and footer panel reach slightly beyond the page. */
+export const FRAME_WIDTH = `min(${PAGE.width} + 2 * ${PAGE.overhang}, 100% - 2 * ${FRAME_INSET})`
+
+/**
+ * The root only grows beyond the desktop design when both viewport sides
+ * exceed 1024 px. `sizes` cannot read the root, so it uses this condition.
+ */
+const LARGE_ROOT = `(min-width: 1025px) and (min-height: 1025px)`
+
+/** The phone margin on both sides, the smallest the page leaves on narrow screens. */
+const NARROW_MARGINS = "40px"
+
+/**
+ * The `sizes` of an image with a fixed design width, such as a portrait or
+ * avatar, which grows with the root on large screens.
+ *
+ * @param width - The rendered width in design pixels, as a number or `"72px"`.
+ * @returns The sizes attribute.
+ */
+export function scaledSizes(width: DesignLength | number): string {
+  const designWidth = typeof width === "number" ? width : Number.parseFloat(width)
+  return `${LARGE_ROOT} ${String(Math.ceil(designWidth * ROOT_MAX_SCALE))}px, ${String(designWidth)}px`
+}
 
 /**
  * The `sizes` of an image that fills the page width on compact screens and has
- * a fixed width on desktop, so phones do not download the desktop candidate.
+ * a fixed design width on desktop, so phones do not download the desktop
+ * candidate.
  *
- * @param desktopWidth - The rendered desktop width in CSS pixels.
+ * @param desktopWidth - The rendered desktop width in design pixels.
  * @returns The sizes attribute.
  */
 export function editorialSizes(desktopWidth: number): string {
-  return [
-    `(max-width: ${BREAKPOINTS.phone}) ${PHONE_WIDTH.replace("100%", "100vw")}`,
-    `(max-width: ${BREAKPOINTS.compact}) ${COMPACT_WIDTH.replace("100%", "100vw")}`,
-    `${String(desktopWidth)}px`,
-  ].join(", ")
+  return `(max-width: ${BREAKPOINTS.compact}) calc(100vw - ${NARROW_MARGINS}), ${scaledSizes(desktopWidth)}`
 }
