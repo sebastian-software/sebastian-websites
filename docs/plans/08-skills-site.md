@@ -16,10 +16,9 @@ own (working name "Effective Agent") with its own identity, which makes a projec
 right home, as for Palamedes or Dalo, rather than an area under Software. The existing site
 at skills.sebastian-software.com is reworked in its repository; this repository presents
 Effective Agent as a featured open-source product on the Open Source site and on the Software
-open-source page, and links to it from the site header in every language. The `skills`
-variants stay defined but unused. A build of this plan's app exists on the local branch
-`archive/skills-app-2026-10-09`; the overall concept and ADR-0005 are to be updated once the
-product decision, name, and domain are settled.
+open-source page. Like the other products, it has no entry in the site header. The `skills`
+variants stay defined but unused. The overall concept, the glossary, and ADR-0005 were updated
+the same day; the build of this plan's app was discarded.
 
 ## Why this matters
 

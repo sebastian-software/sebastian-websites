@@ -8,8 +8,7 @@ site until that identity exists, and is reworked there.
 
 In this repository, Effective Agent appears as an open-source product: as a featured story on
 the Open Source site and as a family column on the Software open-source page, both leading to
-the Skills site. The site header's "Agents & Skills" link leads there in every language,
-because the site is English only.
+the Skills site. Like the other products, it has no entry in the site header.
 
-An earlier build of the site as `apps/skills` on the shared frame is kept on the local branch
-`archive/skills-app-2026-10-09` in case the decision changes; plan 08 records the state.
+An earlier build of the site as `apps/skills` on the shared frame was discarded; plan 08
+records the decision.
