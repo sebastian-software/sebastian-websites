@@ -16,7 +16,7 @@ import { getOtherProfile } from "./profile-screen/otherProfile"
 import { ProfileMobileBar } from "./profile-screen/ProfileMobileBar"
 import { ProfileOutro } from "./profile-screen/ProfileOutro"
 import { ProfileRail } from "./profile-screen/ProfileRail"
-import * as screen from "./profile-screen/profileScreen.css"
+import * as stage from "./profile-screen/stage.css"
 
 /**
  * The consultant profile: one A4 document that the browser previews and the
@@ -33,12 +33,14 @@ export function ConsultantProfile(props: ConsultantProfileProperties): ReactNode
   const other = getOtherProfile(consultant.id)
 
   return (
-    <div className={cn(styles.printBody, lang === "de" ? styles.langDe : styles.langEn)}>
+    <div
+      className={cn(stage.canvas, styles.printBody, lang === "de" ? styles.langDe : styles.langEn)}
+    >
       <RunningHeads consultant={consultant} />
-      <div className={screen.layoutShell}>
+      <div className={stage.stage}>
         {/* The printable A4 sheet — single source for the PDF/print output.
             The rail follows in the DOM so the profile is read before the actions. */}
-        <article aria-label={consultant.name} className={styles.document}>
+        <article aria-label={consultant.name} className={cn(styles.document, stage.sheet)}>
           <div className={cn(styles.page, styles.pageFirst)}>
             <SummaryPage consultant={consultant} lang={lang} />
           </div>

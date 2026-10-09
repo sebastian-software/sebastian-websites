@@ -12,19 +12,7 @@ const PRINT_WIDTH = "160mm"
 const PRINT_HEIGHT = "245mm"
 const MOBILE = "screen and (max-width: 800px)"
 const PAGED_SCREEN = "screen and (min-width: 801px)"
-const RAIL = "screen and (min-width: 1240px)"
 const COMPACT_BLOCK_MARGIN = "0 0 0.45rem"
-
-export const shell = style({
-  "@media": {
-    [RAIL]: {
-      alignItems: "flex-start",
-      display: "flex",
-      gap: "clamp(2.5rem, 3.5vw, 4rem)",
-      justifyContent: "center",
-    },
-  },
-})
 
 export const document = style({
   "@media": {
@@ -32,11 +20,12 @@ export const document = style({
       gap: 0,
       width: "100%",
     },
+    // On screen the sheet stack zooms to the width of the site header
+    // (profile-screen/stage.css.ts).
     [PAGED_SCREEN]: {
       display: "flex",
       flexDirection: "column",
       gap: "12mm",
-      margin: "0 auto",
       width: PAPER_WIDTH,
     },
     print: {

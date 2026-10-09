@@ -11,11 +11,6 @@ export const body = style({
       background: "white",
       padding: 0,
     },
-    [PAGED_SCREEN]: {
-      background: printColors.pale,
-      overflowX: "clip",
-      padding: "2.5rem 1rem",
-    },
     print: {
       background: "none",
       margin: 0,

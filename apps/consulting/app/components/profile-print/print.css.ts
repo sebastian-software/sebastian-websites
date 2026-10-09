@@ -7,15 +7,9 @@ import "./printPageMargin.css"
 const borderBox = "border-box"
 
 // ─── Document wrapper ───────────────────────────────────────
-// `zoom` (Baseline 2024, reflows unlike transform:scale) upscales the whole
-// pt-based sheet on screen: the print typography stays untouched while the
-// browser rendering gains real reading size. Screen-only — print keeps 1:1.
-//
-// The zoom is fluid, not breakpointed: tan(atan2(x, y)) divides two lengths
-// into the plain number `zoom` needs (calc() length division is not widely
-// supported yet). The subtrahend is the space around the sheet — page padding
-// alone below the rail breakpoint, rail + gap + padding (~26rem) above it.
-// Capped at 1.3 so body text stays book-sized on very wide screens.
+// On screen the sheet zooms to the width of the site header
+// (profile-screen/stage.css.ts); `zoom` reflows unlike transform:scale, so the
+// pt-based print typography stays untouched. Print keeps 1:1.
 export const document = style({
   "@media": {
     print: {
@@ -28,21 +22,12 @@ export const document = style({
     },
     screen: {
       // Layered paper shadow: a hairline ring plus three soft falloffs make
-      // the sheet read as a physical page lifted off the pale desk.
+      // the sheet read as a physical page lifted off the page canvas.
       boxShadow: `0 0 0 1px oklch(0.15 0.05 2 / 0.05), 0 2px 4px oklch(0.15 0.05 2 / 0.1), 0 12px 28px oklch(0.15 0.05 2 / 0.13), 0 32px 64px oklch(0.15 0.05 2 / 0.13)`,
-      margin: "0 auto",
       width: "fit-content",
     },
     "screen and (max-width: 800px)": {
       boxShadow: "none",
-    },
-    "screen and (min-width: 1240px)": {
-      // Flex item next to the rail: no auto margins, the shell centers the pair.
-      margin: 0,
-      zoom: "clamp(1, tan(atan2(100vw - 26rem, 794px)), 1.3)",
-    },
-    "screen and (min-width: 801px) and (max-width: 1239px)": {
-      zoom: "clamp(1, tan(atan2(100vw - 4rem, 794px)), 1.3)",
     },
   },
   position: "relative",
@@ -144,14 +129,8 @@ export const printBody = style({
       margin: 0,
       padding: 0,
     },
-    screen: {
-      background: printColors.pale,
-      // Belt and braces: the zoomed sheet must never create a horizontal
-      // scrollbar. `clip` (not `hidden`) keeps position:sticky working for
-      // the rail.
-      overflowX: "clip",
-      padding: "2.5rem 1rem",
-    },
+    // Phones show the sheet as a plain white page; wider screens set it on
+    // the site canvas (profile-screen/stage.css.ts).
     "screen and (max-width: 800px)": {
       background: "white",
       padding: 0,

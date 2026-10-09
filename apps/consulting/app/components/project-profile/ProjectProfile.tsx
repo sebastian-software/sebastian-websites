@@ -15,6 +15,7 @@ import { formatDateRange, formatList, formatPeriod } from "~/components/profile-
 import { SHEET_PHOTO } from "~/lib/photos"
 import { cn } from "~/lib/utilities"
 
+import * as stage from "../profile-screen/stage.css"
 import * as styles from "./projectProfile.css"
 import * as pageStyles from "./projectProfilePage.css"
 import { ProjectProfileRail } from "./ProjectProfileRail"
@@ -371,11 +372,17 @@ export function ProjectProfile({
   const documentLabel = t`Project Profile`
 
   return (
-    <div className={cn(pageStyles.body, lang === "de" ? pageStyles.langDe : pageStyles.langEn)}>
-      <div className={styles.shell}>
+    <div
+      className={cn(
+        stage.canvas,
+        pageStyles.body,
+        lang === "de" ? pageStyles.langDe : pageStyles.langEn
+      )}
+    >
+      <div className={stage.stage}>
         <article
           aria-label={`${data.consultant.name} – ${documentLabel}`}
-          className={styles.document}
+          className={cn(styles.document, stage.sheet)}
         >
           <FirstPage
             consultantProfileUrl={consultantProfileUrl}
