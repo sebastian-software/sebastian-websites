@@ -1,4 +1,12 @@
-import { bleed, color, COMPACT, editorial, PAGE_MARGIN, PHONE, scaled } from "@sebastian-websites/ui"
+import {
+  bleed,
+  color,
+  COMPACT,
+  editorial,
+  PAGE_MARGIN,
+  PHONE,
+  scaled,
+} from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 /** The one contained berry passage; only its top edge leans. */
