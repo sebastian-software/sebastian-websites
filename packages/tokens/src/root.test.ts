@@ -79,7 +79,7 @@ describe("scaledBetween", () => {
   it.each([
     [360, (34 / 17) * 16],
     [400, 34],
-    [1024, 52],
+    [960, 52],
     [2560, 52 * (20 / 18)],
   ])("renders both designs exactly and scales beyond (%i px)", (size, expected) => {
     expect(at(display, size)).toBeCloseTo(expected, 2)
@@ -100,7 +100,7 @@ describe("scaledBetween", () => {
 
   it("handles lengths that shrink toward the desktop design", () => {
     expect(at(scaledBetween("20px", "18px"), 400)).toBeCloseTo(20, 2)
-    expect(at(scaledBetween("20px", "18px"), 1024)).toBeCloseTo(18, 2)
+    expect(at(scaledBetween("20px", "18px"), 960)).toBeCloseTo(18, 2)
   })
 
   it("collapses to plain rem when both designs share the ratio", () => {

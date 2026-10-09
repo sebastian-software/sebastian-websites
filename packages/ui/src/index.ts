@@ -31,11 +31,14 @@ export {
 export * as layout from "./layout.css.ts"
 export { legalClassNames } from "./legal.css.ts"
 export {
+  bleed,
   COMPACT,
   DESKTOP,
   editorialSizes,
   FRAME_INSET,
+  FRAME_OVERHANG,
   FRAME_WIDTH,
+  PAGE_MARGIN,
   PAGE_WIDTH,
   PHONE,
   scaledSizes,

@@ -1,4 +1,4 @@
-import { ROOT_FONT_SIZE, scaled } from "@sebastian-websites/tokens"
+import { LAYOUT_SPLIT, ROOT_FONT_SIZE, scaled, SPACE_PROPERTIES } from "@sebastian-websites/tokens"
 import { globalStyle } from "@vanilla-extract/css"
 
 import { color, font } from "./theme.css.ts"
@@ -7,6 +7,12 @@ import { color, font } from "./theme.css.ts"
 // the canvas background, Elena Regular for headings, and quiet defaults for
 // images and links.
 globalStyle("*, *::before, *::after", { boxSizing: "border-box" })
+// The space scale grows across each layout class and starts tight again where
+// the column layout begins (see SPACE_RANGES).
+globalStyle(":root", {
+  "@media": { [`(min-width: ${LAYOUT_SPLIT})`]: { vars: SPACE_PROPERTIES.desktop } },
+  vars: SPACE_PROPERTIES.mobile,
+})
 globalStyle("html", {
   // The root follows the screen (see ROOT_FONT_SIZE); every rem length grows
   // with it. Print keeps the reader's default size.

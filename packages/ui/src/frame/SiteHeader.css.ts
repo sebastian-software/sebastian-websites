@@ -1,7 +1,7 @@
-import { FRAME, PAGE, scaled } from "@sebastian-websites/tokens"
+import { FRAME, scaled } from "@sebastian-websites/tokens"
 import { style } from "@vanilla-extract/css"
 
-import { COMPACT, FRAME_INSET, FRAME_WIDTH, PHONE } from "../responsive.ts"
+import { COMPACT, FRAME_INSET, FRAME_OVERHANG, FRAME_WIDTH, PHONE } from "../responsive.ts"
 import { color, font } from "../theme.css.ts"
 import { continuousCorners } from "./corners.ts"
 
@@ -56,7 +56,7 @@ export const shell = style([
     display: "flex",
     height: FRAME.headerHeight,
     marginInline: "auto",
-    paddingInline: `${PAGE.overhang} ${scaled("6px")}`,
+    paddingInline: `${FRAME_OVERHANG} ${scaled("6px")}`,
     width: FRAME_WIDTH,
   },
 ])

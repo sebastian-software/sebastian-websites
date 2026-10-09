@@ -1,4 +1,4 @@
-import { color, COMPACT, editorial, font, PHONE, scaled } from "@sebastian-websites/ui"
+import { bleed, color, COMPACT, editorial, font, PHONE, scaled } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 /** A pale panel whose text aligns with the page edge; the panel reaches beyond it. */
@@ -15,7 +15,7 @@ export const panel = style({
   borderRadius: scaled("16px"),
   display: "grid",
   gridTemplateColumns: "minmax(0, 1.45fr) repeat(2, minmax(0, 1fr))",
-  marginInline: scaled("-40px"),
+  marginInline: `calc(-1 * ${bleed("40px")})`,
   padding: scaled("52px 40px 56px"),
 })
 
