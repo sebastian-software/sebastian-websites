@@ -19,8 +19,8 @@ msgid ""
 "{names}: the products of Sebastian Software, each grown out of a gap we saw "
 "ourselves and used in our own work."
 msgstr ""
-"{names}: die Produkte von Sebastian Software, jedes aus einer Lücke entstanden, "
-"die wir selbst gesehen haben, und im eigenen Alltag im Einsatz."
+"{names}: die Produkte von Sebastian Software, jedes aus einer Lücke "
+"entstanden, die wir selbst gesehen haben, und im eigenen Alltag im Einsatz."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""
@@ -44,13 +44,22 @@ msgstr ""
 "Ein gezeichneter Tischkalender mit einem markierten Termin neben einer "
 "Topfpflanze."
 
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/RegionStory.tsx#RegionStory
+#~ msgid ""
+#~ "A drawn landscape with the cathedral of Mainz above and Heidelberg castle with"
+#~ " its old bridge below."
+#~ msgstr ""
+#~ "Eine gezeichnete Landschaft mit dem Mainzer Dom oben und dem Heidelberger "
+#~ "Schloss mit der Alten Brücke unten."
+
 #: app/components/RegionStory.tsx#RegionStory
 msgid ""
-"A drawn landscape with the cathedral of Mainz above and Heidelberg castle with"
-" its old bridge below."
+"A drawn map of the region with Mainz Cathedral at the top, a river through "
+"fields and vineyards, and Heidelberg Castle at the bottom."
 msgstr ""
-"Eine gezeichnete Landschaft mit dem Mainzer Dom oben und dem Heidelberger "
-"Schloss mit der Alten Brücke unten."
+"Eine gezeichnete Karte der Region mit dem Mainzer Dom oben, einem Fluss durch "
+"Felder und Weinberge und dem Heidelberger Schloss unten."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "A drawn road winding through a valley toward the mountains."

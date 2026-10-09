@@ -41,13 +41,22 @@ msgid "A drawn desk calendar with one marked appointment beside a potted plant."
 msgstr ""
 "A drawn desk calendar with one marked appointment beside a potted plant."
 
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/RegionStory.tsx#RegionStory
+#~ msgid ""
+#~ "A drawn landscape with the cathedral of Mainz above and Heidelberg castle with"
+#~ " its old bridge below."
+#~ msgstr ""
+#~ "A drawn landscape with the cathedral of Mainz above and Heidelberg castle with"
+#~ " its old bridge below."
+
 #: app/components/RegionStory.tsx#RegionStory
 msgid ""
-"A drawn landscape with the cathedral of Mainz above and Heidelberg castle with"
-" its old bridge below."
+"A drawn map of the region with Mainz Cathedral at the top, a river through "
+"fields and vineyards, and Heidelberg Castle at the bottom."
 msgstr ""
-"A drawn landscape with the cathedral of Mainz above and Heidelberg castle with"
-" its old bridge below."
+"A drawn map of the region with Mainz Cathedral at the top, a river through "
+"fields and vineyards, and Heidelberg Castle at the bottom."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "A drawn road winding through a valley toward the mountains."
