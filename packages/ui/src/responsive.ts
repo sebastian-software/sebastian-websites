@@ -1,9 +1,11 @@
 import {
   BREAKPOINTS,
+  DESIGN_PAGE_WIDTH,
   type DesignLength,
-  em,
+  LAYOUT_SPLIT,
   PAGE,
   ROOT_MAX_SCALE,
+  scaled,
 } from "@sebastian-websites/tokens"
 
 /**
@@ -15,16 +17,37 @@ export const COMPACT = `screen and (max-width: ${BREAKPOINTS.compact})`
 export const PHONE = `screen and (max-width: ${BREAKPOINTS.phone})`
 
 /** The desktop page, for rules that must not reach compact screens. */
-export const DESKTOP = `screen and (min-width: ${em("1024px")})`
+export const DESKTOP = `screen and (min-width: ${LAYOUT_SPLIT})`
 
-/** The page width: the design width, or the viewport minus the margins. */
+/** The page width: the full grid, or the viewport minus the margins. */
 export const PAGE_WIDTH = `min(${PAGE.width}, 100% - 2 * ${PAGE.margin})`
 
+/**
+ * The margin beside the page: the page margin, or more where the grid has
+ * reached its full width. `100vw` includes a classic scrollbar, so only shares
+ * of this margin are safe to use.
+ */
+export const PAGE_MARGIN = `max(${PAGE.margin}, (100vw - ${PAGE.width}) / 2)`
+
+/**
+ * How far an element reaches beyond the page edge: its design length, but at
+ * most half the margin, which starts tight on small screens.
+ *
+ * @param length - The reach in design pixels, such as `"40px"`.
+ * @returns The CSS length.
+ */
+export function bleed(length: DesignLength): string {
+  return `min(${scaled(length)}, ${PAGE_MARGIN} / 2)`
+}
+
+/** Header shell and footer panel reach this far beyond the text edge. */
+export const FRAME_OVERHANG = `min(${PAGE.overhang}, ${PAGE_MARGIN} / 2)`
+
 /** Header shell and footer panel keep this distance to the viewport edge on narrow screens. */
-export const FRAME_INSET = `calc(${PAGE.margin} - ${PAGE.overhang})`
+export const FRAME_INSET = `calc(${PAGE.margin} - ${FRAME_OVERHANG})`
 
 /** Header shell and footer panel reach slightly beyond the page. */
-export const FRAME_WIDTH = `min(${PAGE.width} + 2 * ${PAGE.overhang}, 100% - 2 * ${FRAME_INSET})`
+export const FRAME_WIDTH = `min(${PAGE.width} + 2 * ${FRAME_OVERHANG}, 100% - 2 * ${FRAME_INSET})`
 
 /**
  * The root only grows beyond the desktop design in windows wider than 1280 px
@@ -33,8 +56,20 @@ export const FRAME_WIDTH = `min(${PAGE.width} + 2 * ${PAGE.overhang}, 100% - 2 *
  */
 const LARGE_ROOT = `(min-width: 1281px) and (min-height: 1025px)`
 
-/** The phone margin on both sides, the smallest the page leaves on narrow screens. */
-const NARROW_MARGINS = "40px"
+/** The smallest margins on both sides of a compact page. */
+const NARROW_MARGINS = "32px"
+
+/**
+ * The page width the desktop grid reaches at least up to each viewport width,
+ * rounded up. `sizes` cannot evaluate the grid, so it uses these steps.
+ */
+const PAGE_STEPS = [
+  { from: "1700px", page: 1400 },
+  { from: "1281px", page: 1200 },
+] as const
+
+/** The page width of the narrower desktop windows, rounded up. */
+const PAGE_BASE = 1100
 
 /**
  * The `sizes` of an image with a fixed design width, such as a portrait or
@@ -49,13 +84,19 @@ export function scaledSizes(width: DesignLength | number): string {
 }
 
 /**
- * The `sizes` of an image that fills the page width on compact screens and has
- * a fixed design width on desktop, so phones do not download the desktop
- * candidate.
+ * The `sizes` of an image that fills the page width on compact screens and
+ * takes a share of the desktop grid, so phones do not download the desktop
+ * candidate and large screens get one that matches the wider grid.
  *
- * @param desktopWidth - The rendered desktop width in design pixels.
+ * @param desktopWidth - The rendered width in design pixels on the 1040 px design page.
  * @returns The sizes attribute.
  */
 export function editorialSizes(desktopWidth: number): string {
-  return `(max-width: ${BREAKPOINTS.compact}) calc(100vw - ${NARROW_MARGINS}), ${scaledSizes(desktopWidth)}`
+  const share = desktopWidth / DESIGN_PAGE_WIDTH
+  const width = (page: number): string => `${String(Math.ceil(page * share))}px`
+  return [
+    `(max-width: ${BREAKPOINTS.compact}) calc(100vw - ${NARROW_MARGINS})`,
+    ...PAGE_STEPS.map(({ from, page }) => `(min-width: ${from}) ${width(page)}`),
+    width(PAGE_BASE),
+  ].join(", ")
 }

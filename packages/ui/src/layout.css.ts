@@ -1,19 +1,11 @@
-import { CONTAINER, scaled, SPACE, TYPE } from "@sebastian-websites/tokens"
+import { scaled, SPACE, TYPE } from "@sebastian-websites/tokens"
 import { style, styleVariants } from "@vanilla-extract/css"
 
-import { PHONE } from "./responsive.ts"
+import { PAGE_WIDTH, PHONE } from "./responsive.ts"
 import { color, NARROW, ON_NIGHT } from "./theme.css.ts"
 
-/** The page container: 1320 px, 1480 px on very wide screens, 24 px gutters. */
-export const container = style({
-  "@media": {
-    [`(min-width: ${CONTAINER.wideFrom})`]: { maxWidth: CONTAINER.wide },
-    [PHONE]: { paddingInline: scaled("20px") },
-  },
-  marginInline: "auto",
-  maxWidth: CONTAINER.max,
-  paddingInline: CONTAINER.gutter,
-})
+/** The page container: the shared fluid page grid of every site. */
+export const container = style({ marginInline: "auto", width: PAGE_WIDTH })
 
 export const section = style({
   "@media": { [PHONE]: { paddingBlock: scaled("64px") } },

@@ -24,6 +24,15 @@ msgstr ""
 "Voraussetzungen hierfür nicht vorliegen. Bei Datenschutzfragen können Sie "
 "die oben genannte E-Mail-Adresse kontaktieren."
 
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/data/featured.ts#getFeatured
+#~ msgid ""
+#~ "A drawn brass compass on a folded trail map, with seven colored pins along a "
+#~ "dotted route to a flagged summit."
+#~ msgstr ""
+#~ "Ein gezeichneter Messingkompass auf einer gefalteten Wanderkarte, mit sieben "
+#~ "farbigen Nadeln entlang einer gepunkteten Route zu einem Gipfel mit Fahne."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "A drawn desk calendar with one marked appointment beside a potted plant."
 msgstr ""
@@ -37,6 +46,14 @@ msgid ""
 msgstr ""
 "Ein gezeichnetes Ferromark-Dokument mit dem Stempel „Markdown into "
 "documents“ neben Büchern und einem Holzstempel."
+
+#: app/data/featured.ts#getFeatured
+msgid ""
+"A drawn little tin robot with glowing eyes, connected by a cable to a device "
+"holding seven colored cartridges."
+msgstr ""
+"Ein gezeichneter kleiner Blechroboter mit leuchtenden Augen, per Kabel mit "
+"einem Gerät verbunden, in dem sieben farbige Module stecken."
 
 #: app/data/featured.ts#getFeatured
 msgid ""
@@ -213,9 +230,10 @@ msgstr "Kontaktaufnahme per E-Mail"
 msgid "Controller"
 msgstr "Verantwortlicher"
 
-#: app/components/SkillsPanel.tsx#getSkills
-msgid "Delivery"
-msgstr "Delivery"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Delivery"
+#~ msgstr "Delivery"
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
@@ -291,9 +309,10 @@ msgstr "E-Mail-Adresse"
 msgid "Email:"
 msgstr "E-Mail:"
 
-#: app/components/SkillsPanel.tsx#getSkills
-msgid "Engineering"
-msgstr "Engineering"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Engineering"
+#~ msgstr "Engineering"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Entry in the Commercial Register"
@@ -407,9 +426,10 @@ msgstr "Hosting der Terminaro-Anwendung und des Rybbit-Analytics-Servers"
 msgid "How It Works"
 msgstr "Funktionsweise"
 
-#: app/components/SkillsPanel.tsx#getSkills
-msgid "Image"
-msgstr "Bild"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Image"
+#~ msgstr "Bild"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Image Credits"
@@ -521,9 +541,10 @@ msgstr "Geschäftsführer"
 msgid "Managing Directors:"
 msgstr "Geschäftsführer:"
 
-#: app/components/SkillsPanel.tsx#getSkills
-msgid "Marketing"
-msgstr "Marketing"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Marketing"
+#~ msgstr "Marketing"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Meet Sebastian/Consulting"
@@ -701,9 +722,10 @@ msgstr ""
 msgid "Processors"
 msgstr "Eingesetzte Auftragsverarbeiter"
 
-#: app/components/SkillsPanel.tsx#getSkills
-msgid "Product"
-msgstr "Produkt"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Product"
+#~ msgstr "Produkt"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Products"
@@ -854,9 +876,10 @@ msgstr ""
 "Ihre nächste Aufgabe, lesen Sie jede Referenz, bevor Sie ihr vertrauen, und "
 "kombinieren Sie sie, wenn die Arbeit Disziplinen überschreitet."
 
-#: app/components/SkillsPanel.tsx#SkillsPanel
-msgid "Seven skills, one install each"
-msgstr "Sieben Skills, je eine Installation"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#SkillsPanel
+#~ msgid "Seven skills, one install each"
+#~ msgstr "Sieben Skills, je eine Installation"
 
 #: app/data/projects.ts#descriptions
 msgid ""
@@ -1148,9 +1171,10 @@ msgstr ""
 "Wir setzen die folgenden Auftragsverarbeiter gemäß Art. 28 DSGVO ein, mit "
 "denen jeweils ein Auftragsverarbeitungsvertrag besteht:"
 
-#: app/components/SkillsPanel.tsx#getSkills
-msgid "Web"
-msgstr "Web"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Web"
+#~ msgstr "Web"
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Web analytics with Rybbit"
@@ -1213,9 +1237,10 @@ msgstr ""
 "Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, "
 "Ausübung oder Verteidigung von Rechtsansprüchen."
 
-#: app/components/SkillsPanel.tsx#SkillsPanel
-msgid "Works with every agent that supports Agent Skills."
-msgstr "Funktioniert mit jedem Agenten, der Agent Skills unterstützt."
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#SkillsPanel
+#~ msgid "Works with every agent that supports Agent Skills."
+#~ msgstr "Funktioniert mit jedem Agenten, der Agent Skills unterstützt."
 
 #: app/data/featured.ts#getFeatured
 msgid ""
@@ -1229,9 +1254,10 @@ msgstr ""
 "kompilieren. Palamedes bringt TypeScript-Anwendungen mit einem Laufzeitmodell "
 "in weitere Sprachen."
 
-#: app/components/SkillsPanel.tsx#getSkills
-msgid "Writing"
-msgstr "Schreiben"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Writing"
+#~ msgstr "Schreiben"
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""

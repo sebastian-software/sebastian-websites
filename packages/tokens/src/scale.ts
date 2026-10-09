@@ -1,18 +1,19 @@
 import { type PaletteId, PALETTES } from "./palettes.ts"
-import { em, scaled, scaledBetween } from "./root.ts"
+import { scaled, scaledBetween } from "./root.ts"
+import { SPACE_SCALE } from "./space.ts"
 
 /**
- * The spacing scale of the design system: an 8 px base, used for every gap,
- * padding, and section rhythm (design/DESIGN.md).
+ * The spacing names of the first Software design (design/DESIGN.md), mapped to
+ * the steps of the space scale that match them on a laptop.
  */
 export const SPACE = {
-  lg: scaled("40px"),
-  md: scaled("24px"),
-  section: scaled("128px"),
-  sm: scaled("16px"),
-  xl: scaled("64px"),
-  xs: scaled("8px"),
-  xxl: scaled("96px"),
+  lg: SPACE_SCALE.l,
+  md: SPACE_SCALE.s,
+  section: SPACE_SCALE["3xl"],
+  sm: SPACE_SCALE.xs,
+  xl: SPACE_SCALE.xl,
+  xs: SPACE_SCALE["2xs"],
+  xxl: SPACE_SCALE["2xl"],
 } as const
 
 /** Corner radii: pills for buttons and status marks, panels for cards and photos. */
@@ -20,14 +21,6 @@ export const RADIUS = {
   card: scaled("16px"),
   panel: scaled("24px"),
   pill: "999px",
-} as const
-
-/** The page container: 1320 design pixels, widening to 1480 on very wide screens. */
-export const CONTAINER = {
-  gutter: scaled("24px"),
-  max: scaled("1320px"),
-  wide: scaled("1480px"),
-  wideFrom: em("1700px"),
 } as const
 
 /** The type scale. Body text is the root; display and headline sizes move from the phone to the desktop design. */

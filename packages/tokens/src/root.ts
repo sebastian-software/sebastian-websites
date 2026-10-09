@@ -55,10 +55,10 @@ const PHONE_BODY_PX = 17
 
 /**
  * The viewport widths of the phone and the desktop design. On phones the root
- * is 17 px at this width, on laptops and tablets it is 18 px.
+ * is 17 px at this width; the desktop layout starts at 960 px with an 18 px root.
  */
 const PHONE_AT_PX = 400
-const DESKTOP_AT_PX = 1024
+const DESKTOP_AT_PX = 960
 
 /** The largest root relative to the desktop design, for estimates such as `sizes`. */
 export const ROOT_MAX_SCALE = ROOT_POINTS.largeMonitor.px / DESKTOP_BODY_PX
@@ -97,7 +97,7 @@ export function scaled(lengths: string): string {
 /**
  * A length that differs between the phone and the desktop design, such as a
  * headline or the space between sections. Its ratio to the root follows the
- * layout width, from the phone design (400 px) to the desktop design (1024 px),
+ * layout width, from the phone design (400 px) to the desktop layout (960 px),
  * so both designs render exactly and everything between is interpolated. The
  * root itself follows the device, so the two combine: readable on every
  * device, proportioned for the room the layout has.
@@ -107,14 +107,32 @@ export function scaled(lengths: string): string {
  * @returns The CSS length.
  */
 export function scaledBetween(phoneLength: DesignLength, desktopLength: DesignLength): string {
-  const phone = pixels(phoneLength) / PHONE_BODY_PX
-  const desktop = pixels(desktopLength) / DESKTOP_BODY_PX
-  if (cssNumber(phone) === cssNumber(desktop)) return `${cssNumber(desktop)}rem`
-  // tan(atan2(a, b)) divides two lengths into a plain number, the progress
-  // from the phone to the desktop design along the viewport width.
-  const progress = `tan(atan2(100vw - ${String(PHONE_AT_PX)}px, ${String(DESKTOP_AT_PX - PHONE_AT_PX)}px))`
-  const ratio = `${cssNumber(phone)} ${desktop < phone ? "-" : "+"} ${cssNumber(Math.abs(desktop - phone))} * ${progress}`
-  return `calc(1rem * clamp(${cssNumber(Math.min(phone, desktop))}, ${ratio}, ${cssNumber(Math.max(phone, desktop))}))`
+  return remBetween(
+    { at: PHONE_AT_PX, ratio: pixels(phoneLength) / PHONE_BODY_PX },
+    { at: DESKTOP_AT_PX, ratio: pixels(desktopLength) / DESKTOP_BODY_PX }
+  )
+}
+
+/** A length as a multiple of the root at a viewport width. */
+export type RatioStop = { readonly at: number; readonly ratio: number }
+
+/**
+ * A length in rem whose ratio to the root moves linearly along the viewport
+ * width between two stops and holds beyond them. The root brings its own
+ * growth, so the length grows with both.
+ *
+ * @param from - The ratio at the narrower width.
+ * @param to - The ratio at the wider width.
+ * @returns The CSS length.
+ */
+export function remBetween(from: RatioStop, to: RatioStop): string {
+  if (cssNumber(from.ratio) === cssNumber(to.ratio)) return `${cssNumber(to.ratio)}rem`
+  // tan(atan2(a, b)) divides two lengths into a plain number: the progress
+  // from one stop to the other along the viewport width.
+  const progress = `tan(atan2(100vw - ${String(from.at)}px, ${String(to.at - from.at)}px))`
+  const rise = to.ratio - from.ratio
+  const ratio = `${cssNumber(from.ratio)} ${rise < 0 ? "-" : "+"} ${cssNumber(Math.abs(rise))} * ${progress}`
+  return `calc(1rem * clamp(${cssNumber(Math.min(from.ratio, to.ratio))}, ${ratio}, ${cssNumber(Math.max(from.ratio, to.ratio))}))`
 }
 
 /** The browser's default font size, against which em media queries resolve. */

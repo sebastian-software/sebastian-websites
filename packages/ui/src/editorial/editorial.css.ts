@@ -1,7 +1,7 @@
 import { PAGE, RHYTHM, scaled, TYPE_SCALE, type TypeStep } from "@sebastian-websites/tokens"
 import { createVar, globalStyle, style, styleVariants } from "@vanilla-extract/css"
 
-import { COMPACT, PAGE_WIDTH, PHONE } from "../responsive.ts"
+import { bleed, COMPACT, PAGE_WIDTH, PHONE } from "../responsive.ts"
 import { color, font } from "../theme.css.ts"
 
 /**
@@ -198,7 +198,7 @@ export const outboundArrow = style([
 // ---- Illustrated story -------------------------------------------------------
 
 /** Media reaches this far beyond the text edge on its outer side. */
-const MEDIA_BLEED = scaled("40px")
+const MEDIA_BLEED = bleed("40px")
 
 export const story = style([
   grid,

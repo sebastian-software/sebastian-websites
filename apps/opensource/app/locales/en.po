@@ -24,6 +24,15 @@ msgstr ""
 "for this do not apply. For data protection inquiries, you can contact the "
 "email address listed above."
 
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/data/featured.ts#getFeatured
+#~ msgid ""
+#~ "A drawn brass compass on a folded trail map, with seven colored pins along a "
+#~ "dotted route to a flagged summit."
+#~ msgstr ""
+#~ "A drawn brass compass on a folded trail map, with seven colored pins along a "
+#~ "dotted route to a flagged summit."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "A drawn desk calendar with one marked appointment beside a potted plant."
 msgstr ""
@@ -36,6 +45,14 @@ msgid ""
 msgstr ""
 "A drawn Ferromark document stamped “Markdown into documents” beside books "
 "and a wooden stamp."
+
+#: app/data/featured.ts#getFeatured
+msgid ""
+"A drawn little tin robot with glowing eyes, connected by a cable to a device "
+"holding seven colored cartridges."
+msgstr ""
+"A drawn little tin robot with glowing eyes, connected by a cable to a device "
+"holding seven colored cartridges."
 
 #: app/data/featured.ts#getFeatured
 msgid ""
@@ -204,9 +221,10 @@ msgstr "Contact via Email"
 msgid "Controller"
 msgstr "Controller"
 
-#: app/components/SkillsPanel.tsx#getSkills
-msgid "Delivery"
-msgstr "Delivery"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Delivery"
+#~ msgstr "Delivery"
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
@@ -279,9 +297,10 @@ msgstr "Email address"
 msgid "Email:"
 msgstr "Email:"
 
-#: app/components/SkillsPanel.tsx#getSkills
-msgid "Engineering"
-msgstr "Engineering"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Engineering"
+#~ msgstr "Engineering"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Entry in the Commercial Register"
@@ -395,9 +414,10 @@ msgstr "Hosting of the Terminaro application and the Rybbit analytics server"
 msgid "How It Works"
 msgstr "How It Works"
 
-#: app/components/SkillsPanel.tsx#getSkills
-msgid "Image"
-msgstr "Image"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Image"
+#~ msgstr "Image"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Image Credits"
@@ -507,9 +527,10 @@ msgstr "Managing Directors"
 msgid "Managing Directors:"
 msgstr "Managing Directors:"
 
-#: app/components/SkillsPanel.tsx#getSkills
-msgid "Marketing"
-msgstr "Marketing"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Marketing"
+#~ msgstr "Marketing"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Meet Sebastian/Consulting"
@@ -684,9 +705,10 @@ msgstr ""
 msgid "Processors"
 msgstr "Processors"
 
-#: app/components/SkillsPanel.tsx#getSkills
-msgid "Product"
-msgstr "Product"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Product"
+#~ msgstr "Product"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Products"
@@ -830,9 +852,10 @@ msgstr ""
 " reference before you trust it, and combine them when the work crosses "
 "disciplines."
 
-#: app/components/SkillsPanel.tsx#SkillsPanel
-msgid "Seven skills, one install each"
-msgstr "Seven skills, one install each"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#SkillsPanel
+#~ msgid "Seven skills, one install each"
+#~ msgstr "Seven skills, one install each"
 
 #: app/data/projects.ts#descriptions
 msgid ""
@@ -1112,9 +1135,10 @@ msgstr ""
 "We use the following processors pursuant to Art. 28 GDPR, with each of whom a "
 "data processing agreement is in place:"
 
-#: app/components/SkillsPanel.tsx#getSkills
-msgid "Web"
-msgstr "Web"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Web"
+#~ msgstr "Web"
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Web analytics with Rybbit"
@@ -1174,9 +1198,10 @@ msgstr ""
 "interests, rights and freedoms, or the processing serves the establishment, "
 "exercise or defence of legal claims."
 
-#: app/components/SkillsPanel.tsx#SkillsPanel
-msgid "Works with every agent that supports Agent Skills."
-msgstr "Works with every agent that supports Agent Skills."
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#SkillsPanel
+#~ msgid "Works with every agent that supports Agent Skills."
+#~ msgstr "Works with every agent that supports Agent Skills."
 
 #: app/data/featured.ts#getFeatured
 msgid ""
@@ -1190,9 +1215,10 @@ msgstr ""
 "Palamedes brings TypeScript applications into more languages with one runtime "
 "model."
 
-#: app/components/SkillsPanel.tsx#getSkills
-msgid "Writing"
-msgstr "Writing"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/SkillsPanel.tsx#getSkills
+#~ msgid "Writing"
+#~ msgstr "Writing"
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
