@@ -33,3 +33,15 @@ Type, space, and layout are fluid. Read
   lengths, and `bleed()` for anything that reaches beyond the page edge.
 - Keep hairlines, shadows, and small radii in px; do not add breakpoint
   overrides for sizes.
+
+## Pull request screenshots
+
+Repository facts for the change-screenshots route of `effective-web`:
+
+- `pnpm --filter <app> build` builds an app's variants into
+  `apps/<site>/build/<variant>/client`, the brand app into
+  `apps/brand/build/client`. The Consulting build needs Playwright's Chromium.
+- A page is a directory with an `index.html`; unknown paths resolve to
+  `/404/index.html`.
+- `?bunny` images load from the asset zone as `/images/<sha256>.<ext>`; images
+  the change adds are in the head build's `images/` directory.
