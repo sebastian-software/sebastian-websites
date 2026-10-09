@@ -1,4 +1,4 @@
-import { color, COMPACT, editorial, PHONE, scaled } from "@sebastian-websites/ui"
+import { bleed, color, COMPACT, editorial, PAGE_MARGIN, PHONE, scaled } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 /** The one contained berry passage; only its top edge leans. */
@@ -9,14 +9,15 @@ export const passage = style([
       [COMPACT]: { padding: scaled("96px 40px 72px"), rowGap: scaled("32px") },
       [PHONE]: {
         clipPath: `polygon(0 ${scaled("24px")}, 100% 0, 100% 100%, 0 100%)`,
-        marginInline: scaled("-20px"),
-        padding: scaled("72px 20px 56px"),
+        // Full bleed: the passage reaches the screen edges on phones.
+        marginInline: `calc(-1 * ${PAGE_MARGIN})`,
+        padding: `${scaled("72px")} ${PAGE_MARGIN} ${scaled("56px")}`,
       },
     },
     alignItems: "center",
     backgroundColor: color.passage,
     clipPath: `polygon(0 ${scaled("44px")}, 100% 0, 100% 100%, 0 100%)`,
-    marginInline: scaled("-24px"),
+    marginInline: `calc(-1 * ${bleed("24px")})`,
     padding: scaled("112px 48px 88px"),
   },
 ])

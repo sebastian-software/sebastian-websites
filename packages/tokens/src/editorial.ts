@@ -1,31 +1,46 @@
 import { type PaletteId, PALETTES } from "./palettes.ts"
 import { em, scaled, scaledBetween } from "./root.ts"
+import { SPACE_SCALE } from "./space.ts"
+
+/** The widest column of the page grid; it grows with the root. */
+const COLUMN = scaled("52px")
+
+/** The space between columns. */
+const GUTTER = SPACE_SCALE.l
 
 /**
  * The editorial system of the selected designs (design/IMPLEMENTATION-BRIEF.md):
- * a 12-column page of 1040 design pixels, Elena for headings and editorial
- * passages, Glober for practical text, and generous, evenly distributed vertical
- * rhythm. Lengths are in rem and follow the fluid root (`ROOT_FONT_SIZE`), so the
- * whole page grows with the screen; margins take the rest of the width.
+ * a 12-column page, Elena for headings and editorial passages, Glober for
+ * practical text, and generous, evenly distributed vertical rhythm.
+ *
+ * The page is a fluid grid after Utopia (utopia.fyi): it fills the width
+ * between its margins up to twelve of its widest columns and their gutters.
+ * Columns grow with the root, gutters and margins with the space scale, so a
+ * wider screen gives the page more room as well as larger type; beyond that
+ * width, the margins take the rest.
  */
 export const PAGE = {
   columns: 12,
-  gap: scaled("32px"),
-  /** The smallest margin beside the page: 20 px on phones, 48 px on desktop. */
-  margin: scaledBetween("20px", "48px"),
+  gap: GUTTER,
+  margin: SPACE_SCALE.s,
   /** Header shell and footer panel reach this far beyond the text edge. */
   overhang: scaledBetween("8px", "24px"),
-  width: scaled("1040px"),
+  width: `calc(12 * ${COLUMN} + 11 * ${GUTTER})`,
 } as const
+
+/** The page width of the original desktop design, the reference for image widths. */
+export const DESIGN_PAGE_WIDTH = 1040
 
 /**
  * Layout breakpoints, in em so they follow the reader's default font size.
- * Compact screens (tablets, small windows) stack the grid into one column and
- * fold the header into a menu; phones change layout details only. Sizes need
- * no breakpoints, the fluid root and `scaledBetween` move them continuously.
+ * Compact screens (phones, portrait tablets, small windows) stack the grid into
+ * one column and fold the header into a menu; from 960 px the column layout
+ * applies, which also starts its own space range. Phones change layout details
+ * only. Sizes need no breakpoints: the root, `scaledBetween`, and the space
+ * scale move them continuously.
  */
 export const BREAKPOINTS = {
-  compact: em("1023px"),
+  compact: em("959px"),
   phone: em("639px"),
 } as const
 
@@ -68,15 +83,15 @@ export const TYPE_SCALE = {
 /** Vertical rhythm, from the gap inside a block to the space between sections. */
 export const RHYTHM = {
   /** Between text and its action. */
-  action: scaled("32px"),
+  action: SPACE_SCALE.m,
   /** Between heading, text, and action inside a block. */
-  block: scaled("24px"),
+  block: SPACE_SCALE.s,
   /** Between a section heading and its content. */
-  head: scaled("56px"),
+  head: SPACE_SCALE.xl,
   /** Between the end of one section and the start of the next. */
-  section: scaledBetween("88px", "160px"),
+  section: SPACE_SCALE["3xl"],
   /** Between consecutive illustrated stories. */
-  story: scaledBetween("88px", "160px"),
+  story: SPACE_SCALE["3xl"],
 } as const
 
 /** The floating header shell and the footer panel. */

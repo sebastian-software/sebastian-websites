@@ -79,7 +79,7 @@ function TeamMember({ member }: { readonly member: Member }): ReactElement {
             className={styles.portrait}
             crop={member.portrait.crop}
             height={471}
-            sizes={`(max-width: 639px) 240px, (max-width: 1023px) 320px, ${scaledSizes("330px")}`}
+            sizes={`(max-width: 639px) 240px, (max-width: 959px) 320px, ${scaledSizes("330px")}`}
             src={member.portrait.src}
             width={330}
           />

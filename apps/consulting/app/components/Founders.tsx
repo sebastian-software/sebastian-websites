@@ -48,7 +48,7 @@ export function Founders(): ReactElement {
                     className={styles.photo}
                     crop={founder.portrait.crop}
                     height={529}
-                    sizes={`(max-width: 639px) calc(50vw - 28px), (max-width: 1023px) calc(50vw - 48px), ${scaledSizes("370px")}`}
+                    sizes={`(max-width: 639px) calc(50vw - 28px), (max-width: 959px) calc(50vw - 48px), ${scaledSizes("370px")}`}
                     src={founder.portrait.src}
                     width={370}
                   />
