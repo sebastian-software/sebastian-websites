@@ -14,6 +14,11 @@
   paths redirect through `hosting/redirects.ts`. The fixed-price offers are not carried over
   (they need their own concept), and the old PDF-name rules are dropped. Cutover is open
   (#23), desktop-first; mobile follows in #32.
+- State on 2026-10-09: the consultant profiles use the editorial, print-first layout of #40
+  with their existing texts: a one-page summary, project reports and a compact list of
+  additional projects, with the routes, PDF names and downloads unchanged. The PDF pipeline
+  checks that the summary fits page 1 and that the PDFs embed only Elena and Glober. New
+  profile copy for the editorial structure is a separate task.
 
 ## Why this matters
 
@@ -49,8 +54,9 @@ In scope:
 
 - `apps/consulting` on the shared shell: Home, Services (with the fixed-price offers), How we
   work, Profiles (Werner, Fastner, project profile), References, Contact, Legal.
-- Copy of the profile data, offers, and the PDF pipeline from the old repository; the print
-  layout is kept, the screen layout follows plan 01.
+- Copy of the profile data, offers, and the PDF pipeline from the old repository; the screen
+  layout follows plan 01. The consultant profiles follow the editorial direction of #40
+  instead of the former print layout.
 - English as source: the existing German catalog becomes the translation; the English
   catalog becomes source strings.
 - English slugs: `/fastner/project-profile` with a redirect from `/fastner/projektprofil`;
@@ -63,7 +69,7 @@ In scope:
 
 Out of scope:
 
-- Changing the profile PDFs' document shape; they are a recruiting deliverable.
+- Changing the project profile's five-page document shape; it is a recruiting deliverable.
 - Retiring the old repository and targets; that is plan 10.
 
 ## Verification commands

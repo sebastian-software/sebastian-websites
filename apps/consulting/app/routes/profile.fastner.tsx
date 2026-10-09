@@ -1,6 +1,6 @@
 import type { ReactNode } from "react"
 
-import { ProfilePrintV2 } from "~/components/ProfilePrintV2"
+import { ConsultantProfile } from "~/components/ConsultantProfile"
 import { getConsultant, getProjects, skills } from "~/data/fastner.data"
 import { activeLocale } from "~/lib/i18n"
 import { createSeoMetadata } from "~/lib/meta"
@@ -88,12 +88,11 @@ export default function ProfileFastner(): ReactNode {
   return (
     <>
       <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
-      <ProfilePrintV2
+      <ConsultantProfile
         consultant={{ ...consultant, photo: PROFILE_PHOTOS.fastner.sheet }}
         lang={activeLocale}
         projectProfile={getProfileDocument("project_profile", consultant.id)}
         projects={projects}
-        skills={skills}
       />
     </>
   )

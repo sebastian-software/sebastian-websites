@@ -1,6 +1,6 @@
 import type { ReactNode } from "react"
 
-import { ProfilePrintV2 } from "~/components/ProfilePrintV2"
+import { ConsultantProfile } from "~/components/ConsultantProfile"
 import { getConsultant, getProjects, skills } from "~/data/werner.data"
 import { activeLocale } from "~/lib/i18n"
 import { createSeoMetadata } from "~/lib/meta"
@@ -80,11 +80,10 @@ export default function ProfileWerner(): ReactNode {
   return (
     <>
       <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
-      <ProfilePrintV2
+      <ConsultantProfile
         consultant={{ ...consultant, photo: PROFILE_PHOTOS.werner.sheet }}
         lang={activeLocale}
         projects={projects}
-        skills={skills}
       />
     </>
   )

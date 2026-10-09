@@ -8,7 +8,7 @@ import {
   PROFILE_PDFS,
   type ProfileDocumentDescriptor,
 } from "../app/lib/untranslated"
-import { createPdfFixture, createProjectProfilePdfFixture } from "./pdfTestFixture"
+import { createConsultantProfilePdfFixture, createProjectProfilePdfFixture } from "./pdfTestFixture"
 import {
   assertDistinctFilenames,
   assertProfilePdfNamesDistinct,
@@ -70,7 +70,10 @@ function wronglyTargetedPage(document: ProfileDocumentDescriptor): string {
 
 async function createPdfOutput(
   locale: "de" | "en",
-  projectOptions?: Parameters<typeof createProjectProfilePdfFixture>[0]
+  projectOptions?: Parameters<typeof createProjectProfilePdfFixture>[0],
+  consultantOptions?: (
+    consultantId: string
+  ) => Omit<Parameters<typeof createConsultantProfilePdfFixture>[0], "consultantId">
 ): Promise<string> {
   const root = await createRoot()
   await Promise.all(
@@ -79,7 +82,11 @@ async function createPdfOutput(
       const fixture =
         document.kind === "project_profile"
           ? createProjectProfilePdfFixture({ locale, ...projectOptions })
-          : createPdfFixture()
+          : createConsultantProfilePdfFixture({
+              consultantId: document.consultantId,
+              locale,
+              ...consultantOptions?.(document.consultantId),
+            })
       await write(join(root, "pdfs", filename), fixture)
     })
   )
@@ -203,6 +210,36 @@ describe("profile artifact verifier", () => {
     await expect(
       verifyVariantProfileArtifacts(await createPdfOutput("de"), "de")
     ).resolves.toBeUndefined()
+  })
+
+  it("rejects a consultant profile whose summary runs onto the second page", async () => {
+    const root = await createPdfOutput("en", undefined, (consultantId) => ({
+      pageTexts: [
+        `Sebastian ${consultantId.charAt(0).toUpperCase()}${consultantId.slice(1)} Personal Details`,
+        "Industry Experience",
+        "Project Experience Additional Projects",
+      ],
+    }))
+
+    await expect(verifyVariantProfileArtifacts(root, "en")).rejects.toThrow(
+      "does not start the project reports on page 2"
+    )
+  })
+
+  it("rejects a consultant profile set in a fallback font", async () => {
+    const root = await createPdfOutput("de", undefined, () => ({ fontName: "BAAAAA+ArialMT" }))
+
+    await expect(verifyVariantProfileArtifacts(root, "de")).rejects.toThrow(
+      "uses fonts outside Elena and Glober: BAAAAA+ArialMT"
+    )
+  })
+
+  it("rejects a consultant profile without the consultant's mailbox link", async () => {
+    const root = await createPdfOutput("de", undefined, () => ({ links: [] }))
+
+    await expect(verifyVariantProfileArtifacts(root, "de")).rejects.toThrow(
+      "does not link the consultant's mailbox"
+    )
   })
 
   it("rejects a project-profile PDF with the wrong page count", async () => {

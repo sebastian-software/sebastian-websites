@@ -52,6 +52,8 @@ export const SHEET_PHOTO = { height: 709, width: 532 } as const
 const FASTNER_CENTER = 0.575
 const FASTNER_SHEET_HEIGHT = 0.467
 const FASTNER_TEASER_HEIGHT = 0.423
+const WERNER_SHEET_CENTER = 0.5
+const WERNER_SHEET_HEIGHT = 0.36
 const WERNER_TEASER_CENTER = 0.533
 const WERNER_TEASER_HEIGHT = 0.362
 
@@ -71,7 +73,12 @@ export const PROFILE_PHOTOS = {
     },
   },
   werner: {
-    sheet: { crop: { mode: "center" }, src: SHOOT_15 },
+    // The editorial profile prints the portrait small; a closer crop keeps
+    // the face legible at 30 × 40 mm.
+    sheet: {
+      crop: { mode: "focus", point: [WERNER_SHEET_CENTER, WERNER_SHEET_HEIGHT], zoom: 1.6 },
+      src: SHOOT_15,
+    },
     teaser: {
       crop: { mode: "focus", point: [WERNER_TEASER_CENTER, WERNER_TEASER_HEIGHT], zoom: 1.429 },
       src: SHOOT_32,
