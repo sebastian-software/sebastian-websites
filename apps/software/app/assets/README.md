@@ -2,12 +2,14 @@
 
 Commercial product articles and the regional company story.
 
-| Asset                                                                             | Native dimensions |
-| --------------------------------------------------------------------------------- | ----------------- |
-| [Terminaro — appointment calendar](illustrations/terminaro-calendar.png)          | 1448 × 1086       |
-| [Palamedes+ — translation books](illustrations/palamedes-plus-books.png)          | 1448 × 1086       |
-| [VorOrt — local storefront](illustrations/vorort-storefront.png)                  | 1448 × 1086       |
-| [Mainz and Heidelberg — shared region](illustrations/mainz-heidelberg-region.png) | 1536 × 1024       |
+The pastel map of Mainz and Heidelberg for the regional story is served from the shared asset
+zone as `images/11-pastel-palette-r6.png` (1536 × 1024, transparent), following ADR-0014.
+
+| Asset                                                                    | Native dimensions |
+| ------------------------------------------------------------------------ | ----------------- |
+| [Terminaro — appointment calendar](illustrations/terminaro-calendar.png) | 1448 × 1086       |
+| [Palamedes+ — translation books](illustrations/palamedes-plus-books.png) | 1448 × 1086       |
+| [VorOrt — local storefront](illustrations/vorort-storefront.png)         | 1448 × 1086       |
 
 ## Product marks
 

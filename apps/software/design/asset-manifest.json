@@ -30,13 +30,14 @@
       "transparent": true
     },
     {
-      "file": "app/assets/illustrations/mainz-heidelberg-region.png",
+      "shared_asset": "images/11-pastel-palette-r6.png",
       "width": 1536,
       "height": 1024,
-      "sha256": "3db38b893736225fb0938ab0a5def9a5163c12343a4b19d1f63605647b0adbc9",
-      "title": "Mainz and Heidelberg \u2014 shared region",
-      "origin": "Built-in ImageGen reconstruction",
-      "transparent": true
+      "sha256": "4324b0a41c01d6533fe2300b91a040eeb611181c792b636c1e7f29f966944fdc",
+      "title": "Mainz and Heidelberg \u2014 pastel region map",
+      "origin": "Shared asset zone",
+      "transparent": true,
+      "note": "Served from the shared asset zone (ADR-0014), not stored in this repository."
     }
   ],
   "concepts": [
