@@ -46,6 +46,15 @@
       "title": "Consulting bridge \u2014 illustrated route",
       "origin": "Built-in ImageGen reconstruction",
       "transparent": true
+    },
+    {
+      "file": "app/assets/illustrations/effective-agent-robot.png",
+      "width": 1448,
+      "height": 1086,
+      "sha256": "12d97bd45d087660f5d003032d79674e9fd9658b55a7d90517e6c5edf1d9faad",
+      "title": "Effective Agent \u2014 robot loading skills",
+      "origin": "Codex built-in ImageGen, new generation with style references",
+      "transparent": true
     }
   ],
   "concepts": [
