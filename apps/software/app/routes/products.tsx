@@ -5,15 +5,20 @@ import { blocks, layout, Section, SectionHead, typography } from "@sebastian-web
 
 import { Closing } from "~/components/Closing"
 import { ProductCards } from "~/components/ProductCards"
+import { getProducts } from "~/data/products"
+import { variant } from "~/lib/site"
 
 import type { Route } from "./+types/products"
 
 // eslint-disable-next-line react-refresh/only-export-components -- React Router reads meta from the route module
 export function meta(): Route.MetaDescriptors {
+  const names = new Intl.ListFormat(variant.locale, { style: "long", type: "conjunction" }).format(
+    getProducts().map((product) => product.name)
+  )
   return [
     { title: t`Products – Sebastian Software` },
     {
-      content: t`Terminaro for appointment booking, Palamedes+ for managed translations: the products of Sebastian Software.`,
+      content: t`${names}: the products of Sebastian Software, each grown out of a gap we saw ourselves and used in our own work.`,
       name: "description",
     },
   ]
