@@ -1,7 +1,13 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { ArrowLink, BunnyImage, editorialSizes, scaledSizes } from "@sebastian-websites/ui"
+import {
+  ArrowLink,
+  BunnyImage,
+  editorial,
+  editorialSizes,
+  scaledSizes,
+} from "@sebastian-websites/ui"
 
 import type { Consultant } from "~/components/profile-print/types"
 import type { Portrait } from "~/lib/photos"
@@ -129,7 +135,7 @@ export default function Team(): ReactElement {
       <figure className={styles.photoFrame}>
         <BunnyImage
           alt={t`Sebastian Fastner and Sebastian Werner in conversation in front of a sandstone wall`}
-          className={styles.photo}
+          className={editorial.widePhoto}
           crop={TEAM_PHOTO.crop}
           height={520}
           priority

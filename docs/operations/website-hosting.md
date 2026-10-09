@@ -105,7 +105,7 @@ Upload source files manually through Bunny's file manager. Keep local backups ou
     shoot-1.jpg
     ...
     shoot-46.jpg
-  shooting-2024-edit/
+    color_09092024-1.jpg
     color_09092024-1-retouched.png
     ...
   fonts/
@@ -125,9 +125,9 @@ resizing occurs during publishing. Only the requested CDN variants are resized. 
 initial local upload folder is `~/Workspace/sebastian-photos-2024/publish`, containing
 byte-identical copies of the originals in `shooting-2024/`.
 
-Retouched edits of the shoot are uploaded manually to `shooting-2024-edit/` as
-`color_09092024-N-retouched.png` (1024 × 1536 or 1536 × 1024). The sites reference these
-edits; crops keep their relative focal points, so a replaced edit only needs its path and
+Retouched edits of all 46 photographs are uploaded manually to `shooting-2024/` beside the
+originals as `color_09092024-N-retouched.png` (2352 × 3520 or 3520 × 2352). The sites reference
+these edits; crops keep their relative focal points, so a replaced edit only needs its path and
 dimensions updated in the app's `photos.ts`.
 
 ```bash

@@ -17,28 +17,28 @@ const WERNER_ZOOM = 1.48
 export const PORTRAITS = {
   fastner: {
     crop: { mode: "focus", point: [FASTNER_FACE, FACE_HEIGHT], zoom: FASTNER_ZOOM },
-    src: { height: 1536, path: "shooting-2024-edit/color_09092024-4-retouched.png", width: 1024 },
+    src: { height: 3520, path: "shooting-2024/color_09092024-4-retouched.png", width: 2352 },
   },
   werner: {
     crop: { mode: "focus", point: [WERNER_FACE, FACE_HEIGHT], zoom: WERNER_ZOOM },
-    src: { height: 1536, path: "shooting-2024-edit/color_09092024-3-retouched.png", width: 1024 },
+    src: { height: 3520, path: "shooting-2024/color_09092024-3-retouched.png", width: 2352 },
   },
 } as const satisfies Readonly<Record<string, Portrait>>
 
 const SHOOT_15 = {
-  height: 1024,
-  path: "shooting-2024-edit/color_09092024-15-retouched.png",
-  width: 1536,
+  height: 2352,
+  path: "shooting-2024/color_09092024-15-retouched.png",
+  width: 3520,
 } as const
 const SHOOT_31 = {
-  height: 1536,
-  path: "shooting-2024-edit/color_09092024-31-retouched.png",
-  width: 1024,
+  height: 3520,
+  path: "shooting-2024/color_09092024-31-retouched.png",
+  width: 2352,
 } as const
 const SHOOT_32 = {
-  height: 1024,
-  path: "shooting-2024-edit/color_09092024-32-retouched.png",
-  width: 1536,
+  height: 2352,
+  path: "shooting-2024/color_09092024-32-retouched.png",
+  width: 3520,
 } as const
 
 /**
@@ -86,5 +86,14 @@ const TEAM_HEIGHT = 0.62
 /** The team page's opening photograph. */
 export const TEAM_PHOTO = {
   crop: { mode: "focus", point: [TEAM_CENTER, TEAM_HEIGHT], zoom: 1.3 },
-  src: { height: 1024, path: "shooting-2024-edit/color_09092024-34-retouched.png", width: 1536 },
+  src: { height: 2352, path: "shooting-2024/color_09092024-34-retouched.png", width: 3520 },
+} as const satisfies Portrait
+
+// Both founders at a table with coffee, cropped low enough to keep the cups.
+const HOME_CENTER = 0.5
+
+/** The Consulting homepage opens with the founders in conversation. */
+export const HOME_PHOTO = {
+  crop: { mode: "focus", point: [HOME_CENTER, HOME_CENTER] },
+  src: { height: 2352, path: "shooting-2024/color_09092024-11-retouched.png", width: 3520 },
 } as const satisfies Portrait

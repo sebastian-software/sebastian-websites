@@ -19,21 +19,21 @@ export const PHOTO_SIZES =
 export const laptopPhoto: PhotoPlacement = {
   crop: { mode: "focus", point: [CENTER, LAPTOP_FOCUS] },
   height: LANDSCAPE_HEIGHT,
-  src: { height: 1536, path: "shooting-2024-edit/color_09092024-19-retouched.png", width: 1024 },
+  src: { height: 3520, path: "shooting-2024/color_09092024-19-retouched.png", width: 2352 },
   width: PHOTO_WIDTH,
 }
 
 export const buildingPhoto: PhotoPlacement = {
   crop: { mode: "focus", point: [CENTER, BUILDING_FOCUS] },
   height: LANDSCAPE_HEIGHT,
-  src: { height: 1536, path: "shooting-2024-edit/color_09092024-26-retouched.png", width: 1024 },
+  src: { height: 3520, path: "shooting-2024/color_09092024-26-retouched.png", width: 2352 },
   width: PHOTO_WIDTH,
 }
 
 export const wernerPhoto: PhotoPlacement = {
   crop: { mode: "focus", point: [CENTER, PORTRAIT_FOCUS] },
   height: PORTRAIT_MEDIUM,
-  src: { height: 1536, path: "shooting-2024-edit/color_09092024-3-retouched.png", width: 1024 },
+  src: { height: 3520, path: "shooting-2024/color_09092024-3-retouched.png", width: 2352 },
   width: PORTRAIT_MEDIUM,
   widths: [PORTRAIT_SMALL, PORTRAIT_MEDIUM, PORTRAIT_LARGE],
 }
@@ -41,7 +41,15 @@ export const wernerPhoto: PhotoPlacement = {
 export const fastnerPhoto: PhotoPlacement = {
   crop: { mode: "focus", point: [CENTER, PORTRAIT_FOCUS] },
   height: PORTRAIT_MEDIUM,
-  src: { height: 1536, path: "shooting-2024-edit/color_09092024-4-retouched.png", width: 1024 },
+  src: { height: 3520, path: "shooting-2024/color_09092024-4-retouched.png", width: 2352 },
   width: PORTRAIT_MEDIUM,
   widths: [PORTRAIT_SMALL, PORTRAIT_MEDIUM, PORTRAIT_LARGE],
 }
+
+const TEAM_FOCUS = 0.42
+
+/** Both founders in the office lounge, across the homepage below the introduction. */
+export const teamPhoto = {
+  crop: { mode: "focus", point: [CENTER, TEAM_FOCUS] },
+  src: { height: 2352, path: "shooting-2024/color_09092024-14-retouched.png", width: 3520 },
+} as const satisfies Pick<BunnyImageProps, "crop" | "src">

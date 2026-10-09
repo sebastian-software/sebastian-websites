@@ -1,16 +1,28 @@
 import { color, COMPACT, editorial, PHONE, scaled } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
+/** The opening photograph starts close below the header. */
 export const main = style([
   editorial.page,
   {
     "@media": {
-      [COMPACT]: { paddingTop: scaled("72px") },
-      [PHONE]: { paddingTop: scaled("48px") },
+      [COMPACT]: { paddingTop: scaled("48px") },
+      [PHONE]: { paddingTop: scaled("32px") },
     },
-    paddingTop: scaled("112px"),
+    paddingTop: scaled("64px"),
   },
 ])
+
+/** The page opens with the founders; the headline follows close below. */
+export const photoFrame = style({
+  "@media": {
+    [COMPACT]: { paddingBottom: scaled("56px") },
+    [PHONE]: { paddingBottom: scaled("40px") },
+  },
+  display: "block",
+  margin: 0,
+  paddingBottom: scaled("72px"),
+})
 
 export const hero = style([
   editorial.grid,

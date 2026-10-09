@@ -60,7 +60,7 @@ uses the asset zone.
 ## Existing shared originals
 
 Private photo originals remain outside the public repository. Reference them with
-an `ImageSource` such as `{ path: "shooting-2024-edit/color_09092024-19-retouched.png", width: 1024, height: 1536 }`.
+an `ImageSource` such as `{ path: "shooting-2024/color_09092024-19-retouched.png", width: 2352, height: 3520 }`.
 The component supports both these sources and repository imports.
 
 ## Display sizes and crops

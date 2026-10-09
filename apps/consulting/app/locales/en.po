@@ -1904,6 +1904,12 @@ msgstr ""
 "Sebastian Consulting – Architecture and engineering for complex web "
 "applications"
 
+#: app/routes/home.tsx
+msgid ""
+"Sebastian Fastner and Sebastian Werner in conversation at a table with coffee"
+msgstr ""
+"Sebastian Fastner and Sebastian Werner in conversation at a table with coffee"
+
 #: app/routes/team.tsx
 msgid ""
 "Sebastian Fastner and Sebastian Werner in conversation in front of a sandstone"

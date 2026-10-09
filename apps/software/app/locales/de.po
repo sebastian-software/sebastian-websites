@@ -1540,6 +1540,10 @@ msgstr ""
 #~ "Produkte, die Bestand haben sollen, und teilen die Werkzeuge dahinter als Open"
 #~ " Source."
 
+#: app/routes/home.tsx
+msgid "Sebastian Werner and Sebastian Fastner in the office lounge"
+msgstr "Sebastian Werner und Sebastian Fastner in der Lounge ihres Büros"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "See what we build beyond consulting."
 msgstr "Sehen Sie, was wir jenseits der Beratung bauen."
