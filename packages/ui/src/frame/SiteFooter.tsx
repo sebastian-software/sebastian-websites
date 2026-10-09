@@ -47,8 +47,8 @@ export function SiteFooter(props: SiteFooterProps): ReactElement {
               <br />
               {company.country}
               <br />
-              <a className={styles.plainLink} href={`mailto:${company.email}`}>
-                {company.email}
+              <a className={styles.plainLink} href={`mailto:${frame.email}`}>
+                {frame.email}
               </a>
             </address>
           </div>

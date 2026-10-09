@@ -61,6 +61,15 @@ describe("site frame", () => {
     ])
   })
 
+  it("prints the same mailbox in the address as the contact link", () => {
+    for (const locale of ["de", "en"] as const) {
+      const frame = getSiteFrame("consulting", locale, "/")
+      expect(frame.legal.find((link) => link.id === "contact")?.href).toBe(`mailto:${frame.email}`)
+    }
+    expect(getSiteFrame("consulting", "en", "/").email).toBe("info@sebastian-consulting.com")
+    expect(getSiteFrame("software", "en", "/").email).toBe("info@sebastian-software.de")
+  })
+
   it("sends Software-context legal contact to the Software contact page", () => {
     const legal = getSiteFrame("opensource", "de", "/").legal
     expect(legal.map((link) => link.href)).toStrictEqual([
