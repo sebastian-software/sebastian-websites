@@ -11,12 +11,13 @@ const MAP_WIDTH = 720
 /** The pastel map of the region from the shared asset zone (ADR-0014). */
 const REGION = { height: 1024, path: "images/11-pastel-palette-r6.png", width: 1536 } as const
 
-/** Positions in percent of the drawing, beside the landmark each name belongs to. */
+/**
+ * Positions in percent of the complete drawing, beside the landmark each name
+ * belongs to. Only the two cities are named; the drawing itself has no text.
+ */
 const PLACES = [
-  { id: "mainz", x: 48, y: 9 },
-  { id: "rhine-main", x: 76, y: 20 },
-  { id: "rhine-neckar", x: 24, y: 62 },
-  { id: "heidelberg", x: 45, y: 91 },
+  { id: "mainz", x: 29, y: 37.5 },
+  { id: "heidelberg", x: 50, y: 81.5 },
 ] as const
 
 /**
@@ -26,12 +27,7 @@ const PLACES = [
  * @returns The regional story.
  */
 export function RegionStory(): ReactElement {
-  const names = {
-    heidelberg: "Heidelberg",
-    mainz: "Mainz",
-    "rhine-main": t`Rhine-Main`,
-    "rhine-neckar": t`Rhine-Neckar`,
-  }
+  const names = { heidelberg: "Heidelberg", mainz: "Mainz" }
   return (
     <section aria-labelledby="company-story" className={styles.region}>
       <figure className={styles.map}>

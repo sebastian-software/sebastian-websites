@@ -1365,13 +1365,15 @@ msgstr "Registereintrag"
 msgid "Register Number:"
 msgstr "Registernummer:"
 
-#: app/components/RegionStory.tsx#RegionStory
-msgid "Rhine-Main"
-msgstr "Rhein-Main"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/RegionStory.tsx#RegionStory
+#~ msgid "Rhine-Main"
+#~ msgstr "Rhein-Main"
 
-#: app/components/RegionStory.tsx#RegionStory
-msgid "Rhine-Neckar"
-msgstr "Rhein-Neckar"
+#~ #@ obsolete-since: 2026-10-09
+#~ #: app/components/RegionStory.tsx#RegionStory
+#~ msgid "Rhine-Neckar"
+#~ msgstr "Rhein-Neckar"
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid "Right of access (Art. 15 GDPR)"
