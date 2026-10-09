@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest"
 
-import { BOOKING_URL, getLanguageLinks, getSiteFrame } from "./frame.ts"
+import { BOOKING_URL, contactEmail, getLanguageLinks, getSiteFrame } from "./frame.ts"
 
 describe("site frame", () => {
   it("gives Software and Open Source the Software context without a Skills entry", () => {
@@ -68,6 +68,7 @@ describe("site frame", () => {
     }
     expect(getSiteFrame("consulting", "en", "/").email).toBe("info@sebastian-consulting.com")
     expect(getSiteFrame("software", "en", "/").email).toBe("info@sebastian-software.de")
+    expect(contactEmail("consulting", "de")).toBe("info@sebastian-consulting.de")
   })
 
   it("sends Software-context legal contact to the Software contact page", () => {

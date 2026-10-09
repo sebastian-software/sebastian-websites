@@ -30,6 +30,18 @@ const CONTACT_EMAIL = {
   software: { de: "info@sebastian-software.de", en: "info@sebastian-software.de" },
 } as const satisfies Readonly<Record<BrandId, Readonly<Record<Locale, string>>>>
 
+/**
+ * The brand's contact mailbox in one language, for footers, legal texts, and
+ * printed profiles alike.
+ *
+ * @param brand - The brand whose mailbox is wanted.
+ * @param locale - The language of the page or document.
+ * @returns The mailbox address.
+ */
+export function contactEmail(brand: BrandId, locale: Locale): string {
+  return CONTACT_EMAIL[brand][locale]
+}
+
 export type FrameLinkId =
   | "booking"
   | "company"
