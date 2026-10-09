@@ -15,24 +15,34 @@ import type { FeaturedId, FeaturedProject } from "~/data/featured"
 import ardoMark from "~/assets/brands/ardo-mark.svg"
 import daloMark from "~/assets/brands/dalo-mark.svg"
 import daloWordmark from "~/assets/brands/dalo-wordmark.svg"
+import effectiveAgentMark from "~/assets/brands/effective-agent-mark.svg"
 import ferramentaMark from "~/assets/brands/ferramenta-mark.svg"
 import ferramentaWordmark from "~/assets/brands/ferramenta-wordmark.svg"
 import palamedesMark from "~/assets/brands/palamedes-mark.svg"
 import palamedesWordmark from "~/assets/brands/palamedes-wordmark.svg"
 
 import * as styles from "./FeaturedStory.css.ts"
-import { SkillsPanel } from "./SkillsPanel"
 
 type Artwork = { readonly height: number; readonly src: string; readonly width: number }
 
-/** Each project's original mark and wordmark at its display size; Effective Agent has none yet. */
+/**
+ * Each project's original mark at its display size, with its wordmark where it
+ * has one; otherwise the name is set as text in the project's own style.
+ */
 const IDENTITIES: Readonly<
-  Partial<Record<FeaturedId, { readonly mark: Artwork; readonly wordmark?: Artwork }>>
+  Record<
+    FeaturedId,
+    { readonly mark: Artwork; readonly nameClassName?: string; readonly wordmark?: Artwork }
+  >
 > = {
-  ardo: { mark: { height: 68, src: ardoMark, width: 68 } },
+  ardo: { mark: { height: 68, src: ardoMark, width: 68 }, nameClassName: styles.ardoName },
   dalo: {
     mark: { height: 62, src: daloMark, width: 71 },
     wordmark: { height: 44, src: daloWordmark, width: 172 },
+  },
+  "effective-agent": {
+    mark: { height: 64, src: effectiveAgentMark, width: 64 },
+    nameClassName: styles.textName,
   },
   ferramenta: {
     mark: { height: 60, src: ferramentaMark, width: 60 },
@@ -49,15 +59,7 @@ function Identity(props: {
   readonly side: "end" | "start"
 }): ReactElement {
   const { project, side } = props
-  const identity = IDENTITIES[project.id]
-  if (identity === undefined) {
-    return (
-      <div className={styles.identity[side]}>
-        <span className={styles.textName}>{project.name}</span>
-      </div>
-    )
-  }
-  const { mark, wordmark } = identity
+  const { mark, nameClassName, wordmark } = IDENTITIES[project.id]
   return (
     <div className={styles.identity[side]}>
       <img
@@ -68,7 +70,7 @@ function Identity(props: {
         width={mark.width}
       />
       {wordmark === undefined ? (
-        <span className={styles.ardoName}>{project.name}</span>
+        <span className={nameClassName}>{project.name}</span>
       ) : (
         <img
           alt={project.name}
@@ -108,19 +110,15 @@ export function FeaturedStory(props: FeaturedStoryProps): ReactElement {
     <Story
       aria-labelledby={headingId}
       media={
-        project.illustration === undefined ? (
-          <SkillsPanel />
-        ) : (
-          <BunnyImage
-            alt={project.illustration.alt}
-            className={editorial.media}
-            height={media.height}
-            priority={index === 0}
-            sizes={editorialSizes(media.width)}
-            src={project.illustration.src}
-            width={media.width}
-          />
-        )
+        <BunnyImage
+          alt={project.illustration.alt}
+          className={editorial.media}
+          height={media.height}
+          priority={index === 0}
+          sizes={editorialSizes(media.width)}
+          src={project.illustration.src}
+          width={media.width}
+        />
       }
       mediaPosition={side}
     >

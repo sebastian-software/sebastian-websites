@@ -5,6 +5,7 @@ import { getSiteOrigin } from "@sebastian-websites/web-core"
 
 import ardoBook from "~/assets/illustrations/ardo-documentation-book.png?bunny"
 import daloSetup from "~/assets/illustrations/dalo-agent-setup.png?bunny"
+import effectiveAgentRobot from "~/assets/illustrations/effective-agent-robot.png?bunny"
 import ferramentaDocuments from "~/assets/illustrations/ferramenta-documents.png?bunny"
 import palamedesCatalogs from "~/assets/illustrations/palamedes-catalogs.png?bunny"
 
@@ -20,8 +21,8 @@ export type FeaturedProject = {
   readonly actions: ReadonlyArray<{ readonly href: string; readonly label: string }>
   readonly description: string
   readonly id: FeaturedId
-  /** The drawing beside the text; a project without one shows its catalog panel. */
-  readonly illustration?: { readonly alt: string; readonly src: ImageSource }
+  /** The drawing beside the text. */
+  readonly illustration: { readonly alt: string; readonly src: ImageSource }
   readonly name: string
   readonly title: string
 }
@@ -92,6 +93,10 @@ export function getFeatured(): readonly FeaturedProject[] {
       ],
       description: t`Seven open-source skills that put our way of working into instructions a coding agent can follow: product decisions, web, engineering, delivery, writing, marketing, and image work. Install one for your next task, read every reference before you trust it, and combine them when the work crosses disciplines.`,
       id: "effective-agent",
+      illustration: {
+        alt: t`A drawn little tin robot with glowing eyes, connected by a cable to a device holding seven colored cartridges.`,
+        src: effectiveAgentRobot,
+      },
       name: "Effective Agent",
       title: t`Better judgment for coding agents.`,
     },
