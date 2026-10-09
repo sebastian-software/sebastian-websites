@@ -19,3 +19,17 @@ changing image placements.
 - Private photo originals stay outside the public repository. Reference existing
   shared originals using an `ImageSource`, following
   [ADR-0014](docs/adr/0014-images-from-shared-asset-zone.md).
+
+## Sizes and spacing
+
+Type, space, and layout are fluid. Read
+[ADR-0016](docs/adr/0016-fluid-root-font-size.md),
+[ADR-0017](docs/adr/0017-space-scale-and-page-grid.md), and
+[ADR-0018](docs/adr/0018-type-scale-with-growing-ratio.md) before changing sizes.
+
+- Set font sizes with `typeStep()`; give a heading the largest step at which it
+  needs at most three lines in its column on a laptop.
+- Use `SPACE_SCALE` steps for rhythm and gaps, `scaled()` for other design
+  lengths, and `bleed()` for anything that reaches beyond the page edge.
+- Keep hairlines, shadows, and small radii in px; do not add breakpoint
+  overrides for sizes.

@@ -1,4 +1,4 @@
-import { color, COMPACT, editorial, font, PHONE, scaled } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 export const main = style([
@@ -28,10 +28,9 @@ export const heroTitle = style([
   editorial.display,
   {
     "@media": {
-      [COMPACT]: { fontSize: scaled("46px"), marginRight: 0 },
-      [PHONE]: { fontSize: scaled("36px") },
+      [COMPACT]: { marginRight: 0 },
     },
-    fontSize: scaled("56px"),
+    fontSize: typeStep("5"),
     gridColumn: "1 / span 7",
     lineHeight: 1.16,
     marginRight: scaled("-32px"),
@@ -51,7 +50,7 @@ export const heroAside = style({
   paddingLeft: scaled("32px"),
 })
 
-export const heroText = style([editorial.body, { fontSize: scaled("19px"), lineHeight: 1.55 }])
+export const heroText = style([editorial.body, { fontSize: typeStep("0"), lineHeight: 1.55 }])
 
 export const photoFrame = style([editorial.section, { display: "block", margin: 0 }])
 
@@ -93,7 +92,7 @@ export const memberText = style({
 export const role = style({
   color: color.accent,
   fontFamily: font.sans,
-  fontSize: scaled("13px"),
+  fontSize: typeStep("-2"),
   fontWeight: 600,
   letterSpacing: "0.22em",
   textTransform: "uppercase",
@@ -106,8 +105,7 @@ export const focus = style([editorial.lead, { marginTop: scaled("20px") }])
 export const statement = style([
   editorial.body,
   {
-    "@media": { [PHONE]: { fontSize: scaled("17px") } },
-    fontSize: scaled("19px"),
+    fontSize: typeStep("0"),
     lineHeight: 1.55,
     marginTop: scaled("16px"),
   },
@@ -126,7 +124,7 @@ export const skill = style({
   border: `1px solid ${color.accent}`,
   color: color.accent,
   fontFamily: font.sans,
-  fontSize: scaled("14px"),
+  fontSize: typeStep("-2"),
   lineHeight: 1,
   padding: scaled("8px 12px"),
 })

@@ -1,4 +1,4 @@
-import { FRAME, PALETTES, RHYTHM, scaled, TYPE_SCALE } from "@sebastian-websites/tokens"
+import { FRAME, PALETTES, RHYTHM, scaled, TYPE_SCALE, typeStep } from "@sebastian-websites/tokens"
 import { style, styleVariants } from "@vanilla-extract/css"
 
 import { grid, heading, lead, outboundAccent, title } from "../editorial/editorial.css.ts"
@@ -41,7 +41,7 @@ export const newsletterTitle = style([
 export const newsletterText = style({
   color: color.text,
   fontFamily: font.sans,
-  fontSize: scaled("20px"),
+  fontSize: typeStep("1"),
   gridColumn: "1 / span 5",
   gridRow: 2,
   lineHeight: 1.5,
@@ -63,13 +63,13 @@ export const field = style([
   continuousCorners(FIELD_RADIUS),
   {
     "::placeholder": { color: color.subtle, opacity: 1 },
-    "@media": { [PHONE]: { flex: "none", fontSize: scaled("18px"), height: scaled("52px") } },
+    "@media": { [PHONE]: { flex: "none", height: scaled("52px") } },
     backgroundColor: FRAME.shell,
     border: `1px solid ${color.rule}`,
     color: color.heading,
     flex: 1,
     fontFamily: font.sans,
-    fontSize: scaled("19px"),
+    fontSize: typeStep("0"),
     height: FIELD_HEIGHT,
     minWidth: 0,
     paddingInline: scaled("20px"),
@@ -83,14 +83,14 @@ export const field = style([
 export const submit = style([
   continuousCorners(FIELD_RADIUS),
   {
-    "@media": { [PHONE]: { fontSize: scaled("18px"), height: scaled("52px") } },
+    "@media": { [PHONE]: { height: scaled("52px") } },
     backgroundColor: ACTION,
     border: 0,
     color: "#fff",
     cursor: "pointer",
     flexShrink: 0,
     fontFamily: font.sans,
-    fontSize: scaled("20px"),
+    fontSize: typeStep("1"),
     height: FIELD_HEIGHT,
     paddingInline: scaled("38px"),
     selectors: {
@@ -136,10 +136,9 @@ export const invitationTitle = style([
   title,
   {
     "@media": {
-      [COMPACT]: { fontSize: scaled("38px") },
-      [PHONE]: { fontSize: scaled("30px"), marginBottom: scaled("20px") },
+      [PHONE]: { marginBottom: scaled("20px") },
     },
-    fontSize: scaled("46px"),
+    fontSize: typeStep("4"),
     lineHeight: 1.16,
     marginBottom: scaled("28px"),
   },
@@ -195,7 +194,7 @@ export const footerLogo = style({
 })
 
 export const address = style({
-  fontSize: scaled("16px"),
+  fontSize: typeStep("-1"),
   fontStyle: "normal",
   lineHeight: 1.42,
   marginTop: scaled("28px"),
@@ -215,7 +214,7 @@ export const aside = style({
 export const index = style({
   "@media": { [PHONE]: { lineHeight: scaled("40px") } },
   display: "grid",
-  fontSize: scaled("17px"),
+  fontSize: typeStep("0"),
   lineHeight: scaled("28.5px"),
   listStyle: "none",
   margin: 0,
@@ -225,7 +224,7 @@ export const index = style({
 export const profiles = style({
   columnGap: scaled("36px"),
   display: "flex",
-  fontSize: scaled("16px"),
+  fontSize: typeStep("-1"),
   listStyle: "none",
   margin: 0,
   padding: 0,
@@ -250,7 +249,7 @@ export const baseline = style({
   alignItems: "baseline",
   borderTop: `1px solid ${color.rule}`,
   display: "flex",
-  fontSize: scaled("15px"),
+  fontSize: typeStep("-1"),
   justifyContent: "space-between",
   marginTop: scaled("30px"),
   paddingTop: scaled("24px"),

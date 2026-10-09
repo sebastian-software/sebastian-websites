@@ -1,4 +1,4 @@
-import { color, COMPACT, editorial, PHONE, scaled } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 export const closing = style([
@@ -12,10 +12,9 @@ export const title = style([
   editorial.display,
   {
     "@media": {
-      [COMPACT]: { fontSize: scaled("46px") },
-      [PHONE]: { fontSize: scaled("36px"), marginBottom: scaled("20px") },
+      [PHONE]: { marginBottom: scaled("20px") },
     },
-    fontSize: scaled("56px"),
+    fontSize: typeStep("5"),
     lineHeight: 1.14,
     marginBottom: scaled("28px"),
   },
@@ -24,8 +23,7 @@ export const title = style([
 export const text = style([
   editorial.body,
   {
-    "@media": { [PHONE]: { fontSize: scaled("18px") } },
-    fontSize: scaled("20px"),
+    fontSize: typeStep("1"),
     lineHeight: 1.5,
     marginBottom: scaled("16px"),
     maxWidth: "20em",
@@ -34,7 +32,7 @@ export const text = style([
 
 export const note = style([
   editorial.body,
-  { color: color.subtle, fontSize: scaled("16px"), marginBottom: scaled("36px"), maxWidth: "23em" },
+  { color: color.subtle, fontSize: typeStep("-1"), marginBottom: scaled("36px"), maxWidth: "23em" },
 ])
 
 export const art = style({

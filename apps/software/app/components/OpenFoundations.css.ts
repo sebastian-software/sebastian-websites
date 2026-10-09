@@ -1,4 +1,13 @@
-import { bleed, color, COMPACT, editorial, font, PHONE, scaled } from "@sebastian-websites/ui"
+import {
+  bleed,
+  color,
+  COMPACT,
+  editorial,
+  font,
+  PHONE,
+  scaled,
+  typeStep,
+} from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 /** A pale panel whose text aligns with the page edge; the panel reaches beyond it. */
@@ -51,7 +60,7 @@ export const project = style({
   "@media": { [COMPACT]: { marginTop: 0 } },
   color: color.heading,
   fontFamily: font.serif,
-  fontSize: scaled("24px"),
+  fontSize: typeStep("1"),
   lineHeight: 1.3,
   marginBottom: scaled("10px"),
   marginTop: scaled("62px"),

@@ -1,4 +1,4 @@
-import { RADIUS, scaled, SPACE, TYPE } from "@sebastian-websites/tokens"
+import { RADIUS, scaled, SPACE, TYPE, typeStep } from "@sebastian-websites/tokens"
 import { style, styleVariants } from "@vanilla-extract/css"
 
 import { color, NARROW, ON_NIGHT } from "./theme.css.ts"
@@ -35,7 +35,7 @@ export const facts = style({
 export const factValue = style({
   color: color.dark,
   display: "block",
-  fontSize: scaled("28px"),
+  fontSize: typeStep("2"),
   fontWeight: 300,
   letterSpacing: "-0.02em",
   lineHeight: 1.1,
@@ -161,7 +161,7 @@ export const card = style({
 })
 
 export const cardTitle = style({
-  fontSize: scaled("26px"),
+  fontSize: typeStep("2"),
   fontWeight: 400,
   letterSpacing: "-0.015em",
   margin: scaled("0 0 14px"),
@@ -169,7 +169,7 @@ export const cardTitle = style({
 
 export const cardText = style({
   color: color.muted,
-  fontSize: scaled("16px"),
+  fontSize: typeStep("-1"),
   lineHeight: TYPE.bodyLineHeight,
 })
 
@@ -234,7 +234,7 @@ export const numberValue = style({ color: color.white, display: "block" })
 export const numberLabel = style({
   color: ON_NIGHT.text,
   display: "block",
-  fontSize: scaled("15px"),
+  fontSize: typeStep("-1"),
   lineHeight: 1.4,
   marginTop: scaled("14px"),
   minHeight: "2.8em",
@@ -281,7 +281,7 @@ export const face = style({
 
 export const personName = style({
   display: "block",
-  fontSize: scaled("18px"),
+  fontSize: typeStep("0"),
   fontWeight: 500,
   lineHeight: 1.3,
 })
@@ -294,7 +294,7 @@ export const personRole = style({
   margin: scaled("4px 0 12px"),
 })
 
-export const personText = style({ color: color.muted, fontSize: scaled("16px"), lineHeight: 1.6 })
+export const personText = style({ color: color.muted, fontSize: typeStep("-1"), lineHeight: 1.6 })
 
 // ---- Closing ---------------------------------------------------------------
 

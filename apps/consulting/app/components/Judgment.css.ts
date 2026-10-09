@@ -6,6 +6,7 @@ import {
   PAGE_MARGIN,
   PHONE,
   scaled,
+  typeStep,
 } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
@@ -33,8 +34,7 @@ export const passage = style([
 export const title = style([
   editorial.display,
   {
-    "@media": { [COMPACT]: { fontSize: scaled("46px") }, [PHONE]: { fontSize: scaled("34px") } },
-    fontSize: scaled("58px"),
+    fontSize: typeStep("5"),
     gridColumn: "1 / span 7",
     lineHeight: 1.14,
   },
@@ -54,8 +54,7 @@ export const aside = style({
 export const text = style([
   editorial.body,
   {
-    "@media": { [PHONE]: { fontSize: scaled("18px") } },
-    fontSize: scaled("20px"),
+    fontSize: typeStep("1"),
     lineHeight: 1.5,
   },
 ])

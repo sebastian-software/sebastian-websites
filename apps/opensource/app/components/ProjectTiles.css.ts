@@ -1,4 +1,4 @@
-import { color, COMPACT, editorial, font, PHONE, scaled } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
 import { createVar, style, styleVariants } from "@vanilla-extract/css"
 
 import type { GroupId } from "~/lib/collection"
@@ -23,18 +23,16 @@ export const head = style({
 export const title = style([
   editorial.display,
   {
-    "@media": { [COMPACT]: { fontSize: scaled("46px") }, [PHONE]: { fontSize: scaled("36px") } },
-    fontSize: scaled("60px"),
+    fontSize: typeStep("5"),
     lineHeight: 1.15,
     marginBottom: scaled("10px"),
   },
 ])
 
 export const subtitle = style({
-  "@media": { [PHONE]: { fontSize: scaled("20px") } },
   color: color.accent,
   fontFamily: font.sans,
-  fontSize: scaled("24px"),
+  fontSize: typeStep("1"),
   lineHeight: 1.4,
 })
 
@@ -46,8 +44,7 @@ export const group = style({
 export const groupTitle = style([
   editorial.title,
   {
-    "@media": { [COMPACT]: { fontSize: scaled("36px") }, [PHONE]: { fontSize: scaled("30px") } },
-    fontSize: scaled("44px"),
+    fontSize: typeStep("4"),
     marginBottom: scaled("16px"),
     selectors: { [`${groupTone.libraries} &`]: { color: groupAccent } },
   },
@@ -83,7 +80,7 @@ export const tile = style({
 export const name = style({
   color: color.heading,
   fontFamily: font.serif,
-  fontSize: scaled("29px"),
+  fontSize: typeStep("2"),
   fontWeight: 400,
   letterSpacing: "-0.01em",
   lineHeight: 1.2,
@@ -106,7 +103,7 @@ export const link = style({
 export const description = style({
   color: color.text,
   fontFamily: font.sans,
-  fontSize: scaled("17px"),
+  fontSize: typeStep("0"),
   lineHeight: 1.4,
   marginBottom: scaled("14px"),
 })
@@ -125,7 +122,7 @@ export const badge = style({
   borderRadius: "999px",
   color: groupAccent,
   fontFamily: font.sans,
-  fontSize: scaled("16px"),
+  fontSize: typeStep("-1"),
   lineHeight: 1,
   padding: scaled("6px 14px"),
 })
@@ -133,7 +130,7 @@ export const badge = style({
 export const runtime = style({
   color: color.text,
   fontFamily: font.sans,
-  fontSize: scaled("16px"),
+  fontSize: typeStep("-1"),
   marginBottom: scaled("12px"),
 })
 
@@ -142,7 +139,7 @@ export const updated = style({
   color: color.subtle,
   display: "flex",
   fontFamily: font.sans,
-  fontSize: scaled("16px"),
+  fontSize: typeStep("-1"),
   justifyContent: "space-between",
   marginTop: "auto",
 })

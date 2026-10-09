@@ -1,4 +1,4 @@
-import { color, COMPACT, editorial, font, PHONE, scaled } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, scaled, typeStep } from "@sebastian-websites/ui"
 import { style, styleVariants } from "@vanilla-extract/css"
 
 import type { FeaturedId } from "~/data/featured"
@@ -6,7 +6,7 @@ import type { FeaturedId } from "~/data/featured"
 export const eyebrow = style({
   color: color.accent,
   fontFamily: font.sans,
-  fontSize: scaled("13px"),
+  fontSize: typeStep("-2"),
   letterSpacing: "0.26em",
   lineHeight: 1,
   marginBottom: scaled("22px"),
@@ -40,10 +40,9 @@ export const artwork = style({ display: "block", flexShrink: 0, width: "auto" })
 
 /** Ardo's name is set in its own system sans, as on its documentation site. */
 export const ardoName = style({
-  "@media": { [PHONE]: { fontSize: scaled("38px") } },
   color: "oklch(0.28 0.07 330)",
   fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif',
-  fontSize: scaled("46px"),
+  fontSize: typeStep("4"),
   fontWeight: 700,
   letterSpacing: "-0.02em",
   lineHeight: 1,
@@ -51,10 +50,9 @@ export const ardoName = style({
 
 /** A project without a mark sets its name in the editorial serif. */
 export const textName = style({
-  "@media": { [PHONE]: { fontSize: "34px" } },
   color: color.heading,
   fontFamily: font.serif,
-  fontSize: "42px",
+  fontSize: typeStep("4"),
   letterSpacing: "-0.01em",
   lineHeight: 1,
 })
@@ -62,8 +60,7 @@ export const textName = style({
 export const title = style([
   editorial.storyHeading,
   {
-    "@media": { [PHONE]: { fontSize: scaled("25px") } },
-    fontSize: scaled("29px"),
+    fontSize: typeStep("2"),
     lineHeight: 1.3,
   },
 ])

@@ -1,4 +1,4 @@
-import { color, COMPACT, editorial, font, PHONE, scaled } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, font, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
 import { style, styleVariants } from "@vanilla-extract/css"
 
 export const content = style({ position: "relative", zIndex: 1 })
@@ -39,10 +39,9 @@ export const wordmark = styleVariants({
 
 /** VorOrt keeps its name as ordinary text until its logo is settled. */
 export const textName = style({
-  "@media": { [PHONE]: { fontSize: scaled("44px") } },
   color: color.heading,
   fontFamily: font.serif,
-  fontSize: scaled("60px"),
+  fontSize: typeStep("5"),
   letterSpacing: "-0.02em",
   lineHeight: 1,
 })
@@ -51,7 +50,7 @@ export const status = style({
   borderBottom: `1px solid currentColor`,
   color: color.accent,
   fontFamily: font.sans,
-  fontSize: scaled("17px"),
+  fontSize: typeStep("0"),
   lineHeight: 1.3,
   paddingBottom: "2px",
   whiteSpace: "nowrap",

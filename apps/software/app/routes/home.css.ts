@@ -1,4 +1,4 @@
-import { color, COMPACT, editorial, PHONE, scaled } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 export const main = style([
@@ -18,7 +18,11 @@ export const hero = style([
   { "@media": { [COMPACT]: { rowGap: scaled("32px") } }, alignItems: "start" },
 ])
 
-export const heroTitle = style([editorial.display, { gridColumn: "1 / span 6" }])
+/** One step below the display size, so each sentence keeps to one line beside the introduction. */
+export const heroTitle = style([
+  editorial.display,
+  { fontSize: typeStep("4"), gridColumn: "1 / span 6" },
+])
 
 /** The introduction sits behind a hairline, aligned with the headline's first line. */
 export const heroIntro = style({
