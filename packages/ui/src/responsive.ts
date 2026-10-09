@@ -27,10 +27,11 @@ export const FRAME_INSET = `calc(${PAGE.margin} - ${PAGE.overhang})`
 export const FRAME_WIDTH = `min(${PAGE.width} + 2 * ${PAGE.overhang}, 100% - 2 * ${FRAME_INSET})`
 
 /**
- * The root only grows beyond the desktop design when both viewport sides
- * exceed 1024 px. `sizes` cannot read the root, so it uses this condition.
+ * The root only grows beyond the desktop design in windows wider than 1280 px
+ * and taller than 1024 px. `sizes` cannot read the root, so it uses this
+ * condition.
  */
-const LARGE_ROOT = `(min-width: 1025px) and (min-height: 1025px)`
+const LARGE_ROOT = `(min-width: 1281px) and (min-height: 1025px)`
 
 /** The phone margin on both sides, the smallest the page leaves on narrow screens. */
 const NARROW_MARGINS = "40px"

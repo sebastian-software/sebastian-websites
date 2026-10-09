@@ -22,8 +22,27 @@ export const ROOT_STOPS: readonly FluidStop[] = [
   ROOT_POINTS.largeMonitor,
 ].map(({ at, px }) => [at, px] as const)
 
-/** The root font size as CSS, relative to the reader's default font size. */
-export const ROOT_FONT_SIZE = fluid(ROOT_STOPS)
+/**
+ * Beyond the laptop, the root also needs the width to grow: a tall but narrow
+ * window, such as half of a large monitor, keeps the laptop size, and widening
+ * a window enlarges the text while making it taller alone does not.
+ */
+const WIDE_POINTS = {
+  laptop: { at: 1280, px: 18 },
+  largeMonitor: { at: 2560, px: 20 },
+} as const
+
+/** The width stops, ascending by the viewport width. */
+export const WIDE_STOPS: readonly FluidStop[] = [WIDE_POINTS.laptop, WIDE_POINTS.largeMonitor].map(
+  ({ at, px }) => [at, px] as const
+)
+
+/**
+ * The root font size as CSS, relative to the reader's default font size: the
+ * smaller of the device curve along the shorter side and the width curve, so
+ * it grows past the laptop size only in windows that are both tall and wide.
+ */
+export const ROOT_FONT_SIZE = `min(${fluid(ROOT_STOPS)}, ${fluid(WIDE_STOPS, { unit: "vw" })})`
 
 /**
  * The body size of the desktop design. At this root, which laptops and
