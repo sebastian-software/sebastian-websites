@@ -119,6 +119,10 @@ msgstr ""
 "Übersetzungsaufgaben zuverlässiger in den Entwicklungsprozess eingebettet "
 "sind."
 
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "A code symbol, a stylus, and a specification panel."
+msgstr "Ein Code-Symbol mit einem Stift neben einer Spezifikationsfläche."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""
 "A data protection officer has not been appointed, as the legal requirements "
@@ -184,23 +188,10 @@ msgstr "Die Nutzer gemeinsam im Blick"
 
 #: app/components/ServiceIllustration.tsx#ServiceIllustration
 msgid ""
-"A watercolor architectural model, drawings, and drafting tools on a wooden "
-"table."
+"A structured terminology catalog with cards in different writing systems."
 msgstr ""
-"Ein Architekturmodell, Zeichnungen und Zeichenwerkzeuge auf einem Holztisch "
-"als Aquarell."
-
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "A watercolor desk globe beside an open book and a stack of books."
-msgstr ""
-"Ein Tischglobus neben einem offenen Buch und einem Bücherstapel als Aquarell."
-
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid ""
-"A watercolor shared workspace with two chairs, a laptop, and an open notebook."
-msgstr ""
-"Ein gemeinsamer Arbeitsplatz mit zwei Stühlen, einem Laptop und einem offenen"
-" Notizbuch als Aquarell."
+"Ein geordneter Terminologiekatalog mit Karten in unterschiedlichen "
+"Schriftsystemen."
 
 #: app/components/profile-print/EarlierExperience.tsx#EarlierExperience
 msgid "Additional Projects"
@@ -2718,6 +2709,12 @@ msgstr "Anmeldung läuft …"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Site index"
 msgstr "Seitenübersicht"
+
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Six modules arranged in a regular grid and linked by a shared interface."
+msgstr ""
+"Sechs Module in einem regelmäßigen Raster, verbunden durch eine gemeinsame "
+"Schnittstelle."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Skip to content"

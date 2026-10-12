@@ -3,9 +3,9 @@ import type { ReactElement } from "react"
 import { t } from "@palamedes/core/macro"
 import { BunnyImage, editorial, editorialSizes } from "@sebastian-websites/ui"
 
-import architectureWorkshop from "./service-illustrations/architecture-workshop.png?bunny"
-import internationalizationGlobe from "./service-illustrations/internationalization-globe.png?bunny"
-import sharedWorkspace from "./service-illustrations/shared-workspace.png?bunny"
+import componentGrid from "./service-illustrations/component-grid.png?bunny"
+import handsOnEngineering from "./service-illustrations/hands-on-engineering.png?bunny"
+import terminologyCatalog from "./service-illustrations/terminology-catalog.png?bunny"
 
 export type ServiceKind = "architecture" | "enablement" | "internationalization"
 
@@ -16,24 +16,24 @@ const ART_WIDTH = 508
 const ART_HEIGHT = 381
 
 /**
- * Original watercolor artwork in the established product illustration style.
+ * Technical editorial artwork for the three Consulting service areas.
  *
  * @param props - The service whose illustration accompanies the copy.
- * @returns A responsive, transparent illustration delivered through the shared asset pipeline.
+ * @returns A responsive illustration delivered through the shared asset pipeline.
  */
 export function ServiceIllustration(props: Props): ReactElement {
   const illustrations = {
     architecture: {
-      alt: t`A watercolor architectural model, drawings, and drafting tools on a wooden table.`,
-      src: architectureWorkshop,
+      alt: t`Six modules arranged in a regular grid and linked by a shared interface.`,
+      src: componentGrid,
     },
     enablement: {
-      alt: t`A watercolor shared workspace with two chairs, a laptop, and an open notebook.`,
-      src: sharedWorkspace,
+      alt: t`A code symbol, a stylus, and a specification panel.`,
+      src: handsOnEngineering,
     },
     internationalization: {
-      alt: t`A watercolor desk globe beside an open book and a stack of books.`,
-      src: internationalizationGlobe,
+      alt: t`A structured terminology catalog with cards in different writing systems.`,
+      src: terminologyCatalog,
     },
   }
   const illustration = illustrations[props.kind]
