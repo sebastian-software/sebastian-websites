@@ -86,6 +86,10 @@ msgstr ""
 "walking, and PDF previews. Choose the engine that solves your task; each one "
 "can be inspected and used on its own."
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "a registered trademark of"
+msgstr "a registered trademark of"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Address"
 msgstr "Address"

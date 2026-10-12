@@ -41,6 +41,13 @@ export function SiteFooter(props: SiteFooterProps): ReactElement {
               />
             </a>
             <address className={styles.address}>
+              {frame.brand === "consulting" ? (
+                <>
+                  {copy.brandNames[frame.brand]}
+                  <br />
+                  {copy.footer.trademarkOwner}{" "}
+                </>
+              ) : null}
               {company.name}
               <br />
               {company.street}

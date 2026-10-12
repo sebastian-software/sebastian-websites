@@ -26,6 +26,7 @@ export function createFrameCopy(year: number): FrameCopy {
       index: t`Site index`,
       legal: t`Legal`,
       profiles: t`Company profiles`,
+      trademarkOwner: t`a registered trademark of`,
     },
     header: {
       language: t`Language`,

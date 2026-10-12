@@ -88,6 +88,10 @@ msgstr ""
 "Übersetzungskataloge, Dateisuche und PDF-Vorschauen. Wählen Sie die Engine, "
 "die Ihre Aufgabe löst; jede lässt sich einzeln prüfen und nutzen."
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "a registered trademark of"
+msgstr "eine eingetragene Marke der"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Address"
 msgstr "Anschrift"

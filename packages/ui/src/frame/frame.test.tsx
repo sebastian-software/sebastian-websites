@@ -21,7 +21,12 @@ const copy: FrameCopy = {
     street: "Dalheimer Straße 12",
   },
   copyright: "© 2026 Sebastian Software GmbH",
-  footer: { index: "Site index", legal: "Legal", profiles: "Company profiles" },
+  footer: {
+    index: "Site index",
+    legal: "Legal",
+    profiles: "Company profiles",
+    trademarkOwner: "a registered trademark of",
+  },
   header: {
     language: "Language",
     menu: "Menu",
