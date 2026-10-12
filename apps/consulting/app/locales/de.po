@@ -14,21 +14,37 @@ msgstr ""
 "{brand} ist eine eingetragene Marke der {name}. Betreiberin dieser Website ist"
 " die {name}."
 
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/data/werner.data.ts#getConsultant
+#~ msgid ""
+#~ "{experience} years of frontend work – I started when web applications did "
+#~ "not have frameworks yet. At 1&1 I led the development of qooxdoo, one of the "
+#~ "first large open-source UI frameworks for the web, publicly maintained for "
+#~ "more than a decade. Since then I have helped build interfaces for millions of "
+#~ "users: Deutsche Telekom's set-top boxes, the ARD Mediathek, and the national "
+#~ "ticket booking flow of the Swiss Federal Railways."
+#~ msgstr ""
+#~ "{experience} Jahre Frontend – angefangen habe ich, als Webanwendungen noch "
+#~ "keine Frameworks hatten. Bei 1&1 entstand unter meiner Leitung qooxdoo, eines "
+#~ "der ersten großen Open-Source-UI-Frameworks fürs Web, über zehn Jahre "
+#~ "öffentlich weiterentwickelt. Seitdem habe ich Oberflächen für Millionen "
+#~ "Nutzer mitgebaut: Set-Top-Boxen der Deutschen Telekom, die ARD Mediathek, die "
+#~ "Ticket-Buchungsstrecke der Schweizerischen Bundesbahnen."
+
 #: app/data/werner.data.ts#getConsultant
 msgid ""
 "{experience} years of frontend work – I started when web applications did "
 "not have frameworks yet. At 1&1 I led the development of qooxdoo, one of the "
 "first large open-source UI frameworks for the web, publicly maintained for "
-"more than a decade. Since then I have helped build interfaces for millions of "
-"users: Deutsche Telekom's set-top boxes, the ARD Mediathek, and the national "
-"ticket booking flow of the Swiss Federal Railways."
+"more than a decade. Since then my work has ranged from Deutsche Telekom's "
+"set-top boxes to white-label customer portals at EnBW."
 msgstr ""
 "{experience} Jahre Frontend – angefangen habe ich, als Webanwendungen noch "
-"keine Frameworks hatten. Bei 1&1 entstand unter meiner Leitung qooxdoo, eines "
-"der ersten großen Open-Source-UI-Frameworks fürs Web, über zehn Jahre "
-"öffentlich weiterentwickelt. Seitdem habe ich Oberflächen für Millionen "
-"Nutzer mitgebaut: Set-Top-Boxen der Deutschen Telekom, die ARD Mediathek, die "
-"Ticket-Buchungsstrecke der Schweizerischen Bundesbahnen."
+"keine Frameworks hatten. Bei 1&1 leitete ich die Entwicklung von qooxdoo, "
+"einem der ersten großen Open-Source-UI-Frameworks fürs Web, über zehn Jahre"
+" öffentlich weiterentwickelt. Seitdem reicht meine Arbeit von den "
+"Set-Top-Boxen der Deutschen Telekom bis zu White-Label-Kundenportalen bei "
+"EnBW."
 
 #: app/data/fastner.data.ts#getConsultant
 msgid ""
@@ -166,6 +182,26 @@ msgstr ""
 msgid "A shared focus on users"
 msgstr "Die Nutzer gemeinsam im Blick"
 
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid ""
+"A watercolor architectural model, drawings, and drafting tools on a wooden "
+"table."
+msgstr ""
+"Ein Architekturmodell, Zeichnungen und Zeichenwerkzeuge auf einem Holztisch "
+"als Aquarell."
+
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "A watercolor desk globe beside an open book and a stack of books."
+msgstr ""
+"Ein Tischglobus neben einem offenen Buch und einem Bücherstapel als Aquarell."
+
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid ""
+"A watercolor shared workspace with two chairs, a laptop, and an open notebook."
+msgstr ""
+"Ein gemeinsamer Arbeitsplatz mit zwei Stühlen, einem Laptop und einem offenen"
+" Notizbuch als Aquarell."
+
 #: app/components/profile-print/EarlierExperience.tsx#EarlierExperience
 msgid "Additional Projects"
 msgstr "Weitere Projekte"
@@ -243,9 +279,10 @@ msgstr ""
 msgid "API, build, and release integration"
 msgstr "Integration in APIs, Builds und Releases"
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "APIs"
-msgstr "APIs"
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "APIs"
+#~ msgstr "APIs"
 
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Appointment Booking System"
@@ -564,9 +601,10 @@ msgstr "Erstgespräch buchen"
 msgid "Bring the product into more languages."
 msgstr "Das Produkt in weitere Sprachen bringen."
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "Build & delivery"
-msgstr "Build & Auslieferung"
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "Build & delivery"
+#~ msgstr "Build & Auslieferung"
 
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/routes/services.tsx
@@ -700,9 +738,10 @@ msgstr "Unternehmen"
 msgid "Company profiles"
 msgstr "Unternehmensprofile"
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "Components"
-msgstr "Komponenten"
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "Components"
+#~ msgstr "Komponenten"
 
 #: app/components/profile-screen/ProfileRail.tsx#ProfileRail
 #: app/routes/team.tsx#MemberLinks
@@ -827,9 +866,10 @@ msgstr "Verfügbarkeit besprechen"
 msgid "Does the profile fit?"
 msgstr "Passt das Profil?"
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "Domain logic"
-msgstr "Fachlogik"
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "Domain logic"
+#~ msgstr "Fachlogik"
 
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid ""
@@ -866,13 +906,14 @@ msgstr "PDF herunterladen"
 msgid "Download the concise five-page profile as a PDF."
 msgstr "Das kompakte Fünf-Seiten-Profil als PDF herunterladen."
 
-#: app/routes/services.tsx#getServices
-msgid ""
-"DWS: international investment platforms. Witt: the foundations of 17 online "
-"shops. GE Healthcare: practical frontend workshops."
-msgstr ""
-"DWS: internationale Investment-Plattformen. Witt: die Grundlagen für 17 "
-"Online-Shops. GE Healthcare: praxisnahe Frontend-Workshops."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx#getServices
+#~ msgid ""
+#~ "DWS: international investment platforms. Witt: the foundations of 17 online "
+#~ "shops. GE Healthcare: practical frontend workshops."
+#~ msgstr ""
+#~ "DWS: internationale Investment-Plattformen. Witt: die Grundlagen für 17 "
+#~ "Online-Shops. GE Healthcare: praxisnahe Frontend-Workshops."
 
 #: app/data/fastner.data.ts#getConsultant
 #: app/data/werner.data.ts#getConsultant
@@ -928,6 +969,16 @@ msgstr "E-Mail-Adresse"
 msgid "Email:"
 msgstr "E-Mail:"
 
+#: app/routes/services.tsx#getServices
+msgid ""
+"EnBW: 21 months building white-label customer portals and reusable components."
+" DWS: three years taking an international investment platform from prototype "
+"to production."
+msgstr ""
+"EnBW: 21 Monate Arbeit an White-Label-Kundenportalen und wiederverwendbaren "
+"Komponenten. DWS: drei Jahre Entwicklung einer internationalen "
+"Investment-Plattform vom Prototyp bis zum produktiven Betrieb."
+
 #: app/data/werner.data.ts#getConsultant
 msgid "Energy"
 msgstr "Energie"
@@ -982,9 +1033,10 @@ msgstr ""
 "Technische Grundlage für 17 Multi-Brand-Onlineshops in internationalen "
 "Märkten geschaffen."
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "Example languages"
-msgstr "Beispielsprachen"
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "Example languages"
+#~ msgstr "Beispielsprachen"
 
 #: app/components/RecommendationQuote.tsx#RecommendationQuote
 msgid "Excerpt"
@@ -1236,11 +1288,12 @@ msgstr "Gründer & Geschäftsführer"
 msgid "Frankfurt am Main, Germany"
 msgstr "Frankfurt am Main, Deutschland"
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "From the first string to content people share across languages."
-msgstr ""
-"Vom ersten Text bis zu Inhalten, die Menschen über Sprachgrenzen hinweg "
-"teilen."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "From the first string to content people share across languages."
+#~ msgstr ""
+#~ "Vom ersten Text bis zu Inhalten, die Menschen über Sprachgrenzen hinweg "
+#~ "teilen."
 
 #~ #@ obsolete-since: 2026-10-09
 #~ #: app/components/profile-print/SkillStack.tsx#SkillStack
@@ -1543,9 +1596,10 @@ msgstr "Bildnachweise"
 #~ msgid "Implement the next steps in the codebase together with your team."
 #~ msgstr "Die nächsten Schritte gemeinsam mit Ihrem Team im Code umsetzen."
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "Implement together"
-msgstr "Gemeinsam umsetzen"
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "Implement together"
+#~ msgstr "Gemeinsam umsetzen"
 
 #: app/routes/services.tsx#getServices
 msgid "Implementation alongside your team"
@@ -1622,9 +1676,10 @@ msgstr ""
 #~ msgstr ""
 #~ "Sprachunterstützung in Anwendungs-APIs, Builds und Releases integrieren."
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "Interface text"
-msgstr "Oberflächentexte"
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "Interface text"
+#~ msgstr "Oberflächentexte"
 
 #: app/routes/services.tsx
 msgid "Internationalization"
@@ -1712,13 +1767,15 @@ msgstr "JavaScript-Entwickler"
 msgid "JourFixe Meeting Management"
 msgstr "JourFixe Besprechungsmanagement"
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "Keep improving"
-msgstr "Weiter verbessern"
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "Keep improving"
+#~ msgstr "Weiter verbessern"
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "Knowledge stays with the team."
-msgstr "Das Wissen bleibt im Team."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "Knowledge stays with the team."
+#~ msgstr "Das Wissen bleibt im Team."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Language"
@@ -1839,9 +1896,10 @@ msgstr ""
 "Sprachunterstützung als Teil des Produkts: von der Oberfläche bis zu den "
 "Inhalten, die Menschen erstellen und teilen."
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "Make the boundaries visible."
-msgstr "Die Grenzen sichtbar machen."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "Make the boundaries visible."
+#~ msgstr "Die Grenzen sichtbar machen."
 
 #: app/components/Services.tsx#Services
 msgid "Make the next change easier."
@@ -1955,9 +2013,10 @@ msgstr "Pflicht zur Bereitstellung der Daten"
 #~ "Herausforderung stand, war Sebastian mit einem offenen Ohr und praktischen "
 #~ "Lösungen zur Stelle."
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "One product. Many languages."
-msgstr "Ein Produkt. Viele Sprachen."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "One product. Many languages."
+#~ msgstr "Ein Produkt. Viele Sprachen."
 
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "OneNumber Mobile App"
@@ -2060,10 +2119,11 @@ msgstr ""
 "komplexer EPUB-Dokumente mit Bildern, Formatierungen und Navigation sowie die "
 "korrekte Anzeige von PDF-Dokumenten."
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "Pairing, code reviews, and decisions your team can carry forward."
-msgstr ""
-"Pairing, Code-Reviews und Entscheidungen, auf denen Ihr Team aufbauen kann."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "Pairing, code reviews, and decisions your team can carry forward."
+#~ msgstr ""
+#~ "Pairing, Code-Reviews und Entscheidungen, auf denen Ihr Team aufbauen kann."
 
 #: app/routes/services.tsx#getServices
 msgid "Pairing, code reviews, and workshops"
@@ -2228,9 +2288,10 @@ msgstr ""
 msgid "Processors"
 msgstr "Eingesetzte Auftragsverarbeiter"
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "Product interface"
-msgstr "Produktoberfläche"
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "Product interface"
+#~ msgstr "Produktoberfläche"
 
 #: app/data/recommendations.ts#getRecommendations
 msgid "Product judgment and frontend engineering"
@@ -2369,12 +2430,23 @@ msgstr ""
 
 #: app/routes/services.tsx#getServices
 msgid ""
-"Regrello: interface localization and AI translation of user-generated content,"
-" with quality evaluation, queues, retries, and operational tooling."
+"Regrello: a year of interface internationalization and AI translation of "
+"user-generated content, including quality evaluation, reliable processing, and"
+" operational tooling."
 msgstr ""
-"Regrello: Lokalisierung der Oberfläche und KI-Übersetzung von "
-"Nutzerinhalten, mit Qualitätsbewertung, Warteschlangen, "
-"Wiederholungsversuchen und Betriebswerkzeugen."
+"Regrello: ein Jahr Internationalisierung der Oberfläche und KI-Übersetzung "
+"von Nutzerinhalten, einschließlich Qualitätsbewertung, zuverlässiger "
+"Verarbeitung und Betriebswerkzeugen."
+
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx#getServices
+#~ msgid ""
+#~ "Regrello: interface localization and AI translation of user-generated content,"
+#~ " with quality evaluation, queues, retries, and operational tooling."
+#~ msgstr ""
+#~ "Regrello: Lokalisierung der Oberfläche und KI-Übersetzung von "
+#~ "Nutzerinhalten, mit Qualitätsbewertung, Warteschlangen, "
+#~ "Wiederholungsversuchen und Betriebswerkzeugen."
 
 #: app/data/fastner.project-profile.ts#createFastnerProjectProfile
 msgid ""
@@ -2401,9 +2473,10 @@ msgstr "Wiederverwendbare Oberflächen bei der Deutschen Telekom"
 #~ "Anwendungsgrenzen, Komponentenstruktur, Abhängigkeiten und Build-Setup "
 #~ "prüfen."
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "Review together"
-msgstr "Gemeinsam analysieren"
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "Review together"
+#~ msgstr "Gemeinsam analysieren"
 
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Rhine-Main, Germany"
@@ -2496,13 +2569,14 @@ msgstr "San Francisco, USA"
 msgid "Save or share this profile as a PDF."
 msgstr "Dieses Profil als PDF speichern oder weitergeben."
 
-#: app/routes/services.tsx#getServices
-msgid ""
-"SBB: ticket-booking frontend, targeted refactoring, and a monorepo proof of "
-"concept. EnBW: reusable components for white-label customer portals."
-msgstr ""
-"SBB: Ticketbuchungs-Frontend, gezieltes Refactoring und ein Monorepo-Prototyp."
-" EnBW: wiederverwendbare Komponenten für White-Label-Kundenportale."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx#getServices
+#~ msgid ""
+#~ "SBB: ticket-booking frontend, targeted refactoring, and a monorepo proof of "
+#~ "concept. EnBW: reusable components for white-label customer portals."
+#~ msgstr ""
+#~ "SBB: Ticketbuchungs-Frontend, gezieltes Refactoring und ein Monorepo-Prototyp."
+#~ " EnBW: wiederverwendbare Komponenten für White-Label-Kundenportale."
 
 #: app/routes/home.tsx#meta
 msgid ""
@@ -2624,9 +2698,10 @@ msgstr "Leistungen – Sebastian Consulting"
 msgid "Share Project Profile"
 msgstr "Projektprofil weitergeben"
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "Share the reasoning"
-msgstr "Entscheidungen erklären"
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "Share the reasoning"
+#~ msgstr "Entscheidungen erklären"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Sign-up opens soon. The newsletter has not started yet."
@@ -3115,9 +3190,10 @@ msgstr ""
 msgid "Translation pipelines for user content"
 msgstr "Übersetzungspipelines für Nutzerinhalte"
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "Translation workflow"
-msgstr "Übersetzungsablauf"
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "Translation workflow"
+#~ msgstr "Übersetzungsablauf"
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""
@@ -3138,9 +3214,10 @@ msgstr ""
 "Sie haben gemäß DSGVO folgende Rechte hinsichtlich Ihrer personenbezogenen "
 "Daten:"
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "Understand the dependencies. Change one part with confidence."
-msgstr "Abhängigkeiten verstehen. Einzelne Teile gezielt verändern."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "Understand the dependencies. Change one part with confidence."
+#~ msgstr "Abhängigkeiten verstehen. Einzelne Teile gezielt verändern."
 
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid "UnifyJS Mobile Framework"
@@ -3163,9 +3240,10 @@ msgstr ""
 "React Router, TypeScript, Convex und automatisierte Tests als durchgängigen "
 "Produktstack eingesetzt."
 
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "User content"
-msgstr "Nutzerinhalte"
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
+#~ msgid "User content"
+#~ msgstr "Nutzerinhalte"
 
 #: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
 msgid ""
@@ -3366,6 +3444,16 @@ msgstr ""
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid "Wireless LAN Infrastructure"
 msgstr "Wireless-LAN-Infrastruktur"
+
+#: app/routes/services.tsx#getServices
+msgid ""
+"Witt: 18 months rebuilding the foundations of 17 online shops. DWS/MorgenFund:"
+" several years evolving an international investment platform and its delivery "
+"workflows."
+msgstr ""
+"Witt: 18 Monate Neuaufbau der Grundlagen für 17 Online-Shops. DWS/MorgenFund:"
+" mehrere Jahre Weiterentwicklung einer internationalen Investment-Plattform "
+"und ihrer Auslieferungsprozesse."
 
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/routes/services.tsx

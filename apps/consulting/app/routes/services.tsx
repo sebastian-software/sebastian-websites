@@ -38,7 +38,7 @@ type Service = {
 function getServices(): readonly Service[] {
   return [
     {
-      example: t`SBB: ticket-booking frontend, targeted refactoring, and a monorepo proof of concept. EnBW: reusable components for white-label customer portals.`,
+      example: t`EnBW: 21 months building white-label customer portals and reusable components. DWS: three years taking an international investment platform from prototype to production.`,
       id: "architecture",
       items: [
         t`Codebase and dependency review`,
@@ -50,7 +50,7 @@ function getServices(): readonly Service[] {
       title: t`Architecture that leaves room for change.`,
     },
     {
-      example: t`Regrello: interface localization and AI translation of user-generated content, with quality evaluation, queues, retries, and operational tooling.`,
+      example: t`Regrello: a year of interface internationalization and AI translation of user-generated content, including quality evaluation, reliable processing, and operational tooling.`,
       id: "internationalization",
       items: [
         t`Catalogs, terminology, and review workflows`,
@@ -62,7 +62,7 @@ function getServices(): readonly Service[] {
       title: t`A product that works across languages.`,
     },
     {
-      example: t`DWS: international investment platforms. Witt: the foundations of 17 online shops. GE Healthcare: practical frontend workshops.`,
+      example: t`Witt: 18 months rebuilding the foundations of 17 online shops. DWS/MorgenFund: several years evolving an international investment platform and its delivery workflows.`,
       id: "enablement",
       items: [
         t`React, TypeScript, and backend development`,
