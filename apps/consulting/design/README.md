@@ -4,6 +4,16 @@ The selected concept leads with architecture and engineering for complex web app
 
 These are visual concepts. The reusable source images are collected in [app/assets](../app/assets/README.md). [Asset metadata](asset-manifest.json) records their dimensions, origin, and checksums; [exact reconstruction prompts](asset-prompts.json) record the built-in ImageGen requests.
 
+## Technical editorial illustrations
+
+The service illustrations use graphite, off-white, aluminum, and glass on a
+near-white neutral background, with small burgundy accents. The
+[reusable illustration prompt](illustration-prompt.md) provides the base prompt,
+style reference, and subject examples for extending this visual language.
+
+The [service illustration sources](../app/components/service-illustrations/README.md)
+include the selected assets and their exact generation prompts.
+
 ## Selected Consulting homepage, revision 9
 
 ![Selected Consulting homepage, revision 9](homepage.png)
