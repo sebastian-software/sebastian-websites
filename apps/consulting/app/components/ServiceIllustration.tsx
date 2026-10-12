@@ -1,88 +1,50 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
+import { BunnyImage, editorial, editorialSizes } from "@sebastian-websites/ui"
 
-import * as styles from "./ServiceIllustration.css.ts"
+import architectureWorkshop from "./service-illustrations/architecture-workshop.png?bunny"
+import internationalizationGlobe from "./service-illustrations/internationalization-globe.png?bunny"
+import sharedWorkspace from "./service-illustrations/shared-workspace.png?bunny"
 
 export type ServiceKind = "architecture" | "enablement" | "internationalization"
 
 type Props = { readonly kind: ServiceKind }
 
+/** The six-column placement is half of the design page, less half its gutter. */
+const ART_WIDTH = 508
+const ART_HEIGHT = 381
+
 /**
- * Conceptual diagrams of the work, rather than simulated client screenshots.
+ * Original watercolor artwork in the established product illustration style.
  *
- * @param props - The service whose relationships should be illustrated.
- * @returns A labeled diagram of application boundaries, translation flow, or knowledge transfer.
+ * @param props - The service whose illustration accompanies the copy.
+ * @returns A responsive, transparent illustration delivered through the shared asset pipeline.
  */
 export function ServiceIllustration(props: Props): ReactElement {
-  const { kind } = props
-  if (kind === "architecture") {
-    return (
-      <figure className={styles.figure}>
-        <figcaption className={styles.caption}>{t`Make the boundaries visible.`}</figcaption>
-        <div className={styles.architecture}>
-          <p className={styles.productInterface}>{t`Product interface`}</p>
-          <div className={styles.boundaries}>
-            <p className={styles.node}>{t`Components`}</p>
-            <p className={styles.node}>{t`Domain logic`}</p>
-            <p className={styles.node}>{t`APIs`}</p>
-          </div>
-          <p className={styles.foundation}>{t`Build & delivery`}</p>
-        </div>
-        <p
-          className={styles.footnote}
-        >{t`Understand the dependencies. Change one part with confidence.`}</p>
-      </figure>
-    )
+  const illustrations = {
+    architecture: {
+      alt: t`A watercolor architectural model, drawings, and drafting tools on a wooden table.`,
+      src: architectureWorkshop,
+    },
+    enablement: {
+      alt: t`A watercolor shared workspace with two chairs, a laptop, and an open notebook.`,
+      src: sharedWorkspace,
+    },
+    internationalization: {
+      alt: t`A watercolor desk globe beside an open book and a stack of books.`,
+      src: internationalizationGlobe,
+    },
   }
-  if (kind === "internationalization") {
-    return (
-      <figure className={styles.figure}>
-        <figcaption className={styles.caption}>{t`One product. Many languages.`}</figcaption>
-        <div className={styles.translation}>
-          <div className={styles.inputs}>
-            <p className={styles.node}>{t`Interface text`}</p>
-            <p className={styles.node}>{t`User content`}</p>
-          </div>
-          <p aria-hidden="true" className={styles.connector}>
-            ↓
-          </p>
-          <p className={styles.engine}>{t`Translation workflow`}</p>
-          <p aria-hidden="true" className={styles.connector}>
-            ↓
-          </p>
-          <ul aria-label={t`Example languages`} className={styles.languages}>
-            {["EN", "DE", "FR", "ES", "KO", "TH"].map((language) => (
-              <li className={styles.language} key={language}>
-                {language}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <p
-          className={styles.footnote}
-        >{t`From the first string to content people share across languages.`}</p>
-      </figure>
-    )
-  }
+  const illustration = illustrations[props.kind]
   return (
-    <figure className={styles.figure}>
-      <figcaption className={styles.caption}>{t`Knowledge stays with the team.`}</figcaption>
-      <ol className={styles.cycle}>
-        {[t`Review together`, t`Implement together`, t`Share the reasoning`, t`Keep improving`].map(
-          (step, index) => (
-            <li className={styles.cycleStep} key={step}>
-              <span aria-hidden="true" className={styles.number}>
-                0{index + 1}
-              </span>
-              <span>{step}</span>
-            </li>
-          )
-        )}
-      </ol>
-      <p
-        className={styles.footnote}
-      >{t`Pairing, code reviews, and decisions your team can carry forward.`}</p>
-    </figure>
+    <BunnyImage
+      alt={illustration.alt}
+      className={editorial.media}
+      height={ART_HEIGHT}
+      sizes={editorialSizes(ART_WIDTH)}
+      src={illustration.src}
+      width={ART_WIDTH}
+    />
   )
 }

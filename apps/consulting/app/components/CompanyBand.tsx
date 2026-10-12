@@ -9,14 +9,14 @@ import * as styles from "./CompanyBand.css.ts"
 
 /** Selected companies documented in the two published consultant profiles. */
 const COMPANIES = [
-  { height: 333, id: "regrello", name: "Regrello", width: 1305 },
-  { height: 329, id: "sbb", name: "SBB", width: 3125 },
-  { height: 17.83, id: "enbw", name: "EnBW", width: 101.53 },
-  { height: 323, id: "dws", name: "DWS", width: 900 },
-  { height: 500, id: "deutschetelekom", name: "Deutsche Telekom", width: 417 },
-  { height: 141.732, id: "witt-weiden", name: "Witt Weiden", width: 283.464 },
-  { height: 167, id: "ge-healthcare", name: "GE Healthcare", width: 742 },
   { height: 401, id: "1und1", name: "1&1", width: 401 },
+  { height: 500, id: "deutschetelekom", name: "Deutsche Telekom", width: 417 },
+  { height: 323, id: "dws", name: "DWS", width: 900 },
+  { height: 671, id: "morgenfund", name: "MorgenFund", width: 2500 },
+  { height: 17.83, id: "enbw", name: "EnBW", width: 101.53 },
+  { height: 141.732, id: "witt-weiden", name: "Witt Weiden", width: 283.464 },
+  { height: 333, id: "regrello", name: "Regrello", width: 1305 },
+  { height: 283.5, id: "heidelberg-materials", name: "Heidelberg Materials", width: 986.5 },
 ] as const
 
 /**

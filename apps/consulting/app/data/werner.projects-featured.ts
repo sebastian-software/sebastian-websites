@@ -56,7 +56,7 @@ const existingProjects: Project[] = [
       Tech.NextIntl,
       Tech.ESLint,
     ],
-    tier: 1,
+    tier: 2,
     title: "Ticket-Buchungsstrecke",
   },
   {
@@ -88,7 +88,7 @@ const existingProjects: Project[] = [
     role: "Senior React-Entwickler",
     startDate: new Date("2022-03-01"),
     technologies: [Tech.React, Tech.TypeScript, Tech.NX, Tech.Monorepo, Tech.i18n, Tech.Theming],
-    tier: 1,
+    tier: 2,
     title: "IoT-Überwachungsplattform",
   },
   {
@@ -104,7 +104,7 @@ const existingProjects: Project[] = [
     role: "Leitender Web-Frontend-Architekt",
     startDate: new Date("2021-02-22"),
     technologies: [Tech.React, Tech.TypeScript, Tech.Cypress, Tech.APIFirst, Tech.Scrum],
-    tier: 2,
+    tier: 1,
     title: "Kundencenter",
   },
   {
@@ -145,7 +145,7 @@ const existingProjects: Project[] = [
       Tech.Axios,
       Tech.ESLint,
     ],
-    tier: 2,
+    tier: 1,
     title: "Logistik-Tracking & Frontend-Modernisierung",
   },
   {

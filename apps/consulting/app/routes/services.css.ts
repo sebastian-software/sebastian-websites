@@ -12,7 +12,7 @@ export const services = style({
 })
 export const service = style([
   editorial.grid,
-  { alignItems: "start", rowGap: SPACE_SCALE.l, scrollMarginTop: SPACE_SCALE["3xl"] },
+  { alignItems: "center", rowGap: SPACE_SCALE.l, scrollMarginTop: SPACE_SCALE["3xl"] },
 ])
 export const content = style({
   display: "grid",
