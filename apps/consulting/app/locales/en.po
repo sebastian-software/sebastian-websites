@@ -116,6 +116,10 @@ msgstr ""
 "agents, skills, and automation so recurring architecture, review, and "
 "translation tasks are embedded more reliably in the development process."
 
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "A code symbol, a stylus, and a specification panel."
+msgstr "A code symbol, a stylus, and a specification panel."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""
 "A data protection officer has not been appointed, as the legal requirements "
@@ -178,21 +182,9 @@ msgstr "A shared focus on users"
 
 #: app/components/ServiceIllustration.tsx#ServiceIllustration
 msgid ""
-"A watercolor architectural model, drawings, and drafting tools on a wooden "
-"table."
+"A structured terminology catalog with cards in different writing systems."
 msgstr ""
-"A watercolor architectural model, drawings, and drafting tools on a wooden "
-"table."
-
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid "A watercolor desk globe beside an open book and a stack of books."
-msgstr "A watercolor desk globe beside an open book and a stack of books."
-
-#: app/components/ServiceIllustration.tsx#ServiceIllustration
-msgid ""
-"A watercolor shared workspace with two chairs, a laptop, and an open notebook."
-msgstr ""
-"A watercolor shared workspace with two chairs, a laptop, and an open notebook."
+"A structured terminology catalog with cards in different writing systems."
 
 #: app/components/profile-print/EarlierExperience.tsx#EarlierExperience
 msgid "Additional Projects"
@@ -2645,6 +2637,11 @@ msgstr "Signing you up…"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Site index"
 msgstr "Site index"
+
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Six modules arranged in a regular grid and linked by a shared interface."
+msgstr ""
+"Six modules arranged in a regular grid and linked by a shared interface."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Skip to content"

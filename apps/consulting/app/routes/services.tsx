@@ -79,7 +79,7 @@ function getServices(): readonly Service[] {
 /**
  * Three ways to work together, illustrated and grounded in published projects.
  *
- * @returns A scannable services page with diagrams, deliverables, and project evidence.
+ * @returns A scannable services page with illustrations, deliverables, and project evidence.
  */
 export default function ServicesPage(): ReactElement {
   const services = getServices()
