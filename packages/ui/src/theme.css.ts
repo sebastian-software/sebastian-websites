@@ -1,5 +1,5 @@
 import { BREAKPOINTS } from "@sebastian-websites/tokens"
-import { createThemeContract } from "@vanilla-extract/css"
+import { createThemeContract, createVar } from "@vanilla-extract/css"
 
 /**
  * Components read colors by role only. Each site applies its brand palette, the
@@ -42,6 +42,9 @@ export const font = {
   serif: 'var(--sebastian-font-serif, "Elena", Georgia, serif)',
   slab: 'var(--sebastian-font-serif, "Elena", Georgia, serif)',
 } as const
+
+/** The brand's optional paper texture, shared by the canvas and its scroll cover. */
+export const canvasTexture = createVar()
 
 /** Versioned typography CSS from the brand site; binaries use the asset host (ADR-0013). */
 export const FONT_STYLESHEET = "https://brand.sebastian-software.com/fonts.css"

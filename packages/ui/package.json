@@ -27,6 +27,7 @@
     "@sebastian-websites/tokens": "workspace:*",
     "@sebastian-websites/web-core": "workspace:*",
     "@vanilla-extract/css": "catalog:",
+    "lucide-react": "catalog:",
     "react": "catalog:"
   },
   "devDependencies": {

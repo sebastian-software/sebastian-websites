@@ -130,6 +130,24 @@ describe("SiteHeader", () => {
       "https://sebastian-software.com/"
     )
   })
+
+  it.each(["de", "en"] as const)(
+    "links the Consulting globe to the other language's matching page from %s",
+    (locale) => {
+      const frame = getSiteFrame("consulting", locale, "/fastner/project-profile")
+      const header = parse(renderToStaticMarkup(<SiteHeader copy={copy} frame={frame} />))
+      const languages = header.querySelectorAll('nav[aria-label="Language"] a')
+      expect(languages).toHaveLength(1)
+      const link = languages[0]
+      const alternate = frame.languages.find((language) => !language.current)!
+      expect(link.getAttribute("href")).toBe(alternate.href)
+      expect(link.getAttribute("hrefLang")).toBe(alternate.locale)
+      expect(link.textContent).toBe(alternate.label)
+      expect(link.getAttribute("title")).toBe(alternate.label)
+      expect(link.querySelector('svg[aria-hidden="true"]')).not.toBeNull()
+      expect(link.getAttribute("aria-current")).toBeNull()
+    }
+  )
 })
 
 describe("PageEnding", () => {
