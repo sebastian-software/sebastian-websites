@@ -21,7 +21,7 @@ export function ReferenceHighlights(): ReactElement {
         id="references-title"
       >{t`What people say about working with us.`}</h2>
       <div className={styles.content}>
-        <RecommendationQuote recommendation={getFeaturedRecommendation()} />
+        <RecommendationQuote excerpt recommendation={getFeaturedRecommendation()} />
         <p className={styles.action}>
           <ArrowLink href="/references">{t`Read the references`}</ArrowLink>
         </p>

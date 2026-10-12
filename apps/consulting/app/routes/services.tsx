@@ -4,9 +4,15 @@ import { t } from "@palamedes/core/macro"
 import { ArrowLink, ButtonLink } from "@sebastian-websites/ui"
 import { BOOKING_URL } from "@sebastian-websites/web-core"
 
+import type { ServiceKind } from "~/components/ServiceIllustration"
+
+import { CompanyBand } from "~/components/CompanyBand"
+import { ServiceIllustration } from "~/components/ServiceIllustration"
+
 import type { Route } from "./+types/services"
 
-import * as styles from "./contentPage.css.ts"
+import * as page from "./contentPage.css.ts"
+import * as styles from "./services.css.ts"
 
 // eslint-disable-next-line react-refresh/only-export-components -- React Router reads meta from the route module
 export function meta(): Route.MetaDescriptors {
@@ -19,84 +25,128 @@ export function meta(): Route.MetaDescriptors {
   ]
 }
 
-/**
- * Concrete work, deliverables, and examples drawn from the consultant profiles.
- *
- * @returns Architecture, internationalization, and engineering offers with project examples.
- */
-export default function ServicesPage(): ReactElement {
-  const services = [
+type Service = {
+  readonly example: string
+  readonly id: ServiceKind
+  readonly items: readonly string[]
+  readonly projectHref: string
+  readonly text: string
+  readonly title: string
+}
+
+/** @returns Concise service offers grounded in the published project histories. */
+function getServices(): readonly Service[] {
+  return [
     {
-      example: t`At SBB, our architecture work covered the ticket-booking frontend, targeted refactoring, a monorepo proof of concept, and shared development standards. At EnBW, it covered reusable components and the architecture of white-label customer portals.`,
+      example: t`SBB: ticket-booking frontend, targeted refactoring, and a monorepo proof of concept. EnBW: reusable components for white-label customer portals.`,
       id: "architecture",
       items: [
-        t`Review application boundaries, component structure, dependencies, and the build setup.`,
-        t`Make architectural tradeoffs explicit and turn them into a prioritized migration plan.`,
-        t`Implement the next steps in the codebase together with your team.`,
+        t`Codebase and dependency review`,
+        t`Prioritized modernization plan`,
+        t`Implementation alongside your team`,
       ],
-      text: t`When every change touches too many parts of the application, the first question is where the coupling comes from. We work through that with your team before choosing a new framework or committing to a rewrite.`,
-      title: t`Architecture and modernization`,
+      projectHref: "/werner",
+      text: t`When a small change touches too much code, we find the coupling and work out the next useful step with your team.`,
+      title: t`Architecture that leaves room for change.`,
     },
     {
-      example: t`At Regrello, our work connected interface localization with an AI translation pipeline for user-generated content. It included frontend catalogs, backend integration, translation quality evaluation, queues, retries, and operational tooling.`,
+      example: t`Regrello: interface localization and AI translation of user-generated content, with quality evaluation, queues, retries, and operational tooling.`,
       id: "internationalization",
       items: [
-        t`Build maintainable extraction, catalog, terminology, and review workflows for interface text.`,
-        t`Design translation pipelines for user-generated content, including quality checks and failure handling.`,
-        t`Integrate language support into application APIs, builds, and releases.`,
+        t`Catalogs, terminology, and review workflows`,
+        t`Translation pipelines for user content`,
+        t`API, build, and release integration`,
       ],
-      text: t`Supporting another language affects more than the translation files. We help with the application architecture and the workflow around it, from interface text to content that users create and share across languages.`,
-      title: t`Internationalization and localization`,
+      projectHref: "/fastner",
+      text: t`Make language support part of the product, from the interface to the content people create and share.`,
+      title: t`A product that works across languages.`,
     },
     {
-      example: t`Our project experience spans investment platforms at DWS, the foundations of 17 online shops at Witt, and frontend workshops at GE Healthcare. Alongside client work, we build and operate our own software products.`,
+      example: t`DWS: international investment platforms. Witt: the foundations of 17 online shops. GE Healthcare: practical frontend workshops.`,
       id: "enablement",
       items: [
-        t`Work directly on React and TypeScript features, application backends, and their integration.`,
-        t`Use pairing and code reviews to share decisions and make knowledge accessible to the team.`,
-        t`Improve testing, CI/CD, and AI-assisted development practices around the existing delivery process.`,
+        t`React, TypeScript, and backend development`,
+        t`Pairing, code reviews, and workshops`,
+        t`Testing and delivery workflows`,
       ],
-      text: t`An architectural decision only helps when it survives implementation. We stay close to the code and to the people maintaining it, whether that means developing a feature, untangling a delivery problem, or working through a difficult decision together.`,
-      title: t`Engineering and team enablement`,
+      projectHref: "/team",
+      text: t`We work in the code with the people maintaining it. Decisions become working software, and the reasoning stays with your team.`,
+      title: t`Engineering that moves the team forward.`,
     },
   ]
+}
 
+/**
+ * Three ways to work together, illustrated and grounded in published projects.
+ *
+ * @returns A scannable services page with diagrams, deliverables, and project evidence.
+ */
+export default function ServicesPage(): ReactElement {
+  const services = getServices()
   return (
-    <main className={styles.main} id="main">
-      <header className={styles.intro}>
-        <p className={styles.eyebrow}>{t`Services`}</p>
-        <h1 className={styles.title}>{t`Software your team can keep changing.`}</h1>
-        <div className={styles.introCopy}>
-          <p>{t`We help teams with the architecture of their web applications, internationalization, and the engineering work that makes those decisions hold up in practice.`}</p>
-          <p>{t`You work directly with the two consultants who review and implement the work. Our focus is React and TypeScript, with experience across application backends, translation pipelines, and delivery infrastructure.`}</p>
+    <main className={page.main} id="main">
+      <header className={page.intro}>
+        <p className={page.eyebrow}>{t`Services`}</p>
+        <h1 className={page.title}>{t`Software your team can keep changing.`}</h1>
+        <div className={page.introCopy}>
+          <p>{t`Architecture, internationalization, and hands-on engineering. You work directly with the two consultants who review and implement the work.`}</p>
+          <nav aria-label={t`Service areas`} className={styles.jumpLinks}>
+            <a href="#architecture">
+              {t`Architecture`} <span aria-hidden="true">↘</span>
+            </a>
+            <a href="#internationalization">
+              {t`Internationalization`} <span aria-hidden="true">↘</span>
+            </a>
+            <a href="#enablement">
+              {t`Engineering & enablement`} <span aria-hidden="true">↘</span>
+            </a>
+          </nav>
         </div>
       </header>
-      {services.map((service) => (
-        <section
-          aria-labelledby={`${service.id}-title`}
-          className={styles.service}
-          id={service.id}
-          key={service.id}
-        >
-          <h2 className={styles.heading} id={`${service.id}-title`}>
-            {service.title}
-          </h2>
-          <div className={styles.copy}>
-            <p>{service.text}</p>
-            <ul className={styles.list}>
-              {service.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <p>{service.example}</p>
-          </div>
-        </section>
-      ))}
-      <section aria-labelledby="collaboration-title" className={styles.service}>
-        <h2 className={styles.heading} id="collaboration-title">{t`Start with the situation.`}</h2>
-        <div className={styles.copy}>
+      <CompanyBand />
+      <div className={styles.services}>
+        {services.map((service, index) => (
+          <section
+            aria-labelledby={`${service.id}-title`}
+            className={styles.service}
+            data-reverse={index === 1 ? "" : undefined}
+            id={service.id}
+            key={service.id}
+          >
+            <div className={styles.content}>
+              <p aria-hidden="true" className={page.eyebrow}>
+                0{index + 1}
+              </p>
+              <h2 className={styles.heading} id={`${service.id}-title`}>
+                {service.title}
+              </h2>
+              <p className={styles.text}>{service.text}</p>
+              <ul className={styles.deliverables}>
+                {service.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className={styles.visual}>
+              <ServiceIllustration kind={service.id} />
+            </div>
+            <div className={styles.evidence}>
+              <p className={styles.evidenceLabel}>{t`In practice`}</p>
+              <p className={styles.example}>{service.example}</p>
+              <p className={styles.evidenceLink}>
+                <ArrowLink
+                  href={service.projectHref}
+                >{t`Explore the project experience`}</ArrowLink>
+              </p>
+            </div>
+          </section>
+        ))}
+      </div>
+      <section aria-labelledby="collaboration-title" className={page.service}>
+        <h2 className={page.heading} id="collaboration-title">{t`Start with the situation.`}</h2>
+        <div className={page.copy}>
           <p>{t`Tell us what has become difficult to change, ship, or explain. We can discuss whether an architecture review, focused implementation work, or support alongside your team is the useful next step.`}</p>
-          <div className={styles.actions}>
+          <div className={page.actions}>
             <ButtonLink href={BOOKING_URL}>{t`Book an intro call`}</ButtonLink>
             <ArrowLink href="/references">{t`Read the references`}</ArrowLink>
             <ArrowLink href="/team">{t`Meet the consultants`}</ArrowLink>

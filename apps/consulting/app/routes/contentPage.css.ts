@@ -1,4 +1,4 @@
-import { color, editorial, scaled, SPACE_SCALE, typeStep } from "@sebastian-websites/ui"
+import { color, editorial, SPACE_SCALE, typeStep } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 export const main = style([editorial.page, { paddingBlock: SPACE_SCALE["3xl"] }])
@@ -47,15 +47,6 @@ export const actions = style({
   marginTop: SPACE_SCALE.s,
   rowGap: SPACE_SCALE.s,
 })
-
-export const recommendations = style([
-  editorial.grid,
-  { listStyle: "none", margin: 0, padding: 0, rowGap: SPACE_SCALE["2xl"] },
-])
-
-export const recommendation = style({ gridColumn: "span 6" })
-
-export const featured = style({ gridColumn: "2 / span 10", maxWidth: scaled("810px") })
 
 export const source = style([editorial.caption, { marginBlock: SPACE_SCALE.xl }])
 

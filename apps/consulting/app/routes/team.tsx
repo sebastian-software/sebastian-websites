@@ -13,6 +13,7 @@ import type { Consultant } from "~/components/profile-print/types"
 import type { Portrait } from "~/lib/photos"
 
 import { Closing } from "~/components/Closing"
+import { CompanyBand } from "~/components/CompanyBand"
 import { getConsultant as getFastner } from "~/data/fastner.data"
 import { getConsultant as getWerner } from "~/data/werner.data"
 import { activeLocale } from "~/lib/i18n"
@@ -150,6 +151,7 @@ export default function Team(): ReactElement {
           width={TEAM_PHOTO_WIDTH}
         />
       </figure>
+      <CompanyBand />
       <ul className={styles.members}>
         {members.map((member) => (
           <TeamMember key={member.consultant.id} member={member} />

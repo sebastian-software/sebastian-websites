@@ -120,17 +120,18 @@ msgstr ""
 msgid "A drawn road winding through a valley toward the mountains."
 msgstr "A drawn road winding through a valley toward the mountains."
 
-#: app/data/recommendations.ts#getRecommendations
-msgid ""
-"A front-end expert, he consistently balances user experience, product "
-"strategy, and business goals to ship work of exceptional quality. Beyond his "
-"technical skill, he elevates everyone around him—thoughtful, collaborative, "
-"and genuinely a pleasure to have on a team."
-msgstr ""
-"A front-end expert, he consistently balances user experience, product "
-"strategy, and business goals to ship work of exceptional quality. Beyond his "
-"technical skill, he elevates everyone around him—thoughtful, collaborative, "
-"and genuinely a pleasure to have on a team."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/data/recommendations.ts#getRecommendations
+#~ msgid ""
+#~ "A front-end expert, he consistently balances user experience, product "
+#~ "strategy, and business goals to ship work of exceptional quality. Beyond his "
+#~ "technical skill, he elevates everyone around him—thoughtful, collaborative, "
+#~ "and genuinely a pleasure to have on a team."
+#~ msgstr ""
+#~ "A front-end expert, he consistently balances user experience, product "
+#~ "strategy, and business goals to ship work of exceptional quality. Beyond his "
+#~ "technical skill, he elevates everyone around him—thoughtful, collaborative, "
+#~ "and genuinely a pleasure to have on a team."
 
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
@@ -140,6 +141,10 @@ msgstr ""
 "A one-off on-site assignment in the US demonstrates willingness to travel "
 "internationally."
 
+#: app/routes/services.tsx#getServices
+msgid "A product that works across languages."
+msgstr "A product that works across languages."
+
 #: app/components/Closing.tsx#Closing
 msgid ""
 "A rocky ridge path at dusk leading toward a cairn on an overlook above layered"
@@ -147,6 +152,10 @@ msgid ""
 msgstr ""
 "A rocky ridge path at dusk leading toward a cairn on an overlook above layered"
 " hills."
+
+#: app/data/recommendations.ts#getRecommendations
+msgid "A shared focus on users"
+msgstr "A shared focus on users"
 
 #: app/components/profile-print/EarlierExperience.tsx#EarlierExperience
 msgid "Additional Projects"
@@ -206,17 +215,26 @@ msgstr ""
 "monitoring. The experience with production systems in an academic environment "
 "laid the foundation for my later career in software development."
 
-#: app/routes/services.tsx
-msgid ""
-"An architectural decision only helps when it survives implementation. We stay "
-"close to the code and to the people maintaining it, whether that means "
-"developing a feature, untangling a delivery problem, or working through a "
-"difficult decision together."
-msgstr ""
-"An architectural decision only helps when it survives implementation. We stay "
-"close to the code and to the people maintaining it, whether that means "
-"developing a feature, untangling a delivery problem, or working through a "
-"difficult decision together."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid ""
+#~ "An architectural decision only helps when it survives implementation. We stay "
+#~ "close to the code and to the people maintaining it, whether that means "
+#~ "developing a feature, untangling a delivery problem, or working through a "
+#~ "difficult decision together."
+#~ msgstr ""
+#~ "An architectural decision only helps when it survives implementation. We stay "
+#~ "close to the code and to the people maintaining it, whether that means "
+#~ "developing a feature, untangling a delivery problem, or working through a "
+#~ "difficult decision together."
+
+#: app/routes/services.tsx#getServices
+msgid "API, build, and release integration"
+msgstr "API, build, and release integration"
+
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "APIs"
+msgstr "APIs"
 
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Appointment Booking System"
@@ -234,23 +252,33 @@ msgstr ""
 "Approximate geographic location (country level, derived from the IP address, "
 "which itself is not stored)"
 
+#: app/routes/services.tsx
+msgid "Architecture"
+msgstr "Architecture"
+
 #: app/routes/references.tsx
-msgid ""
-"Architecture and engineering are collaborative work. These recommendations "
-"describe what people experienced alongside us: technical judgment, attention "
-"to users, and knowledge shared with the team."
-msgstr ""
-"Architecture and engineering are collaborative work. These recommendations "
-"describe what people experienced alongside us: technical judgment, attention "
-"to users, and knowledge shared with the team."
+msgid "Architecture & teamwork"
+msgstr "Architecture & teamwork"
+
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/references.tsx
+#~ msgid ""
+#~ "Architecture and engineering are collaborative work. These recommendations "
+#~ "describe what people experienced alongside us: technical judgment, attention "
+#~ "to users, and knowledge shared with the team."
+#~ msgstr ""
+#~ "Architecture and engineering are collaborative work. These recommendations "
+#~ "describe what people experienced alongside us: technical judgment, attention "
+#~ "to users, and knowledge shared with the team."
 
 #: app/routes/home.tsx
 msgid "Architecture and engineering for complex web applications."
 msgstr "Architecture and engineering for complex web applications."
 
-#: app/routes/services.tsx
-msgid "Architecture and modernization"
-msgstr "Architecture and modernization"
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid "Architecture and modernization"
+#~ msgstr "Architecture and modernization"
 
 #: app/data/recommendations.ts#getRecommendations
 msgid "Architecture at EnBW"
@@ -269,6 +297,22 @@ msgstr ""
 "Architecture reviews, React and TypeScript modernization, "
 "internationalization, and hands-on engineering with two experienced "
 "consultants."
+
+#: app/routes/services.tsx#getServices
+msgid "Architecture that leaves room for change."
+msgstr "Architecture that leaves room for change."
+
+#: app/data/recommendations.ts#getRecommendations
+msgid "Architecture with an eye for the details"
+msgstr "Architecture with an eye for the details"
+
+#: app/routes/services.tsx
+msgid ""
+"Architecture, internationalization, and hands-on engineering. You work "
+"directly with the two consultants who review and implement the work."
+msgstr ""
+"Architecture, internationalization, and hands-on engineering. You work "
+"directly with the two consultants who review and implement the work."
 
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid ""
@@ -376,29 +420,31 @@ msgstr ""
 " ESLint tooling. Spring Boot connected investment and CRM systems; Keycloak "
 "handled OpenID/OAuth. REST services and CI/CD ran on Microsoft Azure."
 
-#: app/routes/services.tsx
-msgid ""
-"At Regrello, our work connected interface localization with an AI translation "
-"pipeline for user-generated content. It included frontend catalogs, backend "
-"integration, translation quality evaluation, queues, retries, and operational "
-"tooling."
-msgstr ""
-"At Regrello, our work connected interface localization with an AI translation "
-"pipeline for user-generated content. It included frontend catalogs, backend "
-"integration, translation quality evaluation, queues, retries, and operational "
-"tooling."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid ""
+#~ "At Regrello, our work connected interface localization with an AI translation "
+#~ "pipeline for user-generated content. It included frontend catalogs, backend "
+#~ "integration, translation quality evaluation, queues, retries, and operational "
+#~ "tooling."
+#~ msgstr ""
+#~ "At Regrello, our work connected interface localization with an AI translation "
+#~ "pipeline for user-generated content. It included frontend catalogs, backend "
+#~ "integration, translation quality evaluation, queues, retries, and operational "
+#~ "tooling."
 
-#: app/routes/services.tsx
-msgid ""
-"At SBB, our architecture work covered the ticket-booking frontend, targeted "
-"refactoring, a monorepo proof of concept, and shared development standards. At"
-" EnBW, it covered reusable components and the architecture of white-label "
-"customer portals."
-msgstr ""
-"At SBB, our architecture work covered the ticket-booking frontend, targeted "
-"refactoring, a monorepo proof of concept, and shared development standards. At"
-" EnBW, it covered reusable components and the architecture of white-label "
-"customer portals."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid ""
+#~ "At SBB, our architecture work covered the ticket-booking frontend, targeted "
+#~ "refactoring, a monorepo proof of concept, and shared development standards. At"
+#~ " EnBW, it covered reusable components and the architecture of white-label "
+#~ "customer portals."
+#~ msgstr ""
+#~ "At SBB, our architecture work covered the ticket-booking frontend, targeted "
+#~ "refactoring, a monorepo proof of concept, and shared development standards. At"
+#~ " EnBW, it covered reusable components and the architecture of white-label "
+#~ "customer portals."
 
 #: app/data/werner.data.ts#getConsultant
 msgid ""
@@ -486,13 +532,18 @@ msgstr "Book an intro call"
 msgid "Bring the product into more languages."
 msgstr "Bring the product into more languages."
 
-#: app/routes/services.tsx
-msgid ""
-"Build maintainable extraction, catalog, terminology, and review workflows for "
-"interface text."
-msgstr ""
-"Build maintainable extraction, catalog, terminology, and review workflows for "
-"interface text."
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Build & delivery"
+msgstr "Build & delivery"
+
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid ""
+#~ "Build maintainable extraction, catalog, terminology, and review workflows for "
+#~ "interface text."
+#~ msgstr ""
+#~ "Build maintainable extraction, catalog, terminology, and review workflows for "
+#~ "interface text."
 
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
@@ -560,6 +611,10 @@ msgstr ""
 "via OAuth/OpenID using the SIM card's phone number. The app was implemented in"
 " German and English, with translations managed via PO files."
 
+#: app/routes/services.tsx#getServices
+msgid "Catalogs, terminology, and review workflows"
+msgstr "Catalogs, terminology, and review workflows"
+
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
 "CDN (Content Delivery Network) for delivering static files (HTML, JavaScript, "
@@ -590,6 +645,18 @@ msgstr "Clarity."
 msgid "Co-founder"
 msgstr "Co-founder"
 
+#: app/routes/services.tsx#getServices
+msgid "Codebase and dependency review"
+msgstr "Codebase and dependency review"
+
+#: app/components/CompanyBand.tsx#CompanyBand
+msgid ""
+"Companies from our consultants' project histories, including work through "
+"delivery partners."
+msgstr ""
+"Companies from our consultants' project histories, including work through "
+"delivery partners."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Company"
 msgstr "Company"
@@ -597,6 +664,10 @@ msgstr "Company"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Company profiles"
 msgstr "Company profiles"
+
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Components"
+msgstr "Components"
 
 #: app/components/profile-screen/ProfileRail.tsx#ProfileRail
 #: app/routes/team.tsx#MemberLinks
@@ -669,13 +740,14 @@ msgstr ""
 "Rheinland-Pfalz<0/>Postfach 30 40<1/>55020 "
 "Mainz<2/><3>www.datenschutz.rlp.de</3>"
 
-#: app/routes/services.tsx
-msgid ""
-"Design translation pipelines for user-generated content, including quality "
-"checks and failure handling."
-msgstr ""
-"Design translation pipelines for user-generated content, including quality "
-"checks and failure handling."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid ""
+#~ "Design translation pipelines for user-generated content, including quality "
+#~ "checks and failure handling."
+#~ msgstr ""
+#~ "Design translation pipelines for user-generated content, including quality "
+#~ "checks and failure handling."
 
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
@@ -721,6 +793,10 @@ msgstr "Discuss Availability"
 msgid "Does the profile fit?"
 msgstr "Does the profile fit?"
 
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Domain logic"
+msgstr "Domain logic"
+
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid ""
 "DoubleF IT – my first own company – provided residential customers with "
@@ -755,6 +831,14 @@ msgstr "Download PDF"
 #: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
 msgid "Download the concise five-page profile as a PDF."
 msgstr "Download the concise five-page profile as a PDF."
+
+#: app/routes/services.tsx#getServices
+msgid ""
+"DWS: international investment platforms. Witt: the foundations of 17 online "
+"shops. GE Healthcare: practical frontend workshops."
+msgstr ""
+"DWS: international investment platforms. Witt: the foundations of 17 online "
+"shops. GE Healthcare: practical frontend workshops."
 
 #: app/data/fastner.data.ts#getConsultant
 #: app/data/werner.data.ts#getConsultant
@@ -819,8 +903,21 @@ msgid "Engagement via Sebastian Software GmbH"
 msgstr "Engagement via Sebastian Software GmbH"
 
 #: app/routes/services.tsx
-msgid "Engineering and team enablement"
-msgstr "Engineering and team enablement"
+msgid "Engineering & enablement"
+msgstr "Engineering & enablement"
+
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid "Engineering and team enablement"
+#~ msgstr "Engineering and team enablement"
+
+#: app/routes/references.tsx
+msgid "Engineering over time"
+msgstr "Engineering over time"
+
+#: app/routes/services.tsx#getServices
+msgid "Engineering that moves the team forward."
+msgstr "Engineering that moves the team forward."
 
 #: app/data/fastner.data.ts#getConsultant
 #: app/data/werner.data.ts#getConsultant
@@ -851,6 +948,10 @@ msgstr ""
 "Established the technical foundation for 17 multi-brand online shops across "
 "international markets."
 
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Example languages"
+msgstr "Example languages"
+
 #: app/components/RecommendationQuote.tsx#RecommendationQuote
 msgid "Excerpt"
 msgstr "Excerpt"
@@ -864,9 +965,17 @@ msgstr "Experience."
 msgid "Explore our services"
 msgstr "Explore our services"
 
+#: app/routes/services.tsx
+msgid "Explore the project experience"
+msgstr "Explore the project experience"
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
 msgid "External Links"
 msgstr "External Links"
+
+#: app/components/CompanyBand.tsx#CompanyBand
+msgid "Fastner's project history"
+msgstr "Fastner's project history"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Fax:"
@@ -875,6 +984,14 @@ msgstr "Fax:"
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid "FIFA World Cup 2010 App"
 msgstr "FIFA World Cup 2010 App"
+
+#: app/routes/references.tsx
+msgid ""
+"Fifteen complete recommendations from people we have worked with. Read them "
+"here, without a LinkedIn account."
+msgstr ""
+"Fifteen complete recommendations from people we have worked with. Read them "
+"here, without a LinkedIn account."
 
 #: app/data/fastner.data.ts#getConsultant
 #: app/data/werner.data.ts#getConsultant
@@ -1080,6 +1197,10 @@ msgstr "Founder & Managing Director"
 msgid "Frankfurt am Main, Germany"
 msgstr "Frankfurt am Main, Germany"
 
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "From the first string to content people share across languages."
+msgstr "From the first string to content people share across languages."
+
 #~ #@ obsolete-since: 2026-10-09
 #~ #: app/components/profile-print/SkillStack.tsx#SkillStack
 #~ #: app/components/profile-print/SkillTags.tsx#groups
@@ -1099,6 +1220,10 @@ msgstr "Frontend Architecture & Developer Experience"
 msgid "Frontend Developer"
 msgstr "Frontend Developer"
 
+#: app/data/recommendations.ts#getRecommendations
+msgid "Frontend engineering at EnBW"
+msgstr "Frontend engineering at EnBW"
+
 #: app/data/werner.data.ts#getConsultant
 msgid "Frontend focus with an eye on user and developer experience."
 msgstr "Frontend focus with an eye on user and developer experience."
@@ -1113,6 +1238,10 @@ msgstr "Frontend focus with an eye on user and developer experience."
 #: app/routes/team.tsx#MemberLinks
 msgid "Full Consultant Profile"
 msgstr "Full Consultant Profile"
+
+#: app/components/RecommendationQuote.tsx#RecommendationQuote
+msgid "Full recommendation · English original"
+msgstr "Full recommendation · English original"
 
 #: app/data/fastner.data.ts#getConsultant
 msgid ""
@@ -1173,19 +1302,24 @@ msgstr ""
 "Particularly effective in demanding product and transformation phases where "
 "architectural decisions and hands-on delivery need to come together."
 
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/data/recommendations.ts#getRecommendations
+#~ msgid ""
+#~ "He helped us establish a scalable localization architecture across several "
+#~ "applications and significantly improved the developer workflow around "
+#~ "translations. His work consistently ensured that our localization efforts were"
+#~ " accurate, maintainable, and provided an excellent experience for users across"
+#~ " different languages and regions."
+#~ msgstr ""
+#~ "He helped us establish a scalable localization architecture across several "
+#~ "applications and significantly improved the developer workflow around "
+#~ "translations. His work consistently ensured that our localization efforts were"
+#~ " accurate, maintainable, and provided an excellent experience for users across"
+#~ " different languages and regions."
+
 #: app/data/recommendations.ts#getRecommendations
-msgid ""
-"He helped us establish a scalable localization architecture across several "
-"applications and significantly improved the developer workflow around "
-"translations. His work consistently ensured that our localization efforts were"
-" accurate, maintainable, and provided an excellent experience for users across"
-" different languages and regions."
-msgstr ""
-"He helped us establish a scalable localization architecture across several "
-"applications and significantly improved the developer workflow around "
-"translations. His work consistently ensured that our localization efforts were"
-" accurate, maintainable, and provided an excellent experience for users across"
-" different languages and regions."
+msgid "Helping teams find their own solutions"
+msgstr "Helping teams find their own solutions"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid "Hetzner Online GmbH, Germany"
@@ -1353,9 +1487,18 @@ msgstr ""
 msgid "Image Credits"
 msgstr "Image Credits"
 
-#: app/routes/services.tsx
-msgid "Implement the next steps in the codebase together with your team."
-msgstr "Implement the next steps in the codebase together with your team."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid "Implement the next steps in the codebase together with your team."
+#~ msgstr "Implement the next steps in the codebase together with your team."
+
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Implement together"
+msgstr "Implement together"
+
+#: app/routes/services.tsx#getServices
+msgid "Implementation alongside your team"
+msgstr "Implementation alongside your team"
 
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
@@ -1374,23 +1517,29 @@ msgstr ""
 msgid "Imprint"
 msgstr "Imprint"
 
-#: app/routes/services.tsx
-msgid ""
-"Improve testing, CI/CD, and AI-assisted development practices around the "
-"existing delivery process."
-msgstr ""
-"Improve testing, CI/CD, and AI-assisted development practices around the "
-"existing delivery process."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid ""
+#~ "Improve testing, CI/CD, and AI-assisted development practices around the "
+#~ "existing delivery process."
+#~ msgstr ""
+#~ "Improve testing, CI/CD, and AI-assisted development practices around the "
+#~ "existing delivery process."
 
-#: app/data/recommendations.ts#getRecommendations
-msgid ""
-"In our shared project at EnBW he was an important voice for a sane and "
-"technologically sound software architecture, as well as a great sparring "
-"partner with any technological question or idea you'd come up with."
-msgstr ""
-"In our shared project at EnBW he was an important voice for a sane and "
-"technologically sound software architecture, as well as a great sparring "
-"partner with any technological question or idea you'd come up with."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/data/recommendations.ts#getRecommendations
+#~ msgid ""
+#~ "In our shared project at EnBW he was an important voice for a sane and "
+#~ "technologically sound software architecture, as well as a great sparring "
+#~ "partner with any technological question or idea you'd come up with."
+#~ msgstr ""
+#~ "In our shared project at EnBW he was an important voice for a sane and "
+#~ "technologically sound software architecture, as well as a great sparring "
+#~ "partner with any technological question or idea you'd come up with."
+
+#: app/routes/services.tsx
+msgid "In practice"
+msgstr "In practice"
 
 #: app/components/profile-print/SummaryPage.tsx#IndustryPanel
 msgid "Industry Experience"
@@ -1416,13 +1565,27 @@ msgstr ""
 "Insights into our work across software and consulting: what we're building, "
 "exploring and thinking about."
 
-#: app/routes/services.tsx
-msgid "Integrate language support into application APIs, builds, and releases."
-msgstr "Integrate language support into application APIs, builds, and releases."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid "Integrate language support into application APIs, builds, and releases."
+#~ msgstr "Integrate language support into application APIs, builds, and releases."
+
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Interface text"
+msgstr "Interface text"
 
 #: app/routes/services.tsx
-msgid "Internationalization and localization"
-msgstr "Internationalization and localization"
+msgid "Internationalization"
+msgstr "Internationalization"
+
+#: app/routes/references.tsx
+msgid "Internationalization & product"
+msgstr "Internationalization & product"
+
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid "Internationalization and localization"
+#~ msgstr "Internationalization and localization"
 
 #: app/data/recommendations.ts#getFeaturedRecommendation
 msgid "Internationalization at Regrello"
@@ -1498,9 +1661,25 @@ msgstr "JavaScript Developer"
 msgid "JourFixe Meeting Management"
 msgstr "JourFixe Meeting Management"
 
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Keep improving"
+msgstr "Keep improving"
+
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Knowledge stays with the team."
+msgstr "Knowledge stays with the team."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Language"
 msgstr "Language"
+
+#: app/routes/references.tsx
+msgid ""
+"Language support, product judgment, and attention to the people using the "
+"software."
+msgstr ""
+"Language support, product judgment, and attention to the people using the "
+"software."
 
 #: app/components/profile-print/SummaryPage.tsx#PersonalDetails
 #: app/components/project-profile/ProjectProfile.tsx#ContactDetails
@@ -1591,17 +1770,38 @@ msgctxt "contact location"
 msgid "Mainz, Germany"
 msgstr "Mainz, Germany"
 
-#: app/routes/services.tsx
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid ""
+#~ "Make architectural tradeoffs explicit and turn them into a prioritized "
+#~ "migration plan."
+#~ msgstr ""
+#~ "Make architectural tradeoffs explicit and turn them into a prioritized "
+#~ "migration plan."
+
+#: app/routes/services.tsx#getServices
 msgid ""
-"Make architectural tradeoffs explicit and turn them into a prioritized "
-"migration plan."
+"Make language support part of the product, from the interface to the content "
+"people create and share."
 msgstr ""
-"Make architectural tradeoffs explicit and turn them into a prioritized "
-"migration plan."
+"Make language support part of the product, from the interface to the content "
+"people create and share."
+
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Make the boundaries visible."
+msgstr "Make the boundaries visible."
 
 #: app/components/Services.tsx#Services
 msgid "Make the next change easier."
 msgstr "Make the next change easier."
+
+#: app/routes/references.tsx
+msgid ""
+"Making difficult decisions together and helping a team build on what it "
+"learns."
+msgstr ""
+"Making difficult decisions together and helping a team build on what it "
+"learns."
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Managing Directors"
@@ -1691,15 +1891,20 @@ msgstr ""
 msgid "Obligation to Provide Data"
 msgstr "Obligation to Provide Data"
 
-#: app/data/recommendations.ts#getRecommendations
-msgid ""
-"One of Sebastian’s most admirable qualities is his willingness to listen and"
-" offer guidance. Whenever I encountered a challenge, Sebastian was there with "
-"a patient ear and practical solutions."
-msgstr ""
-"One of Sebastian’s most admirable qualities is his willingness to listen and"
-" offer guidance. Whenever I encountered a challenge, Sebastian was there with "
-"a patient ear and practical solutions."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/data/recommendations.ts#getRecommendations
+#~ msgid ""
+#~ "One of Sebastian’s most admirable qualities is his willingness to listen and"
+#~ " offer guidance. Whenever I encountered a challenge, Sebastian was there with "
+#~ "a patient ear and practical solutions."
+#~ msgstr ""
+#~ "One of Sebastian’s most admirable qualities is his willingness to listen and"
+#~ " offer guidance. Whenever I encountered a challenge, Sebastian was there with "
+#~ "a patient ear and practical solutions."
+
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "One product. Many languages."
+msgstr "One product. Many languages."
 
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "OneNumber Mobile App"
@@ -1717,9 +1922,10 @@ msgstr "Or meet the second consultant:"
 msgid "Or print directly"
 msgstr "Or print directly"
 
-#: app/routes/references.tsx
-msgid "Original recommendations on LinkedIn"
-msgstr "Original recommendations on LinkedIn"
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/references.tsx
+#~ msgid "Original recommendations on LinkedIn"
+#~ msgstr "Original recommendations on LinkedIn"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Our agency"
@@ -1733,15 +1939,16 @@ msgstr ""
 "Our agency helps teams with software architecture, engineering and technical "
 "direction."
 
-#: app/routes/services.tsx
-msgid ""
-"Our project experience spans investment platforms at DWS, the foundations of "
-"17 online shops at Witt, and frontend workshops at GE Healthcare. Alongside "
-"client work, we build and operate our own software products."
-msgstr ""
-"Our project experience spans investment platforms at DWS, the foundations of "
-"17 online shops at Witt, and frontend workshops at GE Healthcare. Alongside "
-"client work, we build and operate our own software products."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid ""
+#~ "Our project experience spans investment platforms at DWS, the foundations of "
+#~ "17 online shops at Witt, and frontend workshops at GE Healthcare. Alongside "
+#~ "client work, we build and operate our own software products."
+#~ msgstr ""
+#~ "Our project experience spans investment platforms at DWS, the foundations of "
+#~ "17 online shops at Witt, and frontend workshops at GE Healthcare. Alongside "
+#~ "client work, we build and operate our own software products."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Our software"
@@ -1797,6 +2004,14 @@ msgstr ""
 " documents with images, formatting, and navigation, and displayed PDF "
 "documents correctly."
 
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Pairing, code reviews, and decisions your team can carry forward."
+msgstr "Pairing, code reviews, and decisions your team can carry forward."
+
+#: app/routes/services.tsx#getServices
+msgid "Pairing, code reviews, and workshops"
+msgstr "Pairing, code reviews, and workshops"
+
 #: app/components/Services.tsx#Services
 msgid ""
 "Pairing, reviews, and practical standards help teams build shared judgment, "
@@ -1819,6 +2034,12 @@ msgstr "Palamedes · Product by Sebastian Software GmbH · Dev Tools"
 #: app/components/profile-print/SummaryPage.tsx#PersonalDetails
 msgid "Personal Details"
 msgstr "Personal Details"
+
+#: app/routes/references.tsx
+msgid ""
+"Perspectives from coaching, reusable interfaces, and years of frontend work."
+msgstr ""
+"Perspectives from coaching, reusable interfaces, and years of frontend work."
 
 #: app/routes/references.tsx
 msgid "Perspectives from working together."
@@ -1854,6 +2075,10 @@ msgstr ""
 "Testing Library, and rolled it out to additional European and Asian markets."
 
 #: app/data/recommendations.ts#getRecommendations
+msgid "Practical coaching in healthcare"
+msgstr "Practical coaching in healthcare"
+
+#: app/data/recommendations.ts#getRecommendations
 msgid "Pragmatic engineering and user experience"
 msgstr "Pragmatic engineering and user experience"
 
@@ -1875,6 +2100,10 @@ msgstr "Principal Technology Consultant"
 #: app/components/profile-screen/ProfileRail.tsx#PdfActions
 msgid "Printable profile"
 msgstr "Printable profile"
+
+#: app/routes/services.tsx#getServices
+msgid "Prioritized modernization plan"
+msgstr "Prioritized modernization plan"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Privacy"
@@ -1937,6 +2166,10 @@ msgstr ""
 msgid "Processors"
 msgstr "Processors"
 
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Product interface"
+msgstr "Product interface"
+
 #: app/data/recommendations.ts#getRecommendations
 msgid "Product judgment and frontend engineering"
 msgstr "Product judgment and frontend engineering"
@@ -1979,6 +2212,14 @@ msgstr "Project Profile PDF"
 msgid "Project Profile Sebastian Fastner – React & TypeScript"
 msgstr "Project Profile Sebastian Fastner – React & TypeScript"
 
+#: app/data/recommendations.ts#getRecommendations
+msgid "React architecture and knowledge transfer"
+msgstr "React architecture and knowledge transfer"
+
+#: app/routes/services.tsx#getServices
+msgid "React, TypeScript, and backend development"
+msgstr "React, TypeScript, and backend development"
+
 #: app/components/ReferenceHighlights.tsx#ReferenceHighlights
 #: app/routes/services.tsx
 msgid "Read the references"
@@ -1987,6 +2228,10 @@ msgstr "Read the references"
 #: app/components/project-profile/ProjectProfile.tsx#EvidenceAndProductsPage
 msgid "Recent Hands-on Products"
 msgstr "Recent Hands-on Products"
+
+#: app/routes/references.tsx
+msgid "Recommendation topics"
+msgstr "Recommendation topics"
 
 #: app/routes/references.tsx#meta
 msgid ""
@@ -2055,6 +2300,14 @@ msgstr ""
 "retrying failed translations. The backend was restructured and decoupled, "
 "making it easier to maintain and understand."
 
+#: app/routes/services.tsx#getServices
+msgid ""
+"Regrello: interface localization and AI translation of user-generated content,"
+" with quality evaluation, queues, retries, and operational tooling."
+msgstr ""
+"Regrello: interface localization and AI translation of user-generated content,"
+" with quality evaluation, queues, retries, and operational tooling."
+
 #: app/data/fastner.project-profile.ts#createFastnerProjectProfile
 msgid ""
 "Remote-first; occasional on-site work throughout Germany, Austria, "
@@ -2067,13 +2320,22 @@ msgstr ""
 msgid "Requirements Management for BIX@"
 msgstr "Requirements Management for BIX@"
 
-#: app/routes/services.tsx
-msgid ""
-"Review application boundaries, component structure, dependencies, and the "
-"build setup."
-msgstr ""
-"Review application boundaries, component structure, dependencies, and the "
-"build setup."
+#: app/data/recommendations.ts#getRecommendations
+msgid "Reusable interfaces at Deutsche Telekom"
+msgstr "Reusable interfaces at Deutsche Telekom"
+
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid ""
+#~ "Review application boundaries, component structure, dependencies, and the "
+#~ "build setup."
+#~ msgstr ""
+#~ "Review application boundaries, component structure, dependencies, and the "
+#~ "build setup."
+
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Review together"
+msgstr "Review together"
 
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Rhine-Main, Germany"
@@ -2162,6 +2424,14 @@ msgstr "San Francisco, USA"
 msgid "Save or share this profile as a PDF."
 msgstr "Save or share this profile as a PDF."
 
+#: app/routes/services.tsx#getServices
+msgid ""
+"SBB: ticket-booking frontend, targeted refactoring, and a monorepo proof of "
+"concept. EnBW: reusable components for white-label customer portals."
+msgstr ""
+"SBB: ticket-booking frontend, targeted refactoring, and a monorepo proof of "
+"concept. EnBW: reusable components for white-label customer portals."
+
 #: app/routes/home.tsx#meta
 msgid ""
 "Sebastian Consulting – Architecture and engineering for complex web "
@@ -2170,17 +2440,18 @@ msgstr ""
 "Sebastian Consulting – Architecture and engineering for complex web "
 "applications"
 
-#: app/data/recommendations.ts#getRecommendations
-msgid ""
-"Sebastian excels at identifying opportunities for improvement while remaining "
-"pragmatic and collaborative, ensuring that progress is made without "
-"unnecessary friction. I was particularly impressed by his user-centric "
-"mindset."
-msgstr ""
-"Sebastian excels at identifying opportunities for improvement while remaining "
-"pragmatic and collaborative, ensuring that progress is made without "
-"unnecessary friction. I was particularly impressed by his user-centric "
-"mindset."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/data/recommendations.ts#getRecommendations
+#~ msgid ""
+#~ "Sebastian excels at identifying opportunities for improvement while remaining "
+#~ "pragmatic and collaborative, ensuring that progress is made without "
+#~ "unnecessary friction. I was particularly impressed by his user-centric "
+#~ "mindset."
+#~ msgstr ""
+#~ "Sebastian excels at identifying opportunities for improvement while remaining "
+#~ "pragmatic and collaborative, ensuring that progress is made without "
+#~ "unnecessary friction. I was particularly impressed by his user-centric "
+#~ "mindset."
 
 #: app/routes/home.tsx
 msgid ""
@@ -2220,9 +2491,22 @@ msgstr ""
 msgid "See what we build beyond consulting."
 msgstr "See what we build beyond consulting."
 
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/references.tsx
+#~ msgid "Selected excerpts from the original English recommendations."
+#~ msgstr "Selected excerpts from the original English recommendations."
+
 #: app/routes/references.tsx
-msgid "Selected excerpts from the original English recommendations."
-msgstr "Selected excerpts from the original English recommendations."
+msgid ""
+"Selected from received LinkedIn recommendations. The dates record when each "
+"recommendation was written; the wording is reproduced in full."
+msgstr ""
+"Selected from received LinkedIn recommendations. The dates record when each "
+"recommendation was written; the wording is reproduced in full."
+
+#: app/components/CompanyBand.tsx#CompanyBand
+msgid "Selected project experience"
+msgstr "Selected project experience"
 
 #: app/components/project-profile/ProjectProfile.tsx#EvidenceAndProductsPage
 msgid "Selected Project Experience · Enterprise SaaS & Internationalization"
@@ -2248,6 +2532,10 @@ msgstr "Senior Principal Frontend Architect"
 msgid "Senior Technology Consultant"
 msgstr "Senior Technology Consultant"
 
+#: app/routes/services.tsx
+msgid "Service areas"
+msgstr "Service areas"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 #: app/components/Services.tsx#Services
 #: app/routes/services.tsx
@@ -2261,6 +2549,10 @@ msgstr "Services – Sebastian Consulting"
 #: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
 msgid "Share Project Profile"
 msgstr "Share Project Profile"
+
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Share the reasoning"
+msgstr "Share the reasoning"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Sign-up opens soon. The newsletter has not started yet."
@@ -2349,23 +2641,32 @@ msgstr "Storage for static files and assets"
 msgid "Subscribe"
 msgstr "Subscribe"
 
-#: app/routes/services.tsx
-msgid ""
-"Supporting another language affects more than the translation files. We help "
-"with the application architecture and the workflow around it, from interface "
-"text to content that users create and share across languages."
-msgstr ""
-"Supporting another language affects more than the translation files. We help "
-"with the application architecture and the workflow around it, from interface "
-"text to content that users create and share across languages."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid ""
+#~ "Supporting another language affects more than the translation files. We help "
+#~ "with the application architecture and the workflow around it, from interface "
+#~ "text to content that users create and share across languages."
+#~ msgstr ""
+#~ "Supporting another language affects more than the translation files. We help "
+#~ "with the application architecture and the workflow around it, from interface "
+#~ "text to content that users create and share across languages."
 
 #: app/routes/team.tsx#meta
 msgid "Team – Sebastian Consulting"
 msgstr "Team – Sebastian Consulting"
 
+#: app/data/recommendations.ts#getRecommendations
+msgid "Technical depth and team spirit"
+msgstr "Technical depth and team spirit"
+
 #: app/components/project-profile/ProjectProfile.tsx#FirstPage
 msgid "Technical Focus"
 msgstr "Technical Focus"
+
+#: app/data/recommendations.ts#getRecommendations
+msgid "Technical leadership and mentoring"
+msgstr "Technical leadership and mentoring"
 
 #~ #@ obsolete-since: 2026-10-09
 #~ #: app/components/profile-print/AdditionalProjects.tsx#AdditionalProjects
@@ -2398,6 +2699,10 @@ msgstr ""
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Terminaro · Product by Sebastian Software GmbH · SaaS"
 msgstr "Terminaro · Product by Sebastian Software GmbH · SaaS"
+
+#: app/routes/services.tsx#getServices
+msgid "Testing and delivery workflows"
+msgstr "Testing and delivery workflows"
 
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid ""
@@ -2446,13 +2751,14 @@ msgstr ""
 #~ "wording and attribution. The dates refer to when the recommendations were "
 #~ "written."
 
-#: app/routes/references.tsx
-msgid ""
-"The excerpts come from LinkedIn recommendations, with authors and dates "
-"preserved. The dates refer to when the recommendations were written."
-msgstr ""
-"The excerpts come from LinkedIn recommendations, with authors and dates "
-"preserved. The dates refer to when the recommendations were written."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/references.tsx
+#~ msgid ""
+#~ "The excerpts come from LinkedIn recommendations, with authors and dates "
+#~ "preserved. The dates refer to when the recommendations were written."
+#~ msgstr ""
+#~ "The excerpts come from LinkedIn recommendations, with authors and dates "
+#~ "preserved. The dates refer to when the recommendations were written."
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""
@@ -2495,6 +2801,16 @@ msgid ""
 msgstr ""
 "The link may be outdated, or the address may contain a typo. These pages lead "
 "on:"
+
+#: app/routes/references.tsx
+msgid ""
+"The recommendations were received by Werner; Chris Lewis also describes our "
+"joint work. Each appears in the original English wording, with its author and "
+"date."
+msgstr ""
+"The recommendations were received by Werner; Chris Lewis also describes our "
+"joint work. Each appears in the original English wording, with its author and "
+"date."
 
 #: app/components/profile-screen/ProfileRail.tsx#ProfileRail
 msgid "The second consultant"
@@ -2684,13 +3000,19 @@ msgstr "Tolino E-Book Platform"
 msgid "Trademark Notice"
 msgstr "Trademark Notice"
 
-#: app/routes/references.tsx
-msgid "Translated excerpts. The original recommendations are in English."
-msgstr "Translated excerpts. The original recommendations are in English."
-
 #: app/components/RecommendationQuote.tsx#RecommendationQuote
-msgid "Translated from English"
-msgstr "Translated from English"
+msgid "Translated excerpt"
+msgstr "Translated excerpt"
+
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/references.tsx
+#~ msgid "Translated excerpts. The original recommendations are in English."
+#~ msgstr "Translated excerpts. The original recommendations are in English."
+
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/components/RecommendationQuote.tsx#RecommendationQuote
+#~ msgid "Translated from English"
+#~ msgstr "Translated from English"
 
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
@@ -2701,6 +3023,14 @@ msgstr ""
 "Translated new and changed content within seconds using an event-driven "
 "workflow, prioritizing participants' native languages before rolling out to "
 "all available languages."
+
+#: app/routes/services.tsx#getServices
+msgid "Translation pipelines for user content"
+msgstr "Translation pipelines for user content"
+
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Translation workflow"
+msgstr "Translation workflow"
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""
@@ -2720,17 +3050,22 @@ msgid ""
 msgstr ""
 "Under the GDPR, you have the following rights regarding your personal data:"
 
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "Understand the dependencies. Change one part with confidence."
+msgstr "Understand the dependencies. Change one part with confidence."
+
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid "UnifyJS Mobile Framework"
 msgstr "UnifyJS Mobile Framework"
 
-#: app/routes/services.tsx
-msgid ""
-"Use pairing and code reviews to share decisions and make knowledge accessible "
-"to the team."
-msgstr ""
-"Use pairing and code reviews to share decisions and make knowledge accessible "
-"to the team."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid ""
+#~ "Use pairing and code reviews to share decisions and make knowledge accessible "
+#~ "to the team."
+#~ msgstr ""
+#~ "Use pairing and code reviews to share decisions and make knowledge accessible "
+#~ "to the team."
 
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
@@ -2739,6 +3074,10 @@ msgid ""
 msgstr ""
 "Used React Router, TypeScript, Convex, and automated tests as an end-to-end "
 "product stack."
+
+#: app/components/ServiceIllustration.tsx#ServiceIllustration
+msgid "User content"
+msgstr "User content"
 
 #: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
 msgid ""
@@ -2786,15 +3125,16 @@ msgstr ""
 "products into more languages, and build a delivery process the team can "
 "maintain."
 
-#: app/routes/services.tsx
-msgid ""
-"We help teams with the architecture of their web applications, "
-"internationalization, and the engineering work that makes those decisions hold"
-" up in practice."
-msgstr ""
-"We help teams with the architecture of their web applications, "
-"internationalization, and the engineering work that makes those decisions hold"
-" up in practice."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid ""
+#~ "We help teams with the architecture of their web applications, "
+#~ "internationalization, and the engineering work that makes those decisions hold"
+#~ " up in practice."
+#~ msgstr ""
+#~ "We help teams with the architecture of their web applications, "
+#~ "internationalization, and the engineering work that makes those decisions hold"
+#~ " up in practice."
 
 #: app/components/Services.tsx#Services
 msgid ""
@@ -2814,6 +3154,14 @@ msgstr ""
 "We use the following processors pursuant to Art. 28 GDPR, with each of whom a "
 "data processing agreement is in place:"
 
+#: app/routes/services.tsx#getServices
+msgid ""
+"We work in the code with the people maintaining it. Decisions become working "
+"software, and the reasoning stays with your team."
+msgstr ""
+"We work in the code with the people maintaining it. Decisions become working "
+"software, and the reasoning stays with your team."
+
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Web analytics with Rybbit"
 msgstr "Web analytics with Rybbit"
@@ -2826,6 +3174,10 @@ msgstr "Web-Based Promotion Management"
 msgid "Weiden in der Oberpfalz, Germany"
 msgstr "Weiden in der Oberpfalz, Germany"
 
+#: app/components/CompanyBand.tsx#CompanyBand
+msgid "Werner's project history"
+msgstr "Werner's project history"
+
 #: app/components/Closing.tsx#Closing
 msgid "What needs to become clearer?"
 msgstr "What needs to become clearer?"
@@ -2833,6 +3185,14 @@ msgstr "What needs to become clearer?"
 #: app/components/ReferenceHighlights.tsx#ReferenceHighlights
 msgid "What people say about working with us."
 msgstr "What people say about working with us."
+
+#: app/routes/services.tsx#getServices
+msgid ""
+"When a small change touches too much code, we find the coupling and work out "
+"the next useful step with your team."
+msgstr ""
+"When a small change touches too much code, we find the coupling and work out "
+"the next useful step with your team."
 
 #: app/components/Services.tsx#Services
 msgid ""
@@ -2846,15 +3206,16 @@ msgstr ""
 "React and TypeScript. You get a target picture, a reasoned decision, and a "
 "migration path the team can carry."
 
-#: app/routes/services.tsx
-msgid ""
-"When every change touches too many parts of the application, the first "
-"question is where the coupling comes from. We work through that with your team"
-" before choosing a new framework or committing to a rewrite."
-msgstr ""
-"When every change touches too many parts of the application, the first "
-"question is where the coupling comes from. We work through that with your team"
-" before choosing a new framework or committing to a rewrite."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid ""
+#~ "When every change touches too many parts of the application, the first "
+#~ "question is where the coupling comes from. We work through that with your team"
+#~ " before choosing a new framework or committing to a rewrite."
+#~ msgstr ""
+#~ "When every change touches too many parts of the application, the first "
+#~ "question is where the coupling comes from. We work through that with your team"
+#~ " before choosing a new framework or committing to a rewrite."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#EmailContactSection
 msgid ""
@@ -2914,13 +3275,14 @@ msgstr ""
 msgid "Wireless LAN Infrastructure"
 msgstr "Wireless LAN Infrastructure"
 
-#: app/routes/services.tsx
-msgid ""
-"Work directly on React and TypeScript features, application backends, and "
-"their integration."
-msgstr ""
-"Work directly on React and TypeScript features, application backends, and "
-"their integration."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid ""
+#~ "Work directly on React and TypeScript features, application backends, and "
+#~ "their integration."
+#~ msgstr ""
+#~ "Work directly on React and TypeScript features, application backends, and "
+#~ "their integration."
 
 #: app/components/profile-print/SummaryPage.tsx#PersonalDetails
 msgid "Work Model"
@@ -2944,15 +3306,16 @@ msgstr ""
 "You work directly with the two architects doing the work: no bench, no "
 "juniors, no handover to third parties."
 
-#: app/routes/services.tsx
-msgid ""
-"You work directly with the two consultants who review and implement the work. "
-"Our focus is React and TypeScript, with experience across application "
-"backends, translation pipelines, and delivery infrastructure."
-msgstr ""
-"You work directly with the two consultants who review and implement the work. "
-"Our focus is React and TypeScript, with experience across application "
-"backends, translation pipelines, and delivery infrastructure."
+#~ #@ obsolete-since: 2026-10-12
+#~ #: app/routes/services.tsx
+#~ msgid ""
+#~ "You work directly with the two consultants who review and implement the work. "
+#~ "Our focus is React and TypeScript, with experience across application "
+#~ "backends, translation pipelines, and delivery infrastructure."
+#~ msgstr ""
+#~ "You work directly with the two consultants who review and implement the work. "
+#~ "Our focus is React and TypeScript, with experience across application "
+#~ "backends, translation pipelines, and delivery infrastructure."
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid "Your Rights"
