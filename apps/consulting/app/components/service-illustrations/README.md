@@ -21,3 +21,6 @@ support the neutral Consulting canvas; burgundy remains a restrained accent.
 
 [prompts.json](prompts.json) contains the complete generation prompts and reference
 relationships for all three selected illustrations.
+
+Use the [reusable base prompt](../../../design/illustration-prompt.md) to create
+additional subjects in the same visual language.
