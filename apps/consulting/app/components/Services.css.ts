@@ -30,3 +30,5 @@ export const title = style([
 ])
 
 export const text = style([editorial.body, { fontSize: typeStep("0"), lineHeight: 1.55 }])
+
+export const action = style({ marginTop: SPACE_SCALE.xl })

@@ -66,7 +66,7 @@ export function getConsultant(): Consultant {
     phone: "+49 151 22631309",
     profiles: {
       github: "https://github.com/sebastian-software",
-      linkedin: "https://linkedin.com/in/anthropicsebastian",
+      linkedin: "https://www.linkedin.com/in/swernerx/",
     },
     title: t`Principal Technology Consultant`,
     workPreferences: {
