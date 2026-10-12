@@ -150,6 +150,10 @@ msgstr ""
 msgid "A product that works across languages."
 msgstr "Ein Produkt für viele Sprachen."
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "a registered trademark of"
+msgstr "eine eingetragene Marke der"
+
 #: app/components/Closing.tsx#Closing
 msgid ""
 "A rocky ridge path at dusk leading toward a cairn on an overlook above layered"

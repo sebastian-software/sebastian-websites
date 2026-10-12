@@ -109,6 +109,10 @@ msgstr ""
 "gut verstandene Technik, halten den Umfang klein und ändern nur, was wir "
 "begründen können."
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "a registered trademark of"
+msgstr "eine eingetragene Marke der"
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/products.tsx
 #~ msgid "A third product is in preparation and will be announced here."

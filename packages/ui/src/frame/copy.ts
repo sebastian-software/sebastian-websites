@@ -43,6 +43,7 @@ export type FrameCopy = {
     readonly index: string
     readonly legal: string
     readonly profiles: string
+    readonly trademarkOwner: string
   }
   readonly header: {
     readonly language: string

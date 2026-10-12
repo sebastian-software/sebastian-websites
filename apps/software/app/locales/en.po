@@ -105,6 +105,10 @@ msgstr ""
 "three years. We prefer boring, well-understood technology, keep the scope "
 "small, and change things only when we can explain why."
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "a registered trademark of"
+msgstr "a registered trademark of"
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/products.tsx
 #~ msgid "A third product is in preparation and will be announced here."
