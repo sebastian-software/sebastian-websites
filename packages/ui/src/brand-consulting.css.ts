@@ -1,7 +1,7 @@
 import { EDITORIAL_COLORS, NEUTRALS, PALETTES } from "@sebastian-websites/tokens"
 import { createGlobalTheme, globalStyle } from "@vanilla-extract/css"
 
-import { color } from "./theme.css.ts"
+import { canvasTexture, color } from "./theme.css.ts"
 
 export { GLOBAL_STYLES } from "./global.css.ts"
 
@@ -20,5 +20,6 @@ const PAPER_GRAIN = `url("data:image/svg+xml,${encodeURIComponent(
 
 globalStyle("body", {
   "@media": { print: { backgroundImage: "none" } },
-  backgroundImage: PAPER_GRAIN,
+  backgroundImage: canvasTexture,
+  vars: { [canvasTexture]: PAPER_GRAIN },
 })

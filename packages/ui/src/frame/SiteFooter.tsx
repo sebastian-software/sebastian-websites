@@ -9,6 +9,8 @@ import { BrandLogo } from "./BrandLogo.tsx"
 import * as styles from "./PageEnding.css.ts"
 import { SocialGlyph } from "./SocialGlyph.tsx"
 
+const LOGO_HEIGHT = { consulting: 44, software: 88 } as const
+
 export type SiteFooterProps = {
   readonly copy: FrameCopy
   readonly frame: SiteFrame
@@ -26,7 +28,7 @@ export function SiteFooter(props: SiteFooterProps): ReactElement {
   const { copy, frame } = props
   const { company } = copy
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} data-brand={frame.brand}>
       <div className={styles.panel}>
         <div className={styles.footerTop}>
           <div>
@@ -35,7 +37,7 @@ export function SiteFooter(props: SiteFooterProps): ReactElement {
                 alt={copy.brandNames[frame.brand]}
                 brand={frame.brand}
                 className={styles.footerLogo}
-                height={88}
+                height={LOGO_HEIGHT[frame.brand]}
               />
             </a>
             <address className={styles.address}>

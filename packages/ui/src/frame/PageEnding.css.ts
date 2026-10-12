@@ -1,4 +1,12 @@
-import { FRAME, PALETTES, RHYTHM, scaled, TYPE_SCALE, typeStep } from "@sebastian-websites/tokens"
+import {
+  FRAME,
+  PALETTES,
+  RHYTHM,
+  scaled,
+  SPACE_SCALE,
+  TYPE_SCALE,
+  typeStep,
+} from "@sebastian-websites/tokens"
 import { style, styleVariants } from "@vanilla-extract/css"
 
 import { grid, heading, lead, outboundAccent, title } from "../editorial/editorial.css.ts"
@@ -57,6 +65,7 @@ export const form = style({
   gridColumn: END_HALF,
   gridRow: 2,
   marginTop: scaled("-6px"),
+  selectors: { '[data-brand="consulting"] &': { alignItems: "stretch" } },
 })
 
 export const field = style([
@@ -74,6 +83,7 @@ export const field = style([
     minWidth: 0,
     paddingInline: scaled("20px"),
     selectors: {
+      '[data-brand="consulting"] &': { appearance: "none", lineHeight: 1.2, paddingBlock: 0 },
       "&:focus-visible": { borderColor: color.accent, outlineOffset: "2px" },
       '&[aria-invalid="true"]': { borderColor: "oklch(0.5 0.18 25)" },
     },
@@ -94,6 +104,12 @@ export const submit = style([
     height: FIELD_HEIGHT,
     paddingInline: scaled("38px"),
     selectors: {
+      '[data-brand="consulting"] &': {
+        appearance: "none",
+        fontSize: typeStep("0"),
+        lineHeight: 1.2,
+        paddingBlock: 0,
+      },
       "&:disabled": { cursor: "progress", opacity: 0.72 },
       "&:hover:not(:disabled)": { backgroundColor: `color-mix(in oklch, ${ACTION} 85%, black)` },
     },
@@ -173,6 +189,12 @@ export const panel = style([
     fontFamily: font.sans,
     marginInline: "auto",
     padding: scaled("56px 56px 32px"),
+    selectors: {
+      '[data-brand="consulting"] &': {
+        backgroundColor: FRAME.shell,
+        padding: `${SPACE_SCALE.l} ${SPACE_SCALE.l} ${SPACE_SCALE.m}`,
+      },
+    },
     width: FRAME_WIDTH,
   },
 ])
@@ -190,6 +212,7 @@ export const footerLogo = style({
   "@media": { [PHONE]: { height: scaled("64px") } },
   display: "block",
   height: scaled("88px"),
+  selectors: { '[data-brand="consulting"] &': { height: "auto", width: scaled("290px") } },
   width: "auto",
 })
 
@@ -198,6 +221,13 @@ export const address = style({
   fontStyle: "normal",
   lineHeight: 1.42,
   marginTop: scaled("28px"),
+  selectors: {
+    '[data-brand="consulting"] &': {
+      fontSize: typeStep("-2"),
+      lineHeight: 1.55,
+      marginTop: SPACE_SCALE.s,
+    },
+  },
 })
 
 export const plainLink = style({ selectors: { "&:hover": { color: color.accent } } })
@@ -209,6 +239,7 @@ export const aside = style({
   justifyContent: "space-between",
   minWidth: scaled("224px"),
   paddingTop: "2px",
+  selectors: { '[data-brand="consulting"] &': { rowGap: SPACE_SCALE.m } },
 })
 
 export const index = style({
@@ -219,6 +250,7 @@ export const index = style({
   listStyle: "none",
   margin: 0,
   padding: 0,
+  selectors: { '[data-brand="consulting"] &': { fontSize: typeStep("-1"), lineHeight: 1.65 } },
 })
 
 export const profiles = style({
@@ -228,6 +260,9 @@ export const profiles = style({
   listStyle: "none",
   margin: 0,
   padding: 0,
+  selectors: {
+    '[data-brand="consulting"] &': { columnGap: SPACE_SCALE.s, fontSize: typeStep("-2") },
+  },
 })
 
 export const profile = style([
@@ -239,6 +274,7 @@ export const glyph = style({
   color: color.heading,
   flexShrink: 0,
   height: scaled("20px"),
+  selectors: { '[data-brand="consulting"] &': { height: scaled("16px"), width: scaled("16px") } },
   width: scaled("20px"),
 })
 
@@ -253,6 +289,13 @@ export const baseline = style({
   justifyContent: "space-between",
   marginTop: scaled("30px"),
   paddingTop: scaled("24px"),
+  selectors: {
+    '[data-brand="consulting"] &': {
+      fontSize: typeStep("-2"),
+      marginTop: SPACE_SCALE.m,
+      paddingTop: SPACE_SCALE.s,
+    },
+  },
 })
 
 export const legal = style({

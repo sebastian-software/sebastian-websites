@@ -1,5 +1,6 @@
 import type { SiteFrame } from "@sebastian-websites/web-core"
 
+import { Globe } from "lucide-react"
 import { type ReactElement, useId } from "react"
 
 import type { FrameCopy } from "./copy.ts"
@@ -27,7 +28,7 @@ export function SiteHeader(props: SiteHeaderProps): ReactElement {
   const { copy, frame } = props
   const menuId = useId()
   return (
-    <header className={styles.area}>
+    <header className={styles.area} data-brand={frame.brand}>
       <a className={styles.skip} href="#main">
         {copy.header.skip}
       </a>
@@ -65,25 +66,34 @@ export function SiteHeader(props: SiteHeaderProps): ReactElement {
           <span aria-hidden="true" className={styles.separator} />
           <nav aria-label={copy.header.language}>
             <ul className={styles.languages}>
-              {frame.languages.map((language, index) => (
-                <li key={language.locale}>
-                  {index > 0 ? (
-                    <span aria-hidden="true" className={styles.slash}>
-                      /{" "}
-                    </span>
-                  ) : null}
-                  <a
-                    aria-current={language.current ? "true" : undefined}
-                    className={styles.language}
-                    href={language.href}
-                    hrefLang={language.locale}
-                    lang={language.locale}
-                  >
-                    <span aria-hidden="true">{language.locale.toUpperCase()}</span>
-                    <span className={visuallyHidden}>{language.label}</span>
-                  </a>
-                </li>
-              ))}
+              {frame.languages
+                .filter((language) => frame.brand !== "consulting" || !language.current)
+                .map((language, index) => (
+                  <li key={language.locale}>
+                    {index > 0 ? (
+                      <span aria-hidden="true" className={styles.slash}>
+                        /{" "}
+                      </span>
+                    ) : null}
+                    <a
+                      aria-current={language.current ? "true" : undefined}
+                      className={
+                        frame.brand === "consulting" ? styles.languageGlobe : styles.language
+                      }
+                      href={language.href}
+                      hrefLang={language.locale}
+                      lang={language.locale}
+                      title={frame.brand === "consulting" ? language.label : undefined}
+                    >
+                      {frame.brand === "consulting" ? (
+                        <Globe aria-hidden="true" className={styles.globe} strokeWidth={1.75} />
+                      ) : (
+                        <span aria-hidden="true">{language.locale.toUpperCase()}</span>
+                      )}
+                      <span className={visuallyHidden}>{language.label}</span>
+                    </a>
+                  </li>
+                ))}
             </ul>
           </nav>
           <span aria-hidden="true" className={styles.separator} />

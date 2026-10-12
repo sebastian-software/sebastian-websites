@@ -27,7 +27,7 @@ export function PageEnding(props: PageEndingProps): ReactElement {
   const { copy, frame, subscribe } = props
   return (
     <>
-      <div className={`${page} ${ending}`}>
+      <div className={`${page} ${ending}`} data-brand={frame.brand}>
         <Newsletter copy={copy.newsletter} subscribe={subscribe} />
         <SiblingInvitation
           brand={frame.outbound.brand}

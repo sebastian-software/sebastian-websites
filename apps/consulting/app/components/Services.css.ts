@@ -1,39 +1,31 @@
-import { color, COMPACT, editorial, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
+import { editorial, SPACE_SCALE, typeStep } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
-/** A quiet visible heading, so the header's Services link lands on its name. */
+/** The section heading leads the smaller headings in its three columns. */
 export const heading = style([
-  editorial.subheading,
+  editorial.heading,
   {
-    "@media": { [PHONE]: { marginBottom: scaled("28px") } },
-    color: color.muted,
-    marginBottom: scaled("40px"),
+    marginBottom: SPACE_SCALE.xl,
   },
 ])
 
 export const list = style([
   editorial.grid,
   {
-    "@media": { [PHONE]: { rowGap: scaled("40px") } },
+    columnGap: SPACE_SCALE.xl,
     listStyle: "none",
     margin: 0,
     padding: 0,
-    rowGap: scaled("48px"),
+    rowGap: SPACE_SCALE.xl,
   },
 ])
 
 export const item = style({ gridColumn: "span 4" })
 
 export const title = style([
-  editorial.heading,
+  editorial.subheading,
   {
-    "@media": {
-      [COMPACT]: { marginBottom: scaled("20px") },
-      [PHONE]: { marginBottom: scaled("16px") },
-    },
-    fontSize: typeStep("3"),
-    lineHeight: 1.22,
-    marginBottom: scaled("28px"),
+    marginBottom: SPACE_SCALE.s,
   },
 ])
 

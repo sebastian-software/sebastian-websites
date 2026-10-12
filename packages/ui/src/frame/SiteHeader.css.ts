@@ -1,12 +1,13 @@
-import { FRAME, scaled, typeStep } from "@sebastian-websites/tokens"
-import { style } from "@vanilla-extract/css"
+import { FRAME, scaled, SPACE_SCALE, typeStep } from "@sebastian-websites/tokens"
+import { createVar, style } from "@vanilla-extract/css"
 
 import { COMPACT, FRAME_INSET, FRAME_OVERHANG, FRAME_WIDTH, PHONE } from "../responsive.ts"
-import { color, font } from "../theme.css.ts"
+import { canvasTexture, color, font } from "../theme.css.ts"
 import { continuousCorners } from "./corners.ts"
 
 /** The menu opens just below the header shell, inset like the shell itself. */
-const MENU_TOP = `calc(${FRAME.headerTop} + ${FRAME.headerHeight} + ${scaled("8px")})`
+const HEADER_TOP = createVar()
+const MENU_TOP = `calc(${HEADER_TOP} + ${FRAME.headerHeight} + ${scaled("8px")})`
 
 /** Touch targets in the compact menu grow with the root but never fall below 44 px. */
 const TOUCH_TARGET = `max(44px, ${scaled("44px")})`
@@ -36,9 +37,27 @@ export const skip = style({
 /** The header floats above the page and stays in reach while scrolling. */
 export const area = style({
   "@media": { print: { display: "none" } },
-  marginTop: FRAME.headerTop,
+  marginTop: HEADER_TOP,
   position: "sticky",
-  top: FRAME.headerTop,
+  selectors: {
+    '&[data-brand="consulting"]': {
+      vars: { [HEADER_TOP]: `max(${FRAME.headerTop}, env(safe-area-inset-top, 0px))` },
+    },
+    '&[data-brand="consulting"]::before': {
+      backgroundColor: color.canvas,
+      backgroundImage: canvasTexture,
+      content: '""',
+      height: `calc(${HEADER_TOP} + ${FRAME.headerHeight} + ${SPACE_SCALE.s})`,
+      insetInline: 0,
+      maskImage: `linear-gradient(to bottom, black calc(${HEADER_TOP} + ${FRAME.headerHeight} / 2), transparent)`,
+      pointerEvents: "none",
+      position: "fixed",
+      top: 0,
+      zIndex: -1,
+    },
+  },
+  top: HEADER_TOP,
+  vars: { [HEADER_TOP]: FRAME.headerTop },
   zIndex: 20,
 })
 
@@ -231,6 +250,20 @@ export const slash = style({
   fontFamily: font.sans,
   fontSize: typeStep("-1"),
 })
+
+/** One accessible link to the other locale; its globe keeps the header quiet. */
+export const languageGlobe = style({
+  alignItems: "center",
+  borderRadius: scaled("10px"),
+  color: color.heading,
+  display: "flex",
+  height: TOUCH_TARGET,
+  justifyContent: "center",
+  selectors: { "&:hover": { backgroundColor: FRAME.capsule, color: color.accent } },
+  width: TOUCH_TARGET,
+})
+
+export const globe = style({ height: scaled("20px"), width: scaled("20px") })
 
 /** A smaller neutral utility capsule: plain outward text, never a second logo. */
 export const outbound = style([
