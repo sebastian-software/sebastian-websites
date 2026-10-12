@@ -1,4 +1,13 @@
-import { color, COMPACT, editorial, font, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
+import {
+  color,
+  COMPACT,
+  editorial,
+  font,
+  PHONE,
+  scaled,
+  SPACE_SCALE,
+  typeStep,
+} from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 export const main = style([
@@ -101,6 +110,11 @@ export const role = style({
 export const name = style([editorial.title, { marginTop: scaled("14px") }])
 
 export const focus = style([editorial.lead, { marginTop: scaled("20px") }])
+
+export const biography = style([
+  editorial.body,
+  { display: "grid", marginTop: SPACE_SCALE.m, rowGap: SPACE_SCALE.s },
+])
 
 export const statement = style([
   editorial.body,

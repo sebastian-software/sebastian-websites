@@ -1349,6 +1349,10 @@ msgstr ""
 "React, TypeScript, Internationalisierung und Code-Qualität. Seit 2000 in der "
 "Webentwicklung, früher Architekt des qooxdoo-Frameworks bei 1&1."
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "References"
+msgstr "Referenzen"
+
 #: app/components/MetricsBand.tsx#MetricsBand
 msgid "References to our agent skills"
 msgstr "Referenzen auf unsere Agenten-Skills"

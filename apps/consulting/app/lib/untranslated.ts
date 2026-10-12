@@ -194,7 +194,7 @@ export const EXTERNAL_URLS = {
   githubFastner: "https://github.com/sebastianfastner",
   githubWerner: "https://github.com/sebastianwerner",
   linkedinFastner: "https://linkedin.com/in/sebastianfastner",
-  linkedinWerner: "https://linkedin.com/in/nicetomeatyou",
+  linkedinWerner: "https://www.linkedin.com/in/swernerx/",
   mastodonFastner: "https://mainz.social/@sf",
   ossOverview: "https://oss.sebastian-software.com",
 } as const

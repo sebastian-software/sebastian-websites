@@ -51,6 +51,7 @@ export type FrameLinkId =
   | "privacy"
   | "products"
   | "profiles"
+  | "references"
   | "services"
 
 /** A resolved link of the frame; labels belong to the rendering site's catalog. */
@@ -98,21 +99,22 @@ type ContextSpec = {
 
 const PRODUCTS: Destination = { id: "products", path: "/products", site: "software" }
 const OPEN_SOURCE: Destination = { id: "opensource", path: "/", site: "opensource" }
-const SERVICES: Destination = { id: "services", path: "/#services", site: "consulting" }
+const SERVICES: Destination = { id: "services", path: "/services", site: "consulting" }
 const PROFILES: Destination = { id: "profiles", path: "/team", site: "consulting" }
+const REFERENCES: Destination = { id: "references", path: "/references", site: "consulting" }
 
 /**
  * The two frame contexts. Open Source belongs to Software; Effective Agent is a
  * product and is reached through Open Source, not the header (2026-10-09). Routes
- * that do not exist yet (the Software journal, Consulting references) stay out
+ * that do not exist yet (the Software journal) stay out
  * until they can be validated; the booking link replaces a contact route on
  * Consulting.
  */
 const CONTEXTS: Readonly<Record<BrandId, ContextSpec>> = {
   consulting: {
     home: "consulting",
-    index: [SERVICES, PROFILES, { href: () => BOOKING_URL, id: "booking" }],
-    navigation: [SERVICES, PROFILES],
+    index: [SERVICES, PROFILES, REFERENCES, { href: () => BOOKING_URL, id: "booking" }],
+    navigation: [SERVICES, PROFILES, REFERENCES],
     outbound: "software",
   },
   software: {

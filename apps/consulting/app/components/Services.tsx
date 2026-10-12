@@ -1,6 +1,7 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
+import { ArrowLink } from "@sebastian-websites/ui"
 
 import * as styles from "./Services.css.ts"
 
@@ -38,6 +39,9 @@ export function Services(): ReactElement {
           </li>
         ))}
       </ul>
+      <p className={styles.action}>
+        <ArrowLink href="/services">{t`Explore our services`}</ArrowLink>
+      </p>
     </section>
   )
 }

@@ -7,6 +7,7 @@ import { BOOKING_URL } from "@sebastian-websites/web-core"
 import { Closing } from "~/components/Closing"
 import { Founders } from "~/components/Founders"
 import { Judgment } from "~/components/Judgment"
+import { ReferenceHighlights } from "~/components/ReferenceHighlights"
 import { Services } from "~/components/Services"
 import { HOME_PHOTO } from "~/lib/photos"
 
@@ -67,6 +68,9 @@ export default function Home(): ReactElement {
       </div>
       <div className={styles.block}>
         <Services />
+      </div>
+      <div className={styles.block}>
+        <ReferenceHighlights />
       </div>
       <div className={styles.block}>
         <Closing />

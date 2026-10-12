@@ -36,6 +36,7 @@ export function meta(): Route.MetaDescriptors {
 
 /** The team photograph spans the page: 1040 CSS pixels on desktop. */
 const TEAM_PHOTO_WIDTH = 1040
+const BIOGRAPHY_PARAGRAPHS = 2
 
 type Member = {
   readonly consultant: Consultant
@@ -90,6 +91,11 @@ function TeamMember({ member }: { readonly member: Member }): ReactElement {
             {consultant.name}
           </h2>
           <p className={styles.focus}>{consultant.focus}</p>
+          <div className={styles.biography}>
+            {consultant.bio.slice(0, BIOGRAPHY_PARAGRAPHS).map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
           {consultant.competencyFocus === undefined ? null : (
             <>
               <p className={styles.statement}>{consultant.competencyFocus.statement}</p>
@@ -110,8 +116,8 @@ function TeamMember({ member }: { readonly member: Member }): ReactElement {
 }
 
 /**
- * The two consultants side by side in their own words: focus, signature
- * skills, and the way to each full profile and PDF.
+ * The two consultants in their own words: two paragraphs from the canonical
+ * profile biographies, focus, skills, and links to each full profile and PDF.
  *
  * @returns The team page.
  */

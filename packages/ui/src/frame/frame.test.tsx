@@ -52,6 +52,7 @@ const copy: FrameCopy = {
     privacy: "Privacy",
     products: "Products",
     profiles: "Profiles",
+    references: "References",
     services: "Services",
   },
   newsletter: {
@@ -125,6 +126,7 @@ describe("SiteHeader", () => {
     expect(texts(header.querySelectorAll('nav[aria-label="Main navigation"] a'))).toStrictEqual([
       "Services",
       "Profiles",
+      "References",
     ])
     expect([...header.querySelectorAll("a")].at(-1)?.getAttribute("href")).toBe(
       "https://sebastian-software.com/"

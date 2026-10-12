@@ -42,11 +42,20 @@ describe("site frame", () => {
     ).toBe("products")
   })
 
-  it("leads Consulting to its sections, the booking calendar, and Software", () => {
+  it("leads Consulting to its pages, the booking calendar, and Software", () => {
     const frame = getSiteFrame("consulting", "de", "/imprint")
     expect(frame.brand).toBe("consulting")
-    expect(frame.navigation.map((link) => link.href)).toStrictEqual(["/#services", "/team"])
-    expect(frame.index.map((link) => link.href)).toStrictEqual(["/#services", "/team", BOOKING_URL])
+    expect(frame.navigation.map((link) => link.href)).toStrictEqual([
+      "/services",
+      "/team",
+      "/references",
+    ])
+    expect(frame.index.map((link) => link.href)).toStrictEqual([
+      "/services",
+      "/team",
+      "/references",
+      BOOKING_URL,
+    ])
     expect(
       getSiteFrame("consulting", "en", "/team").navigation.find((link) => link.current)?.id
     ).toBe("profiles")
@@ -59,6 +68,14 @@ describe("site frame", () => {
       "/privacy",
       "mailto:info@sebastian-consulting.de",
     ])
+  })
+
+  it.each(["services", "references"])("marks the Consulting %s page in the navigation", (page) => {
+    const navigation = getSiteFrame("consulting", "en", `/${page}`).navigation
+    expect(navigation.filter((link) => link.current).map((link) => link.id)).toStrictEqual([page])
+    expect(getSiteFrame("consulting", "de", "/").navigation.some((link) => link.current)).toBe(
+      false
+    )
   })
 
   it("prints the same mailbox in the address as the contact link", () => {

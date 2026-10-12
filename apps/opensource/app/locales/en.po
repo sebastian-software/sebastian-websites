@@ -722,6 +722,10 @@ msgstr "Profiles"
 msgid "Read and write modern Excel files in the browser and Node.js."
 msgstr "Read and write modern Excel files in the browser and Node.js."
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "References"
+msgstr "References"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Register Court:"
 msgstr "Register Court:"
