@@ -42,6 +42,13 @@ CAA, and nameservers were compared before and after and remained unchanged.
 
 ## What a deployment does
 
+Before changing remote files, `seo.ts` validates every site variant's build. Its
+sitemap must list exactly the canonical HTML pages, excluding the not-found page
+and downloads. Each page must have one self-referencing canonical, the expected
+German, English, and English `x-default` alternates, the correct document language,
+and no indexing block. Its robots file must allow crawling and name its own sitemap.
+The brand catalog and shared asset zone are outside this variant contract.
+
 Before publishing websites, deployment collects Vite's `?bunny` image manifests,
 verifies content hashes, and publishes the deduplicated originals to the shared
 asset zone. These uploads preserve old files and skip cache purges. Original
@@ -64,7 +71,13 @@ For website targets:
 2. `publish.ts`: uploads new and changed files by checksum, deletes files the build no longer
    contains, and purges the pull zone.
 3. `verify.ts`: fetches the home page, one prerendered route with and without a trailing
-   slash, a missing path, and one asset per CORS extension on the origin host.
+   slash, a missing path, and one asset per CORS extension on the origin host. It also
+   checks both language sitemaps and robots files, every sitemap page, and each
+   other-language counterpart. Documents must return 200 without a redirect, preserve
+   the expected canonical and reciprocal alternates, and carry no meta or HTTP
+   `X-Robots-Tag` indexing block. All website targets are published before verification
+   so a new route is available in both languages. Checks fetch the Bunny origin hosts
+   while validating canonical URLs on the public domains, including before DNS cutover.
 
 The middleware (`middleware-logic.ts`, bundled by `bundle.ts`) resolves `/imprint` to
 `imprint/index.html` on the storage zone and redirects `/imprint/` to `/imprint` permanently,

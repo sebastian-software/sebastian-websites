@@ -11,6 +11,8 @@ import type { Log } from "./provision.ts"
 import type { Asset } from "./publish.ts"
 import type { Target } from "./targets.ts"
 
+import { type SeoPlan, seoPlanFor, verifySeo } from "./seo.ts"
+
 const OK = 200
 const MOVED_PERMANENTLY = 301
 const NOT_FOUND = 404
@@ -111,10 +113,13 @@ export async function verify(options: VerifyOptions): Promise<void> {
   const { assets, log = console.log, request = fetch, target } = options
   const origin = `https://${target.name}.b-cdn.net`
   const checks = checksFor(target, assets)
+  const seo = seoPlanFor(target, assets)
   for (let attempt = 1; ; attempt += 1) {
-    const failure = await runChecks(request, origin, checks)
+    const failure = await runChecks(request, origin, { checks, seo })
     if (failure === undefined) {
-      log(`Verified ${target.name}: ${checks.length} checks`)
+      log(
+        `Verified ${target.name}: ${checks.length} hosting checks; ${seo?.paths.length ?? 0} SEO pages`
+      )
       return
     }
     if (attempt === ATTEMPTS) {
@@ -128,11 +133,14 @@ export async function verify(options: VerifyOptions): Promise<void> {
 async function runChecks(
   request: Fetch,
   origin: string,
-  checks: readonly Check[]
+  contract: { readonly checks: readonly Check[]; readonly seo: SeoPlan | undefined }
 ): Promise<Error | undefined> {
   try {
-    for (const check of checks) {
+    for (const check of contract.checks) {
       await runCheck(request, origin, check)
+    }
+    if (contract.seo !== undefined) {
+      await verifySeo(contract.seo, request)
     }
     return undefined
   } catch (error) {
