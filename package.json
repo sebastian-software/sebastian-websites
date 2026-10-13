@@ -28,6 +28,7 @@
     "@types/node": "catalog:",
     "esbuild": "catalog:",
     "eslint": "catalog:",
+    "happy-dom": "catalog:",
     "jiti": "catalog:",
     "oxlint": "catalog:",
     "prettier": "catalog:",
