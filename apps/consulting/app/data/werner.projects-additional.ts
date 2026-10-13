@@ -79,14 +79,14 @@ export const projects: Project[] = [
     title: "Sprachlern-Plattform",
   },
   {
-    customer: "Hornbach",
+    customer: "DIY retailer",
     description:
-      "Architektur-Review und Weiterentwicklung einzelner React-Komponenten – das übernahm ich für den Online-Shop von Hornbach. Die Optimierung für Desktop- und Mobilgeräte stellte ein konsistentes Einkaufserlebnis auf allen Endgeräten sicher. Die Verbesserungen trugen zu gesteigerter Conversion-Rate und Kundenzufriedenheit bei.\n\nBestehende Komponenten wurden analysiert und Best Practices für responsives Design implementiert. Performance und Wartbarkeit der React-Komponenten verbesserten sich. Enge Zusammenarbeit mit dem Team ermöglichte effektiven Wissenstransfer.",
+      "I supported the online shop's React frontend through architecture reviews, component development, and improvements to developer tooling for desktop and mobile interfaces.",
     endDate: new Date("2016-09-09"),
-    id: "hornbach",
+    id: "diy-retailer",
     industry: "Retail / E-Commerce",
-    location: "Bornheim bei Landau, Deutschland",
-    logo: "hornbach",
+    location: "",
+    logo: HIDDEN_LOGO,
     results: "",
     role: "React-Entwickler",
     startDate: new Date("2016-06-01"),
@@ -186,7 +186,7 @@ export const projects: Project[] = [
   {
     customer: "Zynga",
     description:
-      "Eine HTML5-basierte Game-Engine für Browser-Spiele als Flash-Ersatz – das entwickelte ich für die deutsche Niederlassung von Zynga. Die Herausforderung: gute Framerate auf vielen Endgeräten bei gleichzeitig leistungsfähiger Infrastruktur für Spieleentwickler. Das Core-Framework – eine modulare JavaScript-Basis mit eigenem OOP-System, Events, DOM/BOM-Utilities, MVC-Bausteinen und Templating – wurde weiterentwickelt.\n\nJasy, meine Python-basierte Tooling-Lösung für JavaScript-Projekte, war vom qooxdoo-Compiler inspiriert, aber framework-agnostisch. Der Build-Prozess war auf schnelle Permutation-Erstellung optimiert. Automatischer Sprite-Sheet-Support, Verschlüsselung privater Member und Entfernung unnötigen Codes gehörten zu den Features. Die Scrolling-Lösung für die isometrische Gaming-Engine stellte Performance-Herausforderungen – das komplette Spielfeld lag im Speicher und wurde erst bei Bedarf gerendert.",
+      "I worked on HTML5 game infrastructure, UI performance, and developer tooling in a large JavaScript environment. Core and Jasy were developed on our own initiative and used extensively at Zynga: Core as the base library for our games and Jasy for their build process. Both were developed further during the engagement, including framework, compiler/build, translation, asset, and development-server capabilities. Scrolling and animation work addressed the runtime demands of large game interfaces.",
     endDate: new Date("2012-11-30"),
     id: "zynga",
     industry: "Gaming",
@@ -202,7 +202,7 @@ export const projects: Project[] = [
   {
     customer: "Deutsche Telekom",
     description:
-      "Das Unify-Projekt initiierte ich bei der Deutschen Telekom in Darmstadt mit dem Ziel, Web als vereinheitlichte Plattform für alle Mobilgeräte zu nutzen. Zusätzlich verantwortete ich die PagePlace-Anwendung für Desktop-Browser – eine RIA auf qooxdoo-Basis zum Lesen von Büchern und Verwalten von Abonnements. Kooperationen mit T-Labs und T-Mobile, unter anderem im Rahmen der BONDI-Initiative, gehörten zum Projekt.\n\nEine hochperformante, virtuelle Scrolling-Lösung mit Touch-Unterstützung entstand – inklusive Simulation des flüssigen iOS-Scrollings mit Deceleration, Bouncing, Snapping und Pull-to-Refresh. Unify erweiterte qooxdoo um ein iOS-inspiriertes Navigationsmodell mit Browser-Routen für animierte Navigation. Für PagePlace gehörten ePub-Parsing und -Rendering inklusive Entschlüsselung sowie eine komplexe Animationsmechanik zu meinen Aufgaben.",
+      "I contributed to development of Unify, Deutsche Telekom's open-source framework, and worked on a soccer app built with PhoneGap and Unify. I also worked on early versions of Tolino software for desktop browsers, built on qooxdoo with rich animations and efficient ePub rendering.",
     endDate: new Date("2011-04-08"),
     id: "telekom-unify-pageplace",
     industry: "Telekommunikation / Media",
@@ -211,17 +211,9 @@ export const projects: Project[] = [
     results: "",
     role: "Lead Frontend-Architekt",
     startDate: new Date("2009-03-01"),
-    technologies: [
-      Tech.JavaScript,
-      Tech.Qooxdoo,
-      Tech.PhoneGap,
-      Tech.AdobeAIR,
-      Tech.iOS,
-      Tech.Android,
-      Tech.ePub,
-    ],
+    technologies: [Tech.JavaScript, Tech.Qooxdoo, Tech.UnifyJS, Tech.PhoneGap, Tech.ePub],
     tier: 3,
-    title: "Unify Framework & PagePlace",
+    title: "Unify Framework and Early Tolino Software",
   },
   {
     customer: "studiVZ",

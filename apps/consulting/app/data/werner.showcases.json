@@ -1,0 +1,90 @@
+{
+  "profile_id": "werner",
+  "showcases": [
+    {
+      "id": "1und1-qooxdoo",
+      "name": "1&1 / qooxdoo",
+      "showcase": true
+    },
+    {
+      "id": "3degrees-meridian",
+      "name": "3Degrees / Meridian",
+      "showcase": true
+    },
+    {
+      "id": "deutsche-bank-blueport",
+      "name": "Deutsche Bank / BluePort",
+      "showcase": true
+    },
+    {
+      "id": "deutsche-bank-pifour",
+      "name": "Deutsche Bank / DWS / Robo-Advisor",
+      "showcase": true
+    },
+    {
+      "id": "empiriecom-graphql",
+      "name": "empiriecom / Otto Group",
+      "showcase": true
+    },
+    {
+      "id": "enbw-portals",
+      "name": "EnBW",
+      "showcase": true
+    },
+    {
+      "id": "netze-bw",
+      "name": "Netze BW",
+      "showcase": true
+    },
+    {
+      "id": "regrello-i18n",
+      "name": "Regrello",
+      "showcase": true
+    },
+    {
+      "id": "telekom-entertaintv",
+      "name": "Huawei / Deutsche Telekom / EntertainTV",
+      "showcase": true
+    },
+    {
+      "id": "witt-gruppe-shop",
+      "name": "Witt / Otto Group",
+      "showcase": true
+    },
+    {
+      "id": "zynga",
+      "name": "Zynga",
+      "showcase": true
+    },
+    {
+      "id": "oss-palamedes",
+      "name": "Palamedes",
+      "url": "https://github.com/sebastian-software/palamedes",
+      "showcase": true
+    },
+    {
+      "id": "oss-ferrocat",
+      "name": "Ferrocat",
+      "url": "https://github.com/sebastian-software/ferrocat",
+      "showcase": true
+    },
+    {
+      "id": "oss-ferroni",
+      "name": "Ferroni",
+      "url": "https://github.com/sebastian-software/ferroni",
+      "showcase": true
+    },
+    {
+      "id": "oss-ferriki",
+      "name": "Ferriki",
+      "url": "https://github.com/sebastian-software/ferriki",
+      "showcase": true
+    },
+    {
+      "id": "oss-ardo",
+      "name": "Ardo",
+      "url": "https://github.com/sebastian-software/ardo",
+      "showcase": true
+    }
+  ]
+}

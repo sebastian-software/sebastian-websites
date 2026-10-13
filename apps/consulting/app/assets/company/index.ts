@@ -13,7 +13,6 @@ import empiriecom from "./empiriecom-black.svg"
 import enbw from "./enbw.svg"
 import geHealthcare from "./ge-healthcare.svg"
 import heidelbergMaterials from "./heidelberg-materials.svg"
-import hornbach from "./hornbach.svg"
 import init from "./init.svg"
 import jakoo from "./jakoo.svg"
 import morgenfund from "./morgenfund.svg"
@@ -50,7 +49,6 @@ export const companyLogos: Record<string, string> = {
   enbw,
   "ge-healthcare": geHealthcare,
   "heidelberg-materials": heidelbergMaterials,
-  hornbach,
   init,
   jakoo,
   morgenfund,

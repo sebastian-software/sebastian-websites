@@ -166,6 +166,36 @@ describe("PROFILE_DOCUMENTS", () => {
         },
         route: "/fastner/project-profile",
       },
+      {
+        consultantId: "werner",
+        kind: "executive_summary",
+        pdfs: {
+          de: {
+            downloadName: "Executive-Summary-Sebastian-Werner-de.pdf",
+            href: "/pdfs/executive-summary-sebastian-werner-de.pdf",
+          },
+          en: {
+            downloadName: "Executive-Summary-Sebastian-Werner-en.pdf",
+            href: "/pdfs/executive-summary-sebastian-werner-en.pdf",
+          },
+        },
+        route: "/werner/summary",
+      },
+      {
+        consultantId: "werner",
+        kind: "project_history",
+        pdfs: {
+          de: {
+            downloadName: "Project-History-Sebastian-Werner-de.pdf",
+            href: "/pdfs/project-history-sebastian-werner-de.pdf",
+          },
+          en: {
+            downloadName: "Project-History-Sebastian-Werner-en.pdf",
+            href: "/pdfs/project-history-sebastian-werner-en.pdf",
+          },
+        },
+        route: "/werner/projects",
+      },
     ])
     expect(DOCUMENT_ENTRIES).toHaveLength(PROFILE_DOCUMENTS.length * LOCALES.length)
   })

@@ -220,7 +220,10 @@ describe("PDF document matrix", () => {
         path: "/fastner/project-profile",
       }),
     ])
-    expect(pages).toHaveLength(3)
+    expect(
+      pages.filter((page) => page.definition.consultantId === "werner").map((page) => page.path)
+    ).toStrictEqual(["/werner", "/werner/summary", "/werner/projects"])
+    expect(pages).toHaveLength(5)
   })
 
   it("lists the English profile PDFs", () => {
@@ -241,7 +244,10 @@ describe("PDF document matrix", () => {
         path: "/fastner/project-profile",
       }),
     ])
-    expect(pages).toHaveLength(3)
+    expect(
+      pages.filter((page) => page.definition.consultantId === "werner").map((page) => page.path)
+    ).toStrictEqual(["/werner", "/werner/summary", "/werner/projects"])
+    expect(pages).toHaveLength(5)
   })
 })
 

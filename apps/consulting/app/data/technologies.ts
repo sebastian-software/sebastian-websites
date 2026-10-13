@@ -154,6 +154,7 @@ export const Tech = {
 
   RESTAPI: "REST API",
   RPC: "RPC",
+  Rust: "Rust",
   SAFe: "SAFe",
   SAS: "SAS",
 

@@ -6,6 +6,7 @@ export default [
   route("references", "routes/references.tsx"),
   route("team", "routes/team.tsx"),
   route("werner", "routes/profile.werner.tsx"),
+  route("werner/:document", "routes/profile.werner.document.tsx"),
   route("fastner", "routes/profile.fastner.tsx"),
   route("fastner/project-profile", "routes/profile.fastner.project.tsx"),
   route("imprint", "routes/imprint.tsx"),

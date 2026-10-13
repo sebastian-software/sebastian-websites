@@ -1,6 +1,6 @@
 import type { Client } from "../types.ts"
 
-/** Generated from the capture of the old site on 2026-10-06; see ../../README.md. */
+/** Selected from the old-site capture on 2026-10-06; see ../../README.md. */
 export const clients = [
   {
     legacyLogo:
@@ -51,11 +51,6 @@ export const clients = [
     legacyLogo:
       "https://cdn.sanity.io/images/b1rtbj9j/production/4daba91ab918676396dfe1faa4c79b4e6b6e5d2e-987x284.svg",
     name: "Heidelberg Materials AG",
-  },
-  {
-    legacyLogo:
-      "https://cdn.sanity.io/images/b1rtbj9j/production/c31cd54d4bfad21865d16a233ee23cd1a84be707-1102x184.svg",
-    name: "Hornbach Baumarkt AG",
   },
   {
     legacyLogo:

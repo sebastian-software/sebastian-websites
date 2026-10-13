@@ -5,6 +5,8 @@ export const PAGES = [
   "/references",
   "/team",
   "/werner",
+  "/werner/summary",
+  "/werner/projects",
   "/fastner",
   "/fastner/project-profile",
   "/imprint",
