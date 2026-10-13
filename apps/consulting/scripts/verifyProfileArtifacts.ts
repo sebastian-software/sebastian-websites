@@ -4,6 +4,7 @@ import { basename, resolve } from "node:path"
 import { getDocument, OPS } from "pdfjs-dist/legacy/build/pdf.mjs"
 
 import { PROFILE_DOCUMENTS, type ProfileDocumentKind } from "../app/lib/untranslated"
+import { assertWernerProfilePdfText } from "./wernerProfileValidation"
 
 const PROJECT_PROFILE_PAGE_COUNT = 5
 const A4_WIDTH_POINTS = 595.28
@@ -370,9 +371,18 @@ function assertConsultantProfileStructure(
 
 export function assertConsultantProfilePdfContent(
   { fonts, links, pageTexts }: ConsultantProfilePdfContent,
-  expected: { readonly consultantId: string; readonly locale: string; readonly path: string }
+  expected: {
+    readonly consultantId: string
+    readonly kind?: ProfileDocumentKind
+    readonly locale: string
+    readonly path: string
+  }
 ): void {
-  assertConsultantProfileStructure(pageTexts, expected)
+  if (expected.consultantId === "werner") {
+    assertWernerProfilePdfText(pageTexts, expected.kind ?? "consultant_profile", expected.locale)
+  } else {
+    assertConsultantProfileStructure(pageTexts, expected)
+  }
   const { consultantId, path } = expected
   if (!links.some((link) => link.startsWith(`mailto:s.${consultantId}@`))) {
     throw new Error(`${path} does not link the consultant's mailbox.`)
@@ -385,7 +395,11 @@ export function assertConsultantProfilePdfContent(
 
 async function verifyConsultantProfilePdf(
   path: string,
-  expected: { readonly consultantId: string; readonly locale: string }
+  expected: {
+    readonly consultantId: string
+    readonly kind?: ProfileDocumentKind
+    readonly locale: string
+  }
 ): Promise<void> {
   const bytes = await readFile(path)
   const loadingTask = getDocument({ data: Uint8Array.from(bytes), fontExtraProperties: true })

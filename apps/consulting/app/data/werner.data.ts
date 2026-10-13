@@ -12,6 +12,7 @@ export function getProjects(): Project[] {
 
 export const skills: Skills = {
   additional: [
+    Tech.Rust,
     Tech.GraphQL,
     Tech.NextJS,
     Tech.Supabase,
@@ -19,24 +20,17 @@ export const skills: Skills = {
     Tech.MCP,
     Tech.AgentAutomation,
   ],
-  backend: [Tech.Convex, Tech.ReactRouterBackend, Tech.CloudInfrastruktur, Tech.IaC],
+  backend: [Tech.GraphQL, Tech.NodeJS, Tech.REST, Tech.MySQL],
   frontend: [Tech.TypeScript, Tech.React, Tech.ReactRouter, Tech.VanillaExtract],
   specialization: [Tech.i18n, Tech.Monorepo, Tech.ComponentLibraries, Tech.CodeQuality],
   tools: [Tech.Vite, Tech.Turborepo, Tech.Playwright, Tech.Vitest],
 }
 
-function getExperienceYears(projectList: Project[]): number {
-  const oldestYear = Math.min(...projectList.map((p) => p.startDate.getFullYear()))
-  return new Date().getFullYear() - oldestYear
-}
-
 export function getConsultant(): Consultant {
-  const experience = String(getExperienceYears(getProjects()))
   return {
     bio: [
-      t`${experience} years of frontend work – I started when web applications did not have frameworks yet. At 1&1 I led the development of qooxdoo, one of the first large open-source UI frameworks for the web, publicly maintained for more than a decade. Since then my work has ranged from Deutsche Telekom's set-top boxes to white-label customer portals at EnBW.`,
-      t`Today I am at home where codebases grow large: internationalization that goes beyond translation files. Monorepos that make teams faster, not slower. Component libraries that keep design and code together. Most recently I led the internationalization of Regrello's enterprise platform – acquired by Salesforce in late 2025 – reorganizing more than 2,000 files along the way. Code quality is not an end in itself to me but developer experience: you can tell good architecture by how easy the next change is.`,
-      t`At Sebastian Software – founded together with Sebastian Fastner – I advise teams as Principal Technology Consultant on making their frontend sustainable. No slideware architecture, but work in the code: analysis, refactoring, enablement. And an honest answer on when the simpler solution is the better one.`,
+      t`I help software teams and large organizations build new frontend platforms. I make early architecture decisions and implement them with the team, drawing on years of work with UI frameworks, internationalization, and developer tooling. I also modernize existing frontends.`,
+      t`I led development of the qooxdoo JavaScript UI framework at 1&1 and worked on Deutsche Telekom's Unify framework and early Tolino browser software. Core and Jasy were developed on our own initiative and used extensively at Zynga for our games' base library and build process. Today, my infrastructure work also includes Rust engines with TypeScript/Node.js interfaces.`,
     ],
     bookingUrl: "https://calendly.com/swernerx/15min",
     citizenship: t`German`,
@@ -48,18 +42,13 @@ export function getConsultant(): Consultant {
         Tech.ComponentLibraries,
         Tech.CodeQuality,
       ],
-      statement: t`Frontend focus with an eye on user and developer experience.`,
+      statement: t`Frontend architecture with attention to user and developer experience.`,
     },
     degree: t`IT Specialist (Fachinformatiker) / Advanced Technical College Entrance Qualification (Fachabitur)`,
     email: "s.werner@sebastian-consulting.de",
     focus: t`Frontend Architecture & Developer Experience`,
     id: "werner",
-    industryExperience: [
-      { industry: t`Fintech`, years: 6 },
-      { industry: t`E-Commerce`, years: 5 },
-      { industry: t`Telecommunications`, years: 8 },
-      { industry: t`Energy`, years: 4 },
-    ],
+    industryExperience: [],
     languages: [t`German`, t`English`],
     location: "Hirschberg/Bergstraße",
     name: "Sebastian Werner",

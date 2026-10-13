@@ -1,7 +1,7 @@
 import type { ReactNode } from "react"
 
-import { ConsultantProfile } from "~/components/ConsultantProfile"
-import { getConsultant, getProjects, skills } from "~/data/werner.data"
+import { WernerProfile } from "~/components/werner-profile/WernerProfile"
+import { getConsultant, skills } from "~/data/werner.data"
 import { activeLocale } from "~/lib/i18n"
 import { createSeoMetadata } from "~/lib/meta"
 import { PROFILE_PHOTOS } from "~/lib/photos"
@@ -45,7 +45,6 @@ export function meta(): Route.MetaDescriptors {
 
 export default function ProfileWerner(): ReactNode {
   const consultant = getConsultant()
-  const projects = getProjects()
 
   // JSON-LD Person structured data
   const personSchema = {
@@ -80,10 +79,9 @@ export default function ProfileWerner(): ReactNode {
   return (
     <>
       <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
-      <ConsultantProfile
+      <WernerProfile
         consultant={{ ...consultant, photo: PROFILE_PHOTOS.werner.sheet }}
         lang={activeLocale}
-        projects={projects}
       />
     </>
   )

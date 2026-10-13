@@ -80,7 +80,8 @@ export type ProfilePdfDescriptor = {
   readonly href: string
 }
 
-export type ProfileDocumentKind = "consultant_profile" | "project_profile"
+export type ProfileDocumentKind =
+  "consultant_profile" | "executive_summary" | "project_history" | "project_profile"
 
 /** One public profile document and its locale-specific PDF artifacts. */
 export type ProfileDocumentDescriptor = {
@@ -153,6 +154,24 @@ export const PROFILE_DOCUMENTS: readonly ProfileDocumentDescriptor[] = [
     kind: "project_profile",
     pdfs: PROJECT_PROFILE_PDFS,
     route: "/fastner/project-profile",
+  },
+  {
+    consultantId: "werner",
+    kind: "executive_summary",
+    pdfs: createLocalePdfMatrix((locale) => ({
+      downloadName: `Executive-Summary-Sebastian-Werner-${locale}.pdf`,
+      href: `/pdfs/executive-summary-sebastian-werner-${locale}.pdf`,
+    })),
+    route: "/werner/summary",
+  },
+  {
+    consultantId: "werner",
+    kind: "project_history",
+    pdfs: createLocalePdfMatrix((locale) => ({
+      downloadName: `Project-History-Sebastian-Werner-${locale}.pdf`,
+      href: `/pdfs/project-history-sebastian-werner-${locale}.pdf`,
+    })),
+    route: "/werner/projects",
   },
 ]
 

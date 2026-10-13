@@ -45,3 +45,8 @@ Repository facts for the change-screenshots route of `effective-web`:
   `/404/index.html`.
 - `?bunny` images load from the asset zone as `/images/<sha256>.<ext>`; images
   the change adds are in the head build's `images/` directory.
+
+## Consulting copy
+
+Read [the Consulting communication guide](apps/consulting/BRAND.md) before revising
+Consulting pages, consultant profiles, or their localized PDF copy.

@@ -9,6 +9,7 @@ import {
   type ProfileDocumentDescriptor,
   type ProfileDocumentKind,
 } from "../app/lib/untranslated"
+import { inspectWernerProfileLayout } from "./wernerProfileValidation"
 
 const OUTPUT_DIR = "public"
 const DEV_SERVER_READY_TIMEOUT_MS = 30_000
@@ -930,6 +931,13 @@ async function inspectConsultantProfile(browserPage: Page, locale: string): Prom
     }
   })
   assertConsultantProfileLayout(layout, locale)
+  await inspectConsultantProfileFinalContent(browserPage, locale)
+}
+
+async function inspectConsultantProfileFinalContent(
+  browserPage: Page,
+  locale: string
+): Promise<void> {
   const content = await browserPage.evaluate(() => {
     const profile = document.querySelector<HTMLElement>("article")
     if (profile === null) throw new Error("Consultant profile document is missing.")
@@ -945,6 +953,11 @@ async function inspectConsultantProfile(browserPage: Page, locale: string): Prom
 }
 
 async function inspectProfilePage(browserPage: Page, page: ProfilePdfPage): Promise<void> {
+  if (page.definition.consultantId === "werner") {
+    await inspectWernerProfileLayout(browserPage, page.kind, page.locale)
+    await inspectConsultantProfileFinalContent(browserPage, page.locale)
+    return
+  }
   await (page.kind === "project_profile"
     ? inspectProjectProfileLayout(browserPage, page.locale)
     : inspectConsultantProfile(browserPage, page.locale))

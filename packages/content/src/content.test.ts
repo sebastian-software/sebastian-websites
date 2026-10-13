@@ -13,8 +13,8 @@ describe("cleared content", () => {
     expect(new Set(testimonials.map((entry) => entry.id)).size).toBe(56)
   })
 
-  it("lists the 28 client logos of the old site", () => {
-    expect(clients).toHaveLength(28)
-    expect(new Set(clients.map((client) => client.name)).size).toBe(28)
+  it("lists the 27 client logos selected for public use", () => {
+    expect(clients).toHaveLength(27)
+    expect(new Set(clients.map((client) => client.name)).size).toBe(27)
   })
 })

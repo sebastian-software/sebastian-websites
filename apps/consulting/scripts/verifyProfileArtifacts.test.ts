@@ -85,6 +85,13 @@ async function createPdfOutput(
           : createConsultantProfilePdfFixture({
               consultantId: document.consultantId,
               locale,
+              ...(document.consultantId === "werner"
+                ? {
+                    pageTexts: [
+                      "Sebastian Werner Regrello Palamedes Core Jasy Zynga qooxdoo 3Degrees Azeti Netze BW empiriecom Heidelberg GE Healthcare Witt SWR INIT Traton coliquio BluePort Berlitz Baumarktkette DIY Retailer Cleverbridge EntertainTV MAGIX Telefoniecenter Unify studiVZ Schlund+Partner",
+                    ],
+                  }
+                : {}),
               ...consultantOptions?.(document.consultantId),
             })
       await write(join(root, "pdfs", filename), fixture)
@@ -115,6 +122,17 @@ function requiredProjectProfileText(locale: "de" | "en", extra = ""): string {
     locale === "de" ? "Enterprise-SaaS" : "enterprise SaaS",
     extra,
   ].join(" ")
+}
+
+function overflowingLegacySummary(consultantId: string): { pageTexts?: string[] } {
+  if (consultantId === "werner") return {}
+  return {
+    pageTexts: [
+      `Sebastian ${consultantId.charAt(0).toUpperCase()}${consultantId.slice(1)} Personal Details`,
+      "Industry Experience",
+      "Project Experience Additional Projects",
+    ],
+  }
 }
 
 describe("profile artifact verifier", () => {
@@ -213,13 +231,7 @@ describe("profile artifact verifier", () => {
   })
 
   it("rejects a consultant profile whose summary runs onto the second page", async () => {
-    const root = await createPdfOutput("en", undefined, (consultantId) => ({
-      pageTexts: [
-        `Sebastian ${consultantId.charAt(0).toUpperCase()}${consultantId.slice(1)} Personal Details`,
-        "Industry Experience",
-        "Project Experience Additional Projects",
-      ],
-    }))
+    const root = await createPdfOutput("en", undefined, overflowingLegacySummary)
 
     await expect(verifyVariantProfileArtifacts(root, "en")).rejects.toThrow(
       "does not start the project reports on page 2"
