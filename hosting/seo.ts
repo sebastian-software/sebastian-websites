@@ -4,7 +4,6 @@ import { Window } from "happy-dom"
 import type { Fetch } from "./bunny.ts"
 import type { Asset } from "./publish.ts"
 
-import { canonicalUrl, createRobots, createSeoLinks } from "../packages/web-core/src/seo.ts"
 import { getSiteVariant, type VariantDefinition, VARIANTS } from "../packages/web-core/src/sites.ts"
 import { NOT_FOUND_PAGE, type Target } from "./targets.ts"
 
@@ -54,9 +53,7 @@ function assertSitemap(xml: string, plan: SeoPlan): void {
   const actual = [...document.getElementsByTagNameNS(SITEMAP_NAMESPACE, "loc")].map((node) =>
     node.textContent.trim()
   )
-  const expected = plan.paths.map((path) =>
-    canonicalUrl(plan.variant.site, plan.variant.locale, path)
-  )
+  const expected = plan.paths.map((path) => `${plan.variant.canonicalOrigin}${path}`)
   if (
     actual.length !== expected.length ||
     new Set(actual).size !== actual.length ||
@@ -75,7 +72,8 @@ function robotsLines(text: string): string {
 }
 
 function assertRobots(text: string, variant: VariantDefinition): void {
-  if (robotsLines(text) !== robotsLines(createRobots(variant.site, variant.locale))) {
+  const expected = `User-agent: *\nAllow: /\nSitemap: ${variant.canonicalOrigin}/sitemap.xml`
+  if (robotsLines(text) !== expected) {
     throw new Error("SEO: robots.txt must allow crawling and reference the variant's own sitemap")
   }
 }
@@ -86,30 +84,33 @@ function blocksIndexing(directives: string): boolean {
 
 function assertDocument(html: string, variant: VariantDefinition, path: string): void {
   const document = new window.DOMParser().parseFromString(html, "text/html")
-  const expected = createSeoLinks(variant.site, variant.locale, path)
+  const canonical = `${variant.canonicalOrigin}${path}`
+  const expected = [
+    { href: `${getSiteVariant(variant.site, "de").canonicalOrigin}${path}`, language: "de" },
+    { href: `${getSiteVariant(variant.site, "en").canonicalOrigin}${path}`, language: "en" },
+    { href: `${getSiteVariant(variant.site, "en").canonicalOrigin}${path}`, language: "x-default" },
+  ]
   const links = [...document.head.querySelectorAll("link")]
   const canonicals = links.filter((link) =>
     link.rel.toLowerCase().split(/\s+/v).includes("canonical")
   )
-  if (canonicals.length !== 1 || canonicals[0].getAttribute("href") !== expected[0].href) {
-    throw new Error(`SEO ${path}: expected one self-referencing canonical ${expected[0].href}`)
+  if (canonicals.length !== 1 || canonicals[0].getAttribute("href") !== canonical) {
+    throw new Error(`SEO ${path}: expected one self-referencing canonical ${canonical}`)
   }
   const alternates = links.filter(
     (link) =>
       link.rel.toLowerCase().split(/\s+/v).includes("alternate") && link.hasAttribute("hreflang")
   )
   if (
-    alternates.length !== expected.length - 1 ||
-    expected
-      .slice(1)
-      .some(
-        (link) =>
-          alternates.filter(
-            (element) =>
-              element.getAttribute("hreflang") === link.hrefLang &&
-              element.getAttribute("href") === link.href
-          ).length !== 1
-      )
+    alternates.length !== expected.length ||
+    expected.some(
+      (link) =>
+        alternates.filter(
+          (element) =>
+            element.getAttribute("hreflang") === link.language &&
+            element.getAttribute("href") === link.href
+        ).length !== 1
+    )
   ) {
     throw new Error(`SEO ${path}: expected reciprocal de, en, and x-default alternates`)
   }
