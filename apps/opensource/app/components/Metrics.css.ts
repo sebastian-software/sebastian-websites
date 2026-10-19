@@ -105,9 +105,9 @@ globalStyle(`${table} th, ${table} td`, {
 })
 globalStyle(`${table} th`, { color: color.subtle, fontSize: typeStep("-2"), fontWeight: 500 })
 globalStyle(`${table} th:first-child, ${table} td:first-child`, {
+  "@media": { [PHONE]: { width: "75%" } },
   paddingLeft: 0,
   width: "32%",
-  "@media": { [PHONE]: { width: "75%" } },
 })
 globalStyle(`${table} a`, {
   color: color.accent,
