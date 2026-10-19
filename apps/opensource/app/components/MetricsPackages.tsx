@@ -25,6 +25,9 @@ function PackageRow({ pkg }: { readonly pkg: Package }): ReactElement {
         <MetricNumber exact value={pkg.registry === "npm" ? pkg.downloads : null} />
       </td>
       <td className={styles.numeric}>
+        <MetricNumber exact value={pkg.downloads30Days?.count ?? null} />
+      </td>
+      <td className={styles.numeric}>
         <MetricNumber exact value={pkg.registry === "crates" ? pkg.downloads : null} />
       </td>
       <td className={styles.numeric}>
@@ -134,8 +137,9 @@ export function Packages({ snapshot }: { readonly snapshot: Snapshot }): ReactEl
               <th scope="col">{t`Project`}</th>
               <th scope="col">{t`Version`}</th>
               <th className={styles.numeric} scope="col">{t`npm / month`}</th>
+              <th className={styles.numeric} scope="col">{t`crates.io / 30 days`}</th>
               <th className={styles.numeric} scope="col">{t`crates.io / all time`}</th>
-              <th className={styles.numeric} scope="col">{t`crates.io / recent`}</th>
+              <th className={styles.numeric} scope="col">{t`crates.io / 90 days`}</th>
               <th scope="col">{t`Published`}</th>
             </tr>
           </thead>

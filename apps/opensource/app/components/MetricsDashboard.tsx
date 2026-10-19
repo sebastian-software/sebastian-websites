@@ -139,7 +139,7 @@ export function MetricsDashboard({ initial }: { readonly initial: Snapshot }): R
           <p
             className={styles.note}
           >{t`All opted-in public projects and published packages, in one shared snapshot.`}</p>
-          <p>{t`npm downloads cover a month. crates.io totals cover all time; recent downloads appear in a separate column. Package totals include packages without a listed project.`}</p>
+          <p>{t`npm downloads cover a month. crates.io downloads cover the last 30 complete UTC days, summed across every version. Its lifetime and 90-day totals are also listed in the package table. Registry reporting can lag behind downloads. Package totals include packages without a listed project.`}</p>
           <p>{t`The API is normally cached for an hour. This page checks for updates on opening and every five minutes while visible. Refreshing does not force a new upstream collection. Unavailable sources show a state instead of zero.`}</p>
           <p id="usage-note">{t`* Active users is an activity proxy based on update-check requests over 30 complete UTC days, including CI and repeat checks. It does not count deduplicated people or installations. Unverified, incomplete, or stale usage is labeled instead of shown as a user count.`}</p>
           <ArrowLink href="https://github.com/sebastian-software/oss-metrics#endpoint">{t`How the data is collected`}</ArrowLink>

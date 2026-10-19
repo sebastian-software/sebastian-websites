@@ -15,7 +15,7 @@ import {
 
 import * as styles from "./Metrics.css"
 import { MetricNumber } from "./MetricsSummary"
-import { DateValue, ProjectDownloads, ProjectVersion, UsageValue } from "./MetricsValues"
+import { DateValue, ProjectDownloads, ProjectVersionCells, UsageValue } from "./MetricsValues"
 
 function projectFilter(value: string): ProjectFilter {
   return value === "npm" || value === "crates" || value === "github" ? value : "all"
@@ -39,14 +39,9 @@ function ProjectRow({
       <td>
         <a href={repoUrl(project.name)}>{project.name}</a>
       </td>
-      <td>
-        <ProjectVersion project={project} />
-      </td>
+      <ProjectVersionCells project={project} />
       <td className={styles.numeric}>
         <MetricNumber exact value={project.stars} />
-      </td>
-      <td className={styles.numeric}>
-        <MetricNumber exact value={project.forks} />
       </td>
       <td className={styles.numeric}>
         <MetricNumber
@@ -149,15 +144,15 @@ function ProjectHead({
       <tr>
         <th aria-sort={sort === "name" ? "ascending" : undefined} scope="col">{t`Project`}</th>
         <th scope="col">{t`Latest version`}</th>
+        <th scope="col">{t`Version source`}</th>
         <th
           aria-sort={sort === "stars" ? "descending" : undefined}
           className={styles.numeric}
           scope="col"
         >{t`Stars`}</th>
-        <th className={styles.numeric} scope="col">{t`Forks`}</th>
         <th className={styles.numeric} scope="col">{t`Packages`}</th>
         <th className={styles.numeric} scope="col">{t`npm / month`}</th>
-        <th className={styles.numeric} scope="col">{t`crates.io / all time`}</th>
+        <th className={styles.numeric} scope="col">{t`crates.io / 30 days`}</th>
         {hasUsage ? (
           <th className={`${styles.numeric} ${styles.usageColumn}`} scope="col">
             <a href="#usage-note">{t`Active users*`}</a>

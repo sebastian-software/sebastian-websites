@@ -16,6 +16,7 @@ export type Source = keyof typeof SOURCE_NAMES
 export type Status = "error" | "ok" | "skipped"
 export type Package = {
   downloads: number
+  downloads30Days?: { count: null | number; end: string; start: string }
   name: string
   publishedAt: string
   recentDownloads?: number
@@ -90,11 +91,29 @@ function packageName(name: string): boolean {
   const last = parts.at(-1) ?? ""
   return /^[\w.~\-]+$/iv.test(last) && last !== "." && last !== ".."
 }
-function packagesFrom(value: unknown, registry: "crates" | "npm"): Package[] {
+function crateWindow(value: unknown, generatedAt: string): Package["downloads30Days"] {
+  if (!record(value)) return undefined
+  try {
+    const start = date(value.start)
+    const end = date(value.end)
+    if (
+      Date.parse(end) - Date.parse(start) !== USAGE_WINDOW_MS ||
+      end !== `${new Date(generatedAt).toISOString().split("T").at(0)}T00:00:00.000Z`
+    )
+      return undefined
+    return { count: value.count === null ? null : count(value.count), end, start }
+  } catch {
+    return undefined
+  }
+}
+function packagesFrom(value: unknown, registry: "crates" | "npm", generatedAt: string): Package[] {
   return rows(value).map(([name, row]) => {
     if (!packageName(name)) throw new Error("Invalid package name")
     return {
       downloads: count(registry === "npm" ? row.monthlyDownloads : row.downloads),
+      ...(registry === "crates"
+        ? { downloads30Days: crateWindow(row.downloads30Days, generatedAt) }
+        : {}),
       name,
       publishedAt: date(row.publishedAt),
       registry,
@@ -184,6 +203,7 @@ export function parseSnapshot(value: unknown): Snapshot {
   if (!record(value) || value.schema !== 1 || !record(value.sources))
     throw new Error("Unsupported metrics snapshot")
   const input = value.sources
+  const generatedAt = date(value.generatedAt)
   const sources = {
     crates: status(input.crates),
     github: status(input.github),
@@ -193,18 +213,28 @@ export function parseSnapshot(value: unknown): Snapshot {
     skills: status(input.skills),
   }
   const packages = [
-    ...(sources.npm === "ok" ? packagesFrom(value.npm, "npm") : []),
-    ...(sources.crates === "ok" ? packagesFrom(value.crates, "crates") : []),
+    ...(sources.npm === "ok" ? packagesFrom(value.npm, "npm", generatedAt) : []),
+    ...(sources.crates === "ok" ? packagesFrom(value.crates, "crates", generatedAt) : []),
   ]
   const usage = optionalUsage(value.usage, sources.rybbit)
   return {
-    generatedAt: date(value.generatedAt),
+    generatedAt,
     packages,
     projects: sources.github === "ok" ? projectsFrom(value.github, packages, sources.releases) : [],
     ...skillsFrom(value.skills, sources.skills),
     sources: { ...sources, rybbit: usage.status },
     usage: usage.usage,
   }
+}
+/**
+ * Sums the complete set of crate counts; a missing observation keeps the total unknown.
+ * @param packages - Packages in the project or public snapshot.
+ * @returns The 30-day crate total, or null when any crate has no eligible count.
+ */
+export function crateDownloads30Days(packages: Package[]): null | number {
+  const crates = packages.filter((pkg) => pkg.registry === "crates")
+  if (crates.some((pkg) => typeof pkg.downloads30Days?.count !== "number")) return null
+  return crates.reduce((sum, pkg) => sum + (pkg.downloads30Days?.count ?? 0), 0)
 }
 /**
  * Searches package aliases and sorts a copy of the project directory.

@@ -3,8 +3,7 @@ import type { ReactElement } from "react"
 import { t } from "@palamedes/core/macro"
 import { ArrowLink } from "@sebastian-websites/ui"
 
-import type { Snapshot } from "~/lib/metrics-model"
-
+import { crateDownloads30Days, type Snapshot } from "~/lib/metrics-model"
 import { variant } from "~/lib/site"
 import { useMetrics } from "~/lib/use-metrics"
 
@@ -78,9 +77,13 @@ export function MetricsSummary({ snapshot }: { readonly snapshot: Snapshot }): R
         </dd>
       </div>
       <div>
-        <dt>{t`crates.io downloads / all time`}</dt>
+        <dt>{t`crates.io downloads / 30 days`}</dt>
         <dd>
-          <MetricNumber value={sums("crates")} />
+          <MetricNumber
+            value={
+              snapshot.sources.crates === "ok" ? crateDownloads30Days(snapshot.packages) : null
+            }
+          />
         </dd>
       </div>
     </dl>

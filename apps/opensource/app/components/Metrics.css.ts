@@ -194,13 +194,6 @@ export const directoryHeader = style({
   gap: SPACE_SCALE.s,
 })
 globalStyle(`${directoryHeader} .${tools}`, { flex: `1 1 ${scaled("560px")}`, minWidth: 0 })
-export const versionCell = style({
-  alignItems: "baseline",
-  display: "flex",
-  flexWrap: "wrap",
-  gap: SPACE_SCALE["3xs"],
-})
-export const registryName = style({ color: color.subtle, fontSize: typeStep("-2") })
 globalStyle(`${projectTable} th:nth-child(2), ${projectTable} td:nth-child(2)`, {
-  width: scaled("140px"),
+  width: scaled("100px"),
 })

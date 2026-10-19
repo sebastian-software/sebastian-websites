@@ -3,6 +3,7 @@ import type { ReactElement } from "react"
 import { t } from "@palamedes/core/macro"
 
 import {
+  crateDownloads30Days,
   packageUrl,
   type Project,
   repoUrl,
@@ -40,33 +41,38 @@ export function UsageValue({
   return <MetricNumber exact value={usage?.window.count ?? null} />
 }
 
-export function ProjectVersion({ project }: { readonly project: Project }): ReactElement {
+export function ProjectVersionCells({ project }: { readonly project: Project }): ReactElement {
   const latest = [...project.packages]
     .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt))
     .at(0)
   if (project.release)
     return (
       <>
-        <span className={styles.versionCell}>
+        <td>
           <a
             href={`${repoUrl(project.name)}/releases/tag/${encodeURIComponent(project.release.tag)}`}
           >
             v{project.release.version}
           </a>
-          <span className={styles.registryName}>GitHub</span>
-        </span>
-        <span className={styles.small}>
-          <DateValue value={project.release.publishedAt} />
-        </span>
+          <span className={styles.small}>
+            <DateValue value={project.release.publishedAt} />
+          </span>
+        </td>
+        <td>GitHub</td>
       </>
     )
   return latest === undefined ? (
-    <span>—</span>
+    <>
+      <td>—</td>
+      <td>—</td>
+    </>
   ) : (
-    <span className={styles.versionCell}>
-      <a href={packageUrl(latest)}>v{latest.version}</a>
-      <span className={styles.registryName}>{latest.registry === "npm" ? "npm" : "crates.io"}</span>
-    </span>
+    <>
+      <td>
+        <a href={packageUrl(latest)}>v{latest.version}</a>
+      </td>
+      <td>{latest.registry === "npm" ? "npm" : "crates.io"}</td>
+    </>
   )
 }
 
@@ -80,14 +86,9 @@ export function ProjectDownloads({
   readonly status: Status
 }): ReactElement {
   const packages = project.packages.filter((pkg) => pkg.registry === registry)
-  return (
-    <MetricNumber
-      exact
-      value={
-        status === "ok" && packages.length > 0
-          ? packages.reduce((sum, pkg) => sum + pkg.downloads, 0)
-          : null
-      }
-    />
-  )
+  const downloads =
+    registry === "crates"
+      ? crateDownloads30Days(packages)
+      : packages.reduce((sum, pkg) => sum + pkg.downloads, 0)
+  return <MetricNumber exact value={status === "ok" && packages.length > 0 ? downloads : null} />
 }

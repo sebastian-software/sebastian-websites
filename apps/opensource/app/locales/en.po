@@ -286,16 +286,30 @@ msgstr "Controller"
 
 #: app/components/MetricsPackages.tsx#Packages
 #: app/components/MetricsProjects.tsx#ProjectHead
+msgid "crates.io / 30 days"
+msgstr "crates.io / 30 days"
+
+#: app/components/MetricsPackages.tsx#Packages
+msgid "crates.io / 90 days"
+msgstr "crates.io / 90 days"
+
+#: app/components/MetricsPackages.tsx#Packages
 msgid "crates.io / all time"
 msgstr "crates.io / all time"
 
-#: app/components/MetricsPackages.tsx#Packages
-msgid "crates.io / recent"
-msgstr "crates.io / recent"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsPackages.tsx#Packages
+#~ msgid "crates.io / recent"
+#~ msgstr "crates.io / recent"
 
 #: app/components/MetricsSummary.tsx#MetricsSummary
-msgid "crates.io downloads / all time"
-msgstr "crates.io downloads / all time"
+msgid "crates.io downloads / 30 days"
+msgstr "crates.io downloads / 30 days"
+
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsSummary.tsx#MetricsSummary
+#~ msgid "crates.io downloads / all time"
+#~ msgstr "crates.io downloads / all time"
 
 #: app/components/MetricsDashboard.tsx#SourceList
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
@@ -472,9 +486,10 @@ msgstr ""
 "entirely without cookies and does not permanently store personal data (see "
 "section \"Web Analytics\")."
 
-#: app/components/MetricsProjects.tsx#ProjectHead
-msgid "Forks"
-msgstr "Forks"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsProjects.tsx#ProjectHead
+#~ msgid "Forks"
+#~ msgstr "Forks"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -785,13 +800,26 @@ msgstr "npm downloads / month"
 
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
 msgid ""
-"npm downloads cover a month. crates.io totals cover all time; recent downloads"
-" appear in a separate column. Package totals include packages without a listed"
-" project."
+"npm downloads cover a month. crates.io downloads cover the last 30 complete "
+"UTC days, summed across every version. Its lifetime and 90-day totals are also"
+" listed in the package table. Registry reporting can lag behind downloads. "
+"Package totals include packages without a listed project."
 msgstr ""
-"npm downloads cover a month. crates.io totals cover all time; recent downloads"
-" appear in a separate column. Package totals include packages without a listed"
-" project."
+"npm downloads cover a month. crates.io downloads cover the last 30 complete "
+"UTC days, summed across every version. Its lifetime and 90-day totals are also"
+" listed in the package table. Registry reporting can lag behind downloads. "
+"Package totals include packages without a listed project."
+
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#MetricsDashboard
+#~ msgid ""
+#~ "npm downloads cover a month. crates.io totals cover all time; recent downloads"
+#~ " appear in a separate column. Package totals include packages without a listed"
+#~ " project."
+#~ msgstr ""
+#~ "npm downloads cover a month. crates.io totals cover all time; recent downloads"
+#~ " appear in a separate column. Package totals include packages without a listed"
+#~ " project."
 
 #~ #@ obsolete-since: 2026-10-19
 #~ #: app/components/MetricsDashboard.tsx#MetricsDashboard
@@ -1551,6 +1579,10 @@ msgstr ""
 #: app/components/MetricsPackages.tsx#Packages
 msgid "Version"
 msgstr "Version"
+
+#: app/components/MetricsProjects.tsx#ProjectHead
+msgid "Version source"
+msgstr "Version source"
 
 #: app/data/featured.ts#getFeatured
 msgid "View on GitHub"
