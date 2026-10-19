@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-19T09:36:10Z",
+  "generatedAt": "2026-10-19T13:23:39Z",
   "sources": {
     "github": "ok",
     "releases": "skipped",
@@ -53,7 +53,7 @@
     "palamedes": {
       "stars": 2,
       "forks": 0,
-      "pushedAt": "2026-10-19T09:16:43Z"
+      "pushedAt": "2026-10-19T11:58:22Z"
     },
     "paratix": {
       "stars": 0,
@@ -141,20 +141,35 @@
       "version": "1.9.0",
       "downloads": 654,
       "recentDownloads": 434,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 170
+      },
       "publishedAt": "2026-10-15T18:05:35.176301Z",
       "repo": "dalo"
     },
     "ferralk": {
       "version": "1.1.0",
-      "downloads": 1230,
-      "recentDownloads": 1230,
+      "downloads": 1274,
+      "recentDownloads": 1274,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 215
+      },
       "publishedAt": "2026-09-25T08:10:53.082679Z",
       "repo": "ferralk"
     },
     "ferralk-glob": {
       "version": "1.1.0",
-      "downloads": 8281,
-      "recentDownloads": 8281,
+      "downloads": 8784,
+      "recentDownloads": 8784,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 5468
+      },
       "publishedAt": "2026-09-25T08:10:48.834697Z",
       "repo": "ferralk"
     },
@@ -162,6 +177,11 @@
       "version": "1.1.1",
       "downloads": 1682,
       "recentDownloads": 1682,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 1681
+      },
       "publishedAt": "2026-10-16T21:28:47.626672Z",
       "repo": "ferriki"
     },
@@ -169,20 +189,35 @@
       "version": "1.1.1",
       "downloads": 1764,
       "recentDownloads": 1764,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 1764
+      },
       "publishedAt": "2026-10-16T21:28:41.653818Z",
       "repo": "ferriki"
     },
     "ferriki-textmate": {
       "version": "1.1.1",
-      "downloads": 1788,
-      "recentDownloads": 1788,
+      "downloads": 1796,
+      "recentDownloads": 1796,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 1788
+      },
       "publishedAt": "2026-10-16T21:28:34.265943Z",
       "repo": "ferriki"
     },
     "ferrocat": {
       "version": "3.4.2",
-      "downloads": 7859,
-      "recentDownloads": 5054,
+      "downloads": 7909,
+      "recentDownloads": 5104,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 185
+      },
       "publishedAt": "2026-08-06T11:15:39.236066Z",
       "repo": "ferrocat"
     },
@@ -190,27 +225,47 @@
       "version": "3.4.2",
       "downloads": 268,
       "recentDownloads": 193,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 0
+      },
       "publishedAt": "2026-08-06T11:15:41.730955Z",
       "repo": "ferrocat"
     },
     "ferrocat-icu": {
       "version": "3.4.2",
-      "downloads": 9418,
-      "recentDownloads": 5669,
+      "downloads": 9468,
+      "recentDownloads": 5719,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 281
+      },
       "publishedAt": "2026-08-06T11:15:24.863884Z",
       "repo": "ferrocat"
     },
     "ferrocat-po": {
       "version": "3.4.2",
-      "downloads": 9109,
-      "recentDownloads": 5546,
+      "downloads": 9159,
+      "recentDownloads": 5596,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 263
+      },
       "publishedAt": "2026-08-06T11:15:33.843382Z",
       "repo": "ferrocat"
     },
     "ferromark": {
       "version": "3.5.0",
-      "downloads": 5973,
-      "recentDownloads": 4577,
+      "downloads": 6042,
+      "recentDownloads": 4646,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 684
+      },
       "publishedAt": "2026-10-11T18:10:22.134855Z",
       "repo": "ferromark"
     },
@@ -218,13 +273,23 @@
       "version": "3.5.0",
       "downloads": 62,
       "recentDownloads": 62,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 62
+      },
       "publishedAt": "2026-10-11T18:10:28.314363Z",
       "repo": "ferromark"
     },
     "ferroni": {
       "version": "2.2.3",
-      "downloads": 7430,
-      "recentDownloads": 6979,
+      "downloads": 7446,
+      "recentDownloads": 6995,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 5740
+      },
       "publishedAt": "2026-10-18T08:05:01.502957Z",
       "repo": "ferroni"
     },
@@ -232,6 +297,11 @@
       "version": "0.5.0",
       "downloads": 91,
       "recentDownloads": 20,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 0
+      },
       "publishedAt": "2026-07-05T20:46:49.868419Z",
       "repo": "ferrugo"
     },
@@ -239,6 +309,11 @@
       "version": "0.5.0",
       "downloads": 293,
       "recentDownloads": 124,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 29
+      },
       "publishedAt": "2026-07-05T20:46:34.163072Z",
       "repo": "ferrugo"
     },
@@ -246,6 +321,11 @@
       "version": "0.5.0",
       "downloads": 156,
       "recentDownloads": 54,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 11
+      },
       "publishedAt": "2026-07-05T20:46:44.575595Z",
       "repo": "ferrugo"
     },
@@ -253,6 +333,11 @@
       "version": "0.5.0",
       "downloads": 355,
       "recentDownloads": 156,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 40
+      },
       "publishedAt": "2026-07-05T20:46:31.712462Z",
       "repo": "ferrugo"
     },
@@ -260,6 +345,11 @@
       "version": "0.3.1",
       "downloads": 47,
       "recentDownloads": 10,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 0
+      },
       "publishedAt": "2026-07-04T19:43:19.632672Z",
       "repo": "ferrugo"
     },
@@ -267,6 +357,11 @@
       "version": "0.5.0",
       "downloads": 208,
       "recentDownloads": 88,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 21
+      },
       "publishedAt": "2026-07-05T20:46:39.929175Z",
       "repo": "ferrugo"
     },
@@ -274,6 +369,11 @@
       "version": "0.5.0",
       "downloads": 255,
       "recentDownloads": 117,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 30
+      },
       "publishedAt": "2026-07-05T20:46:35.772035Z",
       "repo": "ferrugo"
     },
@@ -281,6 +381,11 @@
       "version": "0.5.0",
       "downloads": 403,
       "recentDownloads": 181,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 49
+      },
       "publishedAt": "2026-07-05T20:46:26.974376Z",
       "repo": "ferrugo"
     },
@@ -288,6 +393,11 @@
       "version": "0.5.0",
       "downloads": 348,
       "recentDownloads": 164,
+      "downloads30Days": {
+        "start": "2026-09-19T00:00:00.000Z",
+        "end": "2026-10-19T00:00:00.000Z",
+        "count": 42
+      },
       "publishedAt": "2026-07-05T20:46:28.971486Z",
       "repo": "ferrugo"
     }
@@ -295,13 +405,13 @@
   "npm": {
     "pofile-ts": {
       "version": "4.0.3",
-      "monthlyDownloads": 2139107,
+      "monthlyDownloads": 2111668,
       "publishedAt": "2026-03-13T21:53:48.760Z",
       "repo": "pofile-ts"
     },
     "xlsx-format": {
       "version": "2.4.5",
-      "monthlyDownloads": 20062,
+      "monthlyDownloads": 22752,
       "publishedAt": "2026-09-08T22:31:17.944Z",
       "repo": "xlsx-format"
     },
@@ -347,22 +457,16 @@
       "publishedAt": "2026-10-10T21:34:04.956Z",
       "repo": "ferriki"
     },
-    "@ferriki/darwin-arm64": {
-      "version": "1.0.0",
-      "monthlyDownloads": 2804,
-      "publishedAt": "2026-10-10T21:33:21.993Z",
-      "repo": "ferriki"
-    },
     "@ferriki/win32-x64-msvc": {
       "version": "1.0.0",
       "monthlyDownloads": 2847,
       "publishedAt": "2026-10-10T21:33:06.313Z",
       "repo": "ferriki"
     },
-    "@ferriki/win32-arm64-msvc": {
+    "@ferriki/darwin-arm64": {
       "version": "1.0.0",
-      "monthlyDownloads": 2773,
-      "publishedAt": "2026-10-10T21:33:11.998Z",
+      "monthlyDownloads": 2804,
+      "publishedAt": "2026-10-10T21:33:21.993Z",
       "repo": "ferriki"
     },
     "@ferriki/linux-arm64-gnu": {
@@ -371,16 +475,22 @@
       "publishedAt": "2026-10-10T21:32:41.008Z",
       "repo": "ferriki"
     },
-    "@palamedes/core-node": {
-      "version": "1.25.0",
-      "monthlyDownloads": 2756,
-      "publishedAt": "2026-09-09T08:51:28.420Z",
-      "repo": "palamedes"
+    "@ferriki/win32-arm64-msvc": {
+      "version": "1.0.0",
+      "monthlyDownloads": 2773,
+      "publishedAt": "2026-10-10T21:33:11.998Z",
+      "repo": "ferriki"
     },
     "@palamedes/runtime": {
       "version": "1.25.0",
       "monthlyDownloads": 2611,
       "publishedAt": "2026-09-09T08:51:47.464Z",
+      "repo": "palamedes"
+    },
+    "@palamedes/core-node": {
+      "version": "1.25.0",
+      "monthlyDownloads": 2756,
+      "publishedAt": "2026-09-09T08:51:28.420Z",
       "repo": "palamedes"
     },
     "@palamedes/transform": {
@@ -485,16 +595,16 @@
       "publishedAt": "2026-10-03T23:15:03.459Z",
       "repo": "ardo"
     },
-    "palamedes": {
-      "version": "1.25.0",
-      "monthlyDownloads": 262,
-      "publishedAt": "2026-09-09T08:55:07.605Z",
-      "repo": "palamedes"
-    },
     "@palamedes/tanstack": {
       "version": "1.25.0",
       "monthlyDownloads": 183,
       "publishedAt": "2026-09-09T08:54:20.972Z",
+      "repo": "palamedes"
+    },
+    "palamedes": {
+      "version": "1.25.0",
+      "monthlyDownloads": 262,
+      "publishedAt": "2026-09-09T08:55:07.605Z",
       "repo": "palamedes"
     },
     "parakeet-coreml": {
@@ -515,16 +625,16 @@
       "publishedAt": "2026-09-09T08:51:34.839Z",
       "repo": "palamedes"
     },
-    "@palamedes/react-router-rsc": {
-      "version": "1.25.0",
-      "monthlyDownloads": 174,
-      "publishedAt": "2026-09-09T08:56:08.696Z",
-      "repo": "palamedes"
-    },
     "@palamedes/remix": {
       "version": "1.25.0",
       "monthlyDownloads": 214,
       "publishedAt": "2026-09-09T08:54:42.373Z",
+      "repo": "palamedes"
+    },
+    "@palamedes/react-router-rsc": {
+      "version": "1.25.0",
+      "monthlyDownloads": 174,
+      "publishedAt": "2026-09-09T08:56:08.696Z",
       "repo": "palamedes"
     },
     "@palamedes/waku": {
@@ -652,6 +762,12 @@
       "publishedAt": "2026-01-28T18:34:37.670Z",
       "repo": "turndown-node"
     },
+    "@turndown-node/linux-arm64-gnu": {
+      "version": "0.0.11",
+      "monthlyDownloads": 8,
+      "publishedAt": "2026-01-28T18:34:53.143Z",
+      "repo": "turndown-node"
+    },
     "claritas": {
       "version": "0.0.1",
       "monthlyDownloads": 9,
@@ -667,12 +783,6 @@
       "monthlyDownloads": 9,
       "publishedAt": "2026-01-28T14:08:52.937Z",
       "repo": "npm-sweep"
-    },
-    "@turndown-node/linux-arm64-gnu": {
-      "version": "0.0.11",
-      "monthlyDownloads": 8,
-      "publishedAt": "2026-01-28T18:34:53.143Z",
-      "repo": "turndown-node"
     },
     "ferrugo": {
       "version": "0.0.1",
@@ -730,7 +840,7 @@
   "usage": {
     "palamedes": {
       "unit": "update_checks",
-      "collectedAt": "2026-10-19T09:36:10.653Z",
+      "collectedAt": "2026-10-19T13:23:39.128Z",
       "verified": false,
       "windows": {
         "days7": {

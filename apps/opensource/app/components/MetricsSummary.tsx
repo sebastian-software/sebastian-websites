@@ -3,8 +3,7 @@ import type { ReactElement } from "react"
 import { t } from "@palamedes/core/macro"
 import { ArrowLink } from "@sebastian-websites/ui"
 
-import type { Snapshot } from "~/lib/metrics-model"
-
+import { crateDownloads30Days, type Snapshot } from "~/lib/metrics-model"
 import { variant } from "~/lib/site"
 import { useMetrics } from "~/lib/use-metrics"
 
@@ -14,16 +13,23 @@ import * as styles from "./Metrics.css"
  * Formats numbers in the variant's locale, with exact values available on hover.
  * @param root0 - The input data.
  * @param root0.value - The metric count, or null for unavailable data.
+ * @param root0.exact - Whether to show the full number instead of compact notation.
  * @returns The formatted count.
  */
-export function MetricNumber({ value }: { readonly value: null | number }): ReactElement {
+export function MetricNumber({
+  exact = false,
+  value,
+}: {
+  readonly exact?: boolean
+  readonly value: null | number
+}): ReactElement {
   return (
     <span title={value === null ? undefined : new Intl.NumberFormat(variant.locale).format(value)}>
       {value === null
         ? "—"
         : new Intl.NumberFormat(variant.locale, {
             maximumFractionDigits: 1,
-            notation: "compact",
+            notation: exact ? "standard" : "compact",
           }).format(value)}
     </span>
   )
@@ -71,9 +77,13 @@ export function MetricsSummary({ snapshot }: { readonly snapshot: Snapshot }): R
         </dd>
       </div>
       <div>
-        <dt>{t`crates.io downloads / all time`}</dt>
+        <dt>{t`crates.io downloads / 30 days`}</dt>
         <dd>
-          <MetricNumber value={sums("crates")} />
+          <MetricNumber
+            value={
+              snapshot.sources.crates === "ok" ? crateDownloads30Days(snapshot.packages) : null
+            }
+          />
         </dd>
       </div>
     </dl>

@@ -15,13 +15,7 @@ import {
 
 import * as styles from "./Metrics.css"
 import { MetricNumber } from "./MetricsSummary"
-import {
-  DateValue,
-  ProjectDetails,
-  ProjectDownloads,
-  ProjectVersion,
-  UsageValue,
-} from "./MetricsValues"
+import { DateValue, ProjectDownloads, ProjectVersionCells, UsageValue } from "./MetricsValues"
 
 function projectFilter(value: string): ProjectFilter {
   return value === "npm" || value === "crates" || value === "github" ? value : "all"
@@ -44,23 +38,33 @@ function ProjectRow({
     <tr>
       <td>
         <a href={repoUrl(project.name)}>{project.name}</a>
-        <ProjectDetails now={now} project={project} snapshot={snapshot} />
       </td>
-      <td className={styles.secondary}>
-        <ProjectVersion project={project} />
+      <ProjectVersionCells project={project} />
+      <td className={styles.numeric}>
+        <MetricNumber exact value={project.stars} />
       </td>
       <td className={styles.numeric}>
-        <MetricNumber value={project.stars} />
+        <MetricNumber
+          exact
+          value={
+            snapshot.sources.npm === "ok" && snapshot.sources.crates === "ok"
+              ? project.packages.length
+              : null
+          }
+        />
       </td>
-      <td className={`${styles.numeric} ${styles.desktop}`}>
-        <ProjectDownloads project={project} />
+      <td className={styles.numeric}>
+        <ProjectDownloads project={project} registry="npm" status={snapshot.sources.npm} />
+      </td>
+      <td className={styles.numeric}>
+        <ProjectDownloads project={project} registry="crates" status={snapshot.sources.crates} />
       </td>
       {hasUsage ? (
-        <td className={`${styles.numeric} ${styles.secondary}`}>
+        <td className={`${styles.numeric} ${styles.usageColumn}`}>
           <UsageValue now={now} usage={snapshot.usage[project.name]} />
         </td>
       ) : null}
-      <td className={styles.desktop}>
+      <td>
         <DateValue value={project.pushedAt} />
       </td>
     </tr>
@@ -128,6 +132,40 @@ function ProjectControls({
     </div>
   )
 }
+function ProjectHead({
+  hasUsage,
+  sort,
+}: {
+  readonly hasUsage: boolean
+  readonly sort: ProjectSort
+}): ReactElement {
+  return (
+    <thead>
+      <tr>
+        <th aria-sort={sort === "name" ? "ascending" : undefined} scope="col">{t`Project`}</th>
+        <th scope="col">{t`Latest version`}</th>
+        <th scope="col">{t`Version source`}</th>
+        <th
+          aria-sort={sort === "stars" ? "descending" : undefined}
+          className={styles.numeric}
+          scope="col"
+        >{t`Stars`}</th>
+        <th className={styles.numeric} scope="col">{t`Packages`}</th>
+        <th className={styles.numeric} scope="col">{t`npm / month`}</th>
+        <th className={styles.numeric} scope="col">{t`crates.io / 30 days`}</th>
+        {hasUsage ? (
+          <th className={`${styles.numeric} ${styles.usageColumn}`} scope="col">
+            <a href="#usage-note">{t`Active users*`}</a>
+          </th>
+        ) : null}
+        <th
+          aria-sort={sort === "activity" ? "descending" : undefined}
+          scope="col"
+        >{t`Last push`}</th>
+      </tr>
+    </thead>
+  )
+}
 export function Projects({
   now,
   snapshot,
@@ -149,16 +187,18 @@ export function Projects({
   const hasUsage = Object.keys(snapshot.usage).length > 0
   return (
     <section aria-labelledby="projects-title" className={styles.section} id="projects">
-      <h2 className={styles.heading} id="projects-title">{t`Project directory`}</h2>
-      <ProjectControls
-        filter={filter}
-        onFilter={setFilter}
-        onQuery={setQuery}
-        onSort={setSort}
-        query={query}
-        sort={sort}
-        unavailable={unavailable}
-      />
+      <div className={styles.directoryHeader}>
+        <h2 className={styles.heading} id="projects-title">{t`Projects`}</h2>
+        <ProjectControls
+          filter={filter}
+          onFilter={setFilter}
+          onQuery={setQuery}
+          onSort={setSort}
+          query={query}
+          sort={sort}
+          unavailable={unavailable}
+        />
+      </div>
       <p className={styles.note} role="status">
         {snapshot.sources.github === "ok" ? (
           <>
@@ -168,42 +208,34 @@ export function Projects({
           t`GitHub data is unavailable.`
         )}
       </p>
-      <table className={styles.table}>
-        <caption className={editorial.visuallyHidden}>{t`Project metrics`}</caption>
-        <thead>
-          <tr>
-            <th aria-sort={sort === "name" ? "ascending" : undefined} scope="col">{t`Project`}</th>
-            <th className={styles.secondary} scope="col">{t`Latest version`}</th>
-            <th
-              aria-sort={sort === "stars" ? "descending" : undefined}
-              className={styles.numeric}
-              scope="col"
-            >{t`Stars`}</th>
-            <th className={`${styles.numeric} ${styles.desktop}`} scope="col">{t`Downloads`}</th>
-            {hasUsage ? (
-              <th className={`${styles.numeric} ${styles.secondary}`} scope="col">
-                <a href="#usage-note">{t`Active users*`}</a>
-              </th>
-            ) : null}
-            <th
-              aria-sort={sort === "activity" ? "descending" : undefined}
-              className={styles.desktop}
-              scope="col"
-            >{t`Last push`}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {projects.map((project) => (
-            <ProjectRow
-              hasUsage={hasUsage}
-              key={project.name}
-              now={now}
-              project={project}
-              snapshot={snapshot}
-            />
-          ))}
-        </tbody>
-      </table>
+      <p
+        className={styles.scrollHint}
+        id="project-scroll-hint"
+      >{t`Scroll horizontally to see every column. The name column stays in view.`}</p>
+      <div
+        aria-describedby="project-scroll-hint"
+        aria-label={t`Project metrics`}
+        className={styles.tableScroll}
+        role="region"
+        tabIndex={0}
+      >
+        <table className={`${styles.table} ${styles.projectTable}`}>
+          <caption className={editorial.visuallyHidden}>{t`Project metrics`}</caption>
+          <ProjectHead hasUsage={hasUsage} sort={sort} />
+          <tbody>
+            {projects.map((project) => (
+              <ProjectRow
+                hasUsage={hasUsage}
+                key={project.name}
+                now={now}
+                project={project}
+                snapshot={snapshot}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
+
       {projects.length === 0 ? (
         <p className={styles.notice}>
           {snapshot.sources.github === "ok"

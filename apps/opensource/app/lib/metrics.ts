@@ -2,7 +2,9 @@ import fallback from "~/data/metrics-snapshot.json"
 
 import { ENDPOINT, parseSnapshot, type Snapshot } from "./metrics-model"
 
-export const METRICS_TIMEOUT_MS = 12_000
+// A cold collection spaces crates.io requests to respect its one-request-per-second limit.
+export const METRICS_TIMEOUT_MS = 45_000
+const BUILD_TIMEOUT_MS = 8000
 
 /**
  * Fetches only public aggregates. Credentials never cross this boundary.
@@ -30,7 +32,7 @@ export async function fetchMetrics(
  */
 export async function loadMetrics(): Promise<Snapshot> {
   try {
-    return await fetchMetrics()
+    return await fetchMetrics(AbortSignal.timeout(BUILD_TIMEOUT_MS))
   } catch {
     return parseSnapshot(fallback)
   }

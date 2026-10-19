@@ -3,6 +3,7 @@ import assert from "node:assert/strict"
 import { describe, test } from "vitest"
 
 import {
+  crateDownloads30Days,
   filterProjects,
   packageUrl,
   parseSnapshot,
@@ -47,6 +48,67 @@ function fixture() {
 }
 
 describe("public metrics", () => {
+  test("30-day crate downloads stay separate from lifetime and 90-day counts", () => {
+    const input = fixture()
+    const snapshot = parseSnapshot({
+      ...input,
+      crates: {
+        ferroni: {
+          ...input.crates.ferroni,
+          downloads30Days: {
+            count: 70,
+            end: "2026-10-19T00:00:00.000Z",
+            start: "2026-09-19T00:00:00.000Z",
+          },
+        },
+      },
+    })
+    assert.equal(crateDownloads30Days(snapshot.packages), 70)
+    assert.equal(snapshot.packages.find((pkg) => pkg.registry === "crates")?.downloads, 1000)
+    assert.equal(snapshot.packages.find((pkg) => pkg.registry === "crates")?.recentDownloads, 200)
+  })
+
+  test("old, missing, malformed and unavailable windows preserve other metrics without inventing a monthly total", () => {
+    const input = fixture()
+    for (const window of [
+      undefined,
+      { count: null, end: "2026-10-19T00:00:00.000Z", start: "2026-09-19T00:00:00.000Z" },
+      { count: 70, end: "2026-10-18T00:00:00.000Z", start: "2026-09-18T00:00:00.000Z" },
+      { count: 70, end: "2026-10-19T00:00:00.000Z", start: "2026-09-01T00:00:00.000Z" },
+      { count: -1, end: "2026-10-19T00:00:00.000Z", start: "2026-09-19T00:00:00.000Z" },
+    ]) {
+      const snapshot = parseSnapshot({
+        ...input,
+        crates: { ferroni: { ...input.crates.ferroni, downloads30Days: window } },
+      })
+      assert.equal(crateDownloads30Days(snapshot.packages), null)
+      assert.equal(snapshot.packages.length, 3)
+      assert.equal(snapshot.projects.length, 3)
+      assert.equal(snapshot.packages.find((pkg) => pkg.registry === "crates")?.downloads, 1000)
+    }
+  })
+
+  test("an incomplete set of crate observations never becomes a partial total", () => {
+    const input = fixture()
+    const window = { count: 70, end: "2026-10-19T00:00:00.000Z", start: "2026-09-19T00:00:00.000Z" }
+    const snapshot = parseSnapshot({
+      ...input,
+      crates: {
+        ferroni: { ...input.crates.ferroni, downloads30Days: window },
+        other: { ...input.crates.ferroni, downloads30Days: { ...window, count: null } },
+      },
+    })
+    assert.equal(crateDownloads30Days(snapshot.packages), null)
+    assert.equal(
+      crateDownloads30Days(snapshot.packages.filter((pkg) => pkg.name === "ferroni")),
+      70
+    )
+    assert.equal(
+      crateDownloads30Days([{ ...snapshot.packages[2], downloads30Days: { ...window, count: 0 } }]),
+      0
+    )
+  })
+
   test("the current snapshot works without optional analytics and joins packages only through their declared repository", () => {
     const snapshot = parseSnapshot(fixture())
     assert.equal(snapshot.sources.rybbit, "skipped")

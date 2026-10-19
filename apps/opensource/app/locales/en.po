@@ -102,8 +102,7 @@ msgstr ""
 msgid "a registered trademark of"
 msgstr "a registered trademark of"
 
-#: app/components/MetricsDashboard.tsx#ProjectDetails
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#ProjectHead
 msgid "Active users*"
 msgstr "Active users*"
 
@@ -123,17 +122,23 @@ msgid ""
 msgstr ""
 "All opted-in public projects and published packages, in one shared snapshot."
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#ProjectControls
 msgid "All projects"
 msgstr "All projects"
 
-#: app/components/MetricsDashboard.tsx#PackageInfo
-msgid "all-time downloads"
-msgstr "all-time downloads"
+#: app/components/MetricsPackages.tsx#PackageControls
+msgid "All registries"
+msgstr "All registries"
 
-#: app/components/MetricsDashboard.tsx#Packages
-msgid "All-time downloads"
-msgstr "All-time downloads"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#PackageInfo
+#~ msgid "all-time downloads"
+#~ msgstr "all-time downloads"
+
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#Packages
+#~ msgid "All-time downloads"
+#~ msgstr "All-time downloads"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Almost done: please confirm the link we just sent you."
@@ -262,7 +267,7 @@ msgstr "Compiler"
 msgid "Configuration"
 msgstr "Configuration"
 
-#: app/components/MetricsDashboard.tsx#SourceList
+#: app/components/MetricsDashboard.tsx#sourceLabel
 msgid "Connected"
 msgstr "Connected"
 
@@ -279,13 +284,32 @@ msgstr "Contact via Email"
 msgid "Controller"
 msgstr "Controller"
 
-#: app/components/MetricsDashboard.tsx#ProjectDownloads
+#: app/components/MetricsPackages.tsx#Packages
+#: app/components/MetricsProjects.tsx#ProjectHead
+msgid "crates.io / 30 days"
+msgstr "crates.io / 30 days"
+
+#: app/components/MetricsPackages.tsx#Packages
+msgid "crates.io / 90 days"
+msgstr "crates.io / 90 days"
+
+#: app/components/MetricsPackages.tsx#Packages
 msgid "crates.io / all time"
 msgstr "crates.io / all time"
 
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsPackages.tsx#Packages
+#~ msgid "crates.io / recent"
+#~ msgstr "crates.io / recent"
+
 #: app/components/MetricsSummary.tsx#MetricsSummary
-msgid "crates.io downloads / all time"
-msgstr "crates.io downloads / all time"
+msgid "crates.io downloads / 30 days"
+msgstr "crates.io downloads / 30 days"
+
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsSummary.tsx#MetricsSummary
+#~ msgid "crates.io downloads / all time"
+#~ msgstr "crates.io downloads / all time"
 
 #: app/components/MetricsDashboard.tsx#SourceList
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
@@ -311,9 +335,10 @@ msgstr ""
 msgid "Describe a VPS in TypeScript and apply changes over SSH."
 msgstr "Describe a VPS in TypeScript and apply changes over SSH."
 
-#: app/components/MetricsDashboard.tsx#ProjectDetails
-msgid "Details"
-msgstr "Details"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#ProjectDetails
+#~ msgid "Details"
+#~ msgstr "Details"
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Device information (screen size, operating system, browser)"
@@ -331,9 +356,10 @@ msgstr ""
 "Documentation, internationalization, document engines, and tools for coding "
 "agents. Open projects with practical uses and foundations you can inspect."
 
-#: app/components/MetricsDashboard.tsx#Projects
-msgid "Downloads"
-msgstr "Downloads"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#Projects
+#~ msgid "Downloads"
+#~ msgstr "Downloads"
 
 #: app/data/featured.ts#getFeatured
 msgid "Drawn cards for skills, instructions, and hooks in a tray beside a mug."
@@ -389,9 +415,10 @@ msgstr "Entry in the Commercial Register"
 msgid "Error 404"
 msgstr "Error 404"
 
-#: app/components/MetricsDashboard.tsx#Packages
-msgid "Every published package, including packages without a listed project."
-msgstr "Every published package, including packages without a listed project."
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#Packages
+#~ msgid "Every published package, including packages without a listed project."
+#~ msgstr "Every published package, including packages without a listed project."
 
 #: app/components/MetricsSummary.tsx#MetricsOverview
 msgid "Explore all metrics"
@@ -421,11 +448,11 @@ msgstr "External Links"
 msgid "Fax:"
 msgstr "Fax:"
 
-#: app/components/MetricsDashboard.tsx#Packages
+#: app/components/MetricsPackages.tsx#PackageControls
 msgid "Find a package"
 msgstr "Find a package"
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#ProjectControls
 msgid "Find a project"
 msgstr "Find a project"
 
@@ -459,9 +486,10 @@ msgstr ""
 "entirely without cookies and does not permanently store personal data (see "
 "section \"Web Analytics\")."
 
-#: app/components/MetricsDashboard.tsx#ProjectDetails
-msgid "Forks"
-msgstr "Forks"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsProjects.tsx#ProjectHead
+#~ msgid "Forks"
+#~ msgstr "Forks"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -477,18 +505,18 @@ msgstr ""
 msgid "Germany"
 msgstr "Germany"
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#Projects
 msgid "GitHub data is unavailable."
 msgstr "GitHub data is unavailable."
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#ProjectControls
 msgid "GitHub only"
 msgstr "GitHub only"
 
-#: app/components/MetricsDashboard.tsx#ProjectDetails
-#: app/components/MetricsDashboard.tsx#ProjectVersion
-msgid "GitHub release"
-msgstr "GitHub release"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsValues.tsx#ProjectVersion
+#~ msgid "GitHub release"
+#~ msgstr "GitHub release"
 
 #: app/components/MetricsDashboard.tsx#SourceList
 msgid "GitHub releases"
@@ -594,8 +622,7 @@ msgstr ""
 msgid "Language"
 msgstr "Language"
 
-#: app/components/MetricsDashboard.tsx#ProjectDetails
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#ProjectHead
 msgid "Last push"
 msgstr "Last push"
 
@@ -607,11 +634,11 @@ msgstr "Last update unknown"
 msgid "Last updated: {formattedVersion}"
 msgstr "Last updated: {formattedVersion}"
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#ProjectControls
 msgid "Latest push"
 msgstr "Latest push"
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#ProjectHead
 msgid "Latest version"
 msgstr "Latest version"
 
@@ -694,23 +721,25 @@ msgstr "Metrics sections"
 msgid "Modern, open documentation for React teams."
 msgstr "Modern, open documentation for React teams."
 
-#: app/components/MetricsDashboard.tsx#PackageInfo
-msgid "monthly downloads"
-msgstr "monthly downloads"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#PackageInfo
+#~ msgid "monthly downloads"
+#~ msgstr "monthly downloads"
 
-#: app/components/MetricsDashboard.tsx#Packages
-msgid "Monthly downloads"
-msgstr "Monthly downloads"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#Packages
+#~ msgid "Monthly downloads"
+#~ msgstr "Monthly downloads"
 
 #: app/routes/home.tsx
 msgid "More open projects."
 msgstr "More open projects."
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#ProjectControls
 msgid "Most stars"
 msgstr "Most stars"
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#ProjectControls
 msgid "Name"
 msgstr "Name"
 
@@ -730,9 +759,10 @@ msgstr "Need a clearer direction for your software?"
 msgid "Newsletter"
 msgstr "Newsletter"
 
-#: app/components/MetricsDashboard.tsx#Packages
-msgid "Next"
-msgstr "Next"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#Packages
+#~ msgid "Next"
+#~ msgstr "Next"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
 msgid ""
@@ -742,23 +772,25 @@ msgstr ""
 "No automated decision-making, including profiling, pursuant to Art. 22 GDPR "
 "takes place."
 
-#: app/components/MetricsDashboard.tsx#ProjectDetails
-msgid "No linked registry packages."
-msgstr "No linked registry packages."
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#ProjectDetails
+#~ msgid "No linked registry packages."
+#~ msgstr "No linked registry packages."
 
-#: app/components/MetricsDashboard.tsx#Packages
+#: app/components/MetricsPackages.tsx#Packages
 msgid "No matching packages. Try another search or registry."
 msgstr "No matching packages. Try another search or registry."
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#Projects
 msgid "No matching projects. Try another search or registry."
 msgstr "No matching projects. Try another search or registry."
 
-#: app/components/MetricsDashboard.tsx#SourceList
+#: app/components/MetricsDashboard.tsx#sourceLabel
 msgid "Not connected"
 msgstr "Not connected"
 
-#: app/components/MetricsDashboard.tsx#ProjectDownloads
+#: app/components/MetricsPackages.tsx#Packages
+#: app/components/MetricsProjects.tsx#ProjectHead
 msgid "npm / month"
 msgstr "npm / month"
 
@@ -768,13 +800,37 @@ msgstr "npm downloads / month"
 
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
 msgid ""
-"npm downloads cover a month. crates.io totals cover all time; recent downloads"
-" are available in project details. Package totals include packages without a "
-"listed project."
+"npm downloads cover a month. crates.io downloads cover the last 30 complete "
+"UTC days, summed across every version. Its lifetime and 90-day totals are also"
+" listed in the package table. Registry reporting can lag behind downloads. "
+"Package totals include packages without a listed project."
 msgstr ""
-"npm downloads cover a month. crates.io totals cover all time; recent downloads"
-" are available in project details. Package totals include packages without a "
-"listed project."
+"npm downloads cover a month. crates.io downloads cover the last 30 complete "
+"UTC days, summed across every version. Its lifetime and 90-day totals are also"
+" listed in the package table. Registry reporting can lag behind downloads. "
+"Package totals include packages without a listed project."
+
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#MetricsDashboard
+#~ msgid ""
+#~ "npm downloads cover a month. crates.io totals cover all time; recent downloads"
+#~ " appear in a separate column. Package totals include packages without a listed"
+#~ " project."
+#~ msgstr ""
+#~ "npm downloads cover a month. crates.io totals cover all time; recent downloads"
+#~ " appear in a separate column. Package totals include packages without a listed"
+#~ " project."
+
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#MetricsDashboard
+#~ msgid ""
+#~ "npm downloads cover a month. crates.io totals cover all time; recent downloads"
+#~ " are available in project details. Package totals include packages without a "
+#~ "listed project."
+#~ msgstr ""
+#~ "npm downloads cover a month. crates.io totals cover all time; recent downloads"
+#~ " are available in project details. Package totals include packages without a "
+#~ "listed project."
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Obligation to Provide Data"
@@ -804,13 +860,18 @@ msgstr ""
 msgid "Open software you can build on."
 msgstr "Open software you can build on."
 
-#: app/routes/metrics.tsx
-msgid "Open Source"
-msgstr "Open Source"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/routes/metrics.tsx
+#~ msgid "Open Source"
+#~ msgstr "Open Source"
 
 #: app/routes/home.tsx#meta
 msgid "Open Source – Sebastian Software"
 msgstr "Open Source – Sebastian Software"
+
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid "Open Source metrics"
+msgstr "Open Source metrics"
 
 #: app/routes/metrics.tsx#meta
 msgid "Open Source Metrics – Sebastian Software"
@@ -821,7 +882,6 @@ msgid "Open source project"
 msgstr "Open source project"
 
 #: app/components/MetricsSummary.tsx#MetricsOverview
-#: app/routes/metrics.tsx
 msgid "Open source, in numbers."
 msgstr "Open source, in numbers."
 
@@ -845,27 +905,30 @@ msgstr "Our software"
 msgid "Overview of Data Processing"
 msgstr "Overview of Data Processing"
 
-#: app/components/MetricsDashboard.tsx#Packages
+#: app/components/MetricsPackages.tsx#Packages
 msgid "Package"
 msgstr "Package"
 
-#: app/components/MetricsDashboard.tsx#Packages
-msgid "Package directory"
-msgstr "Package directory"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsPackages.tsx#Packages
+#~ msgid "Package directory"
+#~ msgstr "Package directory"
 
-#: app/components/MetricsDashboard.tsx#Packages
+#: app/components/MetricsPackages.tsx#Packages
 msgid "Package metrics"
 msgstr "Package metrics"
 
-#: app/components/MetricsDashboard.tsx#Packages
+#: app/components/MetricsPackages.tsx#PackageControls
 msgid "Package registry"
 msgstr "Package registry"
 
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
+#: app/components/MetricsPackages.tsx#Packages
+#: app/components/MetricsProjects.tsx#ProjectHead
 msgid "Packages"
 msgstr "Packages"
 
-#: app/components/MetricsDashboard.tsx#Packages
+#: app/components/MetricsPackages.tsx#Packages
 msgid "Packages found"
 msgstr "Packages found"
 
@@ -877,7 +940,7 @@ msgstr "Page not found"
 msgid "Page views (URL, referrer)"
 msgstr "Page views (URL, referrer)"
 
-#: app/components/MetricsDashboard.tsx#UsageValue
+#: app/components/MetricsValues.tsx#UsageValue
 msgid "Partial data"
 msgstr "Partial data"
 
@@ -893,9 +956,10 @@ msgstr "Place of Processing"
 msgid "Please enter a complete email address, such as name@example.com."
 msgstr "Please enter a complete email address, such as name@example.com."
 
-#: app/components/MetricsDashboard.tsx#Packages
-msgid "Previous"
-msgstr "Previous"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#Packages
+#~ msgid "Previous"
+#~ msgstr "Previous"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Privacy"
@@ -971,37 +1035,45 @@ msgstr "Products"
 msgid "Profiles"
 msgstr "Profiles"
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsPackages.tsx#Packages
+#: app/components/MetricsProjects.tsx#ProjectHead
 msgid "Project"
 msgstr "Project"
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#Projects
 msgid "Project data is unavailable. Other sources may still be connected."
 msgstr "Project data is unavailable. Other sources may still be connected."
 
-#: app/components/MetricsDashboard.tsx#Projects
-msgid "Project directory"
-msgstr "Project directory"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsProjects.tsx#Projects
+#~ msgid "Project directory"
+#~ msgstr "Project directory"
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#Projects
 msgid "Project metrics"
 msgstr "Project metrics"
 
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
+#: app/components/MetricsProjects.tsx#Projects
 msgid "Projects"
 msgstr "Projects"
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#Projects
 msgid "Projects shown"
 msgstr "Projects shown"
 
-#: app/routes/metrics.tsx
-msgid ""
-"Projects, packages, and the activity behind them. One public snapshot, with "
-"each source and time window kept in view."
-msgstr ""
-"Projects, packages, and the activity behind them. One public snapshot, with "
-"each source and time window kept in view."
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/routes/metrics.tsx
+#~ msgid ""
+#~ "Projects, packages, and the activity behind them. One public snapshot, with "
+#~ "each source and time window kept in view."
+#~ msgstr ""
+#~ "Projects, packages, and the activity behind them. One public snapshot, with "
+#~ "each source and time window kept in view."
+
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid "Projects, packages, and usage at a glance."
+msgstr "Projects, packages, and usage at a glance."
 
 #: app/routes/metrics.tsx#meta
 msgid ""
@@ -1015,7 +1087,7 @@ msgstr ""
 msgid "Public projects"
 msgstr "Public projects"
 
-#: app/components/MetricsDashboard.tsx#Packages
+#: app/components/MetricsPackages.tsx#Packages
 msgid "Published"
 msgstr "Published"
 
@@ -1027,9 +1099,10 @@ msgstr "Read and write modern Excel files in the browser and Node.js."
 msgid "Reading the numbers"
 msgstr "Reading the numbers"
 
-#: app/components/MetricsDashboard.tsx#PackageInfo
-msgid "recent downloads"
-msgstr "recent downloads"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#PackageInfo
+#~ msgid "recent downloads"
+#~ msgstr "recent downloads"
 
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
 msgid "references"
@@ -1059,12 +1132,12 @@ msgstr "Register Entry"
 msgid "Register Number:"
 msgstr "Register Number:"
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsPackages.tsx#Packages
+#: app/components/MetricsProjects.tsx#ProjectControls
 msgid "Registry"
 msgstr "Registry"
 
-#: app/components/MetricsDashboard.tsx#ProjectDetails
-#: app/components/MetricsDashboard.tsx#Packages
+#: app/components/MetricsPackages.tsx#Packages
 msgid "Registry data is unavailable."
 msgstr "Registry data is unavailable."
 
@@ -1150,6 +1223,11 @@ msgstr ""
 "rotating random component (salt) resets this identifier every day, so tracking"
 " across days is ruled out."
 
+#: app/components/MetricsPackages.tsx#Packages
+#: app/components/MetricsProjects.tsx#Projects
+msgid "Scroll horizontally to see every column. The name column stays in view."
+msgstr "Scroll horizontally to see every column. The name column stays in view."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "See what we build beyond consulting."
 msgstr "See what we build beyond consulting."
@@ -1221,15 +1299,15 @@ msgstr "Skip to content"
 msgid "Some sources are unavailable. Other metrics remain visible."
 msgstr "Some sources are unavailable. Other metrics remain visible."
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#ProjectControls
 msgid "Sort by"
 msgstr "Sort by"
 
-#: app/components/MetricsDashboard.tsx#UsageValue
+#: app/components/MetricsValues.tsx#UsageValue
 msgid "Stale"
 msgstr "Stale"
 
-#: app/components/MetricsDashboard.tsx#Projects
+#: app/components/MetricsProjects.tsx#ProjectHead
 msgid "Stars"
 msgstr "Stars"
 
@@ -1453,8 +1531,8 @@ msgstr ""
 msgid "Turn books from your Kindle library into searchable Markdown."
 msgstr "Turn books from your Kindle library into searchable Markdown."
 
-#: app/components/MetricsDashboard.tsx#UsageValue
-#: app/components/MetricsDashboard.tsx#SourceList
+#: app/components/MetricsDashboard.tsx#sourceLabel
+#: app/components/MetricsValues.tsx#UsageValue
 msgid "Unavailable"
 msgstr "Unavailable"
 
@@ -1464,7 +1542,7 @@ msgid ""
 msgstr ""
 "Under the GDPR, you have the following rights regarding your personal data:"
 
-#: app/components/MetricsDashboard.tsx#UsageValue
+#: app/components/MetricsValues.tsx#UsageValue
 msgid "Unverified"
 msgstr "Unverified"
 
@@ -1498,9 +1576,13 @@ msgstr ""
 "VAT identification number pursuant to § 27a of the German Value Added Tax "
 "Act:"
 
-#: app/components/MetricsDashboard.tsx#Packages
+#: app/components/MetricsPackages.tsx#Packages
 msgid "Version"
 msgstr "Version"
+
+#: app/components/MetricsProjects.tsx#ProjectHead
+msgid "Version source"
+msgstr "Version source"
 
 #: app/data/featured.ts#getFeatured
 msgid "View on GitHub"
