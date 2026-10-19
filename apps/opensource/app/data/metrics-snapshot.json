@@ -1,9 +1,9 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-19T13:51:18Z",
+  "generatedAt": "2026-10-19T17:43:10Z",
   "sources": {
     "github": "ok",
-    "releases": "skipped",
+    "releases": "ok",
     "crates": "ok",
     "npm": "ok",
     "skills": "ok",
@@ -14,151 +14,277 @@
       "stars": 1,
       "forks": 1,
       "language": "JavaScript",
-      "pushedAt": "2026-07-28T09:35:17Z"
+      "pushedAt": "2026-07-28T09:35:17Z",
+      "release": {
+        "tag": "v2.0.0",
+        "version": "2.0.0",
+        "publishedAt": "2026-07-16T12:10:40Z"
+      }
     },
     "offcourse": {
       "stars": 2,
       "forks": 2,
       "language": "TypeScript",
-      "pushedAt": "2026-09-25T07:26:15Z"
+      "pushedAt": "2026-09-25T07:26:15Z",
+      "release": {
+        "tag": "v1.6.0",
+        "version": "1.6.0",
+        "publishedAt": "2026-09-21T21:19:07Z"
+      }
     },
     "ardo": {
       "stars": 1,
       "forks": 1,
       "language": "TypeScript",
-      "pushedAt": "2026-10-16T06:35:16Z"
+      "pushedAt": "2026-10-16T06:35:16Z",
+      "release": {
+        "tag": "create-ardo-v5.0.0",
+        "version": "5.0.0",
+        "publishedAt": "2026-10-03T23:13:32Z"
+      }
     },
     "ferromark": {
       "stars": 9,
       "forks": 2,
       "language": "Rust",
-      "pushedAt": "2026-10-12T10:29:11Z"
+      "pushedAt": "2026-10-12T10:29:11Z",
+      "release": {
+        "tag": "v3.5.0",
+        "version": "3.5.0",
+        "publishedAt": "2026-10-11T18:09:43Z"
+      }
     },
     "ferroni": {
       "stars": 9,
       "forks": 3,
       "language": "Rust",
-      "pushedAt": "2026-10-18T08:04:31Z"
+      "pushedAt": "2026-10-18T08:04:31Z",
+      "release": {
+        "tag": "v2.2.3",
+        "version": "2.2.3",
+        "publishedAt": "2026-10-18T08:04:31Z"
+      }
     },
     "xlsx-format": {
       "stars": 2,
       "forks": 3,
       "language": "TypeScript",
-      "pushedAt": "2026-09-14T13:52:10Z"
+      "pushedAt": "2026-09-14T13:52:10Z",
+      "release": {
+        "tag": "xlsx-format-v2.4.5",
+        "version": "2.4.5",
+        "publishedAt": "2026-09-08T22:30:42Z"
+      }
     },
     "eslint-config-setup": {
       "stars": 2,
       "forks": 1,
       "language": "TypeScript",
-      "pushedAt": "2026-07-14T09:27:05Z"
+      "pushedAt": "2026-07-14T09:27:05Z",
+      "release": {
+        "tag": "eslint-config-setup-v0.5.2",
+        "version": "0.5.2",
+        "publishedAt": "2026-07-07T14:54:25Z"
+      }
     },
     "ferriki": {
       "stars": 3,
       "forks": 1,
       "language": "TypeScript",
-      "pushedAt": "2026-10-18T08:25:50Z"
+      "coreLanguage": "Rust",
+      "pushedAt": "2026-10-18T08:25:50Z",
+      "release": {
+        "tag": "v1.1.1",
+        "version": "1.1.1",
+        "publishedAt": "2026-10-16T21:21:07Z"
+      }
     },
     "palamedes": {
       "stars": 2,
       "forks": 0,
       "language": "Rust",
-      "pushedAt": "2026-10-19T13:26:33Z"
+      "pushedAt": "2026-10-19T17:36:55Z",
+      "release": {
+        "tag": "palamedes-v1.25.0",
+        "version": "1.25.0",
+        "publishedAt": "2026-09-09T08:34:58Z"
+      }
     },
     "paratix": {
       "stars": 0,
       "forks": 0,
       "language": "TypeScript",
-      "pushedAt": "2026-10-16T10:34:54Z"
+      "pushedAt": "2026-10-16T10:34:54Z",
+      "release": {
+        "tag": "paratix-v0.22.0",
+        "version": "0.22.0",
+        "publishedAt": "2026-10-15T20:30:43Z"
+      }
     },
     "ferrocat": {
       "stars": 0,
       "forks": 0,
       "language": "Rust",
-      "pushedAt": "2026-10-05T19:29:27Z"
+      "pushedAt": "2026-10-05T19:29:27Z",
+      "release": {
+        "tag": "ferrocat-v3.4.2",
+        "version": "3.4.2",
+        "publishedAt": "2026-08-06T11:14:55Z"
+      }
     },
     "effective-flow": {
       "stars": 1,
       "forks": 0,
       "language": "JavaScript",
-      "pushedAt": "2026-10-19T09:15:00Z"
+      "pushedAt": "2026-10-19T17:28:12Z",
+      "release": {
+        "tag": "effective-flow-v1.68.0",
+        "version": "1.68.0",
+        "publishedAt": "2026-10-17T18:02:11Z"
+      }
     },
     "antigraph": {
       "stars": 1,
       "forks": 0,
       "language": "TypeScript",
-      "pushedAt": "2026-08-05T16:33:41Z"
+      "pushedAt": "2026-08-05T16:33:41Z",
+      "release": {
+        "tag": "v0.1.2",
+        "version": "0.1.2",
+        "publishedAt": "2026-04-28T09:34:19Z"
+      }
     },
     "ferrolex": {
       "stars": 0,
       "forks": 0,
       "language": "Rust",
-      "pushedAt": "2026-09-16T16:34:57Z"
+      "pushedAt": "2026-09-16T16:34:57Z",
+      "release": {
+        "tag": "ferrolex-v0.4.0",
+        "version": "0.4.0",
+        "publishedAt": "2026-09-02T21:40:06Z"
+      }
     },
     "naos-ui": {
       "stars": 1,
       "forks": 0,
       "language": "TypeScript",
-      "pushedAt": "2026-07-22T08:22:00Z"
+      "pushedAt": "2026-07-22T08:22:00Z",
+      "release": {
+        "tag": "naos-ui-v1.1.0",
+        "version": "1.1.0",
+        "publishedAt": "2026-07-21T20:43:08Z"
+      }
     },
     "dalo": {
       "stars": 2,
       "forks": 1,
       "language": "Rust",
-      "pushedAt": "2026-10-16T21:27:36Z"
+      "pushedAt": "2026-10-16T21:27:36Z",
+      "release": {
+        "tag": "dalo-v1.9.0",
+        "version": "1.9.0",
+        "publishedAt": "2026-10-15T18:04:45Z"
+      }
     },
     "ferrugo": {
       "stars": 0,
       "forks": 0,
       "language": "Rust",
-      "pushedAt": "2026-10-01T11:11:15Z"
+      "pushedAt": "2026-10-01T11:11:15Z",
+      "release": {
+        "tag": "ferrugo-v0.5.0",
+        "version": "0.5.0",
+        "publishedAt": "2026-07-05T20:45:39Z"
+      }
     },
     "pdfium-node": {
       "stars": 0,
       "forks": 0,
       "language": "JavaScript",
-      "pushedAt": "2026-07-09T14:18:40Z"
+      "pushedAt": "2026-07-09T14:18:40Z",
+      "release": {
+        "tag": "pdfium-node-v1.2.1",
+        "version": "1.2.1",
+        "publishedAt": "2026-07-09T14:13:39Z"
+      }
     },
     "ferramenta": {
       "stars": 0,
       "forks": 0,
       "language": "TypeScript",
-      "pushedAt": "2026-10-04T22:00:48Z"
+      "pushedAt": "2026-10-04T22:00:48Z",
+      "release": {
+        "tag": "ferramenta-v2.0.0",
+        "version": "2.0.0",
+        "publishedAt": "2026-10-01T10:17:17Z"
+      }
     },
     "oxlint-config-setup": {
       "stars": 0,
       "forks": 0,
       "language": "TypeScript",
-      "pushedAt": "2026-08-13T16:59:35Z"
+      "pushedAt": "2026-08-13T16:59:35Z",
+      "release": {
+        "tag": "oxlint-config-setup-v0.2.0",
+        "version": "0.2.0",
+        "publishedAt": "2026-08-12T12:32:08Z"
+      }
     },
     "ferralk": {
       "stars": 1,
       "forks": 0,
       "language": "Rust",
-      "pushedAt": "2026-10-18T21:36:57Z"
+      "pushedAt": "2026-10-18T21:36:57Z",
+      "release": {
+        "tag": "v1.1.0",
+        "version": "1.1.0",
+        "publishedAt": "2026-09-25T08:09:19Z"
+      }
     },
     "harness-relay": {
       "stars": 0,
       "forks": 0,
       "language": "TypeScript",
-      "pushedAt": "2026-10-06T14:18:02Z"
+      "pushedAt": "2026-10-06T14:18:02Z",
+      "release": {
+        "tag": "v0.5.0",
+        "version": "0.5.0",
+        "publishedAt": "2026-10-06T13:45:17Z"
+      }
     },
     "relanto": {
       "stars": 0,
       "forks": 0,
       "language": "TypeScript",
-      "pushedAt": "2026-10-09T10:53:35Z"
+      "pushedAt": "2026-10-09T10:53:35Z",
+      "release": {
+        "tag": "frontend-v0.19.9",
+        "version": "0.19.9",
+        "publishedAt": "2026-09-13T00:50:33Z"
+      }
     },
     "stellara": {
       "stars": 0,
       "forks": 0,
       "language": "TypeScript",
-      "pushedAt": "2026-09-24T18:05:33Z"
+      "pushedAt": "2026-09-24T18:05:33Z",
+      "release": {
+        "tag": "v0.1.15",
+        "version": "0.1.15",
+        "publishedAt": "2026-08-27T17:45:18Z"
+      }
     },
     "mdtheme": {
       "stars": 0,
       "forks": 0,
       "language": "Rust",
-      "pushedAt": "2026-10-02T13:01:29Z"
+      "pushedAt": "2026-10-02T13:01:29Z",
+      "release": {
+        "tag": "mdtheme-v0.4.0",
+        "version": "0.4.0",
+        "publishedAt": "2026-09-11T21:07:57Z"
+      }
     }
   },
   "crates": {
@@ -470,48 +596,6 @@
       "publishedAt": "2026-09-09T08:51:09.066Z",
       "repo": "palamedes"
     },
-    "@ferriki/linux-x64-gnu": {
-      "version": "1.0.0",
-      "monthlyDownloads": 3179,
-      "publishedAt": "2026-10-10T21:32:54.534Z",
-      "repo": "ferriki"
-    },
-    "@ferriki/linux-arm64-musl": {
-      "version": "1.0.0",
-      "monthlyDownloads": 2832,
-      "publishedAt": "2026-10-10T21:34:04.956Z",
-      "repo": "ferriki"
-    },
-    "@ferriki/win32-x64-msvc": {
-      "version": "1.0.0",
-      "monthlyDownloads": 2847,
-      "publishedAt": "2026-10-10T21:33:06.313Z",
-      "repo": "ferriki"
-    },
-    "@ferriki/darwin-arm64": {
-      "version": "1.0.0",
-      "monthlyDownloads": 2804,
-      "publishedAt": "2026-10-10T21:33:21.993Z",
-      "repo": "ferriki"
-    },
-    "@ferriki/linux-arm64-gnu": {
-      "version": "1.0.0",
-      "monthlyDownloads": 2685,
-      "publishedAt": "2026-10-10T21:32:41.008Z",
-      "repo": "ferriki"
-    },
-    "@ferriki/win32-arm64-msvc": {
-      "version": "1.0.0",
-      "monthlyDownloads": 2773,
-      "publishedAt": "2026-10-10T21:33:11.998Z",
-      "repo": "ferriki"
-    },
-    "@palamedes/runtime": {
-      "version": "1.25.0",
-      "monthlyDownloads": 2611,
-      "publishedAt": "2026-09-09T08:51:47.464Z",
-      "repo": "palamedes"
-    },
     "@palamedes/core-node": {
       "version": "1.25.0",
       "monthlyDownloads": 2756,
@@ -519,10 +603,10 @@
       "repo": "palamedes",
       "nodeBinding": true
     },
-    "@palamedes/transform": {
+    "@palamedes/runtime": {
       "version": "1.25.0",
-      "monthlyDownloads": 2572,
-      "publishedAt": "2026-09-09T08:52:20.899Z",
+      "monthlyDownloads": 2611,
+      "publishedAt": "2026-09-09T08:51:47.464Z",
       "repo": "palamedes"
     },
     "ferromark": {
@@ -531,6 +615,12 @@
       "publishedAt": "2026-10-11T18:29:09.919Z",
       "repo": "ferromark",
       "nodeBinding": true
+    },
+    "@palamedes/transform": {
+      "version": "1.25.0",
+      "monthlyDownloads": 2572,
+      "publishedAt": "2026-09-09T08:52:20.899Z",
+      "repo": "palamedes"
     },
     "@palamedes/core": {
       "version": "1.25.0",
@@ -544,12 +634,6 @@
       "publishedAt": "2026-10-10T21:33:18.703Z",
       "repo": "ferriki",
       "nodeBinding": true
-    },
-    "@ferriki/linux-x64-musl": {
-      "version": "1.0.0",
-      "monthlyDownloads": 2913,
-      "publishedAt": "2026-10-10T21:33:07.635Z",
-      "repo": "ferriki"
     },
     "@palamedes/config": {
       "version": "1.25.0",
@@ -743,18 +827,18 @@
       "publishedAt": "2024-08-02T18:26:10.940Z",
       "repo": "effective-favicon"
     },
-    "oxlint-config-setup": {
-      "version": "0.2.0",
-      "monthlyDownloads": 29,
-      "publishedAt": "2026-08-12T12:34:25.474Z",
-      "repo": "oxlint-config-setup"
-    },
     "turndown-node": {
       "version": "0.0.11",
       "monthlyDownloads": 28,
       "publishedAt": "2026-01-28T18:35:48.235Z",
       "repo": "turndown-node",
       "nodeBinding": true
+    },
+    "oxlint-config-setup": {
+      "version": "0.2.0",
+      "monthlyDownloads": 29,
+      "publishedAt": "2026-08-12T12:34:25.474Z",
+      "repo": "oxlint-config-setup"
     },
     "ts-phonenumber": {
       "version": "2.0.0",
@@ -785,18 +869,6 @@
       "publishedAt": "2026-01-05T21:57:24.039Z",
       "repo": "native-llm"
     },
-    "@turndown-node/linux-x64-gnu": {
-      "version": "0.0.11",
-      "monthlyDownloads": 10,
-      "publishedAt": "2026-01-28T18:34:37.670Z",
-      "repo": "turndown-node"
-    },
-    "@turndown-node/linux-arm64-gnu": {
-      "version": "0.0.11",
-      "monthlyDownloads": 8,
-      "publishedAt": "2026-01-28T18:34:53.143Z",
-      "repo": "turndown-node"
-    },
     "claritas": {
       "version": "0.0.1",
       "monthlyDownloads": 9,
@@ -817,18 +889,6 @@
       "version": "0.0.1",
       "monthlyDownloads": 7,
       "publishedAt": "2026-06-24T17:54:43.561Z"
-    },
-    "@turndown-node/win32-x64-msvc": {
-      "version": "0.0.11",
-      "monthlyDownloads": 7,
-      "publishedAt": "2026-01-28T18:35:26.504Z",
-      "repo": "turndown-node"
-    },
-    "@turndown-node/darwin-arm64": {
-      "version": "0.0.11",
-      "monthlyDownloads": 6,
-      "publishedAt": "2026-01-28T18:34:44.961Z",
-      "repo": "turndown-node"
     },
     "semion": {
       "version": "0.1.0",
@@ -869,7 +929,7 @@
   "usage": {
     "palamedes": {
       "unit": "update_checks",
-      "collectedAt": "2026-10-19T13:51:18.615Z",
+      "collectedAt": "2026-10-19T17:43:10.825Z",
       "verified": false,
       "windows": {
         "days7": {

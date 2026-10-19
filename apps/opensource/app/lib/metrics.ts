@@ -4,7 +4,8 @@ import { ENDPOINT, parseSnapshot, type Snapshot } from "./metrics-model"
 
 // A cold collection spaces crates.io requests to respect its one-request-per-second limit.
 export const METRICS_TIMEOUT_MS = 45_000
-const BUILD_TIMEOUT_MS = 8000
+// Leave time for rendering while the other sites build on the same runner.
+const BUILD_TIMEOUT_MS = 2000
 
 /**
  * Fetches only public aggregates. Credentials never cross this boundary.
