@@ -3,13 +3,17 @@ import type { ReactElement } from "react"
 import { t } from "@palamedes/core/macro"
 import { ArrowLink } from "@sebastian-websites/ui"
 
+import type { Snapshot } from "~/lib/metrics-model"
+
 import { FeaturedStory } from "~/components/FeaturedStory"
+import { MetricsOverview } from "~/components/MetricsSummary"
 import { ProjectTiles } from "~/components/ProjectTiles"
 import * as tiles from "~/components/ProjectTiles.css"
 import { getFeatured } from "~/data/featured"
 import { CURATED, EXCLUSIONS, getProjects } from "~/data/projects"
 import { loadActivity } from "~/lib/activity"
 import { buildCollection, findUncurated } from "~/lib/collection"
+import { loadMetrics } from "~/lib/metrics"
 
 import type { Route } from "./+types/home"
 
@@ -33,8 +37,11 @@ export function meta(): Route.MetaDescriptors {
  * @returns The push date per curated repository; absent dates are unknown.
  */
 // eslint-disable-next-line react-refresh/only-export-components -- React Router runs the loader at build time
-export async function loader(): Promise<{ readonly pushedAt: Readonly<Record<string, string>> }> {
-  const { activity } = await loadActivity()
+export async function loader(): Promise<{
+  readonly metrics: Snapshot
+  readonly pushedAt: Readonly<Record<string, string>>
+}> {
+  const [{ activity }, metrics] = await Promise.all([loadActivity(), loadMetrics()])
   const uncurated = findUncurated(CURATED, EXCLUSIONS, activity)
   if (uncurated.length > 0) {
     console.warn(`Repositories missing from curation: ${uncurated.join(", ")}`)
@@ -45,7 +52,7 @@ export async function loader(): Promise<{ readonly pushedAt: Readonly<Record<str
       return date === undefined ? [] : [[project.repo, date]]
     })
   )
-  return { pushedAt }
+  return { metrics, pushedAt }
 }
 
 export default function Home({ loaderData }: Route.ComponentProps): ReactElement {
@@ -71,6 +78,7 @@ export default function Home({ loaderData }: Route.ComponentProps): ReactElement
           </ArrowLink>
         </p>
       </section>
+      <MetricsOverview initial={loaderData.metrics} />
       <div className={styles.stories}>
         {getFeatured().map((project, index) => (
           <FeaturedStory index={index} key={project.id} project={project} />
