@@ -48,6 +48,50 @@ function fixture() {
 }
 
 describe("public metrics", () => {
+  test("primary language and native npm bindings follow their own source metadata", () => {
+    const input = fixture()
+    const snapshot = parseSnapshot({
+      ...input,
+      github: { ...input.github, palamedes: { ...input.github.palamedes, language: "Rust" } },
+      npm: {
+        ...input.npm,
+        "@palamedes/core-node": {
+          ...input.npm["@palamedes/cli"],
+          nodeBinding: true,
+          repo: "PALAMEDES",
+        },
+      },
+    })
+    const project = snapshot.projects.find((item) => item.name === "palamedes")
+    assert.ok(project)
+    assert.equal(project.language, "Rust")
+    assert.deepEqual(
+      project.packages.filter((pkg) => pkg.nodeBinding).map((pkg) => pkg.name),
+      ["@palamedes/core-node"]
+    )
+    assert.equal(
+      snapshot.projects.find((item) => item.name === "ferroni")?.language,
+      null,
+      "a Rust crate does not establish the repository language"
+    )
+  })
+
+  test("old snapshots and non-boolean binding hints stay compatible without inventing metadata", () => {
+    const input = fixture()
+    const snapshot = parseSnapshot({
+      ...input,
+      crates: { ferroni: { ...input.crates.ferroni, nodeBinding: true } },
+      github: { ...input.github, palamedes: { ...input.github.palamedes, language: 42 } },
+      npm: {
+        ...input.npm,
+        "@palamedes/cli": { ...input.npm["@palamedes/cli"], nodeBinding: "true" },
+      },
+    })
+    assert.ok(snapshot.projects.every((project) => project.language === null))
+    assert.ok(snapshot.packages.every((pkg) => pkg.nodeBinding === undefined))
+    assert.equal(snapshot.packages.length, 3)
+  })
+
   test("30-day crate downloads stay separate from lifetime and 90-day counts", () => {
     const input = fixture()
     const snapshot = parseSnapshot({

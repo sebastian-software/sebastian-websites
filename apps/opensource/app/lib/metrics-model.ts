@@ -18,6 +18,7 @@ export type Package = {
   downloads: number
   downloads30Days?: { count: null | number; end: string; start: string }
   name: string
+  nodeBinding?: true
   publishedAt: string
   recentDownloads?: number
   registry: "crates" | "npm"
@@ -26,6 +27,7 @@ export type Package = {
 }
 export type Project = {
   forks: number
+  language: null | string
   name: string
   packages: Package[]
   pushedAt: string
@@ -115,6 +117,7 @@ function packagesFrom(value: unknown, registry: "crates" | "npm", generatedAt: s
         ? { downloads30Days: crateWindow(row.downloads30Days, generatedAt) }
         : {}),
       name,
+      ...(registry === "npm" && row.nodeBinding === true ? { nodeBinding: true as const } : {}),
       publishedAt: date(row.publishedAt),
       registry,
       version: text(row.version),
@@ -136,6 +139,7 @@ function projectsFrom(value: unknown, packages: Package[], releases: Status): Pr
         : undefined
     return {
       forks: count(row.forks),
+      language: typeof row.language === "string" && row.language.length > 0 ? row.language : null,
       name,
       packages: packages.filter((pkg) => pkg.repo?.toLowerCase() === name.toLowerCase()),
       pushedAt: date(row.pushedAt),

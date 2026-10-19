@@ -6,6 +6,7 @@ import { useState } from "react"
 
 import {
   filterProjects,
+  packageUrl,
   type Project,
   type ProjectFilter,
   type ProjectSort,
@@ -23,6 +24,21 @@ function projectFilter(value: string): ProjectFilter {
 function projectSort(value: string): ProjectSort {
   return value === "activity" || value === "name" ? value : "stars"
 }
+function ProjectName({ project }: { readonly project: Project }): ReactElement {
+  const bindings = project.packages
+    .filter((pkg) => pkg.registry === "npm" && pkg.nodeBinding === true)
+    .sort((a, b) => a.name.localeCompare(b.name, "en"))
+  return (
+    <>
+      <a href={repoUrl(project.name)}>{project.name}</a>
+      {bindings.map((pkg) => (
+        <span className={styles.small} key={pkg.name}>
+          Node.js: <a href={packageUrl(pkg)}>{pkg.name}</a>
+        </span>
+      ))}
+    </>
+  )
+}
 function ProjectRow({
   hasUsage,
   now,
@@ -37,21 +53,12 @@ function ProjectRow({
   return (
     <tr>
       <td>
-        <a href={repoUrl(project.name)}>{project.name}</a>
+        <ProjectName project={project} />
       </td>
       <ProjectVersionCells project={project} />
+      <td className={styles.languageColumn}>{project.language ?? "—"}</td>
       <td className={styles.numeric}>
         <MetricNumber exact value={project.stars} />
-      </td>
-      <td className={styles.numeric}>
-        <MetricNumber
-          exact
-          value={
-            snapshot.sources.npm === "ok" && snapshot.sources.crates === "ok"
-              ? project.packages.length
-              : null
-          }
-        />
       </td>
       <td className={styles.numeric}>
         <ProjectDownloads project={project} registry="npm" status={snapshot.sources.npm} />
@@ -145,12 +152,12 @@ function ProjectHead({
         <th aria-sort={sort === "name" ? "ascending" : undefined} scope="col">{t`Project`}</th>
         <th scope="col">{t`Latest version`}</th>
         <th scope="col">{t`Version source`}</th>
+        <th className={styles.languageColumn} scope="col">{t`Primary language`}</th>
         <th
           aria-sort={sort === "stars" ? "descending" : undefined}
           className={styles.numeric}
           scope="col"
         >{t`Stars`}</th>
-        <th className={styles.numeric} scope="col">{t`Packages`}</th>
         <th className={styles.numeric} scope="col">{t`npm / month`}</th>
         <th className={styles.numeric} scope="col">{t`crates.io / 30 days`}</th>
         {hasUsage ? (
