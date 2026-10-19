@@ -20,7 +20,7 @@ describe("metrics build snapshot", () => {
     )
     try {
       const pending = loadMetrics()
-      assert.equal(timeout.mock.calls[0][0], 8000)
+      assert.equal(timeout.mock.calls[0][0], 2000)
       controller.abort()
       const snapshot = await pending
       assert.equal(snapshot.generatedAt, fallback.generatedAt)
