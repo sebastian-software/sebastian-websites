@@ -11,27 +11,26 @@ import * as styles from "./Metrics.css"
 import { MetricNumber } from "./MetricsSummary"
 import { DateValue } from "./MetricsValues"
 
-const PACKAGE_PAGE_SIZE = 12
+type Registry = "all" | "crates" | "npm"
 function PackageRow({ pkg }: { readonly pkg: Package }): ReactElement {
   return (
     <tr>
       <td>
         <a href={packageUrl(pkg)}>{pkg.name}</a>
-        <span className={styles.small}>
-          v{pkg.version}
-          {pkg.repo === undefined ? null : (
-            <>
-              {" "}
-              · <a href={repoUrl(pkg.repo)}>{pkg.repo}</a>
-            </>
-          )}
-        </span>
       </td>
-      <td className={styles.secondary}>v{pkg.version}</td>
+      <td>{pkg.registry === "npm" ? "npm" : "crates.io"}</td>
+      <td>{pkg.repo === undefined ? "—" : <a href={repoUrl(pkg.repo)}>{pkg.repo}</a>}</td>
+      <td>v{pkg.version}</td>
       <td className={styles.numeric}>
-        <MetricNumber value={pkg.downloads} />
+        <MetricNumber exact value={pkg.registry === "npm" ? pkg.downloads : null} />
       </td>
-      <td className={styles.secondary}>
+      <td className={styles.numeric}>
+        <MetricNumber exact value={pkg.registry === "crates" ? pkg.downloads : null} />
+      </td>
+      <td className={styles.numeric}>
+        <MetricNumber exact value={pkg.recentDownloads ?? null} />
+      </td>
+      <td>
         <DateValue value={pkg.publishedAt} />
       </td>
     </tr>
@@ -44,9 +43,9 @@ function PackageControls({
   registry,
 }: {
   readonly onQuery: (value: string) => void
-  readonly onRegistry: (value: "crates" | "npm") => void
+  readonly onRegistry: (value: Registry) => void
   readonly query: string
-  readonly registry: "crates" | "npm"
+  readonly registry: Registry
 }): ReactElement {
   return (
     <div className={styles.tools}>
@@ -66,10 +65,15 @@ function PackageControls({
         <select
           className={styles.control}
           onChange={(event) => {
-            onRegistry(event.target.value === "crates" ? "crates" : "npm")
+            onRegistry(
+              event.target.value === "npm" || event.target.value === "crates"
+                ? event.target.value
+                : "all"
+            )
           }}
           value={registry}
         >
+          <option value="all">{t`All registries`}</option>
           <option value="npm">npm</option>
           <option value="crates">crates.io</option>
         </select>
@@ -79,97 +83,77 @@ function PackageControls({
 }
 export function Packages({ snapshot }: { readonly snapshot: Snapshot }): ReactElement {
   const [query, setQuery] = useState("")
-  const [registry, setRegistry] = useState<"crates" | "npm">("npm")
-  const [page, setPage] = useState(0)
+  const [registry, setRegistry] = useState<Registry>("all")
   const packages = snapshot.packages
     .filter(
       (pkg) =>
-        pkg.registry === registry &&
+        (registry === "all" || pkg.registry === registry) &&
         [pkg.name, pkg.repo ?? ""].some((name) =>
           name
             .toLocaleLowerCase(variant.locale)
             .includes(query.trim().toLocaleLowerCase(variant.locale))
         )
     )
-    .sort((a, b) => b.downloads - a.downloads || a.name.localeCompare(b.name))
-  const current = Math.min(page, Math.max(0, Math.ceil(packages.length / PACKAGE_PAGE_SIZE) - 1))
+    .sort((a, b) => a.name.localeCompare(b.name, variant.locale))
+  const unavailable =
+    registry === "all"
+      ? snapshot.sources.npm !== "ok" || snapshot.sources.crates !== "ok"
+      : snapshot.sources[registry] !== "ok"
   return (
     <section aria-labelledby="packages-title" className={styles.section} id="packages">
-      <h2 className={styles.heading} id="packages-title">{t`Package directory`}</h2>
-      <p>{t`Every published package, including packages without a listed project.`}</p>
-      <PackageControls
-        onQuery={(value) => {
-          setQuery(value)
-          setPage(0)
-        }}
-        onRegistry={(value) => {
-          setRegistry(value)
-          setPage(0)
-        }}
-        query={query}
-        registry={registry}
-      />
+      <div className={styles.directoryHeader}>
+        <h2 className={styles.heading} id="packages-title">{t`Packages`}</h2>
+        <PackageControls
+          onQuery={setQuery}
+          onRegistry={setRegistry}
+          query={query}
+          registry={registry}
+        />
+      </div>
       <p className={styles.note} role="status">
-        {snapshot.sources[registry] === "ok" ? (
-          <>
-            {t`Packages found`}: {packages.length}
-          </>
-        ) : (
-          t`Registry data is unavailable.`
-        )}
+        {t`Packages found`}: {packages.length}
+        {unavailable ? <> · {t`Registry data is unavailable.`}</> : null}
       </p>
-      <table className={styles.table}>
-        <caption className={editorial.visuallyHidden}>{t`Package metrics`}</caption>
-        <thead>
-          <tr>
-            <th scope="col">{t`Package`}</th>
-            <th className={styles.secondary} scope="col">{t`Version`}</th>
-            <th className={styles.numeric} scope="col">
-              {registry === "npm" ? t`Monthly downloads` : t`All-time downloads`}
-            </th>
-            <th className={styles.secondary} scope="col">{t`Published`}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {packages
-            .slice(current * PACKAGE_PAGE_SIZE, current * PACKAGE_PAGE_SIZE + PACKAGE_PAGE_SIZE)
-            .map((pkg) => (
-              <PackageRow key={pkg.name} pkg={pkg} />
+      <p
+        className={styles.scrollHint}
+        id="package-scroll-hint"
+      >{t`Scroll horizontally to see every column. The name column stays in view.`}</p>
+      <div
+        aria-describedby="package-scroll-hint"
+        aria-label={t`Package metrics`}
+        className={styles.tableScroll}
+        role="region"
+        tabIndex={0}
+      >
+        <table className={`${styles.table} ${styles.packageTable}`}>
+          <caption className={editorial.visuallyHidden}>{t`Package metrics`}</caption>
+          <thead>
+            <tr>
+              <th aria-sort="ascending" scope="col">{t`Package`}</th>
+              <th scope="col">{t`Registry`}</th>
+              <th scope="col">{t`Project`}</th>
+              <th scope="col">{t`Version`}</th>
+              <th className={styles.numeric} scope="col">{t`npm / month`}</th>
+              <th className={styles.numeric} scope="col">{t`crates.io / all time`}</th>
+              <th className={styles.numeric} scope="col">{t`crates.io / recent`}</th>
+              <th scope="col">{t`Published`}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {packages.map((pkg) => (
+              <PackageRow key={`${pkg.registry}/${pkg.name}`} pkg={pkg} />
             ))}
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
+
       {packages.length === 0 ? (
         <p className={styles.notice}>
-          {snapshot.sources[registry] === "ok"
-            ? t`No matching packages. Try another search or registry.`
-            : t`Registry data is unavailable.`}
+          {unavailable
+            ? t`Registry data is unavailable.`
+            : t`No matching packages. Try another search or registry.`}
         </p>
       ) : null}
-      <div className={styles.toolbar}>
-        <p className={styles.note}>
-          {packages.length > 0
-            ? `${current * PACKAGE_PAGE_SIZE + 1}–${Math.min(current * PACKAGE_PAGE_SIZE + PACKAGE_PAGE_SIZE, packages.length)} / ${packages.length}`
-            : "0"}
-        </p>
-        <div className={styles.tools}>
-          <button
-            className={styles.button}
-            disabled={current === 0}
-            onClick={() => {
-              setPage(current - 1)
-            }}
-            type="button"
-          >{t`Previous`}</button>
-          <button
-            className={styles.button}
-            disabled={(current + 1) * PACKAGE_PAGE_SIZE >= packages.length}
-            onClick={() => {
-              setPage(current + 1)
-            }}
-            type="button"
-          >{t`Next`}</button>
-        </div>
-      </div>
     </section>
   )
 }

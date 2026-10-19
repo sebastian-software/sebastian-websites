@@ -57,21 +57,27 @@ export function MetricsDashboard({ initial }: { readonly initial: Snapshot }): R
   const stale = now - Date.parse(snapshot.generatedAt) > MAX_SNAPSHOT_AGE_MS
   return (
     <>
-      <div className={styles.toolbar}>
-        <p className={styles.note}>
-          {t`Collected`}: <SnapshotTime snapshot={snapshot} />
-        </p>
-        <button
-          className={styles.button}
-          disabled={loading}
-          onClick={() => {
-            void refresh()
-          }}
-          type="button"
-        >
-          {loading ? t`Refreshing…` : t`Refresh data`}
-        </button>
-      </div>
+      <header className={styles.dashboardHeader}>
+        <div>
+          <h1 className={styles.title}>{t`Open Source metrics`}</h1>
+          <p className={styles.note}>{t`Projects, packages, and usage at a glance.`}</p>
+        </div>
+        <div className={styles.toolbar}>
+          <p className={styles.note}>
+            {t`Collected`}: <SnapshotTime snapshot={snapshot} />
+          </p>
+          <button
+            className={styles.button}
+            disabled={loading}
+            onClick={() => {
+              void refresh()
+            }}
+            type="button"
+          >
+            {loading ? t`Refreshing…` : t`Refresh data`}
+          </button>
+        </div>
+      </header>
       <div aria-live="polite">
         {failed ? (
           <p
@@ -91,9 +97,7 @@ export function MetricsDashboard({ initial }: { readonly initial: Snapshot }): R
         ) : null}
       </div>
       <MetricsSummary snapshot={snapshot} />
-      <p
-        className={styles.note}
-      >{t`All opted-in public projects and published packages, in one shared snapshot.`}</p>
+
       <nav aria-label={t`Metrics sections`} className={styles.tools}>
         <ArrowLink href="#projects">{t`Projects`}</ArrowLink>
         <ArrowLink href="#packages">{t`Packages`}</ArrowLink>
@@ -132,7 +136,10 @@ export function MetricsDashboard({ initial }: { readonly initial: Snapshot }): R
       <section aria-labelledby="notes-title" className={styles.section}>
         <h2 className={styles.heading} id="notes-title">{t`Reading the numbers`}</h2>
         <div className={styles.prose}>
-          <p>{t`npm downloads cover a month. crates.io totals cover all time; recent downloads are available in project details. Package totals include packages without a listed project.`}</p>
+          <p
+            className={styles.note}
+          >{t`All opted-in public projects and published packages, in one shared snapshot.`}</p>
+          <p>{t`npm downloads cover a month. crates.io totals cover all time; recent downloads appear in a separate column. Package totals include packages without a listed project.`}</p>
           <p>{t`The API is normally cached for an hour. This page checks for updates on opening and every five minutes while visible. Refreshing does not force a new upstream collection. Unavailable sources show a state instead of zero.`}</p>
           <p id="usage-note">{t`* Active users is an activity proxy based on update-check requests over 30 complete UTC days, including CI and repeat checks. It does not count deduplicated people or installations. Unverified, incomplete, or stale usage is labeled instead of shown as a user count.`}</p>
           <ArrowLink href="https://github.com/sebastian-software/oss-metrics#endpoint">{t`How the data is collected`}</ArrowLink>

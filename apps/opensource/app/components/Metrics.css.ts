@@ -10,11 +10,11 @@ import {
 } from "@sebastian-websites/ui"
 import { globalStyle, style } from "@vanilla-extract/css"
 
-export const page = style([editorial.page, { paddingTop: SPACE_SCALE.xl }])
+const nameColumnWidth = `clamp(${scaled("150px")}, 20vw, ${scaled("240px")})`
+
+export const page = style([editorial.page, { paddingTop: SPACE_SCALE.m }])
 export const section = style({ minWidth: 0, paddingBottom: SPACE_SCALE["3xl"] })
-export const intro = style({ display: "grid", gap: SPACE_SCALE.s, marginBottom: SPACE_SCALE.s })
-export const title = style([editorial.display, { fontSize: typeStep("5") }])
-export const lead = style([editorial.lead, { maxWidth: "38em" }])
+export const title = style([editorial.display, { fontSize: typeStep("3") }])
 export const heading = style([
   editorial.title,
   { fontSize: typeStep("3"), marginBottom: SPACE_SCALE.s },
@@ -92,22 +92,27 @@ export const table = style({
   borderCollapse: "collapse",
   fontSize: typeStep("-1"),
   fontVariantNumeric: "tabular-nums",
-  marginTop: SPACE_SCALE.s,
+  lineHeight: 1.4,
+  marginTop: SPACE_SCALE.xs,
   tableLayout: "fixed",
   width: "100%",
 })
 globalStyle(`${table} th, ${table} td`, {
   borderBottom: `1px solid ${color.rule}`,
   overflowWrap: "anywhere",
-  padding: `${SPACE_SCALE.s} ${SPACE_SCALE.xs}`,
+  padding: `${SPACE_SCALE["2xs"]} ${SPACE_SCALE.xs}`,
   textAlign: "left",
   verticalAlign: "top",
 })
 globalStyle(`${table} th`, { color: color.subtle, fontSize: typeStep("-2"), fontWeight: 500 })
 globalStyle(`${table} th:first-child, ${table} td:first-child`, {
-  "@media": { [PHONE]: { width: "75%" } },
-  paddingLeft: 0,
-  width: "32%",
+  background: color.canvas,
+  borderRight: `1px solid ${color.rule}`,
+  left: 0,
+  paddingLeft: SPACE_SCALE.xs,
+  position: "sticky",
+  width: nameColumnWidth,
+  zIndex: 1,
 })
 globalStyle(`${table} a`, {
   color: color.accent,
@@ -116,31 +121,7 @@ globalStyle(`${table} a`, {
 })
 export const numeric = style({})
 globalStyle(`${table} .${numeric}`, { textAlign: "right" })
-export const secondary = style({ "@media": { [PHONE]: { display: "none" } } })
-export const desktop = style({ "@media": { [COMPACT]: { display: "none" } } })
-export const details = style({ fontSize: typeStep("-2"), marginTop: SPACE_SCALE["2xs"] })
-globalStyle(`${details} summary`, {
-  color: color.subtle,
-  cursor: "pointer",
-  display: "list-item",
-  minHeight: "44px",
-  paddingBlock: SPACE_SCALE["2xs"],
-})
-globalStyle(`${details}[open]`, { background: color.tint, padding: SPACE_SCALE.xs })
-globalStyle(`${details} dl`, {
-  display: "grid",
-  gap: SPACE_SCALE["3xs"],
-  margin: `${SPACE_SCALE.xs} 0`,
-})
-globalStyle(`${details} dd`, { margin: `0 0 ${SPACE_SCALE.xs}`, overflowWrap: "anywhere" })
-globalStyle(`${details} ul`, {
-  display: "grid",
-  gap: SPACE_SCALE.s,
-  listStyle: "none",
-  margin: 0,
-  padding: 0,
-})
-globalStyle(`${details} li > span`, { color: color.subtle, display: "block" })
+export const usageColumn = style({ width: scaled("130px") })
 export const small = style({
   color: color.subtle,
   display: "block",
@@ -165,3 +146,61 @@ export const home = style([
   section,
   { borderTop: `1px solid ${color.rule}`, paddingTop: SPACE_SCALE.xl },
 ])
+
+export const dashboard = style({})
+export const dashboardHeader = style({
+  alignItems: "center",
+  display: "flex",
+  flexWrap: "wrap",
+  gap: SPACE_SCALE.s,
+  justifyContent: "space-between",
+})
+export const tableScroll = style({
+  marginTop: SPACE_SCALE.xs,
+  maxWidth: "100%",
+  overflowX: "auto",
+  overscrollBehaviorX: "contain",
+  scrollPaddingInlineStart: nameColumnWidth,
+})
+export const projectTable = style({ minWidth: scaled("1000px") })
+export const packageTable = style({ minWidth: scaled("1000px") })
+globalStyle(`${table} td:not(:first-child) time`, { whiteSpace: "nowrap" })
+globalStyle(`${dashboard} .${section}`, { paddingBottom: SPACE_SCALE.xl })
+globalStyle(`${dashboard} .${heading}`, { fontSize: typeStep("2"), marginBottom: SPACE_SCALE.xs })
+globalStyle(`${dashboard} .${overview}`, { marginBlock: SPACE_SCALE.s })
+globalStyle(`${dashboard} .${overview} > div`, {
+  padding: `${SPACE_SCALE["2xs"]} ${SPACE_SCALE.s}`,
+})
+globalStyle(`${dashboard} .${overview} dd`, { fontSize: typeStep("2") })
+globalStyle(`${dashboard} .${tools}`, { marginBlock: SPACE_SCALE.xs })
+globalStyle(`${table} a`, {
+  "@media": {
+    "(pointer: coarse)": { alignItems: "center", display: "inline-flex", minHeight: "44px" },
+  },
+})
+export const scrollHint = style([
+  editorial.caption,
+  {
+    "@media": { "(max-width: 75em)": { display: "block" } },
+    display: "none",
+    marginTop: SPACE_SCALE.xs,
+  },
+])
+
+export const directoryHeader = style({
+  alignItems: "end",
+  display: "flex",
+  flexWrap: "wrap",
+  gap: SPACE_SCALE.s,
+})
+globalStyle(`${directoryHeader} .${tools}`, { flex: `1 1 ${scaled("560px")}`, minWidth: 0 })
+export const versionCell = style({
+  alignItems: "baseline",
+  display: "flex",
+  flexWrap: "wrap",
+  gap: SPACE_SCALE["3xs"],
+})
+export const registryName = style({ color: color.subtle, fontSize: typeStep("-2") })
+globalStyle(`${projectTable} th:nth-child(2), ${projectTable} td:nth-child(2)`, {
+  width: scaled("140px"),
+})

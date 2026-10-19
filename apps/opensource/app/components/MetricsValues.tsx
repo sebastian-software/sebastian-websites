@@ -3,11 +3,10 @@ import type { ReactElement } from "react"
 import { t } from "@palamedes/core/macro"
 
 import {
-  type Package,
   packageUrl,
   type Project,
   repoUrl,
-  type Snapshot,
+  type Status,
   type Usage,
   usageLabel,
 } from "~/lib/metrics-model"
@@ -38,87 +37,7 @@ export function UsageValue({
   if (state === "Partial data") return <span>{t`Partial data`}</span>
   if (state === "Unavailable") return <span>{t`Unavailable`}</span>
   if (state === "Stale") return <span>{t`Stale`}</span>
-  return <MetricNumber value={usage?.window.count ?? null} />
-}
-
-function PackageInfo({ pkg }: { readonly pkg: Package }): ReactElement {
-  return (
-    <li>
-      <a href={packageUrl(pkg)}>{pkg.name}</a>
-      <span>v{pkg.version}</span>
-      <span>
-        {new Intl.NumberFormat(variant.locale).format(pkg.downloads)}{" "}
-        {pkg.registry === "npm" ? t`monthly downloads` : t`all-time downloads`}
-      </span>
-      {pkg.recentDownloads === undefined ? null : (
-        <span>
-          {new Intl.NumberFormat(variant.locale).format(pkg.recentDownloads)} {t`recent downloads`}
-        </span>
-      )}
-      <span>
-        <DateValue value={pkg.publishedAt} />
-      </span>
-    </li>
-  )
-}
-
-export function ProjectDetails({
-  now,
-  project,
-  snapshot,
-}: {
-  readonly now: number
-  readonly project: Project
-  readonly snapshot: Snapshot
-}): ReactElement {
-  return (
-    <details className={styles.details}>
-      <summary>
-        {t`Details`} {project.packages.length > 0 ? `(${project.packages.length})` : ""}
-      </summary>
-      <dl>
-        <dt>{t`Forks`}</dt>
-        <dd>{project.forks}</dd>
-        <dt>{t`Last push`}</dt>
-        <dd>
-          <DateValue value={project.pushedAt} />
-        </dd>
-        {project.release ? (
-          <>
-            <dt>{t`GitHub release`}</dt>
-            <dd>
-              <a
-                href={`${repoUrl(project.name)}/releases/tag/${encodeURIComponent(project.release.tag)}`}
-              >
-                {project.release.version}
-              </a>
-            </dd>
-          </>
-        ) : null}
-        {snapshot.usage[project.name] ? (
-          <>
-            <dt>{t`Active users*`}</dt>
-            <dd>
-              <UsageValue now={now} usage={snapshot.usage[project.name]} />
-            </dd>
-          </>
-        ) : null}
-      </dl>
-      {project.packages.length > 0 ? (
-        <ul>
-          {project.packages.map((pkg) => (
-            <PackageInfo key={`${pkg.registry}/${pkg.name}`} pkg={pkg} />
-          ))}
-        </ul>
-      ) : (
-        <p>
-          {snapshot.sources.npm === "ok" && snapshot.sources.crates === "ok"
-            ? t`No linked registry packages.`
-            : t`Registry data is unavailable.`}
-        </p>
-      )}
-    </details>
-  )
+  return <MetricNumber exact value={usage?.window.count ?? null} />
 }
 
 export function ProjectVersion({ project }: { readonly project: Project }): ReactElement {
@@ -128,39 +47,47 @@ export function ProjectVersion({ project }: { readonly project: Project }): Reac
   if (project.release)
     return (
       <>
-        <a
-          href={`${repoUrl(project.name)}/releases/tag/${encodeURIComponent(project.release.tag)}`}
-        >
-          v{project.release.version}
-        </a>
-        <span className={styles.small}>{t`GitHub release`}</span>
+        <span className={styles.versionCell}>
+          <a
+            href={`${repoUrl(project.name)}/releases/tag/${encodeURIComponent(project.release.tag)}`}
+          >
+            v{project.release.version}
+          </a>
+          <span className={styles.registryName}>GitHub</span>
+        </span>
+        <span className={styles.small}>
+          <DateValue value={project.release.publishedAt} />
+        </span>
       </>
     )
-  return latest ? (
-    <>
-      <a href={packageUrl(latest)}>v{latest.version}</a>
-      <span className={styles.small}>{latest.registry === "npm" ? "npm" : "crates.io"}</span>
-    </>
-  ) : (
+  return latest === undefined ? (
     <span>—</span>
+  ) : (
+    <span className={styles.versionCell}>
+      <a href={packageUrl(latest)}>v{latest.version}</a>
+      <span className={styles.registryName}>{latest.registry === "npm" ? "npm" : "crates.io"}</span>
+    </span>
   )
 }
 
-export function ProjectDownloads({ project }: { readonly project: Project }): ReactElement {
+export function ProjectDownloads({
+  project,
+  registry,
+  status,
+}: {
+  readonly project: Project
+  readonly registry: "crates" | "npm"
+  readonly status: Status
+}): ReactElement {
+  const packages = project.packages.filter((pkg) => pkg.registry === registry)
   return (
-    <>
-      {(["npm", "crates"] as const).map((registry) => {
-        const packages = project.packages.filter((pkg) => pkg.registry === registry)
-        return packages.length > 0 ? (
-          <div key={registry}>
-            <MetricNumber value={packages.reduce((sum, pkg) => sum + pkg.downloads, 0)} />
-            <span className={styles.small}>
-              {registry === "npm" ? t`npm / month` : t`crates.io / all time`}
-            </span>
-          </div>
-        ) : null
-      })}
-      {project.packages.length === 0 ? "—" : null}
-    </>
+    <MetricNumber
+      exact
+      value={
+        status === "ok" && packages.length > 0
+          ? packages.reduce((sum, pkg) => sum + pkg.downloads, 0)
+          : null
+      }
+    />
   )
 }

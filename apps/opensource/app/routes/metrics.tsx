@@ -1,7 +1,6 @@
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { ArrowLink } from "@sebastian-websites/ui"
 
 import * as styles from "~/components/Metrics.css"
 import { MetricsDashboard } from "~/components/MetricsDashboard"
@@ -21,14 +20,7 @@ export function meta(): Route.MetaDescriptors {
 
 export default function Metrics({ loaderData }: Route.ComponentProps): ReactElement {
   return (
-    <main className={styles.page} id="main">
-      <div className={styles.intro}>
-        <ArrowLink href="/">{t`Open Source`}</ArrowLink>
-        <h1 className={styles.title}>{t`Open source, in numbers.`}</h1>
-        <p
-          className={styles.lead}
-        >{t`Projects, packages, and the activity behind them. One public snapshot, with each source and time window kept in view.`}</p>
-      </div>
+    <main className={`${styles.page} ${styles.dashboard}`} id="main">
       <MetricsDashboard initial={loaderData} />
     </main>
   )
