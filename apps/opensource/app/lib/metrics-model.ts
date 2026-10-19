@@ -109,22 +109,28 @@ function crateWindow(value: unknown, generatedAt: string): Package["downloads30D
   }
 }
 function packagesFrom(value: unknown, registry: "crates" | "npm", generatedAt: string): Package[] {
-  return rows(value).map(([name, row]) => {
-    if (!packageName(name)) throw new Error("Invalid package name")
-    return {
-      downloads: count(registry === "npm" ? row.monthlyDownloads : row.downloads),
-      ...(registry === "crates"
-        ? { downloads30Days: crateWindow(row.downloads30Days, generatedAt) }
-        : {}),
-      name,
-      ...(registry === "npm" && row.nodeBinding === true ? { nodeBinding: true as const } : {}),
-      publishedAt: date(row.publishedAt),
-      registry,
-      version: text(row.version),
-      ...(registry === "crates" ? { recentDownloads: count(row.recentDownloads) } : {}),
-      ...(typeof row.repo === "string" && slug(row.repo) ? { repo: row.repo } : {}),
-    }
-  })
+  return rows(value)
+    .filter(
+      ([name]) =>
+        registry !== "npm" ||
+        !/(?:^|\/|-)(?:android|darwin|freebsd|linux|wasm32|win32)(?:-|$)/v.test(name)
+    )
+    .map(([name, row]) => {
+      if (!packageName(name)) throw new Error("Invalid package name")
+      return {
+        downloads: count(registry === "npm" ? row.monthlyDownloads : row.downloads),
+        ...(registry === "crates"
+          ? { downloads30Days: crateWindow(row.downloads30Days, generatedAt) }
+          : {}),
+        name,
+        ...(registry === "npm" && row.nodeBinding === true ? { nodeBinding: true as const } : {}),
+        publishedAt: date(row.publishedAt),
+        registry,
+        version: text(row.version),
+        ...(registry === "crates" ? { recentDownloads: count(row.recentDownloads) } : {}),
+        ...(typeof row.repo === "string" && slug(row.repo) ? { repo: row.repo } : {}),
+      }
+    })
 }
 function projectsFrom(value: unknown, packages: Package[], releases: Status): Project[] {
   return rows(value).map(([name, row]) => {
@@ -137,9 +143,12 @@ function projectsFrom(value: unknown, packages: Package[], releases: Status): Pr
             version: text(row.release.version),
           }
         : undefined
+    const language = [row.coreLanguage, row.language].find(
+      (item) => typeof item === "string" && item.length > 0
+    )
     return {
       forks: count(row.forks),
-      language: typeof row.language === "string" && row.language.length > 0 ? row.language : null,
+      language: typeof language === "string" ? language : null,
       name,
       packages: packages.filter((pkg) => pkg.repo?.toLowerCase() === name.toLowerCase()),
       pushedAt: date(row.pushedAt),

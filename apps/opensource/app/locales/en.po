@@ -234,6 +234,10 @@ msgstr ""
 msgid "CDN, hosting and edge scripting for this website"
 msgstr "CDN, hosting and edge scripting for this website"
 
+#: app/components/MetricsValues.tsx#ProjectVersionCells
+msgid "Changelog"
+msgstr "Changelog"
+
 #: app/components/ProjectTiles.tsx#labels
 msgid "CLI + library"
 msgstr "CLI + library"
@@ -284,32 +288,45 @@ msgstr "Contact via Email"
 msgid "Controller"
 msgstr "Controller"
 
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsPackages.tsx#Packages
+#~ #: app/components/MetricsProjects.tsx#ProjectHead
+#~ msgid "crates.io / 30 days"
+#~ msgstr "crates.io / 30 days"
+
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsPackages.tsx#Packages
+#~ msgid "crates.io / 90 days"
+#~ msgstr "crates.io / 90 days"
+
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsPackages.tsx#Packages
+#~ msgid "crates.io / all time"
+#~ msgstr "crates.io / all time"
+
 #: app/components/MetricsPackages.tsx#Packages
 #: app/components/MetricsProjects.tsx#ProjectHead
-msgid "crates.io / 30 days"
-msgstr "crates.io / 30 days"
-
-#: app/components/MetricsPackages.tsx#Packages
-msgid "crates.io / 90 days"
-msgstr "crates.io / 90 days"
-
-#: app/components/MetricsPackages.tsx#Packages
-msgid "crates.io / all time"
-msgstr "crates.io / all time"
+msgid "crates.io / month"
+msgstr "crates.io / month"
 
 #~ #@ obsolete-since: 2026-10-19
 #~ #: app/components/MetricsPackages.tsx#Packages
 #~ msgid "crates.io / recent"
 #~ msgstr "crates.io / recent"
 
-#: app/components/MetricsSummary.tsx#MetricsSummary
-msgid "crates.io downloads / 30 days"
-msgstr "crates.io downloads / 30 days"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsSummary.tsx#MetricsSummary
+#~ msgid "crates.io downloads / 30 days"
+#~ msgstr "crates.io downloads / 30 days"
 
 #~ #@ obsolete-since: 2026-10-19
 #~ #: app/components/MetricsSummary.tsx#MetricsSummary
 #~ msgid "crates.io downloads / all time"
 #~ msgstr "crates.io downloads / all time"
+
+#: app/components/MetricsSummary.tsx#MetricsSummary
+msgid "crates.io downloads / month"
+msgstr "crates.io downloads / month"
 
 #: app/components/MetricsDashboard.tsx#SourceList
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
@@ -721,6 +738,18 @@ msgstr "Metrics sections"
 msgid "Modern, open documentation for React teams."
 msgstr "Modern, open documentation for React teams."
 
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid ""
+"Monthly crates.io downloads cover the last 30 complete UTC days, summed across"
+" every version. npm supplies its monthly download count. Registry reporting "
+"can lag behind downloads. Platform-specific npm binaries are excluded. Package"
+" totals include packages without a listed project."
+msgstr ""
+"Monthly crates.io downloads cover the last 30 complete UTC days, summed across"
+" every version. npm supplies its monthly download count. Registry reporting "
+"can lag behind downloads. Platform-specific npm binaries are excluded. Package"
+" totals include packages without a listed project."
+
 #~ #@ obsolete-since: 2026-10-19
 #~ #: app/components/MetricsDashboard.tsx#PackageInfo
 #~ msgid "monthly downloads"
@@ -798,17 +827,18 @@ msgstr "npm / month"
 msgid "npm downloads / month"
 msgstr "npm downloads / month"
 
-#: app/components/MetricsDashboard.tsx#MetricsDashboard
-msgid ""
-"npm downloads cover a month. crates.io downloads cover the last 30 complete "
-"UTC days, summed across every version. Its lifetime and 90-day totals are also"
-" listed in the package table. Registry reporting can lag behind downloads. "
-"Package totals include packages without a listed project."
-msgstr ""
-"npm downloads cover a month. crates.io downloads cover the last 30 complete "
-"UTC days, summed across every version. Its lifetime and 90-day totals are also"
-" listed in the package table. Registry reporting can lag behind downloads. "
-"Package totals include packages without a listed project."
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#MetricsDashboard
+#~ msgid ""
+#~ "npm downloads cover a month. crates.io downloads cover the last 30 complete "
+#~ "UTC days, summed across every version. Its lifetime and 90-day totals are also"
+#~ " listed in the package table. Registry reporting can lag behind downloads. "
+#~ "Package totals include packages without a listed project."
+#~ msgstr ""
+#~ "npm downloads cover a month. crates.io downloads cover the last 30 complete "
+#~ "UTC days, summed across every version. Its lifetime and 90-day totals are also"
+#~ " listed in the package table. Registry reporting can lag behind downloads. "
+#~ "Package totals include packages without a listed project."
 
 #~ #@ obsolete-since: 2026-10-19
 #~ #: app/components/MetricsDashboard.tsx#MetricsDashboard
@@ -964,13 +994,26 @@ msgstr "Please enter a complete email address, such as name@example.com."
 msgid "Primary language"
 msgstr "Primary language"
 
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#MetricsDashboard
+#~ msgid ""
+#~ "Primary languages come from GitHub. Node.js links identify published native "
+#~ "bindings explicitly declared in npm package metadata."
+#~ msgstr ""
+#~ "Primary languages come from GitHub. Node.js links identify published native "
+#~ "bindings explicitly declared in npm package metadata."
+
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
 msgid ""
-"Primary languages come from GitHub. Node.js links identify published native "
-"bindings explicitly declared in npm package metadata."
+"Primary languages use the core language declared by the project, with GitHub's"
+" classification as a fallback. Node.js links identify published native "
+"bindings explicitly declared in npm package metadata. Changelog links open the"
+" GitHub release notes."
 msgstr ""
-"Primary languages come from GitHub. Node.js links identify published native "
-"bindings explicitly declared in npm package metadata."
+"Primary languages use the core language declared by the project, with GitHub's"
+" classification as a fallback. Node.js links identify published native "
+"bindings explicitly declared in npm package metadata. Changelog links open the"
+" GitHub release notes."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Privacy"

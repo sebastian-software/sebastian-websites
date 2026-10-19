@@ -12,7 +12,7 @@ import { MetricNumber } from "./MetricsSummary"
 import { DateValue } from "./MetricsValues"
 
 type Registry = "all" | "crates" | "npm"
-function PackageRow({ pkg }: { readonly pkg: Package }): ReactElement {
+function PackageRow({ now, pkg }: { readonly now: number; readonly pkg: Package }): ReactElement {
   return (
     <tr>
       <td>
@@ -27,14 +27,8 @@ function PackageRow({ pkg }: { readonly pkg: Package }): ReactElement {
       <td className={styles.numeric}>
         <MetricNumber exact value={pkg.downloads30Days?.count ?? null} />
       </td>
-      <td className={styles.numeric}>
-        <MetricNumber exact value={pkg.registry === "crates" ? pkg.downloads : null} />
-      </td>
-      <td className={styles.numeric}>
-        <MetricNumber exact value={pkg.recentDownloads ?? null} />
-      </td>
       <td>
-        <DateValue value={pkg.publishedAt} />
+        <DateValue now={now} value={pkg.publishedAt} />
       </td>
     </tr>
   )
@@ -84,7 +78,13 @@ function PackageControls({
     </div>
   )
 }
-export function Packages({ snapshot }: { readonly snapshot: Snapshot }): ReactElement {
+export function Packages({
+  now,
+  snapshot,
+}: {
+  readonly now: number
+  readonly snapshot: Snapshot
+}): ReactElement {
   const [query, setQuery] = useState("")
   const [registry, setRegistry] = useState<Registry>("all")
   const packages = snapshot.packages
@@ -137,15 +137,13 @@ export function Packages({ snapshot }: { readonly snapshot: Snapshot }): ReactEl
               <th scope="col">{t`Project`}</th>
               <th scope="col">{t`Version`}</th>
               <th className={styles.numeric} scope="col">{t`npm / month`}</th>
-              <th className={styles.numeric} scope="col">{t`crates.io / 30 days`}</th>
-              <th className={styles.numeric} scope="col">{t`crates.io / all time`}</th>
-              <th className={styles.numeric} scope="col">{t`crates.io / 90 days`}</th>
+              <th className={styles.numeric} scope="col">{t`crates.io / month`}</th>
               <th scope="col">{t`Published`}</th>
             </tr>
           </thead>
           <tbody>
             {packages.map((pkg) => (
-              <PackageRow key={`${pkg.registry}/${pkg.name}`} pkg={pkg} />
+              <PackageRow key={`${pkg.registry}/${pkg.name}`} now={now} pkg={pkg} />
             ))}
           </tbody>
         </table>

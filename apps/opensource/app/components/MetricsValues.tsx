@@ -2,6 +2,7 @@ import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
 
+import { publicationDate } from "~/lib/metrics-date"
 import {
   crateDownloads30Days,
   packageUrl,
@@ -16,7 +17,21 @@ import { variant } from "~/lib/site"
 import * as styles from "./Metrics.css"
 import { MetricNumber } from "./MetricsSummary"
 
-export function DateValue({ value }: { readonly value: string }): ReactElement {
+export function DateValue({
+  now,
+  value,
+}: {
+  readonly now?: number
+  readonly value: string
+}): ReactElement {
+  if (now !== undefined) {
+    const { exact, label } = publicationDate(value, now, variant.locale)
+    return (
+      <time dateTime={value} title={exact}>
+        {label}
+      </time>
+    )
+  }
   return (
     <time dateTime={value}>
       {new Intl.DateTimeFormat(variant.locale, { dateStyle: "medium", timeZone: "UTC" }).format(
@@ -41,7 +56,13 @@ export function UsageValue({
   return <MetricNumber exact value={usage?.window.count ?? null} />
 }
 
-export function ProjectVersionCells({ project }: { readonly project: Project }): ReactElement {
+export function ProjectVersionCells({
+  now,
+  project,
+}: {
+  readonly now: number
+  readonly project: Project
+}): ReactElement {
   const latest = [...project.packages]
     .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt))
     .at(0)
@@ -55,10 +76,17 @@ export function ProjectVersionCells({ project }: { readonly project: Project }):
             v{project.release.version}
           </a>
           <span className={styles.small}>
-            <DateValue value={project.release.publishedAt} />
+            <DateValue now={now} value={project.release.publishedAt} />
           </span>
         </td>
-        <td>GitHub</td>
+        <td>
+          GitHub
+          <span className={styles.small}>
+            <a
+              href={`${repoUrl(project.name)}/releases/tag/${encodeURIComponent(project.release.tag)}`}
+            >{t`Changelog`}</a>
+          </span>
+        </td>
       </>
     )
   return latest === undefined ? (
