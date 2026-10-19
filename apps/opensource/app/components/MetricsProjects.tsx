@@ -55,7 +55,7 @@ function ProjectRow({
       <td>
         <ProjectName project={project} />
       </td>
-      <ProjectVersionCells project={project} />
+      <ProjectVersionCells now={now} project={project} />
       <td className={styles.languageColumn}>{project.language ?? "—"}</td>
       <td className={styles.numeric}>
         <MetricNumber exact value={project.stars} />
@@ -159,7 +159,7 @@ function ProjectHead({
           scope="col"
         >{t`Stars`}</th>
         <th className={styles.numeric} scope="col">{t`npm / month`}</th>
-        <th className={styles.numeric} scope="col">{t`crates.io / 30 days`}</th>
+        <th className={styles.numeric} scope="col">{t`crates.io / month`}</th>
         {hasUsage ? (
           <th className={`${styles.numeric} ${styles.usageColumn}`} scope="col">
             <a href="#usage-note">{t`Active users*`}</a>

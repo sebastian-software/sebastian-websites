@@ -77,7 +77,7 @@ export function MetricsSummary({ snapshot }: { readonly snapshot: Snapshot }): R
         </dd>
       </div>
       <div>
-        <dt>{t`crates.io downloads / 30 days`}</dt>
+        <dt>{t`crates.io downloads / month`}</dt>
         <dd>
           <MetricNumber
             value={

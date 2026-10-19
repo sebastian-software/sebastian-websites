@@ -48,6 +48,33 @@ function fixture() {
 }
 
 describe("public metrics", () => {
+  test("the declared core language wins over GitHub and binary variants never enter totals or project packages", () => {
+    const input = fixture()
+    const snapshot = parseSnapshot({
+      ...input,
+      github: {
+        ...input.github,
+        ferroni: { ...input.github.ferroni, coreLanguage: "Rust", language: "TypeScript" },
+      },
+      npm: {
+        ...input.npm,
+        "@ferriki/linux-x64-gnu": {
+          ...input.npm["@palamedes/cli"],
+          monthlyDownloads: 999,
+          repo: "ferroni",
+        },
+        "@palamedes/cli-linux-x64-gnu": input.npm["@palamedes/cli"],
+      },
+    })
+    assert.equal(snapshot.projects.find((project) => project.name === "ferroni")?.language, "Rust")
+    assert.equal(snapshot.packages.length, 3)
+    assert.deepEqual(
+      snapshot.projects
+        .find((project) => project.name === "palamedes")
+        ?.packages.map((pkg) => pkg.name),
+      ["@palamedes/cli"]
+    )
+  })
   test("primary language and native npm bindings follow their own source metadata", () => {
     const input = fixture()
     const snapshot = parseSnapshot({

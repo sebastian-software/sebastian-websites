@@ -245,6 +245,10 @@ msgstr ""
 msgid "CDN, hosting and edge scripting for this website"
 msgstr "CDN, Hosting und Edge Scripting für diese Website"
 
+#: app/components/MetricsValues.tsx#ProjectVersionCells
+msgid "Changelog"
+msgstr "Changelog"
+
 #: app/components/ProjectTiles.tsx#labels
 msgid "CLI + library"
 msgstr "CLI + Bibliothek"
@@ -295,32 +299,45 @@ msgstr "Kontaktaufnahme per E-Mail"
 msgid "Controller"
 msgstr "Verantwortlicher"
 
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsPackages.tsx#Packages
+#~ #: app/components/MetricsProjects.tsx#ProjectHead
+#~ msgid "crates.io / 30 days"
+#~ msgstr "crates.io / 30 Tage"
+
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsPackages.tsx#Packages
+#~ msgid "crates.io / 90 days"
+#~ msgstr "crates.io / 90 Tage"
+
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsPackages.tsx#Packages
+#~ msgid "crates.io / all time"
+#~ msgstr "crates.io / insgesamt"
+
 #: app/components/MetricsPackages.tsx#Packages
 #: app/components/MetricsProjects.tsx#ProjectHead
-msgid "crates.io / 30 days"
-msgstr "crates.io / 30 Tage"
-
-#: app/components/MetricsPackages.tsx#Packages
-msgid "crates.io / 90 days"
-msgstr "crates.io / 90 Tage"
-
-#: app/components/MetricsPackages.tsx#Packages
-msgid "crates.io / all time"
-msgstr "crates.io / insgesamt"
+msgid "crates.io / month"
+msgstr "crates.io / 1 Monat"
 
 #~ #@ obsolete-since: 2026-10-19
 #~ #: app/components/MetricsPackages.tsx#Packages
 #~ msgid "crates.io / recent"
 #~ msgstr "crates.io / aktuell"
 
-#: app/components/MetricsSummary.tsx#MetricsSummary
-msgid "crates.io downloads / 30 days"
-msgstr "crates.io-Downloads / 30 Tage"
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsSummary.tsx#MetricsSummary
+#~ msgid "crates.io downloads / 30 days"
+#~ msgstr "crates.io-Downloads / 30 Tage"
 
 #~ #@ obsolete-since: 2026-10-19
 #~ #: app/components/MetricsSummary.tsx#MetricsSummary
 #~ msgid "crates.io downloads / all time"
 #~ msgstr "crates.io-Downloads / insgesamt"
+
+#: app/components/MetricsSummary.tsx#MetricsSummary
+msgid "crates.io downloads / month"
+msgstr "crates.io-Downloads / 1 Monat"
 
 #: app/components/MetricsDashboard.tsx#SourceList
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
@@ -741,6 +758,19 @@ msgstr "Kennzahlen-Bereiche"
 msgid "Modern, open documentation for React teams."
 msgstr "Moderne, offene Dokumentation für React-Teams."
 
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid ""
+"Monthly crates.io downloads cover the last 30 complete UTC days, summed across"
+" every version. npm supplies its monthly download count. Registry reporting "
+"can lag behind downloads. Platform-specific npm binaries are excluded. Package"
+" totals include packages without a listed project."
+msgstr ""
+"Die Monatsdownloads von crates.io umfassen die letzten 30 vollständigen "
+"UTC-Tage über alle Versionen hinweg. npm liefert seine monatliche "
+"Downloadzahl. Die Erfassung durch die Registries kann sich verzögern. "
+"Plattformspezifische npm-Binärpakete sind ausgeschlossen. Die Paketsummen "
+"enthalten auch Pakete ohne gelistetes Projekt."
+
 #~ #@ obsolete-since: 2026-10-19
 #~ #: app/components/MetricsDashboard.tsx#PackageInfo
 #~ msgid "monthly downloads"
@@ -822,18 +852,19 @@ msgstr "npm / Monat"
 msgid "npm downloads / month"
 msgstr "npm-Downloads / Monat"
 
-#: app/components/MetricsDashboard.tsx#MetricsDashboard
-msgid ""
-"npm downloads cover a month. crates.io downloads cover the last 30 complete "
-"UTC days, summed across every version. Its lifetime and 90-day totals are also"
-" listed in the package table. Registry reporting can lag behind downloads. "
-"Package totals include packages without a listed project."
-msgstr ""
-"npm-Downloads decken einen Monat ab. crates.io-Downloads umfassen die letzten "
-"30 vollständigen UTC-Tage und alle Versionen. Die Gesamtwerte und die Werte "
-"für 90 Tage stehen zusätzlich in der Pakettabelle. Die Meldungen der "
-"Registries können verzögert eintreffen. Paketsummen enthalten auch Pakete "
-"ohne zugeordnetes Projekt."
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#MetricsDashboard
+#~ msgid ""
+#~ "npm downloads cover a month. crates.io downloads cover the last 30 complete "
+#~ "UTC days, summed across every version. Its lifetime and 90-day totals are also"
+#~ " listed in the package table. Registry reporting can lag behind downloads. "
+#~ "Package totals include packages without a listed project."
+#~ msgstr ""
+#~ "npm-Downloads decken einen Monat ab. crates.io-Downloads umfassen die letzten "
+#~ "30 vollständigen UTC-Tage und alle Versionen. Die Gesamtwerte und die Werte "
+#~ "für 90 Tage stehen zusätzlich in der Pakettabelle. Die Meldungen der "
+#~ "Registries können verzögert eintreffen. Paketsummen enthalten auch Pakete "
+#~ "ohne zugeordnetes Projekt."
 
 #~ #@ obsolete-since: 2026-10-19
 #~ #: app/components/MetricsDashboard.tsx#MetricsDashboard
@@ -991,13 +1022,26 @@ msgstr ""
 msgid "Primary language"
 msgstr "Hauptsprache"
 
+#~ #@ obsolete-since: 2026-10-19
+#~ #: app/components/MetricsDashboard.tsx#MetricsDashboard
+#~ msgid ""
+#~ "Primary languages come from GitHub. Node.js links identify published native "
+#~ "bindings explicitly declared in npm package metadata."
+#~ msgstr ""
+#~ "Hauptsprachen stammen aus GitHub. Node.js-Links zeigen veröffentlichte native"
+#~ " Bindings, die in den npm-Paketmetadaten ausdrücklich gekennzeichnet sind."
+
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
 msgid ""
-"Primary languages come from GitHub. Node.js links identify published native "
-"bindings explicitly declared in npm package metadata."
+"Primary languages use the core language declared by the project, with GitHub's"
+" classification as a fallback. Node.js links identify published native "
+"bindings explicitly declared in npm package metadata. Changelog links open the"
+" GitHub release notes."
 msgstr ""
-"Hauptsprachen stammen aus GitHub. Node.js-Links zeigen veröffentlichte native"
-" Bindings, die in den npm-Paketmetadaten ausdrücklich gekennzeichnet sind."
+"Als Hauptsprache dient die vom Projekt angegebene Sprache des Kerns, "
+"ersatzweise GitHubs Einstufung. Node.js-Links kennzeichnen veröffentlichte "
+"native Bindings, die in den npm-Paketmetadaten ausdrücklich angegeben sind. "
+"Changelog-Links öffnen die GitHub-Release-Notes."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Privacy"
