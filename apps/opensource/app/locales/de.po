@@ -14,6 +14,14 @@ msgstr ""
 "{brand} ist eine eingetragene Marke der {name}. Betreiberin dieser Website ist"
 " die {name}."
 
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid ""
+"* Active users is an activity proxy based on update-check requests over 30 "
+"complete UTC days, including CI and repeat checks. It does not count "
+"deduplicated people or installations. Unverified, incomplete, or stale usage "
+"is labeled instead of shown as a user count."
+msgstr "* Aktive User ist ein Aktivitätsindikator auf Basis von Update-Prüfungen über 30 vollständige UTC-Tage, einschließlich CI und wiederholter Prüfungen. Er zählt keine deduplizierten Personen oder Installationen. Unbestätigte, unvollständige oder veraltete Daten werden entsprechend gekennzeichnet und nicht als Nutzerzahl angezeigt."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""
 "A data protection officer has not been appointed, as the legal requirements "
@@ -92,9 +100,37 @@ msgstr ""
 msgid "a registered trademark of"
 msgstr "eine eingetragene Marke der"
 
+#: app/components/MetricsDashboard.tsx#ProjectDetails
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Active users*"
+msgstr "Aktive User*"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Address"
 msgstr "Anschrift"
+
+#: app/components/MetricsDashboard.tsx#SourceList
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid "Agent skills"
+msgstr "Agent-Skills"
+
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+#: app/components/MetricsSummary.tsx#MetricsOverview
+msgid ""
+"All opted-in public projects and published packages, in one shared snapshot."
+msgstr "Alle aufgenommenen öffentlichen Projekte und veröffentlichten Pakete in einer gemeinsamen Momentaufnahme."
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "All projects"
+msgstr "Alle Projekte"
+
+#: app/components/MetricsDashboard.tsx#PackageInfo
+msgid "all-time downloads"
+msgstr "Downloads insgesamt"
+
+#: app/components/MetricsDashboard.tsx#Packages
+msgid "All-time downloads"
+msgstr "Downloads insgesamt"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Almost done: please confirm the link we just sent you."
@@ -201,6 +237,15 @@ msgstr "CDN, Hosting und Edge Scripting für diese Website"
 msgid "CLI + library"
 msgstr "CLI + Bibliothek"
 
+#: app/components/MetricsDashboard.tsx#SourceList
+msgid "CLI activity"
+msgstr "CLI-Aktivität"
+
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+#: app/components/MetricsSummary.tsx#MetricsOverview
+msgid "Collected"
+msgstr "Erfasst"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Company"
 msgstr "Unternehmen"
@@ -221,6 +266,10 @@ msgstr "Compiler"
 msgid "Configuration"
 msgstr "Konfiguration"
 
+#: app/components/MetricsDashboard.tsx#SourceList
+msgid "Connected"
+msgstr "Verbunden"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Contact"
@@ -233,6 +282,19 @@ msgstr "Kontaktaufnahme per E-Mail"
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid "Controller"
 msgstr "Verantwortlicher"
+
+#: app/components/MetricsDashboard.tsx#ProjectDownloads
+msgid "crates.io / all time"
+msgstr "crates.io / insgesamt"
+
+#: app/components/MetricsSummary.tsx#MetricsSummary
+msgid "crates.io downloads / all time"
+msgstr "crates.io-Downloads / insgesamt"
+
+#: app/components/MetricsDashboard.tsx#SourceList
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid "Data sources"
+msgstr "Datenquellen"
 
 #~ #@ obsolete-since: 2026-10-09
 #~ #: app/components/SkillsPanel.tsx#getSkills
@@ -253,6 +315,10 @@ msgstr ""
 msgid "Describe a VPS in TypeScript and apply changes over SSH."
 msgstr "Einen VPS in TypeScript beschreiben und Änderungen per SSH anwenden."
 
+#: app/components/MetricsDashboard.tsx#ProjectDetails
+msgid "Details"
+msgstr "Details"
+
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Device information (screen size, operating system, browser)"
 msgstr "Geräteinformationen (Bildschirmgröße, Betriebssystem, Browser)"
@@ -269,6 +335,10 @@ msgstr ""
 "Dokumentation, Internationalisierung, Dokument-Engines und Werkzeuge für "
 "Coding-Agents. Offene Projekte mit praktischem Nutzen und Grundlagen, die Sie "
 "prüfen können."
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Downloads"
+msgstr "Downloads"
 
 #: app/data/featured.ts#getFeatured
 msgid "Drawn cards for skills, instructions, and hooks in a tray beside a mug."
@@ -326,6 +396,14 @@ msgstr "Eintragung im Handelsregister"
 msgid "Error 404"
 msgstr "Fehler 404"
 
+#: app/components/MetricsDashboard.tsx#Packages
+msgid "Every published package, including packages without a listed project."
+msgstr "Alle veröffentlichten Pakete, einschließlich der Pakete ohne aufgeführtes Projekt."
+
+#: app/components/MetricsSummary.tsx#MetricsOverview
+msgid "Explore all metrics"
+msgstr "Alle Kennzahlen ansehen"
+
 #: app/data/featured.ts#getFeatured
 msgid "Explore Effective Agent"
 msgstr "Effective Agent entdecken"
@@ -349,6 +427,14 @@ msgstr "Externe Links"
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Fax:"
 msgstr "Telefax:"
+
+#: app/components/MetricsDashboard.tsx#Packages
+msgid "Find a package"
+msgstr "Paket suchen"
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Find a project"
+msgstr "Projekt suchen"
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""
@@ -380,6 +466,10 @@ msgstr ""
 "vollständig cookielos arbeitet und keine personenbezogenen Daten dauerhaft "
 "speichert (siehe Abschnitt „Webanalyse\")."
 
+#: app/components/MetricsDashboard.tsx#ProjectDetails
+msgid "Forks"
+msgstr "Forks"
+
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
 "Further information can be found in the <0>Bunny.net privacy policy</0> and on"
@@ -393,6 +483,27 @@ msgstr ""
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Germany"
 msgstr "Deutschland"
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "GitHub data is unavailable."
+msgstr "GitHub-Daten sind nicht verfügbar."
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "GitHub only"
+msgstr "Nur GitHub"
+
+#: app/components/MetricsDashboard.tsx#ProjectDetails
+#: app/components/MetricsDashboard.tsx#ProjectVersion
+msgid "GitHub release"
+msgstr "GitHub-Release"
+
+#: app/components/MetricsDashboard.tsx#SourceList
+msgid "GitHub releases"
+msgstr "GitHub-Releases"
+
+#: app/components/MetricsSummary.tsx#MetricsSummary
+msgid "GitHub stars"
+msgstr "GitHub-Sterne"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid "Hetzner Online GmbH, Germany"
@@ -430,6 +541,10 @@ msgstr "Hosting der Terminaro-Anwendung und des Rybbit-Analytics-Servers"
 msgid "How It Works"
 msgstr "Funktionsweise"
 
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid "How the data is collected"
+msgstr "So werden die Daten erfasst"
+
 #~ #@ obsolete-since: 2026-10-09
 #~ #: app/components/SkillsPanel.tsx#getSkills
 #~ msgid "Image"
@@ -454,6 +569,10 @@ msgid ""
 msgstr ""
 "Einblicke in unsere Arbeit in Software und Beratung: was wir bauen, erkunden "
 "und durchdenken."
+
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid "Instruction packs"
+msgstr "Anweisungspakete"
 
 #: app/data/projects.ts#descriptions
 msgid ""
@@ -482,6 +601,11 @@ msgstr ""
 msgid "Language"
 msgstr "Sprache"
 
+#: app/components/MetricsDashboard.tsx#ProjectDetails
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Last push"
+msgstr "Letzter Push"
+
 #: app/components/ProjectTiles.tsx#Updated
 msgid "Last update unknown"
 msgstr "Letzte Aktualisierung unbekannt"
@@ -489,6 +613,14 @@ msgstr "Letzte Aktualisierung unbekannt"
 #: ../../packages/legal/src/PrivacyDocument.tsx#PrivacyDocument
 msgid "Last updated: {formattedVersion}"
 msgstr "Stand: {formattedVersion}"
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Latest push"
+msgstr "Neuester Push"
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Latest version"
+msgstr "Neueste Version"
 
 #: app/data/featured.ts#getFeatured
 msgid "Learn about Ferromark"
@@ -529,6 +661,11 @@ msgstr "Bibliotheken & Pakete"
 msgid "Library"
 msgstr "Bibliothek"
 
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+#: app/components/MetricsSummary.tsx#MetricsOverview
+msgid "Live refresh unavailable; the previous snapshot is shown."
+msgstr "Die Live-Aktualisierung ist nicht verfügbar; der bisherige Datenstand wird angezeigt."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Main navigation"
 msgstr "Hauptnavigation"
@@ -558,13 +695,33 @@ msgstr "Sebastian/Consulting kennenlernen"
 msgid "Menu"
 msgstr "Menü"
 
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid "Metrics sections"
+msgstr "Kennzahlen-Bereiche"
+
 #: app/data/featured.ts#getFeatured
 msgid "Modern, open documentation for React teams."
 msgstr "Moderne, offene Dokumentation für React-Teams."
 
+#: app/components/MetricsDashboard.tsx#PackageInfo
+msgid "monthly downloads"
+msgstr "Downloads pro Monat"
+
+#: app/components/MetricsDashboard.tsx#Packages
+msgid "Monthly downloads"
+msgstr "Downloads pro Monat"
+
 #: app/routes/home.tsx
 msgid "More open projects."
 msgstr "Weitere offene Projekte."
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Most stars"
+msgstr "Meiste Sterne"
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Name"
+msgstr "Name"
 
 #: app/components/ProjectTiles.tsx#labels
 msgid "Native"
@@ -582,6 +739,10 @@ msgstr "Brauchen Sie eine klarere Richtung für Ihre Software?"
 msgid "Newsletter"
 msgstr "Newsletter"
 
+#: app/components/MetricsDashboard.tsx#Packages
+msgid "Next"
+msgstr "Weiter"
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
 msgid ""
 "No automated decision-making, including profiling, pursuant to Art. 22 GDPR "
@@ -589,6 +750,37 @@ msgid ""
 msgstr ""
 "Es findet keine automatisierte Entscheidungsfindung einschließlich Profiling "
 "gemäß Art. 22 DSGVO statt."
+
+#: app/components/MetricsDashboard.tsx#ProjectDetails
+msgid "No linked registry packages."
+msgstr "Keine verknüpften Registry-Pakete."
+
+#: app/components/MetricsDashboard.tsx#Packages
+msgid "No matching packages. Try another search or registry."
+msgstr "Keine passenden Pakete. Versuche einen anderen Suchbegriff oder eine andere Registry."
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "No matching projects. Try another search or registry."
+msgstr "Keine passenden Projekte. Versuche einen anderen Suchbegriff oder eine andere Registry."
+
+#: app/components/MetricsDashboard.tsx#SourceList
+msgid "Not connected"
+msgstr "Nicht verbunden"
+
+#: app/components/MetricsDashboard.tsx#ProjectDownloads
+msgid "npm / month"
+msgstr "npm / Monat"
+
+#: app/components/MetricsSummary.tsx#MetricsSummary
+msgid "npm downloads / month"
+msgstr "npm-Downloads / Monat"
+
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid ""
+"npm downloads cover a month. crates.io totals cover all time; recent downloads"
+" are available in project details. Package totals include packages without a "
+"listed project."
+msgstr "npm-Downloads beziehen sich auf einen Monat. Die Gesamtsummen von crates.io umfassen den gesamten Zeitraum; aktuelle Downloadzahlen stehen in den Projektdetails. Die Paketsummen enthalten auch Pakete ohne aufgeführtes Projekt."
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Obligation to Provide Data"
@@ -602,6 +794,10 @@ msgstr "Ardo öffnen"
 msgid "Open Dalo"
 msgstr "Dalo öffnen"
 
+#: app/components/MetricsDashboard.tsx#SourceList
+msgid "Open JSON snapshot"
+msgstr "JSON-Daten öffnen"
+
 #: app/routes/home.tsx#meta
 msgid ""
 "Open projects by Sebastian Software: Palamedes, Ferramenta, Dalo, Ardo, and "
@@ -614,13 +810,26 @@ msgstr ""
 msgid "Open software you can build on."
 msgstr "Offene Software, auf die Sie bauen können."
 
+#: app/routes/metrics.tsx
+msgid "Open Source"
+msgstr "Open Source"
+
 #: app/routes/home.tsx#meta
 msgid "Open Source – Sebastian Software"
 msgstr "Open Source – Sebastian Software"
 
+#: app/routes/metrics.tsx#meta
+msgid "Open Source Metrics – Sebastian Software"
+msgstr "Open-Source-Kennzahlen – Sebastian Software"
+
 #: app/components/FeaturedStory.tsx#FeaturedStory
 msgid "Open source project"
 msgstr "Open-Source-Projekt"
+
+#: app/components/MetricsSummary.tsx#MetricsOverview
+#: app/routes/metrics.tsx
+msgid "Open source, in numbers."
+msgstr "Open Source in Zahlen."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Our agency"
@@ -642,6 +851,30 @@ msgstr "Unsere Software"
 msgid "Overview of Data Processing"
 msgstr "Überblick über die Datenverarbeitung"
 
+#: app/components/MetricsDashboard.tsx#Packages
+msgid "Package"
+msgstr "Paket"
+
+#: app/components/MetricsDashboard.tsx#Packages
+msgid "Package directory"
+msgstr "Paketverzeichnis"
+
+#: app/components/MetricsDashboard.tsx#Packages
+msgid "Package metrics"
+msgstr "Paketkennzahlen"
+
+#: app/components/MetricsDashboard.tsx#Packages
+msgid "Package registry"
+msgstr "Paket-Registry"
+
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid "Packages"
+msgstr "Pakete"
+
+#: app/components/MetricsDashboard.tsx#Packages
+msgid "Packages found"
+msgstr "Gefundene Pakete"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Page not found"
 msgstr "Seite nicht gefunden"
@@ -649,6 +882,10 @@ msgstr "Seite nicht gefunden"
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Page views (URL, referrer)"
 msgstr "Seitenaufrufe (URL, Referrer)"
+
+#: app/components/MetricsDashboard.tsx#UsageValue
+msgid "Partial data"
+msgstr "Unvollständige Daten"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Phone:"
@@ -662,6 +899,10 @@ msgstr "Ort der Verarbeitung"
 msgid "Please enter a complete email address, such as name@example.com."
 msgstr ""
 "Bitte geben Sie eine vollständige E-Mail-Adresse ein, etwa name@example.com."
+
+#: app/components/MetricsDashboard.tsx#Packages
+msgid "Previous"
+msgstr "Zurück"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Privacy"
@@ -739,13 +980,77 @@ msgstr "Produkte"
 msgid "Profiles"
 msgstr "Profile"
 
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Project"
+msgstr "Projekt"
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Project data is unavailable. Other sources may still be connected."
+msgstr "Projektdaten sind nicht verfügbar. Andere Quellen können weiterhin verbunden sein."
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Project directory"
+msgstr "Projektverzeichnis"
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Project metrics"
+msgstr "Projektkennzahlen"
+
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid "Projects"
+msgstr "Projekte"
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Projects shown"
+msgstr "Angezeigte Projekte"
+
+#: app/routes/metrics.tsx
+msgid ""
+"Projects, packages, and the activity behind them. One public snapshot, with "
+"each source and time window kept in view."
+msgstr "Projekte, Pakete und die Aktivität dahinter. Eine öffentliche Momentaufnahme mit klar erkennbaren Quellen und Zeiträumen."
+
+#: app/routes/metrics.tsx#meta
+msgid ""
+"Public project activity, releases, package downloads, and source status from "
+"Sebastian Software."
+msgstr "Öffentliche Projektaktivität, Releases, Paket-Downloads und der Status der Datenquellen von Sebastian Software."
+
+#: app/components/MetricsSummary.tsx#MetricsSummary
+msgid "Public projects"
+msgstr "Öffentliche Projekte"
+
+#: app/components/MetricsDashboard.tsx#Packages
+msgid "Published"
+msgstr "Veröffentlicht"
+
 #: app/data/projects.ts#descriptions
 msgid "Read and write modern Excel files in the browser and Node.js."
 msgstr "Moderne Excel-Dateien im Browser und in Node.js lesen und schreiben."
 
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid "Reading the numbers"
+msgstr "Die Zahlen einordnen"
+
+#: app/components/MetricsDashboard.tsx#PackageInfo
+msgid "recent downloads"
+msgstr "Downloads im aktuellen Zeitraum"
+
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid "references"
+msgstr "Referenzen"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "References"
 msgstr "Referenzen"
+
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid "Refresh data"
+msgstr "Daten aktualisieren"
+
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid "Refreshing…"
+msgstr "Aktualisierung…"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Register Court:"
@@ -758,6 +1063,15 @@ msgstr "Registereintrag"
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Register Number:"
 msgstr "Registernummer:"
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Registry"
+msgstr "Registry"
+
+#: app/components/MetricsDashboard.tsx#ProjectDetails
+#: app/components/MetricsDashboard.tsx#Packages
+msgid "Registry data is unavailable."
+msgstr "Registry-Daten sind nicht verfügbar."
 
 #: app/data/projects.ts#descriptions
 msgid "Render selected PDF pages as thumbnails through native PDFium bindings."
@@ -908,9 +1222,29 @@ msgstr "Anmeldung läuft …"
 msgid "Site index"
 msgstr "Seitenübersicht"
 
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid "Skills data is unavailable."
+msgstr "Skill-Daten sind nicht verfügbar."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Skip to content"
 msgstr "Zum Inhalt springen"
+
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid "Some sources are unavailable. Other metrics remain visible."
+msgstr "Einige Quellen sind nicht verfügbar. Die übrigen Kennzahlen bleiben sichtbar."
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: app/components/MetricsDashboard.tsx#UsageValue
+msgid "Stale"
+msgstr "Veraltet"
+
+#: app/components/MetricsDashboard.tsx#Projects
+msgid "Stars"
+msgstr "Sterne"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Storage for static files and assets"
@@ -919,6 +1253,13 @@ msgstr "Storage für statische Dateien und Assets"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Subscribe"
 msgstr "Abonnieren"
+
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid ""
+"The API is normally cached for an hour. This page checks for updates on "
+"opening and every five minutes while visible. Refreshing does not force a new "
+"upstream collection. Unavailable sources show a state instead of zero."
+msgstr "Die API wird normalerweise eine Stunde zwischengespeichert. Diese Seite prüft beim Öffnen und danach alle fünf Minuten auf neue Daten, solange sie sichtbar ist. Eine Aktualisierung erzwingt keine neue Erfassung bei den Quellen. Nicht verfügbare Quellen zeigen einen Status statt einer Null."
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "The business photos were taken by {photographer}."
@@ -1024,6 +1365,12 @@ msgstr ""
 msgid "This page does not exist."
 msgstr "Diese Seite gibt es nicht."
 
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid ""
+"This snapshot is more than two hours old. Its original collection time is "
+"shown above."
+msgstr "Diese Momentaufnahme ist mehr als zwei Stunden alt. Ihr ursprünglicher Erfassungszeitpunkt steht oben."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
 msgid ""
 "This website contains links to third-party websites. When you click on these "
@@ -1125,12 +1472,21 @@ msgid "Turn books from your Kindle library into searchable Markdown."
 msgstr ""
 "Bücher aus Ihrer Kindle-Bibliothek in durchsuchbares Markdown verwandeln."
 
+#: app/components/MetricsDashboard.tsx#UsageValue
+#: app/components/MetricsDashboard.tsx#SourceList
+msgid "Unavailable"
+msgstr "Nicht verfügbar"
+
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
 "Under the GDPR, you have the following rights regarding your personal data:"
 msgstr ""
 "Sie haben gemäß DSGVO folgende Rechte hinsichtlich Ihrer personenbezogenen "
 "Daten:"
+
+#: app/components/MetricsDashboard.tsx#UsageValue
+msgid "Unverified"
+msgstr "Unbestätigt"
 
 #: app/components/ProjectTiles.tsx#Updated
 msgid "Updated"
@@ -1159,6 +1515,10 @@ msgid ""
 "VAT identification number pursuant to § 27a of the German Value Added Tax "
 "Act:"
 msgstr "Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:"
+
+#: app/components/MetricsDashboard.tsx#Packages
+msgid "Version"
+msgstr "Version"
 
 #: app/data/featured.ts#getFeatured
 msgid "View on GitHub"

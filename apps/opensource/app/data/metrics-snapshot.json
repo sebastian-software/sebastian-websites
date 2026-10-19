@@ -1,0 +1,755 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-10-19T09:36:10Z",
+  "sources": {
+    "github": "ok",
+    "releases": "skipped",
+    "crates": "ok",
+    "npm": "ok",
+    "skills": "ok",
+    "rybbit": "ok"
+  },
+  "github": {
+    "cuttledoc": {
+      "stars": 1,
+      "forks": 1,
+      "pushedAt": "2026-07-28T09:35:17Z"
+    },
+    "offcourse": {
+      "stars": 2,
+      "forks": 2,
+      "pushedAt": "2026-09-25T07:26:15Z"
+    },
+    "ardo": {
+      "stars": 1,
+      "forks": 1,
+      "pushedAt": "2026-10-16T06:35:16Z"
+    },
+    "ferromark": {
+      "stars": 9,
+      "forks": 2,
+      "pushedAt": "2026-10-12T10:29:11Z"
+    },
+    "ferroni": {
+      "stars": 9,
+      "forks": 3,
+      "pushedAt": "2026-10-18T08:04:31Z"
+    },
+    "xlsx-format": {
+      "stars": 2,
+      "forks": 3,
+      "pushedAt": "2026-09-14T13:52:10Z"
+    },
+    "eslint-config-setup": {
+      "stars": 2,
+      "forks": 1,
+      "pushedAt": "2026-07-14T09:27:05Z"
+    },
+    "ferriki": {
+      "stars": 3,
+      "forks": 1,
+      "pushedAt": "2026-10-18T08:25:50Z"
+    },
+    "palamedes": {
+      "stars": 2,
+      "forks": 0,
+      "pushedAt": "2026-10-19T09:16:43Z"
+    },
+    "paratix": {
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-10-16T10:34:54Z"
+    },
+    "ferrocat": {
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-10-05T19:29:27Z"
+    },
+    "effective-flow": {
+      "stars": 1,
+      "forks": 0,
+      "pushedAt": "2026-10-19T09:15:00Z"
+    },
+    "antigraph": {
+      "stars": 1,
+      "forks": 0,
+      "pushedAt": "2026-08-05T16:33:41Z"
+    },
+    "ferrolex": {
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-09-16T16:34:57Z"
+    },
+    "naos-ui": {
+      "stars": 1,
+      "forks": 0,
+      "pushedAt": "2026-07-22T08:22:00Z"
+    },
+    "dalo": {
+      "stars": 2,
+      "forks": 1,
+      "pushedAt": "2026-10-16T21:27:36Z"
+    },
+    "ferrugo": {
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-10-01T11:11:15Z"
+    },
+    "pdfium-node": {
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-07-09T14:18:40Z"
+    },
+    "ferramenta": {
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-10-04T22:00:48Z"
+    },
+    "oxlint-config-setup": {
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-08-13T16:59:35Z"
+    },
+    "ferralk": {
+      "stars": 1,
+      "forks": 0,
+      "pushedAt": "2026-10-18T21:36:57Z"
+    },
+    "harness-relay": {
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-10-06T14:18:02Z"
+    },
+    "relanto": {
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-10-09T10:53:35Z"
+    },
+    "stellara": {
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-09-24T18:05:33Z"
+    },
+    "mdtheme": {
+      "stars": 0,
+      "forks": 0,
+      "pushedAt": "2026-10-02T13:01:29Z"
+    }
+  },
+  "crates": {
+    "dalo": {
+      "version": "1.9.0",
+      "downloads": 654,
+      "recentDownloads": 434,
+      "publishedAt": "2026-10-15T18:05:35.176301Z",
+      "repo": "dalo"
+    },
+    "ferralk": {
+      "version": "1.1.0",
+      "downloads": 1230,
+      "recentDownloads": 1230,
+      "publishedAt": "2026-09-25T08:10:53.082679Z",
+      "repo": "ferralk"
+    },
+    "ferralk-glob": {
+      "version": "1.1.0",
+      "downloads": 8281,
+      "recentDownloads": 8281,
+      "publishedAt": "2026-09-25T08:10:48.834697Z",
+      "repo": "ferralk"
+    },
+    "ferriki": {
+      "version": "1.1.1",
+      "downloads": 1682,
+      "recentDownloads": 1682,
+      "publishedAt": "2026-10-16T21:28:47.626672Z",
+      "repo": "ferriki"
+    },
+    "ferriki-asset-gen": {
+      "version": "1.1.1",
+      "downloads": 1764,
+      "recentDownloads": 1764,
+      "publishedAt": "2026-10-16T21:28:41.653818Z",
+      "repo": "ferriki"
+    },
+    "ferriki-textmate": {
+      "version": "1.1.1",
+      "downloads": 1788,
+      "recentDownloads": 1788,
+      "publishedAt": "2026-10-16T21:28:34.265943Z",
+      "repo": "ferriki"
+    },
+    "ferrocat": {
+      "version": "3.4.2",
+      "downloads": 7859,
+      "recentDownloads": 5054,
+      "publishedAt": "2026-08-06T11:15:39.236066Z",
+      "repo": "ferrocat"
+    },
+    "ferrocat-cli": {
+      "version": "3.4.2",
+      "downloads": 268,
+      "recentDownloads": 193,
+      "publishedAt": "2026-08-06T11:15:41.730955Z",
+      "repo": "ferrocat"
+    },
+    "ferrocat-icu": {
+      "version": "3.4.2",
+      "downloads": 9418,
+      "recentDownloads": 5669,
+      "publishedAt": "2026-08-06T11:15:24.863884Z",
+      "repo": "ferrocat"
+    },
+    "ferrocat-po": {
+      "version": "3.4.2",
+      "downloads": 9109,
+      "recentDownloads": 5546,
+      "publishedAt": "2026-08-06T11:15:33.843382Z",
+      "repo": "ferrocat"
+    },
+    "ferromark": {
+      "version": "3.5.0",
+      "downloads": 5973,
+      "recentDownloads": 4577,
+      "publishedAt": "2026-10-11T18:10:22.134855Z",
+      "repo": "ferromark"
+    },
+    "ferromark-transforms": {
+      "version": "3.5.0",
+      "downloads": 62,
+      "recentDownloads": 62,
+      "publishedAt": "2026-10-11T18:10:28.314363Z",
+      "repo": "ferromark"
+    },
+    "ferroni": {
+      "version": "2.2.3",
+      "downloads": 7430,
+      "recentDownloads": 6979,
+      "publishedAt": "2026-10-18T08:05:01.502957Z",
+      "repo": "ferroni"
+    },
+    "ferrugo": {
+      "version": "0.5.0",
+      "downloads": 91,
+      "recentDownloads": 20,
+      "publishedAt": "2026-07-05T20:46:49.868419Z",
+      "repo": "ferrugo"
+    },
+    "ferrugo-content": {
+      "version": "0.5.0",
+      "downloads": 293,
+      "recentDownloads": 124,
+      "publishedAt": "2026-07-05T20:46:34.163072Z",
+      "repo": "ferrugo"
+    },
+    "ferrugo-native": {
+      "version": "0.5.0",
+      "downloads": 156,
+      "recentDownloads": 54,
+      "publishedAt": "2026-07-05T20:46:44.575595Z",
+      "repo": "ferrugo"
+    },
+    "ferrugo-object": {
+      "version": "0.5.0",
+      "downloads": 355,
+      "recentDownloads": 156,
+      "publishedAt": "2026-07-05T20:46:31.712462Z",
+      "repo": "ferrugo"
+    },
+    "ferrugo-pdfium": {
+      "version": "0.3.1",
+      "downloads": 47,
+      "recentDownloads": 10,
+      "publishedAt": "2026-07-04T19:43:19.632672Z",
+      "repo": "ferrugo"
+    },
+    "ferrugo-render": {
+      "version": "0.5.0",
+      "downloads": 208,
+      "recentDownloads": 88,
+      "publishedAt": "2026-07-05T20:46:39.929175Z",
+      "repo": "ferrugo"
+    },
+    "ferrugo-simd": {
+      "version": "0.5.0",
+      "downloads": 255,
+      "recentDownloads": 117,
+      "publishedAt": "2026-07-05T20:46:35.772035Z",
+      "repo": "ferrugo"
+    },
+    "ferrugo-syntax": {
+      "version": "0.5.0",
+      "downloads": 403,
+      "recentDownloads": 181,
+      "publishedAt": "2026-07-05T20:46:26.974376Z",
+      "repo": "ferrugo"
+    },
+    "ferrugo-thumbnail": {
+      "version": "0.5.0",
+      "downloads": 348,
+      "recentDownloads": 164,
+      "publishedAt": "2026-07-05T20:46:28.971486Z",
+      "repo": "ferrugo"
+    }
+  },
+  "npm": {
+    "pofile-ts": {
+      "version": "4.0.3",
+      "monthlyDownloads": 2139107,
+      "publishedAt": "2026-03-13T21:53:48.760Z",
+      "repo": "pofile-ts"
+    },
+    "xlsx-format": {
+      "version": "2.4.5",
+      "monthlyDownloads": 20062,
+      "publishedAt": "2026-09-08T22:31:17.944Z",
+      "repo": "xlsx-format"
+    },
+    "pdfium-node": {
+      "version": "1.2.1",
+      "monthlyDownloads": 4765,
+      "publishedAt": "2026-07-09T14:15:49.326Z",
+      "repo": "pdfium-node"
+    },
+    "@palamedes/next-plugin": {
+      "version": "1.25.0",
+      "monthlyDownloads": 5857,
+      "publishedAt": "2026-09-09T08:52:28.317Z",
+      "repo": "palamedes"
+    },
+    "@palamedes/react": {
+      "version": "1.25.0",
+      "monthlyDownloads": 5626,
+      "publishedAt": "2026-09-09T08:51:53.437Z",
+      "repo": "palamedes"
+    },
+    "ardo": {
+      "version": "5.0.0",
+      "monthlyDownloads": 5596,
+      "publishedAt": "2026-10-03T23:15:49.125Z",
+      "repo": "ardo"
+    },
+    "@palamedes/cli": {
+      "version": "1.25.0",
+      "monthlyDownloads": 2613,
+      "publishedAt": "2026-09-09T08:51:09.066Z",
+      "repo": "palamedes"
+    },
+    "@ferriki/linux-x64-gnu": {
+      "version": "1.0.0",
+      "monthlyDownloads": 3179,
+      "publishedAt": "2026-10-10T21:32:54.534Z",
+      "repo": "ferriki"
+    },
+    "@ferriki/linux-arm64-musl": {
+      "version": "1.0.0",
+      "monthlyDownloads": 2832,
+      "publishedAt": "2026-10-10T21:34:04.956Z",
+      "repo": "ferriki"
+    },
+    "@ferriki/darwin-arm64": {
+      "version": "1.0.0",
+      "monthlyDownloads": 2804,
+      "publishedAt": "2026-10-10T21:33:21.993Z",
+      "repo": "ferriki"
+    },
+    "@ferriki/win32-x64-msvc": {
+      "version": "1.0.0",
+      "monthlyDownloads": 2847,
+      "publishedAt": "2026-10-10T21:33:06.313Z",
+      "repo": "ferriki"
+    },
+    "@ferriki/win32-arm64-msvc": {
+      "version": "1.0.0",
+      "monthlyDownloads": 2773,
+      "publishedAt": "2026-10-10T21:33:11.998Z",
+      "repo": "ferriki"
+    },
+    "@ferriki/linux-arm64-gnu": {
+      "version": "1.0.0",
+      "monthlyDownloads": 2685,
+      "publishedAt": "2026-10-10T21:32:41.008Z",
+      "repo": "ferriki"
+    },
+    "@palamedes/core-node": {
+      "version": "1.25.0",
+      "monthlyDownloads": 2756,
+      "publishedAt": "2026-09-09T08:51:28.420Z",
+      "repo": "palamedes"
+    },
+    "@palamedes/runtime": {
+      "version": "1.25.0",
+      "monthlyDownloads": 2611,
+      "publishedAt": "2026-09-09T08:51:47.464Z",
+      "repo": "palamedes"
+    },
+    "@palamedes/transform": {
+      "version": "1.25.0",
+      "monthlyDownloads": 2572,
+      "publishedAt": "2026-09-09T08:52:20.899Z",
+      "repo": "palamedes"
+    },
+    "ferromark": {
+      "version": "3.5.0",
+      "monthlyDownloads": 2588,
+      "publishedAt": "2026-10-11T18:29:09.919Z",
+      "repo": "ferromark"
+    },
+    "@palamedes/core": {
+      "version": "1.25.0",
+      "monthlyDownloads": 2565,
+      "publishedAt": "2026-09-09T08:51:21.831Z",
+      "repo": "palamedes"
+    },
+    "@ferriki/core": {
+      "version": "1.0.0",
+      "monthlyDownloads": 3287,
+      "publishedAt": "2026-10-10T21:33:18.703Z",
+      "repo": "ferriki"
+    },
+    "@ferriki/linux-x64-musl": {
+      "version": "1.0.0",
+      "monthlyDownloads": 2913,
+      "publishedAt": "2026-10-10T21:33:07.635Z",
+      "repo": "ferriki"
+    },
+    "@palamedes/config": {
+      "version": "1.25.0",
+      "monthlyDownloads": 2691,
+      "publishedAt": "2026-09-09T08:51:15.091Z",
+      "repo": "palamedes"
+    },
+    "getdalo": {
+      "version": "1.9.0",
+      "monthlyDownloads": 1781,
+      "publishedAt": "2026-10-15T18:07:37.751Z",
+      "repo": "dalo"
+    },
+    "@sebastian-software/standards": {
+      "version": "0.13.0",
+      "monthlyDownloads": 2206,
+      "publishedAt": "2026-09-16T14:51:26.634Z",
+      "repo": "standards"
+    },
+    "eslint-plugin-lingui-typescript": {
+      "version": "1.16.9",
+      "monthlyDownloads": 709,
+      "publishedAt": "2026-02-18T20:51:02.846Z",
+      "repo": "eslint-plugin-lingui-typescript"
+    },
+    "eslint-config-setup": {
+      "version": "0.5.2",
+      "monthlyDownloads": 1291,
+      "publishedAt": "2026-07-07T14:56:26.055Z",
+      "repo": "eslint-config-setup"
+    },
+    "@palamedes/vite-plugin": {
+      "version": "1.25.0",
+      "monthlyDownloads": 780,
+      "publishedAt": "2026-09-09T08:52:40.575Z",
+      "repo": "palamedes"
+    },
+    "@ferriki/vite": {
+      "version": "1.0.0",
+      "monthlyDownloads": 762,
+      "publishedAt": "2026-10-10T21:34:05.163Z",
+      "repo": "ferriki"
+    },
+    "harness-relay": {
+      "version": "0.5.0",
+      "monthlyDownloads": 736,
+      "publishedAt": "2026-10-06T13:50:30.701Z",
+      "repo": "harness-relay"
+    },
+    "@palamedes/extractor": {
+      "version": "1.25.0",
+      "monthlyDownloads": 776,
+      "publishedAt": "2026-09-09T08:51:40.836Z",
+      "repo": "palamedes"
+    },
+    "@palamedes/solid": {
+      "version": "1.25.0",
+      "monthlyDownloads": 534,
+      "publishedAt": "2026-09-09T08:52:05.872Z",
+      "repo": "palamedes"
+    },
+    "ferramenta-family": {
+      "version": "2.0.0",
+      "monthlyDownloads": 494,
+      "publishedAt": "2026-10-01T10:21:49.930Z",
+      "repo": "ferramenta"
+    },
+    "create-ardo": {
+      "version": "5.0.0",
+      "monthlyDownloads": 354,
+      "publishedAt": "2026-10-03T23:15:03.459Z",
+      "repo": "ardo"
+    },
+    "palamedes": {
+      "version": "1.25.0",
+      "monthlyDownloads": 262,
+      "publishedAt": "2026-09-09T08:55:07.605Z",
+      "repo": "palamedes"
+    },
+    "@palamedes/tanstack": {
+      "version": "1.25.0",
+      "monthlyDownloads": 183,
+      "publishedAt": "2026-09-09T08:54:20.972Z",
+      "repo": "palamedes"
+    },
+    "parakeet-coreml": {
+      "version": "2.2.0",
+      "monthlyDownloads": 223,
+      "publishedAt": "2026-01-04T15:03:25.350Z",
+      "repo": "parakeet-coreml"
+    },
+    "create-palamedes": {
+      "version": "1.25.0",
+      "monthlyDownloads": 255,
+      "publishedAt": "2026-09-09T08:52:52.443Z",
+      "repo": "palamedes"
+    },
+    "@palamedes/eslint-plugin": {
+      "version": "1.25.0",
+      "monthlyDownloads": 183,
+      "publishedAt": "2026-09-09T08:51:34.839Z",
+      "repo": "palamedes"
+    },
+    "@palamedes/react-router-rsc": {
+      "version": "1.25.0",
+      "monthlyDownloads": 174,
+      "publishedAt": "2026-09-09T08:56:08.696Z",
+      "repo": "palamedes"
+    },
+    "@palamedes/remix": {
+      "version": "1.25.0",
+      "monthlyDownloads": 214,
+      "publishedAt": "2026-09-09T08:54:42.373Z",
+      "repo": "palamedes"
+    },
+    "@palamedes/waku": {
+      "version": "1.25.0",
+      "monthlyDownloads": 166,
+      "publishedAt": "2026-09-09T08:52:46.461Z",
+      "repo": "palamedes"
+    },
+    "@effective/color": {
+      "version": "1.0.1",
+      "monthlyDownloads": 142,
+      "publishedAt": "2024-03-07T19:38:38.656Z",
+      "repo": "effective-color"
+    },
+    "offcourse": {
+      "version": "1.5.1",
+      "monthlyDownloads": 139,
+      "publishedAt": "2026-07-22T21:54:16.785Z",
+      "repo": "offcourse"
+    },
+    "@cuttledoc/llm": {
+      "version": "2.0.0",
+      "monthlyDownloads": 115,
+      "publishedAt": "2026-07-16T12:11:53.695Z",
+      "repo": "cuttledoc"
+    },
+    "@effective/rison": {
+      "version": "2.0.1",
+      "monthlyDownloads": 106,
+      "publishedAt": "2025-09-05T20:14:30.279Z",
+      "repo": "effective-rison"
+    },
+    "whisper-coreml": {
+      "version": "1.1.0",
+      "monthlyDownloads": 85,
+      "publishedAt": "2026-01-04T15:04:35.859Z",
+      "repo": "whisper-coreml"
+    },
+    "@effective/shadow": {
+      "version": "2.0.3",
+      "monthlyDownloads": 75,
+      "publishedAt": "2025-12-05T23:36:37.745Z",
+      "repo": "effective-shadow"
+    },
+    "@effective/css-reset": {
+      "version": "3.2.0",
+      "monthlyDownloads": 79,
+      "publishedAt": "2024-09-06T08:00:04.371Z",
+      "repo": "effective-css-reset"
+    },
+    "pythonlib": {
+      "version": "2.0.4",
+      "monthlyDownloads": 64,
+      "publishedAt": "2026-01-23T10:54:24.632Z",
+      "repo": "python2ts"
+    },
+    "cuttledoc": {
+      "version": "2.0.0",
+      "monthlyDownloads": 53,
+      "publishedAt": "2026-07-16T12:11:58.781Z",
+      "repo": "cuttledoc"
+    },
+    "mdtheme": {
+      "version": "0.1.1",
+      "monthlyDownloads": 48,
+      "publishedAt": "2026-09-10T21:32:41.551Z",
+      "repo": "mdtheme"
+    },
+    "python2ts": {
+      "version": "1.4.3",
+      "monthlyDownloads": 50,
+      "publishedAt": "2026-01-23T10:54:22.611Z",
+      "repo": "python2ts"
+    },
+    "@effective/favicon": {
+      "version": "2.3.0",
+      "monthlyDownloads": 43,
+      "publishedAt": "2024-08-02T18:26:10.940Z",
+      "repo": "effective-favicon"
+    },
+    "oxlint-config-setup": {
+      "version": "0.2.0",
+      "monthlyDownloads": 29,
+      "publishedAt": "2026-08-12T12:34:25.474Z",
+      "repo": "oxlint-config-setup"
+    },
+    "turndown-node": {
+      "version": "0.0.11",
+      "monthlyDownloads": 28,
+      "publishedAt": "2026-01-28T18:35:48.235Z",
+      "repo": "turndown-node"
+    },
+    "ts-phonenumber": {
+      "version": "2.0.0",
+      "monthlyDownloads": 28,
+      "publishedAt": "2026-01-13T20:07:30.671Z",
+      "repo": "ts-phonenumber"
+    },
+    "@cuttledoc/ffmpeg": {
+      "version": "2.0.0",
+      "monthlyDownloads": 21,
+      "publishedAt": "2026-07-16T12:11:45.898Z",
+      "repo": "cuttledoc"
+    },
+    "numpy-node": {
+      "version": "0.1.0",
+      "monthlyDownloads": 18,
+      "publishedAt": "2026-01-16T22:58:25.751Z"
+    },
+    "antigraph": {
+      "version": "0.1.1",
+      "monthlyDownloads": 17,
+      "publishedAt": "2026-04-28T09:16:43.355Z",
+      "repo": "antigraph"
+    },
+    "native-llm": {
+      "version": "0.2.0",
+      "monthlyDownloads": 14,
+      "publishedAt": "2026-01-05T21:57:24.039Z",
+      "repo": "native-llm"
+    },
+    "@turndown-node/linux-x64-gnu": {
+      "version": "0.0.11",
+      "monthlyDownloads": 10,
+      "publishedAt": "2026-01-28T18:34:37.670Z",
+      "repo": "turndown-node"
+    },
+    "claritas": {
+      "version": "0.0.1",
+      "monthlyDownloads": 9,
+      "publishedAt": "2026-01-27T12:05:41.601Z"
+    },
+    "clipee": {
+      "version": "0.0.1",
+      "monthlyDownloads": 9,
+      "publishedAt": "2026-01-27T08:34:29.710Z"
+    },
+    "npm-sweep": {
+      "version": "0.1.0",
+      "monthlyDownloads": 9,
+      "publishedAt": "2026-01-28T14:08:52.937Z",
+      "repo": "npm-sweep"
+    },
+    "@turndown-node/linux-arm64-gnu": {
+      "version": "0.0.11",
+      "monthlyDownloads": 8,
+      "publishedAt": "2026-01-28T18:34:53.143Z",
+      "repo": "turndown-node"
+    },
+    "ferrugo": {
+      "version": "0.0.1",
+      "monthlyDownloads": 7,
+      "publishedAt": "2026-06-24T17:54:43.561Z"
+    },
+    "@turndown-node/win32-x64-msvc": {
+      "version": "0.0.11",
+      "monthlyDownloads": 7,
+      "publishedAt": "2026-01-28T18:35:26.504Z",
+      "repo": "turndown-node"
+    },
+    "@turndown-node/darwin-arm64": {
+      "version": "0.0.11",
+      "monthlyDownloads": 6,
+      "publishedAt": "2026-01-28T18:34:44.961Z",
+      "repo": "turndown-node"
+    },
+    "semion": {
+      "version": "0.1.0",
+      "monthlyDownloads": 0,
+      "publishedAt": "2026-10-14T19:11:35.072Z",
+      "repo": "semion"
+    }
+  },
+  "skills": {
+    "skills": {
+      "effective-delivery": {
+        "references": 50
+      },
+      "effective-engineering": {
+        "references": 37
+      },
+      "effective-image": {
+        "references": 4
+      },
+      "effective-marketing": {
+        "references": 79
+      },
+      "effective-product": {
+        "references": 44
+      },
+      "effective-video": {
+        "references": 5
+      },
+      "effective-web": {
+        "references": 146
+      },
+      "effective-writing": {
+        "references": 31
+      }
+    },
+    "instructionPacks": 3
+  },
+  "usage": {
+    "palamedes": {
+      "unit": "update_checks",
+      "collectedAt": "2026-10-19T09:36:10.653Z",
+      "verified": false,
+      "windows": {
+        "days7": {
+          "start": "2026-10-12T00:00:00Z",
+          "end": "2026-10-19T00:00:00Z",
+          "observedFrom": "2026-10-12T00:00:00Z",
+          "coverage": "unverified",
+          "observedCount": 31,
+          "count": null
+        },
+        "days30": {
+          "start": "2026-09-19T00:00:00Z",
+          "end": "2026-10-19T00:00:00Z",
+          "observedFrom": "2026-09-19T00:00:00Z",
+          "coverage": "unverified",
+          "observedCount": 172,
+          "count": null
+        }
+      }
+    }
+  }
+}
