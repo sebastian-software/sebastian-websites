@@ -950,7 +950,6 @@ msgstr "Paket-Registry"
 
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
 #: app/components/MetricsPackages.tsx#Packages
-#: app/components/MetricsProjects.tsx#ProjectHead
 msgid "Packages"
 msgstr "Pakete"
 
@@ -987,6 +986,18 @@ msgstr ""
 #~ #: app/components/MetricsDashboard.tsx#Packages
 #~ msgid "Previous"
 #~ msgstr "Zurück"
+
+#: app/components/MetricsProjects.tsx#ProjectHead
+msgid "Primary language"
+msgstr "Hauptsprache"
+
+#: app/components/MetricsDashboard.tsx#MetricsDashboard
+msgid ""
+"Primary languages come from GitHub. Node.js links identify published native "
+"bindings explicitly declared in npm package metadata."
+msgstr ""
+"Hauptsprachen stammen aus GitHub. Node.js-Links zeigen veröffentlichte native"
+" Bindings, die in den npm-Paketmetadaten ausdrücklich gekennzeichnet sind."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Privacy"

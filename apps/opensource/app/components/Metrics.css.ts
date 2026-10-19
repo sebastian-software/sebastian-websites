@@ -122,6 +122,7 @@ globalStyle(`${table} a`, {
 export const numeric = style({})
 globalStyle(`${table} .${numeric}`, { textAlign: "right" })
 export const usageColumn = style({ width: scaled("130px") })
+export const languageColumn = style({ width: scaled("120px") })
 export const small = style({
   color: color.subtle,
   display: "block",
