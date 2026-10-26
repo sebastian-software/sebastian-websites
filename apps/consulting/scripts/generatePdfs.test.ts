@@ -29,7 +29,7 @@ function validProjectProfileLayout(language = "de"): ProjectProfilePrintLayout {
       { bottom: 150, key: "contract", left: 10, right: 600, top: 130 },
       { bottom: 180, key: "work-model", left: 10, right: 600, top: 160 },
     ],
-    careerEntryCount: 16,
+    careerEntryCount: 18,
     careerHeading:
       language === "de"
         ? "Weitere Stationen · vollständige Laufbahn"
@@ -435,11 +435,11 @@ describe("project profile print layout", () => {
     }).toThrow("at least 40px")
   })
 
-  it("requires the complete sixteen-entry career history", () => {
+  it("requires the complete eighteen-entry career history", () => {
     const layout = validProjectProfileLayout()
     expect(() => {
       assertProjectProfilePrintLayout({ ...layout, careerEntryCount: 6 })
-    }).toThrow("expected 16")
+    }).toThrow("expected 18")
   })
 
   it("requires projects and products to be distributed across pages two and three", () => {

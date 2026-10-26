@@ -14,6 +14,56 @@ export function getFeaturedProjects(): Project[] {
 
   return [
     {
+      customer: "WaPo Compliance",
+      description: t`WaPo Compliance combines compliance consulting with a modular, AI-assisted SaaS platform for mid-sized companies. The WaPo Compliance Suite brings data protection, information security, risk management, internal controls, and whistleblower protection into shared, traceable workflows. Consulting and white-label partners work for their clients while each client company's data stays isolated. I joined the two founders during active development to work on the product itself and on the delivery and operations foundation it needed for production. I also advise them on the further implementation of the business modules.
+
+In the whistleblowing module, I separated demo cases from real cases across the database, deadline processing, reminders, the OpenAPI specification, and the React case views. I also hardened the sanitization of uploaded PDF attachments against active content, embedded files, and hidden metadata. On the platform side, I built a shared deployment workflow for staging and production and turned manual setup steps, including Keycloak and the first administrator, into reproducible scripts. I consolidated 21 small CI checks into a single gates job, split the backend and frontend test suites into shards with a completeness check, and introduced shared dependency caches and Ubicloud runners with a fallback to GitHub-hosted runners. Database restores now also verify extensions, owners, and permissions, and I reworked password handling to keep plaintext database passwords out of the server log.`,
+      endDate: new Date("2026-10-31"),
+      id: "wapo-compliance-suite",
+      industry: "Compliance / RegTech",
+      location: t`Osnabrück, Germany`,
+      logo: "wapo-compliance",
+      results: "",
+      role: "Senior Software Engineer · React & DevOps",
+      startDate: new Date("2026-09-01"),
+      technologies: [
+        Tech.React,
+        Tech.NextJS,
+        Tech.NestJS,
+        Tech.TypeScript,
+        Tech.PostgreSQL,
+        Tech.Docker,
+        Tech.GitHubActions,
+        Tech.Keycloak,
+      ],
+      tier: 1,
+      title: t`Compliance Management Platform`,
+    },
+    {
+      customer: "Vidal MMI Germany",
+      description: t`Vidal MMI, part of the VIDAL Group, publishes Gelbe Liste Online, a medical and pharmaceutical reference portal for physicians, pharmacists, and other healthcare professionals. Ahead of the production launch of its React frontend, I joined the existing team as a Senior React Developer to help complete and stabilize the application. In a short engagement, I worked across search, access rules, content rendering, technical SEO, and analytics – the areas where editorial CMS pages and structured Pharmindex drug data meet in one interface.
+
+What a visitor may see depends on their professional group and on prescription status. I aligned how the frontend evaluates CMS permissions, advertorial audiences, and restricted content under the German Medicinal Products Advertising Act (HWG) across pages, teasers, and embedded content. In IDENTA, the portal's search for identifying solid oral dosage forms by their appearance, I fixed filters, pagination, and result data; in autocomplete, I separated product queries from other categories while preserving the API's relevance order. For editorial and database pages, I generated consistent metadata and Schema.org structured data that maps product categories to drugs, medical devices, and dietary supplements. A shared page context supplies Piano Analytics and the Adspirit ad server with matching product, active ingredient, and ATC/ICD data, including during in-app navigation. Targeted typing, a combined TypeScript and ESLint check, and regression tests safeguard these changes.`,
+      endDate: new Date("2026-10-31"),
+      id: "vidal-mmi-gelbe-liste",
+      industry: "Gesundheitswesen / Pharma",
+      location: t`Langen, Germany`,
+      logo: "vidal-mmi",
+      results: "",
+      role: "Senior React Developer",
+      startDate: new Date("2026-09-01"),
+      technologies: [
+        Tech.React,
+        Tech.TypeScript,
+        Tech.TanStackRouter,
+        Tech.TanStackQuery,
+        Tech.SchemaOrg,
+        Tech.PianoAnalytics,
+      ],
+      tier: 1,
+      title: t`Pharmaceutical Reference Portal`,
+    },
+    {
       customer: t`Terminaro · Product by Sebastian Software GmbH · SaaS`,
       description: t`For Terminaro, a product by Sebastian Software GmbH, I built a web-based appointment booking system for freelancers and companies as a Product Engineer, moving scheduling coordination out of email threads and into a shareable, multilingual booking link. Visitors can view available time slots without registration, book in their own time zone, and cancel appointments through a personal link. I owned the product from the public booking page to the administration area, with a strong focus on GDPR-oriented workflows, a cookie-free booking page, and reliable availability calculation.
 

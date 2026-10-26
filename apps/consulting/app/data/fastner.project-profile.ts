@@ -26,7 +26,7 @@ export type ProjectProfileCareerEntry = Pick<
 
 export type FastnerProjectProfile = {
   readonly availability: {
-    readonly availableFrom: "2026-09"
+    readonly availableFrom: "2026-11"
     readonly capacity: string
     readonly contract: string
     readonly status: string
@@ -150,7 +150,7 @@ export function createFastnerProjectProfile(
 
   return {
     availability: {
-      availableFrom: "2026-09",
+      availableFrom: "2026-11",
       capacity: t`Full-time`,
       contract: t`Engagement via Sebastian Software GmbH`,
       status: t`Available immediately`,
