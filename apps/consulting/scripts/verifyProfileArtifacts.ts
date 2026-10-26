@@ -50,7 +50,7 @@ type PdfTextItem = {
 
 const REQUIRED_PROJECT_PROFILE_TEXT = {
   de: [
-    "Sofort verfügbar",
+    "Verfügbar ab 1. November 2026",
     "Ausgewählte Projektnachweise · Fintech & E-Commerce",
     "Ausgewählte Projektnachweise · Enterprise-SaaS & Internationalisierung",
     "Banking und Asset Management",
@@ -58,7 +58,7 @@ const REQUIRED_PROJECT_PROFILE_TEXT = {
     "Enterprise-SaaS",
   ],
   en: [
-    "Available immediately",
+    "Available from November 1, 2026",
     "Selected Project Experience · Fintech & E-Commerce",
     "Selected Project Experience · Enterprise SaaS & Internationalization",
     "banking and asset management",

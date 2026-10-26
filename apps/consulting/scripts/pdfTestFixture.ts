@@ -41,7 +41,7 @@ function defaultProjectProfileText(locale: "de" | "en"): string {
   const localeSpecificText =
     locale === "de"
       ? [
-          "Sofort verfügbar",
+          "Verfügbar ab 1. November 2026",
           "Ausgewählte Projektnachweise · Fintech & E-Commerce",
           "Ausgewählte Projektnachweise · Enterprise-SaaS & Internationalisierung",
           "Banking und Asset Management",
@@ -49,7 +49,7 @@ function defaultProjectProfileText(locale: "de" | "en"): string {
           "Enterprise-SaaS",
         ]
       : [
-          "Available immediately",
+          "Available from November 1, 2026",
           "Selected Project Experience · Fintech & E-Commerce",
           "Selected Project Experience · Enterprise SaaS & Internationalization",
           "banking and asset management",

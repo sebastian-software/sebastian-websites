@@ -19,7 +19,7 @@ function validProjectProfileLayout(language = "de"): ProjectProfilePrintLayout {
   const copyright = "© 2014–2026 Sebastian Software GmbH"
   return {
     availabilityItems: [
-      "Available immediately (as of August 2026) · Full-time",
+      "Available from November 1, 2026 · Full-time",
       "Engagement via Sebastian Software GmbH",
       "Remote-first",
     ],

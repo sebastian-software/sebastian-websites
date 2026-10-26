@@ -63,10 +63,10 @@ describe("Fastner staffing profile projection", () => {
     const profile = createFastnerProjectProfile(getConsultant(), getProjects())
 
     expect(profile.availability).toStrictEqual({
-      availableFrom: "2026-11",
+      availableFrom: "2026-11-01",
       capacity: "Full-time",
       contract: "Engagement via Sebastian Software GmbH",
-      status: "Available immediately",
+      status: "Available from November 1, 2026",
       workModel:
         "Remote-first; occasional on-site work throughout Germany, Austria, Switzerland, and the Benelux. More distant locations by arrangement.",
     })

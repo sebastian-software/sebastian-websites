@@ -1377,9 +1377,10 @@ msgstr ""
 "interface was built on HTML templates enriched with JavaScript to provide a "
 "responsive user experience."
 
-#: app/components/project-profile/ProjectProfile.tsx#FirstPage
-msgid "as of {availabilityMonth}"
-msgstr "as of {availabilityMonth}"
+#~ #@ obsolete-since: 2026-10-26
+#~ #: app/components/project-profile/ProjectProfile.tsx#FirstPage
+#~ msgid "as of {availabilityMonth}"
+#~ msgstr "as of {availabilityMonth}"
 
 #: app/components/profile-print/CompanyContact.tsx#CompanyContact
 #: app/components/profile-screen/ProfileRail.tsx#PdfActions
@@ -1517,8 +1518,8 @@ msgid "Automated Decision-Making"
 msgstr "Automated Decision-Making"
 
 #: app/data/fastner.project-profile.ts#createFastnerProjectProfile
-msgid "Available immediately"
-msgstr "Available immediately"
+msgid "Available from November 1, 2026"
+msgstr "Available from November 1, 2026"
 
 #: app/components/profile-screen/ProfileRail.tsx#ProfileRail
 msgid "Back to home"

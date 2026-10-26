@@ -25,15 +25,6 @@ const MAX_VISIBLE_TECHNOLOGIES = 7
 const PRIMARY_EVIDENCE_END_INDEX = 3
 const RECENT_PRODUCT_START_INDEX = PRIMARY_EVIDENCE_END_INDEX + 1
 
-function formatAvailabilityMonth(value: `${number}-${number}`, lang: Locale): string {
-  const [year, month] = value.split("-").map(Number)
-  return new Intl.DateTimeFormat(lang, {
-    month: "long",
-    timeZone: "UTC",
-    year: "numeric",
-  }).format(new Date(Date.UTC(year, month - 1)))
-}
-
 function PageMarker({ page }: { page: number }): ReactNode {
   return (
     <p
@@ -220,7 +211,6 @@ function FirstPage({
   headshot: Portrait
   lang: Locale
 }): ReactNode {
-  const availabilityMonth = formatAvailabilityMonth(data.availability.availableFrom, lang)
   const consultantProfileLink = new URL(consultantProfileUrl)
   return (
     <section className={styles.page} data-project-profile-page="1">
@@ -256,7 +246,7 @@ function FirstPage({
             className={cn(styles.availabilityItem, styles.availabilityPrimary)}
             data-project-profile-availability-item="status"
           >
-            {data.availability.status} (<Trans>as of {availabilityMonth}</Trans>)
+            {data.availability.status}
           </p>
           <p
             className={cn(styles.availabilityItem, pageStyles.availabilityCapacity)}
