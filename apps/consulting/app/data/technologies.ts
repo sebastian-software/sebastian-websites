@@ -48,6 +48,7 @@ export const Tech = {
   CSSGrid: "CSS Grid",
   Cypress: "Cypress",
   D3: "D3.js",
+  Docker: "Docker",
   DocuSign: "DocuSign",
   ECommerce: "E-Commerce",
   Ember: "Ember.js",
@@ -62,6 +63,7 @@ export const Tech = {
 
   FrontendArchitektur: "Frontend-Architektur",
   GitFlow: "Git-Flow",
+  GitHubActions: "GitHub Actions",
   Go: "Go",
   // AI & ML
   GoogleGemini: "Google Gemini",
@@ -110,6 +112,7 @@ export const Tech = {
   Monorepo: "Monorepo",
 
   MySQL: "MySQL",
+  NestJS: "NestJS",
   Netzwerktechnik: "Netzwerktechnik",
 
   NextIntl: "Next Intl",
@@ -131,8 +134,10 @@ export const Tech = {
   PhoneGap: "PhoneGap",
 
   PHP: "PHP",
+  PianoAnalytics: "Piano Analytics",
   // Testing
   Playwright: "Playwright",
+  PostgreSQL: "PostgreSQL",
   Pustefix: "Pustefix",
   Python: "Python",
   Qooxdoo: "qooxdoo",
@@ -161,6 +166,7 @@ export const Tech = {
   // Styling
   Sass: "Sass",
   ScaledAgile: "Scaled Agile",
+  SchemaOrg: "Schema.org",
   Scrum: "Scrum",
   ServerAdministration: "Server-Administration",
   SetTopBox: "Set-Top-Box",
@@ -173,6 +179,8 @@ export const Tech = {
   SSR: "SSR",
   Storybook: "Storybook",
   Supabase: "Supabase",
+  TanStackQuery: "TanStack Query",
+  TanStackRouter: "TanStack Router",
   TBD: "TBD",
   Temporal: "Temporal",
   Theming: "Theming",

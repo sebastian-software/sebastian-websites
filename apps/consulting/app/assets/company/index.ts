@@ -28,6 +28,8 @@ import telecolumbus from "./telecolumbus.svg"
 import terminaro from "./terminaro.svg"
 import thBingen from "./th-bingen.svg"
 import traton from "./traton.svg"
+import vidalMmi from "./vidal-mmi.svg"
+import wapoCompliance from "./wapo-compliance.svg"
 import wittWeiden from "./witt-weiden.svg"
 import zynga from "./zynga.svg"
 
@@ -64,6 +66,8 @@ export const companyLogos: Record<string, string> = {
   terminaro,
   "th-bingen": thBingen,
   traton,
+  "vidal-mmi": vidalMmi,
+  "wapo-compliance": wapoCompliance,
   "witt-weiden": wittWeiden,
   zynga,
 }
