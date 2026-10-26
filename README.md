@@ -26,4 +26,6 @@ art direction, and preloads. [AGENTS.md](AGENTS.md) records the guidance for age
 - [Positioning basis](docs/concept/positioning.md): values, strengths, and audiences
 - [GLOSSARY.md](GLOSSARY.md): the shared vocabulary
 - [docs/adr/](docs/adr/): decisions and their reasons, kept current as living documents
+- [Recruiting profile maintenance](docs/runbooks/profile-maintenance.md): channels, PDF updates,
+  availability, and review intervals for Sebastian Fastner
 - [docs/plans/](docs/plans/README.md): the work packages, in order
