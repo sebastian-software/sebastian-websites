@@ -15,16 +15,16 @@ export function getFeaturedProjects(): Project[] {
   return [
     {
       customer: "WaPo Compliance",
-      description: t`WaPo Compliance combines compliance consulting with a modular, AI-assisted SaaS platform for mid-sized companies. The WaPo Compliance Suite brings data protection, information security, risk management, internal controls, and whistleblower protection into shared, traceable workflows. Consulting and white-label partners work for their clients while each client company's data stays isolated. I joined the two founders during active development to work on the product itself and on the delivery and operations foundation it needed for production. I also advise them on the further implementation of the business modules.
+      description: t`WaPo Compliance combines compliance consulting with a modular, AI-assisted SaaS platform for mid-sized companies. It covers data protection, information security, risk management, internal controls, and whistleblower protection, and lets consulting and white-label partners serve their clients while keeping each client's data strictly separate. As the technical partner of the two founders, I advise on architecture and the business modules and build alongside them, on the product as well as the platform.
 
-In the whistleblowing module, I separated demo cases from real cases across the database, deadline processing, reminders, the OpenAPI specification, and the React case views. I also hardened the sanitization of uploaded PDF attachments against active content, embedded files, and hidden metadata. On the platform side, I built a shared deployment workflow for staging and production and turned manual setup steps, including Keycloak and the first administrator, into reproducible scripts. I consolidated 21 small CI checks into a single gates job, split the backend and frontend test suites into shards with a completeness check, and introduced shared dependency caches and Ubicloud runners with a fallback to GitHub-hosted runners. Database restores now also verify extensions, owners, and permissions, and I reworked password handling to keep plaintext database passwords out of the server log.`,
+Leading up to the first production deployment, my main focus was making the platform reliable to test, ship, and restore. Staging and production now share one deployment workflow, new environments are set up by script, and CI runs leaner with sharded test suites and shared caches. Restore tests check that a recovered database is actually usable, database passwords no longer end up in server logs, and uploaded PDFs are sanitized. On the product side, I work on the business modules, for example the whistleblowing system from the database to the React interface.`,
       endDate: new Date("2026-10-31"),
       id: "wapo-compliance-suite",
       industry: "Compliance / RegTech",
       location: t`Osnabrück, Germany`,
       logo: "wapo-compliance",
       results: "",
-      role: "Senior Software Engineer · React & DevOps",
+      role: "Technical Partner · React & DevOps",
       startDate: new Date("2026-09-01"),
       technologies: [
         Tech.React,
@@ -41,9 +41,9 @@ In the whistleblowing module, I separated demo cases from real cases across the 
     },
     {
       customer: "Vidal MMI Germany",
-      description: t`Vidal MMI, part of the VIDAL Group, publishes Gelbe Liste Online, a medical and pharmaceutical reference portal for physicians, pharmacists, and other healthcare professionals. Ahead of the production launch of its React frontend, I joined the existing team as a Senior React Developer to help complete and stabilize the application. In a short engagement, I worked across search, access rules, content rendering, technical SEO, and analytics – the areas where editorial CMS pages and structured Pharmindex drug data meet in one interface.
+      description: t`Vidal MMI, part of the VIDAL Group, publishes Gelbe Liste Online, a reference portal on drugs, active ingredients, and manufacturers for physicians, pharmacists, and other healthcare professionals. Before launch, its React frontend had to be made production-ready, and I stepped in at short notice to support the team.
 
-What a visitor may see depends on their professional group and on prescription status. I aligned how the frontend evaluates CMS permissions, advertorial audiences, and restricted content under the German Medicinal Products Advertising Act (HWG) across pages, teasers, and embedded content. In IDENTA, the portal's search for identifying solid oral dosage forms by their appearance, I fixed filters, pagination, and result data; in autocomplete, I separated product queries from other categories while preserving the API's relevance order. For editorial and database pages, I generated consistent metadata and Schema.org structured data that maps product categories to drugs, medical devices, and dietary supplements. A shared page context supplies Piano Analytics and the Adspirit ad server with matching product, active ingredient, and ATC/ICD data, including during in-app navigation. Targeted typing, a combined TypeScript and ESLint check, and regression tests safeguard these changes.`,
+I took on work across the application: access rules based on professional group and prescription status, search including the IDENTA drug identification, product pages, and structured data and tracking for search engines and advertising. Targeted regression tests and a shared TypeScript and lint check secure these fixes.`,
       endDate: new Date("2026-10-31"),
       id: "vidal-mmi-gelbe-liste",
       industry: "Gesundheitswesen / Pharma",
