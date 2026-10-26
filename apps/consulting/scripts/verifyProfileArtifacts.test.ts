@@ -110,7 +110,7 @@ function requiredProjectProfileText(locale: "de" | "en", extra = ""): string {
     "Regrello",
     "Terminaro",
     "Palamedes",
-    locale === "de" ? "Verfügbar ab 1. November 2026" : "Available from November 1, 2026",
+    locale === "de" ? "Sofort verfügbar" : "Available immediately",
     locale === "de"
       ? "Ausgewählte Projektnachweise · Fintech & E-Commerce"
       : "Selected Project Experience · Fintech & E-Commerce",

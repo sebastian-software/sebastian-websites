@@ -1412,10 +1412,9 @@ msgstr ""
 "HTML-Templates, die mit JavaScript angereichert wurden, um eine reaktive "
 "Benutzererfahrung zu bieten."
 
-#~ #@ obsolete-since: 2026-10-26
-#~ #: app/components/project-profile/ProjectProfile.tsx#FirstPage
-#~ msgid "as of {availabilityMonth}"
-#~ msgstr "Stand {availabilityMonth}"
+#: app/components/project-profile/ProjectProfile.tsx#FirstPage
+msgid "as of {availabilityMonth}"
+msgstr "Stand {availabilityMonth}"
 
 #: app/components/profile-print/CompanyContact.tsx#CompanyContact
 #: app/components/profile-screen/ProfileRail.tsx#PdfActions
@@ -1571,8 +1570,8 @@ msgid "Automated Decision-Making"
 msgstr "Automatisierte Entscheidungsfindung"
 
 #: app/data/fastner.project-profile.ts#createFastnerProjectProfile
-msgid "Available from November 1, 2026"
-msgstr "Verfügbar ab 1. November 2026"
+msgid "Available immediately"
+msgstr "Sofort verfügbar"
 
 #: app/components/profile-screen/ProfileRail.tsx#ProfileRail
 msgid "Back to home"
