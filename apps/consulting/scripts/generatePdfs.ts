@@ -69,7 +69,7 @@ const MINIMUM_FIRST_PAGE_SECTION_GAP_CSS_PIXELS = 32
 const MINIMUM_PROJECT_GAP_CSS_PIXELS = 40
 const MAXIMUM_PAGE_MARKER_BOTTOM_GAP_CSS_PIXELS = 16
 const PROJECT_PROFILE_PROJECT_GROUP_COUNT = 3
-const PROJECT_PROFILE_CAREER_ENTRY_COUNT = 16
+const PROJECT_PROFILE_CAREER_ENTRY_COUNT = 18
 // Vite colorizes its localhost line even on CI runners.
 // eslint-disable-next-line no-control-regex, regexp/no-control-character -- ANSI starts with ESC
 const ANSI_ESCAPE_PATTERN = /\u001B\[[\d;]*m/gv
