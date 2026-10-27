@@ -123,14 +123,14 @@ export const VARIANTS = defineVariants({
     canonicalOrigin: "https://app-tracking.sebastian-software.de",
     deploymentTarget: "sebastian-websites-app-tracking-de",
     locale: "de",
-    productionActive: false,
+    productionActive: true,
     site: APP_TRACKING_SITE,
   },
   "app-tracking-en": {
     canonicalOrigin: "https://app-tracking.sebastian-software.com",
     deploymentTarget: "sebastian-websites-app-tracking-en",
     locale: "en",
-    productionActive: false,
+    productionActive: true,
     site: APP_TRACKING_SITE,
   },
   "consulting-de": {
