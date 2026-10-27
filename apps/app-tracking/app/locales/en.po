@@ -673,6 +673,11 @@ msgstr "Please enter a complete email address, such as name@example.com."
 msgid "Privacy"
 msgstr "Privacy"
 
+#: app/components/ReportingPage.tsx#ReportingPage
+#: app/routes/privacy.tsx
+msgid "Privacy notice for tool usage reports"
+msgstr "Privacy notice for tool usage reports"
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#PrivacyDocument
 msgid "Privacy Policy"
 msgstr "Privacy Policy"

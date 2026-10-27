@@ -24,6 +24,7 @@ const app = fileURLToPath(new URL("..", import.meta.url))
 const evidence = resolve(app, "build/evidence")
 const axe = await readFile(new URL("../node_modules/axe-core/axe.min.js", import.meta.url), "utf8")
 const compactWidth = 960
+const navigationTimeout = 10_000
 const http = { missing: 404, ok: 200, unexpected: 500 } as const
 const allowedAssets = new Set(["assets.sebastian-software.com", "brand.sebastian-software.com"])
 const types: Readonly<Record<string, string>> = {
@@ -194,6 +195,86 @@ async function checkLightMode(page: Page): Promise<void> {
   )
 }
 
+function officialPolicyUrl(locale: Locale): string {
+  return `https://sebastian-software.${locale === "de" ? "de" : "com"}/privacy#tool-usage-reports`
+}
+
+async function checkOfficialPolicy(browser: Browser, locale: Locale): Promise<void> {
+  const build = resolve(app, `../software/build/software-${locale}/client`)
+  const server = serve(build)
+  await new Promise<void>((done) => {
+    server.listen(0, "127.0.0.1", done)
+  })
+  const address = server.address()
+  assert.ok(address !== null && typeof address !== "string")
+  const context = await browser.newContext()
+  try {
+    const page = await context.newPage()
+    const errors: string[] = []
+    page.on("pageerror", (error) => {
+      errors.push(error.message)
+    })
+    page.setDefaultNavigationTimeout(navigationTimeout)
+    for (const viewport of viewports.filter(
+      (entry) => entry.name === "desktop" || entry.name === "mobile"
+    )) {
+      await page.setViewportSize(viewport)
+      await page.goto(`http://127.0.0.1:${address.port}/privacy#tool-usage-reports`, {
+        waitUntil: "networkidle",
+      })
+      const section = page.locator("#tool-usage-reports")
+      assert.equal(await section.count(), 1)
+      assert.equal(
+        await section.locator("h2").innerText(),
+        locale === "en"
+          ? "Optional usage reports from our developer tools"
+          : "Freiwillige Nutzungsberichte aus unseren Entwicklertools"
+      )
+      assert.match(await section.innerText(), /PlanetScale, Inc\./v)
+      assert.equal(
+        await section
+          .locator('a[href="https://planetscale.com/legal/data-processing-addendum"]')
+          .count(),
+        1
+      )
+      assert.equal(await page.locator("html").getAttribute("lang"), locale)
+      assert.equal(
+        await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth),
+        false
+      )
+      assert.ok(
+        await section.evaluate((element) => {
+          const header = document.querySelector("header")
+          return (
+            element.getBoundingClientRect().top >= (header?.getBoundingClientRect().bottom ?? 0)
+          )
+        }),
+        "The policy anchor remains below the fixed header"
+      )
+      await page.addScriptTag({ content: axe })
+      const violations = await page.evaluate(async () => {
+        const audit = await window.axe.run("#tool-usage-reports", {
+          runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] },
+        })
+        return audit.violations
+      })
+      assert.deepEqual(violations, [])
+      await page.screenshot({
+        path: resolve(evidence, `${locale}-official-privacy-${viewport.name}.png`),
+      })
+    }
+    assert.deepEqual(errors, [])
+  } finally {
+    await context.close()
+    await new Promise<void>((done, reject) => {
+      server.close((error) => {
+        if (error) reject(error)
+        else done()
+      })
+    })
+  }
+}
+
 async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
   const build = resolve(app, `build/app-tracking-${locale}/client`)
   const server = serve(build)
@@ -214,10 +295,32 @@ async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
       errors.push(error.message)
     })
     for (const viewport of viewports) await checkViewport(page, context, locale, viewport, origin)
+    assert.equal(
+      await page
+        .getByRole("link", {
+          name:
+            locale === "en"
+              ? "Privacy notice for tool usage reports"
+              : "Datenschutzhinweise für Nutzungsberichte aus Tools",
+        })
+        .getAttribute("href"),
+      officialPolicyUrl(locale)
+    )
     await checkLightMode(page)
     await page.goto(`${origin}/privacy`, { waitUntil: "networkidle" })
     const title = await page.locator("h1").innerText()
     assert.ok(title.includes(locale === "en" ? "privacy" : "Datenschutz"))
+    assert.equal(
+      await page
+        .getByRole("link", {
+          name:
+            locale === "en"
+              ? "Privacy notice for tool usage reports"
+              : "Datenschutzhinweise für Nutzungsberichte aus Tools",
+        })
+        .getAttribute("href"),
+      officialPolicyUrl(locale)
+    )
     assert.deepEqual(errors, [])
     const noScript = await browser.newContext({ javaScriptEnabled: false })
     try {
@@ -249,10 +352,13 @@ async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
 await mkdir(evidence, { recursive: true })
 const engine = await chromium.launch({ headless: true })
 try {
-  for (const locale of ["en", "de"] as const) await checkLocale(engine, locale)
+  for (const locale of ["en", "de"] as const) {
+    await checkLocale(engine, locale)
+    await checkOfficialPolicy(engine, locale)
+  }
 } finally {
   await engine.close()
 }
 console.log(
-  "Both languages passed four viewport sizes, shared navigation, no-script links, local images, light mode, storage/network limits, and axe checks."
+  "Both languages passed four viewport sizes, shared navigation, no-script links, local images, light mode, storage/network limits, official privacy links and anchor targets, and axe checks."
 )

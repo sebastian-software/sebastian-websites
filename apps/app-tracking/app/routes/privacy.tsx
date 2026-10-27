@@ -4,7 +4,7 @@ import { t } from "@palamedes/core/macro"
 import { LegalDocumentFrame } from "@sebastian-websites/legal"
 import { legalClassNames as classes } from "@sebastian-websites/ui"
 
-import { legalConfig } from "~/lib/legal"
+import { legalConfig, toolReportingPrivacyUrl } from "~/lib/legal"
 
 import type { Route } from "./+types/privacy"
 
@@ -40,6 +40,12 @@ export default function Privacy(): ReactElement {
           <p className={classes.text}>
             {t`This notice concerns visits to this website. Usage reports from developer tools are a separate data flow, described in the reporting overview and the tool’s released privacy notice.`}{" "}
             <a className={classes.link} href="/#privacy">{t`Reporting data and controls`}</a>.
+          </p>
+          <p className={classes.text}>
+            <a
+              className={classes.link}
+              href={toolReportingPrivacyUrl}
+            >{t`Privacy notice for tool usage reports`}</a>
           </p>
         </section>
         <section className={classes.section}>

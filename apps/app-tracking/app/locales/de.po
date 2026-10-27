@@ -180,7 +180,7 @@ msgstr "Bunny: Auftragsverarbeitung und Datenübermittlungen"
 
 #: app/components/ReportingPage.tsx#ReportingPage
 msgid "Bunny processor information"
-msgstr "Bunny: Informationen zur Auftragsverarbeitung"
+msgstr "Informationen zur Auftragsverarbeitung bei Bunny"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -689,6 +689,11 @@ msgstr ""
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Privacy"
 msgstr "Datenschutz"
+
+#: app/components/ReportingPage.tsx#ReportingPage
+#: app/routes/privacy.tsx
+msgid "Privacy notice for tool usage reports"
+msgstr "Datenschutzhinweise für Nutzungsberichte aus Tools"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#PrivacyDocument
 msgid "Privacy Policy"

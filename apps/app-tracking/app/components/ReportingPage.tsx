@@ -3,6 +3,8 @@ import type { ReactElement } from "react"
 import { t } from "@palamedes/core/macro"
 import { BunnyImage, editorialSizes } from "@sebastian-websites/ui"
 
+import { toolReportingPrivacyUrl } from "~/lib/legal"
+
 import workspace from "../assets/workspace.jpg?bunny"
 import * as styles from "./ReportingPage.css"
 
@@ -189,6 +191,9 @@ export function ReportingPage(): ReactElement {
             </svg>
             {t`How we handle reporting data`}{" "}
           </h2>
+          <p>
+            <a href={toolReportingPrivacyUrl}>{t`Privacy notice for tool usage reports`}</a>
+          </p>
           <p>
             {" "}
             {t`We design reporting around the GDPR’s requirements for clear purposes, limited data and retention, and control over consent. Our policies make these requirements concrete through documented fields, explicit opt-in, access restrictions, and deletion controls.`}{" "}

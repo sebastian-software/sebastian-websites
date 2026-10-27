@@ -1,6 +1,9 @@
 import { defineLegalSiteConfig, siteOperator } from "@sebastian-websites/legal"
+import { getSiteOrigin } from "@sebastian-websites/web-core"
 
 import { variant } from "./site"
+
+export const toolReportingPrivacyUrl = `${getSiteOrigin("software", variant.locale)}/privacy#tool-usage-reports`
 
 export const legalConfig = defineLegalSiteConfig({
   imprintReview: {
