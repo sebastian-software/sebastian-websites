@@ -26,9 +26,10 @@ The reporting overview and website privacy notice link to the official Software
 policy at `/privacy#tool-usage-reports` on the matching `.com` or `.de` domain.
 That section covers tool reports; the app's `/privacy` covers website visits.
 
-Both variants start with `productionActive: false`. A main-branch deployment builds
-and publishes them to the origin hosts through the existing workflow, without
-attaching canonical domains. The normal build SEO and post-deployment checks apply.
+Both variants declare `productionActive: true`. A main-branch deployment builds
+and publishes them through the existing workflow, attaches their canonical
+domains, and maintains managed certificates and forced HTTPS. The normal build
+SEO and post-deployment checks apply.
 
 ## Cutover
 
@@ -51,8 +52,11 @@ attaching canonical domains. The normal build SEO and post-deployment checks app
    anchors. Keep the existing page reachable until then; do not silently break
    already-published links or point them at unresolved domains.
 
-On October 27, 2026 neither canonical subdomain had a CNAME. This document prepares
-the records; it does not assert that DNS or certificates are already configured.
+On October 28, 2026 both CNAME records were created and their public DNS answers
+were verified against the targets above. The `.com` record uses Bunny DNS with
+DNS routing enabled and CDN acceleration off; the `.de` record uses Cloudflare
+DNS-only routing. Canonical HTTPS and reciprocal language links must pass the
+cutover checks before consumer links replace the existing Pages URL.
 
 ## Verify and maintain
 
