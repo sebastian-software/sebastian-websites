@@ -1,0 +1,9 @@
+locales: [en, de]
+source-locale: en
+source-reference-root: config
+catalogs:
+  - path: app/locales/{locale}
+    include: [app, ../../packages/legal/src, ../../packages/ui/src/frame/frameCopy.ts]
+    exclude:
+      - ../../packages/legal/src/**/*.test.ts
+      - ../../packages/legal/src/**/*.test.tsx

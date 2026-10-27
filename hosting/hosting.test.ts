@@ -602,7 +602,7 @@ test("current, unknown, and other sites' paths are not legacy redirects", () => 
 })
 
 test("targets cover every variant, the brand site, and the build-free asset zone", () => {
-  assert.equal(TARGETS.length, 10)
+  assert.equal(TARGETS.length, Object.keys(VARIANTS).length + 2)
   assert.ok(TARGETS.every((entry) => entry.name.startsWith("sebastian-websites-")))
   for (const variant of Object.values(VARIANTS).filter((entry) => entry.productionActive)) {
     const activeTarget = TARGETS.find((entry) => entry.name === variant.deploymentTarget)
