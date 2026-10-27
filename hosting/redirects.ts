@@ -58,6 +58,7 @@ const CONSULTING_LOCALE_RULES: readonly PathRule[] = LOCALES.flatMap((locale) =>
 
 /** The legacy rules of every site. */
 export const PATH_RULES: Readonly<Record<SiteId, readonly PathRule[]>> = {
+  "app-tracking": [],
   consulting: [
     ...CONSULTING_LOCALE_RULES,
     {

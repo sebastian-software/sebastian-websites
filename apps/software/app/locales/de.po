@@ -272,6 +272,10 @@ msgstr "Gebaut für den Arbeitsalltag."
 msgid "Built to keep working"
 msgstr "Gebaut, um weiterzulaufen"
 
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Bunny processor information"
+msgstr "Informationen zur Auftragsverarbeitung bei Bunny"
+
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
 "Bunny.net is based in Slovenia (EU/EEA). This website is delivered exclusively"
@@ -395,6 +399,33 @@ msgstr "Verantwortlicher"
 #: app/routes/open-source.tsx
 msgid "Counted, not claimed."
 msgstr "Gezählt, nicht behauptet."
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Current metric definitions"
+msgstr "Aktuelle Metrikdefinitionen"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"Depending on the tool and reporting contract, reports contain the tool and "
+"version, UTC day, registered command or event category and count, local or CI "
+"context, batch ID, tool- and profile-scoped installation ID, and consent "
+"revision or grant time. Legacy installation and batch IDs contain creation "
+"times. The unified client uses random hexadecimal IDs and sends the grant time"
+" separately. Its system context can include operating system and version, "
+"executable architecture, CPU family, and Linux distribution and kernel "
+"version. Legacy invocation reports contain no system context."
+msgstr ""
+"Je nach Tool und Berichtsformat enthalten Berichte das Tool und seine Version,"
+" den UTC-Tag, die registrierte Befehls- oder Ereigniskategorie samt Anzahl, "
+"den lokalen oder CI-Kontext, eine Paket-ID, eine auf Tool und Profil "
+"beschränkte Installations-ID sowie die Einwilligungsversion oder den "
+"Zeitpunkt der Einwilligung. Installations- und Paket-IDs des älteren "
+"Aufrufformats enthalten Erstellungszeitpunkte. Der vereinheitlichte Client "
+"verwendet zufällige hexadezimale IDs und übermittelt den "
+"Einwilligungszeitpunkt gesondert. Sein Systemkontext kann Betriebssystem und "
+"Version, die Architektur der ausführbaren Datei, die CPU-Familie sowie "
+"Linux-Distribution und Kernel-Version umfassen. Ältere Aufrufberichte "
+"enthalten keinen Systemkontext."
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
@@ -835,6 +866,23 @@ msgstr ""
 "Einblicke in unsere Arbeit in Software und Beratung: was wir bauen, erkunden "
 "und durchdenken."
 
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"International transfers may occur through these providers and their "
+"subprocessors. PlanetScale’s data processing addendum provides for the "
+"European Commission’s standard contractual clauses for relevant transfers "
+"outside the EEA. The linked provider documents describe their processing and "
+"transfer arrangements. You can contact our privacy address above for "
+"information about applicable safeguards and a copy of them."
+msgstr ""
+"Über diese Anbieter und ihre Unterauftragsverarbeiter können internationale "
+"Übermittlungen stattfinden. Der Auftragsverarbeitungsvertrag von PlanetScale "
+"sieht für entsprechende Übermittlungen außerhalb des EWR die "
+"Standardvertragsklauseln der Europäischen Kommission vor. Die verlinkten "
+"Anbieterunterlagen beschreiben deren Verarbeitungs- und "
+"Übermittlungsregelungen. Über die oben genannte Datenschutzadresse erhalten "
+"Sie Informationen zu den anwendbaren Garantien und eine Kopie davon."
+
 #: app/components/OpenFoundations.tsx#OpenFoundations
 msgid ""
 "Internationalization for TypeScript applications: message extraction, "
@@ -1148,6 +1196,10 @@ msgstr "Offen, wo es zählt"
 #~ msgid "open-source projects, counted live"
 #~ msgstr "Open-Source-Projekte, live gezählt"
 
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Optional usage reports from our developer tools"
+msgstr "Freiwillige Nutzungsberichte aus unseren Entwicklertools"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Our agency"
 msgstr "Unsere Agentur"
@@ -1170,6 +1222,26 @@ msgstr ""
 "Deutschen Telekom, Jasy bei Zynga. Die Werkzeuge und die Menschen darum herum "
 "haben uns das meiste beigebracht, was wir wissen. Zu veröffentlichen, was wir"
 " heute bauen, ist unsere Art, das zurückzugeben."
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"Our reporting database backup policy is at most seven days. Backups are used "
+"for recovery, not reporting. Deleting active data does not edit existing "
+"backups in place. Restoring a backup can reintroduce data deleted after its "
+"recovery point; known deletion requests must then be applied again. "
+"Provider-owned security, transport, and account records follow the applicable "
+"provider agreements and policies. The reporting retention periods are not a "
+"universal limit for those separate records."
+msgstr ""
+"Für Sicherungen unserer Berichtsdatenbank gilt eine Höchstfrist von sieben "
+"Tagen. Sicherungen dienen der Wiederherstellung, nicht der Auswertung. Das "
+"Löschen aktiver Daten verändert bestehende Sicherungen nicht nachträglich. "
+"Eine Wiederherstellung kann Daten zurückbringen, die nach dem "
+"Sicherungszeitpunkt gelöscht wurden; bekannte Löschanfragen müssen dann "
+"erneut umgesetzt werden. Eigene Sicherheits-, Transport- und Kontounterlagen "
+"der Anbieter unterliegen den jeweiligen Verträgen und Richtlinien. Die "
+"Speicherfristen für Berichte sind keine allgemeine Höchstfrist für diese "
+"gesonderten Unterlagen."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Our software"
@@ -1223,6 +1295,10 @@ msgstr ""
 "Weg möglich ist. Und dass Teams nach der Zusammenarbeit stärker dastehen, "
 "weil Wissen, Werkzeuge und Standards bleiben."
 
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Permission and legal basis"
+msgstr "Einwilligung und Rechtsgrundlage"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Phone:"
 msgstr "Telefon:"
@@ -1230,6 +1306,14 @@ msgstr "Telefon:"
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Place of Processing"
 msgstr "Ort der Verarbeitung"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "PlanetScale data processing addendum"
+msgstr "Auftragsverarbeitungsvertrag von PlanetScale"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "PlanetScale subprocessors"
+msgstr "Unterauftragsverarbeiter von PlanetScale"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Please enter a complete email address, such as name@example.com."
@@ -1298,6 +1382,10 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid "Processors"
 msgstr "Eingesetzte Auftragsverarbeiter"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Processors and international transfers"
+msgstr "Auftragsverarbeiter und internationale Übermittlungen"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 #: app/routes/products.tsx
@@ -1372,6 +1460,35 @@ msgstr "Registereintrag"
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Register Number:"
 msgstr "Registernummer:"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Reporting data"
+msgstr "Daten in Nutzungsberichten"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Reporting retention and recovery policy"
+msgstr "Speicherfristen und Wiederherstellung von Berichtsdaten"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"Reports are sent over HTTPS to our app-tracking service. BunnyWay d.o.o. "
+"(Bunny.net), Slovenia, hosts the API and processes connection metadata such as"
+" IP addresses. PlanetScale, Inc., United States, provides the database service"
+" for reporting data. Our database region for this service is AWS Frankfurt, "
+"Germany. A database region in Germany does not mean that all support, "
+"security, or subprocessor processing takes place in the EU."
+msgstr ""
+"Berichte werden per HTTPS an unseren Dienst app-tracking gesendet. BunnyWay "
+"d.o.o. (Bunny.net), Slowenien, hostet die API und verarbeitet Verbindungsdaten"
+" wie IP-Adressen. PlanetScale, Inc., USA, stellt den Datenbankdienst für "
+"Berichtsdaten bereit. Unsere Datenbankregion für diesen Dienst ist AWS "
+"Frankfurt, Deutschland. Ein Datenbankstandort in Deutschland bedeutet nicht, "
+"dass sämtliche Verarbeitungen für Support, Sicherheit oder durch "
+"Unterauftragsverarbeiter in der EU stattfinden."
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Retention and backups"
+msgstr "Speicherfristen und Sicherungen"
 
 #: app/components/RegionStory.tsx#RegionStory
 msgid "Rhine-Main"
@@ -1785,6 +1902,23 @@ msgstr ""
 "liegt, kann diese Weiterleitung auch auf die jeweils andere Domain führen. "
 "Ein Cookie wird dabei nicht gesetzt."
 
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"The legal basis for optional usage reporting is your consent under Article "
+"6(1)(a) GDPR. Consent also covers the associated storage and access on your "
+"device under section 25(1) TDDDG. Reporting stays off until you agree in the "
+"tool. You may decline without losing tool functionality or its separately "
+"configurable update checks. CI reporting requires separate explicit "
+"authorization."
+msgstr ""
+"Rechtsgrundlage für freiwillige Nutzungsberichte ist Ihre Einwilligung nach "
+"Art. 6 Abs. 1 Buchst. a DSGVO. Die Einwilligung umfasst auch die damit "
+"verbundene Speicherung und den Zugriff auf Ihrem Endgerät nach § 25 Abs. 1 "
+"TDDDG. Berichte bleiben deaktiviert, bis Sie im Tool zustimmen. Sie können "
+"ablehnen, ohne Funktionen des Tools oder seine separat einstellbaren "
+"Update-Prüfungen zu verlieren. Berichte aus CI-Umgebungen benötigen eine "
+"gesonderte ausdrückliche Zustimmung."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid ""
 "The link may be outdated, or the address may contain a typo. These pages lead "
@@ -1875,6 +2009,18 @@ msgstr ""
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "This page does not exist."
 msgstr "Diese Seite gibt es nicht."
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"This section applies when one of our developer tools offers optional usage "
+"reporting through app-tracking, operated by Sebastian Software GmbH. Visiting "
+"our websites does not create these reports or grant permission for tool "
+"reporting."
+msgstr ""
+"Dieser Abschnitt gilt, wenn eines unserer Entwicklertools freiwillige "
+"Nutzungsberichte über app-tracking anbietet. Betreiber ist die Sebastian "
+"Software GmbH. Der Besuch unserer Websites erzeugt keine solchen Berichte und "
+"erteilt keine Einwilligung in Nutzungsberichte aus Tools."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
 msgid ""
@@ -2059,6 +2205,26 @@ msgid ""
 msgstr ""
 "Sie haben gemäß DSGVO folgende Rechte hinsichtlich Ihrer personenbezogenen "
 "Daten:"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"Usage data expires from active reporting after at most 90 days; physical "
+"cleanup follows within another 24 hours. Batch receipts expire 90 days after "
+"receipt. Active installation and consent state expire after 90 days without "
+"new accepted reports. Minimal revocation or expiry records remain for 90 days "
+"after that event, without usage or repository hashes. The unified event "
+"service also expires receipts and inactive identity state after 90 days. "
+"Expired records are physically removed within another 24 hours."
+msgstr ""
+"Nutzungsdaten werden nach höchstens 90 Tagen nicht mehr für aktive "
+"Auswertungen verwendet; die physische Bereinigung erfolgt innerhalb weiterer "
+"24 Stunden. Paketbelege verfallen 90 Tage nach Eingang. Aktive Installations- "
+"und Einwilligungsdaten verfallen nach 90 Tagen ohne neu angenommene Berichte. "
+"Minimale Widerrufs- oder Ablaufdatensätze bleiben ab diesem Ereignis 90 Tage "
+"erhalten, ohne Nutzungsdaten oder Repository-Hashes. Auch der vereinheitlichte"
+" Ereignisdienst lässt Belege und inaktive Identitätsdaten nach 90 Tagen "
+"verfallen. Abgelaufene Datensätze werden innerhalb weiterer 24 Stunden "
+"physisch entfernt."
 
 #: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
 msgid ""
@@ -2295,6 +2461,26 @@ msgstr ""
 "Palamedes ist und bleibt Open Source; Palamedes+ ergänzt den Dienst darum "
 "herum. Sie können prüfen, worauf Sie sich verlassen."
 
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"Where reliable repository metadata is available, the tool calculates a SHA-256"
+" hash of the normalized repository URL locally. The original URL is not sent. "
+"Clones and developers of the same repository share its hash, including across "
+"our tools; forks have different hashes. Someone who knows or guesses a URL can"
+" calculate and match its hash. Reports are therefore pseudonymous, rather than"
+" anonymous. Reports exclude source code, file contents, command arguments, "
+"local paths, repository URLs, usernames, machine names, session IDs, and skill"
+" names or content."
+msgstr ""
+"Wenn verlässliche Repository-Metadaten vorliegen, berechnet das Tool lokal "
+"einen SHA-256-Hash der normalisierten Repository-URL. Die ursprüngliche URL "
+"wird nicht übermittelt. Klone und Entwickler desselben Repositorys teilen "
+"dessen Hash, auch über unsere Tools hinweg; Forks haben andere Hashes. Wer "
+"eine URL kennt oder errät, kann ihren Hash berechnen und zuordnen. Berichte "
+"sind daher pseudonym und nicht anonym. Sie enthalten keinen Quellcode, keine "
+"Dateiinhalte, Befehlsargumente, lokalen Pfade, Repository-URLs, Benutzernamen,"
+" Rechnernamen, Sitzungs-IDs oder Skill-Namen und -Inhalte."
+
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
 "Where we process your personal data on the basis of legitimate interests "
@@ -2318,6 +2504,25 @@ msgstr ""
 msgid "Why"
 msgstr "Warum"
 
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"With your permission, we use reports to understand which tool versions, "
+"commands, and platforms are used and to decide what to maintain and improve. "
+"We measure participating installations and repositories, not individual people"
+" or everyone who uses a tool. Reporting views are restricted to authorized "
+"maintainers; we do not publish individual reports."
+msgstr ""
+"Mit Ihrer Zustimmung verwenden wir Berichte, um zu verstehen, welche "
+"Tool-Versionen, Befehle und Plattformen genutzt werden und was wir pflegen und"
+" verbessern sollten. Wir erfassen teilnehmende Installationen und "
+"Repositories, keine einzelnen Personen oder sämtliche Nutzer eines Tools. "
+"Auswertungen sind auf berechtigte Maintainer beschränkt; einzelne Berichte "
+"veröffentlichen wir nicht."
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Withdrawal, deletion, and your rights"
+msgstr "Widerruf, Löschung und Ihre Rechte"
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/contact.tsx
 #~ msgid "Write to us; one of the two founders answers."
@@ -2332,6 +2537,43 @@ msgstr ""
 "Schreiben Sie uns; einer der beiden Gründer antwortet. Für Produkte und "
 "Partnerschaften genügt eine E-Mail. Wenn Sie Projekthilfe suchen, ist "
 "Sebastian Consulting die richtige Adresse, mit denselben zwei Personen."
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"You can separately request deletion of retained reports using the credential "
+"held locally by the tool. An offline request remains pending until the service"
+" acknowledges it. Losing or explicitly removing local state can prevent "
+"automatic deletion or retries. Contact our privacy address if you need help; "
+"loss of a credential does not remove your statutory rights. Do not send "
+"credentials or private repository URLs as proof of identity. The rights and "
+"complaint options described in this policy also apply to tool reporting."
+msgstr ""
+"Sie können gesondert die Löschung gespeicherter Berichte mit dem lokal im "
+"Tool hinterlegten Zugangsnachweis anfordern. Eine Offline-Anfrage bleibt "
+"ausstehend, bis der Dienst sie bestätigt. Der Verlust oder das ausdrückliche"
+" Entfernen lokaler Daten kann die automatische Löschung oder "
+"Wiederholungsversuche verhindern. Wenden Sie sich an unsere "
+"Datenschutzadresse, wenn Sie Hilfe benötigen; der Verlust eines "
+"Zugangsnachweises hebt Ihre gesetzlichen Rechte nicht auf. Senden Sie keine "
+"Zugangsdaten oder privaten Repository-URLs als Identitätsnachweis. Die in "
+"dieser Erklärung beschriebenen Rechte und Beschwerdemöglichkeiten gelten "
+"auch für Nutzungsberichte aus Tools."
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"You can withdraw consent in the tool at any time. Withdrawal stops new "
+"collection and uploads and discards unsent usage; it does not affect the "
+"lawfulness of earlier processing. Previously received reports remain until "
+"deletion or expiry. The tool can show its effective setting and preview queued"
+" data locally. Its documentation explains the available controls."
+msgstr ""
+"Sie können Ihre Einwilligung jederzeit im Tool widerrufen. Der Widerruf "
+"beendet neue Erfassung und Übermittlung und verwirft noch nicht gesendete "
+"Nutzungsdaten; die Rechtmäßigkeit der bisherigen Verarbeitung bleibt "
+"unberührt. Bereits empfangene Berichte bleiben bis zur Löschung oder zum "
+"Ablauf ihrer Speicherfrist erhalten. Das Tool kann die wirksame Einstellung "
+"anzeigen und vorgemerkte Daten lokal zur Vorschau bereitstellen. Seine "
+"Dokumentation erläutert die verfügbaren Einstellungen."
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""

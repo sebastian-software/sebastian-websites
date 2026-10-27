@@ -1,7 +1,7 @@
 # Sebastian Websites
 
 Monorepo for the websites of Sebastian Software GmbH: Sebastian Software, Sebastian Consulting,
-and Open Source. One shared design system and brand bar, one static site per brand site and
+Open Source, and the app-tracking service explainer. One shared design system and brand bar, one static site per brand site and
 language, hosted on Bunny. The skills for coding agents, Effective Agent, keep their own site
 in the skills repository and are presented here as an open-source product.
 
@@ -11,6 +11,8 @@ checks, builds, and delivery are implemented: every push to `main` publishes eac
 its Bunny origin host. Canonical domains, previews, and phone layouts are still open.
 
 The reusable legacy company copy is in [apps/software/content](apps/software/content/README.md).
+The [app-tracking website guide](docs/operations/app-tracking-site.md) describes its
+English/German variants, prepared subdomains, and compatibility cutover.
 Font binaries and photographs are uploaded manually to the shared Bunny asset zone. The
 typography CSS is versioned here in `apps/brand/public`; licensed binaries and source
 backups stay outside this public repository. [docs/operations/font-hosting.md](docs/operations/font-hosting.md) describes the integration.

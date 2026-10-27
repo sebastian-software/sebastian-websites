@@ -35,3 +35,5 @@ jobs:
         run: pnpm --filter @sebastian-websites/consulting exec playwright install --with-deps chromium
       - name: Build all variants
         run: pnpm build
+      - name: Verify the reporting website in both languages
+        run: pnpm --filter @sebastian-websites/app-tracking check:browser

@@ -4,6 +4,7 @@ import { t } from "@palamedes/core/macro"
 import { PrivacyDocument } from "@sebastian-websites/legal"
 import { legalClassNames } from "@sebastian-websites/ui"
 
+import { ToolReportingPrivacy } from "~/components/ToolReportingPrivacy"
 import { legalConfig } from "~/lib/legal"
 
 import type { Route } from "./+types/privacy"
@@ -16,7 +17,11 @@ export function meta(): Route.MetaDescriptors {
 export default function Privacy(): ReactElement {
   return (
     <main id="main">
-      <PrivacyDocument classes={legalClassNames} config={legalConfig} />
+      <PrivacyDocument
+        additionalSections={<ToolReportingPrivacy />}
+        classes={legalClassNames}
+        config={legalConfig}
+      />
     </main>
   )
 }
