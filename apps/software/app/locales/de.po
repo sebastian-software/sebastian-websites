@@ -248,6 +248,23 @@ msgstr "Aus Lücken entstanden, die wir gesehen haben"
 #~ msgid "Born from our own need"
 #~ msgstr "Aus eigenem Bedarf entstanden"
 
+#~ #@ obsolete-since: 2026-10-28
+#~ #: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+#~ msgid ""
+#~ "Both additional choices rely on consent under Article 6(1)(a) GDPR and, for "
+#~ "the associated device storage and access, section 25(1) TDDDG. You can "
+#~ "withdraw each choice in the same tool settings used to give it, without "
+#~ "affecting the lawfulness of earlier processing. Public usage statistics remain"
+#~ " disabled pending a separate disclosure assessment."
+#~ msgstr ""
+#~ "Beide zusätzlichen Entscheidungen beruhen auf Ihrer Einwilligung nach Artikel"
+#~ " 6 Absatz 1 Buchstabe a DSGVO und für die zugehörige Speicherung und den "
+#~ "Zugriff auf Ihrem Gerät nach § 25 Absatz 1 TDDDG. Sie können jede "
+#~ "Entscheidung in denselben Werkzeugeinstellungen widerrufen, in denen Sie sie "
+#~ "erteilt haben. Die Rechtmäßigkeit der früheren Verarbeitung bleibt davon "
+#~ "unberührt. Öffentliche Nutzungsstatistiken bleiben bis zu einer gesonderten "
+#~ "Prüfung der Veröffentlichung deaktiviert."
+
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#ProjectSupport
 #~ msgid ""
@@ -1056,6 +1073,10 @@ msgstr "Mission"
 #~ msgid "Monorepos and design systems"
 #~ msgstr "Monorepos und Design-Systeme"
 
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid "Monthly usage history"
+msgstr "Monatliche Nutzungsstatistiken"
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/company.tsx
 #~ msgid ""
@@ -1121,6 +1142,30 @@ msgstr "Online-Terminbuchung für kleine Betriebe."
 #~ " keine Cookies. Der Kalenderabgleich mit Google, iCloud oder CalDAV verhindert"
 #~ " Doppelbuchungen, Bestätigungen und Erinnerungen gehen automatisch raus, und "
 #~ "Buchungsdaten bleiben auf Servern in Deutschland."
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"Only reports from the UTC date after acknowledgement can contribute. Published"
+" summaries expire after 24 months following month end. Anyone can access and "
+"copy public figures. Group checks and rounding reduce disclosure risks but do "
+"not guarantee anonymity or prevent matching with other knowledge. You can "
+"withdraw publication consent separately while keeping internal monthly "
+"summaries. After acknowledgement, we remove affected public summaries and "
+"recalculate only where all source data remains available. We cannot recall "
+"copies held by others. Offline withdrawal remains pending. The consent basis, "
+"processors, safeguards, and rights in this notice also apply to publication."
+msgstr ""
+"Nur Berichte ab dem UTC-Tag nach Bestätigung können beitragen. "
+"Veröffentlichte Summen verfallen 24 Monate nach Monatsende. Jeder kann "
+"öffentliche Zahlen abrufen und kopieren. Gruppenprüfungen und Rundung "
+"verringern Offenlegungsrisiken, garantieren aber keine Anonymität und "
+"verhindern keinen Abgleich mit anderem Wissen. Sie können die Einwilligung "
+"zur Veröffentlichung gesondert widerrufen und interne Monatsstatistiken "
+"beibehalten. Nach Bestätigung entfernen wir betroffene öffentliche Summen "
+"und berechnen sie nur neu, wenn noch alle Quelldaten vorliegen. Kopien bei "
+"Dritten können wir nicht zurückholen. Ein Offline-Widerruf bleibt "
+"ausstehend. Die Einwilligungsgrundlage, Auftragsverarbeiter, Garantien und "
+"Rechte dieses Hinweises gelten auch für die Veröffentlichung."
 
 #: app/components/OpenFoundations.tsx#OpenFoundations
 msgid "Open foundations"
@@ -1196,9 +1241,28 @@ msgstr "Offen, wo es zählt"
 #~ msgid "open-source projects, counted live"
 #~ msgstr "Open-Source-Projekte, live gezählt"
 
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid "Optional cross-tool profile linking"
+msgstr "Optionale werkzeugübergreifende Profilverknüpfung"
+
 #: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
 msgid "Optional usage reports from our developer tools"
 msgstr "Freiwillige Nutzungsberichte aus unseren Entwicklertools"
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"Ordinary usage consent does not include these additional uses. Each stays off "
+"until you choose it separately in a participating tool. Declining either "
+"choice leaves the tool, update checks, and ordinary reporting settings "
+"available. An upgrade or a shared local profile file does not grant "
+"permission."
+msgstr ""
+"Die Zustimmung zu Nutzungsberichten umfasst diese zusätzlichen Verwendungen "
+"nicht. Beide bleiben ausgeschaltet, bis Sie sie in einem teilnehmenden "
+"Werkzeug einzeln erlauben. Auch ohne diese Freigaben bleiben das Werkzeug, "
+"Update-Prüfungen und die Einstellungen für gewöhnliche Nutzungsberichte "
+"verfügbar. Ein Update oder eine gemeinsam genutzte lokale Profildatei erteilt"
+" keine Einwilligung."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Our agency"
@@ -1432,6 +1496,10 @@ msgstr "Projekte auf GitHub"
 #~ #: app/routes/home.tsx#Stance
 #~ msgid "Proof instead of claims"
 #~ msgstr "Belegen statt behaupten"
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid "Public monthly usage totals"
+msgstr "Öffentliche monatliche Nutzungszahlen"
 
 #: app/components/Founders.tsx#Founders
 msgid ""
@@ -1692,6 +1760,10 @@ msgstr "Sebastian Werner und Sebastian Fastner in der Lounge ihres Büros"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "See what we build beyond consulting."
 msgstr "Sehen Sie, was wir jenseits der Beratung bauen."
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid "Separate choices for monthly history and profile linking"
+msgstr "Getrennte Entscheidungen für Monatsstatistiken und Profilverknüpfung"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Services"
@@ -2000,6 +2072,20 @@ msgid "There is no contact form – contact is made exclusively by email."
 msgstr ""
 "Es gibt kein Kontaktformular – die Kontaktaufnahme erfolgt ausschließlich "
 "per E-Mail."
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"These additional choices rely on consent under Article 6(1)(a) GDPR and, for "
+"the associated device storage and access, section 25(1) TDDDG. You can "
+"withdraw each choice in the same tool settings used to give it, without "
+"affecting the lawfulness of earlier processing."
+msgstr ""
+"Diese zusätzlichen Entscheidungen beruhen auf Ihrer Einwilligung nach Artikel"
+" 6 Absatz 1 Buchstabe a DSGVO und für die zugehörige Speicherung und den "
+"Zugriff auf Ihrem Gerät nach § 25 Absatz 1 TDDDG. Sie können jede "
+"Entscheidung in denselben Werkzeugeinstellungen widerrufen, in denen Sie sie "
+"erteilt haben. Die Rechtmäßigkeit der früheren Verarbeitung bleibt davon "
+"unberührt."
 
 #~ #@ obsolete-since: 2026-10-09
 #~ #: app/components/ProductCards.tsx#ProductCards
@@ -2504,6 +2590,51 @@ msgstr ""
 msgid "Why"
 msgstr "Warum"
 
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"With a third, separate consent, monthly totals may be published through "
+"app-tracking and oss-metrics to show adoption of our tools. This requires "
+"monthly-history consent but is not included in it. Public groups contain only "
+"month, tool, reporting stream, metric, local or CI context, and counts rounded"
+" down to tens. Each group requires at least 20 installations and 20 known "
+"repositories, with no installation or repository contributing more than 10 "
+"percent. No installation, profile, or repository identifiers, unique counts, "
+"or command, version, or system breakdowns are published."
+msgstr ""
+"Mit einer dritten, gesonderten Einwilligung dürfen monatliche Summen über "
+"app-tracking und oss-metrics veröffentlicht werden, um die Nutzung unserer "
+"Werkzeuge sichtbar zu machen. Dies setzt die Einwilligung zu Monatsstatistiken"
+" voraus, ist darin aber nicht enthalten. Öffentliche Gruppen enthalten nur "
+"Monat, Werkzeug, Berichtsprotokoll, Metrik, lokale Nutzung oder CI sowie auf "
+"Zehner abgerundete Zahlen. Jede Gruppe benötigt mindestens 20 Installationen "
+"und 20 bekannte Repositories; keine Installation und kein Repository darf mehr"
+" als 10 Prozent beitragen. Installations-, Profil- und Repository-Kennungen, "
+"eindeutige Anzahlen sowie Aufschlüsselungen nach Befehl, Version oder System "
+"werden nicht veröffentlicht."
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"With another separate consent, we link future local-use reports from "
+"participating tools to understand which tools are used together and improve "
+"them. Each tool requires its own choice. A random identifier and a separate "
+"reset credential are kept in a private local profile file; the service stores "
+"the profile identifier, a hash of its credential, tool links, and permission "
+"times. This does not identify a verified person or physical machine. Copied "
+"files represent the same profile. CI reports are excluded. Eligibility begins "
+"on the UTC date after acknowledgement; earlier reports are not linked."
+msgstr ""
+"Mit einer weiteren gesonderten Einwilligung verknüpfen wir künftige Berichte"
+" zur lokalen Nutzung teilnehmender Werkzeuge, um zu verstehen, welche "
+"Werkzeuge gemeinsam verwendet werden, und sie zu verbessern. Jedes Werkzeug "
+"benötigt eine eigene Entscheidung. Eine zufällige Kennung und ein separates "
+"Zugangstoken zum Zurücksetzen liegen in einer privaten lokalen Profildatei; "
+"der Dienst speichert die Profilkennung, einen Hash des Tokens, "
+"Werkzeugverknüpfungen und Einwilligungszeitpunkte. Das Profil weist weder "
+"eine Person noch ein physisches Gerät nach. Kopierte Dateien stehen für "
+"dasselbe Profil. CI-Berichte sind ausgeschlossen. Berücksichtigt werden "
+"Berichte ab dem UTC-Tag nach Bestätigung; frühere Berichte werden nicht "
+"verknüpft."
+
 #: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
 msgid ""
 "With your permission, we use reports to understand which tool versions, "
@@ -2518,6 +2649,26 @@ msgstr ""
 "Repositories, keine einzelnen Personen oder sämtliche Nutzer eines Tools. "
 "Auswertungen sind auf berechtigte Maintainer beschränkt; einzelne Berichte "
 "veröffentlichen wir nicht."
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"With your separate consent, we retain screened monthly usage counts and "
+"monthly installation and repository totals for 24 months after the month ends,"
+" to understand trends and plan maintenance. Detailed reports still expire "
+"after 90 days. Only usage from the UTC date after the service acknowledges the"
+" choice is eligible. Minimum group sizes and contribution limits can make a "
+"month unavailable; they do not guarantee anonymity. This choice does not "
+"authorize public release."
+msgstr ""
+"Mit Ihrer gesonderten Einwilligung bewahren wir geprüfte monatliche "
+"Nutzungszahlen sowie monatliche Summen der Installationen und Repositories "
+"für 24 Monate nach Monatsende auf, um Entwicklungen zu verstehen und die "
+"Wartung zu planen. Detailberichte verfallen weiterhin nach 90 Tagen. "
+"Berücksichtigt wird nur Nutzung ab dem UTC-Tag nach Bestätigung der "
+"Entscheidung durch den Dienst. Mindestgruppengrößen und Beitragsgrenzen "
+"können dazu führen, dass ein Monat nicht verfügbar ist; sie garantieren "
+"keine Anonymität. Diese Entscheidung erlaubt keine öffentliche "
+"Veröffentlichung."
 
 #: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
 msgid "Withdrawal, deletion, and your rights"
@@ -2559,6 +2710,29 @@ msgstr ""
 "dieser Erklärung beschriebenen Rechte und Beschwerdemöglichkeiten gelten "
 "auch für Nutzungsberichte aus Tools."
 
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"You can unlink one tool or reset the shared profile for all linked tools. A "
+"reset removes links, not the tools’ independently retained reports. Deleting"
+" a tool’s reports also removes its link. Failed or offline requests remain "
+"visibly pending. Profile metadata remains while active links exist; inactive "
+"or reset metadata expires after 90 days, followed by physical cleanup within "
+"24 hours. Linking does not extend the 90-day detail limit, enable monthly "
+"history, or authorize public release. Profile identifiers and overlap "
+"statistics are not published."
+msgstr ""
+"Sie können ein einzelnes Werkzeug trennen oder das gemeinsame Profil für "
+"alle verknüpften Werkzeuge zurücksetzen. Ein Zurücksetzen entfernt "
+"Verknüpfungen, nicht die unabhängig aufbewahrten Berichte der Werkzeuge. "
+"Beim Löschen der Berichte eines Werkzeugs entfällt auch dessen Verknüpfung."
+" Fehlgeschlagene oder offline gestellte Anfragen bleiben sichtbar ausstehend. "
+"Profilmetadaten bestehen, solange aktive Verknüpfungen vorliegen; inaktive "
+"oder zurückgesetzte Metadaten verfallen nach 90 Tagen und werden innerhalb "
+"weiterer 24 Stunden physisch gelöscht. Die Verknüpfung verlängert die "
+"90-Tage-Frist für Detaildaten nicht, aktiviert keine Monatsstatistiken und "
+"erlaubt keine öffentliche Veröffentlichung. Profilkennungen und Statistiken "
+"zur gemeinsamen Werkzeugnutzung werden nicht veröffentlicht."
+
 #: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
 msgid ""
 "You can withdraw consent in the tool at any time. Withdrawal stops new "
@@ -2574,6 +2748,23 @@ msgstr ""
 "Ablauf ihrer Speicherfrist erhalten. Das Tool kann die wirksame Einstellung "
 "anzeigen und vorgemerkte Daten lokal zur Vorschau bereitstellen. Seine "
 "Dokumentation erläutert die verfügbaren Einstellungen."
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"You can withdraw monthly-history consent without stopping ordinary reporting. "
+"Once acknowledged, withdrawal or deletion invalidates the affected monthly "
+"summaries. If the detailed source data has already expired, those months "
+"remain unavailable. Offline changes remain pending until acknowledged. The "
+"same processors, transfer safeguards, and rights described in this notice "
+"apply."
+msgstr ""
+"Sie können die Einwilligung zu Monatsstatistiken widerrufen, ohne "
+"gewöhnliche Nutzungsberichte zu beenden. Nach Bestätigung machen Widerruf "
+"oder Löschung die betroffenen Monatsstatistiken ungültig. Sind die zugrunde "
+"liegenden Detaildaten bereits verfallen, bleiben diese Monate nicht "
+"verfügbar. Offline-Änderungen bleiben bis zur Bestätigung ausstehend. Es "
+"gelten dieselben Auftragsverarbeiter, Übermittlungsgarantien und Rechte wie "
+"in diesem Hinweis."
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""

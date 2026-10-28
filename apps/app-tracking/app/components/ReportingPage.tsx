@@ -167,6 +167,21 @@ export function ReportingPage(): ReactElement {
               </dd>
             </div>
           </dl>
+          <h3>{t`More choices, if you want to help further`}</h3>
+          <p>{t`Ordinary reporting stays limited to 90 days. Participating tools can separately ask to retain screened monthly summaries for 24 months, link future reports through a private random profile, or contribute to public monthly totals. Each choice is optional, starts only after acknowledgement, and can be withdrawn independently. Existing consent and software updates enable none of these purposes.`}</p>
+          <p>
+            <a
+              href={`${toolReportingPrivacyUrl.split("#")[0]}#tool-usage-history`}
+            >{t`Monthly history and withdrawal`}</a>
+            {" · "}
+            <a
+              href={`${toolReportingPrivacyUrl.split("#")[0]}#tool-usage-profiles`}
+            >{t`Profile linking, unlinking, and reset`}</a>
+            {" · "}
+            <a
+              href={`${toolReportingPrivacyUrl.split("#")[0]}#tool-usage-public`}
+            >{t`Public totals and withdrawal`}</a>
+          </p>
           <p>
             {" "}
             {t`Integrations must honor either shared off switch below, even with an existing opt-in. These local settings do not request deletion of received reports.`}{" "}
@@ -210,7 +225,7 @@ export function ReportingPage(): ReactElement {
           </p>
           <p>
             <strong>{t`Hosting and access.`}</strong>{" "}
-            {t`Bunny hosts the API; PlanetScale stores reporting data. Reporting views are private to authorized maintainers; no public usage export or durable historical summaries are enabled. Providers process network metadata, including IP addresses. Processing and subprocessors can involve international transfers; an EU database region does not mean EU-only processing.`}{" "}
+            {t`Bunny hosts the API; PlanetScale stores reporting data. Authorized maintainers can view reports. Monthly history, profile linking, and public totals each need a separate permission. Public totals use only contributions permitted for publication and pass separate group checks; they contain no identifiers or detailed breakdowns. Providers process network metadata, including IP addresses. Processing and subprocessors can involve international transfers; an EU database region does not mean EU-only processing.`}{" "}
           </p>
           <p>
             <strong>{t`Logs and verification.`}</strong>{" "}
@@ -249,7 +264,7 @@ export function ReportingPage(): ReactElement {
         </p>
         <p>
           <strong>{t`Future metrics.`}</strong>{" "}
-          {t`All shipped product definitions currently require opt-in. The API supports a baseline route without an installation ID, but no production baseline metric is registered. Node support, consumer adoption, and the new reporting interface remain follow-up work.`}{" "}
+          {t`All shipped product definitions currently require opt-in. No production baseline metric is registered. New purposes require a separate explanation and permission before they begin. Your tool’s released notice and settings describe which features it supports.`}{" "}
           <a href="https://github.com/sebastian-software/app-tracking/blob/main/docs/adr/0010-metrics-purposes-and-consent.md">{t`Proposed direction`}</a>
           {"."}{" "}
         </p>

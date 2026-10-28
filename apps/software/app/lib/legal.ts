@@ -25,8 +25,8 @@ export const legalConfig: LegalSiteConfig = defineLegalSiteConfig({
   privacyReview: {
     contentSource:
       "Existing website notice plus app-tracking reporting contracts and provider disclosures; verify processor agreements and activation settings before real reporting",
-    contentVerifiedOn: "2026-10-27",
+    contentVerifiedOn: "2026-10-28",
     legalReviewStatus: "review-required-before-production",
-    versionOn: "2026-10-27",
+    versionOn: "2026-10-28",
   },
 })
