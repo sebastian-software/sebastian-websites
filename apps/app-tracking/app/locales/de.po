@@ -87,16 +87,26 @@ msgstr ""
 
 #: app/components/ReportingPage.tsx#ReportingPage
 msgid ""
-"All shipped product definitions currently require opt-in. The API supports a "
-"baseline route without an installation ID, but no production baseline metric "
-"is registered. Node support, consumer adoption, and the new reporting "
-"interface remain follow-up work."
-msgstr ""
-"Alle derzeit ausgelieferten Produktmetriken benötigen eine ausdrückliche "
-"Einwilligung. Die API unterstützt einen Basispfad ohne Installations-ID, für"
-" den jedoch keine produktive Metrik registriert ist. Node-Unterstützung, die "
-"Integration in konsumierende Tools und die neue Auswertungsoberfläche sind "
-"noch offen."
+"All shipped product definitions currently require opt-in. No production "
+"baseline metric is registered. New purposes require a separate explanation and"
+" permission before they begin. Your tool’s released notice and settings "
+"describe which features it supports."
+msgstr "Alle ausgelieferten Produktdefinitionen erfordern derzeit eine Einwilligung. Es ist keine einwilligungsfreie Produktionsmetrik registriert. Neue Zwecke benötigen vor Beginn eine gesonderte Erklärung und Erlaubnis. Der veröffentlichte Hinweis und die Einstellungen Ihres Werkzeugs beschreiben, welche Funktionen es unterstützt."
+
+
+#~ #@ obsolete-since: 2026-10-28
+#~ #: app/components/ReportingPage.tsx#ReportingPage
+#~ msgid ""
+#~ "All shipped product definitions currently require opt-in. The API supports a "
+#~ "baseline route without an installation ID, but no production baseline metric "
+#~ "is registered. Node support, consumer adoption, and the new reporting "
+#~ "interface remain follow-up work."
+#~ msgstr ""
+#~ "Alle derzeit ausgelieferten Produktmetriken benötigen eine ausdrückliche "
+#~ "Einwilligung. Die API unterstützt einen Basispfad ohne Installations-ID, für"
+#~ " den jedoch keine produktive Metrik registriert ist. Node-Unterstützung, die "
+#~ "Integration in konsumierende Tools und die neue Auswertungsoberfläche sind "
+#~ "noch offen."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Almost done: please confirm the link we just sent you."
@@ -148,19 +158,31 @@ msgstr "Erstgespräch buchen"
 
 #: app/components/ReportingPage.tsx#ReportingPage
 msgid ""
-"Bunny hosts the API; PlanetScale stores reporting data. Reporting views are "
-"private to authorized maintainers; no public usage export or durable "
-"historical summaries are enabled. Providers process network metadata, "
-"including IP addresses. Processing and subprocessors can involve international"
-" transfers; an EU database region does not mean EU-only processing."
-msgstr ""
-"Bunny hostet die API; PlanetScale speichert die Berichtsdaten. Auswertungen "
-"sind nur für berechtigte Maintainer zugänglich. Ein öffentlicher Export "
-"oder dauerhafte historische Zusammenfassungen sind nicht aktiviert. Die "
-"Anbieter verarbeiten Netzwerkmetadaten einschließlich IP-Adressen. Die "
-"Verarbeitung und Unterauftragsverarbeiter können internationale "
-"Datenübermittlungen einschließen; ein Datenbankstandort in der EU bedeutet "
-"keine ausschließlich europäische Verarbeitung."
+"Bunny hosts the API; PlanetScale stores reporting data. Authorized maintainers"
+" can view reports. Additional monthly history requires its own consent; "
+"profile linking requires another choice. Public usage statistics remain "
+"disabled. Providers process network metadata, including IP addresses. "
+"Processing and subprocessors can involve international transfers; an EU "
+"database region does not mean EU-only processing."
+msgstr "Bunny betreibt die API; PlanetScale speichert die Berichtsdaten. Berechtigte Maintainer können Berichte einsehen. Zusätzliche Monatsstatistiken benötigen eine eigene Einwilligung; Profilverknüpfungen eine weitere Entscheidung. Öffentliche Nutzungsstatistiken bleiben deaktiviert. Anbieter verarbeiten Netzwerkmetadaten einschließlich IP-Adressen. Verarbeitung und Unterauftragsverarbeiter können internationale Übermittlungen einschließen; eine EU-Datenbankregion bedeutet keine ausschließlich europäische Verarbeitung."
+
+
+#~ #@ obsolete-since: 2026-10-28
+#~ #: app/components/ReportingPage.tsx#ReportingPage
+#~ msgid ""
+#~ "Bunny hosts the API; PlanetScale stores reporting data. Reporting views are "
+#~ "private to authorized maintainers; no public usage export or durable "
+#~ "historical summaries are enabled. Providers process network metadata, "
+#~ "including IP addresses. Processing and subprocessors can involve international"
+#~ " transfers; an EU database region does not mean EU-only processing."
+#~ msgstr ""
+#~ "Bunny hostet die API; PlanetScale speichert die Berichtsdaten. Auswertungen "
+#~ "sind nur für berechtigte Maintainer zugänglich. Ein öffentlicher Export "
+#~ "oder dauerhafte historische Zusammenfassungen sind nicht aktiviert. Die "
+#~ "Anbieter verarbeiten Netzwerkmetadaten einschließlich IP-Adressen. Die "
+#~ "Verarbeitung und Unterauftragsverarbeiter können internationale "
+#~ "Datenübermittlungen einschließen; ein Datenbankstandort in der EU bedeutet "
+#~ "keine ausschließlich europäische Verarbeitung."
 
 #: app/routes/privacy.tsx
 msgid ""
@@ -621,6 +643,16 @@ msgstr "Menü"
 msgid "metric catalog"
 msgstr "Metrikkatalog"
 
+#: app/components/ReportingPage.tsx#ReportingPage
+msgid "Monthly history and withdrawal"
+msgstr "Monatsstatistiken und Widerruf"
+
+
+#: app/components/ReportingPage.tsx#ReportingPage
+msgid "More choices, if you want to help further"
+msgstr "Weitere Möglichkeiten, wenn Sie mehr beitragen möchten"
+
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Need a clearer direction for your software?"
 msgstr "Brauchen Sie eine klarere Richtung für Ihre Software?"
@@ -640,6 +672,16 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Obligation to Provide Data"
 msgstr "Pflicht zur Bereitstellung der Daten"
+
+#: app/components/ReportingPage.tsx#ReportingPage
+msgid ""
+"Ordinary reporting stays limited to 90 days. Participating tools can "
+"separately ask to retain screened monthly summaries for 24 months or link "
+"future reports through a private random profile. Both choices are optional, "
+"start only after acknowledgement, and can be withdrawn independently. Existing"
+" consent and software updates enable neither."
+msgstr "Gewöhnliche Nutzungsberichte bleiben auf 90 Tage begrenzt. Teilnehmende Werkzeuge können gesondert fragen, ob geprüfte Monatsstatistiken 24 Monate aufbewahrt oder künftige Berichte über ein privates zufälliges Profil verknüpft werden dürfen. Beides ist freiwillig, beginnt erst nach Bestätigung und lässt sich unabhängig widerrufen. Bestehende Einwilligungen und Software-Updates aktivieren diese Funktionen nicht."
+
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Our agency"
@@ -753,6 +795,11 @@ msgstr "Eingesetzte Auftragsverarbeiter"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Products"
 msgstr "Produkte"
+
+#: app/components/ReportingPage.tsx#ReportingPage
+msgid "Profile linking, unlinking, and reset"
+msgstr "Profilverknüpfung, Trennen und Zurücksetzen"
+
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Profiles"

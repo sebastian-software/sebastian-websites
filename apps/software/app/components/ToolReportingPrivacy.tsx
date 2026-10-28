@@ -3,6 +3,42 @@ import type { ReactElement } from "react"
 import { t } from "@palamedes/core/macro"
 import { legalClassNames as classes } from "@sebastian-websites/ui"
 
+function AdditionalReportingChoices(): ReactElement {
+  return (
+    <>
+      <h3
+        className={classes.subsectionTitle}
+      >{t`Separate choices for monthly history and profile linking`}</h3>
+      <p
+        className={classes.text}
+      >{t`Ordinary usage consent does not include these additional uses. Each stays off until you choose it separately in a participating tool. Declining either choice leaves the tool, update checks, and ordinary reporting settings available. An upgrade or a shared local profile file does not grant permission.`}</p>
+      <h3
+        className={classes.subsectionTitle}
+        id="tool-usage-history"
+      >{t`Monthly usage history`}</h3>
+      <p
+        className={classes.text}
+      >{t`With your separate consent, we retain screened monthly usage counts and monthly installation and repository totals for 24 months after the month ends, to understand trends and plan maintenance. Detailed reports still expire after 90 days. Only usage from the UTC date after the service acknowledges the choice is eligible. Minimum group sizes and contribution limits can make a month unavailable; they do not guarantee anonymity. This choice does not authorize public release.`}</p>
+      <p
+        className={classes.text}
+      >{t`You can withdraw monthly-history consent without stopping ordinary reporting. Once acknowledged, withdrawal or deletion invalidates the affected monthly summaries. If the detailed source data has already expired, those months remain unavailable. Offline changes remain pending until acknowledged. The same processors, transfer safeguards, and rights described in this notice apply.`}</p>
+      <h3
+        className={classes.subsectionTitle}
+        id="tool-usage-profiles"
+      >{t`Optional cross-tool profile linking`}</h3>
+      <p
+        className={classes.text}
+      >{t`With another separate consent, we link future local-use reports from participating tools to understand which tools are used together and improve them. Each tool requires its own choice. A random identifier and a separate reset credential are kept in a private local profile file; the service stores the profile identifier, a hash of its credential, tool links, and permission times. This does not identify a verified person or physical machine. Copied files represent the same profile. CI reports are excluded. Eligibility begins on the UTC date after acknowledgement; earlier reports are not linked.`}</p>
+      <p
+        className={classes.text}
+      >{t`You can unlink one tool or reset the shared profile for all linked tools. A reset removes links, not the tools’ independently retained reports. Deleting a tool’s reports also removes its link. Failed or offline requests remain visibly pending. Profile metadata remains while active links exist; inactive or reset metadata expires after 90 days, followed by physical cleanup within 24 hours. Linking does not extend the 90-day detail limit, enable monthly history, or authorize public release. Profile identifiers and overlap statistics are not published.`}</p>
+      <p
+        className={classes.text}
+      >{t`Both additional choices rely on consent under Article 6(1)(a) GDPR and, for the associated device storage and access, section 25(1) TDDDG. You can withdraw each choice in the same tool settings used to give it, without affecting the lawfulness of earlier processing. Public usage statistics remain disabled pending a separate disclosure assessment.`}</p>
+    </>
+  )
+}
+
 // cspell:words TDDDG subprocessor subprocessors
 export function ToolReportingPrivacy(): ReactElement {
   return (
@@ -29,6 +65,7 @@ export function ToolReportingPrivacy(): ReactElement {
       <p
         className={classes.text}
       >{t`Where reliable repository metadata is available, the tool calculates a SHA-256 hash of the normalized repository URL locally. The original URL is not sent. Clones and developers of the same repository share its hash, including across our tools; forks have different hashes. Someone who knows or guesses a URL can calculate and match its hash. Reports are therefore pseudonymous, rather than anonymous. Reports exclude source code, file contents, command arguments, local paths, repository URLs, usernames, machine names, session IDs, and skill names or content.`}</p>
+      <AdditionalReportingChoices />
       <h3 className={classes.subsectionTitle}>{t`Processors and international transfers`}</h3>
       <p
         className={classes.text}

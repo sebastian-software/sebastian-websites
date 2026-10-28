@@ -241,6 +241,20 @@ msgstr "Born from gaps we saw"
 #~ msgid "Born from our own need"
 #~ msgstr "Born from our own need"
 
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"Both additional choices rely on consent under Article 6(1)(a) GDPR and, for "
+"the associated device storage and access, section 25(1) TDDDG. You can "
+"withdraw each choice in the same tool settings used to give it, without "
+"affecting the lawfulness of earlier processing. Public usage statistics remain"
+" disabled pending a separate disclosure assessment."
+msgstr ""
+"Both additional choices rely on consent under Article 6(1)(a) GDPR and, for "
+"the associated device storage and access, section 25(1) TDDDG. You can "
+"withdraw each choice in the same tool settings used to give it, without "
+"affecting the lawfulness of earlier processing. Public usage statistics remain"
+" disabled pending a separate disclosure assessment."
+
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#ProjectSupport
 #~ msgid ""
@@ -1035,6 +1049,10 @@ msgstr "Mission"
 #~ msgid "Monorepos and design systems"
 #~ msgstr "Monorepos and design systems"
 
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid "Monthly usage history"
+msgstr "Monthly usage history"
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/company.tsx
 #~ msgid ""
@@ -1174,9 +1192,27 @@ msgstr "Open where it matters"
 #~ msgid "open-source projects, counted live"
 #~ msgstr "open-source projects, counted live"
 
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid "Optional cross-tool profile linking"
+msgstr "Optional cross-tool profile linking"
+
 #: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
 msgid "Optional usage reports from our developer tools"
 msgstr "Optional usage reports from our developer tools"
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"Ordinary usage consent does not include these additional uses. Each stays off "
+"until you choose it separately in a participating tool. Declining either "
+"choice leaves the tool, update checks, and ordinary reporting settings "
+"available. An upgrade or a shared local profile file does not grant "
+"permission."
+msgstr ""
+"Ordinary usage consent does not include these additional uses. Each stays off "
+"until you choose it separately in a participating tool. Declining either "
+"choice leaves the tool, update checks, and ordinary reporting settings "
+"available. An upgrade or a shared local profile file does not grant "
+"permission."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Our agency"
@@ -1656,6 +1692,10 @@ msgstr "Sebastian Werner and Sebastian Fastner in the office lounge"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "See what we build beyond consulting."
 msgstr "See what we build beyond consulting."
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid "Separate choices for monthly history and profile linking"
+msgstr "Separate choices for monthly history and profile linking"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Services"
@@ -2443,6 +2483,26 @@ msgstr ""
 msgid "Why"
 msgstr "Why"
 
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"With another separate consent, we link future local-use reports from "
+"participating tools to understand which tools are used together and improve "
+"them. Each tool requires its own choice. A random identifier and a separate "
+"reset credential are kept in a private local profile file; the service stores "
+"the profile identifier, a hash of its credential, tool links, and permission "
+"times. This does not identify a verified person or physical machine. Copied "
+"files represent the same profile. CI reports are excluded. Eligibility begins "
+"on the UTC date after acknowledgement; earlier reports are not linked."
+msgstr ""
+"With another separate consent, we link future local-use reports from "
+"participating tools to understand which tools are used together and improve "
+"them. Each tool requires its own choice. A random identifier and a separate "
+"reset credential are kept in a private local profile file; the service stores "
+"the profile identifier, a hash of its credential, tool links, and permission "
+"times. This does not identify a verified person or physical machine. Copied "
+"files represent the same profile. CI reports are excluded. Eligibility begins "
+"on the UTC date after acknowledgement; earlier reports are not linked."
+
 #: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
 msgid ""
 "With your permission, we use reports to understand which tool versions, "
@@ -2456,6 +2516,24 @@ msgstr ""
 "We measure participating installations and repositories, not individual people"
 " or everyone who uses a tool. Reporting views are restricted to authorized "
 "maintainers; we do not publish individual reports."
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"With your separate consent, we retain screened monthly usage counts and "
+"monthly installation and repository totals for 24 months after the month ends,"
+" to understand trends and plan maintenance. Detailed reports still expire "
+"after 90 days. Only usage from the UTC date after the service acknowledges the"
+" choice is eligible. Minimum group sizes and contribution limits can make a "
+"month unavailable; they do not guarantee anonymity. This choice does not "
+"authorize public release."
+msgstr ""
+"With your separate consent, we retain screened monthly usage counts and "
+"monthly installation and repository totals for 24 months after the month ends,"
+" to understand trends and plan maintenance. Detailed reports still expire "
+"after 90 days. Only usage from the UTC date after the service acknowledges the"
+" choice is eligible. Minimum group sizes and contribution limits can make a "
+"month unavailable; they do not guarantee anonymity. This choice does not "
+"authorize public release."
 
 #: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
 msgid "Withdrawal, deletion, and your rights"
@@ -2494,6 +2572,26 @@ msgstr ""
 "credentials or private repository URLs as proof of identity. The rights and "
 "complaint options described in this policy also apply to tool reporting."
 
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"You can unlink one tool or reset the shared profile for all linked tools. A "
+"reset removes links, not the tools’ independently retained reports. Deleting"
+" a tool’s reports also removes its link. Failed or offline requests remain "
+"visibly pending. Profile metadata remains while active links exist; inactive "
+"or reset metadata expires after 90 days, followed by physical cleanup within "
+"24 hours. Linking does not extend the 90-day detail limit, enable monthly "
+"history, or authorize public release. Profile identifiers and overlap "
+"statistics are not published."
+msgstr ""
+"You can unlink one tool or reset the shared profile for all linked tools. A "
+"reset removes links, not the tools’ independently retained reports. Deleting"
+" a tool’s reports also removes its link. Failed or offline requests remain "
+"visibly pending. Profile metadata remains while active links exist; inactive "
+"or reset metadata expires after 90 days, followed by physical cleanup within "
+"24 hours. Linking does not extend the 90-day detail limit, enable monthly "
+"history, or authorize public release. Profile identifiers and overlap "
+"statistics are not published."
+
 #: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
 msgid ""
 "You can withdraw consent in the tool at any time. Withdrawal stops new "
@@ -2507,6 +2605,22 @@ msgstr ""
 "lawfulness of earlier processing. Previously received reports remain until "
 "deletion or expiry. The tool can show its effective setting and preview queued"
 " data locally. Its documentation explains the available controls."
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"You can withdraw monthly-history consent without stopping ordinary reporting. "
+"Once acknowledged, withdrawal or deletion invalidates the affected monthly "
+"summaries. If the detailed source data has already expired, those months "
+"remain unavailable. Offline changes remain pending until acknowledged. The "
+"same processors, transfer safeguards, and rights described in this notice "
+"apply."
+msgstr ""
+"You can withdraw monthly-history consent without stopping ordinary reporting. "
+"Once acknowledged, withdrawal or deletion invalidates the affected monthly "
+"summaries. If the detailed source data has already expired, those months "
+"remain unavailable. Offline changes remain pending until acknowledged. The "
+"same processors, transfer safeguards, and rights described in this notice "
+"apply."
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""

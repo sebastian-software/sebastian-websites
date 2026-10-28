@@ -231,6 +231,16 @@ async function checkOfficialPolicy(browser: Browser, locale: Locale): Promise<vo
           : "Freiwillige Nutzungsberichte aus unseren Entwicklertools"
       )
       assert.match(await section.innerText(), /PlanetScale, Inc\./v)
+      assert.equal(await section.locator("#tool-usage-history").count(), 1)
+      assert.equal(await section.locator("#tool-usage-profiles").count(), 1)
+      assert.match(await section.innerText(), /24/v)
+      assert.match(
+        await section.innerText(),
+        locale === "en"
+          ? /Public usage statistics remain disabled/v
+          : /Öffentliche Nutzungsstatistiken bleiben/v
+      )
+
       assert.equal(
         await section
           .locator('a[href="https://planetscale.com/legal/data-processing-addendum"]')
