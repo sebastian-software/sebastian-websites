@@ -168,7 +168,7 @@ export function ReportingPage(): ReactElement {
             </div>
           </dl>
           <h3>{t`More choices, if you want to help further`}</h3>
-          <p>{t`Ordinary reporting stays limited to 90 days. Participating tools can separately ask to retain screened monthly summaries for 24 months or link future reports through a private random profile. Both choices are optional, start only after acknowledgement, and can be withdrawn independently. Existing consent and software updates enable neither.`}</p>
+          <p>{t`Ordinary reporting stays limited to 90 days. Participating tools can separately ask to retain screened monthly summaries for 24 months, link future reports through a private random profile, or contribute to public monthly totals. Each choice is optional, starts only after acknowledgement, and can be withdrawn independently. Existing consent and software updates enable none of these purposes.`}</p>
           <p>
             <a
               href={`${toolReportingPrivacyUrl.split("#")[0]}#tool-usage-history`}
@@ -177,6 +177,10 @@ export function ReportingPage(): ReactElement {
             <a
               href={`${toolReportingPrivacyUrl.split("#")[0]}#tool-usage-profiles`}
             >{t`Profile linking, unlinking, and reset`}</a>
+            {" · "}
+            <a
+              href={`${toolReportingPrivacyUrl.split("#")[0]}#tool-usage-public`}
+            >{t`Public totals and withdrawal`}</a>
           </p>
           <p>
             {" "}
@@ -221,7 +225,7 @@ export function ReportingPage(): ReactElement {
           </p>
           <p>
             <strong>{t`Hosting and access.`}</strong>{" "}
-            {t`Bunny hosts the API; PlanetScale stores reporting data. Authorized maintainers can view reports. Additional monthly history requires its own consent; profile linking requires another choice. Public usage statistics remain disabled. Providers process network metadata, including IP addresses. Processing and subprocessors can involve international transfers; an EU database region does not mean EU-only processing.`}{" "}
+            {t`Bunny hosts the API; PlanetScale stores reporting data. Authorized maintainers can view reports. Monthly history, profile linking, and public totals each need a separate permission. Public totals use only contributions permitted for publication and pass separate group checks; they contain no identifiers or detailed breakdowns. Providers process network metadata, including IP addresses. Processing and subprocessors can involve international transfers; an EU database region does not mean EU-only processing.`}{" "}
           </p>
           <p>
             <strong>{t`Logs and verification.`}</strong>{" "}

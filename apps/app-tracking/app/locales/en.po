@@ -85,8 +85,11 @@ msgid ""
 "baseline metric is registered. New purposes require a separate explanation and"
 " permission before they begin. Your tool’s released notice and settings "
 "describe which features it supports."
-msgstr "All shipped product definitions currently require opt-in. No production baseline metric is registered. New purposes require a separate explanation and permission before they begin. Your tool’s released notice and settings describe which features it supports."
-
+msgstr ""
+"All shipped product definitions currently require opt-in. No production "
+"baseline metric is registered. New purposes require a separate explanation and"
+" permission before they begin. Your tool’s released notice and settings "
+"describe which features it supports."
 
 #~ #@ obsolete-since: 2026-10-28
 #~ #: app/components/ReportingPage.tsx#ReportingPage
@@ -147,16 +150,40 @@ msgstr "Backups."
 msgid "Book an intro call"
 msgstr "Book an intro call"
 
+#~ #@ obsolete-since: 2026-10-28
+#~ #: app/components/ReportingPage.tsx#ReportingPage
+#~ msgid ""
+#~ "Bunny hosts the API; PlanetScale stores reporting data. Authorized maintainers"
+#~ " can view reports. Additional monthly history requires its own consent; "
+#~ "profile linking requires another choice. Public usage statistics remain "
+#~ "disabled. Providers process network metadata, including IP addresses. "
+#~ "Processing and subprocessors can involve international transfers; an EU "
+#~ "database region does not mean EU-only processing."
+#~ msgstr ""
+#~ "Bunny hosts the API; PlanetScale stores reporting data. Authorized maintainers"
+#~ " can view reports. Additional monthly history requires its own consent; "
+#~ "profile linking requires another choice. Public usage statistics remain "
+#~ "disabled. Providers process network metadata, including IP addresses. "
+#~ "Processing and subprocessors can involve international transfers; an EU "
+#~ "database region does not mean EU-only processing."
+
 #: app/components/ReportingPage.tsx#ReportingPage
 msgid ""
 "Bunny hosts the API; PlanetScale stores reporting data. Authorized maintainers"
-" can view reports. Additional monthly history requires its own consent; "
-"profile linking requires another choice. Public usage statistics remain "
-"disabled. Providers process network metadata, including IP addresses. "
-"Processing and subprocessors can involve international transfers; an EU "
-"database region does not mean EU-only processing."
-msgstr "Bunny hosts the API; PlanetScale stores reporting data. Authorized maintainers can view reports. Additional monthly history requires its own consent; profile linking requires another choice. Public usage statistics remain disabled. Providers process network metadata, including IP addresses. Processing and subprocessors can involve international transfers; an EU database region does not mean EU-only processing."
-
+" can view reports. Monthly history, profile linking, and public totals each "
+"need a separate permission. Public totals use only contributions permitted for"
+" publication and pass separate group checks; they contain no identifiers or "
+"detailed breakdowns. Providers process network metadata, including IP "
+"addresses. Processing and subprocessors can involve international transfers; "
+"an EU database region does not mean EU-only processing."
+msgstr ""
+"Bunny hosts the API; PlanetScale stores reporting data. Authorized maintainers"
+" can view reports. Monthly history, profile linking, and public totals each "
+"need a separate permission. Public totals use only contributions permitted for"
+" publication and pass separate group checks; they contain no identifiers or "
+"detailed breakdowns. Providers process network metadata, including IP "
+"addresses. Processing and subprocessors can involve international transfers; "
+"an EU database region does not mean EU-only processing."
 
 #~ #@ obsolete-since: 2026-10-28
 #~ #: app/components/ReportingPage.tsx#ReportingPage
@@ -631,11 +658,9 @@ msgstr "metric catalog"
 msgid "Monthly history and withdrawal"
 msgstr "Monthly history and withdrawal"
 
-
 #: app/components/ReportingPage.tsx#ReportingPage
 msgid "More choices, if you want to help further"
 msgstr "More choices, if you want to help further"
-
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Need a clearer direction for your software?"
@@ -657,15 +682,36 @@ msgstr ""
 msgid "Obligation to Provide Data"
 msgstr "Obligation to Provide Data"
 
+#~ #@ obsolete-since: 2026-10-28
+#~ #: app/components/ReportingPage.tsx#ReportingPage
+#~ msgid ""
+#~ "Ordinary reporting stays limited to 90 days. Participating tools can "
+#~ "separately ask to retain screened monthly summaries for 24 months or link "
+#~ "future reports through a private random profile. Both choices are optional, "
+#~ "start only after acknowledgement, and can be withdrawn independently. Existing"
+#~ " consent and software updates enable neither."
+#~ msgstr ""
+#~ "Ordinary reporting stays limited to 90 days. Participating tools can "
+#~ "separately ask to retain screened monthly summaries for 24 months or link "
+#~ "future reports through a private random profile. Both choices are optional, "
+#~ "start only after acknowledgement, and can be withdrawn independently. Existing"
+#~ " consent and software updates enable neither."
+
 #: app/components/ReportingPage.tsx#ReportingPage
 msgid ""
 "Ordinary reporting stays limited to 90 days. Participating tools can "
-"separately ask to retain screened monthly summaries for 24 months or link "
-"future reports through a private random profile. Both choices are optional, "
-"start only after acknowledgement, and can be withdrawn independently. Existing"
-" consent and software updates enable neither."
-msgstr "Ordinary reporting stays limited to 90 days. Participating tools can separately ask to retain screened monthly summaries for 24 months or link future reports through a private random profile. Both choices are optional, start only after acknowledgement, and can be withdrawn independently. Existing consent and software updates enable neither."
-
+"separately ask to retain screened monthly summaries for 24 months, link future"
+" reports through a private random profile, or contribute to public monthly "
+"totals. Each choice is optional, starts only after acknowledgement, and can be"
+" withdrawn independently. Existing consent and software updates enable none of"
+" these purposes."
+msgstr ""
+"Ordinary reporting stays limited to 90 days. Participating tools can "
+"separately ask to retain screened monthly summaries for 24 months, link future"
+" reports through a private random profile, or contribute to public monthly "
+"totals. Each choice is optional, starts only after acknowledgement, and can be"
+" withdrawn independently. Existing consent and software updates enable none of"
+" these purposes."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Our agency"
@@ -781,7 +827,6 @@ msgstr "Products"
 msgid "Profile linking, unlinking, and reset"
 msgstr "Profile linking, unlinking, and reset"
 
-
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Profiles"
 msgstr "Profiles"
@@ -789,6 +834,10 @@ msgstr "Profiles"
 #: app/components/ReportingPage.tsx#ReportingPage
 msgid "Proposed direction"
 msgstr "Proposed direction"
+
+#: app/components/ReportingPage.tsx#ReportingPage
+msgid "Public totals and withdrawal"
+msgstr "Public totals and withdrawal"
 
 #: app/components/ReportingPage.tsx#ReportingPage
 msgid "recovery policy"

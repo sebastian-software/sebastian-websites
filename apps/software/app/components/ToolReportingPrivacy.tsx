@@ -34,7 +34,17 @@ function AdditionalReportingChoices(): ReactElement {
       >{t`You can unlink one tool or reset the shared profile for all linked tools. A reset removes links, not the tools’ independently retained reports. Deleting a tool’s reports also removes its link. Failed or offline requests remain visibly pending. Profile metadata remains while active links exist; inactive or reset metadata expires after 90 days, followed by physical cleanup within 24 hours. Linking does not extend the 90-day detail limit, enable monthly history, or authorize public release. Profile identifiers and overlap statistics are not published.`}</p>
       <p
         className={classes.text}
-      >{t`Both additional choices rely on consent under Article 6(1)(a) GDPR and, for the associated device storage and access, section 25(1) TDDDG. You can withdraw each choice in the same tool settings used to give it, without affecting the lawfulness of earlier processing. Public usage statistics remain disabled pending a separate disclosure assessment.`}</p>
+      >{t`These additional choices rely on consent under Article 6(1)(a) GDPR and, for the associated device storage and access, section 25(1) TDDDG. You can withdraw each choice in the same tool settings used to give it, without affecting the lawfulness of earlier processing.`}</p>
+      <h3
+        className={classes.subsectionTitle}
+        id="tool-usage-public"
+      >{t`Public monthly usage totals`}</h3>
+      <p
+        className={classes.text}
+      >{t`With a third, separate consent, monthly totals may be published through app-tracking and oss-metrics to show adoption of our tools. This requires monthly-history consent but is not included in it. Public groups contain only month, tool, reporting stream, metric, local or CI context, and counts rounded down to tens. Each group requires at least 20 installations and 20 known repositories, with no installation or repository contributing more than 10 percent. No installation, profile, or repository identifiers, unique counts, or command, version, or system breakdowns are published.`}</p>
+      <p
+        className={classes.text}
+      >{t`Only reports from the UTC date after acknowledgement can contribute. Published summaries expire after 24 months following month end. Anyone can access and copy public figures. Group checks and rounding reduce disclosure risks but do not guarantee anonymity or prevent matching with other knowledge. You can withdraw publication consent separately while keeping internal monthly summaries. After acknowledgement, we remove affected public summaries and recalculate only where all source data remains available. We cannot recall copies held by others. Offline withdrawal remains pending. The consent basis, processors, safeguards, and rights in this notice also apply to publication.`}</p>
     </>
   )
 }
