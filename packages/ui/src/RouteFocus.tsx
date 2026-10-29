@@ -15,6 +15,7 @@ export function RouteFocus({ resetScroll = false }: { readonly resetScroll?: boo
     if (previousKeyRef.current === key) return
     previousKeyRef.current = key
     if (hash) return
+    // eslint-disable-next-line react-you-might-not-need-an-effect/no-event-handler -- Route transitions synchronize browser scroll; this prop configures the behavior.
     if (resetScroll) globalThis.scrollTo(0, 0)
     const main = document.getElementById("main")
     main?.setAttribute("tabindex", "-1")
