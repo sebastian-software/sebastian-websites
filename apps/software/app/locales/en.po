@@ -9,10 +9,19 @@ msgstr ""
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid ""
 "{brand} is a registered trademark of {name}. This website is operated by "
-"{name}."
+"{name_1}."
 msgstr ""
 "{brand} is a registered trademark of {name}. This website is operated by "
-"{name}."
+"{name_1}."
+
+#~ #@ obsolete-since: 2026-10-29
+#~ #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+#~ msgid ""
+#~ "{brand} is a registered trademark of {name}. This website is operated by "
+#~ "{name}."
+#~ msgstr ""
+#~ "{brand} is a registered trademark of {name}. This website is operated by "
+#~ "{name}."
 
 #: app/routes/products.tsx#meta
 msgid ""
@@ -702,6 +711,10 @@ msgstr ""
 msgid "Giving back, with tools you can inspect."
 msgstr "Giving back, with tools you can inspect."
 
+#: ../../packages/ui/src/frame/errorCopy.ts#createPageErrorCopy
+msgid "Go to the home page"
+msgstr "Go to the home page"
+
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#Stance
 #~ msgid ""
@@ -1351,6 +1364,10 @@ msgstr "Register Entry"
 msgid "Register Number:"
 msgstr "Register Number:"
 
+#: ../../packages/ui/src/frame/errorCopy.ts#createPageErrorCopy
+msgid "Reload page"
+msgstr "Reload page"
+
 #: app/components/RegionStory.tsx#RegionStory
 msgid "Rhine-Main"
 msgstr "Rhine-Main"
@@ -1832,6 +1849,10 @@ msgstr "There is no contact form – contact is made exclusively by email."
 #~ msgid "Third product"
 #~ msgstr "Third product"
 
+#: ../../packages/ui/src/frame/errorCopy.ts#createPageErrorCopy
+msgid "This page couldn't be loaded."
+msgstr "This page couldn't be loaded."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "This page does not exist."
 msgstr "This page does not exist."
@@ -2105,6 +2126,14 @@ msgstr ""
 #: app/routes/products.tsx
 msgid "We build what we need ourselves."
 msgstr "We build what we need ourselves."
+
+#: ../../packages/ui/src/frame/errorCopy.ts#createPageErrorCopy
+msgid ""
+"We couldn't load this page. Check your connection and reload, or return to the"
+" home page."
+msgstr ""
+"We couldn't load this page. Check your connection and reload, or return to the"
+" home page."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/company.tsx

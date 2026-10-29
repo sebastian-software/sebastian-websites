@@ -33,8 +33,9 @@ export function ConsultantProfile(props: ConsultantProfileProperties): ReactNode
   const other = getOtherProfile(consultant.id)
 
   return (
-    <div
+    <main
       className={cn(stage.canvas, styles.printBody, lang === "de" ? styles.langDe : styles.langEn)}
+      id="main"
     >
       <RunningHeads consultant={consultant} />
       <div className={stage.stage}>
@@ -71,6 +72,6 @@ export function ConsultantProfile(props: ConsultantProfileProperties): ReactNode
           <ProfileMobileBar bookingUrl={consultant.bookingUrl} consultant={consultant.id} />
         </>
       )}
-    </div>
+    </main>
   )
 }

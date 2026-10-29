@@ -22,12 +22,14 @@
     "test": "vitest run",
     "palamedes:extract": "pmds extract",
     "check:translations": "pmds audit --fail-on warning",
-    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm check:translations && pnpm test"
+    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm lint:messages && pnpm check:translations && pnpm test",
+    "lint:messages": "pmds lint --fail-on warning"
   },
   "dependencies": {
     "@palamedes/core": "catalog:",
     "@palamedes/react": "catalog:",
     "@palamedes/runtime": "catalog:",
+    "@react-router/node": "catalog:",
     "@sebastian-websites/legal": "workspace:*",
     "@sebastian-websites/ui": "workspace:*",
     "@sebastian-websites/web-core": "workspace:*",

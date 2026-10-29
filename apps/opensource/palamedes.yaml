@@ -3,7 +3,13 @@ source-locale: en
 source-reference-root: config
 catalogs:
   - path: app/locales/{locale}
-    include: [app, ../../packages/legal/src, ../../packages/ui/src/frame/frameCopy.ts]
+    include:
+      [
+        app,
+        ../../packages/legal/src,
+        ../../packages/ui/src/frame/frameCopy.ts,
+        ../../packages/ui/src/frame/errorCopy.ts,
+      ]
     exclude:
       - ../../packages/legal/src/**/*.test.ts
       - ../../packages/legal/src/**/*.test.tsx

@@ -1,9 +1,9 @@
-import { canonicalPath } from "./seo.ts"
+import { localeControls } from "./locale.ts"
+import { canonicalPath, canonicalUrl } from "./seo.ts"
 import {
   type BrandId,
   getSiteOrigin,
   type Locale,
-  LOCALE_LABELS,
   LOCALES,
   SITE_BRAND,
   type SiteId,
@@ -192,12 +192,17 @@ export function getLanguageLinks(
   locale: Locale,
   path: string
 ): readonly LanguageLink[] {
-  return LANGUAGE_ORDER.map((target) => ({
-    current: target === locale,
-    href: toHref(getSiteOrigin(site, target), canonicalPath(path)),
-    label: LOCALE_LABELS[target],
-    locale: target,
-  }))
+  return localeControls
+    .switchItems({ currentLocale: locale })
+    .toSorted(
+      (left, right) => LANGUAGE_ORDER.indexOf(left.locale) - LANGUAGE_ORDER.indexOf(right.locale)
+    )
+    .map((item) => ({
+      current: item.active,
+      href: canonicalUrl(site, item.locale, path),
+      label: item.label,
+      locale: item.locale,
+    }))
 }
 
 /**

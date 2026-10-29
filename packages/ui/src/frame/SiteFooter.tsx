@@ -5,6 +5,7 @@ import { COMPANY_PROFILES } from "@sebastian-websites/web-core"
 
 import type { FrameCopy } from "./copy.ts"
 
+import { SiteLink } from "../SiteLink.tsx"
 import { BrandLogo } from "./BrandLogo.tsx"
 import * as styles from "./PageEnding.css.ts"
 import { SocialGlyph } from "./SocialGlyph.tsx"
@@ -32,14 +33,14 @@ export function SiteFooter(props: SiteFooterProps): ReactElement {
       <div className={styles.panel}>
         <div className={styles.footerTop}>
           <div>
-            <a className={styles.footerHome} href={frame.home}>
+            <SiteLink className={styles.footerHome} href={frame.home}>
               <BrandLogo
                 alt={copy.brandNames[frame.brand]}
                 brand={frame.brand}
                 className={styles.footerLogo}
                 height={LOGO_HEIGHT[frame.brand]}
               />
-            </a>
+            </SiteLink>
             <address className={styles.address}>
               {frame.brand === "consulting" ? (
                 <>
@@ -66,13 +67,13 @@ export function SiteFooter(props: SiteFooterProps): ReactElement {
               <ul className={styles.index}>
                 {frame.index.map((link) => (
                   <li key={link.id}>
-                    <a
+                    <SiteLink
                       aria-current={link.current ? "page" : undefined}
                       className={styles.plainLink}
                       href={link.href}
                     >
                       {copy.links[link.id]}
-                    </a>
+                    </SiteLink>
                   </li>
                 ))}
               </ul>
@@ -95,9 +96,9 @@ export function SiteFooter(props: SiteFooterProps): ReactElement {
             <ul className={styles.legal}>
               {frame.legal.map((link) => (
                 <li key={link.id}>
-                  <a className={styles.plainLink} href={link.href}>
+                  <SiteLink className={styles.plainLink} href={link.href}>
                     {copy.links[link.id]}
-                  </a>
+                  </SiteLink>
                 </li>
               ))}
             </ul>

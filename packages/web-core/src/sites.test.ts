@@ -33,7 +33,7 @@ describe("variants", () => {
           site: "skills",
         },
       })
-    ).toThrow("expected a .de host")
+    ).toThrow("expected https://skills.sebastian-software.de")
   })
 
   it("rejects a site without both languages", () => {

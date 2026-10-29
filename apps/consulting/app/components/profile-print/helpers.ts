@@ -26,7 +26,8 @@ export function formatMonthRange(startDate: Date, endDate: Date | null, lang: "d
     const present = t`present`
     return `${format.format(startDate)} – ${present}`
   }
-  return format.formatRange(startDate, endDate)
+  // ICU versions differ between Node and browsers; keep hydration text identical.
+  return format.formatRange(startDate, endDate).replaceAll(/\s+/gv, " ")
 }
 
 export function formatPeriod(startDate: Date, endDate: Date | null): string {

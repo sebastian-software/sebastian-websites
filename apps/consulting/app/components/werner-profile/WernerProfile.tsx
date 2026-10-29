@@ -1,7 +1,7 @@
 import type { ReactNode } from "react"
 
 import { t } from "@palamedes/core/macro"
-import { BunnyImage } from "@sebastian-websites/ui"
+import { BunnyImage, SiteLink } from "@sebastian-websites/ui"
 
 import type { Consultant } from "~/components/profile-print/types"
 import type { Locale } from "~/lib/i18n"
@@ -32,21 +32,21 @@ function DocumentNavigation({ lang, view }: { lang: Locale; view: ProfileView })
   const history = getProfileDocument("project_history", "werner")
   return (
     <nav aria-label={t`Profile sections`} className={styles.navigation}>
-      <a
+      <SiteLink
         href={view === "project_history" ? summary.route : "#werner-summary"}
-      >{t`Executive summary`}</a>
-      <a
+      >{t`Executive summary`}</SiteLink>
+      <SiteLink
         href={view === "executive_summary" ? history.route : "#werner-history"}
-      >{t`Detailed project history`}</a>
-      {view === "full" ? null : <a href="/werner">{t`Full profile`}</a>}
-      <a
+      >{t`Detailed project history`}</SiteLink>
+      {view === "full" ? null : <SiteLink href="/werner">{t`Full profile`}</SiteLink>}
+      <SiteLink
         download={summary.pdfs[lang].downloadName}
         href={summary.pdfs[lang].href}
-      >{t`Executive summary (PDF)`}</a>
-      <a
+      >{t`Executive summary (PDF)`}</SiteLink>
+      <SiteLink
         download={history.pdfs[lang].downloadName}
         href={history.pdfs[lang].href}
-      >{t`Project history (PDF)`}</a>
+      >{t`Project history (PDF)`}</SiteLink>
     </nav>
   )
 }
@@ -115,7 +115,10 @@ export function WernerProfile({
   const other = getOtherProfile(consultant.id)
   const document = view === "full" ? undefined : getProfileDocument(view, consultant.id)
   return (
-    <div className={cn(stage.canvas, print.printBody, lang === "de" ? print.langDe : print.langEn)}>
+    <main
+      className={cn(stage.canvas, print.printBody, lang === "de" ? print.langDe : print.langEn)}
+      id="main"
+    >
       <RunningHeads consultant={consultant} />
       <div className={stage.stage}>
         <article
@@ -149,6 +152,6 @@ export function WernerProfile({
           <ProfileMobileBar bookingUrl={consultant.bookingUrl} consultant={consultant.id} />
         </>
       )}
-    </div>
+    </main>
   )
 }

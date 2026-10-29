@@ -20,6 +20,9 @@
     "test": "vitest run",
     "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test"
   },
+  "dependencies": {
+    "@palamedes/core": "catalog:"
+  },
   "devDependencies": {
     "@sebastian-websites/config": "workspace:*",
     "@types/node": "catalog:",

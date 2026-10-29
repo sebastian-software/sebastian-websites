@@ -1,5 +1,6 @@
 import type { ComponentPropsWithRef, ReactElement } from "react"
 
+import { SiteLink } from "../SiteLink.tsx"
 import { Arrow } from "./Arrow.tsx"
 import * as styles from "./editorial.css.ts"
 
@@ -13,12 +14,12 @@ import * as styles from "./editorial.css.ts"
 export function ButtonLink(props: ComponentPropsWithRef<"a">): ReactElement {
   const { children, className, ...rest } = props
   return (
-    <a
+    <SiteLink
       {...rest}
       className={className === undefined ? styles.button : `${styles.button} ${className}`}
     >
       <span>{children}</span>
       <Arrow className={styles.arrow} />
-    </a>
+    </SiteLink>
   )
 }

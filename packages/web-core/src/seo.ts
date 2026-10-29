@@ -1,10 +1,9 @@
-import { getSiteOrigin, type Locale, LOCALES, type SiteId, SOURCE_LOCALE } from "./sites.ts"
+import type { LocaleSeoLink } from "@palamedes/core/locale"
 
-export type SeoLink = {
-  readonly href: string
-  readonly hrefLang?: "x-default" | Locale
-  readonly rel: "alternate" | "canonical"
-}
+import { localeControls } from "./locale.ts"
+import { getSiteOrigin, type Locale, type SiteId } from "./sites.ts"
+
+export type SeoLink = LocaleSeoLink<Locale>
 
 /**
  * Normalizes a path to the canonical form: leading slash, no trailing slash
@@ -31,8 +30,11 @@ export function canonicalPath(path: string): string {
  * @returns The absolute URL.
  */
 export function canonicalUrl(site: SiteId, locale: Locale, path: string): string {
-  const normalized = canonicalPath(path)
-  return `${getSiteOrigin(site, locale)}${normalized === "/" ? "/" : normalized}`
+  return localeControls.canonicalUrl({
+    locale,
+    pathname: canonicalPath(path),
+    requestHost: new URL(getSiteOrigin(site, locale)).host,
+  })
 }
 
 /**
@@ -45,15 +47,11 @@ export function canonicalUrl(site: SiteId, locale: Locale, path: string): string
  * @returns The link descriptors for the document head.
  */
 export function createSeoLinks(site: SiteId, locale: Locale, path: string): readonly SeoLink[] {
-  return [
-    { href: canonicalUrl(site, locale, path), rel: "canonical" },
-    ...LOCALES.map((target) => ({
-      href: canonicalUrl(site, target, path),
-      hrefLang: target,
-      rel: "alternate" as const,
-    })),
-    { href: canonicalUrl(site, SOURCE_LOCALE, path), hrefLang: "x-default", rel: "alternate" },
-  ]
+  return localeControls.seoLinks({
+    locale,
+    pathname: canonicalPath(path),
+    requestHost: new URL(getSiteOrigin(site, locale)).host,
+  })
 }
 
 function escapeXml(value: string): string {
