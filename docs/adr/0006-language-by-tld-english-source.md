@@ -21,7 +21,8 @@ always a translation, so untranslated content appears in English everywhere.
 
 ## Consequences
 
-- There are eight variants. `skills.sebastian-software.de` is new.
+- There are ten variants, including app-tracking on the Software subdomains in
+  both languages. Its API and Rust client remain in their service repository.
 - Legal texts, navigation, and each site's primary call to action must be complete in both
   languages; a gap there fails the build. All other gaps are allowed and reported by the build.
 - German visitors may see English passages until a translation or a Palamedes capability

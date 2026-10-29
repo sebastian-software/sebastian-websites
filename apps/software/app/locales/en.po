@@ -250,6 +250,21 @@ msgstr "Born from gaps we saw"
 #~ msgid "Born from our own need"
 #~ msgstr "Born from our own need"
 
+#~ #@ obsolete-since: 2026-10-28
+#~ #: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+#~ msgid ""
+#~ "Both additional choices rely on consent under Article 6(1)(a) GDPR and, for "
+#~ "the associated device storage and access, section 25(1) TDDDG. You can "
+#~ "withdraw each choice in the same tool settings used to give it, without "
+#~ "affecting the lawfulness of earlier processing. Public usage statistics remain"
+#~ " disabled pending a separate disclosure assessment."
+#~ msgstr ""
+#~ "Both additional choices rely on consent under Article 6(1)(a) GDPR and, for "
+#~ "the associated device storage and access, section 25(1) TDDDG. You can "
+#~ "withdraw each choice in the same tool settings used to give it, without "
+#~ "affecting the lawfulness of earlier processing. Public usage statistics remain"
+#~ " disabled pending a separate disclosure assessment."
+
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#ProjectSupport
 #~ msgid ""
@@ -273,6 +288,10 @@ msgstr "Built for everyday work."
 #: app/routes/products.tsx
 msgid "Built to keep working"
 msgstr "Built to keep working"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Bunny processor information"
+msgstr "Bunny processor information"
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -397,6 +416,30 @@ msgstr "Controller"
 #: app/routes/open-source.tsx
 msgid "Counted, not claimed."
 msgstr "Counted, not claimed."
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Current metric definitions"
+msgstr "Current metric definitions"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"Depending on the tool and reporting contract, reports contain the tool and "
+"version, UTC day, registered command or event category and count, local or CI "
+"context, batch ID, tool- and profile-scoped installation ID, and consent "
+"revision or grant time. Legacy installation and batch IDs contain creation "
+"times. The unified client uses random hexadecimal IDs and sends the grant time"
+" separately. Its system context can include operating system and version, "
+"executable architecture, CPU family, and Linux distribution and kernel "
+"version. Legacy invocation reports contain no system context."
+msgstr ""
+"Depending on the tool and reporting contract, reports contain the tool and "
+"version, UTC day, registered command or event category and count, local or CI "
+"context, batch ID, tool- and profile-scoped installation ID, and consent "
+"revision or grant time. Legacy installation and batch IDs contain creation "
+"times. The unified client uses random hexadecimal IDs and sends the grant time"
+" separately. Its system context can include operating system and version, "
+"executable architecture, CPU family, and Linux distribution and kernel "
+"version. Legacy invocation reports contain no system context."
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
@@ -836,6 +879,22 @@ msgstr ""
 "Insights into our work across software and consulting: what we're building, "
 "exploring and thinking about."
 
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"International transfers may occur through these providers and their "
+"subprocessors. PlanetScale’s data processing addendum provides for the "
+"European Commission’s standard contractual clauses for relevant transfers "
+"outside the EEA. The linked provider documents describe their processing and "
+"transfer arrangements. You can contact our privacy address above for "
+"information about applicable safeguards and a copy of them."
+msgstr ""
+"International transfers may occur through these providers and their "
+"subprocessors. PlanetScale’s data processing addendum provides for the "
+"European Commission’s standard contractual clauses for relevant transfers "
+"outside the EEA. The linked provider documents describe their processing and "
+"transfer arrangements. You can contact our privacy address above for "
+"information about applicable safeguards and a copy of them."
+
 #: app/components/OpenFoundations.tsx#OpenFoundations
 msgid ""
 "Internationalization for TypeScript applications: message extraction, "
@@ -1004,6 +1063,10 @@ msgstr "Mission"
 #~ msgid "Monorepos and design systems"
 #~ msgstr "Monorepos and design systems"
 
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid "Monthly usage history"
+msgstr "Monthly usage history"
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/company.tsx
 #~ msgid ""
@@ -1069,6 +1132,28 @@ msgstr "Online appointment booking for small businesses."
 #~ " no cookies. Calendar sync with Google, iCloud, or CalDAV prevents double "
 #~ "bookings, confirmations and reminders go out automatically, and booking data "
 #~ "stays on servers in Germany."
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"Only reports from the UTC date after acknowledgement can contribute. Published"
+" summaries expire after 24 months following month end. Anyone can access and "
+"copy public figures. Group checks and rounding reduce disclosure risks but do "
+"not guarantee anonymity or prevent matching with other knowledge. You can "
+"withdraw publication consent separately while keeping internal monthly "
+"summaries. After acknowledgement, we remove affected public summaries and "
+"recalculate only where all source data remains available. We cannot recall "
+"copies held by others. Offline withdrawal remains pending. The consent basis, "
+"processors, safeguards, and rights in this notice also apply to publication."
+msgstr ""
+"Only reports from the UTC date after acknowledgement can contribute. Published"
+" summaries expire after 24 months following month end. Anyone can access and "
+"copy public figures. Group checks and rounding reduce disclosure risks but do "
+"not guarantee anonymity or prevent matching with other knowledge. You can "
+"withdraw publication consent separately while keeping internal monthly "
+"summaries. After acknowledgement, we remove affected public summaries and "
+"recalculate only where all source data remains available. We cannot recall "
+"copies held by others. Offline withdrawal remains pending. The consent basis, "
+"processors, safeguards, and rights in this notice also apply to publication."
 
 #: app/components/OpenFoundations.tsx#OpenFoundations
 msgid "Open foundations"
@@ -1143,6 +1228,28 @@ msgstr "Open where it matters"
 #~ msgid "open-source projects, counted live"
 #~ msgstr "open-source projects, counted live"
 
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid "Optional cross-tool profile linking"
+msgstr "Optional cross-tool profile linking"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Optional usage reports from our developer tools"
+msgstr "Optional usage reports from our developer tools"
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"Ordinary usage consent does not include these additional uses. Each stays off "
+"until you choose it separately in a participating tool. Declining either "
+"choice leaves the tool, update checks, and ordinary reporting settings "
+"available. An upgrade or a shared local profile file does not grant "
+"permission."
+msgstr ""
+"Ordinary usage consent does not include these additional uses. Each stays off "
+"until you choose it separately in a participating tool. Declining either "
+"choice leaves the tool, update checks, and ordinary reporting settings "
+"available. An upgrade or a shared local profile file does not grant "
+"permission."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Our agency"
 msgstr "Our agency"
@@ -1164,6 +1271,24 @@ msgstr ""
 "Our careers began in open source: qooxdoo at 1&1, Unify at Deutsche Telekom, "
 "Jasy at Zynga. The tools and the people around them taught us most of what we "
 "know. Publishing what we build today is how we return the favor."
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"Our reporting database backup policy is at most seven days. Backups are used "
+"for recovery, not reporting. Deleting active data does not edit existing "
+"backups in place. Restoring a backup can reintroduce data deleted after its "
+"recovery point; known deletion requests must then be applied again. "
+"Provider-owned security, transport, and account records follow the applicable "
+"provider agreements and policies. The reporting retention periods are not a "
+"universal limit for those separate records."
+msgstr ""
+"Our reporting database backup policy is at most seven days. Backups are used "
+"for recovery, not reporting. Deleting active data does not edit existing "
+"backups in place. Restoring a backup can reintroduce data deleted after its "
+"recovery point; known deletion requests must then be applied again. "
+"Provider-owned security, transport, and account records follow the applicable "
+"provider agreements and policies. The reporting retention periods are not a "
+"universal limit for those separate records."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Our software"
@@ -1217,6 +1342,10 @@ msgstr ""
 "And that teams stand stronger after the collaboration, because knowledge, "
 "tools, and standards stay."
 
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Permission and legal basis"
+msgstr "Permission and legal basis"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Phone:"
 msgstr "Phone:"
@@ -1224,6 +1353,14 @@ msgstr "Phone:"
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Place of Processing"
 msgstr "Place of Processing"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "PlanetScale data processing addendum"
+msgstr "PlanetScale data processing addendum"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "PlanetScale subprocessors"
+msgstr "PlanetScale subprocessors"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Please enter a complete email address, such as name@example.com."
@@ -1290,6 +1427,10 @@ msgstr ""
 msgid "Processors"
 msgstr "Processors"
 
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Processors and international transfers"
+msgstr "Processors and international transfers"
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 #: app/routes/products.tsx
 msgid "Products"
@@ -1336,6 +1477,10 @@ msgstr "Projects on GitHub"
 #~ msgid "Proof instead of claims"
 #~ msgstr "Proof instead of claims"
 
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid "Public monthly usage totals"
+msgstr "Public monthly usage totals"
+
 #: app/components/Founders.tsx#Founders
 msgid ""
 "React, TypeScript, internationalization, and code quality. In web development "
@@ -1367,6 +1512,34 @@ msgstr "Register Number:"
 #: ../../packages/ui/src/frame/errorCopy.ts#createPageErrorCopy
 msgid "Reload page"
 msgstr "Reload page"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Reporting data"
+msgstr "Reporting data"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Reporting retention and recovery policy"
+msgstr "Reporting retention and recovery policy"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"Reports are sent over HTTPS to our app-tracking service. BunnyWay d.o.o. "
+"(Bunny.net), Slovenia, hosts the API and processes connection metadata such as"
+" IP addresses. PlanetScale, Inc., United States, provides the database service"
+" for reporting data. Our database region for this service is AWS Frankfurt, "
+"Germany. A database region in Germany does not mean that all support, "
+"security, or subprocessor processing takes place in the EU."
+msgstr ""
+"Reports are sent over HTTPS to our app-tracking service. BunnyWay d.o.o. "
+"(Bunny.net), Slovenia, hosts the API and processes connection metadata such as"
+" IP addresses. PlanetScale, Inc., United States, provides the database service"
+" for reporting data. Our database region for this service is AWS Frankfurt, "
+"Germany. A database region in Germany does not mean that all support, "
+"security, or subprocessor processing takes place in the EU."
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Retention and backups"
+msgstr "Retention and backups"
 
 #: app/components/RegionStory.tsx#RegionStory
 msgid "Rhine-Main"
@@ -1563,6 +1736,10 @@ msgstr "Sebastian Werner and Sebastian Fastner in the office lounge"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "See what we build beyond consulting."
 msgstr "See what we build beyond consulting."
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid "Separate choices for monthly history and profile linking"
+msgstr "Separate choices for monthly history and profile linking"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Services"
@@ -1767,6 +1944,22 @@ msgstr ""
 "redirect may also lead to the respective other domain. No cookie is set in the"
 " process."
 
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"The legal basis for optional usage reporting is your consent under Article "
+"6(1)(a) GDPR. Consent also covers the associated storage and access on your "
+"device under section 25(1) TDDDG. Reporting stays off until you agree in the "
+"tool. You may decline without losing tool functionality or its separately "
+"configurable update checks. CI reporting requires separate explicit "
+"authorization."
+msgstr ""
+"The legal basis for optional usage reporting is your consent under Article "
+"6(1)(a) GDPR. Consent also covers the associated storage and access on your "
+"device under section 25(1) TDDDG. Reporting stays off until you agree in the "
+"tool. You may decline without losing tool functionality or its separately "
+"configurable update checks. CI reporting requires separate explicit "
+"authorization."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid ""
 "The link may be outdated, or the address may contain a typo. These pages lead "
@@ -1844,6 +2037,18 @@ msgstr ""
 msgid "There is no contact form – contact is made exclusively by email."
 msgstr "There is no contact form – contact is made exclusively by email."
 
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"These additional choices rely on consent under Article 6(1)(a) GDPR and, for "
+"the associated device storage and access, section 25(1) TDDDG. You can "
+"withdraw each choice in the same tool settings used to give it, without "
+"affecting the lawfulness of earlier processing."
+msgstr ""
+"These additional choices rely on consent under Article 6(1)(a) GDPR and, for "
+"the associated device storage and access, section 25(1) TDDDG. You can "
+"withdraw each choice in the same tool settings used to give it, without "
+"affecting the lawfulness of earlier processing."
+
 #~ #@ obsolete-since: 2026-10-09
 #~ #: app/components/ProductCards.tsx#ProductCards
 #~ msgid "Third product"
@@ -1856,6 +2061,18 @@ msgstr "This page couldn't be loaded."
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "This page does not exist."
 msgstr "This page does not exist."
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"This section applies when one of our developer tools offers optional usage "
+"reporting through app-tracking, operated by Sebastian Software GmbH. Visiting "
+"our websites does not create these reports or grant permission for tool "
+"reporting."
+msgstr ""
+"This section applies when one of our developer tools offers optional usage "
+"reporting through app-tracking, operated by Sebastian Software GmbH. Visiting "
+"our websites does not create these reports or grant permission for tool "
+"reporting."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
 msgid ""
@@ -2035,6 +2252,24 @@ msgid ""
 "Under the GDPR, you have the following rights regarding your personal data:"
 msgstr ""
 "Under the GDPR, you have the following rights regarding your personal data:"
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"Usage data expires from active reporting after at most 90 days; physical "
+"cleanup follows within another 24 hours. Batch receipts expire 90 days after "
+"receipt. Active installation and consent state expire after 90 days without "
+"new accepted reports. Minimal revocation or expiry records remain for 90 days "
+"after that event, without usage or repository hashes. The unified event "
+"service also expires receipts and inactive identity state after 90 days. "
+"Expired records are physically removed within another 24 hours."
+msgstr ""
+"Usage data expires from active reporting after at most 90 days; physical "
+"cleanup follows within another 24 hours. Batch receipts expire 90 days after "
+"receipt. Active installation and consent state expire after 90 days without "
+"new accepted reports. Minimal revocation or expiry records remain for 90 days "
+"after that event, without usage or repository hashes. The unified event "
+"service also expires receipts and inactive identity state after 90 days. "
+"Expired records are physically removed within another 24 hours."
 
 #: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
 msgid ""
@@ -2274,6 +2509,26 @@ msgstr ""
 "and remains open source; Palamedes+ adds the service around it. You can "
 "inspect what you rely on."
 
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"Where reliable repository metadata is available, the tool calculates a SHA-256"
+" hash of the normalized repository URL locally. The original URL is not sent. "
+"Clones and developers of the same repository share its hash, including across "
+"our tools; forks have different hashes. Someone who knows or guesses a URL can"
+" calculate and match its hash. Reports are therefore pseudonymous, rather than"
+" anonymous. Reports exclude source code, file contents, command arguments, "
+"local paths, repository URLs, usernames, machine names, session IDs, and skill"
+" names or content."
+msgstr ""
+"Where reliable repository metadata is available, the tool calculates a SHA-256"
+" hash of the normalized repository URL locally. The original URL is not sent. "
+"Clones and developers of the same repository share its hash, including across "
+"our tools; forks have different hashes. Someone who knows or guesses a URL can"
+" calculate and match its hash. Reports are therefore pseudonymous, rather than"
+" anonymous. Reports exclude source code, file contents, command arguments, "
+"local paths, repository URLs, usernames, machine names, session IDs, and skill"
+" names or content."
+
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
 "Where we process your personal data on the basis of legitimate interests "
@@ -2296,6 +2551,82 @@ msgstr ""
 msgid "Why"
 msgstr "Why"
 
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"With a third, separate consent, monthly totals may be published through "
+"app-tracking and oss-metrics to show adoption of our tools. This requires "
+"monthly-history consent but is not included in it. Public groups contain only "
+"month, tool, reporting stream, metric, local or CI context, and counts rounded"
+" down to tens. Each group requires at least 20 installations and 20 known "
+"repositories, with no installation or repository contributing more than 10 "
+"percent. No installation, profile, or repository identifiers, unique counts, "
+"or command, version, or system breakdowns are published."
+msgstr ""
+"With a third, separate consent, monthly totals may be published through "
+"app-tracking and oss-metrics to show adoption of our tools. This requires "
+"monthly-history consent but is not included in it. Public groups contain only "
+"month, tool, reporting stream, metric, local or CI context, and counts rounded"
+" down to tens. Each group requires at least 20 installations and 20 known "
+"repositories, with no installation or repository contributing more than 10 "
+"percent. No installation, profile, or repository identifiers, unique counts, "
+"or command, version, or system breakdowns are published."
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"With another separate consent, we link future local-use reports from "
+"participating tools to understand which tools are used together and improve "
+"them. Each tool requires its own choice. A random identifier and a separate "
+"reset credential are kept in a private local profile file; the service stores "
+"the profile identifier, a hash of its credential, tool links, and permission "
+"times. This does not identify a verified person or physical machine. Copied "
+"files represent the same profile. CI reports are excluded. Eligibility begins "
+"on the UTC date after acknowledgement; earlier reports are not linked."
+msgstr ""
+"With another separate consent, we link future local-use reports from "
+"participating tools to understand which tools are used together and improve "
+"them. Each tool requires its own choice. A random identifier and a separate "
+"reset credential are kept in a private local profile file; the service stores "
+"the profile identifier, a hash of its credential, tool links, and permission "
+"times. This does not identify a verified person or physical machine. Copied "
+"files represent the same profile. CI reports are excluded. Eligibility begins "
+"on the UTC date after acknowledgement; earlier reports are not linked."
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"With your permission, we use reports to understand which tool versions, "
+"commands, and platforms are used and to decide what to maintain and improve. "
+"We measure participating installations and repositories, not individual people"
+" or everyone who uses a tool. Reporting views are restricted to authorized "
+"maintainers; we do not publish individual reports."
+msgstr ""
+"With your permission, we use reports to understand which tool versions, "
+"commands, and platforms are used and to decide what to maintain and improve. "
+"We measure participating installations and repositories, not individual people"
+" or everyone who uses a tool. Reporting views are restricted to authorized "
+"maintainers; we do not publish individual reports."
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"With your separate consent, we retain screened monthly usage counts and "
+"monthly installation and repository totals for 24 months after the month ends,"
+" to understand trends and plan maintenance. Detailed reports still expire "
+"after 90 days. Only usage from the UTC date after the service acknowledges the"
+" choice is eligible. Minimum group sizes and contribution limits can make a "
+"month unavailable; they do not guarantee anonymity. This choice does not "
+"authorize public release."
+msgstr ""
+"With your separate consent, we retain screened monthly usage counts and "
+"monthly installation and repository totals for 24 months after the month ends,"
+" to understand trends and plan maintenance. Detailed reports still expire "
+"after 90 days. Only usage from the UTC date after the service acknowledges the"
+" choice is eligible. Minimum group sizes and contribution limits can make a "
+"month unavailable; they do not guarantee anonymity. This choice does not "
+"authorize public release."
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid "Withdrawal, deletion, and your rights"
+msgstr "Withdrawal, deletion, and your rights"
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/contact.tsx
 #~ msgid "Write to us; one of the two founders answers."
@@ -2310,6 +2641,74 @@ msgstr ""
 "Write to us; one of the two founders answers. For products and partnerships an"
 " email is enough. If you are looking for project help, Sebastian Consulting is"
 " the right address, with the same two people."
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"You can separately request deletion of retained reports using the credential "
+"held locally by the tool. An offline request remains pending until the service"
+" acknowledges it. Losing or explicitly removing local state can prevent "
+"automatic deletion or retries. Contact our privacy address if you need help; "
+"loss of a credential does not remove your statutory rights. Do not send "
+"credentials or private repository URLs as proof of identity. The rights and "
+"complaint options described in this policy also apply to tool reporting."
+msgstr ""
+"You can separately request deletion of retained reports using the credential "
+"held locally by the tool. An offline request remains pending until the service"
+" acknowledges it. Losing or explicitly removing local state can prevent "
+"automatic deletion or retries. Contact our privacy address if you need help; "
+"loss of a credential does not remove your statutory rights. Do not send "
+"credentials or private repository URLs as proof of identity. The rights and "
+"complaint options described in this policy also apply to tool reporting."
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"You can unlink one tool or reset the shared profile for all linked tools. A "
+"reset removes links, not the tools’ independently retained reports. Deleting"
+" a tool’s reports also removes its link. Failed or offline requests remain "
+"visibly pending. Profile metadata remains while active links exist; inactive "
+"or reset metadata expires after 90 days, followed by physical cleanup within "
+"24 hours. Linking does not extend the 90-day detail limit, enable monthly "
+"history, or authorize public release. Profile identifiers and overlap "
+"statistics are not published."
+msgstr ""
+"You can unlink one tool or reset the shared profile for all linked tools. A "
+"reset removes links, not the tools’ independently retained reports. Deleting"
+" a tool’s reports also removes its link. Failed or offline requests remain "
+"visibly pending. Profile metadata remains while active links exist; inactive "
+"or reset metadata expires after 90 days, followed by physical cleanup within "
+"24 hours. Linking does not extend the 90-day detail limit, enable monthly "
+"history, or authorize public release. Profile identifiers and overlap "
+"statistics are not published."
+
+#: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
+msgid ""
+"You can withdraw consent in the tool at any time. Withdrawal stops new "
+"collection and uploads and discards unsent usage; it does not affect the "
+"lawfulness of earlier processing. Previously received reports remain until "
+"deletion or expiry. The tool can show its effective setting and preview queued"
+" data locally. Its documentation explains the available controls."
+msgstr ""
+"You can withdraw consent in the tool at any time. Withdrawal stops new "
+"collection and uploads and discards unsent usage; it does not affect the "
+"lawfulness of earlier processing. Previously received reports remain until "
+"deletion or expiry. The tool can show its effective setting and preview queued"
+" data locally. Its documentation explains the available controls."
+
+#: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
+msgid ""
+"You can withdraw monthly-history consent without stopping ordinary reporting. "
+"Once acknowledged, withdrawal or deletion invalidates the affected monthly "
+"summaries. If the detailed source data has already expired, those months "
+"remain unavailable. Offline changes remain pending until acknowledged. The "
+"same processors, transfer safeguards, and rights described in this notice "
+"apply."
+msgstr ""
+"You can withdraw monthly-history consent without stopping ordinary reporting. "
+"Once acknowledged, withdrawal or deletion invalidates the affected monthly "
+"summaries. If the detailed source data has already expired, those months "
+"remain unavailable. Offline changes remain pending until acknowledged. The "
+"same processors, transfer safeguards, and rights described in this notice "
+"apply."
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""

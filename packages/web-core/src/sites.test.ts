@@ -3,8 +3,8 @@ import { describe, expect, it } from "vitest"
 import { defineVariants, getSiteOrigin, getVariant, SITES, VARIANTS } from "./sites.ts"
 
 describe("variants", () => {
-  it("defines a German and an English variant for each of the four sites", () => {
-    expect(Object.keys(VARIANTS)).toHaveLength(8)
+  it("defines a German and an English variant for every site", () => {
+    expect(Object.keys(VARIANTS)).toHaveLength(SITES.length * 2)
     for (const site of SITES) {
       expect(getSiteOrigin(site, "de")).toMatch(/\.de$/v)
       expect(getSiteOrigin(site, "en")).toMatch(/\.com$/v)

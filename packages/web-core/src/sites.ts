@@ -2,14 +2,16 @@ import { type Locale, localeControls, LOCALES } from "./locale.ts"
 
 export { type Locale, LOCALE_LABELS, LOCALES, SOURCE_LOCALE } from "./locale.ts"
 
-export const SITES = ["software", "consulting", "opensource", "skills"] as const
+const APP_TRACKING_SITE = "app-tracking"
+export const SITES = ["software", "consulting", "opensource", "skills", APP_TRACKING_SITE] as const
 export type SiteId = (typeof SITES)[number]
 
 export const BRANDS = ["software", "consulting"] as const
 export type BrandId = (typeof BRANDS)[number]
 
-/** Open Source and Skills are areas of the Software brand. */
+/** Open Source, Skills, and app-tracking are areas of the Software brand. */
 export const SITE_BRAND = {
+  "app-tracking": "software",
   consulting: "consulting",
   opensource: "software",
   skills: "software",
@@ -116,6 +118,20 @@ export function defineVariants<const TVariants extends VariantMap>(
 }
 
 export const VARIANTS = defineVariants({
+  "app-tracking-de": {
+    canonicalOrigin: "https://app-tracking.sebastian-software.de",
+    deploymentTarget: "sebastian-websites-app-tracking-de",
+    locale: "de",
+    productionActive: true,
+    site: APP_TRACKING_SITE,
+  },
+  "app-tracking-en": {
+    canonicalOrigin: "https://app-tracking.sebastian-software.com",
+    deploymentTarget: "sebastian-websites-app-tracking-en",
+    locale: "en",
+    productionActive: true,
+    site: APP_TRACKING_SITE,
+  },
   "consulting-de": {
     canonicalOrigin: "https://sebastian-consulting.de",
     deploymentTarget: "sebastian-websites-consulting-de",
