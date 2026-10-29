@@ -12,15 +12,7 @@ import {
 import { createPageErrorCopy } from "@sebastian-websites/ui/error-copy"
 import { createFrameCopy } from "@sebastian-websites/ui/frame-copy"
 import { createSeoLinks, getSiteFrame, SITE_BRAND } from "@sebastian-websites/web-core"
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useLocation,
-  useMatches,
-} from "react-router"
+import { Links, Meta, Outlet, Scripts, useLocation, useMatches } from "react-router"
 import "@sebastian-websites/ui/brand-software.css"
 
 import { variant } from "~/lib/site"
@@ -62,8 +54,7 @@ export function Layout({ children }: { readonly children: ReactNode }): ReactEle
       </head>
       <body>
         {children}
-        <RouteFocus />
-        <ScrollRestoration />
+        <RouteFocus resetScroll />
         <Scripts />
       </body>
     </html>
