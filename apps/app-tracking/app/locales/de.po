@@ -27,10 +27,19 @@ msgstr ""
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid ""
 "{brand} is a registered trademark of {name}. This website is operated by "
-"{name}."
+"{name_1}."
 msgstr ""
 "{brand} ist eine eingetragene Marke der {name}. Betreiberin dieser Website ist"
-" die {name}."
+" die {name_1}."
+
+#~ #@ obsolete-since: 2026-10-29
+#~ #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
+#~ msgid ""
+#~ "{brand} is a registered trademark of {name}. This website is operated by "
+#~ "{name}."
+#~ msgstr ""
+#~ "{brand} ist eine eingetragene Marke der {name}. Betreiberin dieser Website ist"
+#~ " die {name}."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""
@@ -505,6 +514,10 @@ msgstr "Künftige Metriken."
 msgid "Germany"
 msgstr "Deutschland"
 
+#: ../../packages/ui/src/frame/errorCopy.ts#createPageErrorCopy
+msgid "Go to the home page"
+msgstr "Zur Startseite"
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid "Hetzner Online GmbH, Germany"
 msgstr "Hetzner Online GmbH, Deutschland"
@@ -885,6 +898,10 @@ msgstr "Registereintrag"
 msgid "Register Number:"
 msgstr "Registernummer:"
 
+#: ../../packages/ui/src/frame/errorCopy.ts#createPageErrorCopy
+msgid "Reload page"
+msgstr "Seite neu laden"
+
 #: app/routes/privacy.tsx
 msgid "Reporting data and controls"
 msgstr "Berichtsdaten und Einstellungen"
@@ -1217,6 +1234,10 @@ msgstr ""
 "vereinheitlichten Client. Welche Metriken und Einstellungen verfügbar sind, "
 "ergibt sich aus der jeweiligen Tool-Version und ihren Datenschutzhinweisen."
 
+#: ../../packages/ui/src/frame/errorCopy.ts#createPageErrorCopy
+msgid "This page couldn't be loaded."
+msgstr "Diese Seite konnte nicht geladen werden."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "This page does not exist."
 msgstr "Diese Seite gibt es nicht."
@@ -1415,6 +1436,14 @@ msgid ""
 msgstr ""
 "Wir entwickeln Produkte, Open-Source-Projekte und Agent-Tools für den "
 "Arbeitsalltag."
+
+#: ../../packages/ui/src/frame/errorCopy.ts#createPageErrorCopy
+msgid ""
+"We couldn't load this page. Check your connection and reload, or return to the"
+" home page."
+msgstr ""
+"Wir konnten diese Seite nicht laden. Prüfen Sie Ihre Verbindung und laden Sie"
+" die Seite neu oder gehen Sie zur Startseite."
 
 #: app/components/ReportingPage.tsx#ReportingPage
 msgid ""

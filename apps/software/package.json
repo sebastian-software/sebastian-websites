@@ -18,12 +18,14 @@
     "format:check": "prettier --check app",
     "palamedes:extract": "pmds extract",
     "check:translations": "pmds audit --fail-on warning",
-    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm check:translations"
+    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm lint:messages && pnpm check:translations",
+    "lint:messages": "pmds lint --fail-on warning"
   },
   "dependencies": {
     "@palamedes/core": "catalog:",
     "@palamedes/react": "catalog:",
     "@palamedes/runtime": "catalog:",
+    "@react-router/node": "catalog:",
     "@sebastian-websites/content": "workspace:*",
     "@sebastian-websites/legal": "workspace:*",
     "@sebastian-websites/ui": "workspace:*",

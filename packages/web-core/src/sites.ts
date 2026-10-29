@@ -1,13 +1,6 @@
-export const LOCALES = ["de", "en"] as const
-export type Locale = (typeof LOCALES)[number]
+import { type Locale, localeControls, LOCALES } from "./locale.ts"
 
-/** English is the source language and the `x-default` of every site (ADR-0006). */
-export const SOURCE_LOCALE: Locale = "en"
-
-export const LOCALE_LABELS = {
-  de: "Deutsch",
-  en: "English",
-} as const satisfies Readonly<Record<Locale, string>>
+export { type Locale, LOCALE_LABELS, LOCALES, SOURCE_LOCALE } from "./locale.ts"
 
 const APP_TRACKING_SITE = "app-tracking"
 export const SITES = ["software", "consulting", "opensource", "skills", APP_TRACKING_SITE] as const
@@ -40,10 +33,16 @@ function assertOrigin(variantId: string, variant: VariantDefinition): void {
   if (url.protocol !== "https:" || url.origin !== variant.canonicalOrigin) {
     throw new Error(`${variantId} canonical origin must be an HTTPS origin without a path.`)
   }
-  const expectedSuffix = variant.locale === "de" ? ".de" : ".com"
-  if (!url.hostname.endsWith(expectedSuffix)) {
+  const expectedOrigin = new URL(
+    localeControls.canonicalUrl({
+      locale: variant.locale,
+      pathname: "/",
+      requestHost: url.host,
+    })
+  ).origin
+  if (url.origin !== expectedOrigin) {
     throw new Error(
-      `${variantId} maps locale ${variant.locale} to ${url.hostname}; expected a ${expectedSuffix} host.`
+      `${variantId} maps locale ${variant.locale} to ${url.hostname}; expected ${expectedOrigin}.`
     )
   }
 }

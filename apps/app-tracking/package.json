@@ -18,8 +18,9 @@
     "format:check": "prettier --check app scripts",
     "palamedes:extract": "pmds extract",
     "check:translations": "pmds audit --fail-on warning",
-    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm check:translations",
-    "check:browser": "node scripts/check-browser.ts"
+    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm lint:messages && pnpm check:translations",
+    "check:browser": "node scripts/check-browser.ts",
+    "lint:messages": "pmds lint --fail-on warning"
   },
   "dependencies": {
     "@palamedes/core": "catalog:",
@@ -32,7 +33,8 @@
     "isbot": "^5",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-router": "catalog:"
+    "react-router": "catalog:",
+    "@react-router/node": "catalog:"
   },
   "devDependencies": {
     "@palamedes/cli": "catalog:",

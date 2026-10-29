@@ -11,7 +11,8 @@
     ".": "./src/index.ts",
     "./brand-consulting.css": "./src/brand-consulting.css.ts",
     "./brand-software.css": "./src/brand-software.css.ts",
-    "./frame-copy": "./src/frame/frameCopy.ts"
+    "./frame-copy": "./src/frame/frameCopy.ts",
+    "./error-copy": "./src/frame/errorCopy.ts"
   },
   "scripts": {
     "typecheck": "tsc",
@@ -28,7 +29,8 @@
     "@sebastian-websites/web-core": "workspace:*",
     "@vanilla-extract/css": "catalog:",
     "lucide-react": "catalog:",
-    "react": "catalog:"
+    "react": "catalog:",
+    "react-router": "catalog:"
   },
   "devDependencies": {
     "@sebastian-websites/config": "workspace:*",

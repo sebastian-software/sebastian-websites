@@ -3,6 +3,7 @@ import { act } from "react"
 import { flushSync } from "react-dom"
 import { createRoot } from "react-dom/client"
 import { renderToStaticMarkup } from "react-dom/server"
+import { MemoryRouter } from "react-router"
 import { afterEach, describe, expect, it, vi } from "vitest"
 
 import type { FrameCopy } from "./copy.ts"
@@ -91,7 +92,13 @@ const texts = (elements: Iterable<Element>): Array<null | string> =>
 describe("SiteHeader", () => {
   it("shows one current logo, local links, the language switch, and a plain outward link", () => {
     const frame = getSiteFrame("software", "de", "/company")
-    const header = parse(renderToStaticMarkup(<SiteHeader copy={copy} frame={frame} />))
+    const header = parse(
+      renderToStaticMarkup(
+        <MemoryRouter>
+          <SiteHeader copy={copy} frame={frame} />
+        </MemoryRouter>
+      )
+    )
     const logos = header.querySelectorAll("img")
     expect(logos).toHaveLength(1)
     expect([...logos].at(0)?.getAttribute("alt")).toBe("Sebastian Software")
@@ -114,7 +121,13 @@ describe("SiteHeader", () => {
 
   it("opens the same controls as a popover menu on compact screens", () => {
     const frame = getSiteFrame("consulting", "en", "/")
-    const header = parse(renderToStaticMarkup(<SiteHeader copy={copy} frame={frame} />))
+    const header = parse(
+      renderToStaticMarkup(
+        <MemoryRouter>
+          <SiteHeader copy={copy} frame={frame} />
+        </MemoryRouter>
+      )
+    )
     const button = header.querySelector("button[popovertarget]")
     expect(button?.getAttribute("type")).toBe("button")
     expect(button?.textContent).toBe("Menu")
@@ -126,7 +139,13 @@ describe("SiteHeader", () => {
 
   it("gives Consulting its own logo, navigation, and the way to Software", () => {
     const frame = getSiteFrame("consulting", "en", "/")
-    const header = parse(renderToStaticMarkup(<SiteHeader copy={copy} frame={frame} />))
+    const header = parse(
+      renderToStaticMarkup(
+        <MemoryRouter>
+          <SiteHeader copy={copy} frame={frame} />
+        </MemoryRouter>
+      )
+    )
     expect(header.querySelector("img")?.getAttribute("alt")).toBe("Sebastian Consulting")
     expect(texts(header.querySelectorAll('nav[aria-label="Main navigation"] a'))).toStrictEqual([
       "Services",
@@ -142,7 +161,13 @@ describe("SiteHeader", () => {
     "links the Consulting globe to the other language's matching page from %s",
     (locale) => {
       const frame = getSiteFrame("consulting", locale, "/fastner/project-profile")
-      const header = parse(renderToStaticMarkup(<SiteHeader copy={copy} frame={frame} />))
+      const header = parse(
+        renderToStaticMarkup(
+          <MemoryRouter>
+            <SiteHeader copy={copy} frame={frame} />
+          </MemoryRouter>
+        )
+      )
       const languages = header.querySelectorAll('nav[aria-label="Language"] a')
       expect(languages).toHaveLength(1)
       const link = languages[0]
@@ -159,7 +184,13 @@ describe("SiteHeader", () => {
 
 describe("PageEnding", () => {
   const frame = getSiteFrame("opensource", "en", "/")
-  const ending = parse(renderToStaticMarkup(<PageEnding copy={copy} frame={frame} />))
+  const ending = parse(
+    renderToStaticMarkup(
+      <MemoryRouter>
+        <PageEnding copy={copy} frame={frame} />
+      </MemoryRouter>
+    )
+  )
 
   it("orders the newsletter, the invitation to the other brand, and the current footer", () => {
     const regions = [...ending.querySelectorAll("body > div > section, body > footer")]

@@ -4,12 +4,13 @@ packages:
 
 catalog:
   "@base-ui/react": ^1.6.0
-  "@palamedes/cli": ^1.25.0
-  "@palamedes/core": ^1.25.0
-  "@palamedes/react": ^1.25.0
-  "@palamedes/runtime": ^1.25.0
-  "@palamedes/vite-plugin": ^1.25.0
+  "@palamedes/cli": ^2.0.0
+  "@palamedes/core": ^2.0.0
+  "@palamedes/react": ^2.0.0
+  "@palamedes/runtime": ^2.0.0
+  "@palamedes/vite-plugin": ^2.0.0
   "@react-router/dev": ^8.3.0
+  "@react-router/node": 8.4.0
   "@types/node": ^26.1.0
   "@types/react": ^19.2.17
   "@types/react-dom": ^19.2.3
@@ -39,3 +40,25 @@ allowBuilds:
   "@palamedes/cli": true
   esbuild: true
   unrs-resolver: true
+
+minimumReleaseAgeExclude:
+  - "@palamedes/cli-darwin-arm64@2.0.0"
+  - "@palamedes/cli-linux-arm64-gnu@2.0.0"
+  - "@palamedes/cli-linux-arm64-musl@2.0.0"
+  - "@palamedes/cli-linux-x64-gnu@2.0.0"
+  - "@palamedes/cli-linux-x64-musl@2.0.0"
+  - "@palamedes/cli-win32-x64-msvc@2.0.0"
+  - "@palamedes/cli@2.0.0"
+  - "@palamedes/config@2.0.0"
+  - "@palamedes/core-node-darwin-arm64@2.0.0"
+  - "@palamedes/core-node-linux-arm64-gnu@2.0.0"
+  - "@palamedes/core-node-linux-arm64-musl@2.0.0"
+  - "@palamedes/core-node-linux-x64-gnu@2.0.0"
+  - "@palamedes/core-node-linux-x64-musl@2.0.0"
+  - "@palamedes/core-node-win32-x64-msvc@2.0.0"
+  - "@palamedes/core-node@2.0.0"
+  - "@palamedes/core@2.0.0"
+  - "@palamedes/react@2.0.0"
+  - "@palamedes/runtime@2.0.0"
+  - "@palamedes/transform@2.0.0"
+  - "@palamedes/vite-plugin@2.0.0"

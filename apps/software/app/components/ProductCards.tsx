@@ -1,6 +1,6 @@
 import type { ReactElement } from "react"
 
-import { blocks, button } from "@sebastian-websites/ui"
+import { blocks, button, SiteLink } from "@sebastian-websites/ui"
 
 import { getProducts } from "~/data/products"
 
@@ -22,9 +22,9 @@ export function ProductCards(): ReactElement {
           </span>
           <h3 className={blocks.cardTitle}>{product.name}</h3>
           <p className={blocks.cardText}>{product.description}</p>
-          <a className={`${button.ghost} ${blocks.columnLink}`} href={product.action.href}>
+          <SiteLink className={`${button.ghost} ${blocks.columnLink}`} href={product.action.href}>
             {product.action.label} <span aria-hidden="true">→</span>
-          </a>
+          </SiteLink>
         </article>
       ))}
     </div>

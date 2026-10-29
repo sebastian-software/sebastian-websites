@@ -5,11 +5,22 @@ import {
   FONT_STYLESHEET,
   isNotFoundHandle,
   PageEnding,
+  PageError,
+  RouteFocus,
   SiteHeader,
 } from "@sebastian-websites/ui"
+import { createPageErrorCopy } from "@sebastian-websites/ui/error-copy"
 import { createFrameCopy } from "@sebastian-websites/ui/frame-copy"
 import { createSeoLinks, getSiteFrame, SITE_BRAND } from "@sebastian-websites/web-core"
-import { Links, Meta, Outlet, Scripts, useLocation, useMatches } from "react-router"
+import {
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useLocation,
+  useMatches,
+} from "react-router"
 import "@sebastian-websites/ui/brand-software.css"
 
 import { variant } from "~/lib/site"
@@ -30,7 +41,7 @@ export function Layout({ children }: { readonly children: ReactNode }): ReactEle
   const seoLinks = notFound ? [] : createSeoLinks(variant.site, variant.locale, pathname)
 
   return (
-    <html lang={variant.locale}>
+    <html data-palamedes-time-zone="Europe/Berlin" lang={variant.locale}>
       <head>
         <meta charSet="utf-8" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -49,6 +60,8 @@ export function Layout({ children }: { readonly children: ReactNode }): ReactEle
       </head>
       <body>
         {children}
+        <RouteFocus />
+        <ScrollRestoration />
         <Scripts />
       </body>
     </html>
@@ -69,4 +82,13 @@ export default function App(): ReactElement {
       <PageEnding copy={copy} frame={frame} />
     </>
   )
+}
+
+/**
+ * A root catalog is already loaded before a lazy route can fail.
+ *
+ * @returns The document recovery view.
+ */
+export function ErrorBoundary(): ReactElement {
+  return <PageError copy={createPageErrorCopy()} />
 }

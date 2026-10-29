@@ -4,6 +4,7 @@ import type { ReactElement } from "react"
 import type { FrameCopy } from "./copy.ts"
 
 import { Arrow } from "../editorial/Arrow.tsx"
+import { SiteLink } from "../SiteLink.tsx"
 import * as styles from "./NotFound.css.ts"
 
 export type NotFoundProps = {
@@ -46,13 +47,13 @@ export function NotFound(props: NotFoundProps): ReactElement {
       <ul className={styles.links}>
         {destinations.map((destination) => (
           <li key={destination.id}>
-            <a className={styles.link} href={destination.href}>
+            <SiteLink className={styles.link} href={destination.href}>
               {destination.label}
               <Arrow
                 className={styles.arrow}
                 direction={destination.href.startsWith("https://") ? "outward" : "forward"}
               />
-            </a>
+            </SiteLink>
           </li>
         ))}
       </ul>

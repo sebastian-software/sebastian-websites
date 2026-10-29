@@ -372,12 +372,13 @@ export function ProjectProfile({
   const documentLabel = t`Project Profile`
 
   return (
-    <div
+    <main
       className={cn(
         stage.canvas,
         pageStyles.body,
         lang === "de" ? pageStyles.langDe : pageStyles.langEn
       )}
+      id="main"
     >
       <div className={stage.stage}>
         <article
@@ -407,6 +408,6 @@ export function ProjectProfile({
           lang={lang}
         />
       </div>
-    </div>
+    </main>
   )
 }

@@ -1,5 +1,6 @@
 import type { ComponentPropsWithRef, ReactElement } from "react"
 
+import { SiteLink } from "../SiteLink.tsx"
 import { Arrow } from "./Arrow.tsx"
 import * as styles from "./editorial.css.ts"
 
@@ -20,9 +21,9 @@ export function ArrowLink(props: ArrowLinkProps): ReactElement {
   const { children, className, direction = "forward", underline = false, ...rest } = props
   const classes = [styles.arrowLink, underline ? styles.arrowLinkUnderlined : "", className ?? ""]
   return (
-    <a {...rest} className={classes.filter(Boolean).join(" ")}>
+    <SiteLink {...rest} className={classes.filter(Boolean).join(" ")}>
       <span>{children}</span>
       <Arrow className={styles.arrow} direction={direction} />
-    </a>
+    </SiteLink>
   )
 }
