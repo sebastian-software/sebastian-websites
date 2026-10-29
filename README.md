@@ -29,3 +29,5 @@ art direction, and preloads. [AGENTS.md](AGENTS.md) records the guidance for age
 - [GLOSSARY.md](GLOSSARY.md): the shared vocabulary
 - [docs/adr/](docs/adr/): decisions and their reasons, kept current as living documents
 - [docs/plans/](docs/plans/README.md): the work packages, in order
+- [Social profile assets](assets/social-profiles/sebastian-werner/README.md):
+  applied banners and portrait, source layers, and reproducible banner exports for LinkedIn, X, and Bluesky
