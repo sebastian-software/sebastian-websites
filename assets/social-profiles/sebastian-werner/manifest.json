@@ -1,0 +1,38 @@
+{
+  "version": 6,
+  "status": "applied",
+  "websiteReference": "https://sebastian-software.com/",
+  "generation": "Built-in image_gen; see sources/imagegen-prompts.json",
+  "appliedDate": "2026-10-30",
+  "headline": "Independent minds. Serious software.",
+  "originalLogoSha256": "77db73da80793bd3bd4b21964e2010d6ad638480352c1de82fcaebdcbb5d6a7b",
+  "files": [
+    {
+      "platform": "linkedin",
+      "width": 1584,
+      "height": 396,
+      "png": "exports/linkedin-banner-1584x396-v6a.png",
+      "svg": "exports/linkedin-banner-1584x396-v6a.svg",
+      "bytes": 926694,
+      "sha256": "cf4f547fa948ae57c65c7312a1f6517e8d19c8adf1bce4ab67d3cec2bac4d737"
+    },
+    {
+      "platform": "x",
+      "width": 1500,
+      "height": 500,
+      "png": "exports/x-banner-1500x500-v6a.png",
+      "svg": "exports/x-banner-1500x500-v6a.svg",
+      "bytes": 980252,
+      "sha256": "3af6751618aeed23874a4c07a4c650b0fbd6840fa01123fbf04a6e3bc8d33fbf"
+    },
+    {
+      "platform": "bluesky",
+      "width": 1500,
+      "height": 500,
+      "png": "exports/bluesky-banner-1500x500-v6a.png",
+      "svg": "exports/bluesky-banner-1500x500-v6a.svg",
+      "bytes": 980252,
+      "sha256": "3af6751618aeed23874a4c07a4c650b0fbd6840fa01123fbf04a6e3bc8d33fbf"
+    }
+  ]
+}

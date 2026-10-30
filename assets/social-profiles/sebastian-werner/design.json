@@ -1,0 +1,82 @@
+{
+  "version": 6,
+  "status": "applied",
+  "direction": "Watercolor workbench and editorial serif, informed by sebastian-software.com",
+  "palette": {
+    "paper": "#FAFCFC",
+    "ink": "#002731",
+    "petrol": "#00718D",
+    "sage": "#98A47B",
+    "ochre": "#C8953B"
+  },
+  "text": [
+    {
+      "id": "headline1",
+      "text": "Independent minds.",
+      "font": "Georgia",
+      "fontPath": "/System/Library/Fonts/Supplemental/Georgia.ttf"
+    },
+    {
+      "id": "headline2",
+      "text": "Serious software.",
+      "font": "Georgia",
+      "fontPath": "/System/Library/Fonts/Supplemental/Georgia.ttf"
+    },
+    {
+      "id": "website",
+      "text": "sebastian-software.com",
+      "font": "SourceSansPro-Regular",
+      "fontPath": "~/Library/Fonts/SourceSansPro-Regular.ttf"
+    }
+  ],
+  "platforms": [
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "width": 1584,
+      "height": 396,
+      "logoX": 440,
+      "logoY": 48,
+      "logoWidth": 350,
+      "textX": 440,
+      "headline1Y": 204,
+      "headline2Y": 266,
+      "headlineSize": 51,
+      "websiteY": 322,
+      "websiteSize": 29
+    },
+    {
+      "id": "x",
+      "label": "X",
+      "width": 1500,
+      "height": 500,
+      "logoX": 350,
+      "logoY": 98,
+      "logoWidth": 350,
+      "textX": 350,
+      "headline1Y": 254,
+      "headline2Y": 316,
+      "headlineSize": 51,
+      "websiteY": 372,
+      "websiteSize": 29
+    },
+    {
+      "id": "bluesky",
+      "label": "Bluesky",
+      "width": 1500,
+      "height": 500,
+      "logoX": 350,
+      "logoY": 98,
+      "logoWidth": 350,
+      "textX": 350,
+      "headline1Y": 254,
+      "headline2Y": 316,
+      "headlineSize": 51,
+      "websiteY": 372,
+      "websiteSize": 29
+    }
+  ],
+  "variant": "v6a",
+  "appliedDate": "2026-10-30",
+  "headline": "Independent minds. Serious software."
+}
