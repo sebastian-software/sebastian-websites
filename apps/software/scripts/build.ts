@@ -3,7 +3,7 @@
 import type * as SharedUi from "@sebastian-websites/ui"
 
 import { fetchMetricsSummary } from "@sebastian-websites/content"
-import { createRobots, createSitemap, getVariant, SITE_BRAND } from "@sebastian-websites/web-core"
+import { getVariant, SITE_BRAND } from "@sebastian-websites/web-core"
 import { bunnyImages } from "@sebastian-websites/web-core/vite"
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin"
 import assert from "node:assert/strict"
@@ -14,7 +14,6 @@ import path from "node:path"
 import { fileURLToPath } from "node:url"
 import { build, type InlineConfig } from "vite"
 
-import { PAGES } from "../app/lib/pages.ts"
 import { withDevelopmentMirror } from "./development.ts"
 import { sharedMacros } from "./macros.ts"
 
@@ -369,14 +368,10 @@ async function writeResources(site: string, client: string, variantId: string): 
   )
   assert.ok(isManifestModule(uiModule))
   const variant = getVariant(variantId)
-  await Promise.all([
-    writeFile(path.join(client, "sitemap.xml"), createSitemap(variant.site, variant.locale, PAGES)),
-    writeFile(path.join(client, "robots.txt"), createRobots(variant.site, variant.locale)),
-    writeFile(
-      path.join(client, "manifest.webmanifest"),
-      uiModule.createWebManifest(SITE_BRAND[variant.site], "Sebastian Software")
-    ),
-  ])
+  await writeFile(
+    path.join(client, "manifest.webmanifest"),
+    uiModule.createWebManifest(SITE_BRAND[variant.site], "Sebastian Software")
+  )
 }
 
 async function finishSite(site: string, packages: string, variantId: string): Promise<void> {

@@ -60,7 +60,8 @@ export default defineConfig({
       title: "Sebastian Software",
       siteUrl: variant.canonicalOrigin,
       lang: variant.locale,
-      seo: { sitemap: false, robots: false, llms: false },
+      // The hosting contract keeps the not-found page out of every sitemap.
+      seo: { sitemap: { exclude: ["/404"] }, llms: false },
       linkCheck: { enabled: true, level: "error" },
     }),
   ],

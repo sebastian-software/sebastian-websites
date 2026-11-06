@@ -9,8 +9,6 @@ import path from "node:path"
 import { fileURLToPath } from "node:url"
 import { type Browser, type BrowserContext, chromium, type Page } from "playwright"
 
-import { PAGES } from "../app/lib/pages.ts"
-
 const app = fileURLToPath(new URL("..", import.meta.url))
 const evidence = path.join(app, "build/evidence")
 const baseline = process.env.SOFTWARE_BASELINE_ROOT
@@ -424,6 +422,17 @@ async function checkResources(context: BrowserContext, current: Fixture): Promis
     assert.ok(body.length > 0)
   }
 }
+// The build sitemap is the single list of indexable pages; its URLs use the canonical origin.
+async function sitemapPages(context: BrowserContext, current: Fixture): Promise<string[]> {
+  const response = await context.request.get(`${current.origin}/sitemap.xml`)
+  assert.equal(response.status(), OK)
+  const body = await response.text()
+  const pages = [...body.matchAll(/<loc>(?<loc>[^<]+)<\/loc>/gv)].map(
+    ({ groups }) => new URL(groups?.loc ?? "").pathname
+  )
+  assert.ok(pages.length > 0, "sitemap.xml lists no pages")
+  return pages
+}
 async function checkStaticFallback(browser: Browser, current: Fixture): Promise<void> {
   const noScript = await browser.newContext({ javaScriptEnabled: false })
   try {
@@ -496,9 +505,10 @@ async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
       errors.push(message.text())
   })
   try {
+    const pages = await sitemapPages(context, current)
     for (const viewport of VIEWPORTS) {
       await page.setViewportSize(viewport)
-      for (const pathname of PAGES) {
+      for (const pathname of pages) {
         await checkRoute(context, page, {
           current,
           errors,
