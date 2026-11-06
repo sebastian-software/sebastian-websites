@@ -33,3 +33,9 @@ is no custom orchestration script.
   must be verified against it.
 - Whether the icon pipeline runs through our own effective-icon depends on its support for a
   custom Streamline pack; that is decided during implementation.
+
+## Software exception
+
+The Software-specific framework choice is superseded by
+[ADR-0019](0019-software-site-on-ardo.md). The original decision above remains the
+historical rationale and still applies to the other sites.

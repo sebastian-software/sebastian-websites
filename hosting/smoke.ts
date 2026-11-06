@@ -21,6 +21,7 @@ const GONE = 410
 const REQUEST_TIMEOUT_MS = 15_000
 
 export type SmokeCheck = {
+  readonly contentTypes?: readonly string[]
   readonly location?: string
   readonly path: string
   readonly status: number
@@ -40,6 +41,17 @@ export function smokeChecks(variantId: string, origin: string): readonly SmokeCh
     { path: "/", status: OK },
     { path: "/no-such-page-smoke", status: NOT_FOUND },
   ]
+  if (serving.site === "software") {
+    checks.push(
+      { contentTypes: ["application/xml", "text/xml"], path: "/sitemap.xml", status: OK },
+      { contentTypes: ["text/plain"], path: "/robots.txt", status: OK },
+      {
+        contentTypes: ["application/manifest+json", "application/json"],
+        path: "/manifest.webmanifest",
+        status: OK,
+      }
+    )
+  }
   for (const rule of PATH_RULES[serving.site]) {
     const path = rule.path.endsWith("/*") ? `${rule.path.slice(0, -1)}example` : rule.path
     const plan = planLegacyPath(serving, new URL(path, origin))
@@ -50,6 +62,19 @@ export function smokeChecks(variantId: string, origin: string): readonly SmokeCh
     }
   }
   return checks
+}
+
+/**
+ * Compare response media types independently of optional charset parameters.
+ * @param check - The resource media types allowed by the hosting contract.
+ * @param response - The origin response to inspect.
+ * @returns A diagnostic for an unexpected media type, otherwise undefined.
+ */
+function contentTypeFailure(check: SmokeCheck, response: Response): string | undefined {
+  if (check.contentTypes === undefined) return
+  const contentType = response.headers.get("content-type")?.split(";", 1)[0]?.trim().toLowerCase()
+  if (contentType !== undefined && check.contentTypes.includes(contentType)) return
+  return `${check.path}: Content-Type ${contentType ?? "missing"}, expected ${check.contentTypes.join(" or ")}`
 }
 
 /**
@@ -76,7 +101,10 @@ export async function runSmoke(
       failures.push(
         `${check.path}: ${String(response.status)} ${location ?? ""}, expected ${String(check.status)} ${check.location ?? ""}`
       )
+      continue
     }
+    const typeFailure = contentTypeFailure(check, response)
+    if (typeFailure !== undefined) failures.push(typeFailure)
   }
   return failures
 }

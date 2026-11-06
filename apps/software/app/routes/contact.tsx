@@ -1,3 +1,4 @@
+import type { ArdoMetaDescriptor } from "ardo/runtime"
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
@@ -6,13 +7,13 @@ import { blocks, button, layout, Section, SectionHead, typography } from "@sebas
 import { getSiteOrigin } from "@sebastian-websites/web-core"
 
 import { CONTACT_EMAIL } from "~/lib/legal"
+import { seoMeta } from "~/lib/seo"
 import { variant } from "~/lib/site"
 
-import type { Route } from "./+types/contact"
-
-// eslint-disable-next-line react-refresh/only-export-components -- React Router reads meta from the route module
-export function meta(): Route.MetaDescriptors {
+// eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
+export function meta(): ArdoMetaDescriptor[] {
   return [
+    ...seoMeta("/contact"),
     { title: t`Contact – Sebastian Software` },
     { content: t`How to reach Sebastian Software GmbH in Mainz.`, name: "description" },
   ]

@@ -8,6 +8,7 @@ import { afterEach, describe, expect, it, vi } from "vitest"
 
 import type { FrameCopy } from "./copy.ts"
 
+import { DocumentNavigation } from "../DocumentNavigation.tsx"
 import { Newsletter } from "./Newsletter.tsx"
 import { PageEnding } from "./PageEnding.tsx"
 import { SiteHeader } from "./SiteHeader.tsx"
@@ -292,5 +293,18 @@ describe("Newsletter", () => {
     const view = render()
     await view.submit("name@example.com")
     expect(view.status()).toBe("Sign-up opens soon.")
+  })
+})
+
+describe("document navigation", () => {
+  it("renders the shared header without a client router", () => {
+    const view = renderToStaticMarkup(
+      <DocumentNavigation>
+        <SiteHeader copy={copy} frame={getSiteFrame("software", "en", "/products")} />
+      </DocumentNavigation>
+    )
+    expect(view).toContain('href="/products"')
+    expect(view).toContain('aria-current="page"')
+    expect(view).toContain('href="#main"')
   })
 })

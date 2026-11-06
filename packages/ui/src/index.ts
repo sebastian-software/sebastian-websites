@@ -1,6 +1,7 @@
 export * as blocks from "./blocks.css.ts"
 export { BunnyImage, type BunnyImageProps, type BunnyImageVariant } from "./BunnyImage.tsx"
 export { button } from "./button.css.ts"
+export { DocumentNavigation } from "./DocumentNavigation.tsx"
 export { alternate } from "./editorial/alternate.ts"
 export { Arrow, type ArrowProps } from "./editorial/Arrow.tsx"
 export { ArrowLink, type ArrowLinkProps } from "./editorial/ArrowLink.tsx"

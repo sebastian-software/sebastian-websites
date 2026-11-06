@@ -1,0 +1,542 @@
+/* eslint-disable security/detect-non-literal-fs-filename -- Fixture paths are checked against the generated build root. */
+/* eslint-disable no-await-in-loop -- Route assertions and fixture cleanup are ordered. */
+/* eslint-disable max-statements -- Each browser scenario keeps its related assertions together. */
+/* eslint-disable unicorn/prefer-global-this -- Evaluated callbacks run in the browser. */
+import assert from "node:assert/strict"
+import { mkdir, readFile, writeFile } from "node:fs/promises"
+import { createServer } from "node:http"
+import path from "node:path"
+import { fileURLToPath } from "node:url"
+import { type Browser, type BrowserContext, chromium, type Page } from "playwright"
+
+import { PAGES } from "../app/lib/pages.ts"
+
+const app = fileURLToPath(new URL("..", import.meta.url))
+const evidence = path.join(app, "build/evidence")
+const baseline = process.env.SOFTWARE_BASELINE_ROOT
+const remoteAssets = new Map<string, { body: Buffer; contentType: string; status: number }>()
+const performanceEvidence: unknown[] = []
+const OK = 200
+const NOT_FOUND = 404
+const SERVER_ERROR = 500
+const PERFORMANCE_SAMPLES = 5
+const PERCENT = 100
+const LCP_BUDGET = 1.1
+const CLS_TOLERANCE = 0.001
+const PRODUCTS_LINK = 'header a[href="/products"]'
+const VIEWPORTS = [
+  { height: 1000, width: 1440 },
+  { height: 844, width: 390 },
+]
+type Viewport = { height: number; width: number }
+type Vitals = { cls: number; lcp: number }
+type Locale = "de" | "en"
+type Fixture = Awaited<ReturnType<typeof fixture>>
+
+function median(values: number[]): number {
+  assert.ok(values.length > 0)
+  return values.toSorted((a, b) => a - b)[Math.floor(values.length / 2)]
+}
+const media: Record<string, string> = {
+  ".css": "text/css",
+  ".html": "text/html",
+  ".ico": "image/x-icon",
+  ".jpg": "image/jpeg",
+  ".js": "text/javascript",
+  ".json": "application/json",
+  ".png": "image/png",
+  ".svg": "image/svg+xml",
+  ".txt": "text/plain",
+  ".webmanifest": "application/manifest+json",
+  ".woff2": "font/woff2",
+  ".xml": "application/xml",
+}
+
+async function fixture(directory: string) {
+  const server = createServer((request, response) => {
+    void (async () => {
+      const url = new URL(request.url ?? "/", "http://localhost")
+      const name = path.extname(url.pathname)
+        ? url.pathname
+        : `${url.pathname.replace(/\/$/v, "")}/index.html`
+      const file = path.resolve(directory, `.${name}`)
+      assert.ok(file.startsWith(`${directory}/`))
+      try {
+        const bytes = await readFile(file)
+        response
+          .writeHead(OK, {
+            "content-type": media[path.extname(file)] ?? "application/octet-stream",
+          })
+          .end(bytes)
+      } catch (error) {
+        if (!(error instanceof Error) || !("code" in error) || error.code !== "ENOENT") throw error
+        response
+          .writeHead(NOT_FOUND, { "content-type": "text/html" })
+          .end(await readFile(path.join(directory, "404/index.html")))
+      }
+    })().catch(() => response.writeHead(SERVER_ERROR).end())
+  })
+  await new Promise<void>((resolve, reject) => {
+    server.once("error", reject)
+    server.listen(0, "127.0.0.1", resolve)
+  })
+  const address = server.address()
+  assert.ok(address != null && typeof address !== "string")
+  return {
+    close: async () =>
+      new Promise<void>((resolve, reject) => {
+        server.close((error) => {
+          if (error) reject(error)
+          else resolve()
+        })
+      }),
+    origin: `http://127.0.0.1:${address.port}`,
+  }
+}
+
+async function settle(page: Page): Promise<void> {
+  await page.waitForLoadState("networkidle")
+  await page.evaluate(async () => document.fonts.ready)
+}
+
+async function settleImages(page: Page): Promise<void> {
+  await page.evaluate(async () => {
+    const images = [...document.images]
+    const loading = images.map((image) => image.loading)
+    for (const image of images) image.loading = "eager"
+    try {
+      await Promise.all(images.map(async (image) => image.decode()))
+    } finally {
+      for (const [index, image] of images.entries()) image.loading = loading[index]
+    }
+  })
+}
+
+async function pageShape(page: Page) {
+  return page
+    .locator("header, main, main h1, main h2, main img, footer")
+    .evaluateAll((elements) => {
+      const shapes = []
+      for (const element of elements) {
+        const rect = element.getBoundingClientRect()
+        const style = getComputedStyle(element)
+        shapes.push({
+          color: style.color,
+          font: style.fontSize,
+          height: rect.height,
+          image:
+            element instanceof HTMLImageElement
+              ? {
+                  alt: element.alt,
+                  height: element.height,
+                  loading: element.loading,
+                  priority: element.fetchPriority,
+                  sizes: element.sizes,
+                  sources: [...(element.closest("picture")?.querySelectorAll("source") ?? [])].map(
+                    (source) => ({
+                      media: source.media,
+                      sizes: source.sizes,
+                      srcset: source.srcset,
+                    })
+                  ),
+                  srcset: element.srcset,
+                  width: element.width,
+                }
+              : null,
+          tag: element.tagName,
+          text: element.tagName === "H1" || element.tagName === "H2" ? element.textContent : "",
+          width: rect.width,
+          x: rect.x,
+          y: rect.y,
+        })
+      }
+      return shapes
+    })
+}
+
+// Compare warmed document loads with fixed external asset bytes.
+async function comparePerformance(
+  context: BrowserContext,
+  options: { current: string; pathname: string; previous: string; viewport: Viewport }
+): Promise<void> {
+  const { current, pathname, previous, viewport } = options
+  const page = await context.newPage()
+  await page.setViewportSize(viewport)
+  await page.addInitScript(() => {
+    Reflect.set(window, "softwareLcp", 0)
+    Reflect.set(window, "softwareCls", 0)
+    new PerformanceObserver((list) => {
+      const entry = list.getEntries().at(-1)
+      if (entry) Reflect.set(window, "softwareLcp", entry.startTime)
+    }).observe({ buffered: true, type: "largest-contentful-paint" })
+    new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        if (Reflect.get(entry, "hadRecentInput") !== true)
+          Reflect.set(
+            window,
+            "softwareCls",
+            Number(Reflect.get(window, "softwareCls")) + Number(Reflect.get(entry, "value"))
+          )
+      }
+    }).observe({ buffered: true, type: "layout-shift" })
+  })
+  const before: Vitals[] = []
+  const after: Vitals[] = []
+  try {
+    for (const origin of [previous, current]) {
+      await page.goto(`${origin}${pathname}`)
+      await settle(page)
+    }
+    for (let run = 0; run < PERFORMANCE_SAMPLES; run++) {
+      const origins = run % 2 === 0 ? [previous, current] : [current, previous]
+      for (const origin of origins) {
+        await page.goto(`${origin}${pathname}`)
+        await settle(page)
+        const value = await page.evaluate(() => ({
+          cls: Number(Reflect.get(window, "softwareCls")),
+          lcp: Number(Reflect.get(window, "softwareLcp")),
+        }))
+        assert.ok(value.lcp > 0, `${pathname}: observed LCP`)
+        ;(origin === previous ? before : after).push(value)
+      }
+    }
+    const oldLcp = median(before.map((value) => value.lcp))
+    const newLcp = median(after.map((value) => value.lcp))
+    const result = {
+      after,
+      before,
+      medianLcpAfter: newLcp,
+      medianLcpBefore: oldLcp,
+      pathname,
+      regressionPercent: (newLcp / oldLcp - 1) * PERCENT,
+      viewport,
+    }
+    performanceEvidence.push(result)
+    await writeFile(
+      path.join(evidence, "performance.json"),
+      JSON.stringify(performanceEvidence, null, 2)
+    )
+    assert.ok(
+      newLcp <= oldLcp * LCP_BUDGET,
+      `${pathname}/${viewport.width}: median LCP ${newLcp}ms vs ${oldLcp}ms exceeds 10%`
+    )
+    assert.ok(
+      median(after.map((value) => value.cls)) <=
+        median(before.map((value) => value.cls)) + CLS_TOLERANCE,
+      `${pathname}: CLS regression`
+    )
+  } finally {
+    await page.close()
+  }
+}
+
+async function metadataShape(page: Page) {
+  return page
+    .locator(
+      'title, meta[name="description"], meta[name="robots"], script[type="application/ld+json"]'
+    )
+    .evaluateAll((elements) =>
+      elements.map((element) => ({
+        content: element.getAttribute("content"),
+        tag: element.tagName,
+        text: element.textContent,
+      }))
+    )
+}
+
+type Shape = Awaited<ReturnType<typeof pageShape>>
+function compareShapes(candidate: Shape, previous: Shape, label: string): void {
+  assert.equal(candidate.length, previous.length, `${label}: structural parity`)
+  for (const [index, element] of candidate.entries()) {
+    const original = previous[index]
+    assert.equal(element.text, original.text, `${label}: translated headings`)
+    assert.deepEqual(element.image, original.image, `${label}: responsive images`)
+    assert.equal(element.font, original.font, `${label}: typography`)
+    assert.equal(element.color, original.color, `${label}: color`)
+    for (const dimension of ["x", "y", "width", "height"] as const) {
+      assert.ok(
+        Math.abs(element[dimension] - original[dimension]) <= 2,
+        `${label}: ${element.tag} ${dimension} ${element[dimension]} / ${original[dimension]}`
+      )
+    }
+  }
+}
+async function compareBaseline(
+  context: BrowserContext,
+  page: Page,
+  options: { old: Fixture; pathname: string; variant: string; viewport: Viewport }
+): Promise<void> {
+  const { old, pathname, variant, viewport } = options
+  const candidate = await pageShape(page)
+  const oldPage = await context.newPage()
+  try {
+    await oldPage.setViewportSize(viewport)
+    await oldPage.goto(`${old.origin}${pathname}`)
+    await settle(oldPage)
+    await settleImages(oldPage)
+    assert.deepEqual(
+      await metadataShape(page),
+      await metadataShape(oldPage),
+      `${pathname}: page metadata`
+    )
+    compareShapes(candidate, await pageShape(oldPage), `${variant}${pathname}/${viewport.width}`)
+    await oldPage.screenshot({
+      fullPage: true,
+      path: path.join(
+        evidence,
+        `baseline-${variant}-${viewport.width}-${pathname === "/" ? "home" : pathname.slice(1)}.png`
+      ),
+    })
+  } finally {
+    await oldPage.close()
+  }
+}
+type RouteOptions = {
+  current: Fixture
+  errors: string[]
+  locale: Locale
+  old?: Fixture
+  pathname: string
+  variant: string
+  viewport: Viewport
+}
+async function checkRoute(
+  context: BrowserContext,
+  page: Page,
+  options: RouteOptions
+): Promise<void> {
+  const { current, errors, locale, old, pathname, variant, viewport } = options
+  const response = await page.goto(`${current.origin}${pathname}`)
+  assert.equal(response?.status(), OK)
+  await settle(page)
+  await settleImages(page)
+  assert.deepEqual(errors, [], `${variant}${pathname}: browser errors`)
+  assert.equal(await page.locator("html").getAttribute("lang"), locale)
+  assert.equal(await page.locator("h1").count(), 1)
+  assert.equal(await page.locator("#ardo-app").count(), 1)
+  const canonical = `https://sebastian-software.${locale === "de" ? "de" : "com"}${pathname}`
+  assert.equal(await page.locator('link[rel="canonical"]').getAttribute("href"), canonical)
+  assert.equal(
+    await page.locator('link[rel="alternate"][hreflang="de"]').getAttribute("href"),
+    `https://sebastian-software.de${pathname}`
+  )
+  assert.equal(
+    await page.locator('link[rel="alternate"][hreflang="en"]').getAttribute("href"),
+    `https://sebastian-software.com${pathname}`
+  )
+  assert.equal(await page.locator('link[rel="alternate"][hreflang="x-default"]').count(), 1)
+  assert.ok(
+    await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
+    `${variant}${pathname}: overflow`
+  )
+  if (old) await compareBaseline(context, page, { old, pathname, variant, viewport })
+  await page.screenshot({
+    fullPage: true,
+    path: path.join(
+      evidence,
+      `${variant}-${viewport.width}-${pathname === "/" ? "home" : pathname.slice(1)}.png`
+    ),
+  })
+}
+async function checkNavigation(page: Page, current: Fixture, locale: Locale): Promise<void> {
+  await page.setViewportSize({ height: 844, width: 390 })
+  await page.goto(current.origin)
+  await settle(page)
+  await page.keyboard.press("Tab")
+  assert.equal(await page.locator(":focus").getAttribute("href"), "#main")
+  await page.keyboard.press("Enter")
+  assert.equal(new URL(page.url()).hash, "#main")
+  await page.locator("header button[popovertarget]").click()
+  assert.ok(await page.locator(PRODUCTS_LINK).isVisible())
+  const otherOrigin = `https://sebastian-software.${locale === "de" ? "com" : "de"}/`
+  assert.equal(
+    await page
+      .locator(`header a[hreflang="${locale === "de" ? "en" : "de"}"]`)
+      .getAttribute("href"),
+    otherOrigin
+  )
+  await page.keyboard.press("Escape")
+  assert.equal(
+    await page.locator("header [popover]").evaluate((element) => element.matches(":popover-open")),
+    false
+  )
+  await page.locator("header button[popovertarget]").click()
+  await page.locator(PRODUCTS_LINK).click()
+  await settle(page)
+  await page.goBack()
+  await settle(page)
+  assert.equal(new URL(page.url()).pathname, "/")
+  await page.setViewportSize({ height: 1000, width: 1440 })
+  await page.goto(current.origin)
+  await settle(page)
+  // Form feedback proves hydration; it must reset on an accepted full document navigation.
+  await page.locator('input[type="email"]').fill("draft@example.com")
+  await page.locator('form button[type="submit"]').click()
+  await page
+    .getByRole("status")
+    .filter({ hasText: locale === "de" ? /bald|gestartet/iv : /opens soon/iv })
+    .waitFor()
+  await page.evaluate(() => {
+    Reflect.set(window, "softwareDocumentMarker", true)
+  })
+  await page.locator(PRODUCTS_LINK).click()
+  await settle(page)
+  assert.equal(
+    await page.evaluate(() => Reflect.get(window, "softwareDocumentMarker") === true),
+    false
+  )
+  assert.equal(await page.locator('input[type="email"]').inputValue(), "")
+}
+async function checkNotFound(
+  context: BrowserContext,
+  page: Page,
+  options: { current: Fixture; old?: Fixture; variant: string }
+): Promise<void> {
+  const { current, old, variant } = options
+  for (const viewport of VIEWPORTS) {
+    await page.setViewportSize(viewport)
+    const missing = await page.goto(`${current.origin}/unknown-software-page`)
+    assert.equal(missing?.status(), NOT_FOUND)
+    await settle(page)
+    await settleImages(page)
+    assert.equal(await page.locator("[data-not-found]").count(), 1)
+    assert.equal(await page.locator('link[rel="canonical"]').count(), 0)
+    assert.equal(await page.locator('meta[name="robots"]').getAttribute("content"), "noindex")
+    if (old)
+      await compareBaseline(context, page, {
+        old,
+        pathname: "/unknown-software-page",
+        variant,
+        viewport,
+      })
+    await page.screenshot({
+      fullPage: true,
+      path: path.join(evidence, `${variant}-${viewport.width}-404.png`),
+    })
+  }
+}
+async function checkResources(context: BrowserContext, current: Fixture): Promise<void> {
+  for (const resource of ["/sitemap.xml", "/robots.txt", "/manifest.webmanifest"]) {
+    const response = await context.request.get(`${current.origin}${resource}`)
+    assert.equal(response.status(), OK)
+    assert.match(response.headers()["content-type"] ?? "", /xml|text\/plain|manifest\+json/v)
+    const body = await response.text()
+    assert.ok(body.length > 0)
+  }
+}
+async function checkStaticFallback(browser: Browser, current: Fixture): Promise<void> {
+  const noScript = await browser.newContext({ javaScriptEnabled: false })
+  try {
+    const staticPage = await noScript.newPage()
+    await staticPage.goto(current.origin)
+    assert.equal(await staticPage.locator("h1").count(), 1)
+    await staticPage.locator(PRODUCTS_LINK).click()
+    assert.ok(staticPage.url().endsWith("/products"))
+  } finally {
+    await noScript.close()
+  }
+}
+async function checkPerformance(
+  context: BrowserContext,
+  current: Fixture,
+  old: Fixture
+): Promise<void> {
+  for (const viewport of VIEWPORTS) {
+    for (const pathname of ["/", "/open-source", "/404"]) {
+      await comparePerformance(context, {
+        current: current.origin,
+        pathname,
+        previous: old.origin,
+        viewport,
+      })
+    }
+  }
+}
+async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
+  const variant = `software-${locale}`
+  const build = path.join(app, "build", variant, "client")
+  const current = await fixture(build)
+  const old =
+    baseline === undefined ? undefined : await fixture(path.resolve(baseline, variant, "client"))
+  const context = await browser.newContext()
+  // Fix asset bytes across old/new comparisons; new Bunny originals need no publication.
+  await context.route("https://**", async (route) => {
+    const url = new URL(route.request().url())
+    if (url.hostname === "assets.sebastian-software.com" && url.pathname.startsWith("/images/")) {
+      try {
+        await route.fulfill({
+          body: await readFile(path.join(build, url.pathname.slice(1))),
+          contentType: media[path.extname(url.pathname)],
+        })
+        return
+      } catch (error) {
+        if (!(error instanceof Error) || !("code" in error) || error.code !== "ENOENT") throw error
+      }
+    }
+    let cached = remoteAssets.get(url.href)
+    if (!cached) {
+      const response = await route.fetch()
+      cached = {
+        body: await response.body(),
+        contentType: response.headers()["content-type"] ?? "application/octet-stream",
+        status: response.status(),
+      }
+      remoteAssets.set(url.href, cached)
+    }
+    await route.fulfill(cached)
+  })
+  const page = await context.newPage()
+  const errors: string[] = []
+  page.on("pageerror", (error) => errors.push(error.message))
+  page.on("console", (message) => {
+    if (
+      message.type() === "error" &&
+      /hydration|hydrating|react error|minified react/iv.test(message.text())
+    )
+      errors.push(message.text())
+  })
+  try {
+    for (const viewport of VIEWPORTS) {
+      await page.setViewportSize(viewport)
+      for (const pathname of PAGES) {
+        await checkRoute(context, page, {
+          current,
+          errors,
+          locale,
+          old,
+          pathname,
+          variant,
+          viewport,
+        })
+      }
+    }
+    if (old && locale === "de") await checkPerformance(context, current, old)
+    await checkNavigation(page, current, locale)
+    await checkNotFound(context, page, { current, old, variant })
+    await checkResources(context, current)
+    assert.deepEqual(errors, [], `${variant}: browser errors`)
+    await checkStaticFallback(browser, current)
+    console.log(
+      `${variant}: all routes, SEO, layout, hydration, native navigation, 404 and static fallback passed`
+    )
+  } catch (error) {
+    console.error({
+      errors,
+      status: await page.getByRole("status").allTextContents(),
+      url: page.url(),
+      variant,
+    })
+    throw error
+  } finally {
+    await context.close()
+    await current.close()
+    await old?.close()
+  }
+}
+await mkdir(evidence, { recursive: true })
+const testBrowser = await chromium.launch()
+try {
+  for (const locale of ["de", "en"] as const) await checkLocale(testBrowser, locale)
+} finally {
+  await testBrowser.close()
+}

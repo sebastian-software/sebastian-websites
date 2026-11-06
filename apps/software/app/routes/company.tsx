@@ -1,3 +1,4 @@
+import type { ArdoMetaDescriptor } from "ardo/runtime"
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
@@ -8,13 +9,13 @@ import { Closing } from "~/components/Closing"
 import { Founders } from "~/components/Founders"
 import { Photo } from "~/components/Photo"
 import { laptopPhoto } from "~/lib/photos"
+import { seoMeta } from "~/lib/seo"
 import { variant } from "~/lib/site"
 
-import type { Route } from "./+types/company"
-
-// eslint-disable-next-line react-refresh/only-export-components -- React Router reads meta from the route module
-export function meta(): Route.MetaDescriptors {
+// eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
+export function meta(): ArdoMetaDescriptor[] {
   return [
+    ...seoMeta("/company"),
     { title: t`Company – Sebastian Software` },
     {
       content: t`Sebastian Software GmbH: founded in 2014 in Mainz by Sebastian Fastner and Sebastian Werner. Our mission, our team, and how we build.`,
