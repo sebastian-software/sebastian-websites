@@ -22,13 +22,14 @@ their JavaScript and CSS artifacts are rebuilt.
 The build audits translations and fetches one metrics snapshot before rendering.
 It compiles the shared dependency packages, stages regular installed packages
 under `.variant-build`, and runs unchanged Ardo for each language. It writes
-`build/software-de/client` and `build/software-en/client`, including sitemap,
-robots, manifest, and the hosting-compatible `404/index.html`.
+`build/software-de/client` and `build/software-en/client`. Ardo generates each
+domain's sitemap from its routes, leaving out `/404`, and its robots file. The
+build adds the manifest and the hosting-compatible `404/index.html`.
 
 Browser checks require Playwright Chromium (`pnpm --filter
 @sebastian-websites/software exec playwright install chromium`). They exercise
-both built variants and write screenshots under `build/evidence`. Set
-`SOFTWARE_BASELINE_ROOT` to an earlier build directory containing
+every page in each built variant's sitemap and write screenshots under
+`build/evidence`. Set `SOFTWARE_BASELINE_ROOT` to an earlier build directory containing
 `software-de/client` and `software-en/client` to also compare metadata, layout,
 images, and representative five-load LCP/CLS measurements in the same browser.
 
