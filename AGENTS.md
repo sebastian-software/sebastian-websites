@@ -50,3 +50,5 @@ Repository facts for the change-screenshots route of `effective-web`:
 
 Read [the Consulting communication guide](apps/consulting/BRAND.md) before revising
 Consulting pages, consultant profiles, or their localized PDF copy.
+
+**Effective Flow project setup:** docs/adr/0020-effective-flow-project-setup.md

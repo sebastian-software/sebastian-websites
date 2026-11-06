@@ -5,3 +5,4 @@ build/
 .react-router/
 .variant-build/
 .palamedes/
+.effective-flow/

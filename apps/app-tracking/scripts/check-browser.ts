@@ -11,6 +11,13 @@ import { extname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
 import { chromium } from "playwright"
 
+import {
+  installPolicyTrace,
+  logPolicyTrace,
+  observeFreshMobile,
+  policyCase,
+} from "./policy-anchor-trace.ts"
+
 declare global {
   // eslint-disable-next-line @typescript-eslint/consistent-type-definitions -- Window augmentation requires an interface.
   interface Window {
@@ -208,8 +215,12 @@ async function checkOfficialPolicy(browser: Browser, locale: Locale): Promise<vo
   const address = server.address()
   assert.ok(address !== null && typeof address !== "string")
   const context = await browser.newContext()
+  let failed = false
+  let policyViewport: undefined | Viewport
+  let attempt = 0
   try {
     const page = await context.newPage()
+    await installPolicyTrace(page)
     const errors: string[] = []
     page.on("pageerror", (error) => {
       errors.push(error.message)
@@ -218,70 +229,125 @@ async function checkOfficialPolicy(browser: Browser, locale: Locale): Promise<vo
     for (const viewport of viewports.filter(
       (entry) => entry.name === "desktop" || entry.name === "mobile"
     )) {
-      await page.setViewportSize(viewport)
-      await page.goto(`http://127.0.0.1:${address.port}/privacy#tool-usage-reports`, {
-        waitUntil: "networkidle",
-      })
-      const section = page.locator("#tool-usage-reports")
-      assert.equal(await section.count(), 1)
-      assert.equal(
-        await section.locator("h2").innerText(),
-        locale === "en"
-          ? "Optional usage reports from our developer tools"
-          : "Freiwillige Nutzungsberichte aus unseren Entwicklertools"
-      )
-      assert.match(await section.innerText(), /PlanetScale, Inc\./v)
-      assert.equal(await section.locator("#tool-usage-history").count(), 1)
-      assert.equal(await section.locator("#tool-usage-profiles").count(), 1)
-      assert.equal(await section.locator("#tool-usage-public").count(), 1)
-      assert.match(await section.innerText(), /24/v)
-      assert.match(
-        await section.innerText(),
-        locale === "en"
-          ? /Anyone can access and copy public figures/v
-          : /Jeder kann öffentliche Zahlen abrufen/v
-      )
+      attempt += 1
+      const trace = policyCase(locale, viewport, attempt)
+      policyViewport = viewport
+      try {
+        trace.event("viewport-start")
+        await page.setViewportSize(viewport)
+        trace.event("navigation-start")
+        const response = await page.goto(
+          `http://127.0.0.1:${address.port}/privacy#tool-usage-reports`,
+          {
+            waitUntil: "networkidle",
+          }
+        )
+        trace.event("navigation-complete", response?.status() ?? null)
+        const section = page.locator("#tool-usage-reports")
+        assert.equal(await section.count(), 1)
+        assert.equal(
+          await section.locator("h2").innerText(),
+          locale === "en"
+            ? "Optional usage reports from our developer tools"
+            : "Freiwillige Nutzungsberichte aus unseren Entwicklertools"
+        )
+        assert.match(await section.innerText(), /PlanetScale, Inc\./v)
+        assert.equal(await section.locator("#tool-usage-history").count(), 1)
+        assert.equal(await section.locator("#tool-usage-profiles").count(), 1)
+        assert.equal(await section.locator("#tool-usage-public").count(), 1)
+        assert.match(await section.innerText(), /24/v)
+        assert.match(
+          await section.innerText(),
+          locale === "en"
+            ? /Anyone can access and copy public figures/v
+            : /Jeder kann öffentliche Zahlen abrufen/v
+        )
 
-      assert.equal(
-        await section
-          .locator('a[href="https://planetscale.com/legal/data-processing-addendum"]')
-          .count(),
-        1
-      )
-      assert.equal(await page.locator("html").getAttribute("lang"), locale)
-      assert.equal(
-        await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth),
-        false
-      )
-      assert.ok(
-        await section.evaluate((element) => {
+        assert.equal(
+          await section
+            .locator('a[href="https://planetscale.com/legal/data-processing-addendum"]')
+            .count(),
+          1
+        )
+        assert.equal(await page.locator("html").getAttribute("lang"), locale)
+        assert.equal(
+          await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth),
+          false
+        )
+        trace.event("anchor-assertion")
+        const anchor = await section.evaluate((element) => {
           const header = document.querySelector("header")
-          return (
-            element.getBoundingClientRect().top >= (header?.getBoundingClientRect().bottom ?? 0)
-          )
-        }),
-        "The policy anchor remains below the fixed header"
-      )
-      await page.addScriptTag({ content: axe })
-      const violations = await page.evaluate(async () => {
-        const audit = await window.axe.run("#tool-usage-reports", {
-          runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] },
+          const sectionRect = element.getBoundingClientRect()
+          const headerRect = header?.getBoundingClientRect()
+          const belowHeader = sectionRect.top >= (headerRect?.bottom ?? 0)
+          // The verdict and trace share these exact rectangles, before any later browser work.
+          // eslint-disable-next-line unicorn/consistent-function-scoping -- Playwright serializes this browser callback.
+          const rectangle = (value: DOMRect | undefined) => {
+            if (!value) return null
+            const { bottom, height, left, right, top, width, x, y } = value
+            return { bottom, height, left, right, top, width, x, y }
+          }
+          let snapshot
+          let diagnosticError
+          try {
+            snapshot = window.policyAnchorDiagnostics?.snapshot({
+              header: headerRect,
+              section: sectionRect,
+            })
+            if (!snapshot) diagnosticError = "observer-unavailable"
+          } catch {
+            diagnosticError = "assertion-snapshot"
+          }
+          return {
+            belowHeader,
+            diagnosticError,
+            header: rectangle(headerRect),
+            section: rectangle(sectionRect),
+            snapshot,
+          }
         })
-        return audit.violations
-      })
-      assert.deepEqual(violations, [])
-      await page.screenshot({
-        path: resolve(evidence, `${locale}-official-privacy-${viewport.name}.png`),
-      })
+        trace.assertion(anchor)
+        assert.ok(anchor.belowHeader, "The policy anchor remains below the fixed header")
+        await trace.report(page, "PASS")
+        await page.addScriptTag({ content: axe })
+        const violations = await page.evaluate(async () => {
+          const audit = await window.axe.run("#tool-usage-reports", {
+            runOnly: { type: "tag", values: ["wcag2a", "wcag2aa", "wcag21aa"] },
+          })
+          return audit.violations
+        })
+        assert.deepEqual(violations, [])
+        await page.screenshot({
+          path: resolve(evidence, `${locale}-official-privacy-${viewport.name}.png`),
+        })
+      } catch (error) {
+        trace.event("case-failure")
+        await trace.report(page, "FAILURE", error)
+        throw error
+      }
     }
     assert.deepEqual(errors, [])
+  } catch (error) {
+    failed = true
+    throw error
   } finally {
-    await context.close()
+    await observeFreshMobile(context, {
+      locale,
+      url: `http://127.0.0.1:${address.port}/privacy#tool-usage-reports`,
+      viewport: policyViewport,
+    })
+    await context.close().catch((error: unknown) => {
+      if (!failed) throw error
+      logPolicyTrace("DIAGNOSTIC_ERROR", { locale, stage: "context-close" })
+    })
     await new Promise<void>((done, reject) => {
       server.close((error) => {
         if (error) reject(error)
         else done()
       })
+    }).catch((error: unknown) => {
+      if (!failed) throw error
+      logPolicyTrace("DIAGNOSTIC_ERROR", { locale, stage: "server-close" })
     })
   }
 }
@@ -362,13 +428,20 @@ async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
 
 await mkdir(evidence, { recursive: true })
 const engine = await chromium.launch({ headless: true })
+let browserFailed = false
 try {
   for (const locale of ["en", "de"] as const) {
     await checkLocale(engine, locale)
     await checkOfficialPolicy(engine, locale)
   }
+} catch (error) {
+  browserFailed = true
+  throw error
 } finally {
-  await engine.close()
+  await engine.close().catch((error: unknown) => {
+    if (!browserFailed) throw error
+    logPolicyTrace("DIAGNOSTIC_ERROR", { stage: "browser-close" })
+  })
 }
 console.log(
   "Both languages passed four viewport sizes, shared navigation, no-script links, local images, light mode, storage/network limits, official privacy links and anchor targets, and axe checks."
