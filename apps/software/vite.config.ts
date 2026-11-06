@@ -1,30 +1,79 @@
-import { fileURLToPath } from "node:url"
 import { palamedes } from "@palamedes/vite-plugin"
-import { reactRouter } from "@react-router/dev/vite"
+import { getVariant } from "@sebastian-websites/web-core"
 import { bunnyImages } from "@sebastian-websites/web-core/vite"
-import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin"
-import { defineConfig } from "vite"
+import { ardo, defineConfig, type Plugin } from "ardo/vite"
+import { readFile } from "node:fs/promises"
+import path from "node:path"
 
-// One build per variant; the variant fixes language and origin at build time (ADR-0006).
+import { sharedMacros } from "./scripts/macros.ts"
+
 const variantId = process.env.SITE_VARIANT ?? "software-en"
+const variant = getVariant(variantId)
+const runtimeImports = [
+  "@palamedes/core",
+  "@palamedes/core/compiled",
+  "@palamedes/react/compiled",
+  "@palamedes/runtime",
+  "@sebastian-websites/ui",
+  "@sebastian-websites/ui/brand-software.css",
+  "@sebastian-websites/ui/error-copy",
+  "@sebastian-websites/ui/frame-copy",
+  "@sebastian-websites/web-core",
+  "@sebastian-websites/legal",
+  "@sebastian-websites/content",
+  "@sebastian-websites/tokens",
+]
+
+/** Share one immutable metrics snapshot and one locale catalog between SSR and hydration. */
+function buildData(): Plugin {
+  return {
+    name: "software:build-data",
+    resolveId(id) {
+      return id === "virtual:software-metrics" || id === "virtual:software-catalog"
+        ? `\0${id}`
+        : undefined
+    },
+    async load(id) {
+      if (id === "\0virtual:software-metrics") {
+        const snapshot = JSON.parse(await readFile(path.resolve("metrics.json"), "utf8")) as unknown
+        return `export default ${JSON.stringify(snapshot)}`
+      }
+      if (id === "\0virtual:software-catalog") {
+        return `export { messages } from ${JSON.stringify(path.resolve("app/locales", `${variant.locale}.po`))}`
+      }
+      return undefined
+    },
+  }
+}
 
 export default defineConfig({
   define: {
-    __BUILD_YEAR__: JSON.stringify(new Date().getFullYear()),
+    __BUILD_YEAR__: JSON.stringify(Number(process.env.BUILD_YEAR ?? new Date().getFullYear())),
     __SITE_VARIANT__: JSON.stringify(variantId),
   },
   plugins: [
     bunnyImages(),
-    palamedes({ failOnMissing: true, runtimeModule: "~/lib/i18n" }),
-    vanillaExtractPlugin(),
-    reactRouter(),
+    buildData(),
+    sharedMacros(),
+    palamedes({ failOnMissing: true }),
+    ardo({
+      title: "Sebastian Software",
+      siteUrl: variant.canonicalOrigin,
+      lang: variant.locale,
+      seo: { sitemap: false, robots: false, llms: false },
+      linkCheck: { enabled: true, level: "error" },
+    }),
   ],
-  resolve: {
-    alias: {
-      // Shared packages (the frame copy) use the macro runtime too; resolve it to
-      // this app's i18n instance from outside the app as well.
-      "~/lib/i18n": fileURLToPath(new URL("./app/lib/i18n.ts", import.meta.url)),
+  // Generated source copies can replace inodes on mounted filesystems.
+  server: { watch: { usePolling: true } },
+  optimizeDeps: { include: runtimeImports },
+  // Ardo loads the root and render hook after discovery. Prebundle their runtime once.
+  ssr: {
+    optimizeDeps: {
+      include: [...runtimeImports, "@palamedes/runtime/server"],
     },
-    tsconfigPaths: true,
+  },
+  resolve: {
+    alias: { "~": path.resolve("app") },
   },
 })

@@ -33,7 +33,11 @@ jobs:
       # The Consulting build renders its profile PDFs in Chromium.
       - name: Install the PDF browser
         run: pnpm --filter @sebastian-websites/consulting exec playwright install --with-deps chromium
+      - name: Install the Software browser
+        run: pnpm --filter @sebastian-websites/software exec playwright install --with-deps chromium
       - name: Build all variants
         run: pnpm build
+      - name: Verify both Software artifacts before publication
+        run: pnpm --filter @sebastian-websites/software check:browser
       - name: Verify the reporting website in both languages
         run: pnpm --filter @sebastian-websites/app-tracking check:browser

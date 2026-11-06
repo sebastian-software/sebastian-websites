@@ -1,20 +1,21 @@
+import type { ArdoMetaDescriptor } from "ardo/runtime"
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
 import { blocks, button, layout, Section, SectionHead, typography } from "@sebastian-websites/ui"
 import { getSiteOrigin } from "@sebastian-websites/web-core"
+import metrics from "virtual:software-metrics"
 
 import { Closing } from "~/components/Closing"
 import { Families } from "~/components/Families"
 import { MetricsBand } from "~/components/MetricsBand"
-import { loadMetrics } from "~/lib/metrics"
+import { seoMeta } from "~/lib/seo"
 import { variant } from "~/lib/site"
 
-import type { Route } from "./+types/open-source"
-
-// eslint-disable-next-line react-refresh/only-export-components -- React Router reads meta from the route module
-export function meta(): Route.MetaDescriptors {
+// eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
+export function meta(): ArdoMetaDescriptor[] {
   return [
+    ...seoMeta("/open-source"),
     { title: t`Open source – Sebastian Software` },
     {
       content: t`The Ferramenta family of Rust engines, the Effective libraries and skills, and the live numbers behind them.`,
@@ -23,12 +24,7 @@ export function meta(): Route.MetaDescriptors {
   ]
 }
 
-// eslint-disable-next-line react-refresh/only-export-components -- React Router runs the loader at build time
-export async function loader(): Promise<{ metrics: Awaited<ReturnType<typeof loadMetrics>> }> {
-  return { metrics: await loadMetrics() }
-}
-
-export default function OpenSource({ loaderData }: Route.ComponentProps): ReactElement {
+export default function OpenSource(): ReactElement {
   const openSource = getSiteOrigin("opensource", variant.locale)
   const reasons = [
     {
@@ -57,7 +53,7 @@ export default function OpenSource({ loaderData }: Route.ComponentProps): ReactE
       </Section>
       <MetricsBand
         intro={t`Every number here is live from the metrics service, refreshed hourly from GitHub, npm, and crates.io, and republished with every build. We do not maintain figures by hand.`}
-        metrics={loaderData.metrics}
+        metrics={metrics}
         title={t`Counted, not claimed.`}
       />
       <Section tone="white">

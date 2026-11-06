@@ -290,7 +290,7 @@ msgstr "Aus Lücken entstanden, die wir gesehen haben"
 #~ msgid "Browse the skills"
 #~ msgstr "Die Skills ansehen"
 
-#: app/routes/home.tsx
+#: app/routes/index.tsx
 msgid "Built for everyday work."
 msgstr "Gebaut für den Arbeitsalltag."
 
@@ -476,7 +476,7 @@ msgstr "Geräteinformationen (Bildschirmgröße, Betriebssystem, Browser)"
 msgid "Discover Sebastian/Software"
 msgstr "Sebastian/Software entdecken"
 
-#: app/routes/home.tsx
+#: app/routes/index.tsx
 msgid "Discover the products"
 msgstr "Produkte entdecken"
 
@@ -880,7 +880,7 @@ msgstr "Impressum"
 msgid "Independent since 2014."
 msgstr "Unabhängig seit 2014."
 
-#: app/routes/home.tsx
+#: app/routes/index.tsx
 msgid "Independent software."
 msgstr "Unabhängige Software."
 
@@ -1687,7 +1687,7 @@ msgstr ""
 #~ msgid "Sebastian Software"
 #~ msgstr "Sebastian Software"
 
-#: app/routes/home.tsx#meta
+#: app/routes/index.tsx#meta
 msgid "Sebastian Software – Independent software, built for everyday work"
 msgstr "Sebastian Software – Unabhängige Software für den Arbeitsalltag"
 
@@ -1730,7 +1730,7 @@ msgstr ""
 "Sebastian Software GmbH: 2014 in Mainz von Sebastian Fastner und Sebastian "
 "Werner gegründet. Unsere Mission, unser Team und wie wir bauen."
 
-#: app/routes/home.tsx#meta
+#: app/routes/index.tsx#meta
 msgid ""
 "Sebastian Software is a product company from Mainz. We build what we use "
 "ourselves: Terminaro for appointment booking, Palamedes+ for managed "
@@ -1740,7 +1740,7 @@ msgstr ""
 "selbst nutzen: Terminaro für die Terminbuchung, Palamedes+ für verwaltete "
 "Übersetzungen und VorOrt für lokale Websites."
 
-#: app/routes/home.tsx
+#: app/routes/index.tsx
 msgid ""
 "Sebastian Software is a product company. We build what we use ourselves, from "
 "appointment booking to translation and local websites: practical tools, "
@@ -1770,7 +1770,7 @@ msgstr ""
 #~ "Produkte, die Bestand haben sollen, und teilen die Werkzeuge dahinter als Open"
 #~ " Source."
 
-#: app/routes/home.tsx
+#: app/routes/index.tsx
 msgid "Sebastian Werner and Sebastian Fastner in the office lounge"
 msgstr "Sebastian Werner und Sebastian Fastner in der Lounge ihres Büros"
 

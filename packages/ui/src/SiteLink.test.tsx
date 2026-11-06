@@ -5,6 +5,7 @@ import { createRoot } from "react-dom/client"
 import { MemoryRouter, useLocation } from "react-router"
 import { describe, expect, it } from "vitest"
 
+import { DocumentNavigation } from "./DocumentNavigation.tsx"
 import { SiteLink } from "./SiteLink.tsx"
 
 function CurrentPath(): React.JSX.Element {
@@ -12,7 +13,8 @@ function CurrentPath(): React.JSX.Element {
 }
 
 async function clickLink(
-  props: ComponentPropsWithRef<"a">
+  props: ComponentPropsWithRef<"a">,
+  documentNavigation = false
 ): Promise<{ intercepted: boolean; path: string }> {
   Reflect.set(globalThis, "IS_REACT_ACT_ENVIRONMENT", true)
   const host = document.createElement("div")
@@ -22,7 +24,13 @@ async function clickLink(
   await act(async () => {
     root.render(
       <MemoryRouter>
-        <SiteLink {...props}>Destination</SiteLink>
+        {documentNavigation ? (
+          <DocumentNavigation>
+            <SiteLink {...props}>Destination</SiteLink>
+          </DocumentNavigation>
+        ) : (
+          <SiteLink {...props}>Destination</SiteLink>
+        )}
         <CurrentPath />
       </MemoryRouter>
     )
@@ -50,6 +58,13 @@ async function clickLink(
 }
 
 describe("SiteLink", () => {
+  it("leaves local navigation to the browser for a static site", async () => {
+    expect(await clickLink({ href: "/products" }, true)).toStrictEqual({
+      intercepted: false,
+      path: "/",
+    })
+  })
+
   it("changes a local page through the router", async () => {
     expect(await clickLink({ href: "/products" })).toStrictEqual({
       intercepted: true,

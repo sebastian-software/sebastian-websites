@@ -281,7 +281,7 @@ msgstr "Born from gaps we saw"
 #~ msgid "Browse the skills"
 #~ msgstr "Browse the skills"
 
-#: app/routes/home.tsx
+#: app/routes/index.tsx
 msgid "Built for everyday work."
 msgstr "Built for everyday work."
 
@@ -464,7 +464,7 @@ msgstr "Device information (screen size, operating system, browser)"
 msgid "Discover Sebastian/Software"
 msgstr "Discover Sebastian/Software"
 
-#: app/routes/home.tsx
+#: app/routes/index.tsx
 msgid "Discover the products"
 msgstr "Discover the products"
 
@@ -863,7 +863,7 @@ msgstr "Imprint"
 msgid "Independent since 2014."
 msgstr "Independent since 2014."
 
-#: app/routes/home.tsx
+#: app/routes/index.tsx
 msgid "Independent software."
 msgstr "Independent software."
 
@@ -1649,7 +1649,7 @@ msgstr ""
 #~ msgid "Sebastian Software"
 #~ msgstr "Sebastian Software"
 
-#: app/routes/home.tsx#meta
+#: app/routes/index.tsx#meta
 msgid "Sebastian Software – Independent software, built for everyday work"
 msgstr "Sebastian Software – Independent software, built for everyday work"
 
@@ -1691,7 +1691,7 @@ msgstr ""
 "Sebastian Software GmbH: founded in 2014 in Mainz by Sebastian Fastner and "
 "Sebastian Werner. Our mission, our team, and how we build."
 
-#: app/routes/home.tsx#meta
+#: app/routes/index.tsx#meta
 msgid ""
 "Sebastian Software is a product company from Mainz. We build what we use "
 "ourselves: Terminaro for appointment booking, Palamedes+ for managed "
@@ -1701,7 +1701,7 @@ msgstr ""
 "ourselves: Terminaro for appointment booking, Palamedes+ for managed "
 "translations, and VorOrt for local websites."
 
-#: app/routes/home.tsx
+#: app/routes/index.tsx
 msgid ""
 "Sebastian Software is a product company. We build what we use ourselves, from "
 "appointment booking to translation and local websites: practical tools, "
@@ -1729,7 +1729,7 @@ msgstr ""
 #~ "Sebastian Software is a small software company from Mainz. We build products "
 #~ "that are meant to last and share the tools behind them as open source."
 
-#: app/routes/home.tsx
+#: app/routes/index.tsx
 msgid "Sebastian Werner and Sebastian Fastner in the office lounge"
 msgstr "Sebastian Werner and Sebastian Fastner in the office lounge"
 

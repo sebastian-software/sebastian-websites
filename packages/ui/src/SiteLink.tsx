@@ -2,6 +2,8 @@ import type { ComponentPropsWithRef, ReactElement } from "react"
 
 import { Link } from "react-router"
 
+import { useDocumentNavigation } from "./DocumentNavigation.tsx"
+
 export type SiteLinkProps = {
   readonly download?: boolean | string
 } & Omit<ComponentPropsWithRef<"a">, "download">
@@ -15,7 +17,9 @@ export type SiteLinkProps = {
  */
 export function SiteLink(props: SiteLinkProps): ReactElement {
   const { children, download, href, hrefLang, ...rest } = props
+  const documentNavigation = useDocumentNavigation()
   if (
+    !documentNavigation &&
     href?.startsWith("/") &&
     !href.startsWith("//") &&
     (download === undefined || download === false) &&

@@ -1,3 +1,4 @@
+import type { ArdoMetaDescriptor } from "ardo/runtime"
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
@@ -8,14 +9,14 @@ import { ProductStory } from "~/components/ProductStory"
 import { RegionStory } from "~/components/RegionStory"
 import { getProducts } from "~/data/products"
 import { teamPhoto } from "~/lib/photos"
-
-import type { Route } from "./+types/home"
+import { seoMeta } from "~/lib/seo"
 
 import * as styles from "./home.css.ts"
 
-// eslint-disable-next-line react-refresh/only-export-components -- React Router reads meta from the route module
-export function meta(): Route.MetaDescriptors {
+// eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
+export function meta(): ArdoMetaDescriptor[] {
   return [
+    ...seoMeta("/"),
     { title: t`Sebastian Software – Independent software, built for everyday work` },
     {
       content: t`Sebastian Software is a product company from Mainz. We build what we use ourselves: Terminaro for appointment booking, Palamedes+ for managed translations, and VorOrt for local websites.`,

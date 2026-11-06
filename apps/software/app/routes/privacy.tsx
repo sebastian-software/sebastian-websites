@@ -1,3 +1,4 @@
+import type { ArdoMetaDescriptor } from "ardo/runtime"
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
@@ -6,12 +7,11 @@ import { legalClassNames } from "@sebastian-websites/ui"
 
 import { ToolReportingPrivacy } from "~/components/ToolReportingPrivacy"
 import { legalConfig } from "~/lib/legal"
+import { seoMeta } from "~/lib/seo"
 
-import type { Route } from "./+types/privacy"
-
-// eslint-disable-next-line react-refresh/only-export-components -- React Router reads meta from the route module
-export function meta(): Route.MetaDescriptors {
-  return [{ title: t`Privacy Policy – Sebastian Software` }]
+// eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
+export function meta(): ArdoMetaDescriptor[] {
+  return [...seoMeta("/privacy"), { title: t`Privacy Policy – Sebastian Software` }]
 }
 
 export default function Privacy(): ReactElement {

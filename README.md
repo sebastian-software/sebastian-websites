@@ -10,6 +10,9 @@ Software application in German and English on that system, the brand asset appli
 checks, builds, and delivery are implemented: every push to `main` publishes each target to
 its Bunny origin host. Canonical domains, previews, and phone layouts are still open.
 
+The [Software website guide](apps/software/README.md) describes its Ardo build,
+development workflow, and browser checks.
+
 The reusable legacy company copy is in [apps/software/content](apps/software/content/README.md).
 The [app-tracking website guide](docs/operations/app-tracking-site.md) describes its
 English/German variants, prepared subdomains, and compatibility cutover.

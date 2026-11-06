@@ -1,3 +1,4 @@
+import type { ArdoMetaDescriptor } from "ardo/runtime"
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
@@ -6,16 +7,16 @@ import { blocks, layout, Section, SectionHead, typography } from "@sebastian-web
 import { Closing } from "~/components/Closing"
 import { ProductCards } from "~/components/ProductCards"
 import { getProducts } from "~/data/products"
+import { seoMeta } from "~/lib/seo"
 import { variant } from "~/lib/site"
 
-import type { Route } from "./+types/products"
-
-// eslint-disable-next-line react-refresh/only-export-components -- React Router reads meta from the route module
-export function meta(): Route.MetaDescriptors {
+// eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
+export function meta(): ArdoMetaDescriptor[] {
   const names = new Intl.ListFormat(variant.locale, { style: "long", type: "conjunction" }).format(
     getProducts().map((product) => product.name)
   )
   return [
+    ...seoMeta("/products"),
     { title: t`Products – Sebastian Software` },
     {
       content: t`${names}: the products of Sebastian Software, each grown out of a gap we saw ourselves and used in our own work.`,

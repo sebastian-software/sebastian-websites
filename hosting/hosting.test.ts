@@ -906,3 +906,41 @@ test("the cutover smoke checks cover the home page, a missing path, and every le
     "/no-such-page-smoke: 200 , expected 404 ",
   ])
 })
+
+test("Software resource smoke checks validate actual MIME headers, including charset parameters", async () => {
+  const origin = "https://sebastian-software.de"
+  const checks = smokeChecks("software-de", origin).filter(
+    (check) => check.contentTypes !== undefined
+  )
+  assert.deepEqual(
+    checks.map((check) => check.path),
+    ["/sitemap.xml", "/robots.txt", "/manifest.webmanifest"]
+  )
+  const types: Readonly<Record<string, string>> = {
+    "/manifest.webmanifest": "application/manifest+json; charset=utf-8",
+    "/robots.txt": "text/plain; charset=utf-8",
+    "/sitemap.xml": "text/xml; charset=utf-8",
+  }
+  assert.deepEqual(
+    await runSmoke(
+      origin,
+      checks,
+      async (input) =>
+        new Response("", {
+          headers: { "content-type": types[new URL(String(input)).pathname] },
+        })
+    ),
+    []
+  )
+  assert.deepEqual(
+    await runSmoke(
+      origin,
+      checks.slice(1, 2),
+      async () =>
+        new Response("", {
+          headers: { "content-type": "text/html" },
+        })
+    ),
+    ["/robots.txt: Content-Type text/html, expected text/plain"]
+  )
+})
