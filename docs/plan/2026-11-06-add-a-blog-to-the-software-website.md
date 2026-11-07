@@ -452,6 +452,92 @@ The regular plan review produced 11 Important findings and 7 Notes. All were inc
 
 The deep review supersedes two of those choices: `publication.now` and the `id` map fallback for `nextStep`.
 
+## Build progress
+
+**Date:** 2026-11-07
+**State:** The parts before the release are done. Launch is still open, so the plan stays open.
+
+### Done
+
+- **Step 1, integration spike.** It confirmed the Ardo 6.3.0 gaps: 12 of 13 new Ardo unit tests failed before the change, and so did the new integration test.
+- **Step 2, Ardo epic.** [ardo#505](https://github.com/sebastian-software/ardo/issues/505) has sub-issues [#499](https://github.com/sebastian-software/ardo/issues/499)–[#504](https://github.com/sebastian-software/ardo/issues/504). Extensions 1–3 are implemented in [ardo#506](https://github.com/sebastian-software/ardo/pull/506) as opt-in options: `publication.components`, `publication.meta`, `trailingSlash`, `feeds.entryIds`, and `tags`. The release is pending.
+- **Step 3, web-core blog module.**
+  - Module files: `blog.ts`, `blogPaths.ts`, `blogTags.ts`, `blogNextSteps.ts`, `blogImages.ts`, and `timestamps.ts`.
+  - Pairing goes both ways, IDs are unique (drafts included), `nextStep` is required, tag keys are registered, and raster images are not allowed.
+  - Counterpart resolution follows the same shape rules as the gate.
+- **Step 5, Open Graph.** All indexable Software pages have Open Graph tags. `og:image` is the shared team photo (ADR-0014), resolved with `responsiveImage()`.
+- **Step 6, hosting.**
+  - `seoPlans(builds)` compares path sets across builds.
+  - `verifySeo` checks each origin.
+  - `hosting/check-builds.ts` runs as `pnpm hosting:plan` and in CI.
+  - Locale-scoped `PathRule` and smoke checks are in place.
+  - The build-time pair check validates zoned timestamps. The file is not yet required, because `build.ts` does not write it yet.
+- **Step 7, partial.** The counterpart model and the language-switch fallback to the other blog are in place, labelled as that blog. The `blog` navigation item is not.
+- **Docs.** ADR-0010 is amended for single-language blog pages. `docs/operations/website-hosting.md` describes the new gate.
+
+### Owner input needed
+
+- Confirm the Open Graph image: the shared team photo `shooting-2024/color_09092024-14-retouched.png`, cropped to 1200×630.
+- Confirm the tag registry: `architecture`, `internationalization`, `open-source`, `product-development`, `rust`, `typescript`.
+- Confirm the `nextStep` targets:
+  - `products`, `open-source`, `contact`
+  - `consulting-architecture`, `consulting-internationalization`, `consulting-enablement`
+  - `palamedes-docs`, `ferramenta-docs`
+  - `none`
+
+### Remaining for the launch pull request
+
+- Merge and release ardo#506, then pin that release.
+- Step 4: build plumbing.
+  - Content staging and `build-time.txt`, which then becomes required for Software.
+  - Fixture options and `check:fixtures`.
+  - Mirroring `content/` during development.
+- Steps 5 and 6 at launch.
+  - Feed discovery.
+  - `/blog` and feed smoke checks.
+  - An output check for raster images.
+- Steps 7–10.
+  - The navigation item and the blog presentation.
+  - ADR-0021, plus updates to ADR-0006 and ADR-0009.
+  - The operations guide for publishing.
+  - The first approved post in both languages.
+
+### Test results
+
+These are the final independent validation results on the branch, run with the container runner.
+
+| Check                                         | Result                          |
+| --------------------------------------------- | ------------------------------- |
+| `pnpm agent:check`                            | Passed: 0 errors, warnings only |
+| `pnpm test`                                   | Passed                          |
+| `pnpm hosting:test`                           | 45 of 45 passed                 |
+| `pnpm build`                                  | Passed                          |
+| `pnpm hosting:plan`                           | Passed: 10 builds checked       |
+| `check:browser` for Software and app-tracking | Passed                          |
+
+Ardo#506 passed format, build, typecheck, lint, 1,053 unit tests, 71 integration tests, the i18n check, and the docs build, on Node 26 only.
+
+## Review findings
+
+**Date:** 2026-11-07
+**Reviewer:** effective-flow-nodejs-reviewer (website and Ardo)
+
+### Summary
+
+| Status                 | Count |
+| ---------------------- | ----: |
+| Fixed                  |    24 |
+| Open / Not implemented |     5 |
+
+All five open findings are Notes, and none blocks the launch.
+
+- **Website.** `build-time.txt` becomes required with the launch step.
+- **Ardo#506.** These four are listed in the pull request:
+  - `_ardoMeta` stays a known field on every page.
+  - No dev-server test covers site components.
+  - Site metadata is carried twice in the route chunk.
+  - The changelog needs a note for the widened `ArdoMetaDescriptor`.
+
 ## Open points
 
 - No open points.
