@@ -116,6 +116,52 @@ describe("language links", () => {
     ])
   })
 
+  it("leads a page without a counterpart to the other language's blog overview", () => {
+    expect(
+      getLanguageLinks("software", "de", { counterpart: false, path: "/blog/ein-beitrag" })
+    ).toStrictEqual([
+      {
+        current: false,
+        fallback: true,
+        href: "https://sebastian-software.com/blog",
+        label: "English",
+        locale: "en",
+      },
+      {
+        current: true,
+        href: "https://sebastian-software.de/blog/ein-beitrag",
+        label: "Deutsch",
+        locale: "de",
+      },
+    ])
+    const frame = getSiteFrame("software", "en", { counterpart: false, path: "/blog/tags/rust/" })
+    expect(frame.languages.map((language) => language.href)).toStrictEqual([
+      "https://sebastian-software.com/blog/tags/rust",
+      "https://sebastian-software.de/blog",
+    ])
+  })
+
+  it("keeps the matching page when a counterpart exists", () => {
+    expect(
+      getLanguageLinks("software", "en", { counterpart: true, path: "/blog/a-post" })
+    ).toStrictEqual(getLanguageLinks("software", "en", "/blog/a-post"))
+    expect(
+      getSiteFrame("software", "de", { counterpart: true, path: "/blog/a-post" }).languages.some(
+        (language) => language.fallback === true
+      )
+    ).toBe(false)
+  })
+
+  it.each(["consulting", "opensource", "skills", "app-tracking"] as const)(
+    "requires a counterpart on %s, which has no blog",
+    (site) => {
+      expect(() => getSiteFrame(site, "en", { counterpart: false, path: "/" })).toThrow("no blog")
+      expect(getSiteFrame(site, "en", "/privacy").languages).toStrictEqual(
+        getLanguageLinks(site, "en", "/privacy")
+      )
+    }
+  )
+
   it("follows the frame's normalized path", () => {
     const languages = getSiteFrame("consulting", "en", "/privacy/").languages
     expect(languages.map((language) => language.href)).toStrictEqual([

@@ -1,5 +1,6 @@
+import { BLOG_PATH, BLOG_SITE } from "./blogPaths.ts"
 import { localeControls } from "./locale.ts"
-import { canonicalPath, canonicalUrl } from "./seo.ts"
+import { canonicalPath, canonicalUrl, type PageReference, resolvePage } from "./seo.ts"
 import {
   type BrandId,
   getSiteOrigin,
@@ -63,6 +64,11 @@ export type FrameLink = {
 
 export type LanguageLink = {
   readonly current: boolean
+  /**
+   * Set when the page has no counterpart and the link leads to the other
+   * language's blog overview instead of a translation.
+   */
+  readonly fallback?: true
   readonly href: string
   readonly label: string
   readonly locale: Locale
@@ -180,29 +186,38 @@ function resolve(destination: Destination, rendering: Rendering): FrameLink {
 
 /**
  * Builds the language switch: the same path on the other locale's origin, so a
- * switch replaces only the domain (ADR-0010).
+ * switch replaces only the domain (ADR-0010). A page without a counterpart
+ * links the other language's blog overview instead.
  *
  * @param site - The site that renders the switch.
  * @param locale - The language of the rendering variant.
- * @param path - The current path, starting with a slash.
+ * @param page - The current path, optionally with whether the other language has it.
  * @returns One link per language, the current one marked.
  */
 export function getLanguageLinks(
   site: SiteId,
   locale: Locale,
-  path: string
+  page: PageReference
 ): readonly LanguageLink[] {
+  const { counterpart, path } = resolvePage(page)
+  if (!counterpart && site !== BLOG_SITE) {
+    throw new Error(`${site} has no blog; every page needs a counterpart`)
+  }
   return localeControls
     .switchItems({ currentLocale: locale })
     .toSorted(
       (left, right) => LANGUAGE_ORDER.indexOf(left.locale) - LANGUAGE_ORDER.indexOf(right.locale)
     )
-    .map((item) => ({
-      current: item.active,
-      href: canonicalUrl(site, item.locale, path),
-      label: item.label,
-      locale: item.locale,
-    }))
+    .map((item) => {
+      const fallback = !counterpart && !item.active
+      return {
+        current: item.active,
+        ...(fallback ? { fallback: true as const } : {}),
+        href: canonicalUrl(site, item.locale, fallback ? BLOG_PATH : path),
+        label: item.label,
+        locale: item.locale,
+      }
+    })
 }
 
 /**
@@ -212,10 +227,12 @@ export function getLanguageLinks(
  *
  * @param site - The site that renders the page.
  * @param locale - The language of the rendering variant.
- * @param pathname - The current path, as seen by the router.
+ * @param page - The current path, as seen by the router, optionally with
+ *   whether the other language has the page.
  * @returns The resolved frame links for that page.
  */
-export function getSiteFrame(site: SiteId, locale: Locale, pathname: string): SiteFrame {
+export function getSiteFrame(site: SiteId, locale: Locale, page: PageReference): SiteFrame {
+  const { counterpart, path: pathname } = resolvePage(page)
   const brand = SITE_BRAND[site]
   const context = CONTEXTS[brand]
   const rendering: Rendering = { locale, path: canonicalPath(pathname), site }
@@ -225,7 +242,7 @@ export function getSiteFrame(site: SiteId, locale: Locale, pathname: string): Si
     email: CONTACT_EMAIL[brand][locale],
     home: context.home === site ? "/" : toHref(getSiteOrigin(context.home, locale), "/"),
     index: context.index.map((destination) => link(destination)),
-    languages: getLanguageLinks(site, locale, rendering.path),
+    languages: getLanguageLinks(site, locale, { counterpart, path: rendering.path }),
     legal: LEGAL[brand].map((destination) => link(destination)),
     navigation: context.navigation.map((destination) => link(destination)),
     outbound: {

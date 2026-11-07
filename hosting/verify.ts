@@ -11,7 +11,7 @@ import type { Log } from "./provision.ts"
 import type { Asset } from "./publish.ts"
 import type { Target } from "./targets.ts"
 
-import { type SeoPlan, seoPlanFor, verifySeo } from "./seo.ts"
+import { type SeoPlan, verifySeo } from "./seo.ts"
 
 const OK = 200
 const MOVED_PERMANENTLY = 301
@@ -100,20 +100,22 @@ export type VerifyOptions = {
   readonly assets: readonly Asset[]
   readonly log?: Log
   readonly request?: Fetch
+  /** The target's SEO plan from `seoPlans()`; targets without one have no SEO contract. */
+  readonly seo?: SeoPlan
   readonly target: Target
 }
 
 /**
  * Runs every check of a target against its origin host, retrying while the
- * CDN propagates the publish.
+ * CDN propagates the publish. The SEO contract comes from the plan computed
+ * before upload, so a published variant is checked against both builds.
  *
- * @param options - The target, its build files, and optional fetch and log.
+ * @param options - The target, its build files, its SEO plan, and optional fetch and log.
  */
 export async function verify(options: VerifyOptions): Promise<void> {
-  const { assets, log = console.log, request = fetch, target } = options
+  const { assets, log = console.log, request = fetch, seo, target } = options
   const origin = `https://${target.name}.b-cdn.net`
   const checks = checksFor(target, assets)
-  const seo = seoPlanFor(target, assets)
   for (let attempt = 1; ; attempt += 1) {
     const failure = await runChecks(request, origin, { checks, seo })
     if (failure === undefined) {

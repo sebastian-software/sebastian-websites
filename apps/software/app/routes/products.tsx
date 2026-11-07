@@ -15,14 +15,11 @@ export function meta(): ArdoMetaDescriptor[] {
   const names = new Intl.ListFormat(variant.locale, { style: "long", type: "conjunction" }).format(
     getProducts().map((product) => product.name)
   )
-  return [
-    ...seoMeta("/products"),
-    { title: t`Products – Sebastian Software` },
-    {
-      content: t`${names}: the products of Sebastian Software, each grown out of a gap we saw ourselves and used in our own work.`,
-      name: "description",
-    },
-  ]
+  return seoMeta({
+    description: t`${names}: the products of Sebastian Software, each grown out of a gap we saw ourselves and used in our own work.`,
+    path: "/products",
+    title: t`Products – Sebastian Software`,
+  })
 }
 
 export default function Products(): ReactElement {

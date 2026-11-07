@@ -38,20 +38,48 @@ export function canonicalUrl(site: SiteId, locale: Locale, path: string): string
 }
 
 /**
+ * A page of a site: its path, or its path together with whether the other
+ * language has the same page. Pages have a counterpart unless stated otherwise;
+ * only untranslated blog posts and single-language tag archives lack one.
+ */
+export type PageReference = { readonly counterpart?: boolean; readonly path: string } | string
+
+/**
+ * Resolves a page reference to its path and counterpart flag.
+ *
+ * @param page - A path, or a path with its counterpart flag.
+ * @returns The path as given and whether the other language has it.
+ */
+export function resolvePage(page: PageReference): {
+  readonly counterpart: boolean
+  readonly path: string
+} {
+  return typeof page === "string"
+    ? { counterpart: true, path: page }
+    : { counterpart: page.counterpart ?? true, path: page.path }
+}
+
+/**
  * Builds the canonical link, one alternate per language, and the English
- * `x-default` for a document.
+ * `x-default` for a document. A page without a counterpart gets the canonical only.
  *
  * @param site - The site rendering the document.
  * @param locale - The document's language.
- * @param path - The document's path.
+ * @param page - The document's path, optionally with its counterpart flag.
  * @returns The link descriptors for the document head.
  */
-export function createSeoLinks(site: SiteId, locale: Locale, path: string): readonly SeoLink[] {
-  return localeControls.seoLinks({
+export function createSeoLinks(
+  site: SiteId,
+  locale: Locale,
+  page: PageReference
+): readonly SeoLink[] {
+  const { counterpart, path } = resolvePage(page)
+  const links = localeControls.seoLinks({
     locale,
     pathname: canonicalPath(path),
     requestHost: new URL(getSiteOrigin(site, locale)).host,
   })
+  return counterpart ? links : links.filter((link) => link.rel === "canonical")
 }
 
 function escapeXml(value: string): string {

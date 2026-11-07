@@ -30,6 +30,7 @@ const copy: FrameCopy = {
     trademarkOwner: "a registered trademark of",
   },
   header: {
+    blogFallback: { de: "German blog", en: "English blog" },
     language: "Language",
     menu: "Menu",
     navigation: "Main navigation",
@@ -118,6 +119,30 @@ describe("SiteHeader", () => {
     expect(outbound?.textContent).toBe("Our agency")
     expect(outbound?.getAttribute("href")).toBe("https://sebastian-consulting.de/")
     expect(outbound?.querySelector("img")).toBeNull()
+  })
+
+  it("renders the blog fallback of a page without a counterpart as a normal language link", () => {
+    const frame = getSiteFrame("software", "en", { counterpart: false, path: "/blog/a-post" })
+    const header = parse(
+      renderToStaticMarkup(
+        <MemoryRouter>
+          <SiteHeader copy={copy} frame={frame} />
+        </MemoryRouter>
+      )
+    )
+    const languages = [...header.querySelectorAll('nav[aria-label="Language"] a')]
+    expect(languages.map((link) => link.getAttribute("href"))).toStrictEqual([
+      "https://sebastian-software.com/blog/a-post",
+      "https://sebastian-software.de/blog",
+    ])
+    expect(languages.at(1)?.getAttribute("hrefLang")).toBe("de")
+    expect(languages.at(1)?.hasAttribute("aria-current")).toBe(false)
+    // The accessible name says where the link leads, in the page's language.
+    const name = languages.at(1)?.querySelector("span:last-child")
+    expect(name?.textContent).toBe("German blog")
+    expect(name?.getAttribute("lang")).toBe("en")
+    expect(languages.at(0)?.textContent).toBe("ENEnglish")
+    expect(languages.some((link) => link.textContent.includes("Deutsch"))).toBe(false)
   })
 
   it("opens the same controls as a popover menu on compact screens", () => {

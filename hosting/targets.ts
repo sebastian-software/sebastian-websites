@@ -23,6 +23,13 @@ export type Target = {
   readonly notFoundPage?: string
 }
 
+/**
+ * The file beside a variant build's `client/` directory that records the
+ * shared build time of both language builds, so it is never uploaded. Builds
+ * that do not write it yet are compared as built together.
+ */
+export const BUILD_TIME_FILE = "build-time.txt"
+
 /** Where every app prerenders its not-found route (React Router writes `<path>/index.html`). */
 export const NOT_FOUND_PAGE = "/404/index.html"
 

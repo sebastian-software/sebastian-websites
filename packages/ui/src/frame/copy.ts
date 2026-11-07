@@ -1,4 +1,4 @@
-import type { BrandId, CompanyProfile, FrameLinkId } from "@sebastian-websites/web-core"
+import type { BrandId, CompanyProfile, FrameLinkId, Locale } from "@sebastian-websites/web-core"
 
 /** The newsletter's labels and status messages. */
 export type NewsletterCopy = {
@@ -46,6 +46,11 @@ export type FrameCopy = {
     readonly trademarkOwner: string
   }
   readonly header: {
+    /**
+     * The accessible name of a language link that leads to the other
+     * language's blog because the page has no translation, keyed by that language.
+     */
+    readonly blogFallback: Readonly<Record<Locale, string>>
     readonly language: string
     /** The button that opens the navigation on compact screens. */
     readonly menu: string

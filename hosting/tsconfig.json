@@ -1,6 +1,11 @@
 {
   "extends": "@sebastian-websites/config/tsconfig/base.json",
-  "include": ["*.ts", "../packages/web-core/src/sites.ts"],
+  "include": [
+    "*.ts",
+    "../packages/web-core/src/blogPaths.ts",
+    "../packages/web-core/src/sites.ts",
+    "../packages/web-core/src/timestamps.ts"
+  ],
   "compilerOptions": {
     "types": ["node"]
   }

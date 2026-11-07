@@ -14,14 +14,11 @@ import { variant } from "~/lib/site"
 
 // eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
 export function meta(): ArdoMetaDescriptor[] {
-  return [
-    ...seoMeta("/open-source"),
-    { title: t`Open source – Sebastian Software` },
-    {
-      content: t`The Ferramenta family of Rust engines, the Effective libraries and skills, and the live numbers behind them.`,
-      name: "description",
-    },
-  ]
+  return seoMeta({
+    description: t`The Ferramenta family of Rust engines, the Effective libraries and skills, and the live numbers behind them.`,
+    path: "/open-source",
+    title: t`Open source – Sebastian Software`,
+  })
 }
 
 export default function OpenSource(): ReactElement {

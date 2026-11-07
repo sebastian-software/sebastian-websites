@@ -543,6 +543,10 @@ msgstr "Email address"
 msgid "Email:"
 msgstr "Email:"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "English blog"
+msgstr "English blog"
+
 #: app/components/RegionStory.tsx#RegionStory
 msgid "Enthusiasm."
 msgstr "Enthusiasm."
@@ -731,6 +735,10 @@ msgstr ""
 #~ "decisions. Not every innovation is right for us – we consciously select what"
 #~ " really offers added value."
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "German blog"
+msgstr "German blog"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
@@ -814,6 +822,14 @@ msgstr "Hourly from GitHub, npm, and crates.io"
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "How It Works"
 msgstr "How It Works"
+
+#: app/routes/privacy.tsx#meta
+msgid ""
+"How Sebastian Software GmbH processes personal data on this website, and the "
+"rights you have."
+msgstr ""
+"How Sebastian Software GmbH processes personal data on this website, and the "
+"rights you have."
 
 #: app/routes/contact.tsx#meta
 msgid "How to reach Sebastian Software GmbH in Mainz."
@@ -1476,6 +1492,14 @@ msgstr "Projects on GitHub"
 #~ #: app/routes/home.tsx#Stance
 #~ msgid "Proof instead of claims"
 #~ msgstr "Proof instead of claims"
+
+#: app/routes/imprint.tsx#meta
+msgid ""
+"Provider details of Sebastian Software GmbH in Mainz: address, contact, "
+"commercial register, and VAT ID."
+msgstr ""
+"Provider details of Sebastian Software GmbH in Mainz: address, contact, "
+"commercial register, and VAT ID."
 
 #: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
 msgid "Public monthly usage totals"

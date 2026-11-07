@@ -2,6 +2,7 @@
 /* eslint-disable no-await-in-loop -- Route assertions and fixture cleanup are ordered. */
 /* eslint-disable max-statements -- Each browser scenario keeps its related assertions together. */
 /* eslint-disable unicorn/prefer-global-this -- Evaluated callbacks run in the browser. */
+import { singleLanguageClass } from "@sebastian-websites/web-core"
 import assert from "node:assert/strict"
 import { mkdir, readFile, writeFile } from "node:fs/promises"
 import { createServer } from "node:http"
@@ -294,9 +295,61 @@ type RouteOptions = {
   errors: string[]
   locale: Locale
   old?: Fixture
+  /** Whether the other language's build has the same path, which then needs alternates. */
+  paired: boolean
   pathname: string
   variant: string
   viewport: Viewport
+}
+const BUNNY_IMAGE = /^https:\/\/assets\.sebastian-software\.com\/[^?]+\?/v
+/**
+ * The content of a meta element that must occur exactly once, so a missing or
+ * repeated tag fails with its selector instead of a null comparison.
+ * @param page - The loaded page.
+ * @param selector - The meta element's selector.
+ * @param label - The route label for messages.
+ * @returns The element's content.
+ */
+async function uniqueMeta(page: Page, selector: string, label: string): Promise<string> {
+  const element = page.locator(selector)
+  assert.equal(await element.count(), 1, `${label}: expected exactly one ${selector}`)
+  return (await element.getAttribute("content")) ?? ""
+}
+async function checkAlternates(page: Page, options: RouteOptions): Promise<void> {
+  const { paired, pathname, variant } = options
+  if (!paired) {
+    assert.equal(
+      await page.locator('link[rel="alternate"][hreflang]').count(),
+      0,
+      `${variant}${pathname}: a page without a counterpart links no alternates`
+    )
+    // The hosting gate's rule: a post marked as an article, or a tag archive.
+    const kind = singleLanguageClass(pathname)
+    const ogType = await uniqueMeta(page, 'meta[property="og:type"]', `${variant}${pathname}`)
+    assert.ok(
+      kind === "tag-archive" || (kind === "post" && ogType === "article"),
+      `${variant}${pathname}: only blog posts and tag archives may exist in one language`
+    )
+    return
+  }
+  assert.equal(
+    await page.locator('link[rel="alternate"][hreflang="de"]').getAttribute("href"),
+    `https://sebastian-software.de${pathname}`
+  )
+  assert.equal(
+    await page.locator('link[rel="alternate"][hreflang="en"]').getAttribute("href"),
+    `https://sebastian-software.com${pathname}`
+  )
+  assert.equal(await page.locator('link[rel="alternate"][hreflang="x-default"]').count(), 1)
+}
+async function checkSocialMeta(page: Page, canonical: string, label: string): Promise<void> {
+  const meta = async (selector: string): Promise<string> => uniqueMeta(page, selector, label)
+  assert.equal(await meta('meta[property="og:url"]'), canonical, `${label}: og:url`)
+  assert.notEqual(await meta('meta[property="og:type"]'), "", `${label}: og:type`)
+  assert.notEqual(await meta('meta[property="og:title"]'), "", `${label}: og:title`)
+  assert.notEqual(await meta('meta[property="og:description"]'), "", `${label}: og:description`)
+  assert.match(await meta('meta[property="og:image"]'), BUNNY_IMAGE, `${label}: og:image`)
+  assert.equal(await meta('meta[name="twitter:card"]'), "summary_large_image", `${label}: card`)
 }
 async function checkRoute(
   context: BrowserContext,
@@ -314,15 +367,8 @@ async function checkRoute(
   assert.equal(await page.locator("#ardo-app").count(), 1)
   const canonical = `https://sebastian-software.${locale === "de" ? "de" : "com"}${pathname}`
   assert.equal(await page.locator('link[rel="canonical"]').getAttribute("href"), canonical)
-  assert.equal(
-    await page.locator('link[rel="alternate"][hreflang="de"]').getAttribute("href"),
-    `https://sebastian-software.de${pathname}`
-  )
-  assert.equal(
-    await page.locator('link[rel="alternate"][hreflang="en"]').getAttribute("href"),
-    `https://sebastian-software.com${pathname}`
-  )
-  assert.equal(await page.locator('link[rel="alternate"][hreflang="x-default"]').count(), 1)
+  await checkAlternates(page, options)
+  await checkSocialMeta(page, canonical, `${variant}${pathname}`)
   assert.ok(
     await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
     `${variant}${pathname}: overflow`
@@ -399,6 +445,7 @@ async function checkNotFound(
     await settleImages(page)
     assert.equal(await page.locator("[data-not-found]").count(), 1)
     assert.equal(await page.locator('link[rel="canonical"]').count(), 0)
+    assert.equal(await page.locator('meta[property="og:url"]').count(), 0)
     assert.equal(await page.locator('meta[name="robots"]').getAttribute("content"), "noindex")
     if (old)
       await compareBaseline(context, page, {
@@ -422,16 +469,18 @@ async function checkResources(context: BrowserContext, current: Fixture): Promis
     assert.ok(body.length > 0)
   }
 }
-// The build sitemap is the single list of indexable pages; its URLs use the canonical origin.
-async function sitemapPages(context: BrowserContext, current: Fixture): Promise<string[]> {
-  const response = await context.request.get(`${current.origin}/sitemap.xml`)
-  assert.equal(response.status(), OK)
-  const body = await response.text()
+function sitemapPaths(body: string): string[] {
   const pages = [...body.matchAll(/<loc>(?<loc>[^<]+)<\/loc>/gv)].map(
     ({ groups }) => new URL(groups?.loc ?? "").pathname
   )
   assert.ok(pages.length > 0, "sitemap.xml lists no pages")
   return pages
+}
+// The build sitemap is the single list of indexable pages; its URLs use the canonical origin.
+async function sitemapPages(context: BrowserContext, origin: string): Promise<string[]> {
+  const response = await context.request.get(`${origin}/sitemap.xml`)
+  assert.equal(response.status(), OK)
+  return sitemapPaths(await response.text())
 }
 async function checkStaticFallback(browser: Browser, current: Fixture): Promise<void> {
   const noScript = await browser.newContext({ javaScriptEnabled: false })
@@ -456,6 +505,37 @@ async function checkPerformance(
         current: current.origin,
         pathname,
         previous: old.origin,
+        viewport,
+      })
+    }
+  }
+}
+async function checkRoutes(
+  context: BrowserContext,
+  page: Page,
+  options: Omit<RouteOptions, "paired" | "pathname" | "viewport">
+): Promise<void> {
+  const { current, locale, old } = options
+  const pages = await sitemapPages(context, current.origin)
+  // Both language builds are checked together; a path in both needs reciprocal alternates.
+  const otherPages = new Set(
+    sitemapPaths(
+      await readFile(
+        path.join(app, "build", `software-${locale === "de" ? "en" : "de"}`, "client/sitemap.xml"),
+        "utf8"
+      )
+    )
+  )
+  // New paths have nothing to compare against in the baseline build.
+  const baselinePages = new Set(old ? await sitemapPages(context, old.origin) : [])
+  for (const viewport of VIEWPORTS) {
+    await page.setViewportSize(viewport)
+    for (const pathname of pages) {
+      await checkRoute(context, page, {
+        ...options,
+        old: baselinePages.has(pathname) ? old : undefined,
+        paired: otherPages.has(pathname),
+        pathname,
         viewport,
       })
     }
@@ -505,21 +585,7 @@ async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
       errors.push(message.text())
   })
   try {
-    const pages = await sitemapPages(context, current)
-    for (const viewport of VIEWPORTS) {
-      await page.setViewportSize(viewport)
-      for (const pathname of pages) {
-        await checkRoute(context, page, {
-          current,
-          errors,
-          locale,
-          old,
-          pathname,
-          variant,
-          viewport,
-        })
-      }
-    }
+    await checkRoutes(context, page, { current, errors, locale, old, variant })
     if (old && locale === "de") await checkPerformance(context, current, old)
     await checkNavigation(page, current, locale)
     await checkNotFound(context, page, { current, old, variant })

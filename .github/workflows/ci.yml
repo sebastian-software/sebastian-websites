@@ -37,6 +37,10 @@ jobs:
         run: pnpm --filter @sebastian-websites/software exec playwright install --with-deps chromium
       - name: Build all variants
         run: pnpm build
+      # The deployment's pre-upload checks without Bunny credentials: both
+      # language builds of every site, compared and SEO-validated together.
+      - name: Check the builds before publication
+        run: pnpm hosting:plan
       - name: Verify both Software artifacts before publication
         run: pnpm --filter @sebastian-websites/software check:browser
       - name: Verify the reporting website in both languages

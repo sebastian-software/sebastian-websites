@@ -401,6 +401,10 @@ msgstr "Email address"
 msgid "Email:"
 msgstr "Email:"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "English blog"
+msgstr "English blog"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Entry in the Commercial Register"
 msgstr "Entry in the Commercial Register"
@@ -486,6 +490,10 @@ msgstr ""
 #: app/components/ReportingPage.tsx#ReportingPage
 msgid "Future metrics."
 msgstr "Future metrics."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "German blog"
+msgstr "German blog"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection

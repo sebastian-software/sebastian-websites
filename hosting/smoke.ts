@@ -12,7 +12,7 @@ import { pathToFileURL } from "node:url"
 import type { Fetch } from "./bunny.ts"
 
 import { getVariant } from "../packages/web-core/src/sites.ts"
-import { PATH_RULES, planLegacyPath } from "./redirects.ts"
+import { PATH_RULES, type PathRule, planLegacyPath, type ServingVariant } from "./redirects.ts"
 
 const OK = 200
 const MOVED_PERMANENTLY = 301
@@ -29,14 +29,21 @@ export type SmokeCheck = {
 
 /**
  * Derives the checks for a variant from its legacy rules; a rule for a whole
- * subtree is probed with one example path below it.
+ * subtree is probed with one example path below it. A rule scoped to the other
+ * language is probed as an unknown path, which must stay 404 on this domain.
  *
  * @param variantId - The variant, such as `consulting-de`.
  * @param origin - The origin the requests go to.
+ * @param rules - The site's legacy rules, replaceable in tests.
  * @returns The checks in rule order, after the home page and the unknown path.
  */
-export function smokeChecks(variantId: string, origin: string): readonly SmokeCheck[] {
+export function smokeChecks(
+  variantId: string,
+  origin: string,
+  rules?: readonly PathRule[]
+): readonly SmokeCheck[] {
   const serving = getVariant(variantId)
+  const siteRules = rules ?? PATH_RULES[serving.site]
   const checks: SmokeCheck[] = [
     { path: "/", status: OK },
     { path: "/no-such-page-smoke", status: NOT_FOUND },
@@ -52,16 +59,42 @@ export function smokeChecks(variantId: string, origin: string): readonly SmokeCh
       }
     )
   }
-  for (const rule of PATH_RULES[serving.site]) {
-    const path = rule.path.endsWith("/*") ? `${rule.path.slice(0, -1)}example` : rule.path
-    const plan = planLegacyPath(serving, new URL(path, origin))
-    if (plan?.kind === "moved") {
-      checks.push({ location: plan.location, path, status: MOVED_PERMANENTLY })
-    } else if (plan?.kind === "gone") {
-      checks.push({ path, status: GONE })
-    }
+  for (const rule of siteRules) {
+    const check = ruleCheck({ origin, rule, rules: siteRules, serving })
+    if (check !== undefined) checks.push(check)
   }
   return checks
+}
+
+/**
+ * The expected answer to one legacy rule on the serving domain.
+ *
+ * @param context - The serving variant, the origin, the rule, and all rules of the site.
+ * @param context.origin - The origin the requests go to.
+ * @param context.rule - The rule to probe.
+ * @param context.rules - All rules of the site, which decide the actual answer.
+ * @param context.serving - The site and language of the domain.
+ * @returns The check, or undefined when the path is no legacy path on this domain.
+ */
+function ruleCheck(context: {
+  readonly origin: string
+  readonly rule: PathRule
+  readonly rules: readonly PathRule[]
+  readonly serving: ServingVariant
+}): SmokeCheck | undefined {
+  const { origin, rule, rules, serving } = context
+  const path = rule.path.endsWith("/*") ? `${rule.path.slice(0, -1)}example` : rule.path
+  const plan = planLegacyPath(serving, new URL(path, origin), rules)
+  if (plan?.kind === "moved") {
+    return { location: plan.location, path, status: MOVED_PERMANENTLY }
+  }
+  if (plan?.kind === "gone") {
+    return { path, status: GONE }
+  }
+  // A rule of the other language leaves the path unknown here.
+  return rule.locale !== undefined && rule.locale !== serving.locale
+    ? { path, status: NOT_FOUND }
+    : undefined
 }
 
 /**
