@@ -1,7 +1,7 @@
 /**
  * Known legacy paths of the former sites and where they live now (ADR-0010).
- * Each rule applies to its site in both languages; an unknown path is not
- * redirected and stays 404. Rule IDs follow the matrix of the former Consulting
+ * Each rule applies to its site in both languages unless it names a locale;
+ * an unknown path is not redirected and stays 404. Rule IDs follow the matrix of the former Consulting
  * repository (its ADR-0002), so the decision record and these tests share names.
  */
 import {
@@ -21,11 +21,18 @@ export type Destination = {
 
 /**
  * One legacy path, either moved or removed on purpose. A path ending in `/*`
- * matches everything below it.
+ * matches everything below it. A rule with a locale applies only to that
+ * language's domain, such as a withdrawn or renamed single-language blog post;
+ * on the other domain the path stays unknown.
  */
 export type PathRule =
-  | { readonly destination: Destination; readonly id: string; readonly path: string }
-  | { readonly gone: true; readonly id: string; readonly path: string }
+  | {
+      readonly destination: Destination
+      readonly id: string
+      readonly locale?: Locale
+      readonly path: string
+    }
+  | { readonly gone: true; readonly id: string; readonly locale?: Locale; readonly path: string }
 
 // The former Consulting site carried the language as a path prefix. These are
 // its known routes below the prefix; the empty path is the home page.
@@ -109,7 +116,10 @@ function withoutTrailingSlashes(pathname: string): string {
   return pathname.slice(0, end)
 }
 
-function matches(rule: PathRule, pathname: string): boolean {
+function matches(rule: PathRule, serving: ServingVariant, pathname: string): boolean {
+  if (rule.locale !== undefined && rule.locale !== serving.locale) {
+    return false
+  }
   return rule.path.endsWith("/*")
     ? pathname.startsWith(rule.path.slice(0, -1))
     : pathname === rule.path
@@ -134,11 +144,16 @@ export function zoneVariant(storageZone: string): ServingVariant | undefined {
  *
  * @param serving - The site and language of the requesting host.
  * @param url - The requested URL as the visitor sees it.
+ * @param rules - The site's legacy rules; locale-scoped rules apply on their own domain only.
  * @returns The redirect or removal, or nothing when no rule applies.
  */
-export function planLegacyPath(serving: ServingVariant, url: URL): LegacyPlan | undefined {
+export function planLegacyPath(
+  serving: ServingVariant,
+  url: URL,
+  rules: readonly PathRule[] = PATH_RULES[serving.site]
+): LegacyPlan | undefined {
   const pathname = withoutTrailingSlashes(url.pathname)
-  const rule = PATH_RULES[serving.site].find((candidate) => matches(candidate, pathname))
+  const rule = rules.find((candidate) => matches(candidate, serving, pathname))
   if (rule === undefined) {
     return undefined
   }

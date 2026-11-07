@@ -8,37 +8,17 @@ import { appendFile } from "node:fs/promises"
 import { fileURLToPath } from "node:url"
 
 import { bunnyApi, required } from "./bunny.ts"
-import { loadBunnyImages } from "./images.ts"
+import { checkBuilds } from "./check-builds.ts"
 import { provision } from "./provision.ts"
-import { type Asset, loadAssets, loadBuild, publish } from "./publish.ts"
-import { seoPlanFor } from "./seo.ts"
-import { ASSET_TARGET, buildableTargets } from "./targets.ts"
+import { publish } from "./publish.ts"
+import { ASSET_TARGET } from "./targets.ts"
 import { verify } from "./verify.ts"
 
 const root = fileURLToPath(new URL("..", import.meta.url))
 const api = bunnyApi(required("BUNNY_API_KEY"))
-const targets = buildableTargets(root)
-if (targets.length === 0) {
-  throw new Error("No target has a build; run pnpm build first")
-}
+// The same checks as `pnpm hosting:plan`, before any remote file changes.
+const { builds, images, plans, targets } = await checkBuilds(root)
 const summary: string[] = ["### Website delivery", ""]
-// Reject a broken SEO artifact before any remote files are changed.
-const builds = new Map<string, readonly Asset[]>()
-for (const target of targets) {
-  if (target.buildDirectory === undefined) continue
-  const directory = `${root}/${target.buildDirectory}`
-  const build = await (target.assets === true ? loadAssets(directory) : loadBuild(directory))
-  seoPlanFor(target, build)
-  builds.set(target.name, build)
-}
-// Every original must be available before any site document references it.
-const images = new Map<string, Awaited<ReturnType<typeof loadBunnyImages>>[number]>()
-for (const target of targets) {
-  if (target.buildDirectory === undefined) continue
-  for (const image of await loadBunnyImages(`${root}/${target.buildDirectory}`)) {
-    images.set(image.path, image)
-  }
-}
 if (images.size > 0) {
   const assets = [...images.values()]
   const ids = await provision(api, ASSET_TARGET)
@@ -67,7 +47,11 @@ for (const target of targets) {
 for (const target of targets) {
   const assets = builds.get(target.name)
   if (assets !== undefined) {
-    await verify({ assets: assets.filter((asset) => !images.has(asset.path)), target })
+    await verify({
+      assets: assets.filter((asset) => !images.has(asset.path)),
+      seo: plans.get(target.name),
+      target,
+    })
   }
 }
 if (process.env.GITHUB_STEP_SUMMARY !== undefined) {
