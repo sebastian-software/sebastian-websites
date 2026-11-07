@@ -35,7 +35,7 @@ Planning baseline: repository HEAD `6542970` on November 6, 2026. The working tr
 **Publishing**
 
 - **Future-dated posts are allowed.** A post with a future `publishedAt` may be merged into `main`. It appears with the first deploy after its date. The owners accept that such a post can be read in the public repository before its date (ADR-0012). ADR-0012's content rules still apply when the post is merged.
-- **Shared build time.** Both language builds use one shared build time. `build.ts` copies only posts that are due by then. Ardo needs no extension for this. Scheduled CI builds stay out of scope. A post that falls due goes live with the next merge or a manual re-run of the Deploy workflow.
+- **Shared build time.** Both language builds use one shared build time. `build.ts` passes it to both Ardo builds as `buildTime`, and Ardo leaves out drafts and posts that are not yet due (ardo#502). Updated on November 7, 2026, after #502 was merged; the earlier decision had `build.ts` copy only due posts. Scheduled CI builds stay out of scope. A post that falls due goes live with the next merge or a manual re-run of the Deploy workflow.
 - **Images.** Raster images in posts go through Bunny, using a generic image-provider extension in Ardo and a Bunny binding in this repository.
   - The blog launches without raster images in post bodies, cover images, or author avatars.
   - A separate plan adds those images once the provider is released.
@@ -77,8 +77,9 @@ Feature: the plan adds new pages, routes, feeds, navigation, and upstream framew
 
 - **One publication per language build.** Each variant build sets `publication.from` to its own staged post directory and sets `to: "blog"`. Ardo's `i18n` option is not enabled, because it adds the locale prefixes that ADR-0010 rejects. Each build is monolingual, so Ardo's `default` publication belongs to that domain.
 - **Post sources.** They live in `apps/software/content/blog/<locale>/`.
-- **Staging.** `build.ts` fixes one build time per run. It then stages into `.variant-build/<variant>/content/blog/` only the posts that are not drafts and whose `publishedAt` is no later than that time. Ardo's own clock is always later than this time, so it cannot exclude a staged post or include an unstaged one.
-- **Shared build time.** `build.ts` writes the build time next to `client/`, not inside it, so it is not uploaded. It also derives `__BUILD_YEAR__` from that time.
+- **Build time.** `build.ts` fixes one build time per run, as an RFC 3339 timestamp with a time zone. It passes that value to each variant's Ardo config as `buildTime`, so Ardo's visibility check, tag archives, feeds and sitemap `lastmod` all use it. Ardo reads no environment variable for it.
+- **Post sources per build.** Each variant reads its language's posts unfiltered. If the temporary variant directory needs a copy under `.variant-build/<variant>/content/blog/`, it is a plain copy. Drafts and posts that are not yet due are filtered by Ardo, not by the site.
+- **Recorded build time.** `build.ts` writes the build time next to `client/`, not inside it, so it is not uploaded. Ardo writes no such file: it keeps `buildTime` only inside the JavaScript bundle, normalised to UTC. The hosting gate's pair check therefore still reads `build-time.txt`. `build.ts` also derives `__BUILD_YEAR__` from that time.
 - **Empty directories.** `build.ts` creates an empty staged directory where Git dropped one, because Ardo's `readPostFiles` fails on a missing directory.
 - **Generated routes.** Ardo regenerates `app/routes/blog` only inside the temporary variant directory, which is never committed.
 
@@ -93,14 +94,14 @@ A new blog module in `packages/web-core` reads the frontmatter of every post in 
 - **Tags.** Tags must be known keys from the tag registry.
 - **No raster images.** The source must contain no raster image references (see "Raster-image check").
 
-From the posts that are due by the shared build time, the module builds a cross-language index. For each language it lists post `id`, path, `nextStep`, and tags. Each variant build receives the index as build data, the same way metrics arrive today. The index drives hreflang, the language switch, the next-step box, and the tag-archive alternates.
+From the posts that are due by the shared build time, the module builds a cross-language index. It must use the same instant that Ardo receives as `buildTime`, so that the index and Ardo's output agree. For each language it lists post `id`, path, `nextStep`, and tags. Each variant build receives the index as build data, the same way metrics arrive today. The index drives hreflang, the language switch, the next-step box, and the tag-archive alternates.
 
 Ardo 6.3.0 drops unknown frontmatter keys in `validatePageFrontmatter` (Ardo `dist/vite/index.js` lines 478–485), so the post page reads `nextStep` from the index, not from page frontmatter. Ardo already rejects unknown authors, timestamps without a time zone, and an `updatedAt` earlier than `publishedAt`. The module does not repeat those checks.
 
 ### Translation pairs and tags
 
 - **Translation pairs** share one post `id` and one path. Generic slugs stay English for both languages, as ADR-0010 requires.
-- **Tag keys and labels.** Tags are English, lowercase, hyphenated keys from one registry module. The registry holds the keys only. Translated labels are Palamedes `t` macros, so they stay in `pmds extract`, `check:translations`, and `lint:messages`. Ardo feed categories carry the key.
+- **Tag keys and labels.** Tags are English, lowercase, hyphenated keys from one registry module. The registry holds the keys only. Translated labels are Palamedes `t` macros in the module that `publication.tagLabel` names, so they stay in `pmds extract`, `check:translations`, and `lint:messages`. Ardo calls that module while it renders, for archive headings, archive titles and post tag lists. URLs, the sitemap and feed categories carry the key.
 - **Tag archive languages.** A tag archive exists in a language if at least one due post in that language uses the tag. An archive present in both languages gets reciprocal hreflang.
 
 ### Ardo epic
@@ -118,7 +119,7 @@ The epic is filed after owner confirmation in the implementation run. Each issue
    - Generated `/blog/tags/<key>` routes, rendered through the item 1 hook and listed in the sitemap.
    - Tag keys must already be valid slugs, and colliding keys are rejected.
    - Archive labels come from the site.
-4. **The publication respects `buildTime`** (optional). The site's own staging already makes the builds consistent.
+4. **The publication respects `buildTime`.** Merged on `main` as ardo#502, with ardo#507 for `buildHash`. ardo#506 also derives the `lastmod` of generated publication routes from the visible posts instead of the wall clock.
 5. **Custom post fields on `Post`** (optional). The site's index already carries `nextStep`.
 6. **Image provider** (optional, for the follow-up image plan).
    - An interface for `renderFamily`, `renderJpeg`, and `storeImage`: it receives the source, crop, width, and format, and returns URLs.
@@ -127,7 +128,7 @@ The epic is filed after owner confirmation in the implementation run. Each issue
 
 ### Site integration and SEO
 
-- **Frame and helpers stay in charge.** Blog pages render inside the existing `SiteHeader` and `PageEnding` frame. Canonical, hreflang, and Open Graph come from `seoMeta`, without trailing slashes, through the item 1 hook. The site does not post-process generated HTML or bypass Ardo validation.
+- **Frame and helpers stay in charge.** Blog pages render inside the existing `SiteHeader` and `PageEnding` frame. Canonical, hreflang, and Open Graph come from `seoMeta`, without trailing slashes, through the `meta` export of the site's publication route modules. The site does not post-process generated HTML or bypass Ardo validation.
 - **Hosting gate: compare the builds, don't trust a list.** A new `seoPlans(builds)` in `hosting/seo.ts` takes all builds and returns one plan per variant: the expected alternates for each path and the expected sitemap paths. `deploy.ts` passes those plans into `verify()`. `VerifyOptions` takes the plan instead of recomputing it from one target. `verifySeo` checks each origin against its own plan. The rules:
   - A path present in both builds of a site needs reciprocal hreflang and `x-default`.
   - Only the Software site may have a path in one build only. Two kinds qualify:
@@ -179,7 +180,7 @@ A new ADR-0021 records:
 - the publication feature;
 - language-specific posts and tags;
 - the Ardo extensions;
-- staging by shared build time;
+- one shared build time, passed to Ardo as `buildTime`;
 - the publishing routine: merge, or re-run Deploy, once a post falls due;
 - the accepted early visibility of future-dated posts.
 
@@ -208,27 +209,27 @@ Only the launch pull request carries:
 
 ## Affected files
 
-| File                                                                                                                            | Description                                                                                                                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ardo repository (separate epic, issues, PRs)                                                                                    | Extensions 1–3 before launch. Extensions 4–6 are filed and do not gate the launch.                                                                                                                                                                                  |
-| `apps/software/package.json`                                                                                                    | Pin the Ardo release with extensions 1–3. Add the `check:fixtures` script.                                                                                                                                                                                          |
-| `apps/software/vite.config.ts`                                                                                                  | Per-variant `publication` (`from`, `to: "blog"`, `name`, `description`, `authors`), the presentation hooks, and the cross-language index as build data.                                                                                                             |
-| `apps/software/scripts/build.ts`                                                                                                | Shared build time; staging only posts that are due and not drafts; the build-time file next to `client/`; `__BUILD_YEAR__` derived from the build time; `--content`, `--build-time`, and `--out` options for fixtures; the existing `404/index.html` normalization. |
-| `apps/software/scripts/development.ts`                                                                                          | Mirror and watch `content/`.                                                                                                                                                                                                                                        |
-| `apps/software/scripts/check-fixtures.ts` (new) and `apps/software/test/fixtures/blog/` (new)                                   | Fixture builds into scratch output. They cover draft and future-date exclusion at two build times, strict feed parsing, the empty state, the language-switch fallback, and the raster-image checks.                                                                 |
-| `apps/software/content/blog/{de,en}/`                                                                                           | Post sources. At launch they contain the first approved post in both languages.                                                                                                                                                                                     |
-| `packages/web-core/src/` (new blog module plus tests)                                                                           | The cross-language index and its validation, the `nextStep` set, the tag-key registry, and counterpart resolution.                                                                                                                                                  |
-| `packages/web-core/src/seo.ts`, `seo.test.ts`, `apps/software/app/lib/seo.ts`                                                   | Open Graph and Twitter metadata, hreflang only where a counterpart exists, and article metadata.                                                                                                                                                                    |
-| `packages/web-core/src/frame.ts`, `frame.test.ts`, `packages/ui/src/frame/frameCopy.ts`, `packages/ui/src/frame/SiteHeader.tsx` | Brand-wide `blog` destination, the optional counterpart, and the language-link fallback. Assertions cover Software, Open Source, app-tracking, Skills, and an unchanged Consulting.                                                                                 |
-| `apps/software/app/components/Founders.tsx` and a new shared founder module                                                     | Founder copy from one source, still in Palamedes.                                                                                                                                                                                                                   |
-| `apps/software/app/root.tsx`, new `apps/software/app/components/blog/`                                                          | Overview, post frame, author line, tag list and tag archive, next-step box, feed links, empty state, and translated tag labels.                                                                                                                                     |
-| `apps/software/app/locales/{en,de}.po`                                                                                          | Blog UI copy and tag labels.                                                                                                                                                                                                                                        |
-| `hosting/seo.ts`, `seo.test.ts`, `verify.ts`, `deploy.ts`, `check-builds.ts` (new), root `package.json` (`hosting:plan`)        | The `seoPlans` comparison, verification driven by the plan, the build-time pair check, and the secretless CI entry point.                                                                                                                                           |
-| `hosting/redirects.ts`, `hosting/smoke.ts`, `hosting/hosting.test.ts`, the Bunny middleware configuration if needed             | Locale-scoped `PathRule`; smoke checks for `/blog`, `/blog/rss.xml`, and `/blog/atom.xml` with content types; XML media types.                                                                                                                                      |
-| `apps/software/scripts/check-browser.ts`                                                                                        | `checkRoute` alternate rules; checks for the overview, a post, a tag archive, the next-step box, and feed links; `.xml` in the media map; baseline comparison skipped for paths missing from the baseline.                                                          |
-| `.github/workflows/ci.yml`                                                                                                      | Run `pnpm hosting:plan` and `check:fixtures` after `pnpm build`, and measure the job time against the 20-minute timeout.                                                                                                                                            |
-| `docs/adr/0021-blog-on-the-software-website.md` (new), ADR-0006, ADR-0009, ADR-0010                                             | The decisions above.                                                                                                                                                                                                                                                |
-| `docs/operations/` (new guide)                                                                                                  | Writing, review checklist (including the ADR-0012 rules at merge time), translation, tags, scheduling and the Deploy re-run, rename, withdrawal, and the image ban until the image plan.                                                                            |
+| File                                                                                                                            | Description                                                                                                                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Ardo repository (separate epic, issues, PRs)                                                                                    | Extensions 1–3 before launch. Extensions 4–6 are filed and do not gate the launch.                                                                                                                                                                |
+| `apps/software/package.json`                                                                                                    | Pin the Ardo release with extensions 1–3. Add the `check:fixtures` script.                                                                                                                                                                        |
+| `apps/software/vite.config.ts`                                                                                                  | Per-variant `publication` (`from`, `to: "blog"`, `name`, `description`, `authors`, `components`, `tagLabel`, `tags`, `feeds.entryIds`), top-level `trailingSlash: false` and `buildTime`, and the cross-language index as build data.             |
+| `apps/software/scripts/build.ts`                                                                                                | Shared build time passed to Ardo as `buildTime`; the build-time file next to `client/`; `__BUILD_YEAR__` derived from the build time; `--content`, `--build-time`, and `--out` options for fixtures; the existing `404/index.html` normalization. |
+| `apps/software/scripts/development.ts`                                                                                          | Mirror and watch `content/`.                                                                                                                                                                                                                      |
+| `apps/software/scripts/check-fixtures.ts` (new) and `apps/software/test/fixtures/blog/` (new)                                   | Fixture builds into scratch output. They cover draft and future-date exclusion at two build times, strict feed parsing, the empty state, the language-switch fallback, and the raster-image checks.                                               |
+| `apps/software/content/blog/{de,en}/`                                                                                           | Post sources. At launch they contain the first approved post in both languages.                                                                                                                                                                   |
+| `packages/web-core/src/` (new blog module plus tests)                                                                           | The cross-language index and its validation, the `nextStep` set, the tag-key registry, and counterpart resolution.                                                                                                                                |
+| `packages/web-core/src/seo.ts`, `seo.test.ts`, `apps/software/app/lib/seo.ts`                                                   | Open Graph and Twitter metadata, hreflang only where a counterpart exists, and article metadata.                                                                                                                                                  |
+| `packages/web-core/src/frame.ts`, `frame.test.ts`, `packages/ui/src/frame/frameCopy.ts`, `packages/ui/src/frame/SiteHeader.tsx` | Brand-wide `blog` destination, the optional counterpart, and the language-link fallback. Assertions cover Software, Open Source, app-tracking, Skills, and an unchanged Consulting.                                                               |
+| `apps/software/app/components/Founders.tsx` and a new shared founder module                                                     | Founder copy from one source, still in Palamedes.                                                                                                                                                                                                 |
+| `apps/software/app/root.tsx`, new `apps/software/app/components/blog/`                                                          | Overview, post frame, author line, tag list and tag archive, next-step box, feed links, empty state, and translated tag labels.                                                                                                                   |
+| `apps/software/app/locales/{en,de}.po`                                                                                          | Blog UI copy and tag labels.                                                                                                                                                                                                                      |
+| `hosting/seo.ts`, `seo.test.ts`, `verify.ts`, `deploy.ts`, `check-builds.ts` (new), root `package.json` (`hosting:plan`)        | The `seoPlans` comparison, verification driven by the plan, the build-time pair check, and the secretless CI entry point.                                                                                                                         |
+| `hosting/redirects.ts`, `hosting/smoke.ts`, `hosting/hosting.test.ts`, the Bunny middleware configuration if needed             | Locale-scoped `PathRule`; smoke checks for `/blog`, `/blog/rss.xml`, and `/blog/atom.xml` with content types; XML media types.                                                                                                                    |
+| `apps/software/scripts/check-browser.ts`                                                                                        | `checkRoute` alternate rules; checks for the overview, a post, a tag archive, the next-step box, and feed links; `.xml` in the media map; baseline comparison skipped for paths missing from the baseline.                                        |
+| `.github/workflows/ci.yml`                                                                                                      | Run `pnpm hosting:plan` and `check:fixtures` after `pnpm build`, and measure the job time against the 20-minute timeout.                                                                                                                          |
+| `docs/adr/0021-blog-on-the-software-website.md` (new), ADR-0006, ADR-0009, ADR-0010                                             | The decisions above.                                                                                                                                                                                                                              |
+| `docs/operations/` (new guide)                                                                                                  | Writing, review checklist (including the ADR-0012 rules at merge time), translation, tags, scheduling and the Deploy re-run, rename, withdrawal, and the image ban until the image plan.                                                          |
 
 ## Implementation details
 
@@ -237,7 +238,7 @@ Only the launch pull request carries:
 1. **Integration spike.** Before the Ardo work, run a local, non-public spike against Ardo 6.3.0. Confirm the recorded gaps against the fixture (extensions 1–3 and the feed-ID collision). Record how the directory output serves `/blog/<slug>` and `/blog/<slug>/`, and which Ardo labels remain visible. A gap that turns out to be site-specific stays in the website.
 2. **Ardo epic and release.** Once the owner confirms, file the epic and the issues. Implement and release extensions 1–3 in Ardo. File extensions 4–6 without waiting for them.
 3. **Index and validation.** Build the web-core blog module and its tests. This step may merge before the release.
-4. **Build plumbing.** Add the shared build time, staging, the build-time file, fixture options, the `check:fixtures` script, and content mirroring in development.
+4. **Build plumbing.** Add the shared build time and pass it to Ardo as `buildTime`. Add the build-time file, fixture options, the `check:fixtures` script, and content mirroring in development.
 5. **SEO and social metadata.** Add Open Graph for every indexable page; it may merge before the release. Add feed discovery.
 6. **Hosting and CI.** Add `seoPlans` with verification driven by the plan. Add `hosting:plan` and the CI steps. Add locale-scoped redirects and smoke checks. Add the media types. This step may merge before the release.
 7. **Counterpart model and navigation.** The counterpart model may merge before the release. The navigation item merges only with the launch.
@@ -253,7 +254,7 @@ Only the launch pull request carries:
 - `TagArchive` lists the posts of one tag.
 - `FeedLinks` is shared by the pages above.
 
-All of these plug into the extension 1 hook.
+`BlogIndex`, `BlogPost` and `TagArchive` are the route modules in `publication.components`. Each exports the component as `default` and its route `meta`.
 
 ### State management
 
@@ -460,7 +461,7 @@ The deep review supersedes two of those choices: `publication.now` and the `id` 
 ### Done
 
 - **Step 1, integration spike.** It confirmed the Ardo 6.3.0 gaps: 12 of 13 new Ardo unit tests failed before the change, and so did the new integration test.
-- **Step 2, Ardo epic.** [ardo#505](https://github.com/sebastian-software/ardo/issues/505) has sub-issues [#499](https://github.com/sebastian-software/ardo/issues/499)–[#504](https://github.com/sebastian-software/ardo/issues/504). Extensions 1–3 are implemented in [ardo#506](https://github.com/sebastian-software/ardo/pull/506) as opt-in options: `publication.components`, `publication.meta`, `trailingSlash`, `feeds.entryIds`, and `tags`. The release is pending.
+- **Step 2, Ardo epic.** [ardo#505](https://github.com/sebastian-software/ardo/issues/505) has sub-issues [#499](https://github.com/sebastian-software/ardo/issues/499)–[#504](https://github.com/sebastian-software/ardo/issues/504). Extensions 1–3 are implemented in [ardo#506](https://github.com/sebastian-software/ardo/pull/506). Item 4 (`buildTime`) was merged separately on `main`. The release is pending. After a strategic review on November 7, the API of #506 changed; see [Ardo API for the launch](#ardo-api-for-the-launch).
 - **Step 3, web-core blog module.**
   - Module files: `blog.ts`, `blogPaths.ts`, `blogTags.ts`, `blogNextSteps.ts`, `blogImages.ts`, and `timestamps.ts`.
   - Pairing goes both ways, IDs are unique (drafts included), `nextStep` is required, tag keys are registered, and raster images are not allowed.
@@ -475,6 +476,18 @@ The deep review supersedes two of those choices: `publication.now` and the `id` 
 - **Step 7, partial.** The counterpart model and the language-switch fallback to the other blog are in place, labelled as that blog. The `blog` navigation item is not.
 - **Docs.** ADR-0010 is amended for single-language blog pages. `docs/operations/website-hosting.md` describes the new gate.
 
+### Ardo API for the launch
+
+The strategic review of ardo#506 replaced the first API. The launch uses this shape:
+
+- **Route modules.** `publication.components.{index,post,tag}` name site modules. Each exports the component as `default` and, optionally, `meta`. Ardo runs `meta` while it renders and passes Ardo's own descriptors as `defaults`; the returned list replaces them. The types are `Publication{Index,Post,Tag}MetaArgs`. `publication.meta` and the `_ardoMeta` field are gone.
+- **Post frame.** Ardo mounts the site's post frame in the generated post route only. Documentation pages no longer load it.
+- **Trailing slash.** A top-level `trailingSlash: false` sets the spelling for the sitemap, canonicals, links, and publication, post, tag and feed URLs. `publication.trailingSlash` is gone. Static output cannot enforce a spelling, so Bunny must serve `/blog/<slug>` and redirect `/blog/<slug>/`. The hosting gate already checks this for the existing pages.
+- **Tag labels.** `publication.tagLabel` names a module whose default export is a `PublicationTagLabel`: one `case` per registry key, each a Palamedes `t` macro, with the key as fallback. The tag module receives `label`. `useArdoPublicationTags()` gives site components `label(key)` and `path(key)`. With `tags: true`, post tags link to their archives.
+- **Feed discovery.** The site's `meta` must keep the feed `<link>`s from `defaults`. They carry a `title` attribute, so drop the default title with `"tagName" in d || !("title" in d)`.
+- **Feeds** keep the tag key as the category. Translated feed categories are not part of #506.
+- **Build time and hash.** Set `buildTime` in each variant's Ardo config to the shared build time. Ardo filters drafts and posts that are not yet due by it, and dates feeds and sitemap `lastmod` from the visible posts. `buildHash` can be set the same way (ardo#507); otherwise Ardo detects it from Git.
+
 ### Owner input needed
 
 - Confirm the Open Graph image: the shared team photo `shooting-2024/color_09092024-14-retouched.png`, cropped to 1200×630.
@@ -487,9 +500,9 @@ The deep review supersedes two of those choices: `publication.now` and the `id` 
 
 ### Remaining for the launch pull request
 
-- Merge and release ardo#506, then pin that release.
+- Merge and release ardo#506, then pin that release. Use the API in [Ardo API for the launch](#ardo-api-for-the-launch).
 - Step 4: build plumbing.
-  - Content staging and `build-time.txt`, which then becomes required for Software.
+  - The shared `buildTime` for both Ardo builds, and `build-time.txt`, which then becomes required for Software. No due-post filtering in `build.ts`: Ardo does it.
   - Fixture options and `check:fixtures`.
   - Mirroring `content/` during development.
 - Steps 5 and 6 at launch.
@@ -515,7 +528,7 @@ These are the final independent validation results on the branch, run with the c
 | `pnpm hosting:plan`                           | Passed: 10 builds checked       |
 | `check:browser` for Software and app-tracking | Passed                          |
 
-Ardo#506 passed format, build, typecheck, lint, 1,053 unit tests, 71 integration tests, the i18n check, and the docs build, on Node 26 only.
+After the API rework and the rebase onto ardo#502 and #507, ardo#506 at `2e7735a` passed format, build, typecheck, lint, 1,111 unit tests, 72 integration tests, the i18n check, and the docs budgets locally on Node 26. CI is green on Node 22, 24 and 26.
 
 ## Review findings
 
@@ -526,17 +539,17 @@ Ardo#506 passed format, build, typecheck, lint, 1,053 unit tests, 71 integration
 
 | Status                 | Count |
 | ---------------------- | ----: |
-| Fixed                  |    24 |
-| Open / Not implemented |     5 |
+| Fixed                  |    28 |
+| Open / Not implemented |     1 |
 
-All five open findings are Notes, and none blocks the launch.
+The open finding is a Note and does not block the launch.
 
 - **Website.** `build-time.txt` becomes required with the launch step.
-- **Ardo#506.** These four are listed in the pull request:
-  - `_ardoMeta` stays a known field on every page.
-  - No dev-server test covers site components.
-  - Site metadata is carried twice in the route chunk.
-  - The changelog needs a note for the widened `ArdoMetaDescriptor`.
+- **Ardo#506.** Four Notes were listed in the pull request. The API rework after the strategic review resolved them: `_ardoMeta` and the duplicated route-chunk metadata are gone, and dev and preview tests now cover the site modules and redirects. The `ArdoMetaDescriptor` change is described in the pull request.
+- **Ardo#506 residual risks**, as listed in the pull request:
+  - Post pages with a site post module load the locale's post metadata so that `meta` receives the publication.
+  - `meta` and `tagLabel` also run during hydration. A `tagLabel` that throws without a client locale breaks it.
+  - `llms.txt` and search result URLs do not follow `trailingSlash` yet.
 
 ## Open points
 
