@@ -11,7 +11,11 @@ import { seoMeta } from "~/lib/seo"
 
 // eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
 export function meta(): ArdoMetaDescriptor[] {
-  return [...seoMeta("/privacy"), { title: t`Privacy Policy – Sebastian Software` }]
+  return seoMeta({
+    description: t`How Sebastian Software GmbH processes personal data on this website, and the rights you have.`,
+    path: "/privacy",
+    title: t`Privacy Policy – Sebastian Software`,
+  })
 }
 
 export default function Privacy(): ReactElement {

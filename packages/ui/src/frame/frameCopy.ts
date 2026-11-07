@@ -29,6 +29,7 @@ export function createFrameCopy(year: number): FrameCopy {
       trademarkOwner: t`a registered trademark of`,
     },
     header: {
+      blogFallback: { de: t`German blog`, en: t`English blog` },
       language: t`Language`,
       menu: t`Menu`,
       navigation: t`Main navigation`,

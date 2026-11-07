@@ -15,14 +15,11 @@ import * as styles from "./home.css.ts"
 
 // eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
 export function meta(): ArdoMetaDescriptor[] {
-  return [
-    ...seoMeta("/"),
-    { title: t`Sebastian Software – Independent software, built for everyday work` },
-    {
-      content: t`Sebastian Software is a product company from Mainz. We build what we use ourselves: Terminaro for appointment booking, Palamedes+ for managed translations, and VorOrt for local websites.`,
-      name: "description",
-    },
-  ]
+  return seoMeta({
+    description: t`Sebastian Software is a product company from Mainz. We build what we use ourselves: Terminaro for appointment booking, Palamedes+ for managed translations, and VorOrt for local websites.`,
+    path: "/",
+    title: t`Sebastian Software – Independent software, built for everyday work`,
+  })
 }
 
 /** The founders' photograph spans the page: 1040 CSS pixels on desktop. */

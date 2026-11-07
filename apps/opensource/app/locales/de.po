@@ -447,6 +447,10 @@ msgstr "E-Mail:"
 #~ msgid "Engineering"
 #~ msgstr "Engineering"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "English blog"
+msgstr "Englischer Blog"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Entry in the Commercial Register"
 msgstr "Eintragung im Handelsregister"
@@ -540,6 +544,10 @@ msgid ""
 msgstr ""
 "Weitere Informationen finden Sie in der <0>Datenschutzerklärung von "
 "Bunny.net</0> sowie auf der <1>DSGVO-Seite von Bunny.net</1>."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "German blog"
+msgstr "Deutscher Blog"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
