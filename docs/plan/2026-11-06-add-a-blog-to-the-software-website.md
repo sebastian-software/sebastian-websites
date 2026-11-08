@@ -28,7 +28,7 @@ Planning baseline: repository HEAD `6542970` on November 6, 2026. The working tr
   - It emits no hreflang and renders a fixed `ArdoPostList`.
   - It injects its own canonical and social meta on every post.
 
-  The site cannot override any of this, and the hosting gate rejects it. The launch therefore waits for an Ardo release with the reusable extensions listed below. The gate gets no exception for `/blog`.
+  The site cannot override any of this, and the hosting gate rejects it. The launch therefore waits for an Ardo release with the reusable extensions listed below. The gate gets no exception for `/blog`. Ardo 6.4.0, released on November 8, 2026, contains them.
 
 - **Feed IDs become unique per publication.** The Ardo release changes feed entry IDs so that a translated pair keeps one shared post `id` without colliding across the two feeds.
 
@@ -104,11 +104,11 @@ Owner decision, November 8, 2026: counterparts are computed at build time, so th
 
 - **Non-blog pages** have the same path in both languages (ADR-0010) and need no lookup. `/blog` exists in both languages, with the empty state if needed.
 - **Posts.** `build.ts` writes `counterpart: "/blog/<slug>"` or `counterpart: null` into each staged copy. The post module reads `post.data.counterpart` for hreflang, and the root reads `useArdoPage().frontmatter.counterpart` for the language switch. The value stays in that post's own route chunk.
-- **Tag archives.** `build.ts` writes the tag keys that have an archive in the other language to a small build-data module, `virtual:software-blog-tags`. Only the tag module imports it, for hreflang.
-- **Language switch on tag archives.** Ardo's generated tag routes give the root no per-route data (ardo gap G6). Until that is fixed, the switch on every tag archive goes to the other blog's overview, while hreflang is still exact.
+- **Tag archives.** `build.ts` writes the tag keys that have an archive in the other language to a small build-data module, `virtual:software-blog-tags`. Only the tag module imports it. It uses the module for hreflang. Its `frontmatter({ tag, posts })` export returns `counterpart`: the other language's archive path, or `null`.
+- **Language switch on tag archives.** The root reads that `counterpart` with `useArdoPage().frontmatter`, as on posts. A tag archive without a counterpart falls back to the other blog's overview. The value and the tag list stay in the tag module's chunk. This was ardo gap G6, closed in ardo 6.4.0.
 - **`nextStep`** comes from `post.data.nextStep` (ardo#506 implements #503).
 
-The spike measured the effect: with 50 posts per language, non-blog pages grow by about 0.26 KB per post, which is Ardo's route table alone. Before, they grew by about 0.45 KB per post. Ardo already rejects unknown authors, timestamps without a time zone, and an `updatedAt` earlier than `publishedAt`. The module does not repeat those checks.
+The spike measured the effect: with 50 posts per language, non-blog pages grew by about 0.26 KB per post, which was Ardo's route table alone. Before, they grew by about 0.45 KB per post. Since ardo#508, which is in ardo 6.4.0, the client entry keeps only each route's logical path, about 4 bytes gzip per page in Ardo's docs. The launch build measures the Software value again. Ardo already rejects unknown authors, timestamps without a time zone, and an `updatedAt` earlier than `publishedAt`. The module does not repeat those checks.
 
 ### Translation pairs and tags
 
@@ -118,7 +118,7 @@ The spike measured the effect: with 50 posts per language, non-blog pages grow b
 
 ### Ardo epic
 
-The epic is filed after owner confirmation in the implementation run. Each issue carries a reduced reproduction against Ardo's default behaviour. Items 1–3 gate the launch, and items 4–6 do not.
+The epic is filed after owner confirmation in the implementation run. Each issue carries a reduced reproduction against Ardo's default behaviour. Items 1–3 gate the launch, and items 4–6 do not. Items 1–5 have shipped in ardo 6.4.0. Item 6 remains open for the image plan.
 
 1. **Custom publication presentation and metadata.**
    - A site can supply its own overview, post-frame, and tag-archive components and route `meta`.
@@ -224,8 +224,8 @@ Only the launch pull request carries:
 | File                                                                                                                            | Description                                                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Ardo repository (separate epic, issues, PRs)                                                                                    | Extensions 1–3 before launch. Extensions 4–6 are filed and do not gate the launch.                                                                                                                                                                                                                             |
-| `apps/software/package.json`                                                                                                    | Pin the Ardo release with extensions 1–3. Add the `check:fixtures` script.                                                                                                                                                                                                                                     |
-| `apps/software/vite.config.ts`                                                                                                  | Per-variant `publication` (`from`, `to: "blog"`, `name`, `description`, `authors`, `components`, `tagLabel`, `tags`, `feeds.entryIds`), top-level `trailingSlash: false` and `buildTime`, the Palamedes `exclude` for generated blog routes, and the `virtual:software-blog-tags` build data.                  |
+| `apps/software/package.json`                                                                                                    | Pin `ardo` 6.4.0, the release with extensions 1–5. Add the `check:fixtures` script.                                                                                                                                                                                                                            |
+| `apps/software/vite.config.ts`                                                                                                  | Per-variant `publication` (`from`, `to: "blog"`, `name`, `description`, `authors`, `components`, `tagLabel`, `tags`, `feeds.entryIds`), top-level `trailingSlash: false`, `buildTime` and `sourceRoot`, the Palamedes `exclude` for generated blog routes, and the `virtual:software-blog-tags` build data.    |
 | `apps/software/scripts/build.ts`                                                                                                | Shared build time passed to Ardo as `buildTime`; staging with the `counterpart` field and the tag build data; the build-time file next to `client/`; `__BUILD_YEAR__` derived from the build time; `--content`, `--build-time`, and `--out` options for fixtures; the existing `404/index.html` normalization. |
 | `apps/software/scripts/development.ts`                                                                                          | Mirror and watch `content/`.                                                                                                                                                                                                                                                                                   |
 | `apps/software/scripts/check-fixtures.ts` (new) and `apps/software/test/fixtures/blog/` (new)                                   | Fixture builds into scratch output. They cover draft and future-date exclusion at two build times, strict feed parsing, the empty state, the language-switch fallback, and the raster-image checks.                                                                                                            |
@@ -467,13 +467,17 @@ The deep review supersedes two of those choices: `publication.now` and the `id` 
 
 ## Build progress
 
-**Date:** 2026-11-07
-**State:** The parts before the release are done. Launch is still open, so the plan stays open.
+**Date:** 2026-11-08
+**State:** The parts before the release are done, and ardo 6.4.0 is released. The launch is still open, so the plan stays open.
 
 ### Done
 
 - **Step 1, integration spike.** It confirmed the Ardo 6.3.0 gaps: 12 of 13 new Ardo unit tests failed before the change, and so did the new integration test.
-- **Step 2, Ardo epic.** [ardo#505](https://github.com/sebastian-software/ardo/issues/505) has sub-issues [#499](https://github.com/sebastian-software/ardo/issues/499)–[#504](https://github.com/sebastian-software/ardo/issues/504). Extensions 1–3 are implemented in [ardo#506](https://github.com/sebastian-software/ardo/pull/506). Item 4 (`buildTime`) was merged separately on `main`. The release is pending. After a strategic review on November 7, the API of #506 changed; see [Ardo API for the launch](#ardo-api-for-the-launch).
+- **Step 2, Ardo epic.** [ardo#505](https://github.com/sebastian-software/ardo/issues/505) has sub-issues [#499](https://github.com/sebastian-software/ardo/issues/499)–[#504](https://github.com/sebastian-software/ardo/issues/504). Extensions 1–3 are implemented in [ardo#506](https://github.com/sebastian-software/ardo/pull/506). After a strategic review on November 7, the API of #506 changed; see [Ardo API for the launch](#ardo-api-for-the-launch). Item 4 (`buildTime`) was merged separately on `main`. Ardo 6.4.0 was released on November 8, 2026, from [ardo#481](https://github.com/sebastian-software/ardo/pull/481). It contains:
+  - #502 and #507;
+  - #506, with G6 and G5a fixed;
+  - [ardo#508](https://github.com/sebastian-software/ardo/pull/508), which takes the route table out of the client entry;
+  - [ardo#509](https://github.com/sebastian-software/ardo/pull/509), which spells the `llms.txt` page links with `trailingSlash`.
 - **Step 3, web-core blog module.**
   - Module files: `blog.ts`, `blogPaths.ts`, `blogTags.ts`, `blogNextSteps.ts`, `blogImages.ts`, and `timestamps.ts`.
   - Pairing goes both ways, IDs are unique (drafts included), `nextStep` is required, tag keys are registered, and raster images are not allowed.
@@ -503,6 +507,9 @@ The strategic review of ardo#506 replaced the first API. The launch uses this sh
 - **Post `meta` exports.** An MDX post that exports `meta` fails the build, because the post module owns every post's metadata.
 - **Feeds** keep the tag key as the category. Translated feed categories are not part of #506.
 - **Build time and hash.** Set `buildTime` in each variant's Ardo config to the shared build time. Ardo filters drafts and posts that are not yet due by it, and dates feeds and sitemap `lastmod` from the visible posts. `buildHash` can be set the same way (ardo#507); otherwise Ardo detects it from Git.
+- **Page data from index and tag modules.** The index and tag modules may export `frontmatter(args)`, called with the same arguments as `meta`. The root reads the result with `useArdoPage().frontmatter`, so tag archives get an exact language switch. Without the export, nothing changes.
+- **Staged builds.** The top-level `sourceRoot` names the directory a staged copy mirrors. For Software that is `apps/software`, passed by `build.ts` to each variant build. Route `lastUpdated`, sitemap `lastmod` and the detected `buildHash` then come from the original files' Git history. Both languages get the same dates, and two builds of one commit are byte-identical. Files the source lacks or Git does not track fall back to their file time.
+- **Client entry.** Since ardo#508, the client entry no longer carries the route table. A page loads its own chunk from the URL in its page data. Non-blog pages therefore carry only the logical path of each blog route.
 
 ### Integration spike against ardo#506
 
@@ -519,9 +526,9 @@ The strategic review of ardo#506 replaced the first API. The launch uses this sh
   - `hosting:plan`, `hosting:test` (45 of 45), `pnpm test`, `pnpm agent:check`, and `check:browser` for both languages;
   - no blog chunk, counterpart map or tag list on non-blog pages.
 - **Gaps found and fixed in ardo#506** (G1–G5): Markdown in a custom shell, feed links in post defaults, frozen publication data, a build error for post `meta` exports, sitemap `lastmod` from Git, smaller client post data, and `post.data`.
-- **Still open in Ardo:**
-  - **G6.** Generated tag and index routes give the root no per-route data, so the language switch on tag archives goes to the other blog's overview. Suggested fix: let these routes export the site module's `handle` or `frontmatter`.
-  - **G5a for staged builds.** Software builds from staged copies outside Git, so Ardo finds no commit for its pages. Non-blog `lastmod` then equals `buildTime`, or the file time when `buildTime` is in the future. It changes on every run, so the output is not reproducible. Suggested fix: let a site map staged files to their source paths for the Git lookup, or set `lastmod` explicitly.
+- **Found by the spike and fixed in ardo#506 before the release** (owner decision, November 8):
+  - **G6.** Generated tag and index routes gave the root no per-route data, so the language switch on tag archives went to the other blog's overview. Fixed with the `frontmatter` export of the index and tag modules.
+  - **G5a for staged builds.** Software builds from staged copies outside Git, so Ardo found no commit for its pages. Non-blog `lastmod` and the route table's `lastUpdated` changed on every run, and the output was not reproducible. Fixed with `sourceRoot`.
 
 ### Owner input needed
 
@@ -532,11 +539,12 @@ The strategic review of ardo#506 replaced the first API. The launch uses this sh
   - `consulting-architecture`, `consulting-internationalization`, `consulting-enablement`
   - `palamedes-docs`, `ferramenta-docs`
   - `none`
-- Decide G6 and G5a: fix them in ardo#506 before the release, or launch with the overview fallback on tag archives and a non-reproducible `lastmod`.
 
 ### Remaining for the launch pull request
 
-- Merge and release ardo#506, then pin that release. Use the API in [Ardo API for the launch](#ardo-api-for-the-launch).
+- Pin `ardo` 6.4.0. Use the API in [Ardo API for the launch](#ardo-api-for-the-launch), including:
+  - the tag module's `frontmatter` export for the language switch;
+  - `sourceRoot` for each variant build.
 - Step 4: build plumbing.
   - The shared `buildTime` for both Ardo builds, and `build-time.txt`, which then becomes required for Software. No due-post filtering in `build.ts`: Ardo does it.
   - Fixture options and `check:fixtures`.
@@ -564,7 +572,13 @@ These are the final independent validation results on the branch, run with the c
 | `pnpm hosting:plan`                           | Passed: 10 builds checked       |
 | `check:browser` for Software and app-tracking | Passed                          |
 
-ardo#506 at `16406e7` (after the API rework, the rebase onto ardo#502 and #507, and the spike fixes G1–G5) passed format, build, typecheck, lint, 1,122 unit tests, 76 integration tests, the i18n check, and the docs budgets locally on Node 26. CI is green on Node 22, 24 and 26.
+Ardo 6.4.0 contains ardo#506, #508 and #509.
+
+- **ardo#506.** It was rebased onto #508 and merged at `f4fa2a8`. It includes the spike fixes G1–G6 and G5a.
+  - Locally on Node 26 it passed format, build, typecheck, lint, 1,173 unit tests, 85 integration tests, the i18n check, the docs budgets, and the Chromium e2e suites.
+  - CI was green on Node 22, 24 and 26.
+  - The entry budget raise of #506 was dropped, because #508 made it unnecessary. The total client JS budget rose from 2.7 MB to 2.85 MB for the 80 new API reference pages.
+- **ardo#508 and #509** were each merged with green CI on Node 22, 24 and 26.
 
 ## Review findings
 
@@ -585,7 +599,7 @@ The open finding is a Note and does not block the launch.
 - **Ardo#506 residual risks**, as listed in the pull request:
   - Post pages with a site post module load the locale's post metadata so that `meta` receives the publication.
   - `meta` and `tagLabel` also run during hydration. A `tagLabel` that throws without a client locale breaks it.
-  - `llms.txt` and search result URLs do not follow `trailingSlash` yet.
+  - `llms.txt` page links did not follow `trailingSlash`. Fixed in ardo#509, which is in 6.4.0. Search result URLs were never affected.
 
 ## Open points
 
