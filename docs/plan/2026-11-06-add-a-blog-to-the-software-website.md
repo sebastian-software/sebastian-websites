@@ -530,15 +530,20 @@ The strategic review of ardo#506 replaced the first API. The launch uses this sh
   - **G6.** Generated tag and index routes gave the root no per-route data, so the language switch on tag archives went to the other blog's overview. Fixed with the `frontmatter` export of the index and tag modules.
   - **G5a for staged builds.** Software builds from staged copies outside Git, so Ardo found no commit for its pages. Non-blog `lastmod` and the route table's `lastUpdated` changed on every run, and the output was not reproducible. Fixed with `sourceRoot`.
 
-### Owner input needed
+### Owner decisions on November 8, 2026
 
-- Confirm the Open Graph image: the shared team photo `shooting-2024/color_09092024-14-retouched.png`, cropped to 1200×630.
-- Confirm the tag registry: `architecture`, `internationalization`, `open-source`, `product-development`, `rust`, `typescript`.
-- Confirm the `nextStep` targets:
+- **Open Graph image.** The shared team photo `shooting-2024/color_09092024-14-retouched.png`, cropped to 1200×630, stays the `og:image` for blog pages until the image plan.
+- **Tag registry at launch:** `internationalization` only.
+  - The registry in `packages/web-core/src/blogTags.ts` lists six keys today. The launch pull request reduces it to that one key, with its label in both catalogs.
+  - More keys are added later, each with its label in both catalogs.
+- **`nextStep` targets, confirmed as proposed:**
   - `products`, `open-source`, `contact`
   - `consulting-architecture`, `consulting-internationalization`, `consulting-enablement`
   - `palamedes-docs`, `ferramenta-docs`
   - `none`
+- **First post.** The owners write and deliver it in German and English.
+  - Until it arrives, the launch pull request stays a draft with test posts.
+  - The test posts live only in the fixtures.
 
 ### Remaining for the launch pull request
 
@@ -557,7 +562,7 @@ The strategic review of ardo#506 replaced the first API. The launch uses this sh
   - The navigation item and the blog presentation.
   - ADR-0021, plus updates to ADR-0006 and ADR-0009.
   - The operations guide for publishing.
-  - The first approved post in both languages.
+  - The first approved post in both languages, delivered by the owners.
 
 ### Test results
 
