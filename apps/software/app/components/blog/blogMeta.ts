@@ -44,6 +44,17 @@ export function feedLinks(defaults: readonly ArdoMetaDescriptor[]): ArdoMetaDesc
 }
 
 /**
+ * The robots directive of a blog page: none while the blog is indexed, and
+ * `noindex` while its navigation item is off, so search engines skip the
+ * unlinked pages until the launch.
+ * @param indexed - Whether the build indexes the blog (`__BLOG_INDEXED__`).
+ * @returns The robots descriptors.
+ */
+export function blogRobots(indexed: boolean): ArdoMetaDescriptor[] {
+  return indexed ? [] : [{ content: "noindex", name: "robots" }]
+}
+
+/**
  * Reads the counterpart `build.ts` writes into a staged post, or the tag
  * module's `frontmatter` returns: the other language's path, or null.
  * @param value - The `counterpart` field as Ardo passes it on.

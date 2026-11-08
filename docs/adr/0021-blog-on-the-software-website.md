@@ -92,7 +92,10 @@ The navigation item is part of the Software brand navigation, so it also appears
 app-tracking, and Skills; Consulting is unchanged. `BLOG_NAVIGATION` in
 `packages/web-core/src/blogLaunch.ts` sets the launch phase (owner decision of 2026-11-08):
 
-- `off` (current): the navigation does not link the blog.
+- `off` (current): the navigation does not link the blog, and the blog pages carry `noindex`
+  and stay out of the sitemap, so the unlinked empty blog can ship without being indexed
+  (owner decision of 2026-11-08). The hosting gate accepts such dark blog pages only in this
+  phase.
 - `launching`: the item is shown, and the Software build fails when either language has no
   published post at the build time, so the item cannot go live on one domain only. The phase is
   set in the pull request that carries the first post in both languages.

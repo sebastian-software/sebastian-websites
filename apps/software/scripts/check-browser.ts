@@ -2,7 +2,7 @@
 /* eslint-disable no-await-in-loop -- Route assertions and fixture cleanup are ordered. */
 /* eslint-disable max-statements -- Each browser scenario keeps its related assertions together. */
 /* eslint-disable unicorn/prefer-global-this -- Evaluated callbacks run in the browser. */
-import { BLOG_PATH, singleLanguageClass } from "@sebastian-websites/web-core"
+import { BLOG_NAVIGATION, BLOG_PATH, singleLanguageClass } from "@sebastian-websites/web-core"
 import assert from "node:assert/strict"
 import { mkdir, readFile, writeFile } from "node:fs/promises"
 import { createServer } from "node:http"
@@ -484,6 +484,24 @@ async function checkNotFound(
     })
   }
 }
+/**
+ * While the blog navigation is off, the overview is built but dark: outside
+ * the sitemap and marked `noindex`. `frame.test.ts` covers the missing
+ * navigation item.
+ * @param page - The browser page.
+ * @param current - The build under test.
+ * @param variant - The variant name, for messages.
+ */
+async function checkDarkBlog(page: Page, current: Fixture, variant: string): Promise<void> {
+  const sitemap = await page.context().request.get(`${current.origin}/sitemap.xml`)
+  assert.ok(
+    sitemapPaths(await sitemap.text()).every((pathname) => !isBlogPath(pathname)),
+    `${variant}: the sitemap lists blog pages while the blog navigation is off`
+  )
+  const response = await page.goto(`${current.origin}${BLOG_PATH}`)
+  assert.equal(response?.status(), OK)
+  assert.equal(await page.locator('meta[name="robots"]').getAttribute("content"), "noindex")
+}
 async function checkResources(context: BrowserContext, current: Fixture): Promise<void> {
   for (const resource of ["/sitemap.xml", "/robots.txt", "/manifest.webmanifest"]) {
     const response = await context.request.get(`${current.origin}${resource}`)
@@ -627,7 +645,8 @@ async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
       console.log(`${variant}: blog overview, posts, next steps, tag archives, and feeds passed`)
       return
     }
-    assert.ok(coverage.has("overview"), `${variant}: the sitemap lists no ${BLOG_PATH}`)
+    if (BLOG_NAVIGATION === "off") await checkDarkBlog(page, current, variant)
+    else assert.ok(coverage.has("overview"), `${variant}: the sitemap lists no ${BLOG_PATH}`)
     if (old && locale === "de") await checkPerformance(context, current, old)
     await checkNavigation(page, current, locale)
     await checkNotFound(context, page, { current, old, variant })

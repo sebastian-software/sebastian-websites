@@ -460,6 +460,14 @@ process.env.BUILD_YEAR = buildYear(sharedBuildTime)
 const blogOptions: ReadBlogOptions = {
   requireBothLanguages: BLOG_NAVIGATION === "launching" && cli.values.content === undefined,
 }
+/**
+ * While the navigation item is off, the site's blog pages are built but kept
+ * out of search: no sitemap entry, and `noindex`. Fixture builds with
+ * `--content` stay indexable, so their checks see the launched blog.
+ */
+process.env.SOFTWARE_BLOG_INDEXED = String(
+  BLOG_NAVIGATION !== "off" || cli.values.content !== undefined
+)
 // Validates every post of both languages before anything is built.
 const blogBuild = await readBlog(blogContent, sharedBuildTime, blogOptions)
 console.log(

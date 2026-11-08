@@ -32,7 +32,9 @@ export type SeoPlan = {
   readonly absent: readonly string[]
   /** The alternates each indexable path must link; empty for a single-language page. */
   readonly alternates: ReadonlyMap<string, readonly Alternate[]>
-  /** The indexable paths: every document and the exact sitemap list. */
+  /** Dark Software blog paths: built and marked `noindex` while the blog navigation is off. */
+  readonly dark: readonly string[]
+  /** The indexable paths: every other document and the exact sitemap list. */
   readonly paths: readonly string[]
   readonly variant: VariantDefinition
 }

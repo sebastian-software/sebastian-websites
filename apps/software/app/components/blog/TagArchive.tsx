@@ -13,7 +13,7 @@ import blogTags from "virtual:software-blog-tags"
 
 import { seoMeta } from "~/lib/seo"
 
-import { feedLinks } from "./blogMeta"
+import { blogRobots, feedLinks } from "./blogMeta"
 import { FeedLinks } from "./FeedLinks"
 import * as styles from "./listing.css.ts"
 import { PostList } from "./PostList"
@@ -67,6 +67,7 @@ export function meta({
       title: `${label} – ${publication.name} – Sebastian Software`,
     }),
     ...feedLinks(defaults),
+    ...blogRobots(__BLOG_INDEXED__),
   ]
 }
 

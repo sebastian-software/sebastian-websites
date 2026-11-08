@@ -465,6 +465,71 @@ test("a paired page without alternates and a single-language page with alternate
   )
 })
 
+/**
+ * A Software build whose blog overview is dark: marked `noindex` and, unless
+ * the test keeps it, left out of the sitemap.
+ *
+ * @param locale - The language of the build.
+ * @param listed - Whether the sitemap still lists the overview.
+ * @returns A Software build with the dark overview.
+ */
+function darkSoftwareBuild(locale: Locale, listed = false): SiteBuild {
+  const base = softwareBuild(locale, [])
+  const dark = replaceAsset(base.assets, "blog/index.html", (text) =>
+    text.replace("</head>", '<meta name="robots" content="noindex"></head>')
+  )
+  return {
+    ...base,
+    assets: listed
+      ? dark
+      : replaceAsset(dark, "sitemap.xml", () => createSitemap("software", locale, ["/"])),
+  }
+}
+
+test("a dark Software blog passes while the blog navigation is off", () => {
+  const plans = seoPlans([darkSoftwareBuild("de"), darkSoftwareBuild("en")], "off")
+  const de = plans.get(softwareDe.deploymentTarget)
+  assert.ok(de)
+  assert.deepEqual(de.paths, ["/"])
+  assert.deepEqual(de.dark, ["/blog"])
+  assert.deepEqual(de.absent, [])
+})
+
+test("a dark Software blog fails once the navigation launches, or in the sitemap", () => {
+  for (const phase of ["launching", "live"] as const) {
+    assert.throws(
+      () => seoPlans([darkSoftwareBuild("de"), darkSoftwareBuild("en")], phase),
+      /the blog navigation is (?:launching|live), so blog pages must not block indexing/v
+    )
+  }
+  assert.throws(
+    () => seoPlans([darkSoftwareBuild("de", true), darkSoftwareBuild("en", true)], "off"),
+    /sitemap.xml must contain exactly the canonical build pages/v
+  )
+  // One dark language leaves the other language's overview without a counterpart.
+  assert.throws(
+    () => seoPlans([darkSoftwareBuild("de"), softwareBuild("en", [])], "off"),
+    /no counterpart/v
+  )
+})
+
+test("noindex outside the Software blog still fails while the navigation is off", () => {
+  const blocked = replaceAsset(build("de"), "team/index.html", (text) =>
+    text.replace("</head>", '<meta name="robots" content="noindex"></head>')
+  )
+  assert.throws(
+    () =>
+      seoPlans(
+        [
+          { assets: blocked, target },
+          { assets: build("en"), target: englishTarget },
+        ],
+        "off"
+      ),
+    /blocks indexing/v
+  )
+})
+
 test("a site with a build in one language only fails", () => {
   assert.throws(() => seoPlans([softwareBuild("en", [])]), /software has a build for en only/v)
   assert.throws(

@@ -1,5 +1,10 @@
 import { palamedes } from "@palamedes/vite-plugin"
-import { authorAvatarIssues, getVariant, type Locale } from "@sebastian-websites/web-core"
+import {
+  authorAvatarIssues,
+  BLOG_PATH,
+  getVariant,
+  type Locale,
+} from "@sebastian-websites/web-core"
 import { bunnyImages } from "@sebastian-websites/web-core/vite"
 import { ardo, defineConfig, type Plugin } from "ardo/vite"
 import { readFile } from "node:fs/promises"
@@ -17,6 +22,8 @@ const variant = getVariant(variantId)
  */
 const buildTime = process.env.SOFTWARE_BUILD_TIME
 const sourceRoot = process.env.SOFTWARE_SOURCE_ROOT
+// build.ts sets false while the blog navigation is off; development builds index the blog.
+const blogIndexed = process.env.SOFTWARE_BLOG_INDEXED !== "false"
 /** Literal per language: the feed titles come from them, so they cannot use Palamedes macros. */
 const PUBLICATION_COPY: Readonly<Record<Locale, { description: string; name: string }>> = {
   de: { description: "Beiträge von Sebastian Software.", name: "Blog" },
@@ -84,6 +91,7 @@ function buildData(): Plugin {
 export default defineConfig({
   define: {
     __BUILD_YEAR__: JSON.stringify(Number(process.env.BUILD_YEAR ?? new Date().getFullYear())),
+    __BLOG_INDEXED__: JSON.stringify(blogIndexed),
     __SITE_VARIANT__: JSON.stringify(variantId),
   },
   plugins: [
@@ -97,8 +105,9 @@ export default defineConfig({
       title: "Sebastian Software",
       siteUrl: variant.canonicalOrigin,
       lang: variant.locale,
-      // The hosting contract keeps the not-found page out of every sitemap.
-      seo: { sitemap: { exclude: ["/404"] }, llms: false },
+      // The hosting contract keeps the not-found page out of every sitemap, and the
+      // blog out of it until its navigation item launches.
+      seo: { sitemap: { exclude: blogIndexed ? ["/404"] : ["/404", BLOG_PATH] }, llms: false },
       linkCheck: { enabled: true, level: "error" },
       // Canonicals, the sitemap, links, and publication URLs without a trailing slash (ADR-0010).
       trailingSlash: false,

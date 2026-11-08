@@ -3,7 +3,7 @@ import type { ArdoMetaDescriptor } from "ardo/runtime"
 import assert from "node:assert/strict"
 import { test } from "node:test"
 
-import { counterpartPath, feedLinks } from "./blogMeta.ts"
+import { blogRobots, counterpartPath, feedLinks } from "./blogMeta.ts"
 
 const RSS: ArdoMetaDescriptor = {
   href: "https://x.example/blog/rss.xml",
@@ -48,4 +48,9 @@ test("counterpartPath accepts a path and treats null or missing as none", () => 
   assert.equal(counterpartPath(null), undefined)
   assert.equal(counterpartPath(undefined), undefined)
   assert.equal(counterpartPath(42), undefined)
+})
+
+test("blogRobots marks blog pages noindex only while the blog is not indexed", () => {
+  assert.deepEqual(blogRobots(true), [])
+  assert.deepEqual(blogRobots(false), [{ content: "noindex", name: "robots" }])
 })

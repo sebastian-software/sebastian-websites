@@ -7,7 +7,7 @@ import { BLOG_PATH } from "@sebastian-websites/web-core"
 
 import { seoMeta } from "~/lib/seo"
 
-import { counterpartPath, feedLinks } from "./blogMeta"
+import { blogRobots, counterpartPath, feedLinks } from "./blogMeta"
 import { main } from "./listing.css.ts"
 import { NextStep } from "./NextStep"
 import * as styles from "./post.css.ts"
@@ -39,6 +39,7 @@ export function meta({ defaults, post }: PublicationPostMetaArgs): ArdoMetaDescr
       title: `${post.title} – Sebastian Software`,
     }),
     ...feedLinks(defaults),
+    ...blogRobots(__BLOG_INDEXED__),
   ]
 }
 

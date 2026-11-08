@@ -2,12 +2,14 @@
  * Validates the SEO contract of built and published site variants (ADR-0010).
  * The plan compares both language builds of a site: a path present in both
  * needs reciprocal alternates, and only the Software blog may have pages in
- * one language.
+ * one language. While the blog navigation is off, the Software blog may be
+ * dark: built, but marked `noindex` and kept out of the sitemap.
  */
 import type { Fetch } from "./bunny.ts"
 import type { Asset } from "./publish.ts"
 
-import { BLOG_SITE, singleLanguageClass } from "../packages/web-core/src/blogPaths.ts"
+import { BLOG_NAVIGATION, type BlogNavigationPhase } from "../packages/web-core/src/blogLaunch.ts"
+import { BLOG_PATH, BLOG_SITE, singleLanguageClass } from "../packages/web-core/src/blogPaths.ts"
 import {
   getSiteVariant,
   type Locale,
@@ -65,7 +67,7 @@ function variantOf(target: Target): undefined | VariantDefinition {
   return Object.values(VARIANTS).find((entry) => entry.deploymentTarget === target.name)
 }
 
-function indexablePaths(build: SiteBuild): readonly string[] {
+function documentPaths(build: SiteBuild): readonly string[] {
   const notFound = (build.target.notFoundPage ?? NOT_FOUND_PAGE).slice(1)
   const paths = build.assets
     .filter(
@@ -82,6 +84,53 @@ function indexablePaths(build: SiteBuild): readonly string[] {
     throw new Error(`SEO: ${build.target.name} lacks its home page`)
   }
   return paths
+}
+
+function isBlogPage(path: string): boolean {
+  return path === BLOG_PATH || path.startsWith(`${BLOG_PATH}/`)
+}
+
+/**
+ * The dark pages of a build: Software blog pages whose robots meta blocks
+ * indexing. They need no canonical contract and stay out of the sitemap.
+ *
+ * @param build - The build whose documents are read.
+ * @param site - Only the Software site can have dark pages.
+ * @param paths - Every document path of the build.
+ * @returns The Software blog paths marked `noindex`.
+ */
+function darkPaths(build: SiteBuild, site: string, paths: readonly string[]): readonly string[] {
+  if (site !== BLOG_SITE) return []
+  const isDark = (path: string): boolean =>
+    [...parseHtml(buildText(build.assets, documentPath(path))).head.querySelectorAll("meta")].some(
+      (meta) =>
+        ["googlebot", "robots"].includes(meta.name.toLowerCase()) && blocksIndexing(meta.content)
+    )
+  return paths.filter((path) => isBlogPage(path) && isDark(path))
+}
+
+/**
+ * The indexable paths of a build: its documents without the dark blog pages,
+ * which only a build of the `off` phase may have.
+ *
+ * @param build - The build whose documents are split.
+ * @param site - The site of that build; only Software can have dark pages.
+ * @param phase - The launch phase of the blog navigation; only `off` allows dark pages.
+ * @returns The indexable and the dark paths.
+ */
+function indexablePaths(
+  build: SiteBuild,
+  site: string,
+  phase: BlogNavigationPhase
+): { readonly dark: readonly string[]; readonly paths: readonly string[] } {
+  const all = documentPaths(build)
+  const dark = darkPaths(build, site, all)
+  if (dark.length > 0 && phase !== "off") {
+    throw new Error(
+      `SEO ${dark[0]}: the blog navigation is ${phase}, so blog pages must not block indexing`
+    )
+  }
+  return { dark, paths: all.filter((path) => !dark.includes(path)) }
 }
 
 /**
@@ -176,11 +225,11 @@ function alternatesFor(variant: VariantDefinition, path: string): readonly Alter
   ]
 }
 
-function planFor(pair: Pair, locale: Locale): SeoPlan {
+function planFor(pair: Pair, locale: Locale, phase: BlogNavigationPhase): SeoPlan {
   const { build, variant } = pair[locale]
   const other = pair[locale === "de" ? "en" : "de"]
-  const paths = indexablePaths(build)
-  const otherPaths = indexablePaths(other.build)
+  const { dark, paths } = indexablePaths(build, variant.site, phase)
+  const otherPaths = indexablePaths(other.build, other.variant.site, phase).paths
   const alternates = new Map<string, readonly Alternate[]>()
   for (const path of paths) {
     if (otherPaths.includes(path)) {
@@ -193,7 +242,13 @@ function planFor(pair: Pair, locale: Locale): SeoPlan {
       )
     }
   }
-  return { absent: otherPaths.filter((path) => !paths.includes(path)), alternates, paths, variant }
+  return {
+    absent: otherPaths.filter((path) => !paths.includes(path)),
+    alternates,
+    dark,
+    paths,
+    variant,
+  }
 }
 
 function assertBuild(build: SiteBuild, plan: SeoPlan): void {
@@ -209,17 +264,23 @@ function assertBuild(build: SiteBuild, plan: SeoPlan): void {
  * document and its crawl files before upload. A site needs both builds with
  * the same recorded build time; a path present in both needs reciprocal
  * hreflang and `x-default`; only Software blog posts and tag archives may exist
- * in one language, and they link no alternates. The brand catalog and the
- * shared asset zone have no variant SEO contract.
+ * in one language, and they link no alternates. While the blog navigation is
+ * off, Software blog pages marked `noindex` are dark: outside the sitemap and
+ * the canonical contract. The brand catalog and the shared asset zone have no
+ * variant SEO contract.
  *
  * @param builds - The builds of every buildable target.
+ * @param phase - The launch phase of the blog navigation; the current one by default.
  * @returns One plan per variant target, keyed by target name.
  */
-export function seoPlans(builds: readonly SiteBuild[]): ReadonlyMap<string, SeoPlan> {
+export function seoPlans(
+  builds: readonly SiteBuild[],
+  phase: BlogNavigationPhase = BLOG_NAVIGATION
+): ReadonlyMap<string, SeoPlan> {
   const plans = new Map<string, SeoPlan>()
   for (const pair of pairs(builds)) {
     for (const locale of ["de", "en"] as const) {
-      const plan = planFor(pair, locale)
+      const plan = planFor(pair, locale, phase)
       assertBuild(pair[locale].build, plan)
       plans.set(pair[locale].build.target.name, plan)
     }

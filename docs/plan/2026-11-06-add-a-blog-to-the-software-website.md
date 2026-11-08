@@ -562,6 +562,7 @@ The strategic review of ardo#506 replaced the first API. The launch uses this sh
   - Overview with empty state, post frame, tag archive, the shared founder module and the next-step box. The UI copy is in both catalogs.
   - The tag registry holds `internationalization` only.
   - The `blog` navigation item is behind `BLOG_NAVIGATION` in `packages/web-core/src/blogLaunch.ts`, with the phases `off`, `launching` and `live`; it is currently `off`.
+  - Owner decision, November 8: #110 may merge before the first post. While the phase is `off`, the blog pages carry `noindex` and stay out of the sitemap; the hosting gate accepts these dark pages only in `off`. The first post and `launching` follow in their own pull request.
   - Owner decision, November 8: only `launching` fails the build when a language has no published post. `live` shows the empty state.
 - **Step 9, documentation.**
   - ADR-0021 is new. ADR-0006, ADR-0009 and ADR-0010 are amended.
@@ -578,7 +579,7 @@ The strategic review of ardo#506 replaced the first API. The launch uses this sh
   - the tag archive lead, which repeats its heading;
   - the labels "Thema im Blog" and "Themen".
 - **CI time.** Record the CI job time of the first run against the 20-minute limit.
-- **Finish.** Archive this plan and mark the pull request ready.
+- **Finish.** #110 merges with the blog dark (phase `off`). The first post, `launching`, and later `live` follow in their own pull requests; archive this plan with the `live` switch.
 
 ### Test results
 

@@ -8,7 +8,7 @@ import { canonicalPath } from "@sebastian-websites/web-core"
 import { seoMeta } from "~/lib/seo"
 
 import { BlogEmpty } from "./BlogEmpty"
-import { feedLinks } from "./blogMeta"
+import { blogRobots, feedLinks } from "./blogMeta"
 import { FeedLinks } from "./FeedLinks"
 import * as styles from "./listing.css.ts"
 import { PostList } from "./PostList"
@@ -38,6 +38,7 @@ export function meta({ defaults, publication }: PublicationIndexMetaArgs): ArdoM
       title: `${publication.name} – Sebastian Software`,
     }),
     ...feedLinks(defaults),
+    ...blogRobots(__BLOG_INDEXED__),
   ]
 }
 

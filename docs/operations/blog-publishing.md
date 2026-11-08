@@ -194,7 +194,9 @@ Run `pnpm hosting:test` after changing redirect rules.
 The Blog item stays out of the Software brand navigation (Software, Open Source, app-tracking,
 and Skills) until the first post is published in both languages. Its launch phase is
 `BLOG_NAVIGATION` in `packages/web-core/src/blogLaunch.ts`: `off`, `launching`, or `live`. The
-blog pages, feeds, and archives are built in every phase.
+blog pages, feeds, and archives are built in every phase. While the phase is `off`, the blog
+pages carry `noindex` and the sitemap leaves them out; from `launching` on they are indexed,
+and the hosting gate fails on a blog page that still blocks indexing.
 
 In the pull request that carries the first post:
 
