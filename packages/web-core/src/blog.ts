@@ -314,8 +314,46 @@ export function blogTagArchives(index: BlogIndex, locale: Locale): readonly Blog
   return [...new Set(index.posts[locale].flatMap((post) => post.tags))]
 }
 
-function otherLocale(locale: Locale): Locale {
+/**
+ * The launch guard: while the blog navigation item is launching, both
+ * languages must publish at least one post at the shared build time, so the
+ * item cannot go live on one domain only. The caller decides when it applies.
+ *
+ * @param index - The cross-language index of the build.
+ * @throws {BlogValidationError} Naming each language without a published post.
+ */
+export function assertBlogLaunch(index: BlogIndex): void {
+  const issues = LOCALES.filter((locale) => index.posts[locale].length === 0).map(
+    (locale) =>
+      `${locale}: the blog navigation item is launching, but no post is published at ${index.buildTime}`
+  )
+  if (issues.length > 0) {
+    throw new BlogValidationError(issues)
+  }
+}
+
+/**
+ * The other language of the two.
+ *
+ * @param locale - One language.
+ * @returns The other one.
+ */
+export function otherLocale(locale: Locale): Locale {
   return locale === "de" ? "en" : "de"
+}
+
+/**
+ * The counterpart a staged post of one language carries: its own path when
+ * the other language publishes a post there at the same build time, or null.
+ *
+ * @param index - The cross-language index.
+ * @param locale - The language of the staged post.
+ * @param path - The route of the staged post, with or without a trailing slash.
+ * @returns The counterpart path, or null when the post has none.
+ */
+export function blogPostCounterpart(index: BlogIndex, locale: Locale, path: string): null | string {
+  const own = canonicalPath(path)
+  return index.posts[otherLocale(locale)].some((post) => post.path === own) ? own : null
 }
 
 /**

@@ -1,7 +1,8 @@
 /**
  * Checks one live site variant over HTTPS during and after its cutover: the
  * home page answers 200, an unknown path 404, and every legacy rule of the
- * site answers as `redirects.ts` plans it. Run against the canonical origin
+ * site answers as `redirects.ts` plans it. Software also checks its resources,
+ * the blog overview, and both feeds with their media types. Run against the canonical origin
  * after the DNS switch, or against the origin host beforehand:
  *
  *   node hosting/smoke.ts software-de
@@ -11,6 +12,7 @@ import { pathToFileURL } from "node:url"
 
 import type { Fetch } from "./bunny.ts"
 
+import { BLOG_PATH, BLOG_SITE } from "../packages/web-core/src/blogPaths.ts"
 import { getVariant } from "../packages/web-core/src/sites.ts"
 import { PATH_RULES, type PathRule, planLegacyPath, type ServingVariant } from "./redirects.ts"
 
@@ -19,6 +21,9 @@ const MOVED_PERMANENTLY = 301
 const NOT_FOUND = 404
 const GONE = 410
 const REQUEST_TIMEOUT_MS = 15_000
+
+/** Generic XML types a host may serve for `.xml` files, besides the feed-specific one. */
+const XML_TYPES = ["application/xml", "text/xml"] as const
 
 export type SmokeCheck = {
   readonly contentTypes?: readonly string[]
@@ -50,11 +55,27 @@ export function smokeChecks(
   ]
   if (serving.site === "software") {
     checks.push(
-      { contentTypes: ["application/xml", "text/xml"], path: "/sitemap.xml", status: OK },
+      { contentTypes: [...XML_TYPES], path: "/sitemap.xml", status: OK },
       { contentTypes: ["text/plain"], path: "/robots.txt", status: OK },
       {
         contentTypes: ["application/manifest+json", "application/json"],
         path: "/manifest.webmanifest",
+        status: OK,
+      }
+    )
+  }
+  if (serving.site === BLOG_SITE) {
+    // Feed discovery: the overview and both feeds exist on each domain, even without posts.
+    checks.push(
+      { contentTypes: ["text/html"], path: BLOG_PATH, status: OK },
+      {
+        contentTypes: ["application/rss+xml", ...XML_TYPES],
+        path: `${BLOG_PATH}/rss.xml`,
+        status: OK,
+      },
+      {
+        contentTypes: ["application/atom+xml", ...XML_TYPES],
+        path: `${BLOG_PATH}/atom.xml`,
         status: OK,
       }
     )

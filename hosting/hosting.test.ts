@@ -963,9 +963,19 @@ test("Software resource smoke checks validate actual MIME headers, including cha
   )
   assert.deepEqual(
     checks.map((check) => check.path),
-    ["/sitemap.xml", "/robots.txt", "/manifest.webmanifest"]
+    [
+      "/sitemap.xml",
+      "/robots.txt",
+      "/manifest.webmanifest",
+      "/blog",
+      "/blog/rss.xml",
+      "/blog/atom.xml",
+    ]
   )
   const types: Readonly<Record<string, string>> = {
+    "/blog": "text/html; charset=utf-8",
+    "/blog/atom.xml": "application/xml",
+    "/blog/rss.xml": "application/rss+xml; charset=utf-8",
     "/manifest.webmanifest": "application/manifest+json; charset=utf-8",
     "/robots.txt": "text/plain; charset=utf-8",
     "/sitemap.xml": "text/xml; charset=utf-8",
@@ -991,5 +1001,23 @@ test("Software resource smoke checks validate actual MIME headers, including cha
         })
     ),
     ["/robots.txt: Content-Type text/html, expected text/plain"]
+  )
+  // A feed served as HTML or as a download fails discovery.
+  assert.deepEqual(
+    await runSmoke(
+      origin,
+      checks.slice(-2),
+      async () => new Response("", { headers: { "content-type": "application/octet-stream" } })
+    ),
+    [
+      "/blog/rss.xml: Content-Type application/octet-stream, expected application/rss+xml or application/xml or text/xml",
+      "/blog/atom.xml: Content-Type application/octet-stream, expected application/atom+xml or application/xml or text/xml",
+    ]
+  )
+  // Only the Software brand site has the blog.
+  assert.ok(
+    smokeChecks("opensource-en", "https://sebastian-open-source.example").every(
+      (check) => !check.path.startsWith("/blog")
+    )
   )
 })

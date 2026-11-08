@@ -13,7 +13,13 @@ import {
 } from "@sebastian-websites/ui"
 import { createPageErrorCopy } from "@sebastian-websites/ui/error-copy"
 import { createFrameCopy } from "@sebastian-websites/ui/frame-copy"
-import { getSiteFrame, SITE_BRAND } from "@sebastian-websites/web-core"
+import {
+  canonicalPath,
+  getSiteFrame,
+  type PageReference,
+  singleLanguageClass,
+  SITE_BRAND,
+} from "@sebastian-websites/web-core"
 import { ArdoHead, ArdoOutlet, ArdoScripts, useArdoPage } from "ardo/runtime"
 import "@sebastian-websites/ui/brand-software.css"
 import "@sebastian-websites/ui/styles.css"
@@ -51,12 +57,36 @@ export function Layout({ children }: { readonly children: ReactNode }): ReactEle
   )
 }
 
+/**
+ * Whether the other language has the page, for the language switch. Pages
+ * outside the blog and the blog overview exist in both (ADR-0010). A post
+ * carries the counterpart that the build writes into its frontmatter, and a
+ * tag archive gets it from the tag module's `frontmatter` export: the other
+ * language's path, or null.
+ * @param pathname - The page's path.
+ * @param frontmatter - The page data Ardo exposes for the route, if any.
+ * @returns The page reference for the frame.
+ */
+function framePage(
+  pathname: string,
+  frontmatter: Readonly<Record<string, unknown>> | undefined
+): PageReference {
+  const path = canonicalPath(pathname)
+  return singleLanguageClass(path) === undefined
+    ? path
+    : { counterpart: typeof frontmatter?.counterpart === "string", path }
+}
+
 export default function App(): ReactElement {
   const page = useArdoPage()
   const notFound =
     (page.error != null && "status" in page.error && page.error.status === NOT_FOUND) ||
     isNotFoundHandle(page.handle)
-  const frame = getSiteFrame(variant.site, variant.locale, notFound ? "/" : page.path)
+  const frame = getSiteFrame(
+    variant.site,
+    variant.locale,
+    notFound ? "/" : framePage(page.path, page.frontmatter)
+  )
   const copy = createFrameCopy(__BUILD_YEAR__)
   return (
     <DocumentNavigation>

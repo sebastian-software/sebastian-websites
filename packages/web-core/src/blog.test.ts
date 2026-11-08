@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest"
 
 import {
+  assertBlogLaunch,
   blogPostAt,
+  blogPostCounterpart,
   blogPostPath,
   type BlogPostSource,
   blogTagArchives,
@@ -69,6 +71,8 @@ describe("blog sources", () => {
   })
 
   it("keeps a registry of lowercase hyphenated English tag keys", () => {
+    // The owners launch the blog with one tag; each later key gets labels in both catalogs.
+    expect(BLOG_TAGS).toStrictEqual(["internationalization"])
     expect(new Set(BLOG_TAGS).size).toBe(BLOG_TAGS.length)
     expect(BLOG_TAGS.filter((tag) => !isSlug(tag))).toStrictEqual([])
     expect(
@@ -80,8 +84,8 @@ describe("blog sources", () => {
 describe("blog validation", () => {
   it("accepts a translated pair and single-language posts", () => {
     const posts = validateBlogPosts([
-      post("de", "pair.md", { id: "pair", tags: ["rust"] }),
-      post("en", "pair.md", { id: "pair", tags: ["rust", "architecture"] }),
+      post("de", "pair.md", { id: "pair", tags: ["internationalization"] }),
+      post("en", "pair.md", { id: "pair", tags: ["internationalization"] }),
       post("en", "english-only.md", { nextStep: "none" }),
     ])
     expect(posts.map((entry) => `${entry.locale}${entry.path}`)).toStrictEqual([
@@ -122,20 +126,23 @@ describe("blog validation", () => {
       issuesOf([
         post("de", "a.md", { nextStep: undefined }),
         post("de", "b.md", { nextStep: "newsletter" }),
-        post("en", "c.md", { tags: ["Rust", "rust"] }),
-        post("en", "d.md", { tags: ["rust", "rust"] }),
+        post("en", "c.md", { tags: ["Internationalization", "internationalization"] }),
+        post("en", "d.md", { tags: ["internationalization", "internationalization"] }),
         post("en", "e.md", { publishedAt: "2026-11-17T09:00:00" }),
         post("en", "f.md", { draft: "yes" }),
         post("en", "g.md", { id: "" }),
+        // Not registered at launch.
+        post("en", "h.md", { tags: ["rust"] }),
       ])
     ).toStrictEqual([
       "de/a.md: nextStep is required; use none for a development report",
       'de/b.md: unknown nextStep "newsletter"',
-      'en/c.md: unknown tag "Rust"; add the key to the tag registry first',
+      'en/c.md: unknown tag "Internationalization"; add the key to the tag registry first',
       "en/d.md: tags must not repeat",
       "en/e.md: publishedAt must be a timestamp with a time zone",
       "en/f.md: draft must be a boolean",
       "en/g.md: id must be a non-empty string",
+      'en/h.md: unknown tag "rust"; add the key to the tag registry first',
     ])
   })
 
@@ -184,30 +191,31 @@ describe("blog validation", () => {
 })
 
 describe("blog index", () => {
+  const TAG = "internationalization"
   const sources = [
-    post("de", "pair.md", { id: "pair", tags: ["rust"] }),
-    post("en", "pair.md", { id: "pair", tags: ["rust"] }),
+    post("de", "pair.md", { id: "pair" }),
+    post("en", "pair.md", { id: "pair", tags: [TAG] }),
     post("en", "english-only.md", {
       nextStep: "products",
       publishedAt: "2026-11-16T09:00:00Z",
-      tags: ["architecture"],
+      tags: [TAG],
     }),
-    post("de", "entwurf.md", { draft: true, tags: ["typescript"] }),
-    post("en", "later.md", { publishedAt: "2026-11-18T09:00:00Z", tags: ["typescript"] }),
+    post("de", "entwurf.md", { draft: true, tags: [TAG] }),
+    post("en", "later.md", { publishedAt: "2026-11-18T09:00:00Z", tags: [TAG] }),
   ]
 
   it("lists only due posts per language, newest first", () => {
     expect(createBlogIndex(sources, BUILD_TIME)).toStrictEqual({
       buildTime: "2026-11-17T12:00:00.000Z",
       posts: {
-        de: [{ id: "pair", nextStep: "contact", path: "/blog/pair", tags: ["rust"] }],
+        de: [{ id: "pair", nextStep: "contact", path: "/blog/pair", tags: [] }],
         en: [
-          { id: "pair", nextStep: "contact", path: "/blog/pair", tags: ["rust"] },
+          { id: "pair", nextStep: "contact", path: "/blog/pair", tags: [TAG] },
           {
             id: "english-only",
             nextStep: "products",
             path: "/blog/english-only",
-            tags: ["architecture"],
+            tags: [TAG],
           },
         ],
       },
@@ -233,7 +241,7 @@ describe("blog index", () => {
       "/blog/tags",
       "/blog/authors/fastner",
       "/blog/page/2",
-      "/blog/tags/architecture/page/2",
+      "/blog/tags/internationalization/page/2",
       // Shaped like a post, but no due post of this language lives there.
       "/blog/authors",
       "/blog/later",
@@ -242,7 +250,7 @@ describe("blog index", () => {
       expect([path, hasBlogCounterpart(index, "de", path)]).toStrictEqual([path, true])
     }
     // An archive this language does not have is no single-language page either.
-    expect(hasBlogCounterpart(index, "de", "/blog/tags/architecture")).toBe(true)
+    expect(hasBlogCounterpart(index, "de", "/blog/tags/internationalization")).toBe(true)
   })
 
   it("orders posts of one time by code point, independent of collation", () => {
@@ -260,14 +268,55 @@ describe("blog index", () => {
     expect(hasBlogCounterpart(index, "de", "/blog/pair")).toBe(true)
     expect(hasBlogCounterpart(index, "en", "/blog/pair/")).toBe(true)
     expect(hasBlogCounterpart(index, "en", "/blog/english-only")).toBe(false)
-    expect(hasBlogCounterpart(index, "en", "/blog/tags/rust")).toBe(true)
-    expect(hasBlogCounterpart(index, "en", "/blog/tags/architecture")).toBe(false)
+    // The German draft uses the tag, so only English has a due post with it.
+    expect(hasBlogCounterpart(index, "en", `/blog/tags/${TAG}`)).toBe(false)
     expect(hasBlogCounterpart(index, "de", "/blog")).toBe(true)
     expect(hasBlogCounterpart(index, "en", "/blog/")).toBe(true)
     expect(hasBlogCounterpart(index, "de", "/company")).toBe(true)
-    expect(blogTagArchives(index, "en")).toStrictEqual(["rust", "architecture"])
-    expect(blogTagArchives(index, "de")).toStrictEqual(["rust"])
+    expect(blogTagArchives(index, "en")).toStrictEqual([TAG])
+    expect(blogTagArchives(index, "de")).toStrictEqual([])
     expect(blogPostAt(index, "en", "/blog/english-only")?.nextStep).toBe("products")
     expect(blogPostAt(index, "de", "/blog/english-only")).toBeUndefined()
+    const paired = createBlogIndex(
+      [...sources, post("de", "german-tagged.md", { tags: [TAG] })],
+      BUILD_TIME
+    )
+    expect(hasBlogCounterpart(paired, "en", `/blog/tags/${TAG}`)).toBe(true)
+    expect(blogTagArchives(paired, "de")).toStrictEqual([TAG])
+  })
+
+  it("writes the counterpart path of a staged post, or null", () => {
+    const index = createBlogIndex(sources, BUILD_TIME)
+    expect(blogPostCounterpart(index, "de", "/blog/pair")).toBe("/blog/pair")
+    expect(blogPostCounterpart(index, "en", "/blog/pair/")).toBe("/blog/pair")
+    expect(blogPostCounterpart(index, "en", "/blog/english-only")).toBeNull()
+    // Not due in English yet, so the German side has no counterpart either.
+    expect(blogPostCounterpart(index, "de", "/blog/later")).toBeNull()
+  })
+})
+
+describe("blog launch guard", () => {
+  const due = post("de", "pair.md", { id: "pair" })
+
+  it("passes when both languages publish a post", () => {
+    const pair = createBlogIndex([due, { ...due, locale: "en" }], BUILD_TIME)
+    expect(() => {
+      assertBlogLaunch(pair)
+    }).not.toThrow()
+  })
+
+  it("names each language without a published post", () => {
+    const german = createBlogIndex(
+      [due, post("en", "pair.md", { id: "pair", publishedAt: "2026-11-18T09:00:00Z" })],
+      BUILD_TIME
+    )
+    expect(() => {
+      assertBlogLaunch(german)
+    }).toThrow(
+      "en: the blog navigation item is launching, but no post is published at 2026-11-17T12:00:00.000Z"
+    )
+    expect(() => {
+      assertBlogLaunch(createBlogIndex([], BUILD_TIME))
+    }).toThrow(BlogValidationError)
   })
 })

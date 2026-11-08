@@ -1,6 +1,15 @@
-import { describe, expect, it } from "vitest"
+import { describe, expect, it, vi } from "vitest"
 
+import { BLOG_NAVIGATION_PHASES, type BlogNavigationPhase } from "./blogLaunch.ts"
 import { BOOKING_URL, contactEmail, getLanguageLinks, getSiteFrame } from "./frame.ts"
+import { SITES } from "./sites.ts"
+
+// This suite checks the frame before the launch, whatever phase is committed;
+// `frame.blog.test.ts` covers the launching and live phases.
+vi.mock(import("./blogLaunch.ts"), async (importOriginal) => ({
+  ...(await importOriginal()),
+  BLOG_NAVIGATION: "off" as const,
+}))
 
 describe("site frame", () => {
   it("gives Software and Open Source the Software context without a Skills entry", () => {
@@ -12,6 +21,21 @@ describe("site frame", () => {
         brand: "consulting",
         href: "https://sebastian-consulting.com/",
       })
+    }
+  })
+
+  it("commits one of the known launch phases", async () => {
+    const committed = await vi.importActual<{ BLOG_NAVIGATION: BlogNavigationPhase }>(
+      "./blogLaunch.ts"
+    )
+    expect(BLOG_NAVIGATION_PHASES).toContain(committed.BLOG_NAVIGATION)
+  })
+
+  it("leaves the blog out of every navigation while its launch phase is off", () => {
+    for (const site of SITES) {
+      const frame = getSiteFrame(site, "en", "/")
+      expect(frame.navigation.some((link) => link.id === "blog")).toBe(false)
+      expect(frame.index.some((link) => link.id === "blog")).toBe(false)
     }
   })
 

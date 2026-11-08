@@ -41,7 +41,8 @@ export type SiteBuild = {
   readonly assets: readonly Asset[]
   /**
    * The shared build time recorded beside the build's `client/` directory.
-   * Builds that record none leave it undefined; such a pair counts as equal.
+   * Software builds must record it; for other sites, a pair that records
+   * none counts as built together.
    */
   readonly buildTime?: string
   readonly target: Target
@@ -110,6 +111,34 @@ function assertBuildTime(site: string, build: SiteBuild): void {
   }
 }
 
+/**
+ * Both builds of a site must share one recorded build time; Software builds
+ * must record it.
+ *
+ * @param site - The site of the pair.
+ * @param de - The German build.
+ * @param en - The English build.
+ */
+function assertBuildTimes(site: string, de: SiteBuild, en: SiteBuild): void {
+  assertBuildTime(site, de)
+  assertBuildTime(site, en)
+  // The Software builds decide which posts are due by it, so both must record it.
+  // Other sites write no file; a pair without it counts as built together.
+  if (site === BLOG_SITE && (de.buildTime === undefined || en.buildTime === undefined)) {
+    throw new Error(
+      `SEO: the ${site} builds must record their shared build time (de ${de.buildTime ?? "none"}, en ${en.buildTime ?? "none"})`
+    )
+  }
+  const [german, english] = [de.buildTime, en.buildTime].map((time) =>
+    time === undefined ? undefined : Date.parse(time)
+  )
+  if (german !== english) {
+    throw new Error(
+      `SEO: the ${site} builds record different build times (de ${de.buildTime ?? "none"}, en ${en.buildTime ?? "none"})`
+    )
+  }
+}
+
 type Pair = Readonly<
   Record<Locale, { readonly build: SiteBuild; readonly variant: VariantDefinition }>
 >
@@ -132,18 +161,7 @@ function pairs(builds: readonly SiteBuild[]): readonly Pair[] {
       const present = de === undefined ? "en" : "de"
       throw new Error(`SEO: ${site} has a build for ${present} only; both languages must be built`)
     }
-    assertBuildTime(site, de.build)
-    assertBuildTime(site, en.build)
-    // Builds without the file still pass as long as both lack it: build.ts does not
-    // write it yet. The blog launch makes it mandatory for Software.
-    const [german, english] = [de.build.buildTime, en.build.buildTime].map((time) =>
-      time === undefined ? undefined : Date.parse(time)
-    )
-    if (german !== english) {
-      throw new Error(
-        `SEO: the ${site} builds record different build times (de ${de.build.buildTime ?? "none"}, en ${en.build.buildTime ?? "none"})`
-      )
-    }
+    assertBuildTimes(site, de.build, en.build)
     return { de, en }
   })
 }

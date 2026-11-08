@@ -51,6 +51,7 @@ export function createFrameCopy(year: number): FrameCopy {
       },
     },
     links: {
+      blog: t`Blog`,
       booking: t`Book an intro call`,
       company: t`Company`,
       contact: t`Contact`,

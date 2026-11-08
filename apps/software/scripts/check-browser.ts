@@ -2,7 +2,7 @@
 /* eslint-disable no-await-in-loop -- Route assertions and fixture cleanup are ordered. */
 /* eslint-disable max-statements -- Each browser scenario keeps its related assertions together. */
 /* eslint-disable unicorn/prefer-global-this -- Evaluated callbacks run in the browser. */
-import { singleLanguageClass } from "@sebastian-websites/web-core"
+import { BLOG_PATH, singleLanguageClass } from "@sebastian-websites/web-core"
 import assert from "node:assert/strict"
 import { mkdir, readFile, writeFile } from "node:fs/promises"
 import { createServer } from "node:http"
@@ -10,8 +10,20 @@ import path from "node:path"
 import { fileURLToPath } from "node:url"
 import { type Browser, type BrowserContext, chromium, type Page } from "playwright"
 
+import { type BlogCoverage, checkBlogPage, isBlogPath } from "./check-blog-pages.ts"
+
 const app = fileURLToPath(new URL("..", import.meta.url))
-const evidence = path.join(app, "build/evidence")
+/**
+ * With `--fixtures`, the check covers the blog pages of the later fixture
+ * build that `check:fixtures` leaves behind: posts in both languages, a
+ * translated pair, a single-language post, tag archives, and both kinds of
+ * next step. The production build has no post until the owners' first one.
+ */
+const fixtures = process.argv.includes("--fixtures")
+const builds = fixtures
+  ? path.join(app, "build/fixtures/after/apps/software/build")
+  : path.join(app, "build")
+const evidence = path.join(app, fixtures ? "build/evidence-fixtures" : "build/evidence")
 const baseline = process.env.SOFTWARE_BASELINE_ROOT
 const remoteAssets = new Map<string, { body: Buffer; contentType: string; status: number }>()
 const performanceEvidence: unknown[] = []
@@ -248,6 +260,9 @@ function compareShapes(candidate: Shape, previous: Shape, label: string): void {
   assert.equal(candidate.length, previous.length, `${label}: structural parity`)
   for (const [index, element] of candidate.entries()) {
     const original = previous[index]
+    // The Blog item changes the header against a baseline without it; the
+    // header's own checks cover it, so the comparison starts below it.
+    if (element.tag === "HEADER") continue
     assert.equal(element.text, original.text, `${label}: translated headings`)
     assert.deepEqual(element.image, original.image, `${label}: responsive images`)
     assert.equal(element.font, original.font, `${label}: typography`)
@@ -291,6 +306,8 @@ async function compareBaseline(
   }
 }
 type RouteOptions = {
+  /** The blog page kinds the run has checked, for the fixture run's coverage. */
+  coverage: BlogCoverage
   current: Fixture
   errors: string[]
   locale: Locale
@@ -369,6 +386,13 @@ async function checkRoute(
   assert.equal(await page.locator('link[rel="canonical"]').getAttribute("href"), canonical)
   await checkAlternates(page, options)
   await checkSocialMeta(page, canonical, `${variant}${pathname}`)
+  await checkBlogPage(page, {
+    coverage: options.coverage,
+    label: `${variant}${pathname}`,
+    locale,
+    paired: options.paired,
+    pathname,
+  })
   assert.ok(
     await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
     `${variant}${pathname}: overflow`
@@ -516,12 +540,13 @@ async function checkRoutes(
   options: Omit<RouteOptions, "paired" | "pathname" | "viewport">
 ): Promise<void> {
   const { current, locale, old } = options
-  const pages = await sitemapPages(context, current.origin)
+  const sitemap = await sitemapPages(context, current.origin)
+  const pages = fixtures ? sitemap.filter((pathname) => isBlogPath(pathname)) : sitemap
   // Both language builds are checked together; a path in both needs reciprocal alternates.
   const otherPages = new Set(
     sitemapPaths(
       await readFile(
-        path.join(app, "build", `software-${locale === "de" ? "en" : "de"}`, "client/sitemap.xml"),
+        path.join(builds, `software-${locale === "de" ? "en" : "de"}`, "client/sitemap.xml"),
         "utf8"
       )
     )
@@ -543,7 +568,7 @@ async function checkRoutes(
 }
 async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
   const variant = `software-${locale}`
-  const build = path.join(app, "build", variant, "client")
+  const build = path.join(builds, variant, "client")
   const current = await fixture(build)
   const old =
     baseline === undefined ? undefined : await fixture(path.resolve(baseline, variant, "client"))
@@ -584,8 +609,25 @@ async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
     )
       errors.push(message.text())
   })
+  const coverage: BlogCoverage = new Set()
   try {
-    await checkRoutes(context, page, { current, errors, locale, old, variant })
+    await checkRoutes(context, page, { coverage, current, errors, locale, old, variant })
+    if (fixtures) {
+      // The rest of the fixture build is the production site, which the default run checks.
+      for (const kind of [
+        "overview",
+        "post",
+        "tag-archive",
+        "next-step",
+        "no-next-step",
+      ] as const) {
+        assert.ok(coverage.has(kind), `${variant}: the fixture build checked no ${kind} page`)
+      }
+      assert.deepEqual(errors, [], `${variant}: browser errors`)
+      console.log(`${variant}: blog overview, posts, next steps, tag archives, and feeds passed`)
+      return
+    }
+    assert.ok(coverage.has("overview"), `${variant}: the sitemap lists no ${BLOG_PATH}`)
     if (old && locale === "de") await checkPerformance(context, current, old)
     await checkNavigation(page, current, locale)
     await checkNotFound(context, page, { current, old, variant })

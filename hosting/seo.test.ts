@@ -369,7 +369,14 @@ function softwareHtml(locale: Locale, page: Page): string {
   return `<html lang="${locale}"><head><title>Software</title>${links}${type}${url}</head><body><h1>Software</h1></body></html>`
 }
 
-function softwareBuild(locale: Locale, pages: readonly Page[], buildTime?: string): SiteBuild {
+/** The build time Software builds record unless a test passes another one, or null for none. */
+const SOFTWARE_BUILD_TIME = "2026-11-17T12:00:00Z"
+
+function softwareBuild(
+  locale: Locale,
+  pages: readonly Page[],
+  buildTime: null | string = SOFTWARE_BUILD_TIME
+): SiteBuild {
   const all: readonly Page[] = [{ path: "/" }, { path: "/blog" }, ...pages]
   return {
     assets: [
@@ -390,7 +397,7 @@ function softwareBuild(locale: Locale, pages: readonly Page[], buildTime?: strin
       ),
       asset("robots.txt", createRobots("software", locale)),
     ],
-    ...(buildTime === undefined ? {} : { buildTime }),
+    ...(buildTime === null ? {} : { buildTime }),
     target: softwareTargets[locale],
   }
 }
@@ -469,7 +476,6 @@ test("a site with a build in one language only fails", () => {
 test("both builds of a site must record the same build time", () => {
   const time = "2026-11-17T12:00:00.000Z"
   assert.equal(seoPlans([softwareBuild("de", [], time), softwareBuild("en", [], time)]).size, 2)
-  assert.equal(seoPlans([softwareBuild("de", []), softwareBuild("en", [])]).size, 2)
   // The same instant in another zone is the same build time.
   assert.equal(
     seoPlans([softwareBuild("de", [], "2026-11-17T13:00:00+01:00"), softwareBuild("en", [], time)])
@@ -482,14 +488,23 @@ test("both builds of a site must record the same build time", () => {
       /no timestamp with seconds and a time zone/v
     )
   }
+  assert.throws(
+    () =>
+      seoPlans([
+        softwareBuild("de", [], time),
+        softwareBuild("en", [], "2026-11-17T12:00:01.000Z"),
+      ]),
+    /different build times/v
+  )
+  // Software decides which posts are due by it, so neither build may omit it.
   for (const [de, en] of [
-    [time, "2026-11-17T12:00:01.000Z"],
-    [time, undefined],
-    [undefined, time],
+    [null, null],
+    [time, null],
+    [null, time],
   ] as const) {
     assert.throws(
       () => seoPlans([softwareBuild("de", [], de), softwareBuild("en", [], en)]),
-      /different build times/v
+      /software builds must record their shared build time/v
     )
   }
 })

@@ -1,0 +1,259 @@
+/* eslint-disable security/detect-non-literal-fs-filename -- Paths are the post directories of the build and the generated variant project. */
+/* eslint-disable no-await-in-loop -- Post directories are read and written in a stable order. */
+import type { Dirent } from "node:fs"
+
+import {
+  assertBlogLaunch,
+  type BlogIndex,
+  blogPostCounterpart,
+  blogPostPath,
+  type BlogPostSource,
+  blogTagArchives,
+  createBlogIndex,
+  type Locale,
+  LOCALES,
+  otherLocale,
+  splitFrontmatter,
+} from "@sebastian-websites/web-core"
+import { cp, mkdir, mkdtemp, readdir, readFile, rename, rm, writeFile } from "node:fs/promises"
+import path from "node:path"
+import { parse as parseYaml } from "yaml"
+
+/** The field the build writes into each staged post; sources must not set it. */
+export const COUNTERPART = "counterpart"
+/** Where the staged copy of a language's posts lives in the variant project. */
+export const STAGED_BLOG = "content/blog"
+/**
+ * The build data of `virtual:software-blog-tags`, beside the variant project's
+ * `vite.config.ts`: the tag keys with an archive in the other language.
+ */
+export const BLOG_TAGS_FILE = "blog-tags.json"
+
+const POST_FILE = /\.mdx?$/v
+
+/** A post source together with its unparsed frontmatter, for staging. */
+export type StagedSource = { readonly yaml: string } & BlogPostSource
+
+/** The blog of one build: every source and the index at the shared build time. */
+export type BlogBuild = {
+  readonly index: BlogIndex
+  readonly sources: readonly StagedSource[]
+}
+
+/** A post source the build refuses before any variant is built. */
+export class BlogSourceError extends Error {
+  public constructor(message: string, options?: ErrorOptions) {
+    super(message, options)
+    this.name = "BlogSourceError"
+  }
+}
+
+/**
+ * Tells whether a thrown value is a Node.js error with the given code.
+ * @param error - The caught value.
+ * @param code - The error code, such as `ENOENT`.
+ * @returns Whether it matches.
+ */
+function hasCode(error: unknown, code: string): boolean {
+  return error instanceof Error && "code" in error && error.code === code
+}
+
+/**
+ * What an entry of the post tree is to the publication. Posts must be regular
+ * files, and the tree holds no symbolic link, so staging never reads or writes
+ * through one.
+ *
+ * @param entry - A directory entry that is neither hidden nor `_`-prefixed.
+ * @param relative - Its path below the language directory, for messages.
+ * @returns `directory`, `post`, or `other` for an asset the copy keeps.
+ * @throws {BlogSourceError} For a symbolic link, or a post that is no regular file.
+ */
+function entryKind(entry: Dirent, relative: string): "directory" | "other" | "post" {
+  if (entry.isSymbolicLink()) {
+    throw new BlogSourceError(`${relative}: symbolic links are not allowed in the blog content`)
+  }
+  if (entry.isDirectory()) return "directory"
+  if (!POST_FILE.test(entry.name)) return "other"
+  if (!entry.isFile()) throw new BlogSourceError(`${relative}: a post must be a regular file`)
+  return "post"
+}
+
+/**
+ * The Markdown and MDX files of one language, the way the publication reads
+ * them: recursively, without hidden or `_`-prefixed entries.
+ *
+ * @param directory - The language's post directory.
+ * @param prefix - The path of `directory` below the language directory.
+ * @returns Post files relative to the language directory, with forward slashes.
+ * @throws {BlogSourceError} For a symbolic link, or a post that is no regular file.
+ */
+async function postFiles(directory: string, prefix = ""): Promise<string[]> {
+  let entries
+  try {
+    entries = await readdir(directory, { withFileTypes: true })
+  } catch (error) {
+    // Git drops empty directories; a language without posts has none.
+    if (hasCode(error, "ENOENT")) return []
+    throw error
+  }
+  const files: string[] = []
+  for (const entry of entries.toSorted((left, right) => (left.name < right.name ? -1 : 1))) {
+    if (entry.name.startsWith("_") || entry.name.startsWith(".")) continue
+    const relative = `${prefix}${entry.name}`
+    const kind = entryKind(entry, relative)
+    if (kind === "directory") {
+      files.push(...(await postFiles(path.join(directory, entry.name), `${relative}/`)))
+    } else if (kind === "post") files.push(relative)
+  }
+  return files
+}
+
+/**
+ * Tells whether parsed YAML is a mapping, the only valid shape of frontmatter.
+ * @param value - The parsed frontmatter.
+ * @returns Whether it is a plain object.
+ */
+function isMapping(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value)
+}
+
+/**
+ * Reads one post file and parses its frontmatter.
+ *
+ * @param directory - The language's post directory.
+ * @param locale - The language of the file.
+ * @param file - The file path relative to `directory`.
+ * @returns The source with its parsed and raw frontmatter.
+ * @throws {BlogSourceError} For invalid YAML, a non-mapping, or an authored counterpart.
+ */
+async function readSource(directory: string, locale: Locale, file: string): Promise<StagedSource> {
+  const split = splitFrontmatter(await readFile(path.join(directory, file), "utf8"))
+  let parsed: unknown
+  try {
+    parsed = parseYaml(split.yaml) ?? {}
+  } catch (error) {
+    throw new BlogSourceError(`${locale}/${file}: the frontmatter is not valid YAML`, {
+      cause: error,
+    })
+  }
+  if (!isMapping(parsed)) {
+    throw new BlogSourceError(`${locale}/${file}: the frontmatter must be a YAML mapping`)
+  }
+  if (Object.hasOwn(parsed, COUNTERPART)) {
+    throw new BlogSourceError(
+      `${locale}/${file}: ${COUNTERPART} is written by the build; remove it from the source`
+    )
+  }
+  return { body: split.body, file, frontmatter: parsed, locale, yaml: split.yaml }
+}
+
+/** How a build reads its posts. */
+export type ReadBlogOptions = {
+  /**
+   * The launch guard: fail when either language publishes nothing at the
+   * build time. `build.ts` sets it while the navigation item is launching and
+   * the posts are the site's own, so fixture builds and tests decide for
+   * themselves in every phase.
+   */
+  readonly requireBothLanguages: boolean
+}
+
+/**
+ * Reads and validates the posts of both languages, drafts and future posts
+ * included, and indexes the posts that are due at the shared build time.
+ *
+ * @param content - The directory that holds the `de` and `en` post directories.
+ * @param buildTime - The shared build time, as Ardo receives it.
+ * @param options - Whether the launch guard applies.
+ * @returns The sources for staging and the cross-language index.
+ * @throws {BlogSourceError} For a link, unreadable frontmatter, or an authored counterpart.
+ * @throws {Error} A `BlogValidationError` for invalid posts or the launch guard.
+ */
+export async function readBlog(
+  content: string,
+  buildTime: string,
+  options: ReadBlogOptions
+): Promise<BlogBuild> {
+  const sources: StagedSource[] = []
+  for (const locale of LOCALES) {
+    const directory = path.join(content, locale)
+    for (const file of await postFiles(directory)) {
+      sources.push(await readSource(directory, locale, file))
+    }
+  }
+  const index = createBlogIndex(sources, new Date(buildTime))
+  if (options.requireBothLanguages) assertBlogLaunch(index)
+  return { index, sources }
+}
+
+/**
+ * Writes each post of one language into a staged copy, with its build-time
+ * counterpart path or null.
+ *
+ * @param blog - The validated sources and the index.
+ * @param locale - The variant's language.
+ * @param directory - The staged copy of that language's posts.
+ */
+async function writeStagedPosts(blog: BlogBuild, locale: Locale, directory: string): Promise<void> {
+  for (const source of blog.sources.filter((entry) => entry.locale === locale)) {
+    const counterpart = blogPostCounterpart(
+      blog.index,
+      locale,
+      blogPostPath(source.file, source.frontmatter.path)
+    )
+    const yaml = source.yaml === "" ? "" : `${source.yaml}\n`
+    const file = path.join(directory, source.file)
+    // A new file, never a write through whatever the copy left at this path.
+    await rm(file, { force: true })
+    await writeFile(
+      file,
+      `---\n${yaml}${COUNTERPART}: ${JSON.stringify(counterpart)}\n---\n${source.body}`,
+      { flag: "wx" }
+    )
+  }
+}
+
+/**
+ * Stages one language's posts into the variant project, unfiltered: Ardo
+ * leaves out drafts and posts that are not due at `buildTime`. Each staged
+ * post gains its build-time counterpart path or null, and the tag archives of
+ * the other language become the tag module's build data, so no page carries
+ * the cross-language index. Files other than posts are copied unchanged. The
+ * copy is prepared beside the project and then renamed into place, so a
+ * watching development server never reads a half-staged directory.
+ *
+ * @param options - The staging inputs.
+ * @param options.blog - The validated sources and the index.
+ * @param options.content - The directory that holds the `de` and `en` post directories.
+ * @param options.locale - The variant's language.
+ * @param options.site - The variant project directory.
+ */
+export async function stageBlog(options: {
+  readonly blog: BlogBuild
+  readonly content: string
+  readonly locale: Locale
+  readonly site: string
+}): Promise<void> {
+  const { blog, content, locale, site } = options
+  const target = path.join(site, STAGED_BLOG, locale)
+  // Outside content/, where Ardo looks for posts, and on the same file system.
+  const next = await mkdtemp(path.join(site, `.blog-staging-${locale}-`))
+  try {
+    try {
+      await cp(path.join(content, locale), next, { recursive: true })
+    } catch (error) {
+      // An empty directory still stages: Ardo's publication fails on a missing one.
+      if (!hasCode(error, "ENOENT")) throw error
+    }
+    await writeStagedPosts(blog, locale, next)
+    await mkdir(path.dirname(target), { recursive: true })
+    await rm(target, { force: true, recursive: true })
+    await rename(next, target)
+  } finally {
+    await rm(next, { force: true, recursive: true })
+  }
+  await writeFile(
+    path.join(site, BLOG_TAGS_FILE),
+    JSON.stringify({ otherLanguage: blogTagArchives(blog.index, otherLocale(locale)) })
+  )
+}

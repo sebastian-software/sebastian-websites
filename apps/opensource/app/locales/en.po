@@ -178,6 +178,10 @@ msgid "Better judgment for coding agents."
 msgstr "Better judgment for coding agents."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Blog"
+msgstr "Blog"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Book an intro call"
 msgstr "Book an intro call"
 

@@ -1608,6 +1608,10 @@ msgstr "Bingen am Rhein, Deutschland"
 msgid "Bingen, Germany"
 msgstr "Bingen, Deutschland"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Blog"
+msgstr "Blog"
+
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Bonn, Germany"
 msgstr "Bonn, Deutschland"

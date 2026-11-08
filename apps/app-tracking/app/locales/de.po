@@ -166,6 +166,10 @@ msgid "Backups."
 msgstr "Sicherungskopien."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Blog"
+msgstr "Blog"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Book an intro call"
 msgstr "Erstgespräch buchen"
 

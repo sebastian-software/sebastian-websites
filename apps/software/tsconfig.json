@@ -1,6 +1,6 @@
 {
   "extends": "@sebastian-websites/config/tsconfig/react.json",
-  "include": ["app", "scripts", "vite.config.ts"],
+  "include": ["app", "scripts", "vite.config.ts", "eslint.config.ts"],
   "compilerOptions": {
     "types": [
       "node",

@@ -52,6 +52,7 @@ const copy: FrameCopy = {
     },
   },
   links: {
+    blog: "Blog",
     booking: "Book an intro call",
     company: "Company",
     contact: "Contact",

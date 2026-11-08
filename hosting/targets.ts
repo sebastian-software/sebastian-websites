@@ -25,8 +25,9 @@ export type Target = {
 
 /**
  * The file beside a variant build's `client/` directory that records the
- * shared build time of both language builds, so it is never uploaded. Builds
- * that do not write it yet are compared as built together.
+ * shared build time of both language builds, so it is never uploaded. The
+ * Software build writes it and the SEO plan requires it there; builds of
+ * other sites without it are compared as built together.
  */
 export const BUILD_TIME_FILE = "build-time.txt"
 

@@ -24,7 +24,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
+      # Full history: Ardo dates the Software pages from Git (sourceRoot).
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
       - uses: jdx/mise-action@v5
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -41,7 +44,15 @@ jobs:
       # language builds of every site, compared and SEO-validated together.
       - name: Check the builds before publication
         run: pnpm hosting:plan
+      # Test posts built into scratch output at two build times, plus the empty
+      # state and the raster-image checks; each fixture build passes the gate.
+      - name: Check the blog fixtures
+        run: pnpm --filter @sebastian-websites/software check:fixtures
       - name: Verify both Software artifacts before publication
         run: pnpm --filter @sebastian-websites/software check:browser
+      # The blog pages of the later fixture build that check:fixtures leaves:
+      # posts, next steps, tag archives, and feed links in both languages.
+      - name: Verify the blog pages of the fixture build
+        run: pnpm --filter @sebastian-websites/software check:browser:fixtures
       - name: Verify the reporting website in both languages
         run: pnpm --filter @sebastian-websites/app-tracking check:browser

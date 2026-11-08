@@ -12,3 +12,12 @@ declare module "virtual:software-catalog" {
 }
 
 declare module "@sebastian-websites/ui/styles.css"
+
+declare module "virtual:software-blog-tags" {
+  /**
+   * The tag keys with an archive in the other language, written by `build.ts`
+   * while staging the posts. Only the tag archive module imports it.
+   */
+  const tags: { readonly otherLanguage: readonly string[] }
+  export default tags
+}

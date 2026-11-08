@@ -186,6 +186,10 @@ msgid "Better judgment for coding agents."
 msgstr "Besseres Urteilsvermögen für Coding-Agenten."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Blog"
+msgstr "Blog"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Book an intro call"
 msgstr "Erstgespräch buchen"
 

@@ -13,14 +13,17 @@
     "build:de": "node scripts/build.ts software-de",
     "build:en": "node scripts/build.ts software-en",
     "typecheck": "tsc",
-    "lint": "oxlint -c ../../oxlint.config.ts app scripts && eslint app scripts --config ../../eslint.config.ts",
-    "format": "prettier --write app scripts vite.config.ts",
-    "format:check": "prettier --check app scripts vite.config.ts",
+    "lint": "oxlint -c ../../oxlint.config.ts app scripts && eslint app scripts --config eslint.config.ts",
+    "format": "prettier --write app scripts vite.config.ts eslint.config.ts",
+    "format:check": "prettier --check app scripts vite.config.ts eslint.config.ts",
     "palamedes:extract": "pmds extract",
     "check:translations": "pmds audit --fail-on warning",
-    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm lint:messages && pnpm check:translations",
+    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm lint:messages && pnpm check:translations && pnpm test",
+    "test": "node --test \"scripts/**/*.test.ts\" \"app/**/*.test.ts\"",
     "lint:messages": "pmds lint --fail-on warning",
-    "check:browser": "node scripts/check-browser.ts"
+    "check:browser": "node scripts/check-browser.ts",
+    "check:browser:fixtures": "node scripts/check-browser.ts --fixtures",
+    "check:fixtures": "node scripts/check-fixtures.ts"
   },
   "dependencies": {
     "@palamedes/core": "catalog:",
@@ -33,7 +36,7 @@
     "@vanilla-extract/css": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "ardo": "6.3.0"
+    "ardo": "6.4.0"
   },
   "devDependencies": {
     "@palamedes/cli": "catalog:",
@@ -51,6 +54,7 @@
     "@vanilla-extract/vite-plugin": "catalog:",
     "@palamedes/transform": "^2.0.0",
     "image-size": "^2.0.4",
-    "playwright": "catalog:"
+    "playwright": "catalog:",
+    "yaml": "^2.9.1"
   }
 }

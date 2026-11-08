@@ -1,11 +1,16 @@
 /**
  * The pre-upload checks of a deployment, without Bunny credentials: load every
  * buildable target, compare both language builds of each site, validate the
- * SEO contract, and verify the Bunny image manifests. CI runs it after
+ * SEO contract, reject raster images in the Software blog, and verify the
+ * Bunny image manifests. CI runs it after
  * `pnpm build`; the deployment runs the same checks before changing any
  * remote file.
  *
  *   pnpm hosting:plan
+ *   node hosting/check-builds.ts <checkout root>
+ *
+ * The optional root holds builds at the checkout's paths, such as the
+ * Software fixture builds of `check:fixtures`; it defaults to this checkout.
  */
 /* eslint-disable security/detect-non-literal-fs-filename -- Paths come from the typed target list below the repository root. */
 import { readFile } from "node:fs/promises"
@@ -13,6 +18,7 @@ import { dirname } from "node:path"
 import { fileURLToPath, pathToFileURL } from "node:url"
 
 import { isZonedTimestamp } from "../packages/web-core/src/timestamps.ts"
+import { assertBlogOutput } from "./blog-output.ts"
 import { loadBunnyImages } from "./images.ts"
 import { type Asset, loadAssets, loadBuild } from "./publish.ts"
 import { type SeoPlan, seoPlans, type SiteBuild } from "./seo.ts"
@@ -36,9 +42,8 @@ function isMissing(error: unknown): boolean {
 /**
  * Reads the shared build time a variant build records beside its `client/`
  * directory: an RFC 3339 timestamp with seconds and a time zone. Builds that
- * do not record one yet return undefined, and the SEO plan treats two such
- * builds of a site as built together. The file becomes mandatory for
- * Software once `build.ts` writes it.
+ * record none return undefined; the SEO plan requires the file for Software
+ * and treats two such builds of another site as built together.
  *
  * @param directory - The build's client directory.
  * @returns The recorded build time, or undefined when the file is absent.
@@ -92,6 +97,7 @@ export async function checkBuilds(root: string): Promise<CheckedBuilds> {
   }
   // Reject a broken SEO artifact before any remote files are changed.
   const plans = seoPlans(loaded)
+  for (const build of loaded) assertBlogOutput(build.target, build.assets)
   // Every original must be available before any site document references it.
   const images = new Map<string, Asset>()
   for (const target of targets) {
@@ -109,7 +115,8 @@ export async function checkBuilds(root: string): Promise<CheckedBuilds> {
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {
-  const checked = await checkBuilds(fileURLToPath(new URL("..", import.meta.url)))
+  const [root = fileURLToPath(new URL("..", import.meta.url))] = process.argv.slice(2)
+  const checked = await checkBuilds(root)
   for (const [name, plan] of checked.plans) {
     const single = [...plan.alternates.values()].filter((links) => links.length === 0).length
     console.log(
