@@ -1,6 +1,6 @@
 ---
 status: accepted
-updated: 2026-10-06
+updated: 2026-11-08
 ---
 
 # Delivery model: one static artifact per variant, published from `main`
@@ -40,8 +40,13 @@ the font CDN configuration and deployment.
 
 ## Consequences
 
-- Every production state corresponds to exactly one commit on `main`.
-- Each variant has its own hosting target and can be published or rolled forward on its own.
+- Every production state corresponds to one commit on `main` and a recorded build time. The
+  Software build writes the time to `build-time.txt`, because it decides which blog posts are
+  due ([ADR-0021](0021-blog-on-the-software-website.md)).
+- Each variant has its own hosting target. The two language variants of a site are built,
+  compared, and published together, and the gate rejects a site with one language only or a
+  pair with different build times. Single-variant builds such as `build:de` are for development
+  only.
 - Deployment scripts apply the declared configuration, preserve unrelated resources, and
   verify both API readback and live delivery.
 - Prerendered routes are directories holding an `index.html`, and Bunny Storage serves files

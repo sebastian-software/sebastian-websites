@@ -1,6 +1,6 @@
 ---
 status: accepted
-updated: 2026-11-07
+updated: 2026-11-08
 ---
 
 # URL and redirect contract
@@ -17,7 +17,8 @@ posts are not translated by default: an untranslated post at `/blog/<slug>` and 
 at `/blog/tags/<key>` that only one language uses. Such a page declares itself as canonical,
 links no alternates, and the other domain answers the path with 404. A redirect or 410 for a
 renamed or withdrawn single-language post applies only on its own domain. No other site and
-no other path may exist in one language only. ADR-0021 will record the blog decision as a whole.
+no other path may exist in one language only. [ADR-0021](0021-blog-on-the-software-website.md)
+records the blog decision as a whole.
 
 Redirects are permanent (301) and exist only for known paths. An unknown path stays 404, and
 content that was removed on purpose answers 410. Alias and personal domains stay registered

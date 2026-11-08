@@ -48,14 +48,19 @@ Before changing remote files, `check-builds.ts` loads every buildable target and
 - A site with a build in one language only fails.
 - Both builds must record the same build time in `build-time.txt`, next to their
   `client/` directory and therefore never uploaded. The value is an RFC 3339
-  timestamp with seconds and a time zone. As long as no build writes the file, two
-  builds without it count as built together. The file becomes mandatory for
-  Software once its build writes it.
+  timestamp with seconds and a time zone. The Software build writes it, and the
+  check requires it there, because Ardo decides by it which posts are due. Other
+  sites write no file yet; two of their builds without it count as built together.
 - A path in both builds needs the German, English, and English `x-default`
   alternates. Only Software may have a path in one build only, and only blog posts
   (`/blog/<slug>` marked `og:type=article`) and tag archives (`/blog/tags/<key>`)
   qualify. Such a page links no alternates (ADR-0010). Every other unpaired path
   fails.
+
+The Software builds are also checked for raster images in the blog: the `<main>`
+content of every `blog/**/index.html` and the entries of both feeds may reference
+SVG images only, and the build may hold no raster publication renditions below
+`assets/posts/` (`blog-output.ts`). The shared page frame keeps its Bunny images.
 
 The comparison yields one plan per variant, and each build is then checked against
 its plan. Its sitemap must list exactly the canonical HTML pages, excluding the
@@ -111,10 +116,18 @@ BUNNY_API_KEY=… pnpm deploy
 ```
 
 `pnpm hosting:plan` runs the pre-upload checks of a deployment without credentials:
-the build comparison, the SEO plans, and the Bunny image manifests. CI runs it after
-`pnpm build`, and `pnpm deploy` repeats it before changing any remote file. Build
-both languages of a site before running either command; a one-language build, such
-as `build:de`, fails the check.
+the build comparison, the SEO plans, the blog's raster-image check, and the Bunny
+image manifests. CI runs it after `pnpm build`, and `pnpm deploy` repeats it before
+changing any remote file. Build both languages of a site before running either
+command; a one-language build, such as `build:de`, fails the check.
+`node hosting/check-builds.ts <root>` checks builds laid out like a checkout below
+another root; `pnpm --filter @sebastian-websites/software check:fixtures` uses it for
+its fixture builds.
+
+`pnpm hosting:smoke software-de` and `software-en` also request `/blog`,
+`/blog/rss.xml`, and `/blog/atom.xml`: the overview must be served as `text/html`,
+the feeds as `application/rss+xml` or `application/atom+xml`, or as a generic XML
+type.
 
 Locally the key comes from 1Password; in CI from the secret. `pnpm hosting:check` runs the
 type check, lint, and the tests against a fake Bunny account.

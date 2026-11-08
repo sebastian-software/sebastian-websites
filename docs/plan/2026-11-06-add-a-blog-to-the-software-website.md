@@ -468,7 +468,7 @@ The deep review supersedes two of those choices: `publication.now` and the `id` 
 ## Build progress
 
 **Date:** 2026-11-08
-**State:** The parts before the release are done, and ardo 6.4.0 is released. The launch is still open, so the plan stays open.
+**State:** All implementation steps are done on this branch, pinned to ardo 6.4.0. The first post is still missing, so the pull request stays a draft and the plan stays open.
 
 ### Done
 
@@ -545,24 +545,40 @@ The strategic review of ardo#506 replaced the first API. The launch uses this sh
   - Until it arrives, the launch pull request stays a draft with test posts.
   - The test posts live only in the fixtures.
 
-### Remaining for the launch pull request
+### Launch implementation (November 8, 2026)
 
-- Pin `ardo` 6.4.0. Use the API in [Ardo API for the launch](#ardo-api-for-the-launch), including:
-  - the tag module's `frontmatter` export for the language switch;
-  - `sourceRoot` for each variant build.
-- Step 4: build plumbing.
-  - The shared `buildTime` for both Ardo builds, and `build-time.txt`, which then becomes required for Software. No due-post filtering in `build.ts`: Ardo does it.
-  - Fixture options and `check:fixtures`.
-  - Mirroring `content/` during development.
-- Steps 5 and 6 at launch.
-  - Feed discovery.
-  - `/blog` and feed smoke checks.
-  - An output check for raster images.
-- Steps 7–10.
-  - The navigation item and the blog presentation.
-  - ADR-0021, plus updates to ADR-0006 and ADR-0009.
-  - The operations guide for publishing.
-  - The first approved post in both languages, delivered by the owners.
+- **Ardo pin.** `ardo` 6.4.0 and `yaml` are pinned. `pnpm-workspace.yaml` exempts `ardo@6.4.0` from `minimumReleaseAge`; remove that once the release has aged past the threshold.
+- **Step 4, build plumbing.**
+  - `build.ts` and `scripts/blog-staging.ts` set one shared build time per run, from `scripts/build-time.ts`. Staging copies posts unfiltered, writes `counterpart` into each copy, rejects an authored `counterpart`, and rejects symbolic links.
+  - The build writes `blog-tags.json` for `virtual:software-blog-tags` and the required `build-time.txt`. It passes `sourceRoot` and `buildTime` to Ardo.
+  - `development.ts` restages `content/blog/` on change, debounced and atomically.
+  - `check:fixtures` builds the fixtures under `test/fixtures/blog/`, which hold the only test posts.
+- **Steps 5 and 6.**
+  - Feed discovery: the RSS and Atom links have distinct titles, and the overview has visible subscribe links.
+  - Smoke checks for `/blog`, `/blog/rss.xml` and `/blog/atom.xml` with XML media types.
+  - `hosting/blog-output.ts` rejects raster images in the blog's `<main>` content, in feed entries and under `assets/posts/`, and requires exactly one `<main>`.
+  - CI runs `check:fixtures` and `check:browser:fixtures`. CI and Deploy check out with `fetch-depth: 0`, so `sourceRoot` reads the full Git history.
+- **Steps 7 and 8, presentation.**
+  - Overview with empty state, post frame, tag archive, the shared founder module and the next-step box. The UI copy is in both catalogs.
+  - The tag registry holds `internationalization` only.
+  - The `blog` navigation item is behind `BLOG_NAVIGATION` in `packages/web-core/src/blogLaunch.ts`, with the phases `off`, `launching` and `live`; it is currently `off`.
+  - Owner decision, November 8: only `launching` fails the build when a language has no published post. `live` shows the empty state.
+- **Step 9, documentation.**
+  - ADR-0021 is new. ADR-0006, ADR-0009 and ADR-0010 are amended.
+  - New guide `docs/operations/blog-publishing.md`, with a pointer from `AGENTS.md`.
+
+### Remaining for the launch
+
+- **First post.** The owners deliver the first post in German and English: same `id` and path, tag `internationalization`, a `nextStep` from the set, no raster images, and a `publishedAt` no later than the CI run.
+- **Switch on the navigation.** With that post, set `BLOG_NAVIGATION` to `launching`. Run `check:browser` with screenshots of the header with three items on Software, Open Source, Skills and app-tracking at 390, about 1024 and 1440 px. After the first deploy, set it to `live`.
+- **Copy review.** The owners review the UI copy:
+  - the overview headline and intro;
+  - the next-step texts;
+  - the empty state;
+  - the tag archive lead, which repeats its heading;
+  - the labels "Thema im Blog" and "Themen".
+- **CI time.** Record the CI job time of the first run against the 20-minute limit.
+- **Finish.** Archive this plan and mark the pull request ready.
 
 ### Test results
 
