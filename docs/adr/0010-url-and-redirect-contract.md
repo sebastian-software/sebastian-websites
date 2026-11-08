@@ -1,6 +1,6 @@
 ---
 status: accepted
-updated: 2026-10-07
+updated: 2026-11-08
 ---
 
 # URL and redirect contract
@@ -11,6 +11,14 @@ does not route translated slugs, and paths carry no trailing slash. Every page d
 as canonical, links its counterpart in the other language, and names the `.com` page as the
 default for unknown languages. Each domain publishes its own sitemap and robots file;
 redirects, aliases, and PDFs appear in no sitemap.
+
+Two page classes of the Software site are exempt from the shared-path rule, because blog
+posts are not translated by default: an untranslated post at `/blog/<slug>` and a tag archive
+at `/blog/tags/<key>` that only one language uses. Such a page declares itself as canonical,
+links no alternates, and the other domain answers the path with 404. A redirect or 410 for a
+renamed or withdrawn single-language post applies only on its own domain. No other site and
+no other path may exist in one language only. [ADR-0021](0021-blog-on-the-software-website.md)
+records the blog decision as a whole.
 
 Redirects are permanent (301) and exist only for known paths. An unknown path stays 404, and
 content that was removed on purpose answers 410. Alias and personal domains stay registered
@@ -39,5 +47,8 @@ the fixed-price offer PDFs answer 410.
   concrete rules and is copied, not re-derived.
 - Redirects live in the repository as typed data with table-driven tests
   ([ADR-0009](0009-delivery-model.md)), in `hosting/redirects.ts`.
+- The deployment compares both language builds of each site in `hosting/seo.ts` and rejects
+  every unpaired path outside the two blog classes. A legacy rule for a single-language post
+  carries that post's locale.
 - Redirects drop the query string: the website zones ignore it in their cache key, so a
   cached redirect must not carry one visitor's parameters to the next.

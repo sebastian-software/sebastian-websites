@@ -12,11 +12,11 @@ import { variant } from "~/lib/site"
 
 // eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
 export function meta(): ArdoMetaDescriptor[] {
-  return [
-    ...seoMeta("/contact"),
-    { title: t`Contact – Sebastian Software` },
-    { content: t`How to reach Sebastian Software GmbH in Mainz.`, name: "description" },
-  ]
+  return seoMeta({
+    description: t`How to reach Sebastian Software GmbH in Mainz.`,
+    path: "/contact",
+    title: t`Contact – Sebastian Software`,
+  })
 }
 
 export default function Contact(): ReactElement {

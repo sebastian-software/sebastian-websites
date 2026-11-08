@@ -23,6 +23,15 @@ describe("seo", () => {
     ])
   })
 
+  it("links only the canonical on a page without a counterpart", () => {
+    expect(
+      createSeoLinks("software", "en", { counterpart: false, path: "/blog/a-post/" })
+    ).toStrictEqual([{ href: "https://sebastian-software.com/blog/a-post", rel: "canonical" }])
+    expect(createSeoLinks("software", "en", { counterpart: true, path: "/company" })).toStrictEqual(
+      createSeoLinks("software", "en", "/company")
+    )
+  })
+
   it.each(Object.values(VARIANTS))(
     "keeps canonical hosts independent of previews for $site-$locale",
     (variant) => {

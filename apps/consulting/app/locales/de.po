@@ -1608,6 +1608,10 @@ msgstr "Bingen am Rhein, Deutschland"
 msgid "Bingen, Germany"
 msgstr "Bingen, Deutschland"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Blog"
+msgstr "Blog"
+
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Bonn, Germany"
 msgstr "Bonn, Deutschland"
@@ -2049,6 +2053,10 @@ msgstr "Entwicklung, die das Team weiterbringt."
 msgid "English"
 msgstr "Englisch"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "English blog"
+msgstr "Englischer Blog"
+
 #: app/data/fastner.data.ts#getConsultant
 msgid "Enterprise Software / SaaS"
 msgstr "Enterprise Software / SaaS"
@@ -2434,6 +2442,10 @@ msgstr ""
 #: app/data/werner.data.ts#getConsultant
 msgid "German"
 msgstr "Deutsch"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "German blog"
+msgstr "Deutscher Blog"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection

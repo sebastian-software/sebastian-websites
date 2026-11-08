@@ -602,8 +602,8 @@ importers:
         specifier: 'catalog:'
         version: 1.21.2
       ardo:
-        specifier: 6.3.0
-        version: 6.3.0(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
+        specifier: 6.4.1
+        version: 6.4.1(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
       react:
         specifier: 'catalog:'
         version: 19.3.0
@@ -659,6 +659,9 @@ importers:
       vite:
         specifier: 'catalog:'
         version: 8.3.4(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1)
+      yaml:
+        specifier: ^2.9.1
+        version: 2.9.1
 
   packages/config:
     dependencies:
@@ -3065,8 +3068,8 @@ packages:
     resolution: {integrity: sha512-4Dj6M28JB+oAH8kFkTLUo+a2jwOFkuqb3yucU0CANcRRUbxS0cP0nZYCGjcc3BNXwRIsUVmDGgzawme7zvJHvg==}
     engines: {node: '>=12'}
 
-  ardo@6.3.0:
-    resolution: {integrity: sha512-v8zC3TFH9rQIP81Rc7bNdW9tcG9hToaUeQyIRp3Nx/tid+dxEB9nqgQ0Gv5aAVHEFP4RMoWdJX57CTL9vHJRMg==}
+  ardo@6.4.1:
+    resolution: {integrity: sha512-CS3WJgpwZEh8dkKKNbd0m5YzqpZJryujoLvOEYZRQPI7zPUuV7PW3DFmS0BUX40zcaZAvM/cMqkWAJTK3EpcxA==}
     engines: {node: '>=22.22.0'}
     hasBin: true
     peerDependencies:
@@ -7468,7 +7471,7 @@ snapshots:
 
   ansi-styles@6.2.3: {}
 
-  ardo@6.3.0(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3):
+  ardo@6.4.1(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3):
     dependencies:
       '@base-ui/react': 1.9.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@ferriki/core': 1.3.0

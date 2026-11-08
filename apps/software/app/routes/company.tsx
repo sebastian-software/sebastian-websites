@@ -14,14 +14,11 @@ import { variant } from "~/lib/site"
 
 // eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
 export function meta(): ArdoMetaDescriptor[] {
-  return [
-    ...seoMeta("/company"),
-    { title: t`Company – Sebastian Software` },
-    {
-      content: t`Sebastian Software GmbH: founded in 2014 in Mainz by Sebastian Fastner and Sebastian Werner. Our mission, our team, and how we build.`,
-      name: "description",
-    },
-  ]
+  return seoMeta({
+    description: t`Sebastian Software GmbH: founded in 2014 in Mainz by Sebastian Fastner and Sebastian Werner. Our mission, our team, and how we build.`,
+    path: "/company",
+    title: t`Company – Sebastian Software`,
+  })
 }
 
 function Mission(): ReactElement {

@@ -104,6 +104,10 @@ msgstr ""
 #~ "highlighting, Markdown, spell checking, translation catalogs, file walking, "
 #~ "and PDF previews, plus Palamedes, Dalo, and Ardo built on them."
 
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid "A product that works across languages."
+msgstr "A product that works across languages."
+
 #: app/routes/products.tsx
 msgid ""
 "A product that works for its first customers should still work for them in "
@@ -154,6 +158,10 @@ msgstr ""
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Address"
 msgstr "Address"
+
+#: app/components/blog/TagArchive.tsx
+msgid "All posts"
+msgstr "All posts"
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/open-source.tsx
@@ -206,6 +214,10 @@ msgstr ""
 #~ msgid "Architecture reviews and modernization"
 #~ msgstr "Architecture reviews and modernization"
 
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid "Architecture that leaves room for change."
+msgstr "Architecture that leaves room for change."
+
 #: app/routes/contact.tsx
 msgid ""
 "Architecture, delivery, and enablement for frontend teams: that is the job of "
@@ -219,6 +231,10 @@ msgstr ""
 #: app/data/products.ts#getProducts
 msgid "Ask us about VorOrt"
 msgstr "Ask us about VorOrt"
+
+#: app/components/blog/PostMeta.tsx#PostMeta
+msgid "Authors"
+msgstr "Authors"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
 msgid "Automated Decision-Making"
@@ -236,6 +252,14 @@ msgid ""
 msgstr ""
 "Based in Mainz and Heidelberg, rooted in the Rhine-Main and Rhine-Neckar "
 "regions. Two founders run the company themselves."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Blog"
+msgstr "Blog"
+
+#: app/components/blog/TagArchive.tsx
+msgid "Blog topic"
+msgstr "Blog topic"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Book an intro call"
@@ -464,6 +488,7 @@ msgstr "Device information (screen size, operating system, browser)"
 msgid "Discover Sebastian/Software"
 msgstr "Discover Sebastian/Software"
 
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
 #: app/routes/index.tsx
 msgid "Discover the products"
 msgstr "Discover the products"
@@ -487,6 +512,14 @@ msgstr ""
 "our own work wherever they fit. That is our standard: we would not sell "
 "anything we would not want to use ourselves. The products have their own sites"
 " with every detail; this is what they are for."
+
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid ""
+"Each of our products grew out of a gap we saw ourselves, and we use them in "
+"our own work."
+msgstr ""
+"Each of our products grew out of a gap we saw ourselves, and we use them in "
+"our own work."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/home.tsx#Products
@@ -542,6 +575,14 @@ msgstr "Email address"
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid "Email:"
 msgstr "Email:"
+
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid "Engineering that moves the team forward."
+msgstr "Engineering that moves the team forward."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "English blog"
+msgstr "English blog"
 
 #: app/components/RegionStory.tsx#RegionStory
 msgid "Enthusiasm."
@@ -599,6 +640,18 @@ msgstr "Experience."
 #~ msgid "Experience. Clarity. Enthusiasm."
 #~ msgstr "Experience. Clarity. Enthusiasm."
 
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid "Explore architecture consulting"
+msgstr "Explore architecture consulting"
+
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid "Explore engineering support"
+msgstr "Explore engineering support"
+
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid "Explore internationalization consulting"
+msgstr "Explore internationalization consulting"
+
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/home.tsx
 #~ msgid "Explore our open source"
@@ -607,6 +660,10 @@ msgstr "Experience."
 #: app/components/OpenFoundations.tsx#OpenFoundations
 msgid "Explore our open source projects"
 msgstr "Explore our open source projects"
+
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid "Explore our open-source work"
+msgstr "Explore our open-source work"
 
 #: app/data/products.ts#getProducts
 msgid "Explore Terminaro"
@@ -623,6 +680,14 @@ msgstr "External Links"
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Fax:"
 msgstr "Fax:"
+
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid ""
+"Ferramenta is our family of Rust engines and applications for documents and "
+"text, with benchmarks and comparisons."
+msgstr ""
+"Ferramenta is our family of Rust engines and applications for documents and "
+"text, with benchmarks and comparisons."
 
 #: app/components/MetricsBand.tsx#MetricsBand
 msgid "Ferramenta: engines and applications in Rust"
@@ -692,11 +757,11 @@ msgstr ""
 #~ " open tools in Rust and TypeScript, and, as Sebastian Consulting, project "
 #~ "support for teams that want their frontend architecture to carry."
 
-#: app/components/Founders.tsx#Founders
+#: app/lib/founders.ts#getFounders
 msgid "Founder · Frontend architecture and developer experience"
 msgstr "Founder · Frontend architecture and developer experience"
 
-#: app/components/Founders.tsx#Founders
+#: app/lib/founders.ts#getFounders
 msgid "Founder · Full stack and platform"
 msgstr "Founder · Full stack and platform"
 
@@ -731,12 +796,20 @@ msgstr ""
 #~ "decisions. Not every innovation is right for us – we consciously select what"
 #~ " really offers added value."
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "German blog"
+msgstr "German blog"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 #: app/routes/contact.tsx
 msgid "Germany"
 msgstr "Germany"
+
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid "Get in touch"
+msgstr "Get in touch"
 
 #: app/data/products.ts#getProducts
 msgid ""
@@ -814,6 +887,14 @@ msgstr "Hourly from GitHub, npm, and crates.io"
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "How It Works"
 msgstr "How It Works"
+
+#: app/routes/privacy.tsx#meta
+msgid ""
+"How Sebastian Software GmbH processes personal data on this website, and the "
+"rights you have."
+msgstr ""
+"How Sebastian Software GmbH processes personal data on this website, and the "
+"rights you have."
 
 #: app/routes/contact.tsx#meta
 msgid "How to reach Sebastian Software GmbH in Mainz."
@@ -895,7 +976,12 @@ msgstr ""
 "transfer arrangements. You can contact our privacy address above for "
 "information about applicable safeguards and a copy of them."
 
+#: app/components/blog/tagLabel.ts#tagLabel
+msgid "Internationalization"
+msgstr "Internationalization"
+
 #: app/components/OpenFoundations.tsx#OpenFoundations
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
 msgid ""
 "Internationalization for TypeScript applications: message extraction, "
 "catalogs, and framework adapters."
@@ -1084,6 +1170,10 @@ msgstr "Need a clearer direction for your software?"
 msgid "Newsletter"
 msgstr "Newsletter"
 
+#: app/components/blog/NextStep.tsx#NextStep
+msgid "Next step"
+msgstr "Next step"
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
 msgid ""
 "No automated decision-making, including profiling, pursuant to Art. 22 GDPR "
@@ -1091,6 +1181,14 @@ msgid ""
 msgstr ""
 "No automated decision-making, including profiling, pursuant to Art. 22 GDPR "
 "takes place."
+
+#: app/components/blog/BlogIndex.tsx#overviewLead
+msgid ""
+"Notes from the two founders: how we build our products, what we learn in "
+"client projects, and the tools behind both."
+msgstr ""
+"Notes from the two founders: how we build our products, what we learn in "
+"client projects, and the tools behind both."
 
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#Hero
@@ -1262,6 +1360,32 @@ msgstr ""
 "Our agency helps teams with software architecture, engineering and technical "
 "direction."
 
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid ""
+"Our agency Sebastian Consulting helps teams find the coupling that makes small"
+" changes expensive, and works out the next useful step with them."
+msgstr ""
+"Our agency Sebastian Consulting helps teams find the coupling that makes small"
+" changes expensive, and works out the next useful step with them."
+
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid ""
+"Our agency Sebastian Consulting makes language support part of the product, "
+"from the interface to the content people create and share."
+msgstr ""
+"Our agency Sebastian Consulting makes language support part of the product, "
+"from the interface to the content people create and share."
+
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid ""
+"Our agency Sebastian Consulting works in the code with the people who maintain"
+" it. Decisions become working software, and the reasoning stays with your "
+"team."
+msgstr ""
+"Our agency Sebastian Consulting works in the code with the people who maintain"
+" it. Decisions become working software, and the reasoning stays with your "
+"team."
+
 #: app/routes/open-source.tsx
 msgid ""
 "Our careers began in open source: qooxdoo at 1&1, Unify at Deutsche Telekom, "
@@ -1365,6 +1489,11 @@ msgstr "PlanetScale subprocessors"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Please enter a complete email address, such as name@example.com."
 msgstr "Please enter a complete email address, such as name@example.com."
+
+#: app/components/blog/TagArchive.tsx#meta
+#: app/components/blog/TagArchive.tsx
+msgid "Posts from Sebastian Software on {label}, newest first."
+msgstr "Posts from Sebastian Software on {label}, newest first."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Privacy"
@@ -1477,17 +1606,53 @@ msgstr "Projects on GitHub"
 #~ msgid "Proof instead of claims"
 #~ msgstr "Proof instead of claims"
 
+#: app/routes/imprint.tsx#meta
+msgid ""
+"Provider details of Sebastian Software GmbH in Mainz: address, contact, "
+"commercial register, and VAT ID."
+msgstr ""
+"Provider details of Sebastian Software GmbH in Mainz: address, contact, "
+"commercial register, and VAT ID."
+
 #: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
 msgid "Public monthly usage totals"
 msgstr "Public monthly usage totals"
 
-#: app/components/Founders.tsx#Founders
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid "Questions about this topic?"
+msgstr "Questions about this topic?"
+
+#: app/lib/founders.ts#getFounders
 msgid ""
 "React, TypeScript, internationalization, and code quality. In web development "
 "since 2000, formerly architect of the qooxdoo framework at 1&1."
 msgstr ""
 "React, TypeScript, internationalization, and code quality. In web development "
 "since 2000, formerly architect of the qooxdoo framework at 1&1."
+
+#: app/components/blog/BlogEmpty.tsx#BlogEmpty
+msgid "Read the English blog"
+msgstr "Read the English blog"
+
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid "Read the Ferramenta documentation"
+msgstr "Read the Ferramenta documentation"
+
+#: app/components/blog/BlogEmpty.tsx#BlogEmpty
+msgid "Read the German blog"
+msgstr "Read the German blog"
+
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid "Read the Palamedes documentation"
+msgstr "Read the Palamedes documentation"
+
+#: app/components/blog/PostTranslationLink.tsx#PostTranslationLink
+msgid "Read this post in English"
+msgstr "Read this post in English"
+
+#: app/components/blog/PostTranslationLink.tsx#PostTranslationLink
+msgid "Read this post in German"
+msgstr "Read this post in German"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "References"
@@ -1598,6 +1763,14 @@ msgstr ""
 "converting Markdown. Built because our products needed tools written in modern"
 " Rust, tested, and measurable. The family has its own site with benchmarks and"
 " comparisons."
+
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid ""
+"Rust engines, TypeScript libraries, and skills for coding agents: what we "
+"build for our products, we share again."
+msgstr ""
+"Rust engines, TypeScript libraries, and skills for coding agents: what we "
+"build for our products, we share again."
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""
@@ -1839,6 +2012,18 @@ msgstr "Storage for static files and assets"
 msgid "Subscribe"
 msgstr "Subscribe"
 
+#: app/components/blog/FeedLinks.tsx#FeedLinks
+msgid "Subscribe to the blog"
+msgstr "Subscribe to the blog"
+
+#: app/components/blog/FeedLinks.tsx#FeedLinks
+msgid "Subscribe via Atom"
+msgstr "Subscribe via Atom"
+
+#: app/components/blog/FeedLinks.tsx#FeedLinks
+msgid "Subscribe via RSS"
+msgstr "Subscribe via RSS"
+
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#ProjectSupport
 #~ msgid ""
@@ -2013,6 +2198,15 @@ msgstr "The two founders at the laptop"
 msgid "The two founders in front of the building"
 msgstr "The two founders in front of the building"
 
+#~ #@ obsolete-since: 2026-11-08
+#~ #: app/components/blog/BlogIndex.tsx#overviewLead
+#~ msgid ""
+#~ "The two founders write about their work: how we build our products, what we "
+#~ "learn in client projects, and the tools behind both."
+#~ msgstr ""
+#~ "The two founders write about their work: how we build our products, what we "
+#~ "learn in client projects, and the tools behind both."
+
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""
 "The use of Rybbit is based on Art. 6(1)(f) GDPR. Our legitimate interest lies "
@@ -2032,6 +2226,14 @@ msgstr ""
 "information already stored on the user's device, consent under § 25 TDDDG "
 "(German Telecommunications Digital Services Data Protection Act) is not "
 "required."
+
+#: app/components/blog/BlogEmpty.tsx#BlogEmpty
+msgid ""
+"There are no posts in this language yet. New posts appear here and in the "
+"feeds as soon as they are published."
+msgstr ""
+"There are no posts in this language yet. New posts appear here and in the "
+"feeds as soon as they are published."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
 msgid "There is no contact form – contact is made exclusively by email."
@@ -2175,6 +2377,14 @@ msgstr "To the Open Source site →"
 #~ msgid "To the Skills site →"
 #~ msgstr "To the Skills site →"
 
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid "Tools you can inspect."
+msgstr "Tools you can inspect."
+
+#: app/components/blog/PostTags.tsx#PostTags
+msgid "Topics"
+msgstr "Topics"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Trademark Notice"
 msgstr "Trademark Notice"
@@ -2239,7 +2449,7 @@ msgstr "Trust through inspection"
 msgid "Two founders. Nothing in between."
 msgstr "Two founders. Nothing in between."
 
-#: app/components/Founders.tsx#Founders
+#: app/lib/founders.ts#getFounders
 msgid ""
 "TypeScript, React, Rust, and infrastructure, from the surface to the backend. "
 "In professional software development since 2002."
@@ -2252,6 +2462,10 @@ msgid ""
 "Under the GDPR, you have the following rights regarding your personal data:"
 msgstr ""
 "Under the GDPR, you have the following rights regarding your personal data:"
+
+#: app/components/blog/PostMeta.tsx#UpdatedOn
+msgid "Updated on {day}"
+msgstr "Updated on {day}"
 
 #: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
 msgid ""
@@ -2358,6 +2572,7 @@ msgid ""
 msgstr ""
 "We build products, open-source projects and agent tools for everyday work."
 
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
 #: app/routes/products.tsx
 msgid "We build what we need ourselves."
 msgstr "We build what we need ourselves."
@@ -2458,6 +2673,10 @@ msgstr ""
 "applications, a family of TypeScript libraries, and skills for coding agents. "
 "The full catalogue with every project lives on the Open Source site; this page"
 " explains why we do it and what belongs together."
+
+#: app/components/blog/BlogIndex.tsx
+msgid "What we learn while building software."
+msgstr "What we learn while building software."
 
 #: app/routes/company.tsx#Mission
 msgid "What we stand for."
@@ -2627,10 +2846,9 @@ msgstr ""
 msgid "Withdrawal, deletion, and your rights"
 msgstr "Withdrawal, deletion, and your rights"
 
-#~ #@ obsolete-since: 2026-10-06
-#~ #: app/routes/contact.tsx
-#~ msgid "Write to us; one of the two founders answers."
-#~ msgstr "Write to us; one of the two founders answers."
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid "Write to us; one of the two founders answers."
+msgstr "Write to us; one of the two founders answers."
 
 #: app/routes/contact.tsx
 msgid ""

@@ -10,6 +10,7 @@ import { loadBunnyImages } from "./images.ts"
 import { originRequest, planPath, publicPath } from "./middleware-logic.ts"
 import { cacheRules, contentTypeRules, provision, pullZoneSettings } from "./provision.ts"
 import { checksum, loadAssets, publish } from "./publish.ts"
+import { PATH_RULES, type PathRule, planLegacyPath } from "./redirects.ts"
 import { runSmoke, smokeChecks } from "./smoke.ts"
 import {
   ASSET_TARGET,
@@ -601,6 +602,54 @@ test("current, unknown, and other sites' paths are not legacy redirects", () => 
   }
 })
 
+test("locale-scoped legacy rules affect only their own domain", () => {
+  // A withdrawn German-only post and a renamed English-only post.
+  const rules: readonly PathRule[] = [
+    { gone: true, id: "BLOG-WITHDRAWN", locale: "de", path: "/blog/zurueckgezogen" },
+    {
+      destination: { path: "/blog/new-name", site: "software" },
+      id: "BLOG-RENAMED",
+      locale: "en",
+      path: "/blog/old-name",
+    },
+    { gone: true, id: "BLOG-BOTH", path: "/blog/withdrawn-pair" },
+  ]
+  const de = { locale: "de", site: "software" } as const
+  const en = { locale: "en", site: "software" } as const
+  const plan = (serving: typeof de | typeof en, path: string) =>
+    planLegacyPath(serving, new URL(path, "https://sebastian-software.example"), rules)
+  assert.deepEqual(plan(de, "/blog/zurueckgezogen/"), { id: "BLOG-WITHDRAWN", kind: "gone" })
+  assert.equal(plan(en, "/blog/zurueckgezogen"), undefined)
+  assert.deepEqual(plan(en, "/blog/old-name"), {
+    id: "BLOG-RENAMED",
+    kind: "moved",
+    location: "https://sebastian-software.example/blog/new-name",
+  })
+  assert.equal(plan(de, "/blog/old-name"), undefined)
+  assert.deepEqual(plan(de, "/blog/withdrawn-pair"), { id: "BLOG-BOTH", kind: "gone" })
+  assert.deepEqual(plan(en, "/blog/withdrawn-pair"), { id: "BLOG-BOTH", kind: "gone" })
+  assert.deepEqual(smokeChecks("software-de", "https://sebastian-software.de", rules).slice(-3), [
+    { path: "/blog/zurueckgezogen", status: GONE },
+    { path: "/blog/old-name", status: NOT_FOUND },
+    { path: "/blog/withdrawn-pair", status: GONE },
+  ])
+  assert.deepEqual(smokeChecks("software-en", "https://sebastian-software.com", rules).slice(-3), [
+    { path: "/blog/zurueckgezogen", status: NOT_FOUND },
+    {
+      location: "https://sebastian-software.com/blog/new-name",
+      path: "/blog/old-name",
+      status: MOVED_PERMANENTLY,
+    },
+    { path: "/blog/withdrawn-pair", status: GONE },
+  ])
+  // The current rules carry no locale, so both domains keep answering alike.
+  assert.ok(
+    Object.values(PATH_RULES)
+      .flat()
+      .every((rule) => rule.locale === undefined)
+  )
+})
+
 test("targets cover every variant, the brand site, and the build-free asset zone", () => {
   assert.equal(TARGETS.length, Object.keys(VARIANTS).length + 2)
   assert.ok(TARGETS.every((entry) => entry.name.startsWith("sebastian-websites-")))
@@ -914,9 +963,19 @@ test("Software resource smoke checks validate actual MIME headers, including cha
   )
   assert.deepEqual(
     checks.map((check) => check.path),
-    ["/sitemap.xml", "/robots.txt", "/manifest.webmanifest"]
+    [
+      "/sitemap.xml",
+      "/robots.txt",
+      "/manifest.webmanifest",
+      "/blog",
+      "/blog/rss.xml",
+      "/blog/atom.xml",
+    ]
   )
   const types: Readonly<Record<string, string>> = {
+    "/blog": "text/html; charset=utf-8",
+    "/blog/atom.xml": "application/xml",
+    "/blog/rss.xml": "application/rss+xml; charset=utf-8",
     "/manifest.webmanifest": "application/manifest+json; charset=utf-8",
     "/robots.txt": "text/plain; charset=utf-8",
     "/sitemap.xml": "text/xml; charset=utf-8",
@@ -942,5 +1001,23 @@ test("Software resource smoke checks validate actual MIME headers, including cha
         })
     ),
     ["/robots.txt: Content-Type text/html, expected text/plain"]
+  )
+  // A feed served as HTML or as a download fails discovery.
+  assert.deepEqual(
+    await runSmoke(
+      origin,
+      checks.slice(-2),
+      async () => new Response("", { headers: { "content-type": "application/octet-stream" } })
+    ),
+    [
+      "/blog/rss.xml: Content-Type application/octet-stream, expected application/rss+xml or application/xml or text/xml",
+      "/blog/atom.xml: Content-Type application/octet-stream, expected application/atom+xml or application/xml or text/xml",
+    ]
+  )
+  // Only the Software brand site has the blog.
+  assert.ok(
+    smokeChecks("opensource-en", "https://sebastian-open-source.example").every(
+      (check) => !check.path.startsWith("/blog")
+    )
   )
 })

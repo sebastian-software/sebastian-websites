@@ -42,12 +42,34 @@ CAA, and nameservers were compared before and after and remained unchanged.
 
 ## What a deployment does
 
-Before changing remote files, `seo.ts` validates every site variant's build. Its
-sitemap must list exactly the canonical HTML pages, excluding the not-found page
-and downloads. Each page must have one self-referencing canonical, the expected
-German, English, and English `x-default` alternates, the correct document language,
-and no indexing block. Its robots file must allow crawling and name its own sitemap.
-The brand catalog and shared asset zone are outside this variant contract.
+Before changing remote files, `check-builds.ts` loads every buildable target and
+`seoPlans()` in `seo.ts` compares the two language builds of each site:
+
+- A site with a build in one language only fails.
+- Both builds must record the same build time in `build-time.txt`, next to their
+  `client/` directory and therefore never uploaded. The value is an RFC 3339
+  timestamp with seconds and a time zone. The Software build writes it, and the
+  check requires it there, because Ardo decides by it which posts are due. Other
+  sites write no file yet; two of their builds without it count as built together.
+- A path in both builds needs the German, English, and English `x-default`
+  alternates. Only Software may have a path in one build only, and only blog posts
+  (`/blog/<slug>` marked `og:type=article`) and tag archives (`/blog/tags/<key>`)
+  qualify. Such a page links no alternates (ADR-0010). Every other unpaired path
+  fails.
+
+The Software builds are also checked for raster images in the blog: the `<main>`
+content of every `blog/**/index.html` and the entries of both feeds may reference
+SVG images only, and the build may hold no raster publication renditions below
+`assets/posts/` (`blog-output.ts`). The shared page frame keeps its Bunny images.
+
+The comparison yields one plan per variant, and each build is then checked against
+its plan. Its sitemap must list exactly the canonical HTML pages, excluding the
+not-found page and downloads. Each page must have one self-referencing canonical,
+the alternates from the plan, the correct document language, and no indexing block.
+Software pages also need exactly one `og:type` and one `og:url` equal to the
+canonical. On other sites these tags are optional but must not repeat or name
+another page. Its robots file must allow crawling and name its own sitemap. The
+brand catalog and shared asset zone are outside this variant contract.
 
 Before publishing websites, deployment collects Vite's `?bunny` image manifests,
 verifies content hashes, and publishes the deduplicated originals to the shared
@@ -71,13 +93,15 @@ For website targets:
 2. `publish.ts`: uploads new and changed files by checksum, deletes files the build no longer
    contains, and purges the pull zone.
 3. `verify.ts`: fetches the home page, one prerendered route with and without a trailing
-   slash, a missing path, and one asset per CORS extension on the origin host. It also
-   checks both language sitemaps and robots files, every sitemap page, and each
-   other-language counterpart. Documents must return 200 without a redirect, preserve
-   the expected canonical and reciprocal alternates, and carry no meta or HTTP
-   `X-Robots-Tag` indexing block. All website targets are published before verification
-   so a new route is available in both languages. Checks fetch the Bunny origin hosts
-   while validating canonical URLs on the public domains, including before DNS cutover.
+   slash, a missing path, and one asset per CORS extension on the origin host. With the
+   plan computed before upload, `verifySeo` then checks the variant's own origin: its
+   sitemap and robots file, and every page of the plan. Documents must return 200
+   without a redirect, carry the canonical and alternates the plan expects, and carry
+   no meta or HTTP `X-Robots-Tag` indexing block. The other language's single-language
+   pages must answer 404 on this origin. All website targets are published before
+   verification, so each origin is checked against the state of both builds. Checks
+   fetch the Bunny origin hosts while validating canonical URLs on the public domains,
+   including before DNS cutover.
 
 The middleware (`middleware-logic.ts`, bundled by `bundle.ts`) resolves `/imprint` to
 `imprint/index.html` on the storage zone and redirects `/imprint/` to `/imprint` permanently,
@@ -87,8 +111,23 @@ because prerendering writes directories and Bunny Storage serves files only.
 
 ```bash
 pnpm build
+pnpm hosting:plan
 BUNNY_API_KEY=… pnpm deploy
 ```
+
+`pnpm hosting:plan` runs the pre-upload checks of a deployment without credentials:
+the build comparison, the SEO plans, the blog's raster-image check, and the Bunny
+image manifests. CI runs it after `pnpm build`, and `pnpm deploy` repeats it before
+changing any remote file. Build both languages of a site before running either
+command; a one-language build, such as `build:de`, fails the check.
+`node hosting/check-builds.ts <root>` checks builds laid out like a checkout below
+another root; `pnpm --filter @sebastian-websites/software check:fixtures` uses it for
+its fixture builds.
+
+`pnpm hosting:smoke software-de` and `software-en` also request `/blog`,
+`/blog/rss.xml`, and `/blog/atom.xml`: the overview must be served as `text/html`,
+the feeds as `application/rss+xml` or `application/atom+xml`, or as a generic XML
+type.
 
 Locally the key comes from 1Password; in CI from the secret. `pnpm hosting:check` runs the
 type check, lint, and the tests against a fake Bunny account.

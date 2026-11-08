@@ -10,7 +10,11 @@ import { seoMeta } from "~/lib/seo"
 
 // eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
 export function meta(): ArdoMetaDescriptor[] {
-  return [...seoMeta("/imprint"), { title: t`Legal Notice – Sebastian Software` }]
+  return seoMeta({
+    description: t`Provider details of Sebastian Software GmbH in Mainz: address, contact, commercial register, and VAT ID.`,
+    path: "/imprint",
+    title: t`Legal Notice – Sebastian Software`,
+  })
 }
 
 export default function Imprint(): ReactElement {

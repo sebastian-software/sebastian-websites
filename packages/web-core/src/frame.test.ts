@@ -1,6 +1,15 @@
-import { describe, expect, it } from "vitest"
+import { describe, expect, it, vi } from "vitest"
 
+import { BLOG_NAVIGATION_PHASES, type BlogNavigationPhase } from "./blogLaunch.ts"
 import { BOOKING_URL, contactEmail, getLanguageLinks, getSiteFrame } from "./frame.ts"
+import { SITES } from "./sites.ts"
+
+// This suite checks the frame before the launch, whatever phase is committed;
+// `frame.blog.test.ts` covers the launching and live phases.
+vi.mock(import("./blogLaunch.ts"), async (importOriginal) => ({
+  ...(await importOriginal()),
+  BLOG_NAVIGATION: "off" as const,
+}))
 
 describe("site frame", () => {
   it("gives Software and Open Source the Software context without a Skills entry", () => {
@@ -12,6 +21,21 @@ describe("site frame", () => {
         brand: "consulting",
         href: "https://sebastian-consulting.com/",
       })
+    }
+  })
+
+  it("commits one of the known launch phases", async () => {
+    const committed = await vi.importActual<{ BLOG_NAVIGATION: BlogNavigationPhase }>(
+      "./blogLaunch.ts"
+    )
+    expect(BLOG_NAVIGATION_PHASES).toContain(committed.BLOG_NAVIGATION)
+  })
+
+  it("leaves the blog out of every navigation while its launch phase is off", () => {
+    for (const site of SITES) {
+      const frame = getSiteFrame(site, "en", "/")
+      expect(frame.navigation.some((link) => link.id === "blog")).toBe(false)
+      expect(frame.index.some((link) => link.id === "blog")).toBe(false)
     }
   })
 
@@ -115,6 +139,52 @@ describe("language links", () => {
       },
     ])
   })
+
+  it("leads a page without a counterpart to the other language's blog overview", () => {
+    expect(
+      getLanguageLinks("software", "de", { counterpart: false, path: "/blog/ein-beitrag" })
+    ).toStrictEqual([
+      {
+        current: false,
+        fallback: true,
+        href: "https://sebastian-software.com/blog",
+        label: "English",
+        locale: "en",
+      },
+      {
+        current: true,
+        href: "https://sebastian-software.de/blog/ein-beitrag",
+        label: "Deutsch",
+        locale: "de",
+      },
+    ])
+    const frame = getSiteFrame("software", "en", { counterpart: false, path: "/blog/tags/rust/" })
+    expect(frame.languages.map((language) => language.href)).toStrictEqual([
+      "https://sebastian-software.com/blog/tags/rust",
+      "https://sebastian-software.de/blog",
+    ])
+  })
+
+  it("keeps the matching page when a counterpart exists", () => {
+    expect(
+      getLanguageLinks("software", "en", { counterpart: true, path: "/blog/a-post" })
+    ).toStrictEqual(getLanguageLinks("software", "en", "/blog/a-post"))
+    expect(
+      getSiteFrame("software", "de", { counterpart: true, path: "/blog/a-post" }).languages.some(
+        (language) => language.fallback === true
+      )
+    ).toBe(false)
+  })
+
+  it.each(["consulting", "opensource", "skills", "app-tracking"] as const)(
+    "requires a counterpart on %s, which has no blog",
+    (site) => {
+      expect(() => getSiteFrame(site, "en", { counterpart: false, path: "/" })).toThrow("no blog")
+      expect(getSiteFrame(site, "en", "/privacy").languages).toStrictEqual(
+        getLanguageLinks(site, "en", "/privacy")
+      )
+    }
+  )
 
   it("follows the frame's normalized path", () => {
     const languages = getSiteFrame("consulting", "en", "/privacy/").languages

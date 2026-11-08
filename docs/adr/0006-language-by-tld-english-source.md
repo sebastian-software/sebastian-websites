@@ -1,6 +1,6 @@
 ---
 status: accepted
-updated: 2026-10-05
+updated: 2026-11-08
 ---
 
 # The TLD selects the language; English is the source
@@ -8,7 +8,10 @@ updated: 2026-10-05
 Every site is published in German and English. The `.de` domain serves German and the `.com`
 domain serves English; switching language means switching domain. Palamedes provides the
 catalogs and the TLD switching. English is the source language of all three sites and German is
-always a translation, so untranslated content appears in English everywhere.
+always a translation, so untranslated content appears in English everywhere. The Software blog is the exception:
+posts are written per language and are not translated by default, so a post exists only on the
+domain of its language unless a counterpart is written
+([ADR-0021](0021-blog-on-the-software-website.md)).
 
 ## Considered options
 
@@ -26,4 +29,5 @@ always a translation, so untranslated content appears in English everywhere.
 - Legal texts, navigation, and each site's primary call to action must be complete in both
   languages; a gap there fails the build. All other gaps are allowed and reported by the build.
 - German visitors may see English passages until a translation or a Palamedes capability
-  catches up.
+  catches up. Blog posts do not fall back: the `.de` blog lists German posts only and the `.com`
+  blog English posts only, and a missing translation is no gap to report.

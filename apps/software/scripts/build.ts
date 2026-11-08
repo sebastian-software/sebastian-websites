@@ -3,7 +3,7 @@
 import type * as SharedUi from "@sebastian-websites/ui"
 
 import { fetchMetricsSummary } from "@sebastian-websites/content"
-import { getVariant, SITE_BRAND } from "@sebastian-websites/web-core"
+import { BLOG_NAVIGATION, getVariant, SITE_BRAND } from "@sebastian-websites/web-core"
 import { bunnyImages } from "@sebastian-websites/web-core/vite"
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin"
 import assert from "node:assert/strict"
@@ -12,14 +12,40 @@ import { cp, mkdir, readdir, readFile, realpath, rm, symlink, writeFile } from "
 import { createRequire } from "node:module"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
+import { parseArgs } from "node:util"
 import { build, type InlineConfig } from "vite"
 
+import { type BlogBuild, readBlog, type ReadBlogOptions, stageBlog } from "./blog-staging.ts"
+import { buildYear, resolveBuildTime } from "./build-time.ts"
 import { withDevelopmentMirror } from "./development.ts"
 import { sharedMacros } from "./macros.ts"
 
 const app = fileURLToPath(new URL("..", import.meta.url))
 const repository = path.resolve(app, "../..")
-const generated = path.join(app, ".variant-build")
+const BUILD_TIME_FILE = "build-time.txt"
+
+/**
+ * The command line: variant names, `--dev`, and for fixture builds
+ * `--content=<dir>` (the directory with the `de` and `en` posts),
+ * `--build-time=<RFC 3339>`, and `--out=<dir>` (the output root, which also
+ * holds that run's generated projects).
+ */
+const cli = parseArgs({
+  allowPositionals: true,
+  options: {
+    "build-time": { type: "string" },
+    content: { type: "string" },
+    dev: { type: "boolean" },
+    out: { type: "string" },
+  },
+})
+const outputRoot =
+  cli.values.out === undefined ? path.join(app, "build") : path.resolve(cli.values.out)
+const generated =
+  cli.values.out === undefined
+    ? path.join(app, ".variant-build")
+    : path.join(outputRoot, ".variant-build")
+const blogContent = path.resolve(cli.values.content ?? path.join(app, "content/blog"))
 const require = createRequire(import.meta.url)
 const packageNames = ["tokens", "web-core", "content", "legal", "ui"] as const
 const PACKAGE_FILE = "package.json"
@@ -304,7 +330,19 @@ async function installSitePackages(modules: string, packages: string): Promise<v
   }
 }
 
-async function prepareSite(variantId: string, packages: string, metrics: unknown): Promise<string> {
+/** What every variant project is prepared from, computed once per run. */
+type SiteInputs = { readonly blog: BlogBuild; readonly metrics: unknown; readonly packages: string }
+
+/**
+ * Generates the isolated Ardo project of one variant: the app, shared
+ * packages, resources, and the staged posts of the variant's language.
+ *
+ * @param variantId - The Software variant to prepare.
+ * @param inputs - The validated blog, the metrics snapshot, and the built packages.
+ * @returns The project directory.
+ */
+async function prepareSite(variantId: string, inputs: SiteInputs): Promise<string> {
+  const { blog, metrics, packages } = inputs
   const site = path.join(generated, variantId)
   await rm(site, { force: true, recursive: true })
   const modules = path.join(site, MODULES)
@@ -314,6 +352,7 @@ async function prepareSite(variantId: string, packages: string, metrics: unknown
   await installSitePackages(modules, packages)
   await copyPackageAssets(packages, path.join(site, "public"))
   await writeResources(site, path.join(site, "public"), variantId)
+  await stageBlog({ blog, content: blogContent, locale: getVariant(variantId).locale, site })
   return site
 }
 
@@ -374,36 +413,92 @@ async function writeResources(site: string, client: string, variantId: string): 
   )
 }
 
-async function finishSite(site: string, packages: string, variantId: string): Promise<void> {
+/**
+ * Copies a built variant to the output root and records the run's shared
+ * build time beside its `client/` directory.
+ *
+ * @param site - The variant's generated project.
+ * @param variantId - The built variant.
+ * @param inputs - The shared build time and the built packages.
+ * @param inputs.buildTime - The build time both language builds share.
+ * @param inputs.packages - The built shared package artifacts.
+ */
+async function finishSite(
+  site: string,
+  variantId: string,
+  inputs: { readonly buildTime: string; readonly packages: string }
+): Promise<void> {
+  const { buildTime, packages } = inputs
   const client = path.join(site, "build/client")
   await copyPackageAssets(packages, client)
   await mkdir(path.join(client, "404"), { recursive: true })
   await cp(path.join(client, "404.html"), path.join(client, "404/index.html"))
-  const output = path.join(app, "build", variantId)
+  const output = path.join(outputRoot, variantId)
   await mkdir(output, { recursive: true })
   await rm(path.join(output, "client"), { force: true, recursive: true })
   await cp(client, path.join(output, "client"), { recursive: true })
+  // Beside client/, so it is never uploaded; the hosting gate compares the pair.
+  await writeFile(path.join(output, BUILD_TIME_FILE), `${buildTime}\n`)
 }
 
-const development = process.argv.includes("--dev")
-const requested = process.argv.slice(2).filter((arg) => arg !== "--dev")
+const development = cli.values.dev === true
 const defaults = development ? [ENGLISH] : ["software-de", ENGLISH]
-const variants = requested.length > 0 ? requested : defaults
+const variants = cli.positionals.length > 0 ? cli.positionals : defaults
 for (const variant of variants) {
   if (variant !== "software-de" && variant !== ENGLISH)
     throw new Error(`Unknown Software variant: ${variant}`)
 }
+const sharedBuildTime = resolveBuildTime(cli.values["build-time"])
+// The variant config passes these to Ardo as buildTime and sourceRoot.
+process.env.SOFTWARE_BUILD_TIME = sharedBuildTime
+process.env.SOFTWARE_SOURCE_ROOT = app
+process.env.BUILD_YEAR = buildYear(sharedBuildTime)
+/**
+ * The launch guard applies while the navigation item is launching, and only to
+ * the site's own posts: fixture builds with `--content` decide in every phase.
+ */
+const blogOptions: ReadBlogOptions = {
+  requireBothLanguages: BLOG_NAVIGATION === "launching" && cli.values.content === undefined,
+}
+/**
+ * While the navigation item is off, the site's blog pages are built but kept
+ * out of search: no sitemap entry, and `noindex`. Fixture builds with
+ * `--content` stay indexable, so their checks see the launched blog.
+ */
+process.env.SOFTWARE_BLOG_INDEXED = String(
+  BLOG_NAVIGATION !== "off" || cli.values.content !== undefined
+)
+// Validates every post of both languages before anything is built.
+const blogBuild = await readBlog(blogContent, sharedBuildTime, blogOptions)
+console.log(
+  `Software blog at ${sharedBuildTime}: ${String(blogBuild.index.posts.de.length)} de and ${String(blogBuild.index.posts.en.length)} en posts published`
+)
 await run("pnpm", ["check:translations"], app)
 const metricsSnapshot = await fetchMetricsSummary()
 const packageArtifacts = await buildPackages()
 const ardo = path.join(path.dirname(require.resolve("ardo/package.json")), "bin/ardo.js")
 for (const variant of variants) {
-  const site = await prepareSite(variant, packageArtifacts, metricsSnapshot)
+  const inputs: SiteInputs = {
+    blog: blogBuild,
+    metrics: metricsSnapshot,
+    packages: packageArtifacts,
+  }
+  const site = await prepareSite(variant, inputs)
   process.env.SITE_VARIANT = variant
-  if (development)
-    await withDevelopmentMirror(app, site, async () => run(process.execPath, [ardo, "dev"], site))
-  else {
+  if (development) {
+    const locale = getVariant(variant).locale
+    await withDevelopmentMirror({
+      app,
+      content: blogContent,
+      async restageBlog() {
+        const blog = await readBlog(blogContent, sharedBuildTime, blogOptions)
+        await stageBlog({ blog, content: blogContent, locale, site })
+      },
+      serve: async () => run(process.execPath, [ardo, "dev"], site),
+      site,
+    })
+  } else {
     await run(process.execPath, [ardo, "build"], site)
-    await finishSite(site, packageArtifacts, variant)
+    await finishSite(site, variant, { buildTime: sharedBuildTime, packages: packageArtifacts })
   }
 }

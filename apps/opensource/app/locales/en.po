@@ -178,6 +178,10 @@ msgid "Better judgment for coding agents."
 msgstr "Better judgment for coding agents."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Blog"
+msgstr "Blog"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Book an intro call"
 msgstr "Book an intro call"
 
@@ -433,6 +437,10 @@ msgstr "Email:"
 #~ msgid "Engineering"
 #~ msgstr "Engineering"
 
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "English blog"
+msgstr "English blog"
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Entry in the Commercial Register"
 msgstr "Entry in the Commercial Register"
@@ -524,6 +532,10 @@ msgid ""
 msgstr ""
 "Further information can be found in the <0>Bunny.net privacy policy</0> and on"
 " the <1>Bunny.net GDPR page</1>."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "German blog"
+msgstr "German blog"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection

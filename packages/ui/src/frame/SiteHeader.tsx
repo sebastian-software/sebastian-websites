@@ -32,6 +32,7 @@ export function SiteHeader(props: SiteHeaderProps): ReactElement {
   const menuId = useId()
   const menuRef = useRef<HTMLDivElement>(null)
   const documentNavigation = useDocumentNavigation()
+  const currentLocale = frame.languages.find((language) => language.current)?.locale
   return (
     <header className={styles.area} data-brand={frame.brand}>
       {documentNavigation ? null : <CloseMenuOnNavigation menuRef={menuRef} />}
@@ -96,7 +97,14 @@ export function SiteHeader(props: SiteHeaderProps): ReactElement {
                       ) : (
                         <span aria-hidden="true">{language.locale.toUpperCase()}</span>
                       )}
-                      <span className={visuallyHidden}>{language.label}</span>
+                      {language.fallback === true ? (
+                        // The page has no translation: name the destination, in the page's language.
+                        <span className={visuallyHidden} lang={currentLocale}>
+                          {copy.header.blogFallback[language.locale]}
+                        </span>
+                      ) : (
+                        <span className={visuallyHidden}>{language.label}</span>
+                      )}
                     </a>
                   </li>
                 ))}

@@ -3,7 +3,15 @@ import type { ReactElement } from "react"
 import { t } from "@palamedes/core/macro"
 import { blocks, BunnyImage, button, scaledSizes } from "@sebastian-websites/ui"
 
-import { fastnerPhoto, wernerPhoto } from "~/lib/photos"
+import type { FounderId } from "~/lib/founderNames"
+
+import { getFounders } from "~/lib/founders"
+import { fastnerPhoto, type PhotoPlacement, wernerPhoto } from "~/lib/photos"
+
+const PHOTOS: Readonly<Record<FounderId, PhotoPlacement>> = {
+  fastner: fastnerPhoto,
+  werner: wernerPhoto,
+}
 
 export type FoundersProps = {
   /** Links to the Consulting profiles, when the page offers them. */
@@ -18,22 +26,7 @@ export type FoundersProps = {
  */
 export function Founders(props: FoundersProps): ReactElement {
   const { profileOrigin } = props
-  const founders = [
-    {
-      id: "werner",
-      image: wernerPhoto,
-      name: "Sebastian Werner",
-      role: t`Founder · Frontend architecture and developer experience`,
-      text: t`React, TypeScript, internationalization, and code quality. In web development since 2000, formerly architect of the qooxdoo framework at 1&1.`,
-    },
-    {
-      id: "fastner",
-      image: fastnerPhoto,
-      name: "Sebastian Fastner",
-      role: t`Founder · Full stack and platform`,
-      text: t`TypeScript, React, Rust, and infrastructure, from the surface to the backend. In professional software development since 2002.`,
-    },
-  ]
+  const founders = getFounders()
   return (
     <div className={blocks.persons}>
       {founders.map((founder) => (
@@ -43,7 +36,7 @@ export function Founders(props: FoundersProps): ReactElement {
               alt={founder.name}
               className={blocks.photoImage}
               loading="lazy"
-              {...founder.image}
+              {...PHOTOS[founder.id]}
               sizes={scaledSizes("72px")}
             />
           </span>
