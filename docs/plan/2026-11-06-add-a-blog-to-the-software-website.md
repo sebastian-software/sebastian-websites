@@ -224,7 +224,7 @@ Only the launch pull request carries:
 | File                                                                                                                            | Description                                                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Ardo repository (separate epic, issues, PRs)                                                                                    | Extensions 1–3 before launch. Extensions 4–6 are filed and do not gate the launch.                                                                                                                                                                                                                             |
-| `apps/software/package.json`                                                                                                    | Pin `ardo` 6.4.0, the release with extensions 1–5. Add the `check:fixtures` script.                                                                                                                                                                                                                            |
+| `apps/software/package.json`                                                                                                    | Pin `ardo` 6.4.1, the release with extensions 1–5. Add the `check:fixtures` script.                                                                                                                                                                                                                            |
 | `apps/software/vite.config.ts`                                                                                                  | Per-variant `publication` (`from`, `to: "blog"`, `name`, `description`, `authors`, `components`, `tagLabel`, `tags`, `feeds.entryIds`), top-level `trailingSlash: false`, `buildTime` and `sourceRoot`, the Palamedes `exclude` for generated blog routes, and the `virtual:software-blog-tags` build data.    |
 | `apps/software/scripts/build.ts`                                                                                                | Shared build time passed to Ardo as `buildTime`; staging with the `counterpart` field and the tag build data; the build-time file next to `client/`; `__BUILD_YEAR__` derived from the build time; `--content`, `--build-time`, and `--out` options for fixtures; the existing `404/index.html` normalization. |
 | `apps/software/scripts/development.ts`                                                                                          | Mirror and watch `content/`.                                                                                                                                                                                                                                                                                   |
@@ -468,7 +468,7 @@ The deep review supersedes two of those choices: `publication.now` and the `id` 
 ## Build progress
 
 **Date:** 2026-11-08
-**State:** All implementation steps are done on this branch, pinned to ardo 6.4.0. The first post is still missing, so the pull request stays a draft and the plan stays open.
+**State:** All implementation steps are done on this branch, pinned to ardo 6.4.1. The first post is still missing, so the pull request stays a draft and the plan stays open.
 
 ### Done
 
@@ -547,7 +547,7 @@ The strategic review of ardo#506 replaced the first API. The launch uses this sh
 
 ### Launch implementation (November 8, 2026)
 
-- **Ardo pin.** `ardo` 6.4.0 and `yaml` are pinned. `pnpm-workspace.yaml` exempts `ardo@6.4.0` from `minimumReleaseAge`; remove that once the release has aged past the threshold.
+- **Ardo pin.** `ardo` 6.4.1 and `yaml` are pinned. 6.4.1 adds ardo#511, which spells generated version-root redirect targets with `trailingSlash`. `pnpm-workspace.yaml` exempts `ardo@6.4.1` from `minimumReleaseAge`; remove that once the release has aged past the threshold.
 - **Step 4, build plumbing.**
   - `build.ts` and `scripts/blog-staging.ts` set one shared build time per run, from `scripts/build-time.ts`. Staging copies posts unfiltered, writes `counterpart` into each copy, rejects an authored `counterpart`, and rejects symbolic links.
   - The build writes `blog-tags.json` for `virtual:software-blog-tags` and the required `build-time.txt`. It passes `sourceRoot` and `buildTime` to Ardo.

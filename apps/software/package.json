@@ -36,7 +36,7 @@
     "@vanilla-extract/css": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "ardo": "6.4.0"
+    "ardo": "6.4.1"
   },
   "devDependencies": {
     "@palamedes/cli": "catalog:",

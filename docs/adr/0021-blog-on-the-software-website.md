@@ -8,7 +8,7 @@ updated: 2026-11-08
 `sebastian-software.de` and `sebastian-software.com` publish a blog that answers buyer and
 adoption questions and is distributed by hand. Posts are Markdown or MDX files in
 `apps/software/content/blog/<locale>/` ([ADR-0004](0004-content-as-files-no-cms.md)). The blog
-uses the `publication` feature of Ardo 6.4.0 ([ADR-0019](0019-software-site-on-ardo.md)), which
+uses the `publication` feature of Ardo 6.4.1 ([ADR-0019](0019-software-site-on-ardo.md)), which
 provides the overview, post pages, tag archives, RSS 2.0 and Atom feeds, drafts, and future-dated
 posts. There is no CMS, fork, or custom feed generator. Where the feature lacked a reusable
 capability, Ardo gained it first; the launch pins the release that contains them.
