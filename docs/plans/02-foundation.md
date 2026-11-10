@@ -47,15 +47,16 @@ plan only adds an app.
 - Palamedes: catalogs per app, English as source, `.mdx` compiled by Palamedes; see
   `/Users/sebastian/Workspace/palamedes/docs/mdx.md`. The Consulting repository pins
   `@palamedes/*` 1.12.0; current is 1.25.x.
-- Org standards: the `standards` CLI stamps `.repometa.json` and seeds shared configuration
-  (`/Users/sebastian/Workspace/standards/README.md`).
+- Infrastructure guidance lives in [project-infra](https://github.com/sebastian-software/project-infra).
+  This repository owns its native manifests, shared configuration, and validation commands;
+  `packages/config` owns the workspace's reusable tooling configuration.
 
 ## Scope
 
 In scope:
 
 - Workspace: `pnpm-workspace.yaml` with catalog, root `package.json` (`pnpm@12`, Node 26
-  engines), `.node-version`, `.repometa.json` via `standards init --visibility oss`.
+  engines), `.node-version`, and repository-owned configuration validated by the native gate.
 - `packages/config`, `packages/tokens` (brand hues, roles, spacing, type scale from plan 01),
   `packages/ui` (brand bar, footer, page shell, primitives on Base UI, icons via Streamline),
   `packages/legal`, `packages/web-core` (variants, SEO, Palamedes setup, metrics client with
@@ -84,9 +85,10 @@ Out of scope:
 
 ### 1. Scaffold the workspace
 
-Create the root files, run `standards init`, add the catalog with the ADR-0008 baseline, and
-make `pnpm install` succeed on Node 26. Verify the deployment scripts and Playwright run on Node 26;
-if not, stop (see Stop conditions).
+Maintain the root manifests and shared configuration in this repository, using project-infra
+for guidance and the ADR-0008 baseline for the catalog. Keep `pnpm install` and the native
+`pnpm agent:check` gate working on Node 26. Verify the deployment scripts and Playwright run
+on Node 26; if not, stop (see Stop conditions).
 
 ### 2. Copy and adapt the non-visual packages
 
