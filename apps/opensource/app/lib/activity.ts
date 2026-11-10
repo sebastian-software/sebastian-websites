@@ -31,6 +31,14 @@ function fromJson(document: typeof snapshot): ActivityProjection {
 /** The last complete projection, committed with the site (ADR-0005). */
 export const ACTIVITY_SNAPSHOT: ActivityProjection = fromJson(snapshot)
 
+// Match the metrics build budget and leave headroom inside prerender's ten-second deadline.
+const BUILD_TIMEOUT_MS = 2000
+
+async function fetchBuildActivity(): Promise<ActivityProjection> {
+  const signal = AbortSignal.timeout(BUILD_TIMEOUT_MS)
+  return fetchActivity(async (input, init) => fetch(input, { ...init, signal }))
+}
+
 /**
  * Loads repository activity at build time. When the metrics service fails, the
  * page keeps its last complete display from the committed snapshot instead of
@@ -42,7 +50,7 @@ export const ACTIVITY_SNAPSHOT: ActivityProjection = fromJson(snapshot)
  * @returns The activity and whether it is live or the fallback snapshot.
  */
 export async function loadActivity(
-  load: () => Promise<ActivityProjection> = fetchActivity,
+  load: () => Promise<ActivityProjection> = fetchBuildActivity,
   fallback: ActivityProjection = ACTIVITY_SNAPSHOT
 ): Promise<LoadedActivity> {
   try {

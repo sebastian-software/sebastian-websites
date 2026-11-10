@@ -80,7 +80,65 @@ describe("findUncurated", () => {
   })
 })
 
+async function stalledHeaders(signal: AbortSignal, onAbort: () => void): Promise<Response> {
+  return new Promise((_resolve, reject) => {
+    signal.addEventListener(
+      "abort",
+      () => {
+        onAbort()
+        reject(new Error("Activity request aborted"))
+      },
+      { once: true }
+    )
+  })
+}
+
+function stalledBody(signal: AbortSignal, onAbort: () => void): Response {
+  return new Response(
+    new ReadableStream<Uint8Array>({
+      start(stream) {
+        stream.enqueue(new TextEncoder().encode("{"))
+        signal.addEventListener(
+          "abort",
+          () => {
+            onAbort()
+            stream.error(signal.reason)
+          },
+          { once: true }
+        )
+      },
+    })
+  )
+}
+
 describe("loadActivity", () => {
+  it.each([
+    { phase: "headers", respond: stalledHeaders },
+    { phase: "body", respond: stalledBody },
+  ])("aborts stalled $phase before the prerender deadline", async ({ respond }) => {
+    const controller = new AbortController()
+    const timeout = vi.spyOn(AbortSignal, "timeout").mockReturnValue(controller.signal)
+    const warn = vi.spyOn(console, "warn").mockReturnValue(undefined)
+    let aborted = false
+    vi.stubGlobal("fetch", async (_url: string, init: RequestInit) => {
+      expect(init.signal).toBe(controller.signal)
+      return respond(controller.signal, () => {
+        aborted = true
+      })
+    })
+    try {
+      const pending = loadActivity()
+      expect(timeout).toHaveBeenCalledExactlyOnceWith(2000)
+      controller.abort(new Error("Activity build timeout"))
+      expect(await pending).toStrictEqual({ activity: ACTIVITY_SNAPSHOT, source: "snapshot" })
+      expect(aborted).toBe(true)
+      expect(warn).toHaveBeenCalledOnce()
+    } finally {
+      vi.restoreAllMocks()
+      vi.unstubAllGlobals()
+    }
+  })
+
   it("falls back to the last complete snapshot when the refresh fails", async () => {
     const warn = vi.spyOn(console, "warn").mockReturnValue(undefined)
     const loaded = await loadActivity(
