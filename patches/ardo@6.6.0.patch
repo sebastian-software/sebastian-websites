@@ -1,0 +1,306 @@
+diff --git a/dist/cli/index.js b/dist/cli/index.js
+index 38b27e75b105443f5ad190a87bf11e26dcaa753f..dd9a3eb2aae591dc665ea78ef14f5d27d8d582f6 100755
+--- a/dist/cli/index.js
++++ b/dist/cli/index.js
+@@ -505,7 +505,7 @@ function createProjectConfigLogger(wrapperPath, options = {}) {
+ 	const logger = createLogger(options.logLevel, { allowClearScreen: options.clearScreen });
+ 	const logError = logger.error.bind(logger);
+ 	logger.error = (message, errorOptions) => {
+-		if (message.includes(`failed to load config from ${wrapperPath}`)) return;
++		if (typeof message === "string" && message.includes(`failed to load config from ${wrapperPath}`)) return;
+ 		logError(message, errorOptions);
+ 	};
+ 	return logger;
+diff --git a/dist/vite/index.js b/dist/vite/index.js
+index ce7276b53e08877cb4084bac0a67500ab09dcfe6..5222127db56ba1a991a603f64c3bc0a9e2df0e46 100644
+--- a/dist/vite/index.js
++++ b/dist/vite/index.js
+@@ -19,13 +19,13 @@ import { createHighlighter } from "@ferriki/core";
+ import fs, { access, readFile, stat } from "node:fs/promises";
+ import { parse, stringify } from "yaml";
+ import { compileJsx, composeCodeHooks, createDiagramCodeRenderer, createLineHighlighter, prepareDocument, toHtml } from "ferromark";
+-import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+ import react from "@vitejs/plugin-react";
+ import { defineConfig, isRunnableDevEnvironment, mergeConfig, transformWithOxc } from "vite";
+ import fs$1, { constants, cpSync, existsSync, mkdirSync, readFileSync, realpathSync, renameSync, rmSync, statSync, writeFileSync } from "node:fs";
+ import { createHash } from "node:crypto";
+ import { execFileSync, execSync } from "node:child_process";
+ import { Resvg } from "@resvg/resvg-js";
++import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+ import sharp from "sharp";
+ import { check, formatIssues } from "ferrolink";
+ // src/markdown/code-meta.ts
+@@ -2970,13 +2970,42 @@ function normalizeOptimizerPath(id) {
+ 	const cleanId = id.split("?", 1)[0] ?? id;
+ 	return path.resolve(cleanId);
+ }
+-// src/vite/project-packages.ts
++// src/vite/project-package-manifest.ts
+ function importedPackageName(id) {
+ 	if (/^(?:[./#\0]|[\w-]+:)/u.test(id)) return void 0;
+ 	const specifier = id.split(/[?#]/u, 1)[0] ?? id;
+ 	return specifier.split("/").slice(0, specifier.startsWith("@") ? 2 : 1).join("/");
+ }
+-/** Check each resolved import against local installations without walking the dependency graph. */
++function dependencyNames(owner, projectRoot) {
++	return Object.keys({
++		...owner.manifest.dependencies,
++		...owner.manifest.peerDependencies,
++		...owner.manifest.optionalDependencies,
++		...owner.root === projectRoot ? owner.manifest.devDependencies : {}
++	});
++}
++function isOptional(manifest, name) {
++	return manifest.optionalDependencies?.[name] != null || manifest.peerDependenciesMeta?.[name]?.optional === true;
++}
++// src/vite/workspace-styles.ts
++const sourcePattern = /\.css\.(?:js|cjs|mjs|jsx|ts|tsx)$/u;
++const generatedSuffix = ".vanilla.css";
++/** Virtual CSS and exact compiler watch dependencies belong to the consuming style module. */
++function isGeneratedWorkspaceStyleImport(file, { importer, packageRoot, watchedFiles = [] }) {
++	const sourceImporter = importer?.split("?", 1)[0];
++	if (sourceImporter == null || !sourcePattern.test(sourceImporter)) return false;
++	const generatedStyle = file.endsWith(generatedSuffix);
++	const source = generatedStyle ? file.slice(0, -12) : watchedFiles.some((watched) => normalizePath(watched) === normalizePath(file)) ? file : void 0;
++	return source != null && (!generatedStyle || sourcePattern.test(source)) && existsSync(sourceImporter) && existsSync(source) && isPathInsideDirectory(realpathSync(source), packageRoot);
++}
++// src/vite/project-package-checks.ts
++function absoluteFilePath(id) {
++	const cleanId = id.split("?", 1)[0];
++	const file = cleanId.startsWith("file:") ? fileURLToPath(cleanId) : cleanId;
++	return path.isAbsolute(file) ? file : void 0;
++}
++// src/vite/project-packages.ts
++/** Check each resolved import against declared, locally installed package ownership. */
+ var ProjectPackages = class {
+ 	root;
+ 	project;
+@@ -2988,11 +3017,17 @@ var ProjectPackages = class {
+ 	resolvedModuleSources = /* @__PURE__ */ new Map();
+ 	canonicalPaths = /* @__PURE__ */ new Map();
+ 	installedPackages = /* @__PURE__ */ new Map();
++	workspacePackages = /* @__PURE__ */ new Map();
+ 	constructor(root, options = {}) {
+ 		this.root = realpathSync(root);
+ 		this.project = this.owner(this.root);
+ 		this.frameworkRoot = this.canonicalPath(options.ardoRoot ?? path.join(this.root, "node_modules/ardo"));
+ 		this.managesRuntime = options.managedRuntime === true;
++		this.discoverWorkspacePackages();
++	}
++	/** Source roots reached through the project's installed dependency graph. */
++	get workspaceRoots() {
++		return [...this.workspacePackages.keys()];
+ 	}
+ 	checkImport(id, importer) {
+ 		const name = importedPackageName(id);
+@@ -3007,7 +3042,7 @@ var ProjectPackages = class {
+ 		throw new Error(`[ardo] Dependency "${name}" is not installed in ${owner.root}/node_modules. Install it in the documentation project; Ardo will not search ancestor node_modules.`);
+ 	}
+ 	checkFile(id, options = {}) {
+-		const { importer, managedName, managedSourcePath } = options;
++		const { importer, managedName, managedSourcePath, styleWatchFiles } = options;
+ 		const file = absoluteFilePath(id);
+ 		if (file == null) return;
+ 		const fileKey = path.resolve(file);
+@@ -3032,23 +3067,28 @@ var ProjectPackages = class {
+ 			importer,
+ 			origin,
+ 			resolvedSourcePath,
+-			target
++			target,
++			styleWatchFiles
+ 		});
+ 	}
+-	checkFileOwnership({ file, fileKey, importer, origin, resolvedSourcePath, target }) {
++	checkFileOwnership({ file, fileKey, importer, origin, resolvedSourcePath, target, styleWatchFiles }) {
+ 		if (this.isFrameworkOrProjectFile({
+ 			fileKey,
+ 			importer,
+ 			resolvedSourcePath,
+ 			target
+ 		})) return;
+-		if (this.isOwnedPackageFile(target, origin, importer)) {
++		if (this.isOwnedPackageFile(target, origin, importer) || target != null && this.workspacePackages.has(target.root) && isGeneratedWorkspaceStyleImport(file, {
++			importer,
++			packageRoot: target.root,
++			watchedFiles: styleWatchFiles
++		})) {
+ 			this.recordResolvedSource(fileKey, resolvedSourcePath);
+ 			if (target != null) this.resolvedPackages.add(target.root);
+ 			return;
+ 		}
+ 		if (target != null && origin.root === this.root) throw new Error(`[ardo] Undeclared application dependency "${target.manifest.name}". Declare and install it in the docs package instead of importing a transitive or ancestor package by path or alias.`);
+-		throw new Error(`[ardo] Import outside the documentation package: ${file}. Keep component source inside ${this.root}, or install a packaged dependency there.`);
++		throw new Error(`[ardo] Import outside the documentation package: ${file}. Keep component source inside ${this.root}, or declare and locally install its package.`);
+ 	}
+ 	isFrameworkOrProjectFile({ fileKey, importer, resolvedSourcePath, target }) {
+ 		if (target != null && this.isManagedRuntimePackageRoot(target.root)) {
+@@ -3099,9 +3139,29 @@ var ProjectPackages = class {
+ 			const name = importedPackageName(file.slice(index + marker.length).split(path.sep).join("/"));
+ 			if (name != null) return this.owner(path.join(file.slice(0, index), "node_modules", name));
+ 		}
++		const workspace = [...this.workspacePackages.values()].filter((owner) => isPathInsideDirectory(file, owner.root)).sort((left, right) => right.root.length - left.root.length)[0];
++		if (workspace != null) return workspace;
+ 		if (isPathInsideDirectory(file, this.root)) return this.project;
+ 		if (isPathInsideDirectory(file, path.join(this.frameworkRoot, "dist"))) return this.owner(this.frameworkRoot);
+ 	}
++	discoverWorkspacePackages() {
++		const pending = [this.project];
++		const visited = /* @__PURE__ */ new Set();
++		for (let owner = pending.pop(); owner != null; owner = pending.pop()) {
++			if (visited.has(owner.root)) continue;
++			visited.add(owner.root);
++			for (const name of dependencyNames(owner, this.root)) {
++				if (this.managesRuntime && getManagedRuntimePackageName(name) != null) continue;
++				const installed = this.installedPackage(owner, name);
++				if (installed == null) continue;
++				const root = this.canonicalPath(installed);
++				if (root === this.root || root === this.frameworkRoot) continue;
++				const dependency = this.owner(root);
++				if (!root.includes(`${path.sep}node_modules${path.sep}`)) this.workspacePackages.set(root, dependency);
++				pending.push(dependency);
++			}
++		}
++	}
+ 	owner(root) {
+ 		let manifest = this.manifests.get(root);
+ 		if (manifest == null) {
+@@ -3124,10 +3184,7 @@ var ProjectPackages = class {
+ 	}
+ 	isManagedRuntimePackageRoot(root) {
+ 		if (!this.managesRuntime) return false;
+-		return this.managedRuntimePackageRootNames().some((name) => this.managedRuntimePackageRoot(name) === root);
+-	}
+-	managedRuntimePackageRootNames() {
+-		return [...getManagedRuntimePackageNames()];
++		return getManagedRuntimePackageNames().some((name) => this.managedRuntimePackageRoot(name) === root);
+ 	}
+ 	installedPackage(owner, name) {
+ 		const key = `${owner.root}\0${name}`;
+@@ -3135,7 +3192,7 @@ var ProjectPackages = class {
+ 		if (cached != null) return cached;
+ 		const local = path.join(this.root, "node_modules", name);
+ 		const candidates = [path.join(owner.root, "node_modules", name)];
+-		if (owner.root !== this.root) {
++		if (owner.root !== this.root && !this.workspacePackages.has(owner.root)) {
+ 			const marker = `${path.sep}node_modules${path.sep}`;
+ 			const index = owner.root.lastIndexOf(marker);
+ 			if (index !== -1) candidates.push(path.join(owner.root.slice(0, index), "node_modules", name));
+@@ -3161,35 +3218,78 @@ var ProjectPackages = class {
+ 		return canonical;
+ 	}
+ };
+-function absoluteFilePath(id) {
+-	const cleanId = id.split("?", 1)[0];
+-	const file = cleanId.startsWith("file:") ? fileURLToPath(cleanId) : cleanId;
+-	return path.isAbsolute(file) ? file : void 0;
+-}
+-function dependencyNames(owner, projectRoot) {
+-	return Object.keys({
+-		...owner.manifest.dependencies,
+-		...owner.manifest.peerDependencies,
+-		...owner.manifest.optionalDependencies,
+-		...owner.root === projectRoot ? owner.manifest.devDependencies : {}
++// src/vite/vanilla-extract-plugin.ts
++const WORKSPACE_STYLE_WATCH_META_KEY = "ardo:workspace-style-watch-files";
++/** Preserve which style dependencies Vanilla Extract adds solely for Vite's watcher. */
++function createVanillaExtractPlugins() {
++	return vanillaExtractPlugin({ identifiers: "short" }).map((plugin) => {
++		const transform = plugin.transform;
++		if (transform == null) return plugin;
++		const handler = typeof transform === "function" ? transform : transform.handler;
++		const wrapped = async function(code, id, options) {
++			const files = [];
++			const context = new Proxy(this, { get(target, key, receiver) {
++				if (key === "addWatchFile") return (file) => {
++					files.push(file);
++					target.addWatchFile(file);
++				};
++				return Reflect.get(target, key, receiver);
++			} });
++			const result = await handler.call(context, code, id, options);
++			if (result == null) return result;
++			const output = typeof result === "string" ? { code: result } : result;
++			return {
++				...output,
++				meta: {
++					...output.meta,
++					[WORKSPACE_STYLE_WATCH_META_KEY]: files
++				}
++			};
++		};
++		return {
++			...plugin,
++			transform: typeof transform === "function" ? wrapped : {
++				...transform,
++				handler: wrapped
++			}
++		};
+ 	});
+ }
+-function isOptional(manifest, name) {
+-	return manifest.optionalDependencies?.[name] != null || manifest.peerDependenciesMeta?.[name]?.optional === true;
++function workspaceStyleWatchFiles(meta) {
++	if (meta == null || typeof meta !== "object") return [];
++	const files = Object.getOwnPropertyDescriptor(meta, WORKSPACE_STYLE_WATCH_META_KEY)?.value;
++	return Array.isArray(files) ? files.filter((file) => typeof file === "string") : [];
++}
++// src/vite/public-asset-url.ts
++/** Vite's asset resolver keeps public URLs unchanged during watcher graph lookups. */
++function isPublicAssetUrl(id, resolvedId, publicDir) {
++	if (!publicDir || id !== resolvedId || !id.startsWith("/") || id.startsWith("//")) return false;
++	const url = id.split(/[?#]/u, 1)[0];
++	if (existsSync(url)) return false;
++	const file = path.join(publicDir, url);
++	if (!isPathInsideDirectory(file, publicDir)) return false;
++	try {
++		return statSync(file).isFile() && isPathInsideDirectory(realpathSync(file), realpathSync(publicDir));
++	} catch {
++		return false;
++	}
+ }
+ // src/vite/project-boundary-plugin.ts
+ /** Apply the docs package boundary to development and production module graphs. */
+ function createProjectBoundaryPlugin(pluginOptions = {}) {
+ 	let packages;
++	let publicDir = "";
+ 	const optionalPrefix = "\0ardo:missing-optional:";
+ 	return {
+ 		name: "ardo:project-boundary",
+ 		enforce: "pre",
+ 		configResolved(config) {
++			publicDir = config.command === "serve" ? config.publicDir : "";
+ 			packages = new ProjectPackages(config.root, {
+ 				ardoRoot: pluginOptions.ardoRoot ?? (pluginOptions.managedRuntime ? findArdoPackageRoot() : void 0),
+ 				managedRuntime: pluginOptions.managedRuntime
+ 			});
++			config.server.fs.allow.push(...packages.workspaceRoots.map(normalizePath));
+ 		},
+ 		async resolveId(id, importer, resolveOptions) {
+ 			if (resolveOptions.custom?.["ardo:managed-runtime-resolution"] === true) return;
+@@ -3201,13 +3301,14 @@ function createProjectBoundaryPlugin(pluginOptions = {}) {
+ 				...resolveOptions,
+ 				skipSelf: true
+ 			});
+-			if (resolved != null && isVirtualId$1(resolved.id)) return resolved;
++			if (resolved != null && (isVirtualId$1(resolved.id) || boundaryImporter == null && isPublicAssetUrl(id, resolved.id, publicDir))) return resolved;
+ 			if (resolved != null) {
+ 				const resolvedSourcePath = managedSourcePath(getMetaValue(resolved.meta, "ardo:managed-runtime-source"), managedName) ?? findOptimizedDependencySource(resolved.id, this.environment);
+ 				packages.checkFile(resolved.id, {
+ 					importer: boundaryImporter,
+ 					managedName,
+-					managedSourcePath: resolvedSourcePath
++					managedSourcePath: resolvedSourcePath,
++					styleWatchFiles: workspaceStyleWatchFiles(boundaryImporter == null ? void 0 : this.getModuleInfo(boundaryImporter)?.meta)
+ 				});
+ 			} else if (boundaryImporter == null && !id.startsWith("/")) packages.checkImport(id, boundaryImporter);
+ 			return resolved;
+@@ -6976,7 +7077,7 @@ function ardoPlugin(options = {}) {
+ 			content: contentSources
+ 		})
+ 	})));
+-	plugins.push(...vanillaExtractPlugin({ identifiers: "short" }), ...createReactPlugins());
++	plugins.push(...createVanillaExtractPlugins(), ...createReactPlugins());
+ 	return plugins;
+ }
+ /**

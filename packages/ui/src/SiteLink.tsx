@@ -1,39 +1,16 @@
 import type { ComponentPropsWithRef, ReactElement } from "react"
 
-import { Link } from "react-router"
-
-import { useDocumentNavigation } from "./DocumentNavigation.tsx"
-
-export type SiteLinkProps = {
-  readonly download?: boolean | string
-} & Omit<ComponentPropsWithRef<"a">, "download">
+export type SiteLinkProps = { readonly download?: boolean | string } & Omit<
+  ComponentPropsWithRef<"a">,
+  "download"
+>
 
 /**
- * Uses the router for local page paths and native navigation for fragments,
- * downloads, language changes, and destinations outside this site.
- *
- * @param props - Native anchor attributes.
- * @returns A link with the appropriate navigation behavior.
+ * Native links share Ardo's document navigation, fragment, and download behavior.
+ * @returns The native link.
+ * @param props - Native anchor attributes and children.
  */
 export function SiteLink(props: SiteLinkProps): ReactElement {
-  const { children, download, href, hrefLang, ...rest } = props
-  const documentNavigation = useDocumentNavigation()
-  if (
-    !documentNavigation &&
-    href?.startsWith("/") &&
-    !href.startsWith("//") &&
-    (download === undefined || download === false) &&
-    (hrefLang === undefined || hrefLang === "")
-  ) {
-    return (
-      <Link {...rest} to={href}>
-        {children}
-      </Link>
-    )
-  }
-  return (
-    <a {...rest} download={download} href={href} hrefLang={hrefLang}>
-      {children}
-    </a>
-  )
+  const { children, ...attributes } = props
+  return <a {...attributes}>{children}</a>
 }

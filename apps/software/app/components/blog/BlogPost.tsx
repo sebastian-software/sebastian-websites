@@ -5,9 +5,10 @@ import type { ReactElement } from "react"
 import { SiteLink } from "@sebastian-websites/ui"
 import { BLOG_PATH } from "@sebastian-websites/web-core"
 
+import { postCounterpart } from "~/lib/blog"
 import { seoMeta } from "~/lib/seo"
 
-import { blogRobots, counterpartPath, feedLinks } from "./blogMeta"
+import { blogRobots, feedLinks } from "./blogMeta"
 import { main } from "./listing.css.ts"
 import { NextStep } from "./NextStep"
 import * as styles from "./post.css.ts"
@@ -20,7 +21,7 @@ import { PostTranslationLink } from "./PostTranslationLink"
  * alternates for a single-language post, and Ardo's feed discovery links.
  * @param args - What Ardo passes to the post route's `meta`.
  * @param args.defaults - The descriptors Ardo would render, which carry the feed links.
- * @param args.post - The post, including the `counterpart` the build staged.
+ * @param args.post - The post and its native publication metadata.
  * @returns The meta descriptors of the post.
  */
 // eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
@@ -32,8 +33,7 @@ export function meta({ defaults, post }: PublicationPostMetaArgs): ArdoMetaDescr
         tags: post.tags,
         ...(post.updatedAt === undefined ? {} : { modifiedAt: post.updatedAt }),
       },
-      // The build writes the counterpart path, or null, into each staged post.
-      counterpart: counterpartPath(post.data.counterpart) !== undefined,
+      counterpart: postCounterpart(post.path) !== undefined,
       description: post.description ?? post.title,
       path: post.path,
       title: `${post.title} – Sebastian Software`,
@@ -71,7 +71,7 @@ export default function BlogPost({ children, post }: PublicationPostProps): Reac
             <p className={styles.lead}>{post.description}</p>
           )}
           <PostMeta post={post} />
-          <PostTranslationLink counterpart={counterpartPath(post.data.counterpart)} />
+          <PostTranslationLink counterpart={postCounterpart(post.path)} />
         </div>
         <div className={styles.body}>{children}</div>
         <div className={styles.footer}>

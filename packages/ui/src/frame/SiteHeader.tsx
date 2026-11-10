@@ -1,12 +1,10 @@
 import type { SiteFrame } from "@sebastian-websites/web-core"
 
 import { Globe } from "lucide-react"
-import { type ReactElement, type RefObject, useEffect, useId, useRef } from "react"
-import { useLocation } from "react-router"
+import { type ReactElement, useId } from "react"
 
 import type { FrameCopy } from "./copy.ts"
 
-import { useDocumentNavigation } from "../DocumentNavigation.tsx"
 import { Arrow } from "../editorial/Arrow.tsx"
 import { visuallyHidden } from "../editorial/editorial.css.ts"
 import { SiteLink } from "../SiteLink.tsx"
@@ -30,12 +28,9 @@ export type SiteHeaderProps = {
 export function SiteHeader(props: SiteHeaderProps): ReactElement {
   const { copy, frame } = props
   const menuId = useId()
-  const menuRef = useRef<HTMLDivElement>(null)
-  const documentNavigation = useDocumentNavigation()
   const currentLocale = frame.languages.find((language) => language.current)?.locale
   return (
     <header className={styles.area} data-brand={frame.brand}>
-      {documentNavigation ? null : <CloseMenuOnNavigation menuRef={menuRef} />}
       <a className={styles.skip} href="#main">
         {copy.header.skip}
       </a>
@@ -54,7 +49,7 @@ export function SiteHeader(props: SiteHeaderProps): ReactElement {
           </svg>
           <span className={visuallyHidden}>{copy.header.menu}</span>
         </button>
-        <div className={styles.controls} id={menuId} popover="auto" ref={menuRef}>
+        <div className={styles.controls} id={menuId} popover="auto">
           <nav aria-label={copy.header.navigation}>
             <ul className={styles.list}>
               {frame.navigation.map((link) => (
@@ -119,23 +114,4 @@ export function SiteHeader(props: SiteHeaderProps): ReactElement {
       </div>
     </header>
   )
-}
-
-/**
- * Router sites retain their menu cleanup after client navigation.
- * @param props - The menu reference.
- * @param props.menuRef - The popover to close after navigation.
- * @returns No visible element.
- */
-function CloseMenuOnNavigation({
-  menuRef,
-}: {
-  readonly menuRef: RefObject<HTMLDivElement | null>
-}): null {
-  const { key } = useLocation()
-  useEffect(() => {
-    // eslint-disable-next-line react-you-might-not-need-an-effect/no-event-handler -- Route changes synchronize the browser popover, including Back/Forward navigation.
-    if (menuRef.current?.matches(":popover-open")) menuRef.current.hidePopover()
-  }, [key, menuRef])
-  return null
 }

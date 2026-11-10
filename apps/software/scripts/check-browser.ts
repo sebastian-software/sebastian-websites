@@ -584,6 +584,38 @@ async function checkRoutes(
     }
   }
 }
+/**
+ * Verify that missing catalog downloads retain the translated recovery view.
+ * @param browser
+ * @param current
+ * @param locale
+ */
+async function checkCatalogRecovery(
+  browser: Browser,
+  current: Fixture,
+  locale: Locale
+): Promise<void> {
+  const context = await browser.newContext()
+  try {
+    await context.route(/\/assets\/palamedes-m-.*\.js$/v, async (route) => route.abort())
+    const page = await context.newPage()
+    await page.goto(current.origin)
+    const alert = page.locator("[data-palamedes-catalog-error]")
+    await alert.waitFor({ state: "visible" })
+    assert.equal(
+      await alert.locator("h1").textContent(),
+      locale === "de" ? "Diese Seite konnte nicht geladen werden." : "This page couldn't be loaded."
+    )
+    assert.equal(
+      await alert.locator('a[href=""]').textContent(),
+      locale === "de" ? "Seite neu laden" : "Reload page"
+    )
+    assert.equal(await alert.locator('a[href="/"]').count(), 1)
+  } finally {
+    await context.close()
+  }
+}
+
 async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
   const variant = `software-${locale}`
   const build = path.join(builds, variant, "client")
@@ -653,6 +685,7 @@ async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
     await checkResources(context, current)
     assert.deepEqual(errors, [], `${variant}: browser errors`)
     await checkStaticFallback(browser, current)
+    await checkCatalogRecovery(browser, current, locale)
     console.log(
       `${variant}: all routes, SEO, layout, hydration, native navigation, 404 and static fallback passed`
     )

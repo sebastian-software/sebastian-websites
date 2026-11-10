@@ -1,0 +1,365 @@
+<header class="hero">
+  <img class="hero-logo" src="./sebastian-software/logo-software.svg" alt="Sebastian Software" />
+  <p class="subtitle">Brand Assets</p>
+</header>
+
+<main>
+  <!-- ======== Usage ======== -->
+  <section id="usage">
+    <h2>Usage</h2>
+    <p class="lead">
+      Import color tokens directly via URL. All assets are served with CORS headers for cross-origin
+      use.
+    </p>
+    <div class="import-grid">
+      <div>
+        <h3>Color Tokens</h3>
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code><span class="cm">/* All palettes */</span>
+<span class="kw">@import</span> <span class="fn">url</span>(<span class="str">"<span data-url="tokens/index.css"></span>"</span>);
+
+<span class="cm">/* Individual palette */</span>
+<span class="kw">@import</span> <span class="fn">url</span>(<span class="str">"<span data-url="tokens/software.css"></span>"</span>);
+<span class="kw">@import</span> <span class="fn">url</span>(<span class="str">"<span data-url="tokens/holding.css"></span>"</span>);
+<span class="kw">@import</span> <span class="fn">url</span>(<span class="str">"<span data-url="tokens/consulting.css"></span>"</span>);</code></pre>
+        </div>
+      </div>
+      <div>
+        <h3>Token Usage</h3>
+        <div class="code-block">
+          <button class="copy-btn">Copy</button>
+          <pre><code><span class="cm">/* By name */</span>
+<span class="kw">color</span>: <span class="fn">var</span>(<span class="str">--software-lagoon</span>);
+
+<span class="cm">/* By role — same color */</span>
+<span class="kw">color</span>: <span class="fn">var</span>(<span class="str">--software-vivid</span>);</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== Palettes ======== -->
+  <section id="palettes">
+    <h2>Color Palettes</h2>
+    <p class="lead">
+      Each brand has a dedicated palette built on a single OKLCH hue with six perceptually uniform
+      lightness steps.
+    </p>
+    <div class="palettes">
+      <!-- Software -->
+      <div class="palette">
+        <div class="palette-head">
+          <img
+            class="palette-logo"
+            src="./sebastian-software/logo-software.svg"
+            alt="Sebastian Software"
+          />
+          <p class="palette-desc">
+            <strong>Mood:</strong> cool · calm · technical<br />
+            <strong>Character:</strong> factual · structured · dependable
+          </p>
+        </div>
+        <div class="swatch-strip">
+          <div class="swatch" style="background: var(--software-night)"></div>
+          <div class="swatch" style="background: var(--software-dark)"></div>
+          <div class="swatch" style="background: var(--software-base)"></div>
+          <div class="swatch" style="background: var(--software-vivid)"></div>
+          <div class="swatch" style="background: var(--software-bright)"></div>
+          <div class="swatch" style="background: var(--software-paper)"></div>
+        </div>
+        <table class="color-table">
+          <thead>
+            <tr>
+              <th class="col-badge"></th>
+              <th>Name</th>
+              <th>Token</th>
+              <th>Alias</th>
+              <th class="col-oklch">OKLCH</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge" style="background: var(--software-space)"></span></td>
+              <td class="col-name">Space</td>
+              <td><code>--software-space</code></td>
+              <td><code>--software-night</code></td>
+              <td class="col-oklch"><code>oklch(0.15 0.02 218)</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background: var(--software-midnight)"></span></td>
+              <td class="col-name">Midnight</td>
+              <td><code>--software-midnight</code></td>
+              <td><code>--software-dark</code></td>
+              <td class="col-oklch"><code>oklch(0.25 0.05 218)</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background: var(--software-teal)"></span></td>
+              <td class="col-name">Teal</td>
+              <td><code>--software-teal</code></td>
+              <td><code>--software-base</code></td>
+              <td class="col-oklch"><code>oklch(0.4 0.08 218)</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background: var(--software-lagoon)"></span></td>
+              <td class="col-name">Lagoon</td>
+              <td><code>--software-lagoon</code></td>
+              <td><code>--software-vivid</code></td>
+              <td class="col-oklch"><code>oklch(0.5 0.11 218)</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background: var(--software-signal)"></span></td>
+              <td class="col-name">Signal</td>
+              <td><code>--software-signal</code></td>
+              <td><code>--software-bright</code></td>
+              <td class="col-oklch"><code>oklch(0.7 0.11 218)</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background: var(--software-frost)"></span></td>
+              <td class="col-name">Frost</td>
+              <td><code>--software-frost</code></td>
+              <td><code>--software-paper</code></td>
+              <td class="col-oklch"><code>oklch(0.95 0.01 218)</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Holding -->
+      <div class="palette">
+        <div class="palette-head">
+          <img
+            class="palette-logo"
+            src="./sebastian-holding/logo-holding.svg"
+            alt="Sebastian Holding"
+          />
+          <p class="palette-desc">
+            <strong>Mood:</strong> refined · restrained · institutional<br />
+            <strong>Character:</strong> clear · enduring · trustworthy
+          </p>
+        </div>
+        <div class="swatch-strip">
+          <div class="swatch" style="background: var(--holding-night)"></div>
+          <div class="swatch" style="background: var(--holding-dark)"></div>
+          <div class="swatch" style="background: var(--holding-base)"></div>
+          <div class="swatch" style="background: var(--holding-vivid)"></div>
+          <div class="swatch" style="background: var(--holding-bright)"></div>
+          <div class="swatch" style="background: var(--holding-paper)"></div>
+        </div>
+        <table class="color-table">
+          <thead>
+            <tr>
+              <th class="col-badge"></th>
+              <th>Name</th>
+              <th>Token</th>
+              <th>Alias</th>
+              <th class="col-oklch">OKLCH</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge" style="background: var(--holding-pitch)"></span></td>
+              <td class="col-name">Pitch</td>
+              <td><code>--holding-pitch</code></td>
+              <td><code>--holding-night</code></td>
+              <td class="col-oklch"><code>oklch(0.15 0.03 78)</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background: var(--holding-walnut)"></span></td>
+              <td class="col-name">Walnut</td>
+              <td><code>--holding-walnut</code></td>
+              <td><code>--holding-dark</code></td>
+              <td class="col-oklch"><code>oklch(0.25 0.04 78)</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background: var(--holding-brass)"></span></td>
+              <td class="col-name">Brass</td>
+              <td><code>--holding-brass</code></td>
+              <td><code>--holding-base</code></td>
+              <td class="col-oklch"><code>oklch(0.4 0.07 78)</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background: var(--holding-amber)"></span></td>
+              <td class="col-name">Amber</td>
+              <td><code>--holding-amber</code></td>
+              <td><code>--holding-vivid</code></td>
+              <td class="col-oklch"><code>oklch(0.5 0.1 78)</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background: var(--holding-gild)"></span></td>
+              <td class="col-name">Gild</td>
+              <td><code>--holding-gild</code></td>
+              <td><code>--holding-bright</code></td>
+              <td class="col-oklch"><code>oklch(0.7 0.1 78)</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background: var(--holding-sand)"></span></td>
+              <td class="col-name">Sand</td>
+              <td><code>--holding-sand</code></td>
+              <td><code>--holding-paper</code></td>
+              <td class="col-oklch"><code>oklch(0.95 0.01 78)</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Consulting -->
+      <div class="palette">
+        <div class="palette-head">
+          <img
+            class="palette-logo"
+            src="./sebastian-consulting/logo-consulting.svg"
+            alt="Sebastian Consulting"
+          />
+          <p class="palette-desc">
+            <strong>Mood:</strong> warm · confident · reflective<br />
+            <strong>Character:</strong> personal · advisory · opinionated
+          </p>
+        </div>
+        <div class="swatch-strip">
+          <div class="swatch" style="background: var(--consulting-night)"></div>
+          <div class="swatch" style="background: var(--consulting-dark)"></div>
+          <div class="swatch" style="background: var(--consulting-base)"></div>
+          <div class="swatch" style="background: var(--consulting-vivid)"></div>
+          <div class="swatch" style="background: var(--consulting-bright)"></div>
+          <div class="swatch" style="background: var(--consulting-paper)"></div>
+        </div>
+        <table class="color-table">
+          <thead>
+            <tr>
+              <th class="col-badge"></th>
+              <th>Name</th>
+              <th>Token</th>
+              <th>Alias</th>
+              <th class="col-oklch">OKLCH</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge" style="background: var(--consulting-plum)"></span></td>
+              <td class="col-name">Plum</td>
+              <td><code>--consulting-plum</code></td>
+              <td><code>--consulting-night</code></td>
+              <td class="col-oklch"><code>oklch(0.15 0.05 2)</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background: var(--consulting-mulberry)"></span></td>
+              <td class="col-name">Mulberry</td>
+              <td><code>--consulting-mulberry</code></td>
+              <td><code>--consulting-dark</code></td>
+              <td class="col-oklch"><code>oklch(0.25 0.1 2)</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background: var(--consulting-burgundy)"></span></td>
+              <td class="col-name">Burgundy</td>
+              <td><code>--consulting-burgundy</code></td>
+              <td><code>--consulting-base</code></td>
+              <td class="col-oklch"><code>oklch(0.4 0.17 2)</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background: var(--consulting-ruby)"></span></td>
+              <td class="col-name">Ruby</td>
+              <td><code>--consulting-ruby</code></td>
+              <td><code>--consulting-vivid</code></td>
+              <td class="col-oklch"><code>oklch(0.5 0.2 2)</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background: var(--consulting-ember)"></span></td>
+              <td class="col-name">Ember</td>
+              <td><code>--consulting-ember</code></td>
+              <td><code>--consulting-bright</code></td>
+              <td class="col-oklch"><code>oklch(0.7 0.2 2)</code></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background: var(--consulting-linen)"></span></td>
+              <td class="col-name">Linen</td>
+              <td><code>--consulting-linen</code></td>
+              <td><code>--consulting-paper</code></td>
+              <td class="col-oklch"><code>oklch(0.95 0.01 2)</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="token-info">
+      Each palette provides two ways to reference colors:<br />
+      <strong>By name</strong> — the unique color name, e.g. <code>var(--software-lagoon)</code
+      ><br />
+      <strong>By role</strong> — a semantic alias consistent across all palettes, e.g.
+      <code>var(--software-vivid)</code>
+      <dl class="token-roles">
+        <dt><code>night</code></dt>
+        <dd>0.15 — Near-black, deepest tone</dd>
+        <dt><code>dark</code></dt>
+        <dd>0.25 — Dark backgrounds, heavy text</dd>
+        <dt><code>base</code></dt>
+        <dd>0.40 — Primary brand color</dd>
+        <dt><code>vivid</code></dt>
+        <dd>0.50 — Strongest chroma, accents</dd>
+        <dt><code>bright</code></dt>
+        <dd>0.70 — Lighter accent, highlights</dd>
+        <dt><code>paper</code></dt>
+        <dd>0.95 — Near-white, backgrounds</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ======== Logos ======== -->
+  <section id="logos">
+    <h2>Logos &amp; Icons</h2>
+    <p class="lead">
+      Dark-background icon variants are being redesigned and are not currently published.
+    </p>
+
+    <div class="logo-grid">
+      <div class="logo-brand-label">Software</div>
+      <div class="logo-card">
+        <div class="preview on-paper-software">
+          <img src="./sebastian-software/logo-software.svg" alt="Logo Software" />
+        </div>
+        <div class="meta">logo-software.svg</div>
+      </div>
+      <div class="logo-card">
+        <div class="preview on-paper-software">
+          <img src="./sebastian-software/icon-software-light.svg" alt="Icon Software Light" />
+        </div>
+        <div class="meta">icon-software-light.svg</div>
+      </div>
+
+      <div class="logo-brand-label">Holding</div>
+      <div class="logo-card">
+        <div class="preview on-paper-holding">
+          <img src="./sebastian-holding/logo-holding.svg" alt="Logo Holding" />
+        </div>
+        <div class="meta">logo-holding.svg</div>
+      </div>
+      <div class="logo-card">
+        <div class="preview on-paper-holding">
+          <img src="./sebastian-holding/icon-holding-light.svg" alt="Icon Holding Light" />
+        </div>
+        <div class="meta">icon-holding-light.svg</div>
+      </div>
+
+      <div class="logo-brand-label">Consulting</div>
+      <div class="logo-card">
+        <div class="preview on-paper-consulting">
+          <img src="./sebastian-consulting/logo-consulting.svg" alt="Logo Consulting" />
+        </div>
+        <div class="meta">logo-consulting.svg</div>
+      </div>
+      <div class="logo-card">
+        <div class="preview on-paper-consulting">
+          <img src="./sebastian-consulting/icon-consulting-light.svg" alt="Icon Consulting Light" />
+        </div>
+        <div class="meta">icon-consulting-light.svg</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a href="https://github.com/sebastian-software/sebastian-websites/tree/main/apps/brand"
+    >sebastian-websites/apps/brand</a
+  >
+</footer>

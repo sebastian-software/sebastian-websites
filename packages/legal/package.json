@@ -20,7 +20,9 @@
   },
   "dependencies": {
     "@palamedes/react": "catalog:",
-    "react": "catalog:"
+    "react": "catalog:",
+    "@palamedes/runtime": "catalog:",
+    "react-dom": "catalog:"
   },
   "devDependencies": {
     "@sebastian-websites/config": "workspace:*",

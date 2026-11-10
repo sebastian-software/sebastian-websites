@@ -3,6 +3,8 @@ dist/
 build/
 .DS_Store
 .react-router/
-.variant-build/
 .palamedes/
 .effective-flow/
+
+# Ardo materializes publication routes from the authored content.
+apps/software/app/routes/blog/

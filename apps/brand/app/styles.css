@@ -1,0 +1,478 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Retain the static reference page's browser defaults when Ardo loads its UI layer. */
+html {
+  color-scheme: normal;
+  scroll-behavior: auto;
+  scroll-padding-top: 0;
+}
+
+body {
+  font-size: medium;
+  text-rendering: auto;
+  overflow-x: visible;
+  font-family: var(--sebastian-font-sans, "Glober", system-ui, sans-serif);
+  font-weight: 400;
+  line-height: 1.6;
+  color: oklch(0.25 0.015 218);
+  background: oklch(0.97 0.003 218);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Hero ---- */
+
+.hero {
+  background: var(--software-paper);
+  padding: 5rem 2rem 4.5rem;
+  text-align: center;
+  border-bottom: 1px solid oklch(0.92 0.005 218);
+}
+
+.hero-logo {
+  height: clamp(56px, 8vw, 80px);
+  width: auto;
+}
+
+.hero .subtitle {
+  font-weight: 500;
+  font-size: 0.8125rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--software-base);
+  margin-top: 1.25rem;
+}
+
+/* ---- Layout ---- */
+
+main {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+}
+
+section {
+  padding: 4.5rem 0;
+  border-bottom: 1px solid oklch(0.92 0.005 218);
+}
+
+section:last-child {
+  border-bottom: none;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: oklch(0.5 0.02 218);
+  margin-bottom: 2rem;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: oklch(0.5 0.02 218);
+  margin-bottom: 0.75rem;
+}
+
+p.lead {
+  font-size: 0.9375rem;
+  color: oklch(0.45 0.015 218);
+  margin-bottom: 2rem;
+  max-width: 38rem;
+  line-height: 1.7;
+}
+
+/* ---- Code Blocks (Light) ---- */
+
+.code-block {
+  position: relative;
+  background: #fff;
+  border: 1px solid oklch(0.92 0.005 218);
+  border-radius: 10px;
+  padding: 1.5rem 1.75rem;
+  padding-right: 5.5rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+}
+
+.code-block pre {
+  font-family: "SF Mono", "Fira Code", ui-monospace, monospace;
+  font-size: 0.8125rem;
+  line-height: 2;
+  white-space: pre;
+  color: oklch(0.3 0.02 218);
+}
+
+.cm {
+  color: oklch(0.6 0.01 218);
+}
+.kw {
+  color: oklch(0.4 0.1 218);
+}
+.fn {
+  color: oklch(0.45 0.08 250);
+}
+.str {
+  color: oklch(0.4 0.08 218);
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: oklch(0.95 0.005 218);
+  color: oklch(0.5 0.02 218);
+  border: 1px solid oklch(0.9 0.005 218);
+  border-radius: 6px;
+  padding: 0.375rem 0.75rem;
+  font:
+    600 0.6875rem/1 system-ui,
+    sans-serif;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.copy-btn:hover {
+  background: oklch(0.92 0.008 218);
+  color: oklch(0.35 0.03 218);
+}
+
+/* ---- Import Grid ---- */
+
+.import-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 2rem;
+}
+
+/* ---- Palettes ---- */
+
+.palettes {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.palette-head {
+  margin-bottom: 1.5rem;
+}
+
+.palette-logo {
+  height: 96px;
+  width: auto;
+  margin-bottom: 0.75rem;
+}
+
+.palette-desc {
+  font-size: 0.8125rem;
+  color: oklch(0.5 0.015 218);
+  line-height: 1.7;
+}
+
+.palette-desc strong {
+  font-weight: 600;
+  color: oklch(0.4 0.02 218);
+}
+
+.swatch-strip {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 4px oklch(0 0 0 / 0.06);
+}
+
+.swatch {
+  aspect-ratio: 2;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.swatch:hover {
+  transform: scaleY(1.15);
+  z-index: 1;
+  box-shadow: 0 4px 20px oklch(0 0 0 / 0.2);
+}
+
+/* ---- Color Table ---- */
+
+.color-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.color-table th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: oklch(0.55 0.015 218);
+  padding: 0 0.75rem 0.625rem;
+  border-bottom: 1px solid oklch(0.9 0.005 218);
+}
+
+.color-table td {
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid oklch(0.94 0.003 218);
+  vertical-align: middle;
+}
+
+.color-table tr:last-child td {
+  border-bottom: none;
+}
+
+.color-table tr {
+  transition: background 0.1s ease;
+}
+
+.color-table tbody tr:hover {
+  background: oklch(0.98 0.002 218);
+}
+
+.color-table .badge {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow:
+    0 1px 3px oklch(0 0 0 / 0.1),
+    inset 0 0 0 1px oklch(0 0 0 / 0.06);
+}
+
+.color-table .col-badge {
+  width: 2.75rem;
+}
+.color-table .col-name {
+  font-weight: 500;
+  color: oklch(0.3 0.02 218);
+}
+
+.color-table code {
+  font-family: "SF Mono", "Fira Code", ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: oklch(0.42 0.03 218);
+}
+
+.color-table .col-oklch code {
+  color: oklch(0.55 0.015 218);
+}
+
+/* Clickable code elements */
+
+.copyable {
+  cursor: pointer;
+  transition:
+    background 0.12s ease,
+    color 0.12s ease;
+  border-radius: 3px;
+  padding: 0.125em 0.35em;
+  margin: -0.125em -0.1em;
+}
+
+.copyable:hover {
+  background: oklch(0.92 0.01 218);
+  color: oklch(0.3 0.04 218);
+}
+
+.copy-toast {
+  position: fixed;
+  background: oklch(0.2 0.03 218);
+  color: oklch(0.9 0.01 218);
+  padding: 0.3rem 0.625rem;
+  border-radius: 6px;
+  font:
+    600 0.6875rem/1 system-ui,
+    sans-serif;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+  z-index: 100;
+  box-shadow: 0 4px 12px oklch(0 0 0 / 0.15);
+}
+
+.copy-toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Token Info ---- */
+
+.token-info {
+  margin-top: 3rem;
+  padding: 1.75rem 2rem;
+  background: #fff;
+  border-radius: 10px;
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  color: oklch(0.35 0.015 218);
+  border: 1px solid oklch(0.93 0.005 218);
+}
+
+.token-info code {
+  font-family: "SF Mono", "Fira Code", ui-monospace, monospace;
+  font-size: 0.75rem;
+  background: oklch(0.95 0.005 218);
+  padding: 0.15em 0.45em;
+  border-radius: 4px;
+}
+
+.token-roles {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.375rem 1.25rem;
+  margin-top: 1rem;
+}
+
+.token-roles dt {
+  font-family: "SF Mono", "Fira Code", ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: oklch(0.42 0.03 218);
+  margin-top: 0.375rem;
+}
+
+.token-roles dd {
+  color: oklch(0.55 0.015 218);
+  margin-bottom: 0.125rem;
+}
+
+/* ---- Logo Grid ---- */
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 52rem) {
+  .logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 32rem) {
+  .logo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.logo-card {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid oklch(0.93 0.005 218);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.logo-card:hover {
+  box-shadow: 0 4px 16px oklch(0 0 0 / 0.08);
+  transform: translateY(-2px);
+}
+
+.logo-card .preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 2rem;
+  min-height: 120px;
+}
+
+.logo-card .preview img {
+  max-width: 100%;
+  height: auto;
+  max-height: 56px;
+}
+
+.logo-card .preview.on-paper-software {
+  background: var(--software-paper);
+}
+.logo-card .preview.on-paper-holding {
+  background: var(--holding-paper);
+}
+.logo-card .preview.on-paper-consulting {
+  background: var(--consulting-paper);
+}
+
+.logo-card .meta {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid oklch(0.93 0.005 218);
+  font-family: "SF Mono", "Fira Code", ui-monospace, monospace;
+  font-size: 0.6875rem;
+  color: oklch(0.5 0.015 218);
+  background: oklch(0.985 0.002 218);
+}
+
+.logo-brand-label {
+  grid-column: 1 / -1;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: oklch(0.5 0.02 218);
+  padding-top: 1.5rem;
+}
+
+.logo-brand-label:first-child {
+  padding-top: 0;
+}
+
+/* ---- Footer ---- */
+
+footer {
+  text-align: center;
+  padding: 3.5rem 2rem;
+  font-size: 0.75rem;
+  color: oklch(0.6 0.01 218);
+  letter-spacing: 0.02em;
+}
+
+footer a {
+  color: oklch(0.45 0.04 218);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+footer a:hover {
+  color: oklch(0.35 0.06 218);
+}
+
+/* These remain browser defaults on the standalone brand reference page. */
+h2,
+h3 {
+  text-wrap: wrap;
+}
+
+code {
+  font-family: revert;
+}
+
+::selection {
+  background: revert;
+}
+
+:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: revert;
+  outline-offset: revert;
+}

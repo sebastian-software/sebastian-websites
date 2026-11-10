@@ -1,6 +1,8 @@
+import type { ArdoMetaDescriptor } from "ardo/runtime"
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
+import { pageMeta } from "@sebastian-websites/site/meta"
 import { ArrowLink, ButtonLink } from "@sebastian-websites/ui"
 import { BOOKING_URL } from "@sebastian-websites/web-core"
 
@@ -8,21 +10,20 @@ import type { ServiceKind } from "~/components/ServiceIllustration"
 
 import { CompanyBand } from "~/components/CompanyBand"
 import { ServiceIllustration } from "~/components/ServiceIllustration"
-
-import type { Route } from "./+types/services"
+import { variant } from "~/lib/site"
 
 import * as page from "./contentPage.css.ts"
 import * as styles from "./services.css.ts"
 
-// eslint-disable-next-line react-refresh/only-export-components -- React Router reads meta from the route module
-export function meta(): Route.MetaDescriptors {
-  return [
+// eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
+export function meta(): ArdoMetaDescriptor[] {
+  return pageMeta(variant, "/services", [
     { title: t`Services – Sebastian Consulting` },
     {
       content: t`Architecture reviews, React and TypeScript modernization, internationalization, and hands-on engineering with two experienced consultants.`,
       name: "description",
     },
-  ]
+  ])
 }
 
 type Service = {

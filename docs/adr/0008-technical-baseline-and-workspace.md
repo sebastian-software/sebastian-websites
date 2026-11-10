@@ -1,12 +1,12 @@
 ---
 status: accepted
-updated: 2026-10-06
+updated: 2026-11-10
 ---
 
 # Technical baseline and workspace layout
 
-All sites share one toolchain: Node 26, pnpm 12, React 19, React Router 8 in framework mode
-with prerendering and no server rendering, Vite 8, and TypeScript 6. One root lockfile and the
+All sites share one toolchain: Node 26, pnpm 12, React 19, Ardo with static prerendering,
+Vite 8, and TypeScript 6. One root lockfile and the
 pnpm workspace catalog pin the versions; an app does not pick a different framework version
 without a new decision. Styling uses vanilla-extract, accessible controls come from Base UI,
 and icons come from Streamline under the existing Pro licence, in a style still to be chosen.
@@ -17,8 +17,8 @@ and tooling configuration are shared from the start, because they are designed f
 at once. Content components move into a shared package only when a second site needs them.
 Apps import packages; packages never import apps.
 
-Builds are orchestrated with pnpm workspace commands, or Turborepo once caching pays off; there
-is no custom orchestration script.
+Builds are orchestrated with pnpm workspace commands, or Turborepo once caching pays off; thin website scripts select the two domain builds and invoke app-owned data or
+PDF steps. Ardo owns rendering and compilation.
 
 ## Considered options
 
@@ -34,8 +34,7 @@ is no custom orchestration script.
 - Whether the icon pipeline runs through our own effective-icon depends on its support for a
   custom Streamline pack; that is decided during implementation.
 
-## Software exception
+## Ardo integration
 
-The Software-specific framework choice is superseded by
-[ADR-0019](0019-software-site-on-ardo.md). The original decision above remains the
-historical rationale and still applies to the other sites.
+[ADR-0019](0019-software-site-on-ardo.md) defines the common Ardo integration,
+source workspace boundaries, and native navigation for every implemented site.

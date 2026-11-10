@@ -3,12 +3,10 @@ import { act } from "react"
 import { flushSync } from "react-dom"
 import { createRoot } from "react-dom/client"
 import { renderToStaticMarkup } from "react-dom/server"
-import { MemoryRouter } from "react-router"
 import { afterEach, describe, expect, it, vi } from "vitest"
 
 import type { FrameCopy } from "./copy.ts"
 
-import { DocumentNavigation } from "../DocumentNavigation.tsx"
 import { Newsletter } from "./Newsletter.tsx"
 import { PageEnding } from "./PageEnding.tsx"
 import { SiteHeader } from "./SiteHeader.tsx"
@@ -95,13 +93,7 @@ const texts = (elements: Iterable<Element>): Array<null | string> =>
 describe("SiteHeader", () => {
   it("shows one current logo, local links, the language switch, and a plain outward link", () => {
     const frame = getSiteFrame("software", "de", "/company")
-    const header = parse(
-      renderToStaticMarkup(
-        <MemoryRouter>
-          <SiteHeader copy={copy} frame={frame} />
-        </MemoryRouter>
-      )
-    )
+    const header = parse(renderToStaticMarkup(<SiteHeader copy={copy} frame={frame} />))
     const logos = header.querySelectorAll("img")
     expect(logos).toHaveLength(1)
     expect([...logos].at(0)?.getAttribute("alt")).toBe("Sebastian Software")
@@ -124,13 +116,7 @@ describe("SiteHeader", () => {
 
   it("renders the blog fallback of a page without a counterpart as a normal language link", () => {
     const frame = getSiteFrame("software", "en", { counterpart: false, path: "/blog/a-post" })
-    const header = parse(
-      renderToStaticMarkup(
-        <MemoryRouter>
-          <SiteHeader copy={copy} frame={frame} />
-        </MemoryRouter>
-      )
-    )
+    const header = parse(renderToStaticMarkup(<SiteHeader copy={copy} frame={frame} />))
     const languages = [...header.querySelectorAll('nav[aria-label="Language"] a')]
     expect(languages.map((link) => link.getAttribute("href"))).toStrictEqual([
       "https://sebastian-software.com/blog/a-post",
@@ -148,13 +134,7 @@ describe("SiteHeader", () => {
 
   it("opens the same controls as a popover menu on compact screens", () => {
     const frame = getSiteFrame("consulting", "en", "/")
-    const header = parse(
-      renderToStaticMarkup(
-        <MemoryRouter>
-          <SiteHeader copy={copy} frame={frame} />
-        </MemoryRouter>
-      )
-    )
+    const header = parse(renderToStaticMarkup(<SiteHeader copy={copy} frame={frame} />))
     const button = header.querySelector("button[popovertarget]")
     expect(button?.getAttribute("type")).toBe("button")
     expect(button?.textContent).toBe("Menu")
@@ -166,13 +146,7 @@ describe("SiteHeader", () => {
 
   it("gives Consulting its own logo, navigation, and the way to Software", () => {
     const frame = getSiteFrame("consulting", "en", "/")
-    const header = parse(
-      renderToStaticMarkup(
-        <MemoryRouter>
-          <SiteHeader copy={copy} frame={frame} />
-        </MemoryRouter>
-      )
-    )
+    const header = parse(renderToStaticMarkup(<SiteHeader copy={copy} frame={frame} />))
     expect(header.querySelector("img")?.getAttribute("alt")).toBe("Sebastian Consulting")
     expect(texts(header.querySelectorAll('nav[aria-label="Main navigation"] a'))).toStrictEqual([
       "Services",
@@ -188,13 +162,7 @@ describe("SiteHeader", () => {
     "links the Consulting globe to the other language's matching page from %s",
     (locale) => {
       const frame = getSiteFrame("consulting", locale, "/fastner/project-profile")
-      const header = parse(
-        renderToStaticMarkup(
-          <MemoryRouter>
-            <SiteHeader copy={copy} frame={frame} />
-          </MemoryRouter>
-        )
-      )
+      const header = parse(renderToStaticMarkup(<SiteHeader copy={copy} frame={frame} />))
       const languages = header.querySelectorAll('nav[aria-label="Language"] a')
       expect(languages).toHaveLength(1)
       const link = languages[0]
@@ -211,13 +179,7 @@ describe("SiteHeader", () => {
 
 describe("PageEnding", () => {
   const frame = getSiteFrame("opensource", "en", "/")
-  const ending = parse(
-    renderToStaticMarkup(
-      <MemoryRouter>
-        <PageEnding copy={copy} frame={frame} />
-      </MemoryRouter>
-    )
-  )
+  const ending = parse(renderToStaticMarkup(<PageEnding copy={copy} frame={frame} />))
 
   it("orders the newsletter, the invitation to the other brand, and the current footer", () => {
     const regions = [...ending.querySelectorAll("body > div > section, body > footer")]
@@ -325,9 +287,7 @@ describe("Newsletter", () => {
 describe("document navigation", () => {
   it("renders the shared header without a client router", () => {
     const view = renderToStaticMarkup(
-      <DocumentNavigation>
-        <SiteHeader copy={copy} frame={getSiteFrame("software", "en", "/products")} />
-      </DocumentNavigation>
+      <SiteHeader copy={copy} frame={getSiteFrame("software", "en", "/products")} />
     )
     expect(view).toContain('href="/products"')
     expect(view).toContain('aria-current="page"')

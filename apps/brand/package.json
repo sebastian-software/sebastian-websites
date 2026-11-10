@@ -8,16 +8,21 @@
   },
   "description": "The brand reference page and the public logo and token files.",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "format": "prettier --write README.md vite.config.ts scripts",
-    "format:check": "prettier --check README.md vite.config.ts scripts",
-    "agent:check": "pnpm format:check && pnpm build",
+    "dev": "ardo dev",
+    "build": "ardo build",
+    "preview": "ardo preview",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write README.md ardo.config.ts tsconfig.json app scripts",
+    "format:check": "prettier --check README.md ardo.config.ts tsconfig.json app scripts",
+    "agent:check": "pnpm format:check && pnpm typecheck && pnpm build",
     "favicons": "node scripts/favicons.ts"
   },
   "devDependencies": {
     "playwright": "catalog:",
     "prettier": "catalog:",
-    "vite": "catalog:"
+    "typescript": "catalog:"
+  },
+  "dependencies": {
+    "ardo": "6.6.0"
   }
 }

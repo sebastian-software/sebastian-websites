@@ -2,7 +2,6 @@ import type { ReactNode } from "react"
 
 import { t } from "@palamedes/core/macro"
 import { Trans } from "@palamedes/react/macro"
-import { Link } from "react-router"
 
 import type { Locale } from "~/lib/i18n"
 import type { ProfileDocumentDescriptor } from "~/lib/untranslated"
@@ -52,9 +51,9 @@ export function ProjectProfileRail({
           >
             <Trans>Project Profile PDF</Trans>
           </ButtonLink>
-          <Link className={styles.railLink} to="/fastner">
+          <a className={styles.railLink} href="/fastner">
             <Trans>Full Consultant Profile</Trans>
-          </Link>
+          </a>
         </div>
         <p className={styles.railStand}>
           <Trans>As of:</Trans> {standDate}

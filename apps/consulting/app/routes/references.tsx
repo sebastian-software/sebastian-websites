@@ -1,26 +1,27 @@
+import type { ArdoMetaDescriptor } from "ardo/runtime"
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
+import { pageMeta } from "@sebastian-websites/site/meta"
 import { ArrowLink, ButtonLink } from "@sebastian-websites/ui"
 import { BOOKING_URL } from "@sebastian-websites/web-core"
 
 import { RecommendationQuote } from "~/components/RecommendationQuote"
 import { getFeaturedRecommendation, getRecommendations } from "~/data/recommendations"
-
-import type { Route } from "./+types/references"
+import { variant } from "~/lib/site"
 
 import * as page from "./contentPage.css.ts"
 import * as styles from "./references.css.ts"
 
-// eslint-disable-next-line react-refresh/only-export-components -- React Router reads meta from the route module
-export function meta(): Route.MetaDescriptors {
-  return [
+// eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
+export function meta(): ArdoMetaDescriptor[] {
+  return pageMeta(variant, "/references", [
     { title: t`References – Sebastian Consulting` },
     {
       content: t`Recommendations from people we have worked with on software architecture, internationalization, frontend engineering, and team enablement.`,
       name: "description",
     },
-  ]
+  ])
 }
 
 /**

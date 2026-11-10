@@ -1,16 +1,17 @@
+import type { ArdoMetaDescriptor } from "ardo/runtime"
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
 import { ImprintDocument } from "@sebastian-websites/legal"
+import { pageMeta } from "@sebastian-websites/site/meta"
 import { legalClassNames } from "@sebastian-websites/ui"
 
 import { legalConfig } from "~/lib/legal"
+import { variant } from "~/lib/site"
 
-import type { Route } from "./+types/imprint"
-
-// eslint-disable-next-line react-refresh/only-export-components -- React Router reads meta from the route module
-export function meta(): Route.MetaDescriptors {
-  return [{ title: t`Legal Notice – Sebastian Consulting` }]
+// eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
+export function meta(): ArdoMetaDescriptor[] {
+  return pageMeta(variant, "/imprint", [{ title: t`Legal Notice – Sebastian Consulting` }])
 }
 
 export default function Imprint(): ReactElement {

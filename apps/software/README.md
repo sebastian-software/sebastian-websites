@@ -1,6 +1,6 @@
 # Software website
 
-Ardo 6.3.0 renders the German and English websites from custom TSX routes. The
+Ardo renders the German and English websites from custom TSX routes. The
 shared frame, content, legal documents, images, and cross-domain language links
 are preserved. See [ADR-0019](../../docs/adr/0019-software-site-on-ardo.md) for the
 framework and package-boundary decisions.
@@ -15,13 +15,11 @@ pnpm --filter @sebastian-websites/software check:browser
 
 Development defaults to English. For German, use
 `pnpm --filter @sebastian-websites/software dev software-de`. Changes to app
-source, public files, Vite configuration, and the macro plugin are mirrored into
-the generated Ardo project. Restart development after editing shared packages so
-their JavaScript and CSS artifacts are rebuilt.
+source and shared workspace components are handled directly by Ardo and Vite.
+There is no copied application or separate filesystem watcher.
 
-The build audits translations and fetches one metrics snapshot before rendering.
-It compiles the shared dependency packages, stages regular installed packages
-under `.variant-build`, and runs unchanged Ardo for each language. It writes
+The repository checks audit translations. The build fetches one metrics snapshot
+and runs ordinary Ardo builds for each language, directly from source. It writes
 `build/software-de/client` and `build/software-en/client`. Ardo generates each
 domain's sitemap from its routes, leaving out `/404`, and its robots file. The
 build adds the manifest and the hosting-compatible `404/index.html`.

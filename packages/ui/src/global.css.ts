@@ -1,4 +1,10 @@
-import { LAYOUT_SPLIT, ROOT_FONT_SIZE, scaled, SPACE_PROPERTIES } from "@sebastian-websites/tokens"
+import {
+  LAYOUT_SPLIT,
+  ROOT_FONT_SIZE,
+  scaled,
+  SPACE_PROPERTIES,
+  typeStep,
+} from "@sebastian-websites/tokens"
 import { globalStyle } from "@vanilla-extract/css"
 
 import { color, font } from "./theme.css.ts"
@@ -26,6 +32,8 @@ globalStyle("body", {
   backgroundColor: color.canvas,
   color: color.ink,
   fontFamily: font.sans,
+  // Body text follows the fluid root, including the profiles' print-sized root.
+  fontSize: typeStep("0"),
   // Fallback fonts take the x-height of the loaded face, so text keeps its
   // size and length while web fonts load.
   fontSizeAdjust: "from-font",
