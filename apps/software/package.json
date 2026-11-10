@@ -36,7 +36,7 @@
     "@vanilla-extract/css": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "ardo": "6.4.1"
+    "ardo": "6.6.0"
   },
   "devDependencies": {
     "@palamedes/cli": "catalog:",
@@ -52,7 +52,7 @@
     "typescript": "catalog:",
     "vite": "catalog:",
     "@vanilla-extract/vite-plugin": "catalog:",
-    "@palamedes/transform": "^2.0.0",
+    "@palamedes/transform": "^2.2.0",
     "image-size": "^2.0.4",
     "playwright": "catalog:",
     "yaml": "^2.9.1"
