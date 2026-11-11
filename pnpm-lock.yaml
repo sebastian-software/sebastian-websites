@@ -274,7 +274,7 @@ catalogs:
       version: 5.0.3
 
 patchedDependencies:
-  ardo@6.7.0: 6627bcf27c6a450a4d43aa67ab855e14d368928f50880d505d532331f3d9c697
+  ardo@6.7.0: 39e30b92d6fb4890dfac727e1bd774936b8c2d7d650a913e3fa68894fd648ef7
 
 importers:
 
@@ -291,7 +291,7 @@ importers:
         version: 5.2.6(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(vite@8.3.6(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))(yaml@2.9.1)
       ardo:
         specifier: 6.7.0
-        version: 6.7.0(patch_hash=6627bcf27c6a450a4d43aa67ab855e14d368928f50880d505d532331f3d9c697)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
+        version: 6.7.0(patch_hash=39e30b92d6fb4890dfac727e1bd774936b8c2d7d650a913e3fa68894fd648ef7)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
       esbuild:
         specifier: 'catalog:'
         version: 0.28.2
@@ -345,7 +345,7 @@ importers:
         version: 1.21.3
       ardo:
         specifier: 6.7.0
-        version: 6.7.0(patch_hash=6627bcf27c6a450a4d43aa67ab855e14d368928f50880d505d532331f3d9c697)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
+        version: 6.7.0(patch_hash=39e30b92d6fb4890dfac727e1bd774936b8c2d7d650a913e3fa68894fd648ef7)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
     devDependencies:
       '@palamedes/cli':
         specifier: 'catalog:'
@@ -385,7 +385,7 @@ importers:
     dependencies:
       ardo:
         specifier: 6.7.0
-        version: 6.7.0(patch_hash=6627bcf27c6a450a4d43aa67ab855e14d368928f50880d505d532331f3d9c697)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
+        version: 6.7.0(patch_hash=39e30b92d6fb4890dfac727e1bd774936b8c2d7d650a913e3fa68894fd648ef7)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
     devDependencies:
       playwright:
         specifier: 'catalog:'
@@ -425,7 +425,7 @@ importers:
         version: 1.21.3
       ardo:
         specifier: 6.7.0
-        version: 6.7.0(patch_hash=6627bcf27c6a450a4d43aa67ab855e14d368928f50880d505d532331f3d9c697)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
+        version: 6.7.0(patch_hash=39e30b92d6fb4890dfac727e1bd774936b8c2d7d650a913e3fa68894fd648ef7)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
     devDependencies:
       '@palamedes/cli':
         specifier: 'catalog:'
@@ -492,7 +492,7 @@ importers:
         version: 1.21.3
       ardo:
         specifier: 6.7.0
-        version: 6.7.0(patch_hash=6627bcf27c6a450a4d43aa67ab855e14d368928f50880d505d532331f3d9c697)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
+        version: 6.7.0(patch_hash=39e30b92d6fb4890dfac727e1bd774936b8c2d7d650a913e3fa68894fd648ef7)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
     devDependencies:
       '@palamedes/cli':
         specifier: 'catalog:'
@@ -553,7 +553,7 @@ importers:
         version: 1.21.3
       ardo:
         specifier: 6.7.0
-        version: 6.7.0(patch_hash=6627bcf27c6a450a4d43aa67ab855e14d368928f50880d505d532331f3d9c697)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
+        version: 6.7.0(patch_hash=39e30b92d6fb4890dfac727e1bd774936b8c2d7d650a913e3fa68894fd648ef7)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
     devDependencies:
       '@palamedes/cli':
         specifier: 'catalog:'
@@ -606,7 +606,7 @@ importers:
         version: 26.6.4
       ardo:
         specifier: 6.7.0
-        version: 6.7.0(patch_hash=6627bcf27c6a450a4d43aa67ab855e14d368928f50880d505d532331f3d9c697)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
+        version: 6.7.0(patch_hash=39e30b92d6fb4890dfac727e1bd774936b8c2d7d650a913e3fa68894fd648ef7)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
       eslint:
         specifier: 'catalog:'
         version: 10.12.0(jiti@2.7.0)(supports-color@9.4.0)
@@ -660,7 +660,7 @@ importers:
         version: 2.2.0
       ardo:
         specifier: 6.7.0
-        version: 6.7.0(patch_hash=6627bcf27c6a450a4d43aa67ab855e14d368928f50880d505d532331f3d9c697)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
+        version: 6.7.0(patch_hash=39e30b92d6fb4890dfac727e1bd774936b8c2d7d650a913e3fa68894fd648ef7)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
     devDependencies:
       '@sebastian-websites/config':
         specifier: workspace:*
@@ -703,7 +703,7 @@ importers:
         version: link:../web-core
       ardo:
         specifier: 6.7.0
-        version: 6.7.0(patch_hash=6627bcf27c6a450a4d43aa67ab855e14d368928f50880d505d532331f3d9c697)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
+        version: 6.7.0(patch_hash=39e30b92d6fb4890dfac727e1bd774936b8c2d7d650a913e3fa68894fd648ef7)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
     devDependencies:
       '@sebastian-websites/config':
         specifier: workspace:*
@@ -770,7 +770,7 @@ importers:
         version: 1.21.3
       ardo:
         specifier: 6.7.0
-        version: 6.7.0(patch_hash=6627bcf27c6a450a4d43aa67ab855e14d368928f50880d505d532331f3d9c697)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
+        version: 6.7.0(patch_hash=39e30b92d6fb4890dfac727e1bd774936b8c2d7d650a913e3fa68894fd648ef7)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
       lucide-react:
         specifier: 'catalog:'
         version: 1.55.0(@types/react@19.3.0)(react@19.3.1)
@@ -814,7 +814,7 @@ importers:
         version: 26.6.4
       ardo:
         specifier: 6.7.0
-        version: 6.7.0(patch_hash=6627bcf27c6a450a4d43aa67ab855e14d368928f50880d505d532331f3d9c697)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
+        version: 6.7.0(patch_hash=39e30b92d6fb4890dfac727e1bd774936b8c2d7d650a913e3fa68894fd648ef7)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
       eslint:
         specifier: 'catalog:'
         version: 10.12.0(jiti@2.7.0)(supports-color@9.4.0)
@@ -6993,7 +6993,7 @@ snapshots:
 
   ansi-styles@6.2.3: {}
 
-  ardo@6.7.0(patch_hash=6627bcf27c6a450a4d43aa67ab855e14d368928f50880d505d532331f3d9c697)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3):
+  ardo@6.7.0(patch_hash=39e30b92d6fb4890dfac727e1bd774936b8c2d7d650a913e3fa68894fd648ef7)(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3):
     dependencies:
       '@base-ui/react': 1.9.0(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@ferriki/core': 1.3.0

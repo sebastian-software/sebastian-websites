@@ -22,7 +22,7 @@ index afa0ebc3fc8288a2cb33bf1928ff9bc1664cb7ff..f0254e86e8a60019d7fe92d86073a688
  //# sourceMappingURL=index.d.ts.map
 \ No newline at end of file
 diff --git a/dist/vite/index.js b/dist/vite/index.js
-index 64d4ed130f398a897a48968fc0823b5866344c3e..cdfe4f5169d878bb1852ba234593392f62b6a2fb 100644
+index 64d4ed130f398a897a48968fc0823b5866344c3e..b47ceae0c399c656683ae8aa1079c931bf0d3d07 100644
 --- a/dist/vite/index.js
 +++ b/dist/vite/index.js
 @@ -20,7 +20,7 @@ import fs, { access, readFile, stat } from "node:fs/promises";
@@ -34,7 +34,40 @@ index 64d4ed130f398a897a48968fc0823b5866344c3e..cdfe4f5169d878bb1852ba234593392f
  import fs$1, { constants, cpSync, existsSync, mkdirSync, readFileSync, realpathSync, renameSync, rmSync, statSync, writeFileSync } from "node:fs";
  import { createHash } from "node:crypto";
  import { execFileSync, execSync } from "node:child_process";
-@@ -7242,10 +7242,15 @@ function createArdoProjectViteConfig(root, options = {}) {
+@@ -7169,20 +7169,23 @@ function createMainPlugin(state, options) {
+ 	});
+ 	return plugin;
+ }
+-function createMainConfig(state, input) {
+-	const { command, isPreview, siteConfig, routesDirOption, userConfig } = input;
+-	const root = userConfig.root ?? process.cwd();
+-	state.routesDir = resolveRoutesDir(root, routesDirOption);
+-	const config = {
+-		define: { __BUILD_TIME__: JSON.stringify(state.buildTime ?? (/* @__PURE__ */ new Date()).toISOString()) },
++function createViteDefaults(userConfig, buildTime) {
++	return {
++		define: userConfig.define?.__BUILD_TIME__ === void 0 ? { __BUILD_TIME__: JSON.stringify(buildTime ?? (/* @__PURE__ */ new Date()).toISOString()) } : void 0,
+ 		optimizeDeps: { exclude: ["ardo/ui/styles.css"] },
+ 		server: { fs: {
+-			strict: true,
+-			allow: [root]
++			strict: userConfig.server?.fs?.strict ?? true,
++			allow: [userConfig.root ?? process.cwd()]
+ 		} },
+ 		ssr: { noExternal: true },
+-		environments: { ssr: { optimizeDeps: { noDiscovery: false } } }
++		environments: { ssr: { optimizeDeps: { noDiscovery: userConfig.environments?.ssr?.optimizeDeps?.noDiscovery ?? false } } }
+ 	};
++}
++function createMainConfig(state, input) {
++	const { command, isPreview, siteConfig, routesDirOption, userConfig } = input;
++	const root = userConfig.root ?? process.cwd();
++	state.routesDir = resolveRoutesDir(root, routesDirOption);
++	const config = createViteDefaults(userConfig, state.buildTime);
+ 	const baseResult = resolveVersionedMainBase({
+ 		command,
+ 		siteConfig,
+@@ -7242,10 +7245,15 @@ function createArdoProjectViteConfig(root, options = {}) {
  			label: "Ardo config",
  			expected: "an Ardo options object or a function returning one"
  		});
@@ -53,7 +86,7 @@ index 64d4ed130f398a897a48968fc0823b5866344c3e..cdfe4f5169d878bb1852ba234593392f
  		};
  	};
  }
-@@ -7280,6 +7285,6 @@ async function hasArdoPlugin(plugins) {
+@@ -7280,6 +7288,6 @@ async function hasArdoPlugin(plugins) {
  function isArdoPlugin(option) {
  	return typeof option === "object" && option !== null && "name" in option && option.name === "ardo";
  }
