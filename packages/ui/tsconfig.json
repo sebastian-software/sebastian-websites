@@ -1,14 +1,12 @@
 {
   "extends": "@sebastian-websites/config/tsconfig/react.json",
-  "include": [
-    "src/**/*",
-    "vitest.config.ts"
-  ],
+  "include": ["src/**/*"],
   "compilerOptions": {
     "types": [
       "node",
-      "vite/client",
-      "@sebastian-websites/web-core/bunny-images"
+      "ardo/vite/client",
+      "@sebastian-websites/web-core/bunny-images",
+      "ardo/virtual"
     ]
   }
 }

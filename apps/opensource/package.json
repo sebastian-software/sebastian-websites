@@ -14,12 +14,12 @@
     "build:en": "node scripts/build.ts opensource-en",
     "typecheck": "tsc",
     "lint": "oxlint -c ../../oxlint.config.ts app && eslint app --config ../../eslint.config.ts",
-    "format": "prettier --write app scripts ardo.config.ts vite.config.ts tsconfig.json",
-    "format:check": "prettier --check app scripts ardo.config.ts vite.config.ts tsconfig.json",
+    "format": "prettier --write app scripts ardo.config.ts tsconfig.json",
+    "format:check": "prettier --check app scripts ardo.config.ts tsconfig.json",
     "palamedes:extract": "pmds extract",
     "check:translations": "pmds audit --fail-on warning",
     "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm lint:messages && pnpm check:translations && pnpm test",
-    "test": "vitest run",
+    "test": "pnpm -w exec vitest run --project opensource",
     "lint:messages": "pmds lint --fail-on warning"
   },
   "dependencies": {
@@ -31,24 +31,18 @@
     "@sebastian-websites/ui": "workspace:*",
     "@sebastian-websites/web-core": "workspace:*",
     "@vanilla-extract/css": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:",
     "@sebastian-websites/site": "workspace:*",
-    "ardo": "6.6.0"
+    "ardo": "6.7.0"
   },
   "devDependencies": {
     "@palamedes/cli": "catalog:",
     "@palamedes/vite-plugin": "catalog:",
     "@sebastian-websites/config": "workspace:*",
     "@types/node": "catalog:",
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
     "eslint": "catalog:",
     "jiti": "catalog:",
     "oxlint": "catalog:",
     "prettier": "catalog:",
-    "typescript": "catalog:",
-    "vite": "catalog:",
-    "vitest": "catalog:"
+    "typescript": "catalog:"
   }
 }

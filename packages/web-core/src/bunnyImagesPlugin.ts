@@ -1,5 +1,5 @@
 /* eslint-disable security/detect-non-literal-fs-filename -- Paths come from Vite's module resolver. */
-import type { Plugin } from "vite"
+import type { Plugin } from "ardo/vite"
 
 import { imageSize } from "image-size"
 import { createHash } from "node:crypto"

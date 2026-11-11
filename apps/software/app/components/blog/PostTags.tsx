@@ -1,9 +1,9 @@
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
 import { SiteLink } from "@sebastian-websites/ui"
+import { useId } from "ardo/react"
 import { useArdoPublicationTags } from "ardo/ui"
-import { useId } from "react"
 
 import * as styles from "./post.css.ts"
 

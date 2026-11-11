@@ -1,0 +1,96 @@
+diff --git a/dist/vite/index.d.ts b/dist/vite/index.d.ts
+index afa0ebc3fc8288a2cb33bf1928ff9bc1664cb7ff..f0254e86e8a60019d7fe92d86073a68830bf17c8 100644
+--- a/dist/vite/index.d.ts
++++ b/dist/vite/index.d.ts
+@@ -1,8 +1,9 @@
++import type { ModuleRunner } from "vite/module-runner";
+ import { T as SidebarItem, s as DocumentationVersioningConfig, st as MarkdownConfig, x as ResolvedConfig } from "../types-Cf5l3NJ4.js";
+ import { a as CollectionDefinition, c as defineCollection, i as ArdoIconOptions, l as ContentSourceFile, o as CollectionEntry, r as ArdoPluginOptions, s as CollectionsConfig, t as ArdoProjectConfigExport, u as ContentSourceMapping } from "../project-C4KYUlAm.js";
+ import { ThemeInput } from "@ferriki/core";
+ import "ferromark";
+-import { Plugin, Plugin as Plugin$1, UserConfig, UserConfigExport, UserConfigFnPromise, defineConfig } from "vite";
++import { Plugin, Plugin as Plugin$1, UserConfig, UserConfigExport, UserConfigFnPromise, build, createServer, defineConfig, mergeConfig } from "vite";
+ type FerrikiHighlightOptions = {
+   sourcePath?: string;
+   theme?: FerrikiTheme;
+@@ -68,5 +69,5 @@ type SearchDoc = {
+   versionId?: string;
+ };
+ export declare function generateSearchIndex(routesDir: string, options?: RouteManifestOptions): Promise<SearchDoc[]>;
+-export { type ArdoIconOptions, type ArdoPluginOptions, type CollectionDefinition, type CollectionEntry, type CollectionsConfig, type ContentSourceFile, type ContentSourceMapping, type Plugin, type SearchDoc, type SidebarGenerationOptions, type UserConfig, ardoPlugin as ardo, ardoPlugin as default, defineCollection, defineConfig };
++export { type ModuleRunner, build, createServer, mergeConfig, type ArdoIconOptions, type ArdoPluginOptions, type CollectionDefinition, type CollectionEntry, type CollectionsConfig, type ContentSourceFile, type ContentSourceMapping, type Plugin, type SearchDoc, type SidebarGenerationOptions, type UserConfig, ardoPlugin as ardo, ardoPlugin as default, defineCollection, defineConfig };
+ //# sourceMappingURL=index.d.ts.map
+\ No newline at end of file
+diff --git a/dist/vite/index.js b/dist/vite/index.js
+index 64d4ed130f398a897a48968fc0823b5866344c3e..cdfe4f5169d878bb1852ba234593392f62b6a2fb 100644
+--- a/dist/vite/index.js
++++ b/dist/vite/index.js
+@@ -20,7 +20,7 @@ import fs, { access, readFile, stat } from "node:fs/promises";
+ import { parse, stringify } from "yaml";
+ import { compileJsx, composeCodeHooks, createDiagramCodeRenderer, createLineHighlighter, prepareDocument, toHtml } from "ferromark";
+ import react from "@vitejs/plugin-react";
+-import { defineConfig, isRunnableDevEnvironment, mergeConfig, transformWithOxc } from "vite";
++import { build, createServer, defineConfig, isRunnableDevEnvironment, mergeConfig, transformWithOxc } from "vite";
+ import fs$1, { constants, cpSync, existsSync, mkdirSync, readFileSync, realpathSync, renameSync, rmSync, statSync, writeFileSync } from "node:fs";
+ import { createHash } from "node:crypto";
+ import { execFileSync, execSync } from "node:child_process";
+@@ -7242,10 +7242,15 @@ function createArdoProjectViteConfig(root, options = {}) {
+ 			label: "Ardo config",
+ 			expected: "an Ardo options object or a function returning one"
+ 		});
++		const configuredVite = mergeConfig(viteConfig, ardoOptions.vite ?? {});
++		const frameworkOptions = {
++			...ardoOptions,
++			vite: void 0
++		};
+ 		return {
+-			...viteConfig,
+-			root: viteConfig.root ?? projectRoot,
+-			plugins: includesArdo ? viteConfig.plugins ?? [] : [...viteConfig.plugins ?? [], ...ardoPlugin(ardoOptions)]
++			...configuredVite,
++			root: configuredVite.root ?? projectRoot,
++			plugins: includesArdo ? viteConfig.plugins ?? [] : [...configuredVite.plugins ?? [], ...ardoPlugin(frameworkOptions)]
+ 		};
+ 	};
+ }
+@@ -7280,6 +7285,6 @@ async function hasArdoPlugin(plugins) {
+ function isArdoPlugin(option) {
+ 	return typeof option === "object" && option !== null && "name" in option && option.name === "ardo";
+ }
+-export { ardoPlugin as ardo, ardoPlugin, ardoPlugin as default, createArdoProjectViteConfig, defineCollection, defineConfig, generateSearchIndex, generateSidebar, highlightCode };
++export { build, createServer, mergeConfig, ardoPlugin as ardo, ardoPlugin, ardoPlugin as default, createArdoProjectViteConfig, defineCollection, defineConfig, generateSearchIndex, generateSidebar, highlightCode };
+ 
+ //# sourceMappingURL=index.js.map
+\ No newline at end of file
+diff --git a/virtual.d.ts b/virtual.d.ts
+index b9f166ad91d5d8799cb78fba157308ff9b864d82..ce354370570b4b356a00e0ece89d6f7f2a060f3d 100644
+--- a/virtual.d.ts
++++ b/virtual.d.ts
+@@ -51,21 +51,23 @@ declare module "virtual:ardo/collections" {
+ }
+ 
+ declare module "*.mdx" {
+-  import type { ComponentType } from "react"
++  import type { ComponentType } from "ardo/react"
++  import type { ArdoMDXComponents } from "ardo/mdx-provider"
+   import type { PageFrontmatter, TOCItem } from "ardo"
+ 
+   export const frontmatter: PageFrontmatter
+   export const toc: TOCItem[]
+-  const component: ComponentType
++  const component: ComponentType<{ components?: ArdoMDXComponents }>
+   export default component
+ }
+ 
+ declare module "*.md" {
+-  import type { ComponentType } from "react"
++  import type { ComponentType } from "ardo/react"
++  import type { ArdoMDXComponents } from "ardo/mdx-provider"
+   import type { PageFrontmatter, TOCItem } from "ardo"
+ 
+   export const frontmatter: PageFrontmatter
+   export const toc: TOCItem[]
+-  const component: ComponentType
++  const component: ComponentType<{ components?: ArdoMDXComponents }>
+   export default component
+ }

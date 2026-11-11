@@ -1,5 +1,5 @@
+import type { ComponentType, ReactElement, ReactNode } from "ardo/react"
 import type { ArdoMetaDescriptor } from "ardo/runtime"
-import type { ComponentType, ReactElement, ReactNode } from "react"
 
 import {
   FaviconLinks,

@@ -1,4 +1,4 @@
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
 import { blocks, button, SiteLink } from "@sebastian-websites/ui"
 

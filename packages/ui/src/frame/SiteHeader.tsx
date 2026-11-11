@@ -1,7 +1,7 @@
 import type { SiteFrame } from "@sebastian-websites/web-core"
 
+import { type ReactElement, useId } from "ardo/react"
 import { Globe } from "lucide-react"
-import { type ReactElement, useId } from "react"
 
 import type { FrameCopy } from "./copy.ts"
 

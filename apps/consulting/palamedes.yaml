@@ -11,5 +11,6 @@ catalogs:
         ../../packages/ui/src/frame/errorCopy.ts,
       ]
     exclude:
+      - app/content/werner/**/*.mdx
       - ../../packages/legal/src/**/*.test.ts
       - ../../packages/legal/src/**/*.test.tsx

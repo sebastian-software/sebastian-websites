@@ -1,9 +1,9 @@
 // @vitest-environment happy-dom
 /* eslint testing-library/no-unnecessary-act: "off" -- React DOM createRoot requires act; no Testing Library wrapper is used. */
-import type { Root } from "react-dom/client"
+import type { Root } from "ardo/react-dom/client"
 
-import { act } from "react"
-import { createRoot } from "react-dom/client"
+import { act } from "ardo/react"
+import { createRoot } from "ardo/react-dom/client"
 import { afterEach, describe, expect, it, vi } from "vitest"
 
 import document from "~/data/metrics-snapshot.json"

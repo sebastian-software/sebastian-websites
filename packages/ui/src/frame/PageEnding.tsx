@@ -1,5 +1,5 @@
 import type { SiteFrame } from "@sebastian-websites/web-core"
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
 import type { FrameCopy } from "./copy.ts"
 import type { SubscribeAction } from "./subscribe.ts"

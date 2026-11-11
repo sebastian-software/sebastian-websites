@@ -1,6 +1,7 @@
 import type { Linter } from "eslint"
 
 import { getEslintConfig } from "eslint-config-setup"
+import { fileURLToPath } from "node:url"
 
 const sharedIgnores = [
   "**/*.md",
@@ -48,6 +49,19 @@ export async function createEslintConfig(
   const workspaceConfig: Linter.Config[] = [
     ...normalizedConfig,
     ...(options.react === true ? [reactPerformanceCompatibility] : []),
+    {
+      files: ["**/*.{test,spec}.{ts,tsx}"],
+      name: "@sebastian-websites/config/workspace-test-dependencies",
+      rules: {
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            devDependencies: true,
+            packageDir: [process.cwd(), fileURLToPath(new URL("../../..", import.meta.url))],
+          },
+        ],
+      },
+    },
     {
       ignores: [...sharedIgnores, ...(options.ignores ?? [])],
       name: "@sebastian-websites/config/ignores",

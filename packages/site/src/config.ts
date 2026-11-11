@@ -3,8 +3,8 @@ import type { ArdoPluginOptions, Plugin, UserConfig } from "ardo/vite"
 import { palamedes } from "@palamedes/vite-plugin"
 import { getVariant, type SiteId } from "@sebastian-websites/web-core"
 import { bunnyImages } from "@sebastian-websites/web-core/vite"
+import { mergeConfig } from "ardo/vite"
 import path from "node:path"
-import { mergeConfig } from "vite"
 
 import { webManifest } from "./manifest.ts"
 
@@ -12,12 +12,16 @@ import { webManifest } from "./manifest.ts"
  * Normal Ardo settings for one domain build of a website.
  * @param root0 - The selected website settings.
  * @param root0.site - The website identifier.
+ * @param root0.root - The application directory.
+ * @param root0.vite - Additional website integrations.
  * @returns The Ardo settings of the selected domain.
  */
 export function createSiteConfig({
+  root,
   site,
+  vite,
   ...options
-}: { readonly site: SiteId } & ArdoPluginOptions): ArdoPluginOptions {
+}: { readonly root: string; readonly site: SiteId } & ArdoPluginOptions): ArdoPluginOptions {
   const variantId = process.env.SITE_VARIANT ?? `${site}-en`
   const variant = getVariant(variantId)
   return {
@@ -30,6 +34,7 @@ export function createSiteConfig({
     siteUrl: variant.canonicalOrigin,
     trailingSlash: false,
     ...options,
+    vite: { ...siteIntegrations({ root, ...vite }) },
   }
 }
 
@@ -55,7 +60,7 @@ function catalog(root: string, locale: string): Plugin {
  * @param root0.root - The application directory.
  * @returns The website Vite integrations.
  */
-export function websiteViteConfig({
+function siteIntegrations({
   root,
   ...options
 }: { readonly root: string } & UserConfig): UserConfig {

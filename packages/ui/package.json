@@ -19,7 +19,7 @@
     "lint": "oxlint -c ../../oxlint.config.ts src && eslint src --config ../../eslint.config.ts",
     "format": "prettier --write src",
     "format:check": "prettier --check src",
-    "test": "vitest run",
+    "test": "pnpm -w exec vitest run --project ui",
     "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test"
   },
   "dependencies": {
@@ -29,23 +29,17 @@
     "@sebastian-websites/web-core": "workspace:*",
     "@vanilla-extract/css": "catalog:",
     "lucide-react": "catalog:",
-    "react": "catalog:",
-    "@palamedes/runtime": "catalog:"
+    "@palamedes/runtime": "catalog:",
+    "ardo": "6.7.0"
   },
   "devDependencies": {
     "@sebastian-websites/config": "workspace:*",
     "@types/node": "catalog:",
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
-    "@vanilla-extract/vite-plugin": "catalog:",
     "eslint": "catalog:",
     "happy-dom": "catalog:",
     "jiti": "catalog:",
     "oxlint": "catalog:",
     "prettier": "catalog:",
-    "react-dom": "catalog:",
-    "typescript": "catalog:",
-    "vite": "catalog:",
-    "vitest": "catalog:"
+    "typescript": "catalog:"
   }
 }

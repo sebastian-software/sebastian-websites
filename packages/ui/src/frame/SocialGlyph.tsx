@@ -1,5 +1,5 @@
 import type { CompanyProfile } from "@sebastian-websites/web-core"
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
 // Single-color glyphs from Simple Icons (CC0 1.0, https://simpleicons.org): the
 // GitHub mark and the bare LinkedIn letters, drawn in the current text color

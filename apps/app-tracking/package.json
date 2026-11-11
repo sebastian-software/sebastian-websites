@@ -30,24 +30,19 @@
     "@sebastian-websites/ui": "workspace:*",
     "@sebastian-websites/web-core": "workspace:*",
     "@vanilla-extract/css": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:",
     "@sebastian-websites/site": "workspace:*",
-    "ardo": "6.6.0"
+    "ardo": "6.7.0"
   },
   "devDependencies": {
     "@palamedes/cli": "catalog:",
     "@palamedes/vite-plugin": "catalog:",
     "@sebastian-websites/config": "workspace:*",
     "@types/node": "catalog:",
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
     "eslint": "catalog:",
     "jiti": "catalog:",
     "oxlint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:",
     "playwright": "catalog:",
     "axe-core": "catalog:"
   }
