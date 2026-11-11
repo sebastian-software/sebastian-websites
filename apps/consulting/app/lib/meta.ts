@@ -1,7 +1,7 @@
-import type { MetaDescriptor } from "react-router"
+import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 export type SeoMetadataOptions = {
-  readonly additional?: readonly MetaDescriptor[]
+  readonly additional?: readonly ArdoMetaDescriptor[]
   readonly description: string
   readonly openGraphType: "profile" | "website"
   readonly siteName?: string
@@ -15,7 +15,7 @@ export type SeoMetadataOptions = {
  * @param options - Title, description, Open Graph type, and extra tags.
  * @returns The meta descriptors for the route.
  */
-export function createSeoMetadata(options: SeoMetadataOptions): MetaDescriptor[] {
+export function createSeoMetadata(options: SeoMetadataOptions): ArdoMetaDescriptor[] {
   const { additional = [], description, openGraphType, siteName, title } = options
   return [
     { title },

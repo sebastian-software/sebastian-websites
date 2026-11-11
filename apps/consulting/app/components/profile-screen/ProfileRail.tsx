@@ -3,7 +3,6 @@ import type { ReactNode } from "react"
 import { t } from "@palamedes/core/macro"
 import { Trans } from "@palamedes/react/macro"
 import { BunnyImage } from "@sebastian-websites/ui"
-import { Link } from "react-router"
 
 import type { Locale } from "~/lib/i18n"
 import type { ProfileDocumentDescriptor, ProfilePdfDescriptor } from "~/lib/untranslated"
@@ -132,10 +131,10 @@ export function ProfileRail({
           <p className={styles.railText}>
             <Trans>Five pages covering role, availability, skills, and project experience.</Trans>
           </p>
-          <Link className={styles.railHomeLink} to={projectProfile.route}>
+          <a className={styles.railHomeLink} href={projectProfile.route}>
             <Trans>Concise Project Profile</Trans>
             <span aria-hidden>→</span>
-          </Link>
+          </a>
         </div>
       )}
 
@@ -143,7 +142,7 @@ export function ProfileRail({
         <p className={styles.railHeading}>
           <Trans>The second consultant</Trans>
         </p>
-        <Link className={styles.railOtherLink} to={`/${other.slug}`}>
+        <a className={styles.railOtherLink} href={`/${other.slug}`}>
           <BunnyImage
             alt=""
             className={styles.railOtherPhoto}
@@ -157,14 +156,14 @@ export function ProfileRail({
             <span className={styles.railOtherName}>{other.name}</span>
             <span className={styles.railOtherFocus}>{other.focus}</span>
           </span>
-        </Link>
+        </a>
       </div>
 
       <div className={styles.railModule}>
-        <Link className={styles.railHomeLink} to="/">
+        <a className={styles.railHomeLink} href="/">
           <span aria-hidden>←</span>
           <Trans>Back to home</Trans>
-        </Link>
+        </a>
       </div>
     </aside>
   )

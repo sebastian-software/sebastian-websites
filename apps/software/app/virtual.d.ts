@@ -5,19 +5,10 @@ declare module "virtual:software-metrics" {
   export default metrics
 }
 
-declare module "virtual:software-catalog" {
-  import type { CompiledCatalogMessages } from "@palamedes/core"
-
-  export const messages: CompiledCatalogMessages
-}
-
-declare module "@sebastian-websites/ui/styles.css"
-
-declare module "virtual:software-blog-tags" {
-  /**
-   * The tag keys with an archive in the other language, written by `build.ts`
-   * while staging the posts. Only the tag archive module imports it.
-   */
-  const tags: { readonly otherLanguage: readonly string[] }
-  export default tags
+declare module "virtual:software-blog-data" {
+  const data: {
+    readonly counterparts: Readonly<Record<string, null | string>>
+    readonly otherLanguage: readonly string[]
+  }
+  export default data
 }

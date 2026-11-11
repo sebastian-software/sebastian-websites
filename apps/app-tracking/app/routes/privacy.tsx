@@ -1,16 +1,17 @@
+import type { ArdoMetaDescriptor } from "ardo/runtime"
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
 import { LegalDocumentFrame } from "@sebastian-websites/legal"
+import { pageMeta } from "@sebastian-websites/site/meta"
 import { legalClassNames as classes } from "@sebastian-websites/ui"
 
 import { legalConfig, toolReportingPrivacyUrl } from "~/lib/legal"
+import { variant } from "~/lib/site"
 
-import type { Route } from "./+types/privacy"
-
-// eslint-disable-next-line react-refresh/only-export-components -- React Router reads page metadata.
-export function meta(): Route.MetaDescriptors {
-  return [{ title: t`Website privacy notice – app-tracking` }]
+// eslint-disable-next-line react-refresh/only-export-components -- Ardo reads page metadata.
+export function meta(): ArdoMetaDescriptor[] {
+  return pageMeta(variant, "/privacy", [{ title: t`Website privacy notice – app-tracking` }])
 }
 
 export default function Privacy(): ReactElement {

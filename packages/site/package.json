@@ -1,0 +1,44 @@
+{
+  "name": "@sebastian-websites/site",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "26.x"
+  },
+  "description": "The shared Ardo configuration and branded document shell.",
+  "exports": {
+    "./config": "./src/config.ts",
+    "./root": "./src/root.tsx",
+    "./meta": "./src/meta.ts",
+    "./client": "./src/client.d.ts",
+    "./i18n": "./src/i18n.ts",
+    "./server": "./src/server.ts",
+    "./build": "./src/build.ts"
+  },
+  "dependencies": {
+    "@palamedes/core": "catalog:",
+    "@palamedes/runtime": "catalog:",
+    "@palamedes/vite-plugin": "catalog:",
+    "@sebastian-websites/ui": "workspace:*",
+    "@sebastian-websites/web-core": "workspace:*",
+    "ardo": "6.6.0",
+    "react": "catalog:",
+    "vite": "catalog:"
+  },
+  "devDependencies": {
+    "@sebastian-websites/config": "workspace:*",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "typescript": "catalog:",
+    "eslint": "catalog:",
+    "oxlint": "catalog:",
+    "prettier": "catalog:"
+  },
+  "scripts": {
+    "typecheck": "tsc",
+    "format:check": "prettier --check src package.json tsconfig.json",
+    "lint": "oxlint -c ../../oxlint.config.ts src && eslint src --config ../../eslint.config.ts",
+    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check"
+  }
+}

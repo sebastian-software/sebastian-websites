@@ -2,6 +2,7 @@ import rootConfig from "../../eslint.config.ts"
 
 export default [
   ...rootConfig,
+  { ignores: ["app/routes/blog/**"] },
   {
     files: ["app/**/*.test.ts", "scripts/**/*.test.ts"],
     name: "sebastian-websites/software-tests",

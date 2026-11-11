@@ -2,7 +2,6 @@ import type { ReactNode } from "react"
 
 import { Trans } from "@palamedes/react/macro"
 import { useEffect, useState } from "react"
-import { Link } from "react-router"
 
 import { ButtonLink } from "~/components/profile-screen/ButtonLink"
 import { trackBookingClick } from "~/lib/analytics"
@@ -56,9 +55,9 @@ export function ProfileMobileBar({
 
   return (
     <div className={cn(styles.mobileBar, show && styles.mobileBarVisible)} inert={!show}>
-      <Link className={styles.mobileBarLink} to="/">
+      <a className={styles.mobileBarLink} href="/">
         <Trans>Home</Trans>
-      </Link>
+      </a>
       <ButtonLink
         href={bookingUrl}
         onClick={() => {

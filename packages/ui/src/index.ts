@@ -1,7 +1,6 @@
 export * as blocks from "./blocks.css.ts"
 export { BunnyImage, type BunnyImageProps, type BunnyImageVariant } from "./BunnyImage.tsx"
 export { button } from "./button.css.ts"
-export { DocumentNavigation } from "./DocumentNavigation.tsx"
 export { alternate } from "./editorial/alternate.ts"
 export { Arrow, type ArrowProps } from "./editorial/Arrow.tsx"
 export { ArrowLink, type ArrowLinkProps } from "./editorial/ArrowLink.tsx"
@@ -45,7 +44,6 @@ export {
   PHONE,
   scaledSizes,
 } from "./responsive.ts"
-export { RouteFocus } from "./RouteFocus.tsx"
 export { Section, type SectionProps, type SectionTone } from "./Section.tsx"
 export { SectionHead, type SectionHeadProps } from "./SectionHead.tsx"
 export { SiteLink } from "./SiteLink.tsx"

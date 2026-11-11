@@ -1,7 +1,6 @@
 import type { ReactNode } from "react"
 
 import { Trans } from "@palamedes/react/macro"
-import { Link } from "react-router"
 
 import { ButtonLink } from "~/components/profile-screen/ButtonLink"
 import { trackBookingClick } from "~/lib/analytics"
@@ -46,9 +45,9 @@ export function ProfileOutro({
       </ButtonLink>
       <p className={styles.outroSecondary}>
         <Trans>Or meet the second consultant:</Trans>{" "}
-        <Link className={styles.outroOtherLink} to={`/${other.slug}`}>
+        <a className={styles.outroOtherLink} href={`/${other.slug}`}>
           {other.name}
-        </Link>
+        </a>
       </p>
     </section>
   )

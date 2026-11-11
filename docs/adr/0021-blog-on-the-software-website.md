@@ -1,6 +1,6 @@
 ---
 status: accepted
-updated: 2026-11-08
+updated: 2026-11-10
 ---
 
 # The Software website carries a blog built on Ardo's publication feature
@@ -8,7 +8,7 @@ updated: 2026-11-08
 `sebastian-software.de` and `sebastian-software.com` publish a blog that answers buyer and
 adoption questions and is distributed by hand. Posts are Markdown or MDX files in
 `apps/software/content/blog/<locale>/` ([ADR-0004](0004-content-as-files-no-cms.md)). The blog
-uses the `publication` feature of Ardo 6.4.1 ([ADR-0019](0019-software-site-on-ardo.md)), which
+uses the `publication` feature of Ardo ([ADR-0019](0019-software-site-on-ardo.md)), which
 provides the overview, post pages, tag archives, RSS 2.0 and Atom feeds, drafts, and future-dated
 posts. There is no CMS, fork, or custom feed generator. Where the feature lacked a reusable
 capability, Ardo gained it first; the launch pins the release that contains them.
@@ -21,13 +21,12 @@ capability, Ardo gained it first; the launch pins the release that contains them
   one English slug; the build fails when a shared `id` has different paths or a shared path has
   different IDs. A post without a counterpart exists on one domain only, and the other domain
   answers its path with the branded 404.
-- **Counterparts are computed at build time.** `build.ts` reads every post of both languages,
-  validates them, and writes `counterpart` (the shared path, or `null`) into each staged copy.
-  Sources must not set it. The post module reads it for hreflang and the root reads it for the
-  language switch, so no page carries a cross-language index. A tag archive gets its
-  counterpart the same way through the `frontmatter` export of the tag module and the build
-  data `virtual:software-blog-tags`. Without a counterpart, the language switch links to the
-  other language's blog overview.
+- **Counterparts are computed at build time.** The publication configuration validates
+  both languages and exposes a compact map of this language's post paths to their counterpart
+  path or `null`, plus the other language's tag keys. `virtual:software-blog-data` carries only
+  these references, not the other language's prose. The post, tag module, and branded shell
+  use it for hreflang and language links. Sources must not set `counterpart`. Without a
+  counterpart, the language switch links to the other language's blog overview.
 - **Tags are English keys with translated labels.** Keys come from one registry in
   `packages/web-core/src/blogTags.ts`; labels are Palamedes `t` macros in
   `apps/software/app/components/blog/tagLabel.ts`, so they stay in both catalogs and in the
@@ -50,7 +49,7 @@ capability, Ardo gained it first; the launch pins the release that contains them
 
 ## URLs, feeds, and the hosting gate
 
-- **One publication per language build.** Each variant sets `publication.from` to its staged
+- **One publication per language build.** Each variant sets `publication.from` to its original
   post directory and `to` to `blog`. Ardo's `i18n` option stays off, because its locale prefixes
   contradict [ADR-0010](0010-url-and-redirect-contract.md). A top-level `trailingSlash: false`
   gives canonicals, links, the sitemap, and feed URLs the spelling of ADR-0010.
@@ -72,7 +71,7 @@ capability, Ardo gained it first; the launch pins the release that contains them
   zone, and passes it to both Ardo builds as `buildTime`. Ardo leaves out drafts and posts that
   are not yet due, and dates feeds and sitemap `lastmod` from the visible posts. The build
   records it in `build-time.txt` next to `client/`, and the gate rejects a pair whose build
-  times differ. A staged build sets `sourceRoot`, so Git history still dates its pages. Two
+  times differ. Ardo reads original sources, so Git history dates its pages directly. Two
   builds of one commit produce identical blog pages, feeds and sitemap when they share the same
   `--build-time` and run in a checkout with the full Git history; CI and Deploy check out with
   `fetch-depth: 0` for that. Pages with live data, such as the metrics on `/open-source`, can
@@ -103,7 +102,7 @@ app-tracking, and Skills; Consulting is unchanged. `BLOG_NAVIGATION` in
   `/blog` with valid, empty feeds. The phase is set after the first deployment with the item.
 
 The blog pages and feeds are built in every phase. The guard is an explicit option of the
-staging step; `build.ts` turns it on only for the site's own posts while the phase is
+source-validation step; `build.ts` turns it on only for the site's own posts while the phase is
 `launching`, so fixture builds and tests behave the same in every phase. The owners write the
 first post in both languages. The repository holds no sample post; test posts live only in
 `apps/software/test/fixtures/blog/`.

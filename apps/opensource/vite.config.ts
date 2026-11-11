@@ -1,30 +1,27 @@
-import { fileURLToPath } from "node:url"
-import { palamedes } from "@palamedes/vite-plugin"
-import { reactRouter } from "@react-router/dev/vite"
-import { bunnyImages } from "@sebastian-websites/web-core/vite"
-import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin"
-import { defineConfig } from "vite"
+import { websiteViteConfig } from "@sebastian-websites/site/config"
+import type { Plugin } from "ardo/vite"
 
-// One build per variant; the variant fixes language and origin at build time (ADR-0006).
-const variantId = process.env.SITE_VARIANT ?? "opensource-en"
+import { loadActivity } from "./app/lib/activity.ts"
+import { loadMetrics } from "./app/lib/metrics.ts"
 
-export default defineConfig({
-  define: {
-    __BUILD_YEAR__: JSON.stringify(new Date().getFullYear()),
-    __SITE_VARIANT__: JSON.stringify(variantId),
-  },
-  plugins: [
-    bunnyImages(),
-    palamedes({ failOnMissing: true, runtimeModule: "~/lib/i18n" }),
-    vanillaExtractPlugin(),
-    reactRouter(),
-  ],
-  resolve: {
-    alias: {
-      // Shared packages (the frame copy) use the macro runtime too; resolve it to
-      // this app's i18n instance from outside the app as well.
-      "~/lib/i18n": fileURLToPath(new URL("./app/lib/i18n.ts", import.meta.url)),
+/** Share one public observation between the browser bundle and prerendered routes. */
+function buildData(): Plugin {
+  const id = "virtual:opensource-build-data"
+  let data: Promise<string> | undefined
+  return {
+    name: "opensource:build-data",
+    resolveId(source) {
+      return source === id ? `\0${id}` : undefined
     },
-    tsconfigPaths: true,
-  },
-})
+    async load(source) {
+      if (source !== `\0${id}`) return undefined
+      data ??= Promise.all([loadActivity(), loadMetrics()]).then(
+        ([{ activity }, metrics]) =>
+          `export const activity = ${JSON.stringify(activity)}; export const metrics = ${JSON.stringify(metrics)};`
+      )
+      return data
+    },
+  }
+}
+
+export default websiteViteConfig({ root: import.meta.dirname, plugins: [buildData()] })

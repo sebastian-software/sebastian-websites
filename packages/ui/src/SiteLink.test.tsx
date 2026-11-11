@@ -2,38 +2,18 @@ import type { ComponentPropsWithRef } from "react"
 
 import { act } from "react"
 import { createRoot } from "react-dom/client"
-import { MemoryRouter, useLocation } from "react-router"
 import { describe, expect, it } from "vitest"
 
-import { DocumentNavigation } from "./DocumentNavigation.tsx"
 import { SiteLink } from "./SiteLink.tsx"
 
-function CurrentPath(): React.JSX.Element {
-  return <output>{useLocation().pathname}</output>
-}
-
-async function clickLink(
-  props: ComponentPropsWithRef<"a">,
-  documentNavigation = false
-): Promise<{ intercepted: boolean; path: string }> {
+async function clickLink(props: ComponentPropsWithRef<"a">): Promise<{ intercepted: boolean }> {
   Reflect.set(globalThis, "IS_REACT_ACT_ENVIRONMENT", true)
   const host = document.createElement("div")
   document.body.append(host)
   const root = createRoot(host)
   // eslint-disable-next-line testing-library/no-unnecessary-act -- This test uses React DOM directly, without Testing Library.
   await act(async () => {
-    root.render(
-      <MemoryRouter>
-        {documentNavigation ? (
-          <DocumentNavigation>
-            <SiteLink {...props}>Destination</SiteLink>
-          </DocumentNavigation>
-        ) : (
-          <SiteLink {...props}>Destination</SiteLink>
-        )}
-        <CurrentPath />
-      </MemoryRouter>
-    )
+    root.render(<SiteLink {...props}>Destination</SiteLink>)
     await Promise.resolve()
   })
   let intercepted = false
@@ -47,28 +27,19 @@ async function clickLink(
     host.querySelector("a")!.click()
     await Promise.resolve()
   })
-  const path = host.querySelector("output")!.textContent
   document.removeEventListener("click", observe)
   await act(async () => {
     root.unmount()
     await Promise.resolve()
   })
   host.remove()
-  return { intercepted, path }
+  return { intercepted }
 }
 
 describe("SiteLink", () => {
   it("leaves local navigation to the browser for a static site", async () => {
-    expect(await clickLink({ href: "/products" }, true)).toStrictEqual({
-      intercepted: false,
-      path: "/",
-    })
-  })
-
-  it("changes a local page through the router", async () => {
     expect(await clickLink({ href: "/products" })).toStrictEqual({
-      intercepted: true,
-      path: "/products",
+      intercepted: false,
     })
   })
 
@@ -82,6 +53,6 @@ describe("SiteLink", () => {
     { href: "/products", hrefLang: "de" },
     { href: "/products", target: "_blank" },
   ])("preserves native behavior for %j", async (props) => {
-    expect(await clickLink(props)).toStrictEqual({ intercepted: false, path: "/" })
+    expect(await clickLink(props)).toStrictEqual({ intercepted: false })
   })
 })

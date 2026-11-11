@@ -9,8 +9,6 @@ catalog:
   "@palamedes/react": ^2.2.0
   "@palamedes/runtime": ^2.2.0
   "@palamedes/vite-plugin": ^2.2.0
-  "@react-router/dev": ^8.3.0
-  "@react-router/node": 8.4.0
   "@types/node": ^26.1.0
   "@types/react": ^19.2.17
   "@types/react-dom": ^19.2.3
@@ -29,8 +27,7 @@ catalog:
   playwright: ^1.61.1
   prettier: ^3.9.6
   react: ^19.2.8
-  react-dom: ^19.2.8
-  react-router: ^8.3.0
+  react-dom: 19.3.0
   tsx: ^4.22.5
   typescript: ^6.0.3
   vite: ^8.2.0
@@ -72,3 +69,7 @@ minimumReleaseAgeExclude:
   - "@ferrolink/linux-x64-musl@0.2.2"
   - "@ferrolink/win32-arm64-msvc@0.2.2"
   - "@ferrolink/win32-x64-msvc@0.2.2"
+
+# Remove after the workspace support from Ardo #534 is released.
+patchedDependencies:
+  ardo@6.6.0: patches/ardo@6.6.0.patch

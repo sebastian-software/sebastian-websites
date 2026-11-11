@@ -53,13 +53,3 @@ export function feedLinks(defaults: readonly ArdoMetaDescriptor[]): ArdoMetaDesc
 export function blogRobots(indexed: boolean): ArdoMetaDescriptor[] {
   return indexed ? [] : [{ content: "noindex", name: "robots" }]
 }
-
-/**
- * Reads the counterpart `build.ts` writes into a staged post, or the tag
- * module's `frontmatter` returns: the other language's path, or null.
- * @param value - The `counterpart` field as Ardo passes it on.
- * @returns The other language's path, or undefined when the page has none.
- */
-export function counterpartPath(value: unknown): string | undefined {
-  return typeof value === "string" ? value : undefined
-}

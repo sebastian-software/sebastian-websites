@@ -10,8 +10,11 @@ Software application in German and English on that system, the brand asset appli
 checks, builds, and delivery are implemented: every push to `main` publishes each target to
 its Bunny origin host. Canonical domains, previews, and phone layouts are still open.
 
-The [Software website guide](apps/software/README.md) describes its Ardo build,
-development workflow, and browser checks.
+Every implemented website uses Ardo directly, with shared configuration and a
+branded shell in `packages/site`; no app copies or prebuilt workspace packages are
+required. The [Software website guide](apps/software/README.md) describes the
+development workflow and browser checks. [ADR-0019](docs/adr/0019-software-site-on-ardo.md)
+records the common integration.
 
 The reusable legacy company copy is in [apps/software/content](apps/software/content/README.md).
 The [app-tracking website guide](docs/operations/app-tracking-site.md) describes its

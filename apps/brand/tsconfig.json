@@ -1,0 +1,4 @@
+{
+  "extends": "ardo/tsconfig",
+  "include": ["app", "ardo.config.ts"]
+}

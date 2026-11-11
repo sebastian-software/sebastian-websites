@@ -1,6 +1,8 @@
+import type { ArdoMetaDescriptor } from "ardo/runtime"
 import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
+import { pageMeta } from "@sebastian-websites/site/meta"
 import {
   ArrowLink,
   BunnyImage,
@@ -18,21 +20,20 @@ import { getConsultant as getFastner } from "~/data/fastner.data"
 import { getConsultant as getWerner } from "~/data/werner.data"
 import { activeLocale } from "~/lib/i18n"
 import { PORTRAITS, TEAM_PHOTO } from "~/lib/photos"
+import { variant } from "~/lib/site"
 import { getProfileDocument } from "~/lib/untranslated"
-
-import type { Route } from "./+types/team"
 
 import * as styles from "./team.css.ts"
 
-// eslint-disable-next-line react-refresh/only-export-components -- React Router reads meta from the route module
-export function meta(): Route.MetaDescriptors {
-  return [
+// eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
+export function meta(): ArdoMetaDescriptor[] {
+  return pageMeta(variant, "/team", [
     { title: t`Team – Sebastian Consulting` },
     {
       content: t`Sebastian Werner and Sebastian Fastner: two senior architects for React, TypeScript, and complex web applications, with their focus areas and full profiles.`,
       name: "description",
     },
-  ]
+  ])
 }
 
 /** The team photograph spans the page: 1040 CSS pixels on desktop. */

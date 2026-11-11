@@ -1,5 +1,4 @@
-import fallback from "~/data/metrics-snapshot.json"
-
+import fallback from "../data/metrics-snapshot.json"
 import { ENDPOINT, parseSnapshot, type Snapshot } from "./metrics-model"
 
 // A cold collection spaces crates.io requests to respect its one-request-per-second limit.

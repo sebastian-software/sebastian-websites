@@ -1,16 +1,18 @@
 {
   "extends": "@sebastian-websites/config/tsconfig/react.json",
-  "include": ["app", "scripts", "vite.config.ts", "eslint.config.ts"],
+  "include": ["app", "scripts", "vite.config.ts", "ardo.config.ts"],
   "compilerOptions": {
     "types": [
       "node",
       "vite/client",
       "@sebastian-websites/web-core/bunny-images",
-      "ardo/vite/client"
+      "ardo/vite/client",
+      "@sebastian-websites/site/client",
+      "ardo/virtual"
     ],
     "paths": {
       "~/*": ["./app/*"]
     }
   },
-  "exclude": ["build", ".variant-build"]
+  "exclude": ["build"]
 }

@@ -8,6 +8,14 @@ The brand system of Sebastian Software GmbH, published at
 products, and **Sebastian Consulting**, its services. The brand is intentionally not generic,
 not loud, and not trend-driven. Personality, conviction, and craftsmanship are at its core.
 
+## Development
+
+The reference page is an ordinary Ardo site. Run `pnpm --filter @sebastian-websites/brand dev`
+for development or `pnpm --filter @sebastian-websites/brand build` to generate `build/client`.
+`app/root.tsx` owns the document shell; `app/routes/index.tsx` renders the reference markup
+from `brand.html` and installs its clipboard controls after hydration. Files in `public/`
+keep their published paths and are copied unchanged into the client build.
+
 ## Brand Architecture
 
 **Sebastian** is the core brand — used as the primary wordmark, fully functional on its own.

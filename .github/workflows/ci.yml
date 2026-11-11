@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      # Full history: Ardo dates the Software pages from Git (sourceRoot).
+      # Full history: Ardo dates pages and publication sources from Git.
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0

@@ -9,7 +9,7 @@ import type { ReactElement } from "react"
 import { t } from "@palamedes/core/macro"
 import { ArrowLink } from "@sebastian-websites/ui"
 import { BLOG_PATH, canonicalPath } from "@sebastian-websites/web-core"
-import blogTags from "virtual:software-blog-tags"
+import blogData from "virtual:software-blog-data"
 
 import { seoMeta } from "~/lib/seo"
 
@@ -26,12 +26,12 @@ import { PostList } from "./PostList"
  * @returns The counterpart path, or null.
  */
 function counterpartOf(tag: { readonly key: string; readonly path: string }): null | string {
-  return blogTags.otherLanguage.includes(tag.key) ? canonicalPath(tag.path) : null
+  return blogData.otherLanguage.includes(tag.key) ? canonicalPath(tag.path) : null
 }
 
 /**
  * The page data of a tag archive. Ardo has no per-tag source file, so the
- * module supplies the `counterpart` that posts get from the staged source.
+ * module supplies its translation path for the shared page frame.
  * @param args - What Ardo passes to the tag module's `frontmatter`.
  * @param args.tag - The archive's tag.
  * @returns The page data, read by the root for the language switch.

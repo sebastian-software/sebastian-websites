@@ -10,7 +10,7 @@ import * as styles from "./post.css.ts"
 
 /**
  * A link to the post's translation on the other language's domain, for posts
- * that have one; the build writes its path into the post as `counterpart`.
+ * that have one in the publication at the shared build time.
  * @param props - The translation's path.
  * @param props.counterpart - The other language's path, or undefined.
  * @returns The link, or nothing for a single-language post.

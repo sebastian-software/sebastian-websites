@@ -4,7 +4,7 @@ import {
   type RepositoryActivity,
 } from "@sebastian-websites/content"
 
-import snapshot from "~/data/activity-snapshot.json"
+import snapshot from "../data/activity-snapshot.json"
 
 /** Where the numbers on the page came from. */
 export type ActivitySource = "live" | "snapshot"

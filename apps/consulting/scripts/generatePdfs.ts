@@ -1046,6 +1046,9 @@ async function startDevelopmentServer(): Promise<{ baseUrl: string; process: Chi
     developmentServer.on("exit", onExit)
   })
 
+  // Keep dev-server diagnostics visible while the profile documents are rendered.
+  developmentServer.stdout.pipe(process.stdout, { end: false })
+  developmentServer.stderr.pipe(process.stderr, { end: false })
   console.log(`Using dev server at ${baseUrl}`)
   return { baseUrl, process: developmentServer }
 }

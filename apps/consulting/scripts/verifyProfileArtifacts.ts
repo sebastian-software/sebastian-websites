@@ -520,7 +520,7 @@ function assertProjectProfileHtmlConsultantLink(html: string, path: string, loca
  * profile PDF under the derived download name. The page is a build artifact on
  * disk, so this is the only machine-checkable proof that the rail carries the
  * name — and it has to run against every published tree, because the variant
- * builds and the compatibility build are separate React Router builds.
+ * builds and the compatibility build are separate static outputs.
  *
  * @param routeRoot - Directory holding the route folders of that locale.
  * @param locale - Locale whose profile pages are inspected.
