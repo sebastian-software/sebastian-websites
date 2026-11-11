@@ -59,7 +59,8 @@ businesses, Palamedes and Dalo address developers.
   world and the Consulting world.
 - **Market.** International first on every site, with the German roots noticeable and offers
   that also work in the DACH market.
-- **Register.** Formal everywhere: "Sie" in German, business English in English.
+- **Register.** German copy on the Software site uses "du"; the Consulting site keeps "Sie"
+  (decided on 2026-11-11). English uses business English everywhere.
 - **Claims.** Qualitative and written for marketing, for example "one of the fastest Markdown
   parsers" or "built in modern Rust". No hand-maintained figures; live numbers come from the
   metrics service.

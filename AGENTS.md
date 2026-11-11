@@ -46,6 +46,11 @@ Repository facts for the change-screenshots route of `effective-web`:
 - `?bunny` images load from the asset zone as `/images/<sha256>.<ext>`; images
   the change adds are in the head build's `images/` directory.
 
+## Software copy
+
+German copy on the Software site uses „du“, also where it points to Sebastian
+Consulting. Legal pages keep their existing form of address.
+
 ## Consulting copy
 
 Read [the Consulting communication guide](apps/consulting/BRAND.md) before revising

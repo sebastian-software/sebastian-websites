@@ -180,8 +180,7 @@ msgstr "Alle Projekte auf der Open-Source-Seite →"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Almost done: please confirm the link we just sent you."
 msgstr ""
-"Fast geschafft: Bitte bestätigen Sie den Link, den wir Ihnen gerade geschickt"
-" haben."
+"Fast geschafft: Bitte bestätige den Link, den wir dir gerade geschickt haben."
 
 #: app/routes/open-source.tsx
 msgid ""
@@ -232,12 +231,12 @@ msgid ""
 "the two founders."
 msgstr ""
 "Architektur, Delivery und Enablement für Frontend-Teams: Das ist die Aufgabe "
-"von Sebastian Consulting. Buchen Sie ein fünfzehnminütiges Erstgespräch "
+"von Sebastian Consulting. Buch dir ein fünfzehnminütiges Erstgespräch "
 "direkt mit einem der beiden Gründer."
 
 #: app/data/products.ts#getProducts
 msgid "Ask us about VorOrt"
-msgstr "Fragen Sie uns nach VorOrt"
+msgstr "Frag uns nach VorOrt"
 
 #: app/components/blog/PostMeta.tsx#PostMeta
 msgid "Authors"
@@ -833,11 +832,11 @@ msgid ""
 "iCloud, or CalDAV calendars to prevent double bookings, sends confirmations "
 "and reminders on its own, and keeps booking data on servers in Germany."
 msgstr ""
-"Geben Sie Ihren Kundinnen und Kunden eine einfache Möglichkeit, online zu "
-"buchen – ohne Konto und ohne Cookies auf der öffentlichen Buchungsseite. "
-"Terminaro gleicht sich mit Google-, iCloud- oder CalDAV-Kalendern ab, "
-"verhindert Doppelbuchungen, verschickt Bestätigungen und Erinnerungen "
-"selbstständig und speichert Buchungsdaten auf Servern in Deutschland."
+"Gib deinen Kundinnen und Kunden eine einfache Möglichkeit, online zu buchen "
+"– ohne Konto und ohne Cookies auf der öffentlichen Buchungsseite. Terminaro"
+" gleicht sich mit Google-, iCloud- oder CalDAV-Kalendern ab, verhindert "
+"Doppelbuchungen, verschickt Bestätigungen und Erinnerungen selbstständig und"
+" speichert Buchungsdaten auf Servern in Deutschland."
 
 #: app/routes/open-source.tsx
 msgid "Giving back, with tools you can inspect."
@@ -915,7 +914,7 @@ msgstr ""
 
 #: app/routes/contact.tsx#meta
 msgid "How to reach Sebastian Software GmbH in Mainz."
-msgstr "So erreichen Sie die Sebastian Software GmbH in Mainz."
+msgstr "So erreichst du die Sebastian Software GmbH in Mainz."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/company.tsx
@@ -1113,7 +1112,7 @@ msgstr ""
 
 #: app/routes/contact.tsx
 msgid "Looking for project help?"
-msgstr "Suchen Sie Projekthilfe?"
+msgstr "Du suchst Hilfe im Projekt?"
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/contact.tsx
@@ -1187,7 +1186,7 @@ msgstr "Monatliche Nutzungsstatistiken"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Need a clearer direction for your software?"
-msgstr "Brauchen Sie eine klarere Richtung für Ihre Software?"
+msgstr "Brauchst du eine klarere Richtung für deine Software?"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Newsletter"
@@ -1340,8 +1339,8 @@ msgid ""
 "can take elsewhere."
 msgstr ""
 "Offene Standards statt proprietärer Formate: Markdown, gettext-Kataloge, "
-"einfache Dateien im Repository. Was wir bauen, soll Ihre Daten in einer Form "
-"hinterlassen, die Sie überallhin mitnehmen können."
+"einfache Dateien im Repository. Was wir bauen, soll deine Daten in einer Form "
+"hinterlassen, die du überallhin mitnehmen kannst."
 
 #: app/routes/products.tsx
 msgid "Open where it matters"
@@ -1413,7 +1412,7 @@ msgid ""
 msgstr ""
 "Unsere Agentur Sebastian Consulting arbeitet im Code mit den Menschen, die ihn"
 " pflegen. Aus Entscheidungen wird funktionierende Software, und die "
-"Begründungen bleiben bei Ihrem Team."
+"Begründungen bleiben bei deinem Team."
 
 #: app/routes/open-source.tsx
 msgid ""
@@ -1520,8 +1519,7 @@ msgstr "Unterauftragsverarbeiter von PlanetScale"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Please enter a complete email address, such as name@example.com."
-msgstr ""
-"Bitte geben Sie eine vollständige E-Mail-Adresse ein, etwa name@example.com."
+msgstr "Bitte gib eine vollständige E-Mail-Adresse ein, etwa name@example.com."
 
 #: app/components/blog/TagArchive.tsx#meta
 #: app/components/blog/TagArchive.tsx
@@ -1952,7 +1950,7 @@ msgstr "Sebastian Werner und Sebastian Fastner in der Lounge ihres Büros"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "See what we build beyond consulting."
-msgstr "Sehen Sie, was wir jenseits der Beratung bauen."
+msgstr "Sieh dir an, was wir jenseits der Beratung bauen."
 
 #: app/components/ToolReportingPrivacy.tsx#AdditionalReportingChoices
 msgid "Separate choices for monthly history and profile linking"
@@ -1976,8 +1974,8 @@ msgid ""
 msgstr ""
 "Sieben Skills, die unsere Arbeitsweise in überprüfbare Anweisungen für "
 "Coding-Agenten fassen: Produkt, Web, Engineering, Delivery, Schreiben, "
-"Marketing und Bildarbeit. Expertise, die Sie lesen können, bevor Sie sie "
-"installieren, mit Ergebnissen, die weiterhin vom Modell abhängen."
+"Marketing und Bildarbeit. Expertise, die du lesen kannst, bevor du sie "
+"installierst, mit Ergebnissen, die weiterhin vom Modell abhängen."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/products.tsx
@@ -2223,8 +2221,7 @@ msgstr ""
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "The sign-up did not go through. Please try again later."
-msgstr ""
-"Die Anmeldung hat nicht geklappt. Bitte versuchen Sie es später noch einmal."
+msgstr "Die Anmeldung hat nicht geklappt. Bitte versuch es später noch einmal."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/company.tsx
@@ -2645,8 +2642,8 @@ msgid ""
 "We couldn't load this page. Check your connection and reload, or return to the"
 " home page."
 msgstr ""
-"Wir konnten diese Seite nicht laden. Prüfen Sie Ihre Verbindung und laden Sie"
-" die Seite neu oder gehen Sie zur Startseite."
+"Wir konnten diese Seite nicht laden. Prüf deine Verbindung und lade die Seite"
+" neu oder geh zurück zur Startseite."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/company.tsx
@@ -2794,7 +2791,7 @@ msgid ""
 msgstr ""
 "Wo ein Produkt aus einem offenen Kern entsteht, bleibt der Kern offen. "
 "Palamedes ist und bleibt Open Source; Palamedes+ ergänzt den Dienst darum "
-"herum. Sie können prüfen, worauf Sie sich verlassen."
+"herum. Du kannst prüfen, worauf du dich verlässt."
 
 #: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
 msgid ""
@@ -2925,7 +2922,7 @@ msgstr "Widerruf, Löschung und Ihre Rechte"
 
 #: app/components/blog/nextStepCopy.ts#nextStepCopy
 msgid "Write to us; one of the two founders answers."
-msgstr "Schreiben Sie uns; einer der beiden Gründer antwortet."
+msgstr "Schreib uns; einer der beiden Gründer antwortet."
 
 #: app/routes/contact.tsx
 msgid ""
@@ -2933,8 +2930,8 @@ msgid ""
 " email is enough. If you are looking for project help, Sebastian Consulting is"
 " the right address, with the same two people."
 msgstr ""
-"Schreiben Sie uns; einer der beiden Gründer antwortet. Für Produkte und "
-"Partnerschaften genügt eine E-Mail. Wenn Sie Projekthilfe suchen, ist "
+"Schreib uns; einer der beiden Gründer antwortet. Für Produkte und "
+"Partnerschaften genügt eine E-Mail. Wenn du Hilfe im Projekt suchst, ist "
 "Sebastian Consulting die richtige Adresse, mit denselben zwei Personen."
 
 #: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy

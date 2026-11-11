@@ -26,7 +26,8 @@ old Software site is the most urgent case.
   Enthusiasm.").
 - Every site addresses an international audience first, while the German roots stay
   noticeable and the offers also work in the DACH market.
-- The register is formal everywhere: "Sie" in German, business English in English.
+- German copy on the Software site uses "du"; the Consulting site keeps "Sie" (decided on
+  2026-11-11). English uses business English everywhere.
 - Sebastian Holding is not part of this project.
 
 ## Sites and domains
