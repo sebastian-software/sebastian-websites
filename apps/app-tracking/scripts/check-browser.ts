@@ -214,7 +214,10 @@ async function checkOfficialPolicy(browser: Browser, locale: Locale): Promise<vo
   })
   const address = server.address()
   assert.ok(address !== null && typeof address !== "string")
-  const context = await browser.newContext()
+  // Ardo scrolls smoothly unless reduced motion is preferred. The fragment scroll then still
+  // runs after `networkidle` and can end a few pixels higher, so the check measures where the
+  // anchor settles without the animation.
+  const context = await browser.newContext({ reducedMotion: "reduce" })
   let failed = false
   let policyViewport: undefined | Viewport
   let attempt = 0
