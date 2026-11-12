@@ -669,6 +669,15 @@ test("targets cover every variant, the brand site, and the build-free asset zone
   assert.equal(brand.hostname, "brand.sebastian-software.com")
 })
 
+test("both tech blog targets enforce the EU-only delivery stated in their privacy notice", () => {
+  for (const locale of ["de", "en"]) {
+    const blogTarget = TARGETS.find((entry) => entry.name === `sebastian-websites-blog-${locale}`)
+    assert.ok(blogTarget)
+    assert.deepEqual(pullZoneSettings(blogTarget).RoutingFilters, ["eu"])
+    assert.equal(pullZoneSettings(blogTarget).DisableCookies, true)
+  }
+})
+
 test("only assets enable Optimizer, with distinct variants and open image and font CORS", () => {
   for (const entry of TARGETS) {
     assert.equal(pullZoneSettings(entry).OptimizerEnabled, entry.assets === true)

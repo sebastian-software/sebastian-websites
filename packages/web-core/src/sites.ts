@@ -144,15 +144,14 @@ export const VARIANTS = defineVariants({
     canonicalOrigin: "https://blog.sebastian-software.de",
     deploymentTarget: "sebastian-websites-blog-de",
     locale: "de",
-    // Active once both CNAME records resolve (docs/operations/tech-blog-site.md).
-    productionActive: false,
+    productionActive: true,
     site: "blog",
   },
   "blog-en": {
     canonicalOrigin: "https://blog.sebastian-software.com",
     deploymentTarget: "sebastian-websites-blog-en",
     locale: "en",
-    productionActive: false,
+    productionActive: true,
     site: "blog",
   },
   "consulting-de": {

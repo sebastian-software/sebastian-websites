@@ -10,7 +10,7 @@ write, schedule, and withdraw posts is in the [blog publishing guide](blog-publi
 | Variant   | Canonical domain              | Bunny origin                           | Authoritative DNS |
 | --------- | ----------------------------- | -------------------------------------- | ----------------- |
 | `blog-en` | `blog.sebastian-software.com` | `sebastian-websites-blog-en.b-cdn.net` | Bunny DNS         |
-| `blog-de` | `blog.sebastian-software.de`  | `sebastian-websites-blog-de.b-cdn.net` | Cloudflare        |
+| `blog-de` | `blog.sebastian-software.de`  | `sebastian-websites-blog-de.b-cdn.net` | Bunny DNS         |
 
 | Path                                | Page                                              |
 | ----------------------------------- | ------------------------------------------------- |
@@ -21,26 +21,28 @@ write, schedule, and withdraw posts is in the [blog publishing guide](blog-publi
 | `/posts/rss.xml`, `/posts/atom.xml` | The feeds                                         |
 | `/imprint`, `/privacy`              | Legal pages, shared with the other Software areas |
 
-Both variants are `productionActive: false` until the cutover below. Until then every push to
-`main` builds, checks, and publishes them to their origin hosts, where the site can be reviewed
-before the domains exist. Provisioning creates both storage and pull zones on the first
-deployment; nothing needs to be created in the Bunny dashboard.
+Both variants are `productionActive: true`. Every push to `main` builds, checks, and publishes
+them, attaches their canonical hostnames, and provisions certificates once DNS resolves.
+The origin hosts remain available for review. Provisioning owns the storage and pull zones;
+nothing needs to be created in the Bunny dashboard.
 
 ## Cutover
 
 1. **Review the origin hosts.** After the merge, open
    `https://sebastian-websites-blog-en.b-cdn.net/` and `…-blog-de.b-cdn.net/`: home, `/posts`,
    both feeds, imprint, privacy, and a missing path (branded 404).
-2. **Confirm the privacy notice.** `apps/blog/app/lib/legal.ts` records
-   `review-required-before-production`: the tech blog reuses the Open Source notice and adds no
-   processing. Record the outcome there before activation. Decide whether the legal texts
-   follow the site's „du“; they keep the reviewed „Sie“ wording until then.
+2. **Confirm the privacy notice.** `apps/blog/app/lib/legal.ts` records the 2026-11-12 content
+   review: Bunny hosting with EU-only routing and no cookies, email contact, and no analytics
+   script or connected newsletter service. Provisioning enforces `RoutingFilters: ["eu"]` for
+   both blog targets. The legal texts retain the reviewed „Sie“ wording.
 3. **Create two DNS-only CNAME records.** These are new names; leave mail records and every
    other entry unchanged.
    - Bunny DNS, zone `sebastian-software.com`: `blog` → `sebastian-websites-blog-en.b-cdn.net`,
      with DNS routing on and CDN acceleration off.
-   - Cloudflare, zone `sebastian-software.de`: `blog` → `sebastian-websites-blog-de.b-cdn.net`,
-     proxy off (DNS only).
+   - Bunny DNS, zone `sebastian-software.de`: `blog` → `sebastian-websites-blog-de.b-cdn.net`,
+     with DNS routing on and CDN acceleration off.
+     Both zones delegate to `coco.bunny.net` and `kiki.bunny.net` (verified 2026-11-12);
+     the earlier Cloudflare instruction for `.de` no longer applies.
 4. **Activate both variants together.** In a pull request, set `productionActive: true` for
    `blog-de` and `blog-en` in `packages/web-core/src/sites.ts`. The deployment attaches both
    hostnames, issues Bunny-managed certificates once DNS resolves, and forces HTTPS; a
