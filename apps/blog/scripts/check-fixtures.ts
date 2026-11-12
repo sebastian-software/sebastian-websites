@@ -6,9 +6,9 @@
  * file at one build time and appear in both languages at a later one, both
  * feeds parse with a strict XML parser, an MDX post with prose builds past
  * Palamedes, the empty state builds and links the other blog, single-language
- * pages switch to the other blog, and raster images fail the source and
- * output checks. Every fixture build passes the hosting gate of `pnpm
- * hosting:plan`.
+ * pages switch to the other blog, and a post's cover and body images render
+ * as Ardo's local renditions, with the cover as social preview and feed image.
+ * Every fixture build passes the hosting gate of `pnpm hosting:plan`.
  *
  * Run it with `pnpm --filter @sebastian-websites/blog check:fixtures`.
  */
@@ -21,7 +21,7 @@ import {
 } from "@sebastian-websites/web-core"
 import assert from "node:assert/strict"
 import { spawn } from "node:child_process"
-import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises"
+import { access, mkdir, rm, writeFile } from "node:fs/promises"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 import { chromium, type Page } from "playwright"
@@ -308,21 +308,99 @@ async function expectRejected(content: string, message: RegExp, label: string): 
   assert.match(result.output, message, label)
 }
 
+/** Where Ardo writes the AVIF and JPEG renditions of post images. */
+const RENDITIONS = "/assets/posts/"
+
 /**
- * The output half of the raster-image check: a raster `<img>` added to a
- * built post must fail the hosting gate.
- * @param root - A fixture root that passed the gate.
+ * Every `src` and `srcset` candidate of the image elements in some markup.
+ * @param html - The markup.
+ * @returns The referenced URLs in document order.
  */
-async function expectOutputRejected(root: string): Promise<void> {
-  const doctored = path.join(scratch, "raster-output")
-  await rm(doctored, { force: true, recursive: true })
-  await cp(root, doctored, { recursive: true })
-  const post = path.join(doctored, "apps/blog/build/blog-en/client/posts/pair/index.html")
-  const html = await readFile(post, "utf8")
-  await writeFile(post, html.replace("</article>", '<img src="/photo.jpg" alt=""></article>'))
-  const result = await node(["hosting/check-builds.ts", doctored], repository)
-  assert.notEqual(result.code, 0, "a raster image in the blog output must fail the gate")
-  assert.match(result.output, /posts\/pair\/index\.html: image \/photo\.jpg is not an SVG/v)
+function imageUrls(html: string): readonly string[] {
+  const urls: string[] = []
+  for (const element of html.matchAll(/<(?:img|source)\b[^>]*>/gv)) {
+    for (const match of element[0].matchAll(/\b(?<name>src|srcset)="(?<value>[^"]*)"/giv)) {
+      const value = match.groups?.value ?? ""
+      const candidates =
+        match.groups?.name.toLowerCase() === "srcset"
+          ? value.split(",").map((candidate) => candidate.trim().split(/\s+/v, 1)[0] ?? "")
+          : [value]
+      urls.push(...candidates.filter((url) => url !== ""))
+    }
+  }
+  return urls
+}
+
+/**
+ * The one `og:image` of a document.
+ * @param html - The document.
+ * @returns The preview URL.
+ */
+function socialImage(html: string): string {
+  const previews = [...html.matchAll(/<meta\s[^>]*property="og:image"[^>]*>/gv)].map(
+    (meta) => /\bcontent="(?<url>[^"]*)"/v.exec(meta[0])?.groups?.url ?? ""
+  )
+  assert.equal(previews.length, 1, "one social preview")
+  return previews[0] ?? ""
+}
+
+/**
+ * Every image in the post's `<main>` is one of Ardo's local renditions, and
+ * the post has AVIF candidates, JPEG fallbacks, and its SVG.
+ * @param client - The English client build.
+ * @param main - The post's `<main>` markup.
+ */
+async function checkRenditions(client: string, main: string): Promise<void> {
+  const urls = [...new Set(imageUrls(main))]
+  for (const url of urls) {
+    assert.ok(url.startsWith(RENDITIONS), `${url} is a local rendition`)
+    await access(path.join(client, url))
+  }
+  for (const extension of [".avif", ".jpg", ".svg"]) {
+    assert.ok(
+      urls.some((url) => url.endsWith(extension)),
+      `${PAIR_POST} has ${extension} images`
+    )
+  }
+}
+
+/**
+ * The cover's JPEG is the post's one social preview and appears in both feeds.
+ * @param build - Both language builds.
+ * @param html - The English post document.
+ * @param main - Its `<main>` markup.
+ */
+function checkPreview(build: Build, html: string, main: string): void {
+  const cover = /<img\s[^>]*alt="COVER-ALT-MARKER"[^>]*>/v.exec(main)?.[0] ?? ""
+  const coverJpeg = /\bsrc="(?<url>[^"]*\.jpg)"/v.exec(cover)?.groups?.url ?? ""
+  assert.notEqual(coverJpeg, "", "the cover has a JPEG fallback")
+  const preview = socialImage(html)
+  assert.equal(preview, `${ORIGINS.en}${coverJpeg}`, "the cover JPEG is the social preview")
+  for (const kind of ["rss", "atom"]) {
+    assert.ok(
+      (build.en.get(`posts/${kind}.xml`) ?? "").includes(preview),
+      `the ${kind} feed shows the cover JPEG`
+    )
+  }
+}
+
+/**
+ * The English pair post shows its framed cover with caption and the same file
+ * in its body, all as Ardo's renditions in the build, and its cover is the
+ * social preview. The German pair, without a cover, keeps the default preview.
+ * @param root - The checkout-shaped fixture root.
+ * @param build - Both language builds.
+ */
+async function checkImages(root: string, build: Build): Promise<void> {
+  const html = documentAt(build.en, PAIR_POST) ?? ""
+  const main = /<main\b[\s\S]*<\/main>/v.exec(html)?.[0] ?? ""
+  for (const marker of ["COVER-ALT-MARKER", "COVER-CAPTION-MARKER", "INLINE-ALT-MARKER"]) {
+    assert.ok(main.includes(marker), `${PAIR_POST} shows ${marker}`)
+  }
+  await checkRenditions(path.join(root, "apps/blog/build/blog-en/client"), main)
+  checkPreview(build, html, main)
+  const german = socialImage(documentAt(build.de, PAIR_POST) ?? "")
+  assert.ok(!german.includes(RENDITIONS), "a post without a cover keeps the default preview")
 }
 
 const GERMAN_ONLY: FeedPost = { marker: "GERMAN-ONLY-MARKER", route: GERMAN_POST, tags: [] }
@@ -338,11 +416,6 @@ try {
   const page = await browser.newPage()
 
   // Source checks fail before any variant is built.
-  await expectRejected(
-    path.join(fixtures, "raster-image"),
-    /en\/photo\.md: Markdown image \.\/photo\.jpg is not an SVG/v,
-    "a raster image in a post"
-  )
   await expectRejected(
     path.join(fixtures, "authored-counterpart"),
     /de\/beitrag\.md: counterpart is written by the build/v,
@@ -366,7 +439,7 @@ try {
     de: [GERMAN_ONLY, GERMAN_PAIR],
     en: [MDX_POST, ENGLISH_PAIR],
   })
-  await expectOutputRejected(before)
+  await checkImages(before, beforeBuild)
 
   const after = await buildFixture("after", path.join(fixtures, "posts"), AFTER)
   const afterBuild = await loadBuild(after)
@@ -410,5 +483,5 @@ try {
   await browser.close()
 }
 console.log(
-  "Blog fixtures: exclusion at two build times, feeds, MDX prose, empty state, language fallback, and raster-image checks passed"
+  "Blog fixtures: exclusion at two build times, feeds, MDX prose, empty state, language fallback, and post images passed"
 )

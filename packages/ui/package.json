@@ -12,6 +12,7 @@
     "./brand-consulting.css": "./src/brand-consulting.css.ts",
     "./brand-software.css": "./src/brand-software.css.ts",
     "./frame-copy": "./src/frame/frameCopy.ts",
+    "./responsive": "./src/responsive.ts",
     "./error-copy": "./src/frame/errorCopy.ts"
   },
   "scripts": {

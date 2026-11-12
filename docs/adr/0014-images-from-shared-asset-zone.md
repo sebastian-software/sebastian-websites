@@ -1,6 +1,6 @@
 ---
 status: accepted
-updated: 2026-10-07
+updated: 2026-11-12
 ---
 
 # Images are served from one shared asset zone with Bunny Optimizer
@@ -23,6 +23,11 @@ The shared `BunnyImage` component handles responsive widths, pixel density, opti
 art direction, and center, face, or focal-point crops. See
 [ADR-0015](0015-shared-bunny-image-component.md) for the component decision and
 [responsive images](../operations/responsive-images.md) for the import and component contracts.
+
+Post images on the tech blog are the exception. Ardo renders them with sharp during the build
+and the blog's own pull zone serves them as static files below `assets/posts/`
+([ADR-0021](0021-blog-on-the-software-website.md)). The publication then builds the same way
+as any Ardo site on any static host.
 
 ## What Bunny offers (checked on 2026-10-06)
 

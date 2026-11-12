@@ -22,7 +22,7 @@ records.
   brand, like Open Source: the Software logo, header, and page ending, its own imprint and
   privacy pages, and German frame copy in „du“ from the app's own catalog.
 - **The publication moves from the Software site to the tech blog.** Posts, tags, next steps,
-  feeds, drafts, scheduling, counterparts, the raster-image rules, the launch phases, and the
+  feeds, drafts, scheduling, counterparts, the image rules, the launch phases, and the
   hosting checks of [ADR-0021](0021-blog-on-the-software-website.md) now belong to the tech blog.
   The code moved with them: the blog components, build scripts, fixtures, and browser checks
   live in `apps/blog`, and `BLOG_SITE` in `packages/web-core` names `blog`. The repository still

@@ -17,8 +17,8 @@ const PREVIEW_WIDTH = 1200
 const PREVIEW_HEIGHT = 630
 
 /**
- * The default social preview of every page until posts get their own images:
- * both founders from the homepage photograph, cropped by the shared Bunny helper.
+ * The default social preview of every page without its own image: both
+ * founders from the homepage photograph, cropped by the shared Bunny helper.
  */
 const preview = responsiveImage(teamPhoto.src, {
   aspectRatio: [PREVIEW_WIDTH, PREVIEW_HEIGHT],
@@ -40,6 +40,8 @@ export type PageMeta = {
    */
   readonly counterpart?: boolean
   readonly description: string
+  /** The page's own social preview, such as a post's cover; the team photo otherwise. */
+  readonly image?: SocialImage
   /** The canonical route path. */
   readonly path: string
   readonly title: string
@@ -69,7 +71,7 @@ export function seoMeta(page: PageMeta): ArdoMetaDescriptor[] {
     ...createSocialMeta({
       ...(page.article === undefined ? {} : { article: page.article }),
       description: page.description,
-      image: DEFAULT_IMAGE,
+      image: page.image ?? DEFAULT_IMAGE,
       locale: variant.locale,
       path: page.path,
       site: variant.site,

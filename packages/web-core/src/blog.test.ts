@@ -166,15 +166,13 @@ describe("blog validation", () => {
     ])
   })
 
-  it("rejects raster images in the source", () => {
-    const issues = issuesOf([
-      post("en", "a.md", { coverImage: { alt: "", src: "./a.png" } }),
-      { ...post("en", "b.md"), body: "![Diagram](./diagram.svg)\n![Photo](./photo.jpg)" },
-    ])
-    expect(issues).toStrictEqual([
-      "en/a.md: Frontmatter field coverImage is not allowed before the image plan",
-      "en/b.md: Markdown image ./photo.jpg is not an SVG",
-    ])
+  it("accepts cover images and raster images in the body", () => {
+    expect(
+      issuesOf([
+        post("en", "a.md", { coverImage: { alt: "", src: "./a.png" } }),
+        { ...post("en", "b.md"), body: "![Diagram](./diagram.svg)\n![Photo](./photo.jpg)" },
+      ])
+    ).toStrictEqual([])
   })
 
   it("reports problems of drafts and future posts as well", () => {

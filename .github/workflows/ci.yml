@@ -47,7 +47,7 @@ jobs:
       - name: Check the builds before publication
         run: pnpm hosting:plan
       # Test posts built into scratch output at two build times, plus the empty
-      # state and the raster-image checks; each fixture build passes the gate.
+      # state and post images; each fixture build passes the gate.
       - name: Check the blog fixtures
         run: pnpm --filter @sebastian-websites/blog check:fixtures
       - name: Verify both Software artifacts before publication
