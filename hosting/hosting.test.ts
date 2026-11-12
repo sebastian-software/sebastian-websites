@@ -605,42 +605,42 @@ test("current, unknown, and other sites' paths are not legacy redirects", () => 
 test("locale-scoped legacy rules affect only their own domain", () => {
   // A withdrawn German-only post and a renamed English-only post.
   const rules: readonly PathRule[] = [
-    { gone: true, id: "BLOG-WITHDRAWN", locale: "de", path: "/blog/zurueckgezogen" },
+    { gone: true, id: "BLOG-WITHDRAWN", locale: "de", path: "/posts/zurueckgezogen" },
     {
-      destination: { path: "/blog/new-name", site: "software" },
+      destination: { path: "/posts/new-name", site: "blog" },
       id: "BLOG-RENAMED",
       locale: "en",
-      path: "/blog/old-name",
+      path: "/posts/old-name",
     },
-    { gone: true, id: "BLOG-BOTH", path: "/blog/withdrawn-pair" },
+    { gone: true, id: "BLOG-BOTH", path: "/posts/withdrawn-pair" },
   ]
-  const de = { locale: "de", site: "software" } as const
-  const en = { locale: "en", site: "software" } as const
+  const de = { locale: "de", site: "blog" } as const
+  const en = { locale: "en", site: "blog" } as const
   const plan = (serving: typeof de | typeof en, path: string) =>
     planLegacyPath(serving, new URL(path, "https://sebastian-software.example"), rules)
-  assert.deepEqual(plan(de, "/blog/zurueckgezogen/"), { id: "BLOG-WITHDRAWN", kind: "gone" })
-  assert.equal(plan(en, "/blog/zurueckgezogen"), undefined)
-  assert.deepEqual(plan(en, "/blog/old-name"), {
+  assert.deepEqual(plan(de, "/posts/zurueckgezogen/"), { id: "BLOG-WITHDRAWN", kind: "gone" })
+  assert.equal(plan(en, "/posts/zurueckgezogen"), undefined)
+  assert.deepEqual(plan(en, "/posts/old-name"), {
     id: "BLOG-RENAMED",
     kind: "moved",
-    location: "https://sebastian-software.example/blog/new-name",
+    location: "https://sebastian-software.example/posts/new-name",
   })
-  assert.equal(plan(de, "/blog/old-name"), undefined)
-  assert.deepEqual(plan(de, "/blog/withdrawn-pair"), { id: "BLOG-BOTH", kind: "gone" })
-  assert.deepEqual(plan(en, "/blog/withdrawn-pair"), { id: "BLOG-BOTH", kind: "gone" })
-  assert.deepEqual(smokeChecks("software-de", "https://sebastian-software.de", rules).slice(-3), [
-    { path: "/blog/zurueckgezogen", status: GONE },
-    { path: "/blog/old-name", status: NOT_FOUND },
-    { path: "/blog/withdrawn-pair", status: GONE },
+  assert.equal(plan(de, "/posts/old-name"), undefined)
+  assert.deepEqual(plan(de, "/posts/withdrawn-pair"), { id: "BLOG-BOTH", kind: "gone" })
+  assert.deepEqual(plan(en, "/posts/withdrawn-pair"), { id: "BLOG-BOTH", kind: "gone" })
+  assert.deepEqual(smokeChecks("blog-de", "https://blog.sebastian-software.de", rules).slice(-3), [
+    { path: "/posts/zurueckgezogen", status: GONE },
+    { path: "/posts/old-name", status: NOT_FOUND },
+    { path: "/posts/withdrawn-pair", status: GONE },
   ])
-  assert.deepEqual(smokeChecks("software-en", "https://sebastian-software.com", rules).slice(-3), [
-    { path: "/blog/zurueckgezogen", status: NOT_FOUND },
+  assert.deepEqual(smokeChecks("blog-en", "https://blog.sebastian-software.com", rules).slice(-3), [
+    { path: "/posts/zurueckgezogen", status: NOT_FOUND },
     {
-      location: "https://sebastian-software.com/blog/new-name",
-      path: "/blog/old-name",
+      location: "https://blog.sebastian-software.com/posts/new-name",
+      path: "/posts/old-name",
       status: MOVED_PERMANENTLY,
     },
-    { path: "/blog/withdrawn-pair", status: GONE },
+    { path: "/posts/withdrawn-pair", status: GONE },
   ])
   // The current rules carry no locale, so both domains keep answering alike.
   assert.ok(
@@ -956,27 +956,25 @@ test("the cutover smoke checks cover the home page, a missing path, and every le
   ])
 })
 
-test("Software resource smoke checks validate actual MIME headers, including charset parameters", async () => {
-  const origin = "https://sebastian-software.de"
-  const checks = smokeChecks("software-de", origin).filter(
-    (check) => check.contentTypes !== undefined
-  )
+test("Tech blog resource smoke checks validate actual MIME headers, including charset parameters", async () => {
+  const origin = "https://blog.sebastian-software.de"
+  const checks = smokeChecks("blog-de", origin).filter((check) => check.contentTypes !== undefined)
   assert.deepEqual(
     checks.map((check) => check.path),
     [
       "/sitemap.xml",
       "/robots.txt",
       "/manifest.webmanifest",
-      "/blog",
-      "/blog/rss.xml",
-      "/blog/atom.xml",
+      "/posts",
+      "/posts/rss.xml",
+      "/posts/atom.xml",
     ]
   )
   const types: Readonly<Record<string, string>> = {
-    "/blog": "text/html; charset=utf-8",
-    "/blog/atom.xml": "application/xml",
-    "/blog/rss.xml": "application/rss+xml; charset=utf-8",
     "/manifest.webmanifest": "application/manifest+json; charset=utf-8",
+    "/posts": "text/html; charset=utf-8",
+    "/posts/atom.xml": "application/xml",
+    "/posts/rss.xml": "application/rss+xml; charset=utf-8",
     "/robots.txt": "text/plain; charset=utf-8",
     "/sitemap.xml": "text/xml; charset=utf-8",
   }
@@ -1010,14 +1008,35 @@ test("Software resource smoke checks validate actual MIME headers, including cha
       async () => new Response("", { headers: { "content-type": "application/octet-stream" } })
     ),
     [
-      "/blog/rss.xml: Content-Type application/octet-stream, expected application/rss+xml or application/xml or text/xml",
-      "/blog/atom.xml: Content-Type application/octet-stream, expected application/atom+xml or application/xml or text/xml",
+      "/posts/rss.xml: Content-Type application/octet-stream, expected application/rss+xml or application/xml or text/xml",
+      "/posts/atom.xml: Content-Type application/octet-stream, expected application/atom+xml or application/xml or text/xml",
     ]
   )
   // Only the Software brand site has the blog.
   assert.ok(
     smokeChecks("opensource-en", "https://sebastian-open-source.example").every(
-      (check) => !check.path.startsWith("/blog")
+      (check) => !check.path.startsWith("/posts")
     )
   )
+})
+
+test("the Software site's former blog leads to the tech blog once it is live", () => {
+  const software = { locale: "de", site: "software" } as const
+  const live: readonly PathRule[] = [
+    { destination: { path: "/", site: "blog" }, id: "SW-BLOG", path: "/blog" },
+    { destination: { path: "/posts/rss.xml", site: "blog" }, id: "SW-BLOG", path: "/blog/rss.xml" },
+  ]
+  assert.deepEqual(planLegacyPath(software, new URL("https://sebastian-software.de/blog/"), live), {
+    id: "SW-BLOG",
+    kind: "moved",
+    location: "https://blog.sebastian-software.de/",
+  })
+  assert.deepEqual(
+    planLegacyPath(software, new URL("https://sebastian-software.de/blog/rss.xml"), live),
+    { id: "SW-BLOG", kind: "moved", location: "https://blog.sebastian-software.de/posts/rss.xml" }
+  )
+  // Before the tech blog's domains resolve, the former paths stay unknown.
+  const committed = PATH_RULES.software.filter((rule) => rule.id === "SW-BLOG")
+  const techBlog: { readonly productionActive: boolean } = VARIANTS["blog-de"]
+  assert.equal(committed.length > 0, techBlog.productionActive)
 })

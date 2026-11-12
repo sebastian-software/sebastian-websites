@@ -340,11 +340,11 @@ test("deployment verification runs the SEO contract alongside the existing hosti
   )
 })
 
-const softwareDe = getSiteVariant("software", "de")
-const softwareEn = getSiteVariant("software", "en")
-const softwareTargets: Readonly<Record<Locale, Target>> = {
-  de: { ...target, name: softwareDe.deploymentTarget },
-  en: { ...target, name: softwareEn.deploymentTarget },
+const blogDe = getSiteVariant("blog", "de")
+const blogEn = getSiteVariant("blog", "en")
+const blogTargets: Readonly<Record<Locale, Target>> = {
+  de: { ...target, name: blogDe.deploymentTarget },
+  en: { ...target, name: blogEn.deploymentTarget },
 }
 
 type Page = {
@@ -353,8 +353,8 @@ type Page = {
   readonly path: string
 }
 
-function softwareHtml(locale: Locale, page: Page): string {
-  const links = createSeoLinks("software", locale, {
+function blogHtml(locale: Locale, page: Page): string {
+  const links = createSeoLinks("blog", locale, {
     counterpart: page.counterpart ?? true,
     path: page.path,
   })
@@ -363,65 +363,65 @@ function softwareHtml(locale: Locale, page: Page): string {
       return `<link rel="${link.rel}" href="${link.href}"${language}>`
     })
     .join("")
-  const canonical = createSeoLinks("software", locale, page.path)[0].href
+  const canonical = createSeoLinks("blog", locale, page.path)[0].href
   const type = `<meta property="og:type" content="${page.article === true ? "article" : "website"}">`
   const url = `<meta property="og:url" content="${canonical}">`
-  return `<html lang="${locale}"><head><title>Software</title>${links}${type}${url}</head><body><h1>Software</h1></body></html>`
+  return `<html lang="${locale}"><head><title>Blog</title>${links}${type}${url}</head><body><h1>Blog</h1></body></html>`
 }
 
-/** The build time Software builds record unless a test passes another one, or null for none. */
-const SOFTWARE_BUILD_TIME = "2026-11-17T12:00:00Z"
+/** The build time tech blog builds record unless a test passes another one, or null for none. */
+const BLOG_BUILD_TIME = "2026-11-17T12:00:00Z"
 
-function softwareBuild(
+function blogBuild(
   locale: Locale,
   pages: readonly Page[],
-  buildTime: null | string = SOFTWARE_BUILD_TIME
+  buildTime: null | string = BLOG_BUILD_TIME
 ): SiteBuild {
-  const all: readonly Page[] = [{ path: "/" }, { path: "/blog" }, ...pages]
+  const all: readonly Page[] = [{ path: "/" }, { path: "/posts" }, ...pages]
   return {
     assets: [
       ...all.map((page) =>
         asset(
           page.path === "/" ? "index.html" : `${page.path.slice(1)}/index.html`,
-          softwareHtml(locale, page)
+          blogHtml(locale, page)
         )
       ),
       asset("404/index.html", '<html><head><meta name="robots" content="noindex"></head></html>'),
       asset(
         "sitemap.xml",
         createSitemap(
-          "software",
+          "blog",
           locale,
           all.map((page) => page.path)
         )
       ),
-      asset("robots.txt", createRobots("software", locale)),
+      asset("robots.txt", createRobots("blog", locale)),
     ],
     ...(buildTime === null ? {} : { buildTime }),
-    target: softwareTargets[locale],
+    target: blogTargets[locale],
   }
 }
 
-const englishPost: Page = { article: true, counterpart: false, path: "/blog/english-only" }
-const englishArchive: Page = { counterpart: false, path: "/blog/tags/architecture" }
-const pairedPost: Page = { article: true, path: "/blog/pair" }
+const englishPost: Page = { article: true, counterpart: false, path: "/posts/english-only" }
+const englishArchive: Page = { counterpart: false, path: "/posts/tags/architecture" }
+const pairedPost: Page = { article: true, path: "/posts/pair" }
 
-function softwarePlans(de: readonly Page[], en: readonly Page[]): ReadonlyMap<string, SeoPlan> {
-  return seoPlans([softwareBuild("de", de), softwareBuild("en", en)])
+function blogPlans(de: readonly Page[], en: readonly Page[]): ReadonlyMap<string, SeoPlan> {
+  return seoPlans([blogBuild("de", de), blogBuild("en", en)])
 }
 
-test("a single-language Software post and tag archive pass without alternates", () => {
-  const plans = softwarePlans([pairedPost], [pairedPost, englishPost, englishArchive])
-  const en = plans.get(softwareEn.deploymentTarget)
-  const de = plans.get(softwareDe.deploymentTarget)
+test("a single-language tech blog post and tag archive pass without alternates", () => {
+  const plans = blogPlans([pairedPost], [pairedPost, englishPost, englishArchive])
+  const en = plans.get(blogEn.deploymentTarget)
+  const de = plans.get(blogDe.deploymentTarget)
   assert.ok(en)
   assert.ok(de)
-  assert.deepEqual(en.alternates.get("/blog/english-only"), [])
-  assert.deepEqual(en.alternates.get("/blog/tags/architecture"), [])
-  assert.equal(en.alternates.get("/blog/pair")?.length, 3)
-  assert.equal(en.alternates.get("/blog")?.length, 3)
-  assert.deepEqual(de.paths, ["/", "/blog", "/blog/pair"])
-  assert.deepEqual(de.absent, ["/blog/english-only", "/blog/tags/architecture"])
+  assert.deepEqual(en.alternates.get("/posts/english-only"), [])
+  assert.deepEqual(en.alternates.get("/posts/tags/architecture"), [])
+  assert.equal(en.alternates.get("/posts/pair")?.length, 3)
+  assert.equal(en.alternates.get("/posts")?.length, 3)
+  assert.deepEqual(de.paths, ["/", "/posts", "/posts/pair"])
+  assert.deepEqual(de.absent, ["/posts/english-only", "/posts/tags/architecture"])
   assert.deepEqual(en.absent, [])
 })
 
@@ -429,17 +429,17 @@ test("an unpaired path outside the single-language classes fails", () => {
   const unpaired: ReadonlyArray<readonly Page[]> = [
     [{ counterpart: false, path: "/company-history" }],
     // A post must be marked as an Open Graph article.
-    [{ counterpart: false, path: "/blog/english-only" }],
-    [{ article: true, counterpart: false, path: "/blog/nested/post" }],
-    [{ article: true, counterpart: false, path: "/blog/tags" }],
+    [{ counterpart: false, path: "/posts/english-only" }],
+    [{ article: true, counterpart: false, path: "/posts/nested/post" }],
+    [{ article: true, counterpart: false, path: "/posts/tags" }],
   ]
   for (const pages of unpaired) {
-    assert.throws(() => softwarePlans([], pages), /no counterpart/v, pages[0].path)
+    assert.throws(() => blogPlans([], pages), /no counterpart/v, pages[0].path)
   }
   // Other sites have no blog; even a blog-shaped path needs its counterpart.
   const consultingPost = asset(
     "blog/a-post/index.html",
-    html("en", "/blog/a-post").replace(
+    html("en", "/posts/a-post").replace(
       "</head>",
       '<meta property="og:type" content="article"></head>'
     )
@@ -456,64 +456,64 @@ test("an unpaired path outside the single-language classes fails", () => {
 
 test("a paired page without alternates and a single-language page with alternates fail", () => {
   assert.throws(
-    () => softwarePlans([pairedPost], [{ ...pairedPost, counterpart: false }]),
+    () => blogPlans([pairedPost], [{ ...pairedPost, counterpart: false }]),
     /reciprocal de, en, and x-default/v
   )
   assert.throws(
-    () => softwarePlans([], [{ ...englishPost, counterpart: true }]),
+    () => blogPlans([], [{ ...englishPost, counterpart: true }]),
     /must link no hreflang alternates/v
   )
 })
 
 /**
- * A Software build whose blog overview is dark: marked `noindex` and, unless
+ * A tech blog build whose post overview is dark: marked `noindex` and, unless
  * the test keeps it, left out of the sitemap.
  *
  * @param locale - The language of the build.
  * @param listed - Whether the sitemap still lists the overview.
- * @returns A Software build with the dark overview.
+ * @returns A tech blog build with the dark overview.
  */
-function darkSoftwareBuild(locale: Locale, listed = false): SiteBuild {
-  const base = softwareBuild(locale, [])
-  const dark = replaceAsset(base.assets, "blog/index.html", (text) =>
+function darkBlogBuild(locale: Locale, listed = false): SiteBuild {
+  const base = blogBuild(locale, [])
+  const dark = replaceAsset(base.assets, "posts/index.html", (text) =>
     text.replace("</head>", '<meta name="robots" content="noindex"></head>')
   )
   return {
     ...base,
     assets: listed
       ? dark
-      : replaceAsset(dark, "sitemap.xml", () => createSitemap("software", locale, ["/"])),
+      : replaceAsset(dark, "sitemap.xml", () => createSitemap("blog", locale, ["/"])),
   }
 }
 
-test("a dark Software blog passes while the blog navigation is off", () => {
-  const plans = seoPlans([darkSoftwareBuild("de"), darkSoftwareBuild("en")], "off")
-  const de = plans.get(softwareDe.deploymentTarget)
+test("a dark tech blog passes while the blog navigation is off", () => {
+  const plans = seoPlans([darkBlogBuild("de"), darkBlogBuild("en")], "off")
+  const de = plans.get(blogDe.deploymentTarget)
   assert.ok(de)
   assert.deepEqual(de.paths, ["/"])
-  assert.deepEqual(de.dark, ["/blog"])
+  assert.deepEqual(de.dark, ["/posts"])
   assert.deepEqual(de.absent, [])
 })
 
-test("a dark Software blog fails once the navigation launches, or in the sitemap", () => {
+test("a dark tech blog fails once the navigation launches, or in the sitemap", () => {
   for (const phase of ["launching", "live"] as const) {
     assert.throws(
-      () => seoPlans([darkSoftwareBuild("de"), darkSoftwareBuild("en")], phase),
+      () => seoPlans([darkBlogBuild("de"), darkBlogBuild("en")], phase),
       /the blog navigation is (?:launching|live), so blog pages must not block indexing/v
     )
   }
   assert.throws(
-    () => seoPlans([darkSoftwareBuild("de", true), darkSoftwareBuild("en", true)], "off"),
+    () => seoPlans([darkBlogBuild("de", true), darkBlogBuild("en", true)], "off"),
     /sitemap.xml must contain exactly the canonical build pages/v
   )
   // One dark language leaves the other language's overview without a counterpart.
   assert.throws(
-    () => seoPlans([darkSoftwareBuild("de"), softwareBuild("en", [])], "off"),
+    () => seoPlans([darkBlogBuild("de"), blogBuild("en", [])], "off"),
     /no counterpart/v
   )
 })
 
-test("noindex outside the Software blog still fails while the navigation is off", () => {
+test("noindex outside the tech blog still fails while the navigation is off", () => {
   const blocked = replaceAsset(build("de"), "team/index.html", (text) =>
     text.replace("</head>", '<meta name="robots" content="noindex"></head>')
   )
@@ -531,7 +531,7 @@ test("noindex outside the Software blog still fails while the navigation is off"
 })
 
 test("a site with a build in one language only fails", () => {
-  assert.throws(() => seoPlans([softwareBuild("en", [])]), /software has a build for en only/v)
+  assert.throws(() => seoPlans([blogBuild("en", [])]), /blog has a build for en only/v)
   assert.throws(
     () => seoPlans([{ assets: build("de"), target }]),
     /consulting has a build for de only/v
@@ -540,36 +540,31 @@ test("a site with a build in one language only fails", () => {
 
 test("both builds of a site must record the same build time", () => {
   const time = "2026-11-17T12:00:00.000Z"
-  assert.equal(seoPlans([softwareBuild("de", [], time), softwareBuild("en", [], time)]).size, 2)
+  assert.equal(seoPlans([blogBuild("de", [], time), blogBuild("en", [], time)]).size, 2)
   // The same instant in another zone is the same build time.
   assert.equal(
-    seoPlans([softwareBuild("de", [], "2026-11-17T13:00:00+01:00"), softwareBuild("en", [], time)])
-      .size,
+    seoPlans([blogBuild("de", [], "2026-11-17T13:00:00+01:00"), blogBuild("en", [], time)]).size,
     2
   )
   for (const invalid of ["2026-11-17", "2026-11-17T12:00:00", "Tue, 17 Nov 2026 12:00:00 GMT"]) {
     assert.throws(
-      () => seoPlans([softwareBuild("de", [], invalid), softwareBuild("en", [], invalid)]),
+      () => seoPlans([blogBuild("de", [], invalid), blogBuild("en", [], invalid)]),
       /no timestamp with seconds and a time zone/v
     )
   }
   assert.throws(
-    () =>
-      seoPlans([
-        softwareBuild("de", [], time),
-        softwareBuild("en", [], "2026-11-17T12:00:01.000Z"),
-      ]),
+    () => seoPlans([blogBuild("de", [], time), blogBuild("en", [], "2026-11-17T12:00:01.000Z")]),
     /different build times/v
   )
-  // Software decides which posts are due by it, so neither build may omit it.
+  // The tech blog decides which posts are due by it, so neither build may omit it.
   for (const [de, en] of [
     [null, null],
     [time, null],
     [null, time],
   ] as const) {
     assert.throws(
-      () => seoPlans([softwareBuild("de", [], de), softwareBuild("en", [], en)]),
-      /software builds must record their shared build time/v
+      () => seoPlans([blogBuild("de", [], de), blogBuild("en", [], en)]),
+      /blog builds must record their shared build time/v
     )
   }
 })
@@ -579,7 +574,7 @@ function originOf(url: string): string {
 }
 
 test("verifySeo checks each origin against its own plan", async () => {
-  const builds = [softwareBuild("de", [pairedPost]), softwareBuild("en", [pairedPost, englishPost])]
+  const builds = [blogBuild("de", [pairedPost]), blogBuild("en", [pairedPost, englishPost])]
   const plans = seoPlans(builds)
   const pages = new Map<string, Answer>()
   for (const entry of builds) {
@@ -588,22 +583,22 @@ test("verifySeo checks each origin against its own plan", async () => {
       pages.set(`${origin}${routePath(file.path)}`, { body: decoder.decode(file.bytes) })
     }
   }
-  const de = `https://${softwareDe.deploymentTarget}.b-cdn.net`
-  const en = `https://${softwareEn.deploymentTarget}.b-cdn.net`
+  const de = `https://${blogDe.deploymentTarget}.b-cdn.net`
+  const en = `https://${blogEn.deploymentTarget}.b-cdn.net`
   const visited: Record<Locale, string[]> = { de: [], en: [] }
   for (const locale of ["de", "en"] as const) {
-    const plan = plans.get(softwareTargets[locale].name)
+    const plan = plans.get(blogTargets[locale].name)
     assert.ok(plan)
     await verifySeo(plan, requestFor(pages, visited[locale]))
   }
   assert.ok(visited.de.every((url) => originOf(url) === de))
   assert.ok(visited.en.every((url) => originOf(url) === en))
-  assert.ok(visited.en.includes(`${en}/blog/english-only`))
+  assert.ok(visited.en.includes(`${en}/posts/english-only`))
   // The German origin only confirms that the English-only post is unknown there.
-  assert.ok(visited.de.includes(`${de}/blog/english-only`))
-  const dePlan = plans.get(softwareDe.deploymentTarget)
+  assert.ok(visited.de.includes(`${de}/posts/english-only`))
+  const dePlan = plans.get(blogDe.deploymentTarget)
   assert.ok(dePlan)
-  pages.set(`${de}/blog/english-only`, { body: softwareHtml("en", englishPost) })
+  pages.set(`${de}/posts/english-only`, { body: blogHtml("en", englishPost) })
   await assert.rejects(verifySeo(dePlan, requestFor(pages)), /HTTP 200, expected 404/v)
 })
 
@@ -654,14 +649,14 @@ test("the secretless build check plans every buildable target from the checkout"
 })
 
 function withEnglishBlog(change: (html: string) => string): ReadonlyMap<string, SeoPlan> {
-  const englishBuild = softwareBuild("en", [])
+  const englishBuild = blogBuild("en", [])
   return seoPlans([
-    softwareBuild("de", []),
-    { ...englishBuild, assets: replaceAsset(englishBuild.assets, "blog/index.html", change) },
+    blogBuild("de", []),
+    { ...englishBuild, assets: replaceAsset(englishBuild.assets, "posts/index.html", change) },
   ])
 }
 
-test("Software documents carry exactly one og:type and one og:url equal to the canonical", () => {
+test("Tech blog documents carry exactly one og:type and one og:url equal to the canonical", () => {
   assert.equal(withEnglishBlog((text) => text).size, 2)
   const invalid: ReadonlyArray<{
     readonly change: (text: string) => string
@@ -677,8 +672,8 @@ test("Software documents carry exactly one og:type and one og:url equal to the c
     {
       change: (text) =>
         text.replace(
-          'content="https://sebastian-software.com/blog"',
-          'content="https://sebastian-software.de/blog"'
+          'content="https://blog.sebastian-software.com/posts"',
+          'content="https://blog.sebastian-software.de/posts"'
         ),
       error: /og:url equal to the canonical/v,
     },
@@ -686,7 +681,7 @@ test("Software documents carry exactly one og:type and one og:url equal to the c
       change: (text) =>
         text.replace(
           "</head>",
-          '<meta property="og:url" content="https://sebastian-software.com/blog"></head>'
+          '<meta property="og:url" content="https://blog.sebastian-software.com/posts"></head>'
         ),
       error: /og:url/v,
     },

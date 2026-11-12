@@ -21,12 +21,13 @@ describe.each<BlogNavigationPhase>(["launching", "live"])(
       siteFrame = frame.getSiteFrame
     })
 
-    // Same-site links stay relative; the brand's other sites link the German blog.
+    // Same-site links stay relative; the brand's other sites link the German tech blog.
     it.each([
-      ["software", "/blog"],
-      ["opensource", "https://sebastian-software.de/blog"],
-      ["skills", "https://sebastian-software.de/blog"],
-      ["app-tracking", "https://sebastian-software.de/blog"],
+      ["blog", "/"],
+      ["software", "https://blog.sebastian-software.de/"],
+      ["opensource", "https://blog.sebastian-software.de/"],
+      ["skills", "https://blog.sebastian-software.de/"],
+      ["app-tracking", "https://blog.sebastian-software.de/"],
     ] as const)("adds the Blog to the navigation of %s", (site, href) => {
       const frame = siteFrame(site, "de", "/")
       expect(frame.navigation.map((link) => link.id)).toStrictEqual([
@@ -34,23 +35,28 @@ describe.each<BlogNavigationPhase>(["launching", "live"])(
         "opensource",
         "blog",
       ])
-      expect(frame.navigation.at(-1)).toStrictEqual({ current: false, href, id: "blog" })
+      expect(frame.navigation.at(-1)).toStrictEqual({
+        current: site === "blog",
+        href,
+        id: "blog",
+      })
     })
 
-    it("marks the Blog on the overview, posts, and tag archives of the Software site", () => {
+    it("marks the Blog on every page of the tech blog", () => {
       for (const path of [
-        "/blog",
-        "/blog/a-post",
-        { counterpart: false, path: "/blog/tags/rust" },
+        "/",
+        "/posts",
+        "/posts/a-post",
+        { counterpart: false, path: "/posts/tags/rust" },
+        "/imprint",
       ]) {
-        const navigation = siteFrame("software", "en", path).navigation
+        const navigation = siteFrame("blog", "en", path).navigation
         expect(navigation.filter((link) => link.current).map((link) => link.id)).toStrictEqual([
           "blog",
         ])
       }
       expect(
-        siteFrame("opensource", "en", "/blog").navigation.find((link) => link.id === "blog")
-          ?.current
+        siteFrame("software", "en", "/posts").navigation.find((link) => link.id === "blog")?.current
       ).toBe(false)
     })
 

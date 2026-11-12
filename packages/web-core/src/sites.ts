@@ -3,15 +3,23 @@ import { type Locale, localeControls, LOCALES } from "./locale.ts"
 export { type Locale, LOCALE_LABELS, LOCALES, SOURCE_LOCALE } from "./locale.ts"
 
 const APP_TRACKING_SITE = "app-tracking"
-export const SITES = ["software", "consulting", "opensource", "skills", APP_TRACKING_SITE] as const
+export const SITES = [
+  "software",
+  "consulting",
+  "opensource",
+  "skills",
+  APP_TRACKING_SITE,
+  "blog",
+] as const
 export type SiteId = (typeof SITES)[number]
 
 export const BRANDS = ["software", "consulting"] as const
 export type BrandId = (typeof BRANDS)[number]
 
-/** Open Source, Skills, and app-tracking are areas of the Software brand. */
+/** Open Source, Skills, app-tracking, and the tech blog are areas of the Software brand. */
 export const SITE_BRAND = {
   "app-tracking": "software",
+  blog: "software",
   consulting: "consulting",
   opensource: "software",
   skills: "software",
@@ -131,6 +139,21 @@ export const VARIANTS = defineVariants({
     locale: "en",
     productionActive: true,
     site: APP_TRACKING_SITE,
+  },
+  "blog-de": {
+    canonicalOrigin: "https://blog.sebastian-software.de",
+    deploymentTarget: "sebastian-websites-blog-de",
+    locale: "de",
+    // Active once both CNAME records resolve (docs/operations/tech-blog-site.md).
+    productionActive: false,
+    site: "blog",
+  },
+  "blog-en": {
+    canonicalOrigin: "https://blog.sebastian-software.com",
+    deploymentTarget: "sebastian-websites-blog-en",
+    locale: "en",
+    productionActive: false,
+    site: "blog",
   },
   "consulting-de": {
     canonicalOrigin: "https://sebastian-consulting.de",

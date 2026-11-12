@@ -1,5 +1,5 @@
 /**
- * The launch switch of the Software blog. Deliberately free of imports, so
+ * The launch switch of the tech blog. Deliberately free of imports, so
  * `hosting/` and build scripts can load it as a relative source file.
  */
 
@@ -9,9 +9,9 @@ export const BLOG_NAVIGATION_PHASES = ["off", "launching", "live"] as const
 /**
  * A launch phase of the blog navigation item:
  *
- * - `off`: the Software brand navigation does not link the blog, and the site's
- *   own blog pages stay out of search: no sitemap entry, and `noindex`.
- * - `launching`: the item is shown, and the Software build fails while either
+ * - `off`: the Software brand navigation does not link the blog, and its
+ *   publication pages stay out of search: no sitemap entry, and `noindex`.
+ * - `launching`: the item is shown, and the blog build fails while either
  *   language has no published post at the build time. Set it in the pull
  *   request that carries the first post in both languages.
  * - `live`: the item is shown, and a language without a published post shows

@@ -3,7 +3,7 @@ import { t } from "@palamedes/core/macro"
 import { FOUNDER_NAMES, type FounderId } from "./founderNames.ts"
 
 export type Founder = {
-  /** The founder's key, the same as the blog author key and the Consulting profile path. */
+  /** The founder's key, the same as the tech blog's author key and the Consulting profile path. */
   readonly id: FounderId
   readonly name: string
   readonly role: string
@@ -13,7 +13,8 @@ export type Founder = {
 
 /**
  * The two founders in the page's language: the one source of their roles and
- * bios for the company page and the blog's author line. Call it while
+ * bios for the company page; the tech blog repeats the roles in its author
+ * line. Call it while
  * rendering, so the active locale decides the copy.
  *
  * @returns Both founders, in the order the company page shows them.

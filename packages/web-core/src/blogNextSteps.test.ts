@@ -34,9 +34,12 @@ describe("next steps", () => {
     }
   })
 
-  it("keeps Software targets absolute when another site renders the post", () => {
-    expect(nextStepHref("products", { locale: "de", site: "opensource" })).toBe(
+  it("keeps Software targets absolute when the tech blog renders the post", () => {
+    expect(nextStepHref("products", { locale: "de", site: "blog" })).toBe(
       "https://sebastian-software.de/products"
+    )
+    expect(nextStepHref("contact", { locale: "en", site: "blog" })).toBe(
+      "https://sebastian-software.com/contact"
     )
   })
 

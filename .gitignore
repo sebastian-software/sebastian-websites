@@ -7,4 +7,4 @@ build/
 .effective-flow/
 
 # Ardo materializes publication routes from the authored content.
-apps/software/app/routes/blog/
+apps/blog/app/routes/posts/

@@ -1,14 +1,16 @@
 ---
 status: accepted
-updated: 2026-11-10
+updated: 2026-11-12
 ---
 
-# The Software website carries a blog built on Ardo's publication feature
+# The tech blog is built on Ardo's publication feature
 
-`sebastian-software.de` and `sebastian-software.com` publish a blog that answers buyer and
-adoption questions and is distributed by hand. Posts are Markdown or MDX files in
-`apps/software/content/blog/<locale>/` ([ADR-0004](0004-content-as-files-no-cms.md)). The blog
-uses the `publication` feature of Ardo ([ADR-0019](0019-software-site-on-ardo.md)), which
+The tech blog at `blog.sebastian-software.de` and `blog.sebastian-software.com` publishes
+technical writing for developers and technical leads and is distributed by hand. It was built
+on the Software site and moved to its own site, `apps/blog`
+([ADR-0022](0022-tech-blog-as-its-own-site.md)); this record covers how the publication works.
+Posts are Markdown or MDX files in `apps/blog/content/posts/<locale>/`
+([ADR-0004](0004-content-as-files-no-cms.md)). The blog uses the `publication` feature of Ardo ([ADR-0019](0019-software-site-on-ardo.md)), which
 provides the overview, post pages, tag archives, RSS 2.0 and Atom feeds, drafts, and future-dated
 posts. There is no CMS, fork, or custom feed generator. Where the feature lacked a reusable
 capability, Ardo gained it first; the launch pins the release that contains them.
@@ -23,13 +25,13 @@ capability, Ardo gained it first; the launch pins the release that contains them
   answers its path with the branded 404.
 - **Counterparts are computed at build time.** The publication configuration validates
   both languages and exposes a compact map of this language's post paths to their counterpart
-  path or `null`, plus the other language's tag keys. `virtual:software-blog-data` carries only
+  path or `null`, plus the other language's tag keys. `virtual:blog-data` carries only
   these references, not the other language's prose. The post, tag module, and branded shell
   use it for hreflang and language links. Sources must not set `counterpart`. Without a
   counterpart, the language switch links to the other language's blog overview.
 - **Tags are English keys with translated labels.** Keys come from one registry in
   `packages/web-core/src/blogTags.ts`; labels are Palamedes `t` macros in
-  `apps/software/app/components/blog/tagLabel.ts`, so they stay in both catalogs and in the
+  `apps/blog/app/components/blog/tagLabel.ts`, so they stay in both catalogs and in the
   translation checks. URLs, the sitemap, and feed categories carry the key. The registry holds
   one key at launch, `internationalization`; each further key comes with its label in both
   catalogs.
@@ -50,18 +52,18 @@ capability, Ardo gained it first; the launch pins the release that contains them
 ## URLs, feeds, and the hosting gate
 
 - **One publication per language build.** Each variant sets `publication.from` to its original
-  post directory and `to` to `blog`. Ardo's `i18n` option stays off, because its locale prefixes
+  post directory and `to` to `posts`; the site's home page at `/` shows the newest posts. Ardo's `i18n` option stays off, because its locale prefixes
   contradict [ADR-0010](0010-url-and-redirect-contract.md). A top-level `trailingSlash: false`
   gives canonicals, links, the sitemap, and feed URLs the spelling of ADR-0010.
-- **Feeds** are `/blog/rss.xml` and `/blog/atom.xml` on each domain. Entry IDs are unique per
+- **Feeds** are `/posts/rss.xml` and `/posts/atom.xml` on each domain. Entry IDs are unique per
   publication, so a translated pair does not collide, and the tag key is the entry category.
   The overview, posts, and archives advertise both feeds in the head.
 - **Single-language page classes.** The hosting gate (`hosting/seo.ts`,
-  [ADR-0009](0009-delivery-model.md)) compares the two builds of a site. Only Software may have
-  a path in one build only, and only two classes qualify: a post, a path `/blog/<one segment>`
+  [ADR-0009](0009-delivery-model.md)) compares the two builds of a site. Only the tech blog may
+  have a path in one build only, and only two classes qualify: a post, a path `/posts/<one segment>`
   other than `tags` whose head carries `og:type=article`, and a tag archive at
-  `/blog/tags/<key>`. Both declare themselves as canonical and link no alternates. Every other
-  unpaired path fails, and the gate has no exception for `/blog`.
+  `/posts/tags/<key>`. Both declare themselves as canonical and link no alternates. Every other
+  unpaired path fails, and the gate has no exception for `/posts`.
 - **Withdrawn and renamed posts.** Redirect and 410 rules for blog paths carry a locale, so a
   withdrawn single-language post answers 410 on its own domain while the other domain stays 404. A renamed post keeps its `id`.
 
@@ -87,36 +89,38 @@ capability, Ardo gained it first; the launch pins the release that contains them
 
 ## Launch
 
-The navigation item is part of the Software brand navigation, so it also appears on Open Source,
-app-tracking, and Skills; Consulting is unchanged. `BLOG_NAVIGATION` in
+The navigation item is part of the Software brand navigation and leads to the tech blog's home,
+so it appears on Software, Open Source, app-tracking, Skills, and the tech blog; Consulting is
+unchanged. `BLOG_NAVIGATION` in
 `packages/web-core/src/blogLaunch.ts` sets the launch phase (owner decision of 2026-11-08):
 
-- `off` (current): the navigation does not link the blog, and the blog pages carry `noindex`
-  and stay out of the sitemap, so the unlinked empty blog can ship without being indexed
-  (owner decision of 2026-11-08). The hosting gate accepts such dark blog pages only in this
-  phase.
-- `launching`: the item is shown, and the Software build fails when either language has no
+- `off` (current): the navigation does not link the blog, and the publication pages below
+  `/posts` carry `noindex` and stay out of the sitemap, so the unlinked empty blog can ship
+  without being indexed (owner decision of 2026-11-08). The home, imprint, and privacy pages are
+  indexed like those of any site. The hosting gate accepts such dark publication pages only in
+  this phase.
+- `launching`: the item is shown, and the tech blog build fails when either language has no
   published post at the build time, so the item cannot go live on one domain only. The phase is
   set in the pull request that carries the first post in both languages.
 - `live`: the item is shown, and a language without a published post shows the empty state on
-  `/blog` with valid, empty feeds. The phase is set after the first deployment with the item.
+  `/` and `/posts` with valid, empty feeds. The phase is set after the first deployment with the item.
 
 The blog pages and feeds are built in every phase. The guard is an explicit option of the
 source-validation step; `build.ts` turns it on only for the site's own posts while the phase is
 `launching`, so fixture builds and tests behave the same in every phase. The owners write the
 first post in both languages. The repository holds no sample post; test posts live only in
-`apps/software/test/fixtures/blog/`.
+`apps/blog/test/fixtures/blog/`.
 
 How to write, review, schedule, and withdraw posts is described in the
 [blog publishing guide](../operations/blog-publishing.md).
 
 ## Considered options
 
-- **Locale prefixes for the blog (`/de/blog`, Ardo's `i18n`).** Rejected: the domain already
+- **Locale prefixes for the blog (`/de/posts`, Ardo's `i18n`).** Rejected: the domain already
   carries the language (ADR-0010).
 - **Translating every post.** Rejected: the blog talks about the work, and a forced translation
   would delay posts or publish machine text under the company's name.
-- **A gate exception for `/blog`, or post-processing Ardo's output.** Rejected: the launch waited
+- **A gate exception for `/posts`, or post-processing Ardo's output.** Rejected: the launch waited
   for the Ardo release instead, so the gate keeps its single rule.
 - **A cross-language post index in every page.** Rejected: every page would carry it, and it
   grows with each post; build-time counterparts keep it out of the client bundle.

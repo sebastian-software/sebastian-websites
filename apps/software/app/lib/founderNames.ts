@@ -1,12 +1,11 @@
 /**
- * The founders' names by their blog author key. Names are not translated, so
- * this module stays free of Palamedes macros: `vite.config.ts` hands the same
- * names to Ardo's publication authors, whose feeds use nothing else.
+ * The founders' names by key, the same keys as the tech blog's post authors.
+ * Names are not translated, so this module stays free of Palamedes macros.
  */
 export const FOUNDER_NAMES = {
   fastner: "Sebastian Fastner",
   werner: "Sebastian Werner",
 } as const
 
-/** The author key of a founder, as posts name them in their frontmatter. */
+/** The key of a founder. */
 export type FounderId = keyof typeof FOUNDER_NAMES

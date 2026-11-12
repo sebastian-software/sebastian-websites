@@ -1,5 +1,5 @@
 /**
- * The output half of the Software blog's raster-image ban; `blogImages.ts` in
+ * The output half of the tech blog's raster-image ban; `blogImages.ts` in
  * web-core checks the sources. Until the Bunny image provider exists, the
  * `<main>` content of the blog documents and the feed entries reference no
  * image other than SVG, and the build holds no raster publication renditions.
@@ -45,7 +45,7 @@ const ENTITIES: Readonly<Record<string, string>> = {
 const decoder = new TextDecoder()
 
 /**
- * Tells whether a hosting target serves a variant of the Software site.
+ * Tells whether a hosting target serves a variant of the tech blog.
  *
  * @param target - A hosting target.
  * @returns Whether the target carries the blog.
@@ -159,11 +159,11 @@ function documentIssues(path: string, html: string): readonly string[] {
 }
 
 /**
- * Lists the raster images in a Software build's blog output: non-SVG image
+ * Lists the raster images in a tech blog build's blog output: non-SVG image
  * references in the one `<main>` of each blog document and in the feed
  * content, and any raster rendition of a publication image.
  *
- * @param assets - The complete client build of one Software variant.
+ * @param assets - The complete client build of one tech blog variant.
  * @returns One message per rejected image; empty when the blog has none.
  */
 export function blogImageIssues(assets: readonly Asset[]): readonly string[] {
@@ -181,7 +181,7 @@ export function blogImageIssues(assets: readonly Asset[]): readonly string[] {
 }
 
 /**
- * Rejects a Software build whose blog output carries raster images, before
+ * Rejects a tech blog build whose blog output carries raster images, before
  * any remote file changes.
  *
  * @param target - The build's hosting target.

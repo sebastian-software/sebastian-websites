@@ -1,6 +1,9 @@
 # Blog publishing
 
-The Software website carries a blog on both domains. The decisions are recorded in
+The tech blog (`apps/blog`) publishes posts on `blog.sebastian-software.de` and
+`blog.sebastian-software.com`. Its readers are developers and technical leads; German posts and
+copy address them with „du“. The decisions are recorded in
+[ADR-0022](../adr/0022-tech-blog-as-its-own-site.md) and
 [ADR-0021](../adr/0021-blog-on-the-software-website.md); this guide is the routine for writing,
 reviewing, scheduling, and withdrawing a post. Hosting and the checks that run before
 publication are described in [website hosting](website-hosting.md).
@@ -10,13 +13,13 @@ publication are described in [website hosting](website-hosting.md).
 Posts are Markdown (`.md`) or MDX (`.mdx`) files, one per language:
 
 ```text
-apps/software/content/blog/de/<slug>.md    # sebastian-software.de
-apps/software/content/blog/en/<slug>.md    # sebastian-software.com
+apps/blog/content/posts/de/<slug>.md    # blog.sebastian-software.de
+apps/blog/content/posts/en/<slug>.md    # blog.sebastian-software.com
 ```
 
-The file name is the slug and the post lives at `/blog/<slug>`. Slugs are lowercase, hyphenated
+The file name is the slug and the post lives at `/posts/<slug>`. Slugs are lowercase, hyphenated
 English words, in both languages ([ADR-0010](../adr/0010-url-and-redirect-contract.md)). `tags`
-is not a valid slug, because `/blog/tags/` belongs to the tag archives. Prefer plain Markdown;
+is not a valid slug, because `/posts/tags/` belongs to the tag archives. Prefer plain Markdown;
 an MDX post that uses components or expressions, `{/* comments */}` included, must also set
 Ardo's `feedContent`.
 
@@ -43,11 +46,11 @@ draft: false
 | `description` | Set it on every post: one sentence for the overview, feeds, and previews.                                                                                                                                                                                                                |
 | `publishedAt` | Required. A timestamp with a time zone; one without a zone is rejected. A date in the future schedules the post (see below).                                                                                                                                                             |
 | `updatedAt`   | Optional. A timestamp with a time zone, not earlier than `publishedAt`.                                                                                                                                                                                                                  |
-| `authors`     | `fastner` and/or `werner`, the authors configured in `apps/software/vite.config.ts`.                                                                                                                                                                                                     |
+| `authors`     | `fastner` and/or `werner`, the authors configured in `apps/blog/ardo.config.ts`.                                                                                                                                                                                                         |
 | `tags`        | Optional list of keys from the registry in `packages/web-core/src/blogTags.ts`. At launch the only key is `internationalization`.                                                                                                                                                        |
 | `nextStep`    | Required. One of `products`, `open-source`, `contact`, `consulting-architecture`, `consulting-internationalization`, `consulting-enablement`, `palamedes-docs`, `ferramenta-docs`, or `none` for a development report. The closed set lives in `packages/web-core/src/blogNextSteps.ts`. |
 | `draft`       | Optional, `false` by default. See "Review" before merging a draft.                                                                                                                                                                                                                       |
-| `path`        | Optional. Overrides the path derived from the file name; it must still be `/blog/<slug>`. Leave it out.                                                                                                                                                                                  |
+| `path`        | Optional. Overrides the path derived from the file name; it must still be `/posts/<slug>`. Leave it out.                                                                                                                                                                                 |
 
 Do not write `counterpart`. The build computes it and rejects a source that sets it.
 
@@ -62,7 +65,7 @@ use one shared Open Graph image.
 
 ```bash
 pnpm install
-pnpm --filter @sebastian-websites/software build
+pnpm --filter @sebastian-websites/blog build
 pnpm hosting:plan
 ```
 
@@ -72,13 +75,13 @@ time, which is "now" unless you pass one. To see how the site looks on a later d
 example to check a scheduled post, pass an RFC 3339 timestamp with seconds and a time zone:
 
 ```bash
-pnpm --filter @sebastian-websites/software build --build-time=2026-12-01T09:00:00+01:00
+pnpm --filter @sebastian-websites/blog build --build-time=2026-12-01T09:00:00+01:00
 ```
 
-`pnpm dev` serves the Software site and restages the posts when a file below
-`apps/software/content/blog/` changes. The development server keeps the build time of its
-start, so a post that falls due while it runs appears only after a restart of `pnpm dev`. The
-commands are defined in the root `package.json` and `apps/software/package.json`.
+`pnpm --filter @sebastian-websites/blog dev` serves the tech blog and restages the posts when a
+file below `apps/blog/content/posts/` changes. The development server keeps the build time of its
+start, so a post that falls due while it runs appears only after a restart. The commands are defined in
+`apps/blog/package.json`.
 
 ## Translation and counterparts
 
@@ -99,15 +102,15 @@ Tags are English, lowercase keys, the same in both languages. A new key needs th
 in one pull request, before a post uses it:
 
 1. Add the key to `BLOG_TAGS` in `packages/web-core/src/blogTags.ts`.
-2. Add a `case` for it to `apps/software/app/components/blog/tagLabel.ts` with the label as a
+2. Add a `case` for it to `apps/blog/app/components/blog/tagLabel.ts` with the label as a
    Palamedes `t` message.
 3. Extract the messages and translate the German label in
-   `apps/software/app/locales/de.po`:
+   `apps/blog/app/locales/de.po`:
 
 ```bash
-pnpm --filter @sebastian-websites/software palamedes:extract
-pnpm --filter @sebastian-websites/software check:translations
-pnpm --filter @sebastian-websites/software lint:messages
+pnpm --filter @sebastian-websites/blog palamedes:extract
+pnpm --filter @sebastian-websites/blog check:translations
+pnpm --filter @sebastian-websites/blog lint:messages
 ```
 
 An unknown tag key in a post fails the build.
@@ -150,8 +153,8 @@ deployment after its date:
 
 For a post that is due at a given hour, start the run at that time. Afterwards check the
 deployment: the `Deploy` run must succeed, including `verify` and `verifySeo`. Then run
-`pnpm hosting:smoke software-de` and `pnpm hosting:smoke software-en`, which also request
-`/blog`, `/blog/rss.xml`, and `/blog/atom.xml`. The text of a scheduled post is readable in the
+`pnpm hosting:smoke blog-de` and `pnpm hosting:smoke blog-en`, which also request
+`/posts`, `/posts/rss.xml`, and `/posts/atom.xml`. The text of a scheduled post is readable in the
 public repository before its date; only merge text that may be public by then.
 
 ## Renaming a post
@@ -163,14 +166,14 @@ and must keep answering 404:
 
 ```ts
 {
-  destination: { path: "/blog/new-slug", site: "software" },
-  id: "SW-BLOG-RENAME",
+  destination: { path: "/posts/new-slug", site: "blog" },
+  id: "BLOG-RENAME",
   locale: "de",
-  path: "/blog/old-slug",
+  path: "/posts/old-slug",
 },
 ```
 
-Add the rule to the `software` list in `PATH_RULES` and extend the table-driven tests in
+Add the rule to the `blog` list in `PATH_RULES` and extend the table-driven tests in
 `hosting/hosting.test.ts`. Rename both files of a translated pair together, so the pair keeps one
 shared path.
 
@@ -180,7 +183,7 @@ Delete the source file in each language that has it, and add a locale-scoped rul
 path answers 410 on its own domain only:
 
 ```ts
-{ gone: true, id: "SW-BLOG-GONE", locale: "de", path: "/blog/withdrawn-post" },
+{ gone: true, id: "BLOG-GONE", locale: "de", path: "/posts/withdrawn-post" },
 ```
 
 The other domain's path stays 404, as ADR-0010 requires. If the post had a counterpart, the
@@ -192,11 +195,15 @@ Run `pnpm hosting:test` after changing redirect rules.
 ## Turning on the navigation item
 
 The Blog item stays out of the Software brand navigation (Software, Open Source, app-tracking,
-and Skills) until the first post is published in both languages. Its launch phase is
+Skills, and the tech blog) until the first post is published in both languages. It links the
+tech blog's domain, so the blog must be live first: both variants `productionActive`, as the
+[tech blog runbook](tech-blog-site.md) describes. A unit test rejects any other phase than
+`off` while they are not. Its launch phase is
 `BLOG_NAVIGATION` in `packages/web-core/src/blogLaunch.ts`: `off`, `launching`, or `live`. The
-blog pages, feeds, and archives are built in every phase. While the phase is `off`, the blog
-pages carry `noindex` and the sitemap leaves them out; from `launching` on they are indexed,
-and the hosting gate fails on a blog page that still blocks indexing.
+blog pages, feeds, and archives are built in every phase. While the phase is `off`, the
+publication pages below `/posts` carry `noindex` and the sitemap leaves them out; from
+`launching` on they are indexed, and the hosting gate fails on a publication page that still
+blocks indexing.
 
 In the pull request that carries the first post:
 
@@ -205,9 +212,9 @@ In the pull request that carries the first post:
 2. Set `BLOG_NAVIGATION` to `"launching"`. The item appears, and the build fails if either
    language has no published post at the build time, so the item cannot go live on one domain
    only.
-3. Check the header with three items at 390px on Software, Open Source, app-tracking, and Skills.
-   CI has a browser check for Software and app-tracking only, so look at Open Source and Skills
-   by hand.
+3. Check the header with three items at 390px on Software, Open Source, app-tracking, Skills,
+   and the tech blog. CI has browser checks for Software, app-tracking, and the tech blog only,
+   so look at Open Source and Skills by hand.
 
 The frame tests need no change: `frame.test.ts` checks the frame with the phase `off`, and
 `frame.blog.test.ts` with `launching` and `live`.
@@ -219,4 +226,4 @@ After the first deployment with the item:
 2. Set `BLOG_NAVIGATION` to `"live"` in a follow-up pull request.
 
 From then on, a language without a published post (for example after a withdrawal) shows the
-empty state on `/blog` with valid, empty feeds, and the build no longer fails for it.
+empty state on `/` and `/posts` with valid, empty feeds, and the build no longer fails for it.

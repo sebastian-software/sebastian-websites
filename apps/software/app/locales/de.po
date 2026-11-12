@@ -107,9 +107,10 @@ msgstr ""
 #~ "Dateisuche und PDF-Vorschauen, dazu Palamedes, Dalo und Ardo, die darauf "
 #~ "aufbauen."
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid "A product that works across languages."
-msgstr "Ein Produkt für viele Sprachen."
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid "A product that works across languages."
+#~ msgstr "Ein Produkt für viele Sprachen."
 
 #: app/routes/products.tsx
 msgid ""
@@ -164,9 +165,10 @@ msgstr ""
 msgid "Address"
 msgstr "Anschrift"
 
-#: app/components/blog/TagArchive.tsx
-msgid "All posts"
-msgstr "Alle Beiträge"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/TagArchive.tsx
+#~ msgid "All posts"
+#~ msgstr "Alle Beiträge"
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/open-source.tsx
@@ -221,9 +223,10 @@ msgstr ""
 #~ msgid "Architecture reviews and modernization"
 #~ msgstr "Architektur-Reviews und Modernisierung"
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid "Architecture that leaves room for change."
-msgstr "Architektur, die Veränderung zulässt."
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid "Architecture that leaves room for change."
+#~ msgstr "Architektur, die Veränderung zulässt."
 
 #: app/routes/contact.tsx
 msgid ""
@@ -239,9 +242,10 @@ msgstr ""
 msgid "Ask us about VorOrt"
 msgstr "Fragen Sie uns nach VorOrt"
 
-#: app/components/blog/PostMeta.tsx#PostMeta
-msgid "Authors"
-msgstr "Autoren"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/PostMeta.tsx#PostMeta
+#~ msgid "Authors"
+#~ msgstr "Autoren"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
 msgid "Automated Decision-Making"
@@ -264,9 +268,10 @@ msgstr ""
 msgid "Blog"
 msgstr "Blog"
 
-#: app/components/blog/TagArchive.tsx
-msgid "Blog topic"
-msgstr "Thema im Blog"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/TagArchive.tsx
+#~ msgid "Blog topic"
+#~ msgstr "Thema im Blog"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Book an intro call"
@@ -500,7 +505,6 @@ msgstr "Geräteinformationen (Bildschirmgröße, Betriebssystem, Browser)"
 msgid "Discover Sebastian/Software"
 msgstr "Sebastian/Software entdecken"
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
 #: app/routes/index.tsx
 msgid "Discover the products"
 msgstr "Produkte entdecken"
@@ -526,13 +530,14 @@ msgstr ""
 "einsetzen wollten. Die Produkte haben eigene Seiten mit allen Details; hier "
 "steht, wofür sie da sind."
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid ""
-"Each of our products grew out of a gap we saw ourselves, and we use them in "
-"our own work."
-msgstr ""
-"Jedes unserer Produkte ist aus einer Lücke entstanden, die wir selbst gesehen"
-" haben, und wir setzen sie in unserer eigenen Arbeit ein."
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid ""
+#~ "Each of our products grew out of a gap we saw ourselves, and we use them in "
+#~ "our own work."
+#~ msgstr ""
+#~ "Jedes unserer Produkte ist aus einer Lücke entstanden, die wir selbst gesehen"
+#~ " haben, und wir setzen sie in unserer eigenen Arbeit ein."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/home.tsx#Products
@@ -589,9 +594,10 @@ msgstr "E-Mail-Adresse"
 msgid "Email:"
 msgstr "E-Mail:"
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid "Engineering that moves the team forward."
-msgstr "Entwicklung, die das Team weiterbringt."
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid "Engineering that moves the team forward."
+#~ msgstr "Entwicklung, die das Team weiterbringt."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "English blog"
@@ -653,17 +659,20 @@ msgstr "Erfahrung."
 #~ msgid "Experience. Clarity. Enthusiasm."
 #~ msgstr "Erfahrung. Klarheit. Begeisterung."
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid "Explore architecture consulting"
-msgstr "Mehr zur Architekturberatung"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid "Explore architecture consulting"
+#~ msgstr "Mehr zur Architekturberatung"
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid "Explore engineering support"
-msgstr "Mehr zu Entwicklung und Wissenstransfer"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid "Explore engineering support"
+#~ msgstr "Mehr zu Entwicklung und Wissenstransfer"
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid "Explore internationalization consulting"
-msgstr "Mehr zur Internationalisierungsberatung"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid "Explore internationalization consulting"
+#~ msgstr "Mehr zur Internationalisierungsberatung"
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/home.tsx
@@ -674,9 +683,10 @@ msgstr "Mehr zur Internationalisierungsberatung"
 msgid "Explore our open source projects"
 msgstr "Unsere Open-Source-Projekte entdecken"
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid "Explore our open-source work"
-msgstr "Unsere Open-Source-Arbeit entdecken"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid "Explore our open-source work"
+#~ msgstr "Unsere Open-Source-Arbeit entdecken"
 
 #: app/data/products.ts#getProducts
 msgid "Explore Terminaro"
@@ -694,13 +704,14 @@ msgstr "Externe Links"
 msgid "Fax:"
 msgstr "Telefax:"
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid ""
-"Ferramenta is our family of Rust engines and applications for documents and "
-"text, with benchmarks and comparisons."
-msgstr ""
-"Ferramenta ist unsere Familie von Rust-Engines und Anwendungen für Dokumente "
-"und Text, mit Benchmarks und Vergleichen."
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid ""
+#~ "Ferramenta is our family of Rust engines and applications for documents and "
+#~ "text, with benchmarks and comparisons."
+#~ msgstr ""
+#~ "Ferramenta ist unsere Familie von Rust-Engines und Anwendungen für Dokumente "
+#~ "und Text, mit Benchmarks und Vergleichen."
 
 #: app/components/MetricsBand.tsx#MetricsBand
 msgid "Ferramenta: engines and applications in Rust"
@@ -822,9 +833,10 @@ msgstr "Deutscher Blog"
 msgid "Germany"
 msgstr "Deutschland"
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid "Get in touch"
-msgstr "Kontakt aufnehmen"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid "Get in touch"
+#~ msgstr "Kontakt aufnehmen"
 
 #: app/data/products.ts#getProducts
 msgid ""
@@ -994,12 +1006,12 @@ msgstr ""
 "Übermittlungsregelungen. Über die oben genannte Datenschutzadresse erhalten "
 "Sie Informationen zu den anwendbaren Garantien und eine Kopie davon."
 
-#: app/components/blog/tagLabel.ts#tagLabel
-msgid "Internationalization"
-msgstr "Internationalisierung"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/tagLabel.ts#tagLabel
+#~ msgid "Internationalization"
+#~ msgstr "Internationalisierung"
 
 #: app/components/OpenFoundations.tsx#OpenFoundations
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
 msgid ""
 "Internationalization for TypeScript applications: message extraction, "
 "catalogs, and framework adapters."
@@ -1193,9 +1205,10 @@ msgstr "Brauchen Sie eine klarere Richtung für Ihre Software?"
 msgid "Newsletter"
 msgstr "Newsletter"
 
-#: app/components/blog/NextStep.tsx#NextStep
-msgid "Next step"
-msgstr "Nächster Schritt"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/NextStep.tsx#NextStep
+#~ msgid "Next step"
+#~ msgstr "Nächster Schritt"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
 msgid ""
@@ -1205,13 +1218,14 @@ msgstr ""
 "Es findet keine automatisierte Entscheidungsfindung einschließlich Profiling "
 "gemäß Art. 22 DSGVO statt."
 
-#: app/components/blog/BlogIndex.tsx#overviewLead
-msgid ""
-"Notes from the two founders: how we build our products, what we learn in "
-"client projects, and the tools behind both."
-msgstr ""
-"Notizen der beiden Gründer: wie wir unsere Produkte bauen, was wir in "
-"Kundenprojekten lernen und welche Werkzeuge hinter beidem stehen."
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/BlogIndex.tsx#overviewLead
+#~ msgid ""
+#~ "Notes from the two founders: how we build our products, what we learn in "
+#~ "client projects, and the tools behind both."
+#~ msgstr ""
+#~ "Notizen der beiden Gründer: wie wir unsere Produkte bauen, was wir in "
+#~ "Kundenprojekten lernen und welche Werkzeuge hinter beidem stehen."
 
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#Hero
@@ -1387,33 +1401,36 @@ msgstr ""
 "Unsere Agentur unterstützt Teams bei Softwarearchitektur, Engineering und "
 "technischer Ausrichtung."
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid ""
-"Our agency Sebastian Consulting helps teams find the coupling that makes small"
-" changes expensive, and works out the next useful step with them."
-msgstr ""
-"Unsere Agentur Sebastian Consulting findet mit Teams die Kopplung, die kleine "
-"Änderungen teuer macht, und erarbeitet mit ihnen den nächsten sinnvollen "
-"Schritt."
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid ""
+#~ "Our agency Sebastian Consulting helps teams find the coupling that makes small"
+#~ " changes expensive, and works out the next useful step with them."
+#~ msgstr ""
+#~ "Unsere Agentur Sebastian Consulting findet mit Teams die Kopplung, die kleine "
+#~ "Änderungen teuer macht, und erarbeitet mit ihnen den nächsten sinnvollen "
+#~ "Schritt."
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid ""
-"Our agency Sebastian Consulting makes language support part of the product, "
-"from the interface to the content people create and share."
-msgstr ""
-"Unsere Agentur Sebastian Consulting macht Sprachunterstützung zum Teil des "
-"Produkts: von der Oberfläche bis zu den Inhalten, die Menschen erstellen und "
-"teilen."
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid ""
+#~ "Our agency Sebastian Consulting makes language support part of the product, "
+#~ "from the interface to the content people create and share."
+#~ msgstr ""
+#~ "Unsere Agentur Sebastian Consulting macht Sprachunterstützung zum Teil des "
+#~ "Produkts: von der Oberfläche bis zu den Inhalten, die Menschen erstellen und "
+#~ "teilen."
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid ""
-"Our agency Sebastian Consulting works in the code with the people who maintain"
-" it. Decisions become working software, and the reasoning stays with your "
-"team."
-msgstr ""
-"Unsere Agentur Sebastian Consulting arbeitet im Code mit den Menschen, die ihn"
-" pflegen. Aus Entscheidungen wird funktionierende Software, und die "
-"Begründungen bleiben bei Ihrem Team."
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid ""
+#~ "Our agency Sebastian Consulting works in the code with the people who maintain"
+#~ " it. Decisions become working software, and the reasoning stays with your "
+#~ "team."
+#~ msgstr ""
+#~ "Unsere Agentur Sebastian Consulting arbeitet im Code mit den Menschen, die ihn"
+#~ " pflegen. Aus Entscheidungen wird funktionierende Software, und die "
+#~ "Begründungen bleiben bei Ihrem Team."
 
 #: app/routes/open-source.tsx
 msgid ""
@@ -1523,11 +1540,12 @@ msgid "Please enter a complete email address, such as name@example.com."
 msgstr ""
 "Bitte geben Sie eine vollständige E-Mail-Adresse ein, etwa name@example.com."
 
-#: app/components/blog/TagArchive.tsx#meta
-#: app/components/blog/TagArchive.tsx
-msgid "Posts from Sebastian Software on {label}, newest first."
-msgstr ""
-"Beiträge von Sebastian Software zum Thema {label}, die neuesten zuerst."
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/TagArchive.tsx#meta
+#~ #: app/components/blog/TagArchive.tsx
+#~ msgid "Posts from Sebastian Software on {label}, newest first."
+#~ msgstr ""
+#~ "Beiträge von Sebastian Software zum Thema {label}, die neuesten zuerst."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Privacy"
@@ -1654,9 +1672,10 @@ msgstr ""
 msgid "Public monthly usage totals"
 msgstr "Öffentliche monatliche Nutzungszahlen"
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid "Questions about this topic?"
-msgstr "Fragen zu diesem Thema?"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid "Questions about this topic?"
+#~ msgstr "Fragen zu diesem Thema?"
 
 #: app/lib/founders.ts#getFounders
 msgid ""
@@ -1666,29 +1685,35 @@ msgstr ""
 "React, TypeScript, Internationalisierung und Code-Qualität. Seit 2000 in der "
 "Webentwicklung, früher Architekt des qooxdoo-Frameworks bei 1&1."
 
-#: app/components/blog/BlogEmpty.tsx#BlogEmpty
-msgid "Read the English blog"
-msgstr "Zum englischen Blog"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/BlogEmpty.tsx#BlogEmpty
+#~ msgid "Read the English blog"
+#~ msgstr "Zum englischen Blog"
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid "Read the Ferramenta documentation"
-msgstr "Zur Ferramenta-Dokumentation"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid "Read the Ferramenta documentation"
+#~ msgstr "Zur Ferramenta-Dokumentation"
 
-#: app/components/blog/BlogEmpty.tsx#BlogEmpty
-msgid "Read the German blog"
-msgstr "Zum deutschen Blog"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/BlogEmpty.tsx#BlogEmpty
+#~ msgid "Read the German blog"
+#~ msgstr "Zum deutschen Blog"
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid "Read the Palamedes documentation"
-msgstr "Zur Palamedes-Dokumentation"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid "Read the Palamedes documentation"
+#~ msgstr "Zur Palamedes-Dokumentation"
 
-#: app/components/blog/PostTranslationLink.tsx#PostTranslationLink
-msgid "Read this post in English"
-msgstr "Diesen Beitrag auf Englisch lesen"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/PostTranslationLink.tsx#PostTranslationLink
+#~ msgid "Read this post in English"
+#~ msgstr "Diesen Beitrag auf Englisch lesen"
 
-#: app/components/blog/PostTranslationLink.tsx#PostTranslationLink
-msgid "Read this post in German"
-msgstr "Diesen Beitrag auf Deutsch lesen"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/PostTranslationLink.tsx#PostTranslationLink
+#~ msgid "Read this post in German"
+#~ msgstr "Diesen Beitrag auf Deutsch lesen"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "References"
@@ -1803,13 +1828,14 @@ msgstr ""
 "brauchten, die in modernem Rust geschrieben, geprüft und messbar sind. Die "
 "Familie hat eine eigene Seite mit Benchmarks und Vergleichen."
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid ""
-"Rust engines, TypeScript libraries, and skills for coding agents: what we "
-"build for our products, we share again."
-msgstr ""
-"Rust-Engines, TypeScript-Bibliotheken und Skills für Coding-Agenten: Was wir "
-"für unsere Produkte bauen, geben wir weiter."
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid ""
+#~ "Rust engines, TypeScript libraries, and skills for coding agents: what we "
+#~ "build for our products, we share again."
+#~ msgstr ""
+#~ "Rust-Engines, TypeScript-Bibliotheken und Skills für Coding-Agenten: Was wir "
+#~ "für unsere Produkte bauen, geben wir weiter."
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid ""
@@ -2058,17 +2084,20 @@ msgstr "Storage für statische Dateien und Assets"
 msgid "Subscribe"
 msgstr "Abonnieren"
 
-#: app/components/blog/FeedLinks.tsx#FeedLinks
-msgid "Subscribe to the blog"
-msgstr "Blog abonnieren"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/FeedLinks.tsx#FeedLinks
+#~ msgid "Subscribe to the blog"
+#~ msgstr "Blog abonnieren"
 
-#: app/components/blog/FeedLinks.tsx#FeedLinks
-msgid "Subscribe via Atom"
-msgstr "Per Atom abonnieren"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/FeedLinks.tsx#FeedLinks
+#~ msgid "Subscribe via Atom"
+#~ msgstr "Per Atom abonnieren"
 
-#: app/components/blog/FeedLinks.tsx#FeedLinks
-msgid "Subscribe via RSS"
-msgstr "Per RSS abonnieren"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/FeedLinks.tsx#FeedLinks
+#~ msgid "Subscribe via RSS"
+#~ msgstr "Per RSS abonnieren"
 
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#ProjectSupport
@@ -2279,13 +2308,14 @@ msgstr ""
 "Informationen zugreift, die bereits im Endgerät des Nutzers gespeichert sind,"
 " ist eine Einwilligung nach § 25 TDDDG nicht erforderlich."
 
-#: app/components/blog/BlogEmpty.tsx#BlogEmpty
-msgid ""
-"There are no posts in this language yet. New posts appear here and in the "
-"feeds as soon as they are published."
-msgstr ""
-"In dieser Sprache gibt es noch keine Beiträge. Neue Beiträge erscheinen hier"
-" und in den Feeds, sobald sie veröffentlicht sind."
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/BlogEmpty.tsx#BlogEmpty
+#~ msgid ""
+#~ "There are no posts in this language yet. New posts appear here and in the "
+#~ "feeds as soon as they are published."
+#~ msgstr ""
+#~ "In dieser Sprache gibt es noch keine Beiträge. Neue Beiträge erscheinen hier"
+#~ " und in den Feeds, sobald sie veröffentlicht sind."
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
 msgid "There is no contact form – contact is made exclusively by email."
@@ -2436,13 +2466,15 @@ msgstr "Zur Open-Source-Seite →"
 #~ msgid "To the Skills site →"
 #~ msgstr "Zur Skills-Seite →"
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid "Tools you can inspect."
-msgstr "Werkzeuge, die man prüfen kann."
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid "Tools you can inspect."
+#~ msgstr "Werkzeuge, die man prüfen kann."
 
-#: app/components/blog/PostTags.tsx#PostTags
-msgid "Topics"
-msgstr "Themen"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/PostTags.tsx#PostTags
+#~ msgid "Topics"
+#~ msgstr "Themen"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Trademark Notice"
@@ -2524,9 +2556,10 @@ msgstr ""
 "Sie haben gemäß DSGVO folgende Rechte hinsichtlich Ihrer personenbezogenen "
 "Daten:"
 
-#: app/components/blog/PostMeta.tsx#UpdatedOn
-msgid "Updated on {day}"
-msgstr "Aktualisiert am {day}"
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/PostMeta.tsx#UpdatedOn
+#~ msgid "Updated on {day}"
+#~ msgstr "Aktualisiert am {day}"
 
 #: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
 msgid ""
@@ -2635,7 +2668,6 @@ msgstr ""
 "Wir entwickeln Produkte, Open-Source-Projekte und Agent-Tools für den "
 "Arbeitsalltag."
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
 #: app/routes/products.tsx
 msgid "We build what we need ourselves."
 msgstr "Wir bauen, was wir selbst brauchen."
@@ -2740,9 +2772,10 @@ msgstr ""
 "liegt auf der Open-Source-Seite; diese Seite erklärt, warum wir das tun und "
 "was zusammengehört."
 
-#: app/components/blog/BlogIndex.tsx
-msgid "What we learn while building software."
-msgstr "Was wir beim Entwickeln von Software lernen."
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/BlogIndex.tsx
+#~ msgid "What we learn while building software."
+#~ msgstr "Was wir beim Entwickeln von Software lernen."
 
 #: app/routes/company.tsx#Mission
 msgid "What we stand for."
@@ -2923,9 +2956,10 @@ msgstr ""
 msgid "Withdrawal, deletion, and your rights"
 msgstr "Widerruf, Löschung und Ihre Rechte"
 
-#: app/components/blog/nextStepCopy.ts#nextStepCopy
-msgid "Write to us; one of the two founders answers."
-msgstr "Schreiben Sie uns; einer der beiden Gründer antwortet."
+#~ #@ obsolete-since: 2026-11-11
+#~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
+#~ msgid "Write to us; one of the two founders answers."
+#~ msgstr "Schreiben Sie uns; einer der beiden Gründer antwortet."
 
 #: app/routes/contact.tsx
 msgid ""

@@ -1,5 +1,5 @@
 /**
- * The tag registry of the Software blog. Keys are English, lowercase, and
+ * The tag registry of the tech blog. Keys are English, lowercase, and
  * hyphenated, the same in both languages; translated labels belong to the
  * site's Palamedes catalog, and feeds carry the key. Add a key here, and its
  * label to both catalogs, before a post uses it. The blog launches with one key.
@@ -13,7 +13,7 @@ const SLUG_SEGMENT = /^[a-z0-9]+$/v
 
 /**
  * Tells whether a value is a lowercase, hyphenated slug, the form of tag keys
- * and post slugs; a tag key doubles as its archive slug below `/blog/tags/`.
+ * and post slugs; a tag key doubles as its archive slug below `/posts/tags/`.
  *
  * @param value - The candidate slug.
  * @returns Whether it consists of lowercase letters and digits joined by single hyphens.

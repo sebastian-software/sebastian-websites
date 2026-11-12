@@ -18,12 +18,9 @@
     "format:check": "prettier --check app scripts vite.config.ts eslint.config.ts",
     "palamedes:extract": "pmds extract",
     "check:translations": "pmds audit --fail-on warning",
-    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm lint:messages && pnpm check:translations && pnpm test",
-    "test": "node --test \"scripts/**/*.test.ts\" \"app/**/*.test.ts\"",
+    "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm lint:messages && pnpm check:translations",
     "lint:messages": "pmds lint --fail-on warning",
-    "check:browser": "node scripts/check-browser.ts",
-    "check:browser:fixtures": "node scripts/check-browser.ts --fixtures",
-    "check:fixtures": "node scripts/check-fixtures.ts"
+    "check:browser": "node scripts/check-browser.ts"
   },
   "dependencies": {
     "@palamedes/core": "catalog:",
@@ -52,8 +49,6 @@
     "prettier": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
-    "image-size": "^2.0.4",
-    "playwright": "catalog:",
-    "yaml": "^2.9.1"
+    "playwright": "catalog:"
   }
 }

@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from "vitest"
 
 import { BLOG_NAVIGATION_PHASES, type BlogNavigationPhase } from "./blogLaunch.ts"
 import { BOOKING_URL, contactEmail, getLanguageLinks, getSiteFrame } from "./frame.ts"
-import { SITES } from "./sites.ts"
+import { getSiteVariant, LOCALES, SITES } from "./sites.ts"
 
 // This suite checks the frame before the launch, whatever phase is committed;
 // `frame.blog.test.ts` covers the launching and live phases.
@@ -12,8 +12,8 @@ vi.mock(import("./blogLaunch.ts"), async (importOriginal) => ({
 }))
 
 describe("site frame", () => {
-  it("gives Software and Open Source the Software context without a Skills entry", () => {
-    for (const site of ["software", "opensource", "skills"] as const) {
+  it("gives Software and its areas the Software context without a Skills entry", () => {
+    for (const site of ["software", "opensource", "skills", "blog"] as const) {
       const frame = getSiteFrame(site, "en", "/")
       expect(frame.brand).toBe("software")
       expect(frame.navigation.map((link) => link.id)).toStrictEqual(["products", "opensource"])
@@ -29,6 +29,15 @@ describe("site frame", () => {
       "./blogLaunch.ts"
     )
     expect(BLOG_NAVIGATION_PHASES).toContain(committed.BLOG_NAVIGATION)
+  })
+
+  it("shows the Blog item only once the tech blog's domains are live", async () => {
+    const committed = await vi.importActual<{ BLOG_NAVIGATION: BlogNavigationPhase }>(
+      "./blogLaunch.ts"
+    )
+    const live = LOCALES.every((locale) => getSiteVariant("blog", locale).productionActive)
+    // Either the item is off, or both domains resolve.
+    expect([committed.BLOG_NAVIGATION === "off", live]).toContain(true)
   })
 
   it("leaves the blog out of every navigation while its launch phase is off", () => {
@@ -142,41 +151,41 @@ describe("language links", () => {
 
   it("leads a page without a counterpart to the other language's blog overview", () => {
     expect(
-      getLanguageLinks("software", "de", { counterpart: false, path: "/blog/ein-beitrag" })
+      getLanguageLinks("blog", "de", { counterpart: false, path: "/posts/ein-beitrag" })
     ).toStrictEqual([
       {
         current: false,
         fallback: true,
-        href: "https://sebastian-software.com/blog",
+        href: "https://blog.sebastian-software.com/posts",
         label: "English",
         locale: "en",
       },
       {
         current: true,
-        href: "https://sebastian-software.de/blog/ein-beitrag",
+        href: "https://blog.sebastian-software.de/posts/ein-beitrag",
         label: "Deutsch",
         locale: "de",
       },
     ])
-    const frame = getSiteFrame("software", "en", { counterpart: false, path: "/blog/tags/rust/" })
+    const frame = getSiteFrame("blog", "en", { counterpart: false, path: "/posts/tags/rust/" })
     expect(frame.languages.map((language) => language.href)).toStrictEqual([
-      "https://sebastian-software.com/blog/tags/rust",
-      "https://sebastian-software.de/blog",
+      "https://blog.sebastian-software.com/posts/tags/rust",
+      "https://blog.sebastian-software.de/posts",
     ])
   })
 
   it("keeps the matching page when a counterpart exists", () => {
     expect(
-      getLanguageLinks("software", "en", { counterpart: true, path: "/blog/a-post" })
-    ).toStrictEqual(getLanguageLinks("software", "en", "/blog/a-post"))
+      getLanguageLinks("blog", "en", { counterpart: true, path: "/posts/a-post" })
+    ).toStrictEqual(getLanguageLinks("blog", "en", "/posts/a-post"))
     expect(
-      getSiteFrame("software", "de", { counterpart: true, path: "/blog/a-post" }).languages.some(
+      getSiteFrame("blog", "de", { counterpart: true, path: "/posts/a-post" }).languages.some(
         (language) => language.fallback === true
       )
     ).toBe(false)
   })
 
-  it.each(["consulting", "opensource", "skills", "app-tracking"] as const)(
+  it.each(["software", "consulting", "opensource", "skills", "app-tracking"] as const)(
     "requires a counterpart on %s, which has no blog",
     (site) => {
       expect(() => getSiteFrame(site, "en", { counterpart: false, path: "/" })).toThrow("no blog")

@@ -39,10 +39,14 @@ jobs:
         run: pnpm --filter @sebastian-websites/consulting exec playwright install --with-deps chromium
       - name: Install the Software browser
         run: pnpm --filter @sebastian-websites/software exec playwright install --with-deps chromium
+      - name: Install the tech blog browser
+        run: pnpm --filter @sebastian-websites/blog exec playwright install --with-deps chromium
       - name: Build all variants
         run: pnpm build
       - name: Verify both Software artifacts before publication
         run: pnpm --filter @sebastian-websites/software check:browser
+      - name: Verify both tech blog artifacts before publication
+        run: pnpm --filter @sebastian-websites/blog check:browser
       - name: Provision, publish, and verify
         env:
           BUNNY_API_KEY: ${{ secrets.BUNNY_API_KEY }}
