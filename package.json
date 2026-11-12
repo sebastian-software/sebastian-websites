@@ -34,7 +34,7 @@
     "oxlint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:",
-    "ardo": "6.8.0",
+    "ardo": "6.9.0",
     "vitest": "catalog:",
     "@vanilla-extract/vite-plugin": "catalog:"
   }

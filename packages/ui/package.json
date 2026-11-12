@@ -31,7 +31,7 @@
     "@vanilla-extract/css": "catalog:",
     "lucide-react": "catalog:",
     "@palamedes/runtime": "catalog:",
-    "ardo": "6.8.0"
+    "ardo": "6.9.0"
   },
   "devDependencies": {
     "@sebastian-websites/config": "workspace:*",

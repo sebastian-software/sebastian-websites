@@ -53,7 +53,7 @@ minimumReleaseAgeExclude:
   - "@palamedes/runtime@2.2.0"
   - "@palamedes/transform@2.2.0"
   - "@palamedes/vite-plugin@2.2.0"
-  - "ardo@6.8.0"
+  - "ardo@6.9.0"
   - "ferrolink@0.2.2"
   - "@ferrolink/darwin-arm64@0.2.2"
   - "@ferrolink/darwin-x64@0.2.2"
