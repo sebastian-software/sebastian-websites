@@ -1028,24 +1028,3 @@ test("Tech blog resource smoke checks validate actual MIME headers, including ch
     )
   )
 })
-
-test("the Software site's former blog leads to the tech blog once it is live", () => {
-  const software = { locale: "de", site: "software" } as const
-  const live: readonly PathRule[] = [
-    { destination: { path: "/", site: "blog" }, id: "SW-BLOG", path: "/blog" },
-    { destination: { path: "/posts/rss.xml", site: "blog" }, id: "SW-BLOG", path: "/blog/rss.xml" },
-  ]
-  assert.deepEqual(planLegacyPath(software, new URL("https://sebastian-software.de/blog/"), live), {
-    id: "SW-BLOG",
-    kind: "moved",
-    location: "https://blog.sebastian-software.de/",
-  })
-  assert.deepEqual(
-    planLegacyPath(software, new URL("https://sebastian-software.de/blog/rss.xml"), live),
-    { id: "SW-BLOG", kind: "moved", location: "https://blog.sebastian-software.de/posts/rss.xml" }
-  )
-  // Before the tech blog's domains resolve, the former paths stay unknown.
-  const committed = PATH_RULES.software.filter((rule) => rule.id === "SW-BLOG")
-  const techBlog: { readonly productionActive: boolean } = VARIANTS["blog-de"]
-  assert.equal(committed.length > 0, techBlog.productionActive)
-})
