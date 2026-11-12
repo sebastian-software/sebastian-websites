@@ -57,7 +57,8 @@ Read [ADR-0022](docs/adr/0022-tech-blog-as-its-own-site.md),
 [ADR-0021](docs/adr/0021-blog-on-the-software-website.md), and the
 [blog publishing guide](docs/operations/blog-publishing.md) before adding,
 renaming, or withdrawing a post under `apps/blog/content/posts/`, or changing
-tags and next steps. Posts carry no raster images until the image plan. German
+tags and next steps. Post images and covers go through Ardo's build-time image
+pipeline, not Bunny; keep image files beside the post. German
 copy on the tech blog addresses readers with „du“; the Software site keeps „Sie“.
 
 **Effective Flow project setup:** docs/adr/0020-effective-flow-project-setup.md

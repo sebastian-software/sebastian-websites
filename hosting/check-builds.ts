@@ -1,8 +1,7 @@
 /**
  * The pre-upload checks of a deployment, without Bunny credentials: load every
  * buildable target, compare both language builds of each site, validate the
- * SEO contract, reject raster images in the tech blog, and verify the
- * Bunny image manifests. CI runs it after
+ * SEO contract, and verify the Bunny image manifests. CI runs it after
  * `pnpm build`; the deployment runs the same checks before changing any
  * remote file.
  *
@@ -18,7 +17,6 @@ import { dirname } from "node:path"
 import { fileURLToPath, pathToFileURL } from "node:url"
 
 import { isZonedTimestamp } from "../packages/web-core/src/timestamps.ts"
-import { assertBlogOutput } from "./blog-output.ts"
 import { loadBunnyImages } from "./images.ts"
 import { type Asset, loadAssets, loadBuild } from "./publish.ts"
 import { type SeoPlan, seoPlans, type SiteBuild } from "./seo.ts"
@@ -97,7 +95,6 @@ export async function checkBuilds(root: string): Promise<CheckedBuilds> {
   }
   // Reject a broken SEO artifact before any remote files are changed.
   const plans = seoPlans(loaded)
-  for (const build of loaded) assertBlogOutput(build.target, build.assets)
   // Every original must be available before any site document references it.
   const images = new Map<string, Asset>()
   for (const target of targets) {

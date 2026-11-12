@@ -54,12 +54,22 @@ draft: false
 
 Do not write `counterpart`. The build computes it and rejects a source that sets it.
 
-A post carries no raster images until the image plan has shipped: no `coverImage`, `images`,
-`ogImage`, or `twitterImage`, no PNG, JPEG, or WebP in Markdown or `<img>`, `<picture>`,
-`<source>`, or `<Image>` elements, no raster imports in MDX, and no author avatars. SVG is
-allowed. Code blocks and code spans may show image syntax as an example. The build fails with
-the offending file, and `pnpm hosting:plan` repeats the check on the output. Social previews
-use one shared Open Graph image.
+### Images
+
+Put image files beside the post and reference them relatively. Ardo renders them during the
+build into AVIF candidates and one JPEG below `assets/posts/`.
+
+- **Cover:** `coverImage: { src, alt, caption?, core?, frame? }` in the frontmatter. It appears
+  above the body, its JPEG is the post's social preview, and Ardo puts it into the feeds. A
+  post without a cover uses the shared team photo as preview.
+- **Body:** plain Markdown, `![Alt text](./diagram.png)`. Per-image settings go under `images:`
+  in the frontmatter, keyed by the path.
+- **Framing:** framed images are cropped to 4:3 on phones and 16:10 from the column layout on.
+  Set `core` to the part that must stay visible and give it room for both shapes.
+- **Formats:** JPEG, PNG, WebP, AVIF, or SVG. Strip GPS data from photos before committing
+  them; the repository is public.
+- **Alt text:** describe what the image shows for the post, in the post's language. A purely
+  decorative image gets `alt: ""`.
 
 ### Check it locally
 
@@ -133,7 +143,8 @@ so is `main`.
       and a `nextStep` that suits the post. `none` is for development reports only.
 - [ ] **Language.** The post is written in the language of its folder, with an English slug.
       A translation shares `id` and slug with its original.
-- [ ] **Images.** None, except SVG.
+- [ ] **Images.** Beside the post, with alt text in the post's language and no GPS data. The
+      cover reads well at 4:3 and 16:10.
 - [ ] **Checks.** CI is green: `pnpm hosting:plan` and `check:fixtures` run there after the
       build. Locally: `pnpm agent:check`.
 - [ ] **Date.** A future `publishedAt` is intended (see below). Otherwise it is not later than

@@ -8,7 +8,6 @@
  * The functions are pure: the build reads the files, parses the YAML
  * frontmatter with the parser the publication uses, and passes the data here.
  */
-import { rasterImageIssues } from "./blogImages.ts"
 import { isNextStep, type NextStep } from "./blogNextSteps.ts"
 import { BLOG_PATH, BLOG_TAGS_PATH, RESERVED_POST_SLUGS, singleLanguageClass } from "./blogPaths.ts"
 import { type BlogTag, isBlogTag, isSlug } from "./blogTags.ts"
@@ -151,13 +150,6 @@ function parsePost(source: BlogPostSource): Parsed {
   const identity = readIdentity(source.frontmatter, issues)
   const path = readPath(source, issues)
   const tags = readTags(source.frontmatter.tags, issues)
-  issues.push(
-    ...rasterImageIssues({
-      body: source.body,
-      format: source.file.endsWith(".mdx") ? "mdx" : "md",
-      frontmatter: source.frontmatter,
-    })
-  )
   const { draft, id, nextStep, publishedAt } = identity
   if (
     issues.length > 0 ||
@@ -220,8 +212,8 @@ function pairingIssues(posts: readonly BlogPost[]): readonly string[] {
 
 /**
  * Validates every post source of both languages, drafts and future posts
- * included: the required fields, the path shape, `nextStep`, tag keys, the
- * raster-image ban, unique IDs and paths per language, and the pairing rules
+ * included: the required fields, the path shape, `nextStep`, tag keys,
+ * unique IDs and paths per language, and the pairing rules
  * (same `id` means same path, same path means same `id`).
  *
  * @param sources - All post sources of both languages.
