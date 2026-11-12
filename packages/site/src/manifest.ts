@@ -22,6 +22,7 @@ export function webManifest(variantId: string): Plugin {
   )
   const names = {
     "app-tracking": "app-tracking – Sebastian Software",
+    blog: "Sebastian Software Blog",
     consulting: "Sebastian Consulting",
     opensource: "Open Source – Sebastian Software",
     skills: "Sebastian Software",

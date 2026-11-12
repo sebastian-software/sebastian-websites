@@ -9,6 +9,7 @@ import {
   type Locale,
   LOCALES,
   type SiteId,
+  type VariantDefinition,
   VARIANTS,
 } from "../packages/web-core/src/sites.ts"
 
@@ -63,9 +64,33 @@ const CONSULTING_LOCALE_RULES: readonly PathRule[] = LOCALES.flatMap((locale) =>
   }))
 )
 
+/**
+ * The Software site's former blog, which never had a post, leads to the tech
+ * blog once its domains are live (ADR-0022). Until then the paths stay 404, so
+ * no redirect points at a host that does not resolve.
+ */
+// Widened so activation can change without changing the rule construction.
+const techBlog: VariantDefinition = VARIANTS["blog-en"]
+const SOFTWARE_BLOG_RULES: readonly PathRule[] = techBlog.productionActive
+  ? [
+      { destination: { path: "/", site: "blog" }, id: "SW-BLOG", path: "/blog" },
+      {
+        destination: { path: "/posts/rss.xml", site: "blog" },
+        id: "SW-BLOG",
+        path: "/blog/rss.xml",
+      },
+      {
+        destination: { path: "/posts/atom.xml", site: "blog" },
+        id: "SW-BLOG",
+        path: "/blog/atom.xml",
+      },
+    ]
+  : []
+
 /** The legacy rules of every site. */
 export const PATH_RULES: Readonly<Record<SiteId, readonly PathRule[]>> = {
   "app-tracking": [],
+  blog: [],
   consulting: [
     ...CONSULTING_LOCALE_RULES,
     {
@@ -97,6 +122,7 @@ export const PATH_RULES: Readonly<Record<SiteId, readonly PathRule[]>> = {
     // Testimonials return as Consulting references (#26); until then they are gone.
     { gone: true, id: "SW-TESTIMONIALS", path: "/testimonials" },
     { gone: true, id: "SW-TESTIMONIALS", path: "/testimonial/*" },
+    ...SOFTWARE_BLOG_RULES,
   ],
 }
 

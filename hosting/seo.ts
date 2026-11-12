@@ -1,9 +1,9 @@
 /**
  * Validates the SEO contract of built and published site variants (ADR-0010).
  * The plan compares both language builds of a site: a path present in both
- * needs reciprocal alternates, and only the Software blog may have pages in
- * one language. While the blog navigation is off, the Software blog may be
- * dark: built, but marked `noindex` and kept out of the sitemap.
+ * needs reciprocal alternates, and only the tech blog's publication may have
+ * pages in one language. While the blog navigation is off, the publication may
+ * be dark: built, but marked `noindex` and kept out of the sitemap.
  */
 import type { Fetch } from "./bunny.ts"
 import type { Asset } from "./publish.ts"
@@ -43,7 +43,7 @@ export type SiteBuild = {
   readonly assets: readonly Asset[]
   /**
    * The shared build time recorded beside the build's `client/` directory.
-   * Software builds must record it; for other sites, a pair that records
+   * Tech blog builds must record it; for other sites, a pair that records
    * none counts as built together.
    */
   readonly buildTime?: string
@@ -91,13 +91,14 @@ function isBlogPage(path: string): boolean {
 }
 
 /**
- * The dark pages of a build: Software blog pages whose robots meta blocks
- * indexing. They need no canonical contract and stay out of the sitemap.
+ * The dark pages of a build: publication pages of the tech blog whose robots
+ * meta blocks indexing. They need no canonical contract and stay out of the
+ * sitemap.
  *
  * @param build - The build whose documents are read.
- * @param site - Only the Software site can have dark pages.
+ * @param site - Only the tech blog can have dark pages.
  * @param paths - Every document path of the build.
- * @returns The Software blog paths marked `noindex`.
+ * @returns The publication paths marked `noindex`.
  */
 function darkPaths(build: SiteBuild, site: string, paths: readonly string[]): readonly string[] {
   if (site !== BLOG_SITE) return []
@@ -114,7 +115,7 @@ function darkPaths(build: SiteBuild, site: string, paths: readonly string[]): re
  * which only a build of the `off` phase may have.
  *
  * @param build - The build whose documents are split.
- * @param site - The site of that build; only Software can have dark pages.
+ * @param site - The site of that build; only the tech blog can have dark pages.
  * @param phase - The launch phase of the blog navigation; only `off` allows dark pages.
  * @returns The indexable and the dark paths.
  */
@@ -134,9 +135,9 @@ function indexablePaths(
 }
 
 /**
- * Tells whether a path may exist in one language only: a Software blog post,
- * shaped `/blog/<slug>` and marked as an Open Graph article, or a tag archive
- * at `/blog/tags/<key>`.
+ * Tells whether a path may exist in one language only: a tech blog post,
+ * shaped `/posts/<slug>` and marked as an Open Graph article, or a tag archive
+ * at `/posts/tags/<key>`.
  *
  * @param build - The build that holds the path.
  * @param site - The site of that build.
@@ -161,7 +162,7 @@ function assertBuildTime(site: string, build: SiteBuild): void {
 }
 
 /**
- * Both builds of a site must share one recorded build time; Software builds
+ * Both builds of a site must share one recorded build time; tech blog builds
  * must record it.
  *
  * @param site - The site of the pair.
@@ -171,7 +172,7 @@ function assertBuildTime(site: string, build: SiteBuild): void {
 function assertBuildTimes(site: string, de: SiteBuild, en: SiteBuild): void {
   assertBuildTime(site, de)
   assertBuildTime(site, en)
-  // The Software builds decide which posts are due by it, so both must record it.
+  // The tech blog builds decide which posts are due by it, so both must record it.
   // Other sites write no file; a pair without it counts as built together.
   if (site === BLOG_SITE && (de.buildTime === undefined || en.buildTime === undefined)) {
     throw new Error(
@@ -238,7 +239,7 @@ function planFor(pair: Pair, locale: Locale, phase: BlogNavigationPhase): SeoPla
       alternates.set(path, [])
     } else {
       throw new Error(
-        `SEO ${path}: ${variant.site}-${locale} has no counterpart; only Software blog posts and tag archives may exist in one language`
+        `SEO ${path}: ${variant.site}-${locale} has no counterpart; only tech blog posts and tag archives may exist in one language`
       )
     }
   }
@@ -263,9 +264,9 @@ function assertBuild(build: SiteBuild, plan: SeoPlan): void {
  * Compares both language builds of every site and validates each indexable
  * document and its crawl files before upload. A site needs both builds with
  * the same recorded build time; a path present in both needs reciprocal
- * hreflang and `x-default`; only Software blog posts and tag archives may exist
+ * hreflang and `x-default`; only tech blog posts and tag archives may exist
  * in one language, and they link no alternates. While the blog navigation is
- * off, Software blog pages marked `noindex` are dark: outside the sitemap and
+ * off, publication pages marked `noindex` are dark: outside the sitemap and
  * the canonical contract. The brand catalog and the shared asset zone have no
  * variant SEO contract.
  *

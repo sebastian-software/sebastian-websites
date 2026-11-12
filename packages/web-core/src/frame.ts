@@ -110,13 +110,13 @@ const OPEN_SOURCE: Destination = { id: "opensource", path: "/", site: "opensourc
 const SERVICES: Destination = { id: "services", path: "/services", site: "consulting" }
 const PROFILES: Destination = { id: "profiles", path: "/team", site: "consulting" }
 const REFERENCES: Destination = { id: "references", path: "/references", site: "consulting" }
-/** The Software blog; the brand's other sites link it like Products, as a cross-site link. */
-const BLOG: Destination = { id: "blog", path: BLOG_PATH, site: BLOG_SITE }
+/** The tech blog's home; the brand's other sites link it like Products, as a cross-site link. */
+const BLOG: Destination = { id: "blog", path: "/", site: BLOG_SITE }
 
 /**
  * The two frame contexts. Open Source belongs to Software; Effective Agent is a
  * product and is reached through Open Source, not the header (2026-10-09). The
- * Software blog joins the brand navigation of every Software site once its
+ * tech blog joins the brand navigation of every Software site once its
  * launch phase (`BLOG_NAVIGATION`) is `launching` or `live`; the footer index
  * stays without it. The booking link replaces a contact route on Consulting.
  */

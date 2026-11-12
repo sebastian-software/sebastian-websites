@@ -25,8 +25,10 @@ describe("seo", () => {
 
   it("links only the canonical on a page without a counterpart", () => {
     expect(
-      createSeoLinks("software", "en", { counterpart: false, path: "/blog/a-post/" })
-    ).toStrictEqual([{ href: "https://sebastian-software.com/blog/a-post", rel: "canonical" }])
+      createSeoLinks("blog", "en", { counterpart: false, path: "/posts/a-post/" })
+    ).toStrictEqual([
+      { href: "https://blog.sebastian-software.com/posts/a-post", rel: "canonical" },
+    ])
     expect(createSeoLinks("software", "en", { counterpart: true, path: "/company" })).toStrictEqual(
       createSeoLinks("software", "en", "/company")
     )

@@ -20,9 +20,5 @@ and Palamedes translations. This content work and the delivery foundation can pr
 the design phase is deferred; production cutover still requires the route and legal checks
 in plan 06.
 
-## Blog posts
-
-`blog/{de,en}/` holds the blog posts of each language; `blog.ts` in
-`packages/web-core` validates them and `scripts/build.ts` stages them for Ardo. The
-directories hold only a `.gitkeep` until the owners deliver the first post. Test posts live only
-in `test/fixtures/blog/`. See the [blog publishing guide](../../../docs/operations/blog-publishing.md).
+Blog posts moved to the tech blog: see `apps/blog/content/posts/` and the
+[blog publishing guide](../../../docs/operations/blog-publishing.md).

@@ -1,7 +1,7 @@
 /**
  * The pre-upload checks of a deployment, without Bunny credentials: load every
  * buildable target, compare both language builds of each site, validate the
- * SEO contract, reject raster images in the Software blog, and verify the
+ * SEO contract, reject raster images in the tech blog, and verify the
  * Bunny image manifests. CI runs it after
  * `pnpm build`; the deployment runs the same checks before changing any
  * remote file.
@@ -10,7 +10,7 @@
  *   node hosting/check-builds.ts <checkout root>
  *
  * The optional root holds builds at the checkout's paths, such as the
- * Software fixture builds of `check:fixtures`; it defaults to this checkout.
+ * tech blog fixture builds of `check:fixtures`; it defaults to this checkout.
  */
 /* eslint-disable security/detect-non-literal-fs-filename -- Paths come from the typed target list below the repository root. */
 import { readFile } from "node:fs/promises"
@@ -42,7 +42,7 @@ function isMissing(error: unknown): boolean {
 /**
  * Reads the shared build time a variant build records beside its `client/`
  * directory: an RFC 3339 timestamp with seconds and a time zone. Builds that
- * record none return undefined; the SEO plan requires the file for Software
+ * record none return undefined; the SEO plan requires the file for the tech blog
  * and treats two such builds of another site as built together.
  *
  * @param directory - The build's client directory.

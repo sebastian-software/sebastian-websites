@@ -11,7 +11,7 @@ import { BLOG_SITE } from "../packages/web-core/src/blogPaths.ts"
 
 const SITEMAP_NAMESPACE = "http://www.sitemaps.org/schemas/sitemap/0.9"
 /** Sites whose pages carry Open Graph: one `og:type`, and `og:url` equal to the canonical. */
-const OPEN_GRAPH_SITES: ReadonlySet<string> = new Set([BLOG_SITE])
+const OPEN_GRAPH_SITES: ReadonlySet<string> = new Set([BLOG_SITE, "software"])
 // Parse static markup only. Referenced scripts, styles, and frames must not run
 // or make requests during a deployment check.
 const window = new Window({
@@ -32,7 +32,7 @@ export type SeoPlan = {
   readonly absent: readonly string[]
   /** The alternates each indexable path must link; empty for a single-language page. */
   readonly alternates: ReadonlyMap<string, readonly Alternate[]>
-  /** Dark Software blog paths: built and marked `noindex` while the blog navigation is off. */
+  /** Dark publication paths: built and marked `noindex` while the blog navigation is off. */
   readonly dark: readonly string[]
   /** The indexable paths: every other document and the exact sitemap list. */
   readonly paths: readonly string[]

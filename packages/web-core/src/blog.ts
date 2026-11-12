@@ -1,5 +1,5 @@
 /**
- * The cross-language index of the Software blog. Each language has its own
+ * The cross-language index of the tech blog. Each language has its own
  * posts; a translated pair shares one `id` and one path, and the index tells
  * every page whether it has a counterpart in the other language. Validation
  * covers every source, drafts and future posts included; the index lists only
@@ -86,7 +86,7 @@ export function splitFrontmatter(source: string): { readonly body: string; reado
 
 /**
  * Derives a post's path the way the publication does: the frontmatter `path`,
- * or the file path below `/blog` without its extension and index name.
+ * or the file path below `/posts` without its extension and index name.
  *
  * @param file - The source path relative to the language's post directory.
  * @param path - The optional `path` frontmatter field.

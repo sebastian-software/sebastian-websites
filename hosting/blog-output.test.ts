@@ -29,10 +29,10 @@ const ATOM_ENTRY = (content: string): string =>
 test("the blog output allows SVG images and pages without images", () => {
   assert.deepEqual(
     blogImageIssues([
-      asset("blog/index.html", "<main><h1>Blog</h1></main>"),
-      asset("blog/a-post/index.html", SVG_POST),
-      asset("blog/rss.xml", RSS_ENTRY('<p><img src="https://x.example/a.svg?v=1"></p>')),
-      asset("blog/atom.xml", ATOM_ENTRY("&lt;img src=&quot;/b.svg&quot;&gt;")),
+      asset("posts/index.html", "<main><h1>Blog</h1></main>"),
+      asset("posts/a-post/index.html", SVG_POST),
+      asset("posts/rss.xml", RSS_ENTRY('<p><img src="https://x.example/a.svg?v=1"></p>')),
+      asset("posts/atom.xml", ATOM_ENTRY("&lt;img src=&quot;/b.svg&quot;&gt;")),
       // Ardo copies SVG sources of post images unchanged.
       asset("assets/posts/0123456789abcdef0123.svg", "<svg/>"),
       // Outside the blog, the site keeps its Bunny images.
@@ -46,25 +46,25 @@ test("the blog output rejects raster images in documents, feeds, and renditions"
   assert.deepEqual(
     blogImageIssues([
       asset(
-        "blog/a-post/index.html",
+        "posts/a-post/index.html",
         '<main><img src="/photo.jpg"><img alt="" src=\'/b.PNG\'></main>'
       ),
       asset(
-        "blog/tags/internationalization/index.html",
+        "posts/tags/internationalization/index.html",
         '<main><picture><source srcset="/a.avif 1x, /a.svg 2x"><img src="/a.svg"></picture></main>'
       ),
-      asset("blog/rss.xml", RSS_ENTRY('<img src="https://x.example/a.webp">')),
-      asset("blog/atom.xml", ATOM_ENTRY("&lt;img src=&quot;/c.gif&quot;&gt;")),
-      asset("blog/index.html", '<main id="main"><img src="data:image/png;base64,AAAA"></main>'),
+      asset("posts/rss.xml", RSS_ENTRY('<img src="https://x.example/a.webp">')),
+      asset("posts/atom.xml", ATOM_ENTRY("&lt;img src=&quot;/c.gif&quot;&gt;")),
+      asset("posts/index.html", '<main id="main"><img src="data:image/png;base64,AAAA"></main>'),
       asset("assets/posts/0123456789abcdef0123.avif", ""),
     ]),
     [
-      "blog/a-post/index.html: image /photo.jpg is not an SVG",
-      "blog/a-post/index.html: image /b.PNG is not an SVG",
-      "blog/tags/internationalization/index.html: image /a.avif is not an SVG",
-      "blog/rss.xml: image https://x.example/a.webp is not an SVG",
-      "blog/atom.xml: image /c.gif is not an SVG",
-      "blog/index.html: image data:image/png;base64,AAAA is not an SVG",
+      "posts/a-post/index.html: image /photo.jpg is not an SVG",
+      "posts/a-post/index.html: image /b.PNG is not an SVG",
+      "posts/tags/internationalization/index.html: image /a.avif is not an SVG",
+      "posts/rss.xml: image https://x.example/a.webp is not an SVG",
+      "posts/atom.xml: image /c.gif is not an SVG",
+      "posts/index.html: image data:image/png;base64,AAAA is not an SVG",
       "assets/posts/0123456789abcdef0123.avif: publication image renditions are not allowed",
     ]
   )
@@ -72,8 +72,8 @@ test("the blog output rejects raster images in documents, feeds, and renditions"
 
 test("the blog output finds raster images in an upper-case main element", () => {
   assert.deepEqual(
-    blogImageIssues([asset("blog/a-post/index.html", '<MAIN><img src="/photo.jpg"></MAIN>')]),
-    ["blog/a-post/index.html: image /photo.jpg is not an SVG"]
+    blogImageIssues([asset("posts/a-post/index.html", '<MAIN><img src="/photo.jpg"></MAIN>')]),
+    ["posts/a-post/index.html: image /photo.jpg is not an SVG"]
   )
 })
 
@@ -81,7 +81,7 @@ test("the blog output rejects raster SVG images, video posters, and objects", ()
   assert.deepEqual(
     blogImageIssues([
       asset(
-        "blog/a-post/index.html",
+        "posts/a-post/index.html",
         [
           "<main>",
           '<svg><image href="/inline.png"/><image xlink:href="/legacy.jpg"/><image href="/ok.svg"/></svg>',
@@ -93,19 +93,19 @@ test("the blog output rejects raster SVG images, video posters, and objects", ()
         ].join("")
       ),
       asset(
-        "blog/rss.xml",
+        "posts/rss.xml",
         RSS_ENTRY(
           '<video poster="https://x.example/p.jpg"></video><svg><image href="/i.gif"/></svg>'
         )
       ),
     ]),
     [
-      "blog/a-post/index.html: image /inline.png is not an SVG",
-      "blog/a-post/index.html: image /legacy.jpg is not an SVG",
-      "blog/a-post/index.html: image /poster.webp is not an SVG",
-      "blog/a-post/index.html: image /chart.avif is not an SVG",
-      "blog/rss.xml: image https://x.example/p.jpg is not an SVG",
-      "blog/rss.xml: image /i.gif is not an SVG",
+      "posts/a-post/index.html: image /inline.png is not an SVG",
+      "posts/a-post/index.html: image /legacy.jpg is not an SVG",
+      "posts/a-post/index.html: image /poster.webp is not an SVG",
+      "posts/a-post/index.html: image /chart.avif is not an SVG",
+      "posts/rss.xml: image https://x.example/p.jpg is not an SVG",
+      "posts/rss.xml: image /i.gif is not an SVG",
     ]
   )
 })
@@ -113,26 +113,27 @@ test("the blog output rejects raster SVG images, video posters, and objects", ()
 test("each blog document needs exactly one <main>", () => {
   assert.deepEqual(
     blogImageIssues([
-      asset("blog/index.html", '<body><img src="/photo.jpg"></body>'),
-      asset("blog/a-post/index.html", "<main>One</main><MAIN>Two</MAIN>"),
-      asset("blog/b-post/index.html", '<main id="main"><p>Fine</p></main>'),
+      asset("posts/index.html", '<body><img src="/photo.jpg"></body>'),
+      asset("posts/a-post/index.html", "<main>One</main><MAIN>Two</MAIN>"),
+      asset("posts/b-post/index.html", '<main id="main"><p>Fine</p></main>'),
       // Outside the blog documents, the rule does not apply.
       asset("company/index.html", "<div></div>"),
     ]),
     [
-      "blog/index.html: a blog document needs exactly one <main>, found 0",
-      "blog/a-post/index.html: a blog document needs exactly one <main>, found 2",
+      "posts/index.html: a blog document needs exactly one <main>, found 0",
+      "posts/a-post/index.html: a blog document needs exactly one <main>, found 2",
     ]
   )
 })
 
-test("only Software builds carry the blog output check", () => {
-  const raster = [asset("blog/a-post/index.html", '<main><img src="/photo.jpg"></main>')]
-  const software = target("sebastian-websites-software-de")
-  assert.ok(isBlogTarget(software))
+test("only tech blog builds carry the blog output check", () => {
+  const raster = [asset("posts/a-post/index.html", '<main><img src="/photo.jpg"></main>')]
+  const blog = target("sebastian-websites-blog-de")
+  assert.ok(isBlogTarget(blog))
+  assert.equal(isBlogTarget(target("sebastian-websites-software-de")), false)
   assert.throws(() => {
-    assertBlogOutput(software, raster)
-  }, /raster images before the image plan:\n- blog\/a-post\/index.html: image \/photo.jpg/v)
+    assertBlogOutput(blog, raster)
+  }, /raster images before the image plan:\n- posts\/a-post\/index.html: image \/photo.jpg/v)
   const consulting = target("sebastian-websites-consulting-de")
   assert.equal(isBlogTarget(consulting), false)
   assert.doesNotThrow(() => {

@@ -38,6 +38,8 @@ jobs:
         run: pnpm --filter @sebastian-websites/consulting exec playwright install --with-deps chromium
       - name: Install the Software browser
         run: pnpm --filter @sebastian-websites/software exec playwright install --with-deps chromium
+      - name: Install the tech blog browser
+        run: pnpm --filter @sebastian-websites/blog exec playwright install --with-deps chromium
       - name: Build all variants
         run: pnpm build
       # The deployment's pre-upload checks without Bunny credentials: both
@@ -47,12 +49,14 @@ jobs:
       # Test posts built into scratch output at two build times, plus the empty
       # state and the raster-image checks; each fixture build passes the gate.
       - name: Check the blog fixtures
-        run: pnpm --filter @sebastian-websites/software check:fixtures
+        run: pnpm --filter @sebastian-websites/blog check:fixtures
       - name: Verify both Software artifacts before publication
         run: pnpm --filter @sebastian-websites/software check:browser
-      # The blog pages of the later fixture build that check:fixtures leaves:
-      # posts, next steps, tag archives, and feed links in both languages.
+      - name: Verify both tech blog artifacts before publication
+        run: pnpm --filter @sebastian-websites/blog check:browser
+      # The home and publication pages of the later fixture build that
+      # check:fixtures leaves: posts, next steps, tag archives, and feed links.
       - name: Verify the blog pages of the fixture build
-        run: pnpm --filter @sebastian-websites/software check:browser:fixtures
+        run: pnpm --filter @sebastian-websites/blog check:browser:fixtures
       - name: Verify the reporting website in both languages
         run: pnpm --filter @sebastian-websites/app-tracking check:browser

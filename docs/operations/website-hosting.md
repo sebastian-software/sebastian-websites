@@ -48,17 +48,17 @@ Before changing remote files, `check-builds.ts` loads every buildable target and
 - A site with a build in one language only fails.
 - Both builds must record the same build time in `build-time.txt`, next to their
   `client/` directory and therefore never uploaded. The value is an RFC 3339
-  timestamp with seconds and a time zone. The Software build writes it, and the
-  check requires it there, because Ardo decides by it which posts are due. Other
-  sites write no file yet; two of their builds without it count as built together.
+  timestamp with seconds and a time zone. Every build writes it; the check
+  requires it for the tech blog, because Ardo decides by it which posts are due.
+  Two builds of another site without it count as built together.
 - A path in both builds needs the German, English, and English `x-default`
-  alternates. Only Software may have a path in one build only, and only blog posts
-  (`/blog/<slug>` marked `og:type=article`) and tag archives (`/blog/tags/<key>`)
+  alternates. Only the tech blog may have a path in one build only, and only posts
+  (`/posts/<slug>` marked `og:type=article`) and tag archives (`/posts/tags/<key>`)
   qualify. Such a page links no alternates (ADR-0010). Every other unpaired path
   fails.
 
-The Software builds are also checked for raster images in the blog: the `<main>`
-content of every `blog/**/index.html` and the entries of both feeds may reference
+The tech blog builds are also checked for raster images in the publication: the `<main>`
+content of every `posts/**/index.html` and the entries of both feeds may reference
 SVG images only, and the build may hold no raster publication renditions below
 `assets/posts/` (`blog-output.ts`). The shared page frame keeps its Bunny images.
 
@@ -66,8 +66,8 @@ The comparison yields one plan per variant, and each build is then checked again
 its plan. Its sitemap must list exactly the canonical HTML pages, excluding the
 not-found page and downloads. Each page must have one self-referencing canonical,
 the alternates from the plan, the correct document language, and no indexing block.
-Software pages also need exactly one `og:type` and one `og:url` equal to the
-canonical. On other sites these tags are optional but must not repeat or name
+Software and tech blog pages also need exactly one `og:type` and one `og:url` equal
+to the canonical. On other sites these tags are optional but must not repeat or name
 another page. Its robots file must allow crawling and name its own sitemap. The
 brand catalog and shared asset zone are outside this variant contract.
 
@@ -121,11 +121,11 @@ image manifests. CI runs it after `pnpm build`, and `pnpm deploy` repeats it bef
 changing any remote file. Build both languages of a site before running either
 command; a one-language build, such as `build:de`, fails the check.
 `node hosting/check-builds.ts <root>` checks builds laid out like a checkout below
-another root; `pnpm --filter @sebastian-websites/software check:fixtures` uses it for
+another root; `pnpm --filter @sebastian-websites/blog check:fixtures` uses it for
 its fixture builds.
 
-`pnpm hosting:smoke software-de` and `software-en` also request `/blog`,
-`/blog/rss.xml`, and `/blog/atom.xml`: the overview must be served as `text/html`,
+`pnpm hosting:smoke blog-de` and `blog-en` also request `/posts`,
+`/posts/rss.xml`, and `/posts/atom.xml`: the overview must be served as `text/html`,
 the feeds as `application/rss+xml` or `application/atom+xml`, or as a generic XML
 type.
 

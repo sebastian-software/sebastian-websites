@@ -65,9 +65,9 @@ describe("blog sources", () => {
   })
 
   it("derives post paths like the publication", () => {
-    expect(blogPostPath("first-post.md", undefined)).toBe("/blog/first-post")
-    expect(blogPostPath("first-post/index.mdx", undefined)).toBe("/blog/first-post")
-    expect(blogPostPath("x.md", "/blog/chosen/")).toBe("/blog/chosen")
+    expect(blogPostPath("first-post.md", undefined)).toBe("/posts/first-post")
+    expect(blogPostPath("first-post/index.mdx", undefined)).toBe("/posts/first-post")
+    expect(blogPostPath("x.md", "/posts/chosen/")).toBe("/posts/chosen")
   })
 
   it("keeps a registry of lowercase hyphenated English tag keys", () => {
@@ -89,9 +89,9 @@ describe("blog validation", () => {
       post("en", "english-only.md", { nextStep: "none" }),
     ])
     expect(posts.map((entry) => `${entry.locale}${entry.path}`)).toStrictEqual([
-      "de/blog/pair",
-      "en/blog/pair",
-      "en/blog/english-only",
+      "de/posts/pair",
+      "en/posts/pair",
+      "en/posts/english-only",
     ])
   })
 
@@ -101,10 +101,10 @@ describe("blog validation", () => {
         post("de", "ein-beitrag.md", { id: "pair" }),
         post("en", "a-post.md", { id: "pair" }),
       ])
-    ).toStrictEqual(["id pair has path /blog/ein-beitrag in de but /blog/a-post in en"])
+    ).toStrictEqual(["id pair has path /posts/ein-beitrag in de but /posts/a-post in en"])
     expect(
       issuesOf([post("de", "same.md", { id: "one" }), post("en", "same.md", { id: "two" })])
-    ).toStrictEqual(["path /blog/same has id one in de but two in en"])
+    ).toStrictEqual(["path /posts/same has id one in de but two in en"])
   })
 
   it("keeps ids and paths unique within a language, drafts included", () => {
@@ -112,12 +112,12 @@ describe("blog validation", () => {
       issuesOf([
         post("de", "a.md", { id: "shared" }),
         post("de", "b.md", { draft: true, id: "shared" }),
-        post("en", "c.md", { path: "/blog/d" }),
+        post("en", "c.md", { path: "/posts/d" }),
         post("en", "d.md"),
       ])
     ).toStrictEqual([
       "de: id shared is used by a.md and b.md",
-      "en: path /blog/d is used by c.md and d.md",
+      "en: path /posts/d is used by c.md and d.md",
     ])
   })
 
@@ -159,10 +159,10 @@ describe("blog validation", () => {
         post("de", "Upper.md"),
       ])
     ).toStrictEqual([
-      "en/nested/post.md: path /blog/nested/post must be /blog/<slug>, one lowercase hyphenated segment other than tags",
-      "en/tags.md: path /blog/tags must be /blog/<slug>, one lowercase hyphenated segment other than tags",
-      "de/a.md: path /news/a must be /blog/<slug>, one lowercase hyphenated segment other than tags",
-      "de/Upper.md: path /blog/Upper must be /blog/<slug>, one lowercase hyphenated segment other than tags",
+      "en/nested/post.md: path /posts/nested/post must be /posts/<slug>, one lowercase hyphenated segment other than tags",
+      "en/tags.md: path /posts/tags must be /posts/<slug>, one lowercase hyphenated segment other than tags",
+      "de/a.md: path /news/a must be /posts/<slug>, one lowercase hyphenated segment other than tags",
+      "de/Upper.md: path /posts/Upper must be /posts/<slug>, one lowercase hyphenated segment other than tags",
     ])
   })
 
@@ -208,13 +208,13 @@ describe("blog index", () => {
     expect(createBlogIndex(sources, BUILD_TIME)).toStrictEqual({
       buildTime: "2026-11-17T12:00:00.000Z",
       posts: {
-        de: [{ id: "pair", nextStep: "contact", path: "/blog/pair", tags: [] }],
+        de: [{ id: "pair", nextStep: "contact", path: "/posts/pair", tags: [] }],
         en: [
-          { id: "pair", nextStep: "contact", path: "/blog/pair", tags: [TAG] },
+          { id: "pair", nextStep: "contact", path: "/posts/pair", tags: [TAG] },
           {
             id: "english-only",
             nextStep: "products",
-            path: "/blog/english-only",
+            path: "/posts/english-only",
             tags: [TAG],
           },
         ],
@@ -238,19 +238,19 @@ describe("blog index", () => {
   it("gives every publication page outside the two single-language classes a counterpart", () => {
     const index = createBlogIndex(sources, BUILD_TIME)
     for (const path of [
-      "/blog/tags",
-      "/blog/authors/fastner",
-      "/blog/page/2",
-      "/blog/tags/internationalization/page/2",
+      "/posts/tags",
+      "/posts/authors/fastner",
+      "/posts/page/2",
+      "/posts/tags/internationalization/page/2",
       // Shaped like a post, but no due post of this language lives there.
-      "/blog/authors",
-      "/blog/later",
+      "/posts/authors",
+      "/posts/later",
     ]) {
       expect([path, hasBlogCounterpart(index, "en", path)]).toStrictEqual([path, true])
       expect([path, hasBlogCounterpart(index, "de", path)]).toStrictEqual([path, true])
     }
     // An archive this language does not have is no single-language page either.
-    expect(hasBlogCounterpart(index, "de", "/blog/tags/internationalization")).toBe(true)
+    expect(hasBlogCounterpart(index, "de", "/posts/tags/internationalization")).toBe(true)
   })
 
   it("orders posts of one time by code point, independent of collation", () => {
@@ -265,33 +265,33 @@ describe("blog index", () => {
 
   it("resolves counterparts of posts, tag archives, and other pages", () => {
     const index = createBlogIndex(sources, BUILD_TIME)
-    expect(hasBlogCounterpart(index, "de", "/blog/pair")).toBe(true)
-    expect(hasBlogCounterpart(index, "en", "/blog/pair/")).toBe(true)
-    expect(hasBlogCounterpart(index, "en", "/blog/english-only")).toBe(false)
+    expect(hasBlogCounterpart(index, "de", "/posts/pair")).toBe(true)
+    expect(hasBlogCounterpart(index, "en", "/posts/pair/")).toBe(true)
+    expect(hasBlogCounterpart(index, "en", "/posts/english-only")).toBe(false)
     // The German draft uses the tag, so only English has a due post with it.
-    expect(hasBlogCounterpart(index, "en", `/blog/tags/${TAG}`)).toBe(false)
-    expect(hasBlogCounterpart(index, "de", "/blog")).toBe(true)
-    expect(hasBlogCounterpart(index, "en", "/blog/")).toBe(true)
+    expect(hasBlogCounterpart(index, "en", `/posts/tags/${TAG}`)).toBe(false)
+    expect(hasBlogCounterpart(index, "de", "/posts")).toBe(true)
+    expect(hasBlogCounterpart(index, "en", "/posts/")).toBe(true)
     expect(hasBlogCounterpart(index, "de", "/company")).toBe(true)
     expect(blogTagArchives(index, "en")).toStrictEqual([TAG])
     expect(blogTagArchives(index, "de")).toStrictEqual([])
-    expect(blogPostAt(index, "en", "/blog/english-only")?.nextStep).toBe("products")
-    expect(blogPostAt(index, "de", "/blog/english-only")).toBeUndefined()
+    expect(blogPostAt(index, "en", "/posts/english-only")?.nextStep).toBe("products")
+    expect(blogPostAt(index, "de", "/posts/english-only")).toBeUndefined()
     const paired = createBlogIndex(
       [...sources, post("de", "german-tagged.md", { tags: [TAG] })],
       BUILD_TIME
     )
-    expect(hasBlogCounterpart(paired, "en", `/blog/tags/${TAG}`)).toBe(true)
+    expect(hasBlogCounterpart(paired, "en", `/posts/tags/${TAG}`)).toBe(true)
     expect(blogTagArchives(paired, "de")).toStrictEqual([TAG])
   })
 
   it("writes the counterpart path of a staged post, or null", () => {
     const index = createBlogIndex(sources, BUILD_TIME)
-    expect(blogPostCounterpart(index, "de", "/blog/pair")).toBe("/blog/pair")
-    expect(blogPostCounterpart(index, "en", "/blog/pair/")).toBe("/blog/pair")
-    expect(blogPostCounterpart(index, "en", "/blog/english-only")).toBeNull()
+    expect(blogPostCounterpart(index, "de", "/posts/pair")).toBe("/posts/pair")
+    expect(blogPostCounterpart(index, "en", "/posts/pair/")).toBe("/posts/pair")
+    expect(blogPostCounterpart(index, "en", "/posts/english-only")).toBeNull()
     // Not due in English yet, so the German side has no counterpart either.
-    expect(blogPostCounterpart(index, "de", "/blog/later")).toBeNull()
+    expect(blogPostCounterpart(index, "de", "/posts/later")).toBeNull()
   })
 })
 

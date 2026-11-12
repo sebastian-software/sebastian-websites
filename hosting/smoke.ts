@@ -1,9 +1,10 @@
 /**
  * Checks one live site variant over HTTPS during and after its cutover: the
  * home page answers 200, an unknown path 404, and every legacy rule of the
- * site answers as `redirects.ts` plans it. Software also checks its resources,
- * the blog overview, and both feeds with their media types. Run against the canonical origin
- * after the DNS switch, or against the origin host beforehand:
+ * site answers as `redirects.ts` plans it. Software and the tech blog also
+ * check their resources, and the tech blog its post overview and both feeds
+ * with their media types. Run against the canonical origin after the DNS
+ * switch, or against the origin host beforehand:
  *
  *   node hosting/smoke.ts software-de
  *   node hosting/smoke.ts software-de https://sebastian-websites-software-de.b-cdn.net
@@ -53,7 +54,7 @@ export function smokeChecks(
     { path: "/", status: OK },
     { path: "/no-such-page-smoke", status: NOT_FOUND },
   ]
-  if (serving.site === "software") {
+  if (serving.site === "software" || serving.site === BLOG_SITE) {
     checks.push(
       { contentTypes: [...XML_TYPES], path: "/sitemap.xml", status: OK },
       { contentTypes: ["text/plain"], path: "/robots.txt", status: OK },

@@ -115,12 +115,12 @@ describe("SiteHeader", () => {
   })
 
   it("renders the blog fallback of a page without a counterpart as a normal language link", () => {
-    const frame = getSiteFrame("software", "en", { counterpart: false, path: "/blog/a-post" })
+    const frame = getSiteFrame("blog", "en", { counterpart: false, path: "/posts/a-post" })
     const header = parse(renderToStaticMarkup(<SiteHeader copy={copy} frame={frame} />))
     const languages = [...header.querySelectorAll('nav[aria-label="Language"] a')]
     expect(languages.map((link) => link.getAttribute("href"))).toStrictEqual([
-      "https://sebastian-software.com/blog/a-post",
-      "https://sebastian-software.de/blog",
+      "https://blog.sebastian-software.com/posts/a-post",
+      "https://blog.sebastian-software.de/posts",
     ])
     expect(languages.at(1)?.getAttribute("hrefLang")).toBe("de")
     expect(languages.at(1)?.hasAttribute("aria-current")).toBe(false)
