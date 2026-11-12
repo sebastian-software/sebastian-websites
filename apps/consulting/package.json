@@ -33,7 +33,7 @@
     "@sebastian-websites/ui": "workspace:*",
     "@sebastian-websites/web-core": "workspace:*",
     "@vanilla-extract/css": "catalog:",
-    "ardo": "6.6.0",
+    "ardo": "6.8.0",
     "marked": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:"
