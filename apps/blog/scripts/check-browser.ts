@@ -369,7 +369,9 @@ async function sitemapPages(context: BrowserContext, server: string): Promise<st
   return sitemapPaths(await response.text())
 }
 async function checkStaticFallback(browser: Browser, current: Fixture): Promise<void> {
-  const noScript = await browser.newContext({ javaScriptEnabled: false })
+  // Ardo scrolls smoothly unless reduced motion is preferred; an animated scroll can leave the
+  // link outside the viewport when Playwright clicks it on a slow runner.
+  const noScript = await browser.newContext({ javaScriptEnabled: false, reducedMotion: "reduce" })
   try {
     const staticPage = await noScript.newPage()
     await staticPage.goto(current.origin)
