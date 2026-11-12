@@ -1,10 +1,9 @@
 {
   "extends": "@sebastian-websites/config/tsconfig/react.json",
-  "include": ["app", "scripts", "vite.config.ts", "ardo.config.ts"],
+  "include": ["app", "scripts", "ardo.config.ts"],
   "compilerOptions": {
     "types": [
       "node",
-      "vite/client",
       "@sebastian-websites/web-core/bunny-images",
       "ardo/vite/client",
       "@sebastian-websites/site/client",

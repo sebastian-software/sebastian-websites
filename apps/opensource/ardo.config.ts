@@ -1,3 +1,35 @@
 import { createSiteConfig } from "@sebastian-websites/site/config"
 
-export default createSiteConfig({ site: "opensource", title: "Open Source – Sebastian Software" })
+import type { Plugin } from "ardo/vite"
+
+import { loadActivity } from "./app/lib/activity.ts"
+import { loadMetrics } from "./app/lib/metrics.ts"
+
+/** Share one public observation between the browser bundle and prerendered routes. */
+function buildData(): Plugin {
+  const id = "virtual:opensource-build-data"
+  let data: Promise<string> | undefined
+  return {
+    name: "opensource:build-data",
+    resolveId(source) {
+      return source === id ? `\0${id}` : undefined
+    },
+    async load(source) {
+      if (source !== `\0${id}`) return undefined
+      data ??= Promise.all([loadActivity(), loadMetrics()]).then(
+        ([{ activity }, metrics]) =>
+          `export const activity = ${JSON.stringify(activity)}; export const metrics = ${JSON.stringify(metrics)};`
+      )
+      return data
+    },
+  }
+}
+
+const vite = { plugins: [buildData()] }
+
+export default createSiteConfig({
+  site: "opensource",
+  root: import.meta.dirname,
+  vite,
+  title: "Open Source – Sebastian Software",
+})

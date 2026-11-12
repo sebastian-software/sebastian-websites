@@ -1,5 +1,5 @@
 import type { BrandId } from "@sebastian-websites/web-core"
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
 import { FAVICONS, WEB_MANIFEST_PATH } from "./favicons.ts"
 

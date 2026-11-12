@@ -4,9 +4,9 @@
   "compilerOptions": {
     "types": [
       "node",
-      "vite/client",
       "ardo/vite/client",
-      "@sebastian-websites/web-core/bunny-images"
+      "@sebastian-websites/web-core/bunny-images",
+      "ardo/virtual"
     ]
   }
 }

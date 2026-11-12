@@ -30,8 +30,6 @@
     "@sebastian-websites/ui": "workspace:*",
     "@sebastian-websites/web-core": "workspace:*",
     "@vanilla-extract/css": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:",
     "@sebastian-websites/site": "workspace:*",
     "ardo": "6.8.0"
   },
@@ -40,14 +38,11 @@
     "@palamedes/vite-plugin": "catalog:",
     "@sebastian-websites/config": "workspace:*",
     "@types/node": "catalog:",
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
     "eslint": "catalog:",
     "jiti": "catalog:",
     "oxlint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:",
     "playwright": "catalog:",
     "axe-core": "catalog:"
   }

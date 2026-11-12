@@ -1,4 +1,4 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from "ardo/react"
 
 import { WernerProfile } from "~/components/werner-profile/WernerProfile"
 import { getConsultant } from "~/data/werner.data"

@@ -1,5 +1,5 @@
 import type { BrandId } from "@sebastian-websites/web-core"
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
 import consultingLogo from "../assets/logo-consulting.svg"
 import softwareLogo from "../assets/logo-software.svg"

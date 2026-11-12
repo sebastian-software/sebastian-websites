@@ -1,5 +1,5 @@
 import type { ImageCrop, ImageOptions, ImageSource } from "@sebastian-websites/web-core"
-import type { ComponentPropsWithRef, ReactElement } from "react"
+import type { ComponentPropsWithRef, ReactElement } from "ardo/react"
 
 import { responsiveImage } from "@sebastian-websites/web-core"
 

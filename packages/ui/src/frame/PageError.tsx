@@ -1,4 +1,4 @@
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
 import * as styles from "./PageError.css.ts"
 

@@ -1,5 +1,5 @@
+import type { ReactNode } from "ardo/react"
 import type { ArdoMetaDescriptor } from "ardo/runtime"
-import type { ReactNode } from "react"
 
 import { t } from "@palamedes/core/macro"
 import { pageMeta } from "@sebastian-websites/site/meta"

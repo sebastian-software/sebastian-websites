@@ -1,6 +1,5 @@
 /* eslint-disable security/detect-non-literal-fs-filename -- The directory is the selected publication source. */
-import type { Plugin } from "ardo/vite"
-import type { ModuleRunner } from "vite/module-runner"
+import type { ModuleRunner, Plugin } from "ardo/vite"
 
 import { BLOG_NAVIGATION, getVariant, LOCALES } from "@sebastian-websites/web-core"
 import { mkdir } from "node:fs/promises"
@@ -66,7 +65,7 @@ export function blogData(): Plugin {
 }
 
 /**
- * Recognize a public Vite module runner across Ardo's and the app's Vite installs.
+ * Recognize the public module runner owned by Ardo's Vite installation.
  * @param environment - The environment receiving the content event.
  * @returns Whether it exposes a module runner.
  */

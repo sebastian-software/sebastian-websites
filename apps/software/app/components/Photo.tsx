@@ -1,4 +1,4 @@
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
 import { blocks, BunnyImage } from "@sebastian-websites/ui"
 

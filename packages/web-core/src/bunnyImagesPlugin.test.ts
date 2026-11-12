@@ -1,9 +1,9 @@
 /* eslint-disable security/detect-non-literal-fs-filename -- Tests own their temporary fixture directories. */
+import { build, createServer } from "ardo/vite"
 import { createHash } from "node:crypto"
 import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises"
 import { tmpdir } from "node:os"
 import { join } from "node:path"
-import { build, createServer } from "vite"
 import { describe, expect, it } from "vitest"
 
 import { bunnyImages } from "./bunnyImagesPlugin.ts"
