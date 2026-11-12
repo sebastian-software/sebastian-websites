@@ -33,7 +33,7 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "@sebastian-websites/site": "workspace:*",
-    "ardo": "6.6.0"
+    "ardo": "6.8.0"
   },
   "devDependencies": {
     "@palamedes/cli": "catalog:",
