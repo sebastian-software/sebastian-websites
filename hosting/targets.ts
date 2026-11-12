@@ -21,6 +21,8 @@ export type Target = {
    * it does not have: the site's branded not-found page.
    */
   readonly notFoundPage?: string
+  /** Restrict delivery to the named Bunny routing regions when the notice requires it. */
+  readonly routingFilters?: readonly string[]
 }
 
 /**
@@ -73,6 +75,7 @@ export const TARGETS: readonly Target[] = [
         : {}),
       name: variant.deploymentTarget,
       notFoundPage: NOT_FOUND_PAGE,
+      ...(variant.site === "blog" ? { routingFilters: ["eu"] } : {}),
     }
   }),
   BRAND_TARGET,

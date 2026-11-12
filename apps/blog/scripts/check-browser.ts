@@ -226,6 +226,15 @@ async function checkRoute(page: Page, options: RouteOptions): Promise<void> {
     `${variant}${pathname}: overflow`
   )
   if (pathname === "/") await checkHomeFeeds(page, `${variant}${pathname}`)
+  if (pathname === "/privacy") {
+    const notice = page.locator("[data-legal-review-status]")
+    assert.equal(await notice.getAttribute("data-legal-review-status"), "approved")
+    assert.equal(await page.locator('[data-legal-section="analytics-rybbit"]').count(), 0)
+    const hosting = page.locator('[data-legal-section="hosting-bunny"]')
+    assert.equal(await hosting.count(), 1)
+    assert.doesNotMatch(await hosting.innerText(), /sebastian-consulting\./v)
+    assert.doesNotMatch(await page.locator("main").innerText(), /Rybbit|Hetzner/v)
+  }
   await page.screenshot({
     fullPage: true,
     path: path.join(
