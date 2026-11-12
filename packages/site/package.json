@@ -22,14 +22,11 @@
     "@palamedes/vite-plugin": "catalog:",
     "@sebastian-websites/ui": "workspace:*",
     "@sebastian-websites/web-core": "workspace:*",
-    "ardo": "6.8.0",
-    "react": "catalog:",
-    "vite": "catalog:"
+    "ardo": "6.8.0"
   },
   "devDependencies": {
     "@sebastian-websites/config": "workspace:*",
     "@types/node": "catalog:",
-    "@types/react": "catalog:",
     "typescript": "catalog:",
     "eslint": "catalog:",
     "oxlint": "catalog:",

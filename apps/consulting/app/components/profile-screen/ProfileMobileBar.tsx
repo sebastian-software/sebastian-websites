@@ -1,7 +1,7 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from "ardo/react"
 
 import { Trans } from "@palamedes/react/macro"
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "ardo/react"
 
 import { ButtonLink } from "~/components/profile-screen/ButtonLink"
 import { trackBookingClick } from "~/lib/analytics"

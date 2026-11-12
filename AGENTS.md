@@ -9,8 +9,9 @@ Optimizer transformations. Read
 changing image placements.
 
 - Keep repository-owned raster sources alongside their components and import
-  them with `?bunny`. Register the shared Vite plugin and TypeScript declaration
-  in new apps as described in the guide. SVGs use normal Vite imports.
+  them with `?bunny`. `createSiteConfig()` registers the shared Vite plugin; add
+  the TypeScript declaration in new apps as described in the guide. SVGs use
+  normal Vite imports.
 - Supply `alt`, placement `width` and `height`, and `sizes` matching the CSS layout.
   Reuse the component's responsive candidates, crop options, and `sources` for
   art direction. Use `priority` for the page's LCP image.

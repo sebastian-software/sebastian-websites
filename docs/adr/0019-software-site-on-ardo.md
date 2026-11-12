@@ -1,6 +1,6 @@
 ---
 status: accepted
-updated: 2026-11-10
+updated: 2026-11-11
 ---
 
 # All websites use ordinary Ardo projects
@@ -18,13 +18,27 @@ project. All applications now consume their declared workspace packages directly
 Ardo still owns its React, React DOM, and Vite runtime; supporting installed
 workspace sources does not permit arbitrary sibling imports or ancestor dependencies.
 
-General workspace support belongs in Ardo. The temporary dependency patch in
-`pnpm-workspace.yaml` carries [Ardo #534](https://github.com/sebastian-software/ardo/pull/534)
-until a normal release is available; replace it with the released dependency rather than maintaining a fork.
+General workspace support belongs in Ardo and is included in Ardo 6.7.
+The temporary dependency patch in `pnpm-workspace.yaml` carries
+[Ardo #543](https://github.com/sebastian-software/ardo/pull/543) until its release:
+early registration of project plugins, public Vite helpers, and the existing
+Markdown component override types. Replace it with the released dependency.
 Sebastian-specific presentation and optional Vite integrations belong in
 `packages/site`. That package shares the branded shell and normal configuration;
 it does not generate project copies, install packages, compile workspace libraries,
 or run a separate filesystem watcher.
+
+Each website has one `ardo.config.ts`. Optional integrations are registered
+through its `vite` option; no website owns a Vite configuration or a separate
+React, React DOM, or Vite dependency. Components and TypeScript use Ardo's public
+React exports and JSX runtime. Vitest is repository-owned test infrastructure,
+configured once at the workspace root with separate package test scopes.
+
+The Werner profile documents are localized MDX fragments compiled by Ardo's
+Ferromark pipeline. Their explicit project and experience components preserve
+the screen and print structure. A source policy limits these prose files to
+the two layout components; link components retain the allowed protocol check.
+No second Markdown parser or browser-side Markdown compilation is needed.
 
 Palamedes compiles the active locale catalog and scopes the complete server
 render. Its public Vite document-delivery API supplies browser import maps and

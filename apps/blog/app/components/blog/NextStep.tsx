@@ -1,9 +1,9 @@
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
 import { ArrowLink } from "@sebastian-websites/ui"
 import { isNextStep, nextStepHref } from "@sebastian-websites/web-core"
-import { useId } from "react"
+import { useId } from "ardo/react"
 
 import { variant } from "~/lib/site"
 

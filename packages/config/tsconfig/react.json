@@ -1,7 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "./base.json",
+  "extends": ["ardo/tsconfig", "./base.json"],
   "compilerOptions": {
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "jsxImportSource": "ardo",
+    "types": ["node", "ardo/vite/client", "ardo/virtual"]
   }
 }

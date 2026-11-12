@@ -10,11 +10,10 @@ reuse this component and the shared Vite plugin.
 
 ## Repository images
 
-The Software Vite config registers `bunnyImages()` from
-`@sebastian-websites/web-core/vite`. Other Vite apps can register the same plugin.
-Their TypeScript `compilerOptions.types` must include
-`@sebastian-websites/web-core/bunny-images` alongside the existing types to declare
-the `?bunny` import type.
+`createSiteConfig()` from `@sebastian-websites/site/config` registers `bunnyImages()`
+from `@sebastian-websites/web-core/vite` for every website. An app's TypeScript
+`compilerOptions.types` must include `@sebastian-websites/web-core/bunny-images`
+alongside the existing types to declare the `?bunny` import type.
 
 Keep raster sources alongside components and import them with `?bunny`:
 

@@ -1,4 +1,4 @@
-import type { ReactElement, ReactNode } from "react"
+import type { ReactElement, ReactNode } from "ardo/react"
 
 import * as layout from "./layout.css.ts"
 import * as typography from "./typography.css.ts"

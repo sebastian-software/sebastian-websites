@@ -1,8 +1,8 @@
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
 import { editorial } from "@sebastian-websites/ui"
-import { useState } from "react"
+import { useState } from "ardo/react"
 
 import {
   filterProjects,

@@ -1,5 +1,5 @@
 // cspell:words rybbit
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
 import { ArrowLink, editorial } from "@sebastian-websites/ui"

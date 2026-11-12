@@ -17,7 +17,7 @@
     "lint": "oxlint -c ../../oxlint.config.ts src && eslint src --config ../../eslint.config.ts",
     "format": "prettier --write src",
     "format:check": "prettier --check src",
-    "test": "vitest run",
+    "test": "pnpm -w exec vitest run --project web-core",
     "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test"
   },
   "dependencies": {
@@ -32,7 +32,6 @@
     "oxlint": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:",
-    "vitest": "catalog:"
+    "ardo": "6.8.0"
   }
 }

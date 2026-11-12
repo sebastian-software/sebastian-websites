@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "ardo/react"
 
 import type { Snapshot } from "./metrics-model"
 

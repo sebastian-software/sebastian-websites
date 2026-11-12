@@ -1,6 +1,6 @@
 import type { PostImage, PublicationPostMetaArgs, PublicationPostProps } from "ardo/config"
+import type { ReactElement } from "ardo/react"
 import type { ArdoMetaDescriptor } from "ardo/runtime"
-import type { ReactElement } from "react"
 
 import { SiteLink } from "@sebastian-websites/ui"
 import { BLOG_PATH, getSiteOrigin, type SocialImage } from "@sebastian-websites/web-core"

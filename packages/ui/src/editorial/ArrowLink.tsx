@@ -1,4 +1,4 @@
-import type { ComponentPropsWithRef, ReactElement } from "react"
+import type { ComponentPropsWithRef, ReactElement } from "ardo/react"
 
 import { SiteLink } from "../SiteLink.tsx"
 import { Arrow } from "./Arrow.tsx"

@@ -2,6 +2,7 @@ import { getVariant, isVariantId } from "@sebastian-websites/web-core"
 import { resolve } from "node:path"
 import { pathToFileURL } from "node:url"
 
+import { verifyWernerProfileContent } from "./verify-profile-content"
 import { verifyProfileDownloadNames, verifyVariantProfileArtifacts } from "./verifyProfileArtifacts"
 
 /**
@@ -18,6 +19,7 @@ export async function verifyBuild(variantId: string): Promise<void> {
   const output = resolve(import.meta.dirname, "..", "build", variantId, "client")
   await verifyVariantProfileArtifacts(output, locale)
   await verifyProfileDownloadNames(output, locale)
+  await verifyWernerProfileContent(output, locale)
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {
