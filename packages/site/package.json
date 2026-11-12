@@ -22,7 +22,7 @@
     "@palamedes/vite-plugin": "catalog:",
     "@sebastian-websites/ui": "workspace:*",
     "@sebastian-websites/web-core": "workspace:*",
-    "ardo": "6.8.0"
+    "ardo": "6.9.0"
   },
   "devDependencies": {
     "@sebastian-websites/config": "workspace:*",

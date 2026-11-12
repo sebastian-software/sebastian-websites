@@ -23,6 +23,6 @@
     "typescript": "catalog:"
   },
   "dependencies": {
-    "ardo": "6.8.0"
+    "ardo": "6.9.0"
   }
 }
