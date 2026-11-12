@@ -46,13 +46,11 @@ nothing needs to be created in the Bunny dashboard.
 4. **Activate both variants together.** In a pull request, set `productionActive: true` for
    `blog-de` and `blog-en` in `packages/web-core/src/sites.ts`. The deployment attaches both
    hostnames, issues Bunny-managed certificates once DNS resolves, and forces HTTPS; a
-   certificate still waiting for DNS is retried on the next deployment. The same change turns
-   on the `SW-BLOG` redirects in `hosting/redirects.ts`: `/blog` and its two feeds on the
-   Software domains lead to the tech blog's home and feeds.
+   certificate still waiting for DNS is retried on the next deployment. The former `/blog`
+   paths on the Software domains stay 404; they need no migration redirects.
 5. **Check the public domains.** Run `pnpm hosting:smoke blog-de`, `pnpm hosting:smoke blog-en`,
    `pnpm hosting:smoke software-de`, and `pnpm hosting:smoke software-en`. Confirm HTTPS, the
-   canonical and alternate links, the 404 page, and that `https://sebastian-software.de/blog`
-   answers 301 to `https://blog.sebastian-software.de/`.
+   canonical and alternate links, and the 404 page.
 6. **Launch with the first post.** The pull request with the first post in both languages sets
    `BLOG_NAVIGATION` to `launching`, as the publishing guide describes. A unit test rejects that
    phase while either variant is still inactive, so the header never links an unresolved

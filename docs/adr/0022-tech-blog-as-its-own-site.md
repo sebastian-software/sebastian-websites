@@ -43,12 +43,9 @@ records.
 
 The Software site has no publication until it has product news to publish. Its former
 `/blog` was built but dark: unlinked, `noindex`, out of the sitemap, and without a single post.
-It is removed, and the paths answer 404 while the tech blog's domains do not resolve, so no
-redirect points at an unresolved host. Once the tech blog's variants are `productionActive`,
-`/blog`, `/blog/rss.xml`, and `/blog/atom.xml` on both Software domains redirect permanently to
-the tech blog's home and feeds in the same language (`SW-BLOG` in `hosting/redirects.ts`, which
-switches on with the activation). No post ever existed below `/blog`, so no post path needs a
-rule.
+It is removed. `/blog`, `/blog/rss.xml`, and `/blog/atom.xml` on both Software domains stay
+404, including after the tech blog goes live. The owner confirmed on 2026-11-12 that these
+paths need no migration redirects: the publication was never launched and had no posts.
 
 Product news returns as a publication of the Software site when the first announcement is due.
 That change gives the site its own route directory (such as `/news`), tag registry, and launch
