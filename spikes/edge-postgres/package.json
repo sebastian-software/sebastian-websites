@@ -1,0 +1,14 @@
+{
+  "name": "edge-postgres-spike",
+  "private": true,
+  "type": "module",
+  "description": "Throwaway spike: can a Bunny Edge Script write to PlanetScale Postgres?",
+  "scripts": {
+    "bundle": "node run.mjs --bundle-only",
+    "spike": "node run.mjs"
+  },
+  "dependencies": {
+    "esbuild": "0.28.2",
+    "postgres": "3.4.7"
+  }
+}

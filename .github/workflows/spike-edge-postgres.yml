@@ -1,0 +1,41 @@
+name: Spike – Edge Script to Postgres
+
+# Throwaway: answers whether a Bunny Edge Script can write to PlanetScale
+# Postgres. It deploys a temporary standalone script, probes it, and deletes it
+# again. Remove this workflow together with spikes/edge-postgres.
+on:
+  push:
+    branches:
+      - sebastian/youthful-heisenberg-ovfbvy
+    paths:
+      - spikes/edge-postgres/**
+      - .github/workflows/spike-edge-postgres.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: spike-edge-postgres
+  cancel-in-progress: false
+
+jobs:
+  spike:
+    name: Probe Bunny Edge Scripting
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: spikes/edge-postgres
+    steps:
+      - uses: actions/checkout@v7
+      - uses: jdx/mise-action@v5
+      - name: Install the spike's dependencies
+        run: npm install --no-package-lock --no-audit --no-fund
+      - name: Deploy, probe, and remove the script
+        env:
+          BUNNY_API_KEY: ${{ secrets.BUNNY_API_KEY }}
+          SPIKE_DATABASE_URL: ${{ secrets.SPIKE_DATABASE_URL }}
+          SPIKE_LIBSQL_URL: ${{ secrets.SPIKE_LIBSQL_URL }}
+          SPIKE_LIBSQL_TOKEN: ${{ secrets.SPIKE_LIBSQL_TOKEN }}
+        run: node run.mjs
