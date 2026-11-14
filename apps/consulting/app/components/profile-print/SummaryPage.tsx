@@ -1,4 +1,4 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from "ardo/react"
 
 import { Plural, Trans } from "@palamedes/react/macro"
 import { BunnyImage } from "@sebastian-websites/ui"

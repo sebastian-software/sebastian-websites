@@ -1,8 +1,8 @@
 import { getSiteFrame } from "@sebastian-websites/web-core"
-import { act } from "react"
-import { flushSync } from "react-dom"
-import { createRoot } from "react-dom/client"
-import { renderToStaticMarkup } from "react-dom/server"
+import { act } from "ardo/react"
+import { flushSync } from "ardo/react-dom"
+import { createRoot } from "ardo/react-dom/client"
+import { renderToStaticMarkup } from "ardo/react-dom/server"
 import { afterEach, describe, expect, it, vi } from "vitest"
 
 import type { FrameCopy } from "./copy.ts"
@@ -234,7 +234,7 @@ describe("Newsletter", () => {
     container = host
     document.body.append(host)
     const root = createRoot(host)
-    // eslint-disable-next-line react/no-flush-sync -- the test queries the form right after mounting
+
     flushSync(() => {
       root.render(<Newsletter copy={copy.newsletter} subscribe={subscribe} />)
     })

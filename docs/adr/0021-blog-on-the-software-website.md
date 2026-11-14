@@ -39,15 +39,15 @@ capability, Ardo gained it first; the launch pins the release that contains them
   set in `packages/web-core/src/blogNextSteps.ts`: `products`, `open-source`, `contact`, three
   Consulting offers, the documentation of Palamedes and Ferramenta, or `none` for a development
   report. The post ends with one box for the target, except for `none`.
-- **No raster images before the image plan.** Post bodies, cover images, and author avatars
-  carry no raster images, so Bunny's image pipeline does not reach the publication
-  ([ADR-0014](0014-images-from-shared-asset-zone.md),
-  [ADR-0015](0015-shared-bunny-image-component.md)). The source check rejects image
-  frontmatter fields, non-SVG Markdown images, image elements, non-SVG MDX imports, and
-  avatars; the output check rejects raster images in the blog documents and feeds. SVG stays
-  allowed. A separate plan adds images once Ardo has an image provider. Until then every blog
-  page uses one Open Graph image, the shared team photo cropped to 1200 by 630, resolved with
-  `responsiveImage()`.
+- **Posts carry images that Ardo renders at build time.** A post may have a `coverImage` and
+  raster or SVG images in its body; the files stay beside the post. Ardo's own image pipeline
+  crops and encodes them with sharp during the build: AVIF candidates for the `article` preset
+  (4:3 on phones, 16:10 from the column layout on, sized to the text measure) and one JPEG,
+  written to `assets/posts/`. No image service is involved, unlike the site frame's photos
+  ([ADR-0014](0014-images-from-shared-asset-zone.md)), and the existing one-year immutable
+  rule for `assets/` caches them. The cover appears above the body; its JPEG is the post's
+  Open Graph image, and Ardo puts it into the feed entries. Pages and posts without a cover
+  keep the shared team photo, cropped to 1200 by 630 with `responsiveImage()`.
 
 ## URLs, feeds, and the hosting gate
 
@@ -126,8 +126,11 @@ How to write, review, schedule, and withdraw posts is described in the
   grows with each post; build-time counterparts keep it out of the client bundle.
 - **Scheduled CI builds for future-dated posts.** Rejected: a post that falls due goes live with
   the next deployment, and a manual run of the workflow covers the gap.
-- **Images through Bunny from the start.** Deferred to the image plan, which needs a generic
-  image provider in Ardo first.
+- **Post images through Bunny Optimizer.** Rejected on 2026-11-12. Ardo's image provider
+  could hand the renditions to the shared asset zone, but the publication would then depend on
+  a Bunny-specific provider, crop URLs, and an extra upload step that an Ardo site on another
+  host does not have. Ardo's built-in pipeline produces the same AVIF and JPEG renditions as
+  static files.
 
 ## Consequences
 

@@ -1,5 +1,5 @@
 {
   "extends": "@sebastian-websites/config/tsconfig/base.json",
-  "include": ["src/**/*", "vitest.config.ts", "eslint.config.ts"],
+  "include": ["src/**/*", "eslint.config.ts"],
   "compilerOptions": {}
 }

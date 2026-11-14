@@ -20,10 +20,9 @@ repository and use the same component through an `ImageSource` descriptor.
 
 ## Usage
 
-Register `bunnyImages()` from `@sebastian-websites/web-core/vite` in the app's Vite
-plugins. Add `@sebastian-websites/web-core/bunny-images` to TypeScript's
-`compilerOptions.types`, preserving existing entries. The Software app already
-includes both settings.
+`createSiteConfig()` from `@sebastian-websites/site/config` registers `bunnyImages()`
+for every website. Add `@sebastian-websites/web-core/bunny-images` to TypeScript's
+`compilerOptions.types`, preserving existing entries.
 
 ```tsx
 import { BunnyImage } from "@sebastian-websites/ui"

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
 import { BunnyImage, SiteLink } from "@sebastian-websites/ui"
@@ -16,7 +16,7 @@ import { ProfileMobileBar } from "~/components/profile-screen/ProfileMobileBar"
 import { ProfileOutro } from "~/components/profile-screen/ProfileOutro"
 import { ProfileRail } from "~/components/profile-screen/ProfileRail"
 import * as stage from "~/components/profile-screen/stage.css"
-import { getWernerProfileCopy } from "~/data/werner.profile"
+import { getWernerProfileContent } from "~/data/werner.profile"
 import { SHEET_PHOTO } from "~/lib/photos"
 import { getProfileDocument, PROFILE_PDFS } from "~/lib/untranslated"
 import { cn } from "~/lib/utilities"
@@ -25,7 +25,7 @@ import { MarkdownContent } from "./MarkdownContent"
 import * as styles from "./wernerProfile.css"
 
 type ProfileView = "executive_summary" | "full" | "project_history"
-type ProfileCopy = ReturnType<typeof getWernerProfileCopy>
+type ProfileContent = ReturnType<typeof getWernerProfileContent>
 
 function DocumentNavigation({ lang, view }: { lang: Locale; view: ProfileView }): ReactNode {
   const summary = getProfileDocument("executive_summary", "werner")
@@ -52,11 +52,11 @@ function DocumentNavigation({ lang, view }: { lang: Locale; view: ProfileView })
 }
 
 function DocumentSections({
-  copy,
+  content,
   photo,
   view,
 }: {
-  copy: ProfileCopy
+  content: ProfileContent
   photo?: Portrait
   view: ProfileView
 }): ReactNode {
@@ -83,7 +83,7 @@ function DocumentSections({
               />
             </div>
           )}
-          <MarkdownContent markdown={copy.executiveSummary} />
+          <MarkdownContent content={content.executiveSummary} />
         </section>
       )}
       {view === "executive_summary" ? null : (
@@ -93,7 +93,7 @@ function DocumentSections({
           id="werner-history"
         >
           <MarkdownContent
-            markdown={copy.projectHistory}
+            content={content.projectHistory}
             title={view === "full" ? t`Detailed project history` : undefined}
           />
         </section>
@@ -111,7 +111,7 @@ export function WernerProfile({
   lang: Locale
   view?: ProfileView
 }): ReactNode {
-  const copy = getWernerProfileCopy()
+  const content = getWernerProfileContent()
   const other = getOtherProfile(consultant.id)
   const document = view === "full" ? undefined : getProfileDocument(view, consultant.id)
   return (
@@ -128,7 +128,7 @@ export function WernerProfile({
         >
           <div className={print.page}>
             <DocumentNavigation lang={lang} view={view} />
-            <DocumentSections copy={copy} photo={consultant.photo} view={view} />
+            <DocumentSections content={content} photo={consultant.photo} view={view} />
             <div className={styles.footer}>
               <CompanyContact colophon lang={lang} />
             </div>

@@ -34,6 +34,7 @@ export function pullZoneSettings(target: Target): Json {
     EnableGeoZoneUS: true,
     IgnoreQueryStrings: target.assets !== true,
     OptimizerEnabled: target.assets === true,
+    ...(target.routingFilters === undefined ? {} : { RoutingFilters: [...target.routingFilters] }),
     ...(target.assets === true
       ? {
           EnableAvifVary: true,

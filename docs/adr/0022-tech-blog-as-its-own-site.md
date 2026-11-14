@@ -22,7 +22,7 @@ records.
   brand, like Open Source: the Software logo, header, and page ending, its own imprint and
   privacy pages, and German frame copy in „du“ from the app's own catalog.
 - **The publication moves from the Software site to the tech blog.** Posts, tags, next steps,
-  feeds, drafts, scheduling, counterparts, the raster-image rules, the launch phases, and the
+  feeds, drafts, scheduling, counterparts, the image rules, the launch phases, and the
   hosting checks of [ADR-0021](0021-blog-on-the-software-website.md) now belong to the tech blog.
   The code moved with them: the blog components, build scripts, fixtures, and browser checks
   live in `apps/blog`, and `BLOG_SITE` in `packages/web-core` names `blog`. The repository still
@@ -43,12 +43,9 @@ records.
 
 The Software site has no publication until it has product news to publish. Its former
 `/blog` was built but dark: unlinked, `noindex`, out of the sitemap, and without a single post.
-It is removed, and the paths answer 404 while the tech blog's domains do not resolve, so no
-redirect points at an unresolved host. Once the tech blog's variants are `productionActive`,
-`/blog`, `/blog/rss.xml`, and `/blog/atom.xml` on both Software domains redirect permanently to
-the tech blog's home and feeds in the same language (`SW-BLOG` in `hosting/redirects.ts`, which
-switches on with the activation). No post ever existed below `/blog`, so no post path needs a
-rule.
+It is removed. `/blog`, `/blog/rss.xml`, and `/blog/atom.xml` on both Software domains stay
+404, including after the tech blog goes live. The owner confirmed on 2026-11-12 that these
+paths need no migration redirects: the publication was never launched and had no posts.
 
 Product news returns as a publication of the Software site when the first announcement is due.
 That change gives the site its own route directory (such as `/news`), tag registry, and launch

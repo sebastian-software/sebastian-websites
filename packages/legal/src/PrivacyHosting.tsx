@@ -1,4 +1,4 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from "ardo/react"
 
 import { Trans } from "@palamedes/react/macro"
 
@@ -56,9 +56,8 @@ export function PrivacyHosting({ classes }: { readonly classes: LegalClassNames 
       <p className={classes.text}>
         <Trans>
           The language preference is used solely to route the request to the matching language
-          version. Since the German version is located at sebastian-consulting.de and the English
-          one at sebastian-consulting.com, this redirect may also lead to the respective other
-          domain. No cookie is set in the process.
+          version. The German and English versions are on separate domains, so this redirect may
+          also lead to the respective other domain. No cookie is set in the process.
         </Trans>
       </p>
 

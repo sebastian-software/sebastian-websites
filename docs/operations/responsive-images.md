@@ -10,11 +10,10 @@ reuse this component and the shared Vite plugin.
 
 ## Repository images
 
-The Software Vite config registers `bunnyImages()` from
-`@sebastian-websites/web-core/vite`. Other Vite apps can register the same plugin.
-Their TypeScript `compilerOptions.types` must include
-`@sebastian-websites/web-core/bunny-images` alongside the existing types to declare
-the `?bunny` import type.
+`createSiteConfig()` from `@sebastian-websites/site/config` registers `bunnyImages()`
+from `@sebastian-websites/web-core/vite` for every website. An app's TypeScript
+`compilerOptions.types` must include `@sebastian-websites/web-core/bunny-images`
+alongside the existing types to declare the `?bunny` import type.
 
 Keep raster sources alongside components and import them with `?bunny`:
 
@@ -120,3 +119,10 @@ For preloads or background images, `responsiveImage()` from
 `@sebastian-websites/web-core` generates the same variants without React. A preload
 must use the same source, crop, widths, and `sizes` as its image. Art-directed images
 need matching media-specific preloads if a preload is necessary.
+
+## Tech blog post images
+
+Images in tech blog posts do not use `BunnyImage` or the asset zone. Ardo renders them at
+build time into `assets/posts/` with the `article` preset in `apps/blog/ardo.config.ts`, whose
+`sizes` come from `editorialSizes()` for the text measure. The
+[blog publishing guide](blog-publishing.md#images) describes how a post carries them.

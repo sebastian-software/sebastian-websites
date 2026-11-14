@@ -3,8 +3,8 @@ import type {
   PublicationTagMetaArgs,
   PublicationTagProps,
 } from "ardo/config"
+import type { ReactElement } from "ardo/react"
 import type { ArdoMetaDescriptor } from "ardo/runtime"
-import type { ReactElement } from "react"
 
 import { t } from "@palamedes/core/macro"
 import { ArrowLink } from "@sebastian-websites/ui"

@@ -57,11 +57,6 @@ Before changing remote files, `check-builds.ts` loads every buildable target and
   qualify. Such a page links no alternates (ADR-0010). Every other unpaired path
   fails.
 
-The tech blog builds are also checked for raster images in the publication: the `<main>`
-content of every `posts/**/index.html` and the entries of both feeds may reference
-SVG images only, and the build may hold no raster publication renditions below
-`assets/posts/` (`blog-output.ts`). The shared page frame keeps its Bunny images.
-
 The comparison yields one plan per variant, and each build is then checked against
 its plan. Its sitemap must list exactly the canonical HTML pages, excluding the
 not-found page and downloads. Each page must have one self-referencing canonical,
@@ -116,7 +111,7 @@ BUNNY_API_KEY=… pnpm deploy
 ```
 
 `pnpm hosting:plan` runs the pre-upload checks of a deployment without credentials:
-the build comparison, the SEO plans, the blog's raster-image check, and the Bunny
+the build comparison, the SEO plans, and the Bunny
 image manifests. CI runs it after `pnpm build`, and `pnpm deploy` repeats it before
 changing any remote file. Build both languages of a site before running either
 command; a one-language build, such as `build:de`, fails the check.

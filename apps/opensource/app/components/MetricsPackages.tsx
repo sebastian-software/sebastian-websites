@@ -1,8 +1,8 @@
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
 import { editorial } from "@sebastian-websites/ui"
-import { useState } from "react"
+import { useState } from "ardo/react"
 
 import { type Package, packageUrl, repoUrl, type Snapshot } from "~/lib/metrics-model"
 import { variant } from "~/lib/site"

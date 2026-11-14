@@ -1,4 +1,4 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from "ardo/react"
 
 import { PROFILE_PDFS } from "~/lib/untranslated"
 import { cn } from "~/lib/utilities"

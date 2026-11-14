@@ -21,13 +21,13 @@ export const legalConfig: LegalSiteConfig = defineLegalSiteConfig({
   operator: siteOperator({ brand: "Sebastian Software", email: CONTACT_EMAIL }),
   // The social preview shows the founders' photograph.
   photographer: BUSINESS_PHOTOGRAPHER,
-  privacyActivities: ["hosting:bunny", "analytics:rybbit", "contact:email"],
+  privacyActivities: ["hosting:bunny", "contact:email"],
   privacyEmail: CONTACT_EMAIL,
   privacyReview: {
     contentSource:
-      "The Open Source website notice of 2026-10-07; the tech blog adds no processing. Confirm before activation.",
+      "Open Source notice of 2026-10-07, checked against the blog on 2026-11-12: Bunny hosting with EU-only routing and no cookies; email contact; no analytics script or newsletter service. Retains the reviewed formal German wording.",
     contentVerifiedOn: "2026-11-12",
-    legalReviewStatus: "review-required-before-production",
-    versionOn: "2026-03-09",
+    legalReviewStatus: "approved",
+    versionOn: "2026-11-12",
   },
 })

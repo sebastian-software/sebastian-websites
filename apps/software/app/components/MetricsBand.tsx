@@ -1,5 +1,5 @@
 import type { MetricsSummary } from "@sebastian-websites/content"
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
 import { blocks, Section, SectionHead, typography } from "@sebastian-websites/ui"

@@ -1,4 +1,4 @@
-import { type ReactElement, useActionState, useId } from "react"
+import { type ReactElement, useActionState, useId } from "ardo/react"
 
 import type { NewsletterCopy } from "./copy.ts"
 

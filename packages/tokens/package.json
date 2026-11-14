@@ -15,7 +15,7 @@
     "lint": "oxlint -c ../../oxlint.config.ts src && eslint src --config ../../eslint.config.ts",
     "format": "prettier --write src",
     "format:check": "prettier --check src",
-    "test": "vitest run",
+    "test": "pnpm -w exec vitest run --project tokens",
     "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm test"
   },
   "devDependencies": {
@@ -25,8 +25,6 @@
     "jiti": "catalog:",
     "oxlint": "catalog:",
     "prettier": "catalog:",
-    "typescript": "catalog:",
-    "vite": "catalog:",
-    "vitest": "catalog:"
+    "typescript": "catalog:"
   }
 }

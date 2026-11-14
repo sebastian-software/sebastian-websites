@@ -1,5 +1,5 @@
 /* eslint-disable max-lines -- the five-page recruiter document composition stays collocated */
-import type { ReactNode } from "react"
+import type { ReactNode } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
 import { Trans } from "@palamedes/react/macro"

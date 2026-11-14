@@ -70,6 +70,21 @@ export const authorRole = style({ color: color.subtle })
 export const translation = style({ marginTop: SPACE_SCALE["2xs"] })
 
 /**
+ * The cover between the post head and the body, at the text measure. Ardo
+ * renders it as `<picture>`, so the image inside fills the figure.
+ */
+export const cover = style({
+  display: "grid",
+  gridColumn: MEASURE,
+  margin: 0,
+  rowGap: SPACE_SCALE.xs,
+})
+
+globalStyle(`${cover} img`, { display: "block", height: "auto", width: "100%" })
+
+export const caption = style([editorial.small, { color: color.subtle }])
+
+/**
  * The generated article body in Elena at the readable measure. Its elements
  * come from Markdown, so they are styled here by element. `minWidth: 0` lets
  * code blocks and tables scroll inside the column instead of the page.
@@ -110,7 +125,8 @@ globalStyle(`${body} hr`, {
   borderTop: `1px solid ${color.rule}`,
   marginBlock: SPACE_SCALE.xl,
 })
-globalStyle(`${body} img`, { height: "auto" })
+// Ardo renders post images as `<picture>`; they never exceed the measure.
+globalStyle(`${body} img`, { display: "block", height: "auto", maxWidth: "100%" })
 globalStyle(`${body} code`, {
   backgroundColor: color.tint,
   borderRadius: "4px",

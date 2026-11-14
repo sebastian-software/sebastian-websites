@@ -1,5 +1,5 @@
 import type { Post } from "ardo/config"
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
 

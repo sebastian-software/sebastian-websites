@@ -16,6 +16,10 @@ required. The [Software website guide](apps/software/README.md) describes the
 development workflow and browser checks. [ADR-0019](docs/adr/0019-software-site-on-ardo.md)
 records the common integration.
 
+Each app keeps one `ardo.config.ts`; Ardo supplies React, Vite, and Markdown
+compilation. Vitest is configured once in `vitest.config.ts` at the workspace root.
+Run `pnpm test` for all unit tests, or a package's `test` script for its own scope.
+
 The reusable legacy company copy is in [apps/software/content](apps/software/content/README.md).
 The [tech blog guide](docs/operations/tech-blog-site.md) describes the blog's site, domains,
 and cutover; the [blog publishing guide](docs/operations/blog-publishing.md) its posts.

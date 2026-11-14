@@ -669,6 +669,15 @@ test("targets cover every variant, the brand site, and the build-free asset zone
   assert.equal(brand.hostname, "brand.sebastian-software.com")
 })
 
+test("both tech blog targets enforce the EU-only delivery stated in their privacy notice", () => {
+  for (const locale of ["de", "en"]) {
+    const blogTarget = TARGETS.find((entry) => entry.name === `sebastian-websites-blog-${locale}`)
+    assert.ok(blogTarget)
+    assert.deepEqual(pullZoneSettings(blogTarget).RoutingFilters, ["eu"])
+    assert.equal(pullZoneSettings(blogTarget).DisableCookies, true)
+  }
+})
+
 test("only assets enable Optimizer, with distinct variants and open image and font CORS", () => {
   for (const entry of TARGETS) {
     assert.equal(pullZoneSettings(entry).OptimizerEnabled, entry.assets === true)
@@ -1018,25 +1027,4 @@ test("Tech blog resource smoke checks validate actual MIME headers, including ch
       (check) => !check.path.startsWith("/posts")
     )
   )
-})
-
-test("the Software site's former blog leads to the tech blog once it is live", () => {
-  const software = { locale: "de", site: "software" } as const
-  const live: readonly PathRule[] = [
-    { destination: { path: "/", site: "blog" }, id: "SW-BLOG", path: "/blog" },
-    { destination: { path: "/posts/rss.xml", site: "blog" }, id: "SW-BLOG", path: "/blog/rss.xml" },
-  ]
-  assert.deepEqual(planLegacyPath(software, new URL("https://sebastian-software.de/blog/"), live), {
-    id: "SW-BLOG",
-    kind: "moved",
-    location: "https://blog.sebastian-software.de/",
-  })
-  assert.deepEqual(
-    planLegacyPath(software, new URL("https://sebastian-software.de/blog/rss.xml"), live),
-    { id: "SW-BLOG", kind: "moved", location: "https://blog.sebastian-software.de/posts/rss.xml" }
-  )
-  // Before the tech blog's domains resolve, the former paths stay unknown.
-  const committed = PATH_RULES.software.filter((rule) => rule.id === "SW-BLOG")
-  const techBlog: { readonly productionActive: boolean } = VARIANTS["blog-de"]
-  assert.equal(committed.length > 0, techBlog.productionActive)
 })

@@ -1,3 +1,10 @@
 import { createSiteConfig } from "@sebastian-websites/site/config"
 
-export default createSiteConfig({ site: "consulting", title: "Sebastian Consulting" })
+import { profileContent } from "./scripts/profile-content.ts"
+
+export default createSiteConfig({
+  site: "consulting",
+  root: import.meta.dirname,
+  title: "Sebastian Consulting",
+  vite: { plugins: [profileContent()] },
+})

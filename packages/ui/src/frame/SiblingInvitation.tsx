@@ -1,7 +1,7 @@
 import type { BrandId } from "@sebastian-websites/web-core"
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
-import { useId } from "react"
+import { useId } from "ardo/react"
 
 import type { InvitationCopy } from "./copy.ts"
 

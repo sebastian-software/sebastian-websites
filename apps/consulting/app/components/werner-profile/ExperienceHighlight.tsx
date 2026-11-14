@@ -1,4 +1,4 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from "ardo/react"
 
 import type { Experience } from "./experienceLogos"
 
@@ -30,7 +30,7 @@ export function ExperienceHighlight({
         </div>
         <h3 className={styles.experienceTitle}>{title}</h3>
       </header>
-      <p>{children}</p>
+      {children}
     </section>
   )
 }

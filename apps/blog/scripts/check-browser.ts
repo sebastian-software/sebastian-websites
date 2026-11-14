@@ -197,7 +197,11 @@ async function checkSocialMeta(page: Page, canonical: string, label: string): Pr
   assert.notEqual(await meta('meta[property="og:type"]'), "", `${label}: og:type`)
   assert.notEqual(await meta('meta[property="og:title"]'), "", `${label}: og:title`)
   assert.notEqual(await meta('meta[property="og:description"]'), "", `${label}: og:description`)
-  assert.match(await meta('meta[property="og:image"]'), BUNNY_IMAGE, `${label}: og:image`)
+  const image = await meta('meta[property="og:image"]')
+  // A post with a cover uses the cover's JPEG rendition from its own site.
+  const cover =
+    image.startsWith(`${new URL(canonical).origin}/assets/posts/`) && image.endsWith(".jpg")
+  assert.ok(BUNNY_IMAGE.test(image) || cover, `${label}: og:image ${image}`)
   assert.equal(await meta('meta[name="twitter:card"]'), "summary_large_image", `${label}: card`)
 }
 async function checkRoute(page: Page, options: RouteOptions): Promise<void> {
@@ -226,6 +230,15 @@ async function checkRoute(page: Page, options: RouteOptions): Promise<void> {
     `${variant}${pathname}: overflow`
   )
   if (pathname === "/") await checkHomeFeeds(page, `${variant}${pathname}`)
+  if (pathname === "/privacy") {
+    const notice = page.locator("[data-legal-review-status]")
+    assert.equal(await notice.getAttribute("data-legal-review-status"), "approved")
+    assert.equal(await page.locator('[data-legal-section="analytics-rybbit"]').count(), 0)
+    const hosting = page.locator('[data-legal-section="hosting-bunny"]')
+    assert.equal(await hosting.count(), 1)
+    assert.doesNotMatch(await hosting.innerText(), /sebastian-consulting\./v)
+    assert.doesNotMatch(await page.locator("main").innerText(), /Rybbit|Hetzner/v)
+  }
   await page.screenshot({
     fullPage: true,
     path: path.join(
@@ -356,7 +369,9 @@ async function sitemapPages(context: BrowserContext, server: string): Promise<st
   return sitemapPaths(await response.text())
 }
 async function checkStaticFallback(browser: Browser, current: Fixture): Promise<void> {
-  const noScript = await browser.newContext({ javaScriptEnabled: false })
+  // Ardo scrolls smoothly unless reduced motion is preferred; an animated scroll can leave the
+  // link outside the viewport when Playwright clicks it on a slow runner.
+  const noScript = await browser.newContext({ javaScriptEnabled: false, reducedMotion: "reduce" })
   try {
     const staticPage = await noScript.newPage()
     await staticPage.goto(current.origin)

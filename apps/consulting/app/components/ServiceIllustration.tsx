@@ -1,4 +1,4 @@
-import type { ReactElement } from "react"
+import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
 import { BunnyImage, editorial, editorialSizes } from "@sebastian-websites/ui"

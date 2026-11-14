@@ -1,4 +1,4 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from "ardo/react"
 
 import { COMPANY_BRAND } from "~/lib/untranslated"
 

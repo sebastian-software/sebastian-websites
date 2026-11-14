@@ -1,5 +1,5 @@
+import type { ReactElement } from "ardo/react"
 import type { ArdoMetaDescriptor } from "ardo/runtime"
-import type { ReactElement } from "react"
 
 import { NOT_FOUND_HANDLE, NotFound } from "@sebastian-websites/ui"
 import { createFrameCopy } from "@sebastian-websites/ui/frame-copy"

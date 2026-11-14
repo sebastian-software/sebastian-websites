@@ -1,4 +1,4 @@
-import type { ReactNode } from "react"
+import type { ReactNode } from "ardo/react"
 
 export type IsoDate = `${number}-${number}-${number}`
 

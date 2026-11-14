@@ -1,4 +1,4 @@
-import type { ComponentPropsWithRef, ReactElement } from "react"
+import type { ComponentPropsWithRef, ReactElement } from "ardo/react"
 
 export type SiteLinkProps = { readonly download?: boolean | string } & Omit<
   ComponentPropsWithRef<"a">,
