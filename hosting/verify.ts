@@ -9,9 +9,9 @@ import { setTimeout as pause } from "node:timers/promises"
 import type { Fetch } from "./bunny.ts"
 import type { Log } from "./provision.ts"
 import type { Asset } from "./publish.ts"
-import type { Target } from "./targets.ts"
 
 import { type SeoPlan, verifySeo } from "./seo.ts"
+import { collectorOf, type Target } from "./targets.ts"
 
 const OK = 200
 const MOVED_PERMANENTLY = 301
@@ -33,8 +33,9 @@ export type Check = {
 
 /**
  * Derives the checks for a target from its build: the home page, one
- * prerendered route with and without a trailing slash, a missing path, and
- * one exported asset per CORS extension. Asset targets check every uploaded file.
+ * prerendered route with and without a trailing slash, a missing path, one
+ * exported asset per CORS extension, and the first-party analytics script
+ * where a collector is configured. Asset targets check every uploaded file.
  *
  * @param target - The target whose exported extensions need CORS checks.
  * @param assets - The build files.
@@ -71,6 +72,11 @@ export function checksFor(target: Target, assets: readonly Asset[]): readonly Ch
     if (asset !== undefined) {
       checks.push({ cors: true, path: `/${asset.path}`, status: OK })
     }
+  }
+  // Fails while the middleware lacks its forwarder secret or cannot reach the collector.
+  const collector = collectorOf(target)
+  if (collector !== undefined) {
+    checks.push({ path: `${collector.prefix}/t.js`, status: OK, text: "tereon" })
   }
   return checks
 }
