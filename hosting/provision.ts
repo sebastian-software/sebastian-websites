@@ -6,8 +6,6 @@
  */
 import { createHash } from "node:crypto"
 
-import type { Target } from "./targets.ts"
-
 import { bundleMiddleware } from "./bundle.ts"
 import {
   type BunnyApi,
@@ -22,6 +20,7 @@ import {
   text,
   type Zone,
 } from "./bunny.ts"
+import { collectorOf, type Target } from "./targets.ts"
 import {
   cacheRules,
   canonicalRedirectRules,
@@ -196,7 +195,8 @@ async function ensureScript(context: Context, name: string, code: string): Promi
 
 async function ensureMiddleware(context: Context, pull: Zone): Promise<void> {
   const name = `${context.target.name}-middleware`
-  const script = await ensureScript(context, name, await bundleMiddleware(context.target.name))
+  const code = await bundleMiddleware(context.target.name, collectorOf(context.target))
+  const script = await ensureScript(context, name, code)
   if (count(pull, "MiddlewareScriptId") !== script.Id) {
     await context.api("POST", `/pullzone/${pull.Id}`, { MiddlewareScriptId: script.Id })
     context.log(`Linked middleware ${name} to ${context.target.name}`)

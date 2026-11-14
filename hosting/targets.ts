@@ -1,5 +1,7 @@
 import { existsSync } from "node:fs"
 
+import type { CollectorForwarding } from "./middleware-logic.ts"
+
 import { type VariantDefinition, VARIANTS } from "../packages/web-core/src/sites.ts"
 
 /** One Bunny storage and pull zone pair serving a site or shared assets. */
@@ -10,6 +12,13 @@ export type Target = {
   readonly assets?: boolean
   /** The public build output or asset source folder, relative to the repository root. */
   readonly buildDirectory?: string
+  /**
+   * Serves the Tereon collector under a path on this target's domain. Absent,
+   * the middleware is exactly the plain one. The prefix defaults to
+   * `DEFAULT_COLLECTOR_PREFIX`; the forwarder secret is a script secret, never
+   * part of this configuration.
+   */
+  readonly collector?: { readonly prefix?: string } & Omit<CollectorForwarding, "prefix">
   /** File extensions served with open CORS, for assets other sites embed. */
   readonly corsExtensions: readonly string[]
   /** The canonical hostname to attach and secure during provisioning. */
@@ -23,6 +32,44 @@ export type Target = {
   readonly notFoundPage?: string
   /** Restrict delivery to the named Bunny routing regions when the notice requires it. */
   readonly routingFilters?: readonly string[]
+}
+
+/**
+ * The default path for first-party analytics. It names nothing that content
+ * blockers match on, unlike `/analytics`, `/stats`, `/track`, or `/collect`.
+ */
+export const DEFAULT_COLLECTOR_PREFIX = "/_s"
+
+const COLLECTOR_PREFIX = /^\/[\w\-]{1,32}$/v
+const COLLECTOR_HOST = /^[\d.a-z\-]{1,253}$/v
+const COLLECTOR_SITE = /^[\da-z][\w.\-]{0,63}$/v
+/** Paths the sites already use; a prefix there would hide their files. */
+const RESERVED_PREFIXES = new Set(["/404", "/assets", "/images", "/posts"])
+
+/**
+ * Resolves and checks a target's first-party collector settings.
+ *
+ * @param target - The target whose collector settings are checked.
+ * @returns The settings with their prefix, or undefined when the target has no collector.
+ * @throws {Error} When the prefix, host, or site is not usable.
+ */
+export function collectorOf(target: Target): CollectorForwarding | undefined {
+  if (target.collector === undefined) {
+    return undefined
+  }
+  const { host, prefix = DEFAULT_COLLECTOR_PREFIX, site } = target.collector
+  const ownHosts = [target.hostname, ...(target.aliasHostnames ?? []), `${target.name}.b-cdn.net`]
+  if (!COLLECTOR_PREFIX.test(prefix) || RESERVED_PREFIXES.has(prefix)) {
+    throw new Error(`${target.name}: collector prefix ${prefix} is not a single free path segment`)
+  }
+  // A collector on the site's own host would forward to itself.
+  if (!COLLECTOR_HOST.test(host) || ownHosts.includes(host)) {
+    throw new Error(`${target.name}: collector host ${host} is not another hostname`)
+  }
+  if (!COLLECTOR_SITE.test(site)) {
+    throw new Error(`${target.name}: collector site ${site} is not a Tereon site name`)
+  }
+  return { host, prefix, site }
 }
 
 /**

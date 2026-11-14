@@ -102,6 +102,37 @@ The middleware (`middleware-logic.ts`, bundled by `bundle.ts`) resolves `/imprin
 `imprint/index.html` on the storage zone and redirects `/imprint/` to `/imprint` permanently,
 because prerendering writes directories and Bunny Storage serves files only.
 
+## First-party analytics path
+
+A target may declare `collector` in `hosting/targets.ts` with the Tereon collector's hostname,
+its site name there, and optionally a path prefix (default `/_s`, see
+`DEFAULT_COLLECTOR_PREFIX`). No target declares one yet: switching the sites from Rybbit to
+Tereon is a separate decision (ADR-0011), and until then every middleware bundle is byte for byte
+the plain one.
+
+For a target with a collector, `bundle.ts` builds `middleware-first-party.ts` instead of
+`middleware.ts`. Its origin-request hook forwards `/<prefix>/t.js` and `/<prefix>/e` to the
+collector's `/t.js` and `/e` and returns the collector's answer; every other path is resolved as
+before. The forwarded request carries only `Accept`, `Content-Type`, `DNT`, `Sec-GPC`, and
+`User-Agent` from the visitor, never cookies or `Authorization`, plus the visitor's address and
+country in `Tereon-*` headers signed with HMAC-SHA-256. Tereon's ADR-0009 defines the header
+format and the signed text; `hosting/first-party.test.ts` checks the shared test vector.
+Provisioning then also excludes `/<prefix>/e` from the document cache rule, adds a rule that
+never caches it and sets `Cache-Control: no-store`, and verification fetches `/<prefix>/t.js`.
+The script itself is cached like a document.
+
+The signing secret is not part of this repository or any bundle. Before a target's collector is
+declared, set it by hand on that target's middleware script, `<target>-middleware`, as the script
+secret `TEREON_FORWARD_SECRET` (in the Bunny panel, or with Bunny's CLI:
+`bunny scripts env set TEREON_FORWARD_SECRET <value> --secret`), and add the same value for the
+site to the collector's `TEREON_FORWARDERS`. Use at least 32 random characters, such as
+`openssl rand -hex 32`. Without the secret the middleware answers `503` below the prefix and
+forwards nothing, and verification fails.
+
+Not yet run on Bunny: whether a `POST` below the prefix reaches the origin-request hook with its
+body, which headers carry the visitor's address and country there, whether `process.env` holds
+the script secret, and whether `fetch` from the middleware passes `User-Agent` on unchanged.
+
 ## Running it
 
 ```bash
