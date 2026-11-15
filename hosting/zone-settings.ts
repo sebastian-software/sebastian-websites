@@ -1,6 +1,6 @@
 import type { Json } from "./bunny.ts"
 
-import { IMAGE_EXTENSIONS, type Target } from "./targets.ts"
+import { collectorOf, IMAGE_EXTENSIONS, type Target } from "./targets.ts"
 
 const ONE_YEAR = 31_536_000
 const ONE_DAY = 86_400
@@ -131,6 +131,9 @@ export function cacheRules(target?: Target): readonly EdgeRule[] {
       }),
     ]
   }
+  const collector = target === undefined ? undefined : collectorOf(target)
+  const endpoint =
+    collector === undefined ? [] : [`*${collector.prefix}/e`, `*${collector.prefix}/e?*`]
   return [
     cacheRule({
       browser: ONE_YEAR,
@@ -148,9 +151,39 @@ export function cacheRules(target?: Target): readonly EdgeRule[] {
       immutable: false,
       matching: MATCH.none,
       orderIndex: 1,
-      patterns: ["*/assets/*"],
+      patterns: ["*/assets/*", ...endpoint],
     }),
+    ...(endpoint.length === 0 ? [] : [noStoreRule(endpoint)]),
   ]
+}
+
+/**
+ * Keeps the first-party analytics endpoint out of every cache: each request
+ * carries one visitor's event and must reach the collector.
+ *
+ * @param patterns - The endpoint's URL patterns.
+ * @returns The rule, matched by description on later runs.
+ */
+function noStoreRule(patterns: readonly string[]): EdgeRule {
+  return {
+    ActionParameter1: "0",
+    ActionType: ACTION.cacheTime,
+    Description: "websites: the analytics endpoint is never cached",
+    Enabled: true,
+    ExtraActions: [
+      { ActionParameter1: "0", ActionType: ACTION.browserCacheTime },
+      {
+        ActionParameter1: "Cache-Control",
+        ActionParameter2: "no-store",
+        ActionType: ACTION.setResponseHeader,
+      },
+    ],
+    OrderIndex: 2,
+    TriggerMatchingType: MATCH.any,
+    Triggers: [
+      { PatternMatches: [...patterns], PatternMatchingType: MATCH.any, Type: TRIGGER_URL },
+    ],
+  }
 }
 
 /**
