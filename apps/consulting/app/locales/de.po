@@ -129,6 +129,14 @@ msgstr ""
 "Übersetzungsaufgaben zuverlässiger in den Entwicklungsprozess eingebettet "
 "sind."
 
+#: app/data/services.ts#architectureService
+msgid ""
+"A change crosses too many modules, and nobody can explain the boundaries with "
+"confidence."
+msgstr ""
+"Eine Änderung betrifft zu viele Module, und die Grenzen lassen sich kaum noch"
+" verlässlich erklären."
+
 #: app/components/ServiceIllustration.tsx#ServiceIllustration
 msgid "A code symbol, a stylus, and a specification panel."
 msgstr "Ein Code-Symbol mit einem Stift neben einer Spezifikationsfläche."
@@ -176,6 +184,12 @@ msgstr ""
 "Einmaliger Vor-Ort-Einsatz in den USA als konkreter Nachweis internationaler "
 "Reisebereitschaft."
 
+#: app/data/services.ts#modernizationService
+msgid "A prioritized modernization path with explicit dependencies and scope."
+msgstr ""
+"Ein priorisierter Modernisierungspfad mit klaren Abhängigkeiten und einem "
+"vereinbarten Umfang."
+
 #: app/routes/services.tsx#getServices
 msgid "A product that works across languages."
 msgstr "Ein Produkt für viele Sprachen."
@@ -183,6 +197,27 @@ msgstr "Ein Produkt für viele Sprachen."
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "a registered trademark of"
 msgstr "eine eingetragene Marke der"
+
+#: app/data/services.ts#architectureService
+msgid ""
+"A review is useful when your team needs a better-grounded decision. You work "
+"directly with the consultants who examine the code and explain the "
+"recommendation."
+msgstr ""
+"Ein Review hilft, wenn Ihr Team eine fundiertere Entscheidungsgrundlage "
+"braucht. Sie arbeiten direkt mit den Beratern, die den Code untersuchen und "
+"die Empfehlung erläutern."
+
+#: app/data/services.ts#modernizationService
+msgid ""
+"A rewrite is not the default deliverable. If the main uncertainty is which "
+"direction to take, start with an architecture review; if the decision is "
+"already clear, we can discuss a focused implementation scope."
+msgstr ""
+"Eine Neuentwicklung ist nicht das vorgegebene Ergebnis. Wenn vor allem die "
+"Richtung unklar ist, beginnen Sie mit einem Architektur-Review. Steht die "
+"Entscheidung bereits fest, können wir einen konkreten Umsetzungsumfang "
+"besprechen."
 
 #: app/components/Closing.tsx#Closing
 msgid ""
@@ -203,6 +238,27 @@ msgstr ""
 "Ein geordneter Terminologiekatalog mit Karten in unterschiedlichen "
 "Schriftsystemen."
 
+#: app/data/services.ts#architectureService
+msgid ""
+"Access to the relevant code and documentation, an explanation of the product "
+"constraints, and time with the people who maintain the system. We agree the "
+"scope and access arrangements before the work begins."
+msgstr ""
+"Zugang zum relevanten Code und zur Dokumentation, eine Einordnung der "
+"Produktanforderungen und Zeit mit den Personen, die das System pflegen. Umfang"
+" und Zugangsregelungen vereinbaren wir vor Beginn der Arbeit."
+
+#: app/data/services.ts#internationalizationService
+msgid ""
+"Adding another language affects more than the interface strings. We help "
+"product teams make internationalization part of their code, translation "
+"workflow, and delivery, including the content their users create."
+msgstr ""
+"Eine weitere Sprache betrifft mehr als die Texte der Oberfläche. Wir helfen "
+"Produktteams, Internationalisierung in Code, Übersetzungsabläufe und "
+"Auslieferung einzubinden, einschließlich der Inhalte ihrer Nutzerinnen und "
+"Nutzer."
+
 #: app/components/profile-print/EarlierExperience.tsx#EarlierExperience
 msgid "Additional Projects"
 msgstr "Weitere Projekte"
@@ -210,6 +266,18 @@ msgstr "Weitere Projekte"
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Address"
 msgstr "Anschrift"
+
+#: app/data/services.ts#architectureService
+msgid "Agree the next useful step"
+msgstr "Den nächsten sinnvollen Schritt vereinbaren"
+
+#: app/data/services.ts#internationalizationService
+msgid ""
+"Agreed extraction, catalog, terminology, and review workflows connected to "
+"development."
+msgstr ""
+"Vereinbarte Abläufe für Extraktion, Kataloge, Terminologie und Review, "
+"verbunden mit der Entwicklung."
 
 #: app/components/Judgment.tsx#Judgment
 msgid ""
@@ -276,6 +344,33 @@ msgstr ""
 #~ "wir eine Funktion entwickeln, ein Problem im Delivery-Prozess lösen oder "
 #~ "gemeinsam eine schwierige Entscheidung durchdenken."
 
+#: app/data/services.ts#modernizationService
+msgid ""
+"An established application still has to ship while its foundations change. We "
+"help your team improve React and TypeScript code, dependencies, and delivery "
+"in steps that fit the product you are maintaining."
+msgstr ""
+"Eine bestehende Anwendung muss auch dann ausgeliefert werden, wenn sich ihre "
+"Grundlagen ändern. Wir helfen Ihrem Team, React- und TypeScript-Code, "
+"Abhängigkeiten und Delivery in Schritten zu verbessern, die zu Ihrem Produkt "
+"passen."
+
+#: app/data/services.ts#architectureService
+msgid ""
+"An explanation of the relevant architecture and the sources of coupling or "
+"uncertainty."
+msgstr ""
+"Eine verständliche Einordnung der relevanten Architektur sowie ihrer "
+"Kopplungen und Unsicherheiten."
+
+#: app/data/services.ts#internationalizationService
+msgid ""
+"An internationalization approach that distinguishes interface text from user "
+"content."
+msgstr ""
+"Ein Internationalisierungsansatz, der Oberflächentexte von Nutzerinhalten "
+"unterscheidet."
+
 #: app/routes/services.tsx#getServices
 msgid "API, build, and release integration"
 msgstr "Integration in APIs, Builds und Releases"
@@ -333,6 +428,10 @@ msgstr "Architektur und Engineering für komplexe Webanwendungen."
 #: app/data/recommendations.ts#getRecommendations
 msgid "Architecture at EnBW"
 msgstr "Architektur bei EnBW"
+
+#: app/components/ServiceLinks.tsx#ServiceLinks
+msgid "Architecture reviews"
+msgstr "Architektur-Reviews"
 
 #: app/routes/index.tsx
 msgid "Architecture reviews, hands-on development, and knowledge that stays."
@@ -489,6 +588,17 @@ msgstr ""
 "über REST-APIs angebunden; Build- und Deployment-Abläufe liefen "
 "automatisiert über CI/CD auf Microsoft Azure."
 
+#: app/data/services.ts#architectureService
+msgid ""
+"At EnBW, Werner worked on white-label customer portals, reusable components, "
+"and frontend architecture. His published project history explains the scope; "
+"the references include perspectives from colleagues on that work."
+msgstr ""
+"Bei EnBW arbeitete Werner an White-Label-Kundenportalen, wiederverwendbaren "
+"Komponenten und Frontend-Architektur. Seine Projekthistorie beschreibt den "
+"Umfang; in den Referenzen schildern Kollegen ihre Sicht auf diese "
+"Zusammenarbeit."
+
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/routes/services.tsx
 #~ msgid ""
@@ -502,6 +612,17 @@ msgstr ""
 #~ "Frontend-Kataloge, Backend-Integration, die Bewertung der "
 #~ "Übersetzungsqualität, Warteschlangen, Wiederholungsversuche und Werkzeuge "
 #~ "für den Betrieb."
+
+#: app/data/services.ts#internationalizationService
+msgid ""
+"At Regrello, Werner and Fastner worked on interface internationalization and "
+"translation of user-generated content. Their profiles explain their respective"
+" work; Chris Lewis's recommendation also describes the shared contribution."
+msgstr ""
+"Bei Regrello arbeiteten Werner und Fastner an der Internationalisierung der "
+"Oberfläche und der Übersetzung nutzergenerierter Inhalte. Ihre Profile "
+"erläutern die jeweiligen Aufgaben; Chris Lewis beschreibt in seiner "
+"Empfehlung auch den gemeinsamen Beitrag."
 
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/routes/services.tsx
@@ -567,6 +688,21 @@ msgstr "Zur Startseite"
 msgid "Bad Rodach, Germany"
 msgstr "Bad Rodach, Deutschland"
 
+#: app/data/services.ts#architectureService
+msgid ""
+"Before committing to a rewrite or another layer of tooling, understand what is"
+" making your application difficult to change. We review the architecture with "
+"your team and turn the findings into decisions you can act on."
+msgstr ""
+"Verstehen Sie, was Änderungen an Ihrer Anwendung schwierig macht, bevor Sie "
+"sich für eine Neuentwicklung oder weitere Werkzeuge entscheiden. Wir prüfen "
+"die Architektur mit Ihrem Team und machen aus den Erkenntnissen begründete "
+"Entscheidungen."
+
+#: app/components/ServicePage.tsx#BeforeStarting
+msgid "Before we start"
+msgstr "Vor dem Start"
+
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Bensheim, Germany"
 msgstr "Bensheim, Deutschland"
@@ -597,11 +733,34 @@ msgstr "Termin buchen"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 #: app/components/Closing.tsx#Closing
 #: app/components/Founders.tsx#Founders
+#: app/components/ServicePage.tsx#ServicePage
 #: app/routes/index.tsx
 #: app/routes/references.tsx
 #: app/routes/services.tsx
 msgid "Book an intro call"
 msgstr "Erstgespräch buchen"
+
+#: app/data/services.ts#modernizationService
+msgid ""
+"Bring an example of a change that has become difficult, the technologies "
+"involved, and the constraints on your next releases. We use that situation to "
+"discuss whether a review or direct implementation is the useful starting "
+"point."
+msgstr ""
+"Bringen Sie ein Beispiel für eine schwierig gewordene Änderung, die "
+"eingesetzten Technologien und die Rahmenbedingungen Ihrer nächsten Releases "
+"mit. Anhand dieser Situation besprechen wir, ob ein Review oder direkte "
+"Umsetzung der sinnvolle Einstieg ist."
+
+#: app/data/services.ts#internationalizationService
+msgid ""
+"Bring language support into an established SaaS product: interface "
+"localization, catalogs and terminology, release workflows, and translation of "
+"user-generated content."
+msgstr ""
+"Integrieren Sie Sprachunterstützung in ein bestehendes SaaS-Produkt: "
+"Oberflächen lokalisieren, Kataloge und Terminologie pflegen, Releases "
+"verbinden und Nutzerinhalte übersetzen."
 
 #: app/components/Services.tsx#Services
 msgid "Bring the product into more languages."
@@ -620,6 +779,10 @@ msgstr "Das Produkt in weitere Sprachen bringen."
 #~ msgstr ""
 #~ "Wartbare Abläufe für Textextraktion, Kataloge, Terminologie und Prüfung von"
 #~ " Oberflächentexten aufbauen."
+
+#: app/data/services.ts#internationalizationService
+msgid "Build the workflow into the product"
+msgstr "Den Ablauf ins Produkt einbinden"
 
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
@@ -690,9 +853,21 @@ msgstr ""
 " in Deutsch und Englisch implementiert, wobei die Übersetzungen via "
 "PO-Dateien verwaltet wurden."
 
+#: app/data/services.ts#modernizationService
+msgid "Can product development continue?"
+msgstr "Kann die Produktentwicklung weitergehen?"
+
 #: app/routes/services.tsx#getServices
 msgid "Catalogs, terminology, and review workflows"
 msgstr "Kataloge, Terminologie und Prüfabläufe"
+
+#: app/data/services.ts#internationalizationService
+msgid ""
+"Catalogs, terminology, reviews, and releases are disconnected from the team's "
+"development workflow."
+msgstr ""
+"Kataloge, Terminologie, Reviews und Releases sind vom Entwicklungsablauf des "
+"Teams getrennt."
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -876,6 +1051,14 @@ msgstr "Sebastian/Software entdecken"
 #: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
 msgid "Discuss Availability"
 msgstr "Verfügbarkeit besprechen"
+
+#: app/data/services.ts#internationalizationService
+msgid "Do we need to change translation tools?"
+msgstr "Müssen wir die Übersetzungswerkzeuge wechseln?"
+
+#: app/data/services.ts#modernizationService
+msgid "Do you only provide recommendations?"
+msgstr "Geben Sie nur Empfehlungen?"
 
 #: app/components/profile-screen/ProfileOutro.tsx#ProfileOutro
 msgid "Does the profile fit?"
@@ -1070,18 +1253,45 @@ msgstr "Executive Summary"
 msgid "Executive summary (PDF)"
 msgstr "Executive Summary (PDF)"
 
+#: app/components/ServicePage.tsx#ServicePage
+msgid "Experience behind the work"
+msgstr "Erfahrung hinter der Arbeit"
+
 #: app/components/Founders.tsx#Founders
 msgid "Experience."
 msgstr "Erfahrung."
+
+#: app/components/Services.tsx#Services
+#: app/routes/services.tsx#getServices
+msgid "Explore architecture reviews"
+msgstr "Architektur-Reviews kennenlernen"
+
+#: app/components/Services.tsx#Services
+#: app/routes/services.tsx#getServices
+msgid "Explore internationalization consulting"
+msgstr "Internationalisierungsberatung kennenlernen"
 
 #: app/components/Services.tsx#Services
 #: app/routes/references.tsx
 msgid "Explore our services"
 msgstr "Unsere Leistungen im Detail"
 
+#: app/components/Services.tsx#Services
+#: app/routes/services.tsx#getServices
+msgid "Explore React and TypeScript modernization"
+msgstr "Modernisierung mit React und TypeScript kennenlernen"
+
+#: app/data/services.ts#modernizationService
+msgid "Explore the commerce project experience"
+msgstr "Die Commerce-Projekterfahrung ansehen"
+
 #: app/routes/services.tsx
 msgid "Explore the project experience"
 msgstr "Mehr über die Projekterfahrung"
+
+#: app/data/services.ts#modernizationService
+msgid "Explore Werner's project history"
+msgstr "Werners Projekthistorie ansehen"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
 msgid "External Links"
@@ -1090,6 +1300,16 @@ msgstr "Externe Links"
 #: app/components/CompanyBand.tsx#CompanyBand
 msgid "Fastner's project history"
 msgstr "Fastners Projekthistorie"
+
+#: app/data/services.ts#architectureService
+msgid ""
+"Fastner's project profile covers frontend architecture and implementation in "
+"investment platforms and multi-brand commerce. It shows how architecture "
+"decisions connect to work in established teams."
+msgstr ""
+"Fastners Projektprofil zeigt Frontend-Architektur und Umsetzung bei "
+"Investmentplattformen und im Multi-Brand-Commerce. Es macht deutlich, wie "
+"Architekturentscheidungen mit der Arbeit in bestehenden Teams zusammenhängen."
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Fax:"
@@ -1106,6 +1326,10 @@ msgid ""
 msgstr ""
 "Fünfzehn vollständige Empfehlungen von Menschen, mit denen wir "
 "zusammengearbeitet haben. Hier direkt lesbar, auch ohne LinkedIn-Konto."
+
+#: app/data/services.ts#modernizationService
+msgid "Find a manageable starting point"
+msgstr "Einen überschaubaren Einstieg finden"
 
 #: app/data/fastner.data.ts#getConsultant
 msgid "Fintech"
@@ -1271,6 +1495,17 @@ msgstr ""
 "Static Hosting mit Edge Middleware, Sicherheitsheader, Rate-Limits, "
 "Health-Checks und eine umfangreiche Vitest-/Playwright-nahe Testbasis sichern "
 "Betrieb und Weiterentwicklung ab."
+
+#: app/data/services.ts#internationalizationService
+msgid ""
+"For the interface, we connect extraction, catalogs, review, and build or "
+"release integration. For user content, we examine the translation pipeline, "
+"processing, quality evaluation, and operational needs separately."
+msgstr ""
+"Für die Oberfläche verbinden wir Textextraktion, Kataloge, Review und Build-"
+" oder Release-Integration. Für Nutzerinhalte betrachten wir "
+"Übersetzungspipeline, Verarbeitung, Qualitätsbewertung und "
+"Betriebsanforderungen getrennt."
 
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid ""
@@ -1504,9 +1739,21 @@ msgstr "Hosting der Terminaro-Anwendung"
 msgid "Hosting of the Terminaro application and the Rybbit analytics server"
 msgstr "Hosting der Terminaro-Anwendung und des Rybbit-Analytics-Servers"
 
+#: app/data/services.ts#internationalizationService
+msgid "How do we start?"
+msgstr "Wie beginnen wir?"
+
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "How It Works"
 msgstr "Funktionsweise"
+
+#: app/data/services.ts#architectureService
+msgid "How long does a review take?"
+msgstr "Wie lange dauert ein Review?"
+
+#: app/components/ServicePage.tsx#ServicePage
+msgid "How we work with your team"
+msgstr "So arbeiten wir mit Ihrem Team"
 
 #: app/data/fastner.data.ts#getConsultant
 msgid ""
@@ -1682,9 +1929,25 @@ msgstr "Bildnachweise"
 #~ msgid "Implement together"
 #~ msgstr "Gemeinsam umsetzen"
 
+#: app/data/services.ts#modernizationService
+msgid "Implement with the maintainers"
+msgstr "Mit den Verantwortlichen umsetzen"
+
 #: app/routes/services.tsx#getServices
 msgid "Implementation alongside your team"
 msgstr "Umsetzung gemeinsam mit Ihrem Team"
+
+#: app/data/services.ts#internationalizationService
+msgid ""
+"Implementation and operational guidance for the language capabilities in "
+"scope."
+msgstr "Umsetzung und Betriebshinweise für die vereinbarten Sprachfunktionen."
+
+#: app/data/services.ts#modernizationService
+msgid "Implemented changes to the agreed application or frontend foundations."
+msgstr ""
+"Umgesetzte Änderungen an der vereinbarten Anwendung oder ihren "
+"Frontend-Grundlagen."
 
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
@@ -1779,13 +2042,46 @@ msgstr "Internationalisierung & Produkt"
 msgid "Internationalization at Regrello"
 msgstr "Internationalisierung bei Regrello"
 
+#: app/components/ServiceLinks.tsx#ServiceLinks
+msgid "Internationalization consulting"
+msgstr "Beratung zur Internationalisierung"
+
+#: app/data/services.ts#internationalizationService
+msgid "Internationalization for existing SaaS products"
+msgstr "Bestehende SaaS-Produkte internationalisieren"
+
 #: app/components/profile-screen/ProfileRail.tsx#ProfileRail
 msgid "Intro call"
 msgstr "Erstgespräch"
 
+#: app/data/services.ts#internationalizationService
+msgid "Introduce the changes incrementally"
+msgstr "Änderungen schrittweise einführen"
+
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Investment Management Platform"
 msgstr "Investment-Management-Plattform"
+
+#: app/data/services.ts#architectureService
+msgid "Is implementation part of the review?"
+msgstr "Gehört die Umsetzung zum Review?"
+
+#: app/data/services.ts#internationalizationService
+msgid "Is translating user content the same as localizing the interface?"
+msgstr ""
+"Ist die Übersetzung von Nutzerinhalten dasselbe wie die Lokalisierung der "
+"Oberfläche?"
+
+#: app/data/services.ts#architectureService
+msgid ""
+"It is not a security certification, a compliance assessment, or a guarantee "
+"that the architecture will never need to change. If implementation is already "
+"the main task, our modernization work may be a better starting point."
+msgstr ""
+"Ein Review ist keine Sicherheitszertifizierung, Compliance-Prüfung oder "
+"Garantie, dass sich die Architektur nie wieder ändern muss. Wenn es bereits "
+"vor allem um die Umsetzung geht, kann unsere Modernisierungsarbeit der "
+"passendere Einstieg sein."
 
 #: app/data/werner.data.ts#getConsultant
 msgid ""
@@ -2010,9 +2306,14 @@ msgstr "Geschäftsführer:"
 msgid "Meet Sebastian/Consulting"
 msgstr "Sebastian/Consulting kennenlernen"
 
+#: app/components/ServicePage.tsx#ServicePage
 #: app/routes/services.tsx
 msgid "Meet the consultants"
 msgstr "Die Berater kennenlernen"
+
+#: app/data/services.ts#internationalizationService
+msgid "Meet the consultants and their experience"
+msgstr "Die Berater und ihre Erfahrung kennenlernen"
 
 #: app/data/recommendations.ts#getRecommendations
 msgid "Mentoring and knowledge sharing"
@@ -2029,6 +2330,16 @@ msgstr "Meridian Energy-Management-Portal"
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid "Mobile Developer"
 msgstr "Mobile Developer"
+
+#: app/data/services.ts#modernizationService
+msgid ""
+"Modernize an existing React and TypeScript application alongside your team: "
+"review the foundations, sequence the migration, and implement changes while "
+"product work continues."
+msgstr ""
+"Modernisieren Sie eine bestehende React- und TypeScript-Anwendung mit Ihrem "
+"Team: Grundlagen prüfen, die Migration planen und Änderungen bei laufender "
+"Produktentwicklung umsetzen."
 
 #~ #@ obsolete-since: 2026-10-09
 #~ #: app/components/profile-print/SkillTags.tsx#groups
@@ -2082,6 +2393,28 @@ msgstr ""
 "Es findet keine automatisierte Entscheidungsfindung einschließlich Profiling "
 "gemäß Art. 22 DSGVO statt."
 
+#: app/data/services.ts#internationalizationService
+msgid ""
+"No. Interface text usually follows the development and release workflow. User "
+"content needs its own processing, evaluation, and operational decisions. We "
+"agree which problem the engagement needs to address."
+msgstr ""
+"Nein. Oberflächentexte folgen in der Regel dem Entwicklungs- und "
+"Release-Ablauf. Nutzerinhalte brauchen eigene Entscheidungen zu Verarbeitung, "
+"Bewertung und Betrieb. Wir vereinbaren, welche Aufgabe der Auftrag abdecken "
+"soll."
+
+#: app/data/services.ts#internationalizationService
+msgid ""
+"Not by default. We first examine the workflow and constraints. Keeping "
+"existing tools, improving their integration, or changing part of the setup are"
+" options to assess with your team."
+msgstr ""
+"Nicht grundsätzlich. Zuerst betrachten wir den Ablauf und seine "
+"Anforderungen. Bestehende Werkzeuge beizubehalten, ihre Integration zu "
+"verbessern oder einen Teil des Setups zu ändern, sind Möglichkeiten, die wir"
+" gemeinsam bewerten."
+
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Obligation to Provide Data"
 msgstr "Pflicht zur Bereitstellung der Daten"
@@ -2111,6 +2444,11 @@ msgstr "OneNumber Mobile App"
 msgid "OneNumber Mobile App (Phase 2)"
 msgstr "OneNumber Mobile App (Phase 2)"
 
+#: app/data/services.ts#architectureService
+msgid "Options with their tradeoffs and a reasoned recommendation."
+msgstr ""
+"Handlungsoptionen mit ihren Abwägungen und einer begründeten Empfehlung."
+
 #: app/components/profile-screen/ProfileOutro.tsx#ProfileOutro
 msgid "Or meet the second consultant:"
 msgstr "Oder lernen Sie den zweiten Berater kennen:"
@@ -2139,6 +2477,17 @@ msgid ""
 msgstr ""
 "Unsere Agentur unterstützt Teams bei Softwarearchitektur, Engineering und "
 "technischer Ausrichtung."
+
+#: app/data/services.ts#internationalizationService
+msgid ""
+"Our open-source work on Palamedes grows from practical internationalization "
+"experience. It is relevant tooling experience, not a requirement that your "
+"team adopt Palamedes or buy a managed product."
+msgstr ""
+"Unsere Open-Source-Arbeit an Palamedes ist aus praktischer "
+"Internationalisierungserfahrung entstanden. Sie ist relevante Erfahrung mit "
+"Werkzeugen, aber keine Voraussetzung, dass Ihr Team Palamedes einführt oder "
+"ein verwaltetes Produkt kauft."
 
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/routes/services.tsx
@@ -2318,6 +2667,14 @@ msgstr "Druckbares Profil"
 msgid "Prioritized modernization plan"
 msgstr "Priorisierter Modernisierungsplan"
 
+#: app/data/services.ts#architectureService
+msgid ""
+"Prioritized next steps that account for ongoing product work and team "
+"ownership."
+msgstr ""
+"Priorisierte nächste Schritte, die laufende Produktarbeit und die "
+"Verantwortung des Teams berücksichtigen."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Privacy"
 msgstr "Datenschutz"
@@ -2436,6 +2793,11 @@ msgstr "Projektprofil als PDF"
 msgid "Project Profile Sebastian Fastner – React & TypeScript"
 msgstr "Projektprofil Sebastian Fastner – React & TypeScript"
 
+#: app/components/ServiceLinks.tsx#ServiceLinks
+#: app/data/services.ts#modernizationService
+msgid "React and TypeScript modernization"
+msgstr "React- und TypeScript-Anwendungen modernisieren"
+
 #: app/data/recommendations.ts#getRecommendations
 msgid "React architecture and knowledge transfer"
 msgstr "React-Architektur und Wissenstransfer"
@@ -2444,10 +2806,22 @@ msgstr "React-Architektur und Wissenstransfer"
 msgid "React, TypeScript, and backend development"
 msgstr "Entwicklung mit React, TypeScript und im Backend"
 
+#: app/data/services.ts#architectureService
+msgid "Read Fastner's project experience"
+msgstr "Fastners Projekterfahrung ansehen"
+
 #: app/components/ReferenceHighlights.tsx#ReferenceHighlights
 #: app/routes/services.tsx
 msgid "Read the references"
 msgstr "Zu den Referenzen"
+
+#: app/data/services.ts#internationalizationService
+msgid "Read the Regrello recommendation"
+msgstr "Die Regrello-Empfehlung lesen"
+
+#: app/data/services.ts#architectureService
+msgid "Read Werner's architecture experience"
+msgstr "Werners Architekturerfahrung ansehen"
 
 #: app/components/project-profile/ProjectProfile.tsx#EvidenceAndProductsPage
 msgid "Recent Hands-on Products"
@@ -2549,6 +2923,10 @@ msgstr ""
 #~ "Nutzerinhalten, mit Qualitätsbewertung, Warteschlangen, "
 #~ "Wiederholungsversuchen und Betriebswerkzeugen."
 
+#: app/components/ServicePage.tsx#ServicePage
+msgid "Related services"
+msgstr "Weitere Leistungen"
+
 #: ../../packages/ui/src/frame/errorCopy.ts#createPageErrorCopy
 msgid "Reload page"
 msgstr "Seite neu laden"
@@ -2582,6 +2960,16 @@ msgstr "Wiederverwendbare Oberflächen bei der Deutschen Telekom"
 #~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
 #~ msgid "Review together"
 #~ msgstr "Gemeinsam analysieren"
+
+#: app/data/services.ts#architectureService
+msgid ""
+"Review your web application's architecture with experienced consultants. "
+"Understand the tradeoffs, agree priorities, and choose a practical next step "
+"with your team."
+msgstr ""
+"Prüfen Sie die Architektur Ihrer Webanwendung mit erfahrenen Beratern. "
+"Verstehen Sie die Abwägungen, setzen Sie Prioritäten und wählen Sie mit "
+"Ihrem Team den nächsten Schritt."
 
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Rhine-Main, Germany"
@@ -2682,6 +3070,10 @@ msgstr "Dieses Profil als PDF speichern oder weitergeben."
 #~ msgstr ""
 #~ "SBB: Ticketbuchungs-Frontend, gezieltes Refactoring und ein Monorepo-Prototyp."
 #~ " EnBW: wiederverwendbare Komponenten für White-Label-Kundenportale."
+
+#: app/components/ServicePage.tsx#ServicePage
+msgid "Scope and fit"
+msgstr "Umfang und Zusammenarbeit"
 
 #: app/routes/index.tsx#meta
 msgid ""
@@ -2793,11 +3185,20 @@ msgstr "Senior Principal Frontend-Architekt"
 msgid "Senior Technology Consultant"
 msgstr "Senior Technology Consultant"
 
+#: app/data/services.ts#internationalizationService
+msgid "Separate the language problems"
+msgstr "Die Sprachaufgaben unterscheiden"
+
+#: app/data/services.ts#modernizationService
+msgid "Sequence the migration"
+msgstr "Die Migration in Schritte gliedern"
+
 #: app/routes/services.tsx
 msgid "Service areas"
 msgstr "Leistungsbereiche"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+#: app/components/ServicePage.tsx#ServicePage
 #: app/components/Services.tsx#Services
 #: app/routes/services.tsx
 msgid "Services"
@@ -2807,6 +3208,14 @@ msgstr "Leistungen"
 msgid "Services – Sebastian Consulting"
 msgstr "Leistungen – Sebastian Consulting"
 
+#: app/data/services.ts#architectureService
+msgid ""
+"Several teams or products need shared foundations, but it is unclear what "
+"should be shared."
+msgstr ""
+"Mehrere Teams oder Produkte brauchen gemeinsame Grundlagen, aber es ist "
+"unklar, was gemeinsam sein sollte."
+
 #: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
 msgid "Share Project Profile"
 msgstr "Projektprofil weitergeben"
@@ -2815,6 +3224,14 @@ msgstr "Projektprofil weitergeben"
 #~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
 #~ msgid "Share the reasoning"
 #~ msgstr "Entscheidungen erklären"
+
+#: app/data/services.ts#modernizationService
+msgid ""
+"Shared components, application boundaries, or build tools have become "
+"obstacles to everyday changes."
+msgstr ""
+"Gemeinsame Komponenten, Anwendungsgrenzen oder Build-Werkzeuge erschweren "
+"alltägliche Änderungen."
 
 #: app/components/werner-profile/MarkdownContent.tsx#ProfileLink
 msgid "Showcase"
@@ -2849,6 +3266,10 @@ msgstr "Zum Inhalt springen"
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid "Social Shopping Platform"
 msgstr "Social-Shopping-Plattform"
+
+#: app/data/services.ts#architectureService
+msgid "Software architecture reviews"
+msgstr "Softwarearchitektur-Reviews"
 
 #: app/routes/index.tsx#meta
 msgid ""
@@ -2902,6 +3323,14 @@ msgstr ""
 #~ #: app/components/profile-print/SkillTags.tsx#groups
 #~ msgid "Specialization"
 #~ msgstr "Spezialisierung"
+
+#: app/data/services.ts#architectureService
+msgid "Start with the decision"
+msgstr "Mit der Entscheidung beginnen"
+
+#: app/components/ServicePage.tsx#ServicePage
+msgid "Start with the situation"
+msgstr "Mit Ihrer Situation beginnen"
 
 #: app/routes/services.tsx
 msgid "Start with the situation."
@@ -2963,6 +3392,15 @@ msgstr ""
 "Umsetzungsarbeit oder Unterstützung im Team der sinnvolle nächste Schritt "
 "ist."
 
+#: app/components/ServicePage.tsx#ServicePage
+msgid ""
+"Tell us what your team needs to decide or change. In an introductory "
+"conversation, we discuss whether and how we can help, before agreeing a scope."
+msgstr ""
+"Erzählen Sie uns, was Ihr Team entscheiden oder verändern muss. Im "
+"Erstgespräch besprechen wir, ob und wie wir helfen können, bevor wir einen "
+"Umfang vereinbaren."
+
 #: app/components/Closing.tsx#Closing
 msgid ""
 "Tell us where architecture, delivery, or internationalization is getting in "
@@ -2971,6 +3409,16 @@ msgstr ""
 "Erzählen Sie uns, wo Architektur, Delivery oder Internationalisierung im Weg "
 "stehen."
 
+#: app/data/services.ts#internationalizationService
+msgid ""
+"Tell us which application and languages are involved, where the current "
+"process breaks down, and who develops, translates, and reviews the content. We"
+" can then discuss a useful first scope."
+msgstr ""
+"Erzählen Sie uns, um welche Anwendung und Sprachen es geht, wo der heutige "
+"Ablauf an Grenzen stößt und wer Inhalte entwickelt, übersetzt und prüft. "
+"Daraus können wir einen sinnvollen ersten Umfang ableiten."
+
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Terminaro · Product by Sebastian Software GmbH · SaaS"
 msgstr "Terminaro · Produkt der Sebastian Software GmbH · SaaS"
@@ -2978,6 +3426,24 @@ msgstr "Terminaro · Produkt der Sebastian Software GmbH · SaaS"
 #: app/routes/services.tsx#getServices
 msgid "Testing and delivery workflows"
 msgstr "Tests und Auslieferungsprozesse"
+
+#: app/data/services.ts#internationalizationService
+msgid ""
+"Text is spread through an established codebase and language support is "
+"difficult to introduce safely."
+msgstr ""
+"Texte sind über eine bestehende Codebasis verteilt, und Sprachunterstützung "
+"lässt sich nur schwer sicher einführen."
+
+#: app/data/services.ts#architectureService
+msgid ""
+"That depends on the question and the part of the application involved. In the "
+"introductory conversation, we establish the situation and what a useful review"
+" would need to cover before discussing effort."
+msgstr ""
+"Das hängt von der Frage und dem betroffenen Teil der Anwendung ab. Im "
+"Erstgespräch klären wir die Situation und den sinnvollen Umfang eines "
+"Reviews, bevor wir über den Aufwand sprechen."
 
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid ""
@@ -3074,14 +3540,14 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
 "The language preference is used solely to route the request to the matching "
-"language version. The German and English versions are on separate domains, "
-"so this redirect may also lead to the respective other domain. No cookie is "
-"set in the process."
+"language version. The German and English versions are on separate domains, so "
+"this redirect may also lead to the respective other domain. No cookie is set "
+"in the process."
 msgstr ""
-"Die Spracheinstellung wird ausschließlich dazu verwendet, den Aufruf auf die"
-" passende Sprachfassung weiterzuleiten. Die deutsche und die englische "
-"Fassung liegen auf getrennten Domains. Diese Weiterleitung kann daher auch "
-"auf die jeweils andere Domain führen. Ein Cookie wird dabei nicht gesetzt."
+"Die Spracheinstellung wird ausschließlich dazu verwendet, den Aufruf auf die "
+"passende Sprachfassung weiterzuleiten. Die deutsche und die englische Fassung "
+"liegen auf getrennten Domains. Diese Weiterleitung kann daher auch auf die "
+"jeweils andere Domain führen. Ein Cookie wird dabei nicht gesetzt."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid ""
@@ -3090,6 +3556,16 @@ msgid ""
 msgstr ""
 "Vielleicht ist der Link veraltet oder die Adresse enthält einen Tippfehler. "
 "Hier geht es weiter:"
+
+#: app/data/services.ts#modernizationService
+msgid ""
+"The published Witt project experience describes work on the foundations of "
+"multi-brand online shops. Fastner's compact profile explains his role, "
+"technologies, and contributions in that context."
+msgstr ""
+"Die Projekterfahrung bei Witt beschreibt Arbeit an den Grundlagen von "
+"Online-Shops mehrerer Marken. Fastners kompaktes Profil erläutert seine "
+"Rolle, die Technologien und seine Beiträge in diesem Umfeld."
 
 #: app/routes/references.tsx
 msgid ""
@@ -3100,6 +3576,17 @@ msgstr ""
 "Werner hat diese Empfehlungen erhalten; Chris Lewis beschreibt auch unsere "
 "gemeinsame Arbeit. Alle stehen hier im englischen Originalwortlaut, mit "
 "Verfasser und Datum."
+
+#: app/data/services.ts#architectureService
+msgid ""
+"The review supports a decision. We can also work alongside your team to "
+"implement the next step, but agree that work separately so the review does not"
+" silently become an open-ended rewrite."
+msgstr ""
+"Das Review unterstützt eine Entscheidung. Wir können auch gemeinsam mit "
+"Ihrem Team den nächsten Schritt umsetzen. Diese Arbeit vereinbaren wir "
+"separat, damit aus einem Review nicht unbemerkt eine unbegrenzte "
+"Neuentwicklung wird."
 
 #: app/components/profile-screen/ProfileRail.tsx#ProfileRail
 msgid "The second consultant"
@@ -3252,6 +3739,28 @@ msgstr ""
 "Domain t.sebastian-software.de betrieben (Self-Hosting). Daten werden nicht an"
 " Dritte weitergegeben."
 
+#: app/data/services.ts#internationalizationService
+msgid ""
+"This work fits an established product whose team needs language support to "
+"become a maintainable capability. We work with the application's current "
+"architecture and the people responsible for its content and releases."
+msgstr ""
+"Diese Arbeit passt zu einem bestehenden Produkt, dessen Team "
+"Sprachunterstützung dauerhaft pflegen können muss. Wir arbeiten mit der "
+"vorhandenen Architektur und den Personen, die für Inhalte und Auslieferung "
+"verantwortlich sind."
+
+#: app/data/services.ts#modernizationService
+msgid ""
+"This work fits teams that maintain an existing React or TypeScript product and"
+" want practical help implementing change. We work with the people responsible "
+"for the next release."
+msgstr ""
+"Diese Arbeit passt zu Teams, die ein bestehendes React- oder "
+"TypeScript-Produkt pflegen und praktische Unterstützung bei Veränderungen "
+"suchen. Wir arbeiten mit den Personen, die für die nächste Auslieferung "
+"verantwortlich sind."
+
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
 "To exercise your right to object, you may contact us at any time at: "
@@ -3288,6 +3797,17 @@ msgstr ""
 #~ " Entwicklererlebnis: Gute Architektur erkennt man daran, wie leicht die "
 #~ "nächste Änderung fällt."
 
+#: app/data/services.ts#modernizationService
+msgid ""
+"Together we decide which boundaries, components, or dependencies need to "
+"change first. We plan how existing and new code can coexist, which behavior "
+"must remain stable, and how the team will verify each step."
+msgstr ""
+"Gemeinsam entscheiden wir, welche Grenzen, Komponenten oder Abhängigkeiten "
+"zuerst geändert werden müssen. Wir planen, wie bestehender und neuer Code "
+"nebeneinander funktionieren, welches Verhalten stabil bleiben muss und wie das"
+" Team jeden Schritt überprüft."
+
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid "Tolino E-Book Platform"
 msgstr "Tolino E-Book-Plattform"
@@ -3297,6 +3817,10 @@ msgstr "Tolino E-Book-Plattform"
 #~ #: app/components/profile-print/SkillTags.tsx#groups
 #~ msgid "Tools"
 #~ msgstr "Tools"
+
+#: app/data/services.ts#architectureService
+msgid "Trace the architecture in practice"
+msgstr "Die Architektur im Alltag nachvollziehen"
 
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Trademark Notice"
@@ -3363,6 +3887,12 @@ msgstr ""
 msgid "UnifyJS Mobile Framework"
 msgstr "UnifyJS Mobile Framework"
 
+#: app/data/services.ts#modernizationService
+msgid "Upgrades keep being postponed because their effects are hard to predict."
+msgstr ""
+"Upgrades werden immer wieder verschoben, weil ihre Auswirkungen schwer "
+"einzuschätzen sind."
+
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/routes/services.tsx
 #~ msgid ""
@@ -3399,6 +3929,14 @@ msgstr ""
 "von Bunny.net (BunnyWay d.o.o., Slowenien), wobei Daten ausschließlich "
 "transient im Arbeitsspeicher verarbeitet werden."
 
+#: app/data/services.ts#internationalizationService
+msgid ""
+"Users need to work across languages with content they create themselves, not "
+"just translated interface labels."
+msgstr ""
+"Menschen müssen über Sprachgrenzen hinweg mit selbst erstellten Inhalten "
+"arbeiten können, nicht nur mit übersetzten Oberflächen."
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "VAT ID"
 msgstr "Umsatzsteuer-ID"
@@ -3408,6 +3946,14 @@ msgid ""
 "VAT identification number pursuant to § 27a of the German Value Added Tax "
 "Act:"
 msgstr "Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:"
+
+#: app/data/services.ts#modernizationService
+msgid ""
+"Verification and working knowledge that the maintaining team can continue "
+"using."
+msgstr ""
+"Prüfungen und praktisches Wissen, die das verantwortliche Team weiter nutzen "
+"kann."
 
 #~ #@ obsolete-since: 2026-10-26
 #~ #: app/data/fastner.projects-featured.ts#getFeaturedProjects
@@ -3580,12 +4126,33 @@ msgstr ""
 #~ "überarbeitete ich so, dass Datenbankpasswörter nicht mehr im Klartext ins "
 #~ "Server-Log gelangen."
 
+#: app/data/services.ts#modernizationService
+msgid ""
+"We also implement. Architecture decisions, hands-on development, pairing, and "
+"code reviews can form one engagement, with a scope that makes responsibility "
+"clear."
+msgstr ""
+"Wir setzen auch um. Architekturentscheidungen, Entwicklung, Pairing und "
+"Code-Reviews können Teil eines gemeinsamen Auftrags sein, dessen Umfang die "
+"Verantwortung klar macht."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid ""
 "We build products, open-source projects and agent tools for everyday work."
 msgstr ""
 "Wir entwickeln Produkte, Open-Source-Projekte und Agent-Tools für den "
 "Arbeitsalltag."
+
+#: app/data/services.ts#architectureService
+msgid ""
+"We clarify what the review needs to settle, who maintains the application, and"
+" which product constraints matter. Together we choose representative code and "
+"workflows rather than inspecting every file without a question."
+msgstr ""
+"Wir klären, welche Frage das Review beantworten soll, wer die Anwendung "
+"pflegt und welche Produktanforderungen wichtig sind. Gemeinsam wählen wir "
+"aussagekräftigen Code und Arbeitsabläufe aus, statt ohne konkrete Frage jede"
+" Datei zu prüfen."
 
 #: ../../packages/ui/src/frame/errorCopy.ts#createPageErrorCopy
 msgid ""
@@ -3594,6 +4161,40 @@ msgid ""
 msgstr ""
 "Wir konnten diese Seite nicht laden. Prüfen Sie Ihre Verbindung und laden Sie"
 " die Seite neu oder gehen Sie zur Startseite."
+
+#: app/data/services.ts#architectureService
+msgid ""
+"We discuss the findings, compare realistic options, and document their "
+"tradeoffs. The result is a prioritized recommendation and a concrete next "
+"step, with assumptions and open questions visible to the people implementing "
+"it."
+msgstr ""
+"Wir besprechen die Ergebnisse, vergleichen realistische Möglichkeiten und "
+"dokumentieren die Abwägungen. Daraus entstehen eine priorisierte Empfehlung "
+"und ein konkreter nächster Schritt. Annahmen und offene Fragen bleiben für "
+"die umsetzenden Personen sichtbar."
+
+#: app/data/services.ts#internationalizationService
+msgid ""
+"We do not promise perfect automated translations or a guaranteed market "
+"outcome. Quality criteria, human review, and the handling of sensitive content"
+" need to match the product and the material being translated."
+msgstr ""
+"Wir versprechen weder perfekte automatische Übersetzungen noch einen "
+"garantierten Markterfolg. Qualitätskriterien, menschliche Prüfung und der "
+"Umgang mit sensiblen Inhalten müssen zum Produkt und zum übersetzten "
+"Material passen."
+
+#: app/data/services.ts#architectureService
+msgid ""
+"We examine interfaces, dependencies, component boundaries, rendering, and the "
+"build or delivery workflow where they affect that decision. Conversations with"
+" the team connect the code to the reasons it took its current shape."
+msgstr ""
+"Wir untersuchen Schnittstellen, Abhängigkeiten, Komponentengrenzen, Rendering"
+" sowie Build- oder Delivery-Abläufe, soweit sie für die Entscheidung "
+"relevant sind. Gespräche mit dem Team verbinden den Code mit den Gründen "
+"für seine heutige Struktur."
 
 #: app/routes/index.tsx
 msgid ""
@@ -3626,6 +4227,39 @@ msgstr ""
 "machen, von Code und Katalogen über Kontext und Übersetzungsabläufe bis zur"
 " Auslieferung. So wird eine neue Sprache kein eigenes Projekt mehr."
 
+#: app/data/services.ts#internationalizationService
+msgid ""
+"We inventory interface text and user-generated content as different concerns. "
+"With your team, we clarify languages, context, terminology, review "
+"responsibilities, and the systems that already hold or translate the content."
+msgstr ""
+"Wir betrachten Oberflächentexte und nutzergenerierte Inhalte als "
+"unterschiedliche Aufgaben. Mit Ihrem Team klären wir Sprachen, Kontext, "
+"Terminologie, Zuständigkeiten für Reviews und die Systeme, die Inhalte "
+"bereits speichern oder übersetzen."
+
+#: app/data/services.ts#modernizationService
+msgid ""
+"We plan around ongoing delivery rather than assuming it can stop. The "
+"migration path needs explicit compatibility boundaries and release checks; "
+"which changes can safely run in parallel depends on the application."
+msgstr ""
+"Wir planen mit der laufenden Auslieferung, statt ihren Stillstand "
+"vorauszusetzen. Der Migrationspfad braucht klare Kompatibilitätsgrenzen und "
+"Release-Prüfungen. Welche Änderungen sicher parallel möglich sind, hängt "
+"von der Anwendung ab."
+
+#: app/data/services.ts#modernizationService
+msgid ""
+"We review a representative change path with your team: the code it touches, "
+"the dependencies it relies on, and the checks that make a release credible. "
+"Product constraints determine where modernization should begin."
+msgstr ""
+"Wir betrachten mit Ihrem Team eine typische Änderung: den betroffenen Code, "
+"seine Abhängigkeiten und die Prüfungen, die eine verlässliche Auslieferung "
+"ermöglichen. Die Anforderungen des Produkts bestimmen, wo die Modernisierung "
+"beginnt."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid ""
 "We use the following processors pursuant to Art. 28 GDPR, with each of whom a "
@@ -3634,6 +4268,16 @@ msgstr ""
 "Wir setzen die folgenden Auftragsverarbeiter gemäß Art. 28 DSGVO ein, mit "
 "denen jeweils ein Auftragsverarbeitungsvertrag besteht:"
 
+#: app/data/services.ts#modernizationService
+msgid ""
+"We work in the code alongside your team through implementation, reviews, and "
+"pairing. We connect changes to testing and delivery, and leave the reasoning "
+"where the next maintainer can find it."
+msgstr ""
+"Wir arbeiten mit Ihrem Team im Code: durch Umsetzung, Reviews und Pairing. Wir"
+" verbinden die Änderungen mit Tests und Auslieferung und halten die Gründe "
+"dort fest, wo die nächsten Verantwortlichen sie finden."
+
 #: app/routes/services.tsx#getServices
 msgid ""
 "We work in the code with the people maintaining it. Decisions become working "
@@ -3641,6 +4285,16 @@ msgid ""
 msgstr ""
 "Wir arbeiten im Code mit den Menschen, die ihn pflegen. Aus Entscheidungen "
 "wird funktionierende Software, und die Begründungen bleiben bei Ihrem Team."
+
+#: app/data/services.ts#internationalizationService
+msgid ""
+"We work in the existing application and its delivery process. Pairing, code "
+"reviews, and documentation help the team understand the conventions and "
+"maintain language support after the initial work."
+msgstr ""
+"Wir arbeiten in der bestehenden Anwendung und ihrem Auslieferungsprozess. "
+"Pairing, Code-Reviews und Dokumentation helfen dem Team, die Konventionen zu "
+"verstehen und die Sprachunterstützung nach der Einführung weiterzupflegen."
 
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Web analytics with Rybbit"
@@ -3658,6 +4312,24 @@ msgstr "Weiden in der Oberpfalz, Deutschland"
 msgid "Werner's project history"
 msgstr "Werners Projekthistorie"
 
+#: app/data/services.ts#modernizationService
+msgid ""
+"Werner's project history includes evolving investment platforms and shared "
+"frontend foundations. The individual project accounts distinguish his "
+"contribution from the wider team's delivery."
+msgstr ""
+"Werners Projekthistorie umfasst die Weiterentwicklung von "
+"Investmentplattformen und gemeinsamen Frontend-Grundlagen. Die einzelnen "
+"Berichte unterscheiden seinen Beitrag von der Arbeit des gesamten Teams."
+
+#: app/data/services.ts#modernizationService
+msgid "What do we discuss first?"
+msgstr "Was besprechen wir zuerst?"
+
+#: app/data/services.ts#architectureService
+msgid "What do we need from your team?"
+msgstr "Was brauchen wir von Ihrem Team?"
+
 #: app/components/Closing.tsx#Closing
 msgid "What needs to become clearer?"
 msgstr "Was soll klarer werden?"
@@ -3665,6 +4337,10 @@ msgstr "Was soll klarer werden?"
 #: app/components/ReferenceHighlights.tsx#ReferenceHighlights
 msgid "What people say about working with us."
 msgstr "Wie andere die Zusammenarbeit erleben."
+
+#: app/components/ServicePage.tsx#ServicePage
+msgid "What you take away"
+msgstr "Was Sie mitnehmen"
 
 #: app/routes/services.tsx#getServices
 msgid ""
@@ -3698,6 +4374,10 @@ msgstr ""
 #~ "die Frage, woher diese Kopplung kommt. Wir gehen dem gemeinsam mit Ihrem Team "
 #~ "nach, bevor ein neues Framework gewählt oder eine Neuentwicklung beschlossen "
 #~ "wird."
+
+#: app/components/ServicePage.tsx#ServicePage
+msgid "When this helps"
+msgstr "Wann das hilft"
 
 #: ../../packages/legal/src/PrivacyDocument.tsx#EmailContactSection
 msgid ""
@@ -3783,6 +4463,10 @@ msgstr ""
 msgid "Work Model"
 msgstr "Zusammenarbeit"
 
+#: app/components/ServiceLinks.tsx#ServiceLinks
+msgid "Work with us"
+msgstr "Mit uns arbeiten"
+
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid ""
 "You have the right to lodge a complaint with a data protection supervisory "
@@ -3792,6 +4476,14 @@ msgstr ""
 "Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die "
 "Verarbeitung Ihrer personenbezogenen Daten zu beschweren. Die für uns "
 "zuständige Aufsichtsbehörde ist:"
+
+#: app/data/services.ts#architectureService
+msgid ""
+"You need to decide between improving the existing system and replacing part of"
+" it."
+msgstr ""
+"Sie müssen entscheiden, ob Sie das bestehende System verbessern oder einen "
+"Teil davon ersetzen."
 
 #: app/components/Founders.tsx#Founders
 msgid ""
@@ -3816,3 +4508,11 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid "Your Rights"
 msgstr "Ihre Rechte"
+
+#: app/data/services.ts#modernizationService
+msgid ""
+"Your team needs hands-on support to move from an architectural recommendation "
+"to working code."
+msgstr ""
+"Ihr Team braucht praktische Unterstützung, um aus einer Architekturempfehlung"
+" funktionierenden Code zu machen."

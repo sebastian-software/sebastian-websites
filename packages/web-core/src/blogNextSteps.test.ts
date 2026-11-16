@@ -4,16 +4,16 @@ import { isNextStep, NEXT_STEPS, type NextStep, nextStepHref } from "./blogNextS
 
 const EXPECTED: Readonly<Record<NextStep, Readonly<Record<"de" | "en", string | undefined>>>> = {
   "consulting-architecture": {
-    de: "https://sebastian-consulting.de/services#architecture",
-    en: "https://sebastian-consulting.com/services#architecture",
+    de: "https://sebastian-consulting.de/services/architecture-review",
+    en: "https://sebastian-consulting.com/services/architecture-review",
   },
   "consulting-enablement": {
     de: "https://sebastian-consulting.de/services#enablement",
     en: "https://sebastian-consulting.com/services#enablement",
   },
   "consulting-internationalization": {
-    de: "https://sebastian-consulting.de/services#internationalization",
-    en: "https://sebastian-consulting.com/services#internationalization",
+    de: "https://sebastian-consulting.de/services/internationalization",
+    en: "https://sebastian-consulting.com/services/internationalization",
   },
   contact: { de: "/contact", en: "/contact" },
   "ferramenta-docs": { de: "https://ferramenta.dev", en: "https://ferramenta.dev" },

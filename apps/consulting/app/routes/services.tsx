@@ -10,6 +10,7 @@ import type { ServiceKind } from "~/components/ServiceIllustration"
 
 import { CompanyBand } from "~/components/CompanyBand"
 import { ServiceIllustration } from "~/components/ServiceIllustration"
+import { SERVICE_PATHS } from "~/data/services"
 import { variant } from "~/lib/site"
 
 import * as page from "./contentPage.css.ts"
@@ -28,8 +29,10 @@ export function meta(): ArdoMetaDescriptor[] {
 
 type Service = {
   readonly example: string
+  readonly href: string
   readonly id: ServiceKind
   readonly items: readonly string[]
+  readonly linkLabel: string
   readonly projectHref: string
   readonly text: string
   readonly title: string
@@ -40,36 +43,42 @@ function getServices(): readonly Service[] {
   return [
     {
       example: t`EnBW: 21 months building white-label customer portals and reusable components. DWS: three years taking an international investment platform from prototype to production.`,
+      href: SERVICE_PATHS.architecture,
       id: "architecture",
       items: [
         t`Codebase and dependency review`,
         t`Prioritized modernization plan`,
         t`Implementation alongside your team`,
       ],
+      linkLabel: t`Explore architecture reviews`,
       projectHref: "/werner",
       text: t`When a small change touches too much code, we find the coupling and work out the next useful step with your team.`,
       title: t`Architecture that leaves room for change.`,
     },
     {
       example: t`Regrello: a year of interface internationalization and AI translation of user-generated content, including quality evaluation, reliable processing, and operational tooling.`,
+      href: SERVICE_PATHS.internationalization,
       id: "internationalization",
       items: [
         t`Catalogs, terminology, and review workflows`,
         t`Translation pipelines for user content`,
         t`API, build, and release integration`,
       ],
+      linkLabel: t`Explore internationalization consulting`,
       projectHref: "/fastner",
       text: t`Make language support part of the product, from the interface to the content people create and share.`,
       title: t`A product that works across languages.`,
     },
     {
       example: t`Witt: 18 months rebuilding the foundations of 17 online shops. DWS/MorgenFund: several years evolving an international investment platform and its delivery workflows.`,
+      href: SERVICE_PATHS.modernization,
       id: "enablement",
       items: [
         t`React, TypeScript, and backend development`,
         t`Pairing, code reviews, and workshops`,
         t`Testing and delivery workflows`,
       ],
+      linkLabel: t`Explore React and TypeScript modernization`,
       projectHref: "/team",
       text: t`We work in the code with the people maintaining it. Decisions become working software, and the reasoning stays with your team.`,
       title: t`Engineering that moves the team forward.`,
@@ -127,6 +136,9 @@ export default function ServicesPage(): ReactElement {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              <p>
+                <ArrowLink href={service.href}>{service.linkLabel}</ArrowLink>
+              </p>
             </div>
             <div className={styles.visual}>
               <ServiceIllustration kind={service.id} />

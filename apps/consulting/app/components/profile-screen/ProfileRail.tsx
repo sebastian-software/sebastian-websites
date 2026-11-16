@@ -8,6 +8,7 @@ import type { Locale } from "~/lib/i18n"
 import type { ProfileDocumentDescriptor, ProfilePdfDescriptor } from "~/lib/untranslated"
 
 import { ButtonLink } from "~/components/profile-screen/ButtonLink"
+import { ServiceLinks } from "~/components/ServiceLinks"
 import { trackBookingClick, trackProfilePdfDownload, trackProfilePrint } from "~/lib/analytics"
 import { appBuildDate } from "~/lib/buildInfo"
 import { REL_EXTERNAL, unlocalized } from "~/lib/untranslated"
@@ -122,6 +123,7 @@ export function ProfileRail({
       )}
 
       <PdfActions consultant={consultant} lang={lang} pdf={pdf} />
+      <ServiceLinks />
 
       {projectProfile === undefined ? null : (
         <div className={styles.railModule}>
