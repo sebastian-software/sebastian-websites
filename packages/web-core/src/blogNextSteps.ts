@@ -24,13 +24,12 @@ type NextStepTarget =
   | { readonly fragment?: string; readonly path: string; readonly site: SiteId }
   | { readonly href: string }
 
-/** Each step's destination; Consulting offers are the sections of its services page. */
+/** Each step's destination; focused Consulting offers have their own pages. */
 const NEXT_STEP_TARGETS: Readonly<Record<Exclude<NextStep, "none">, NextStepTarget>> = {
-  "consulting-architecture": { fragment: "architecture", path: "/services", site: "consulting" },
+  "consulting-architecture": { path: "/services/architecture-review", site: "consulting" },
   "consulting-enablement": { fragment: "enablement", path: "/services", site: "consulting" },
   "consulting-internationalization": {
-    fragment: "internationalization",
-    path: "/services",
+    path: "/services/internationalization",
     site: "consulting",
   },
   contact: { path: "/contact", site: "software" },

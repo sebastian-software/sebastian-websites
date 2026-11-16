@@ -7,6 +7,7 @@ import type { Locale } from "~/lib/i18n"
 import type { ProfileDocumentDescriptor } from "~/lib/untranslated"
 
 import { ButtonLink } from "~/components/profile-screen/ButtonLink"
+import { ServiceLinks } from "~/components/ServiceLinks"
 import { trackBookingClick, trackProfilePdfDownload } from "~/lib/analytics"
 import { appBuildDate } from "~/lib/buildInfo"
 import { REL_EXTERNAL, unlocalized } from "~/lib/untranslated"
@@ -82,6 +83,7 @@ export function ProjectProfileRail({
           </ButtonLink>
         </div>
       )}
+      <ServiceLinks />
     </aside>
   )
 }

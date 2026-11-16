@@ -3,6 +3,8 @@ import type { ReactElement } from "ardo/react"
 import { t } from "@palamedes/core/macro"
 import { ArrowLink } from "@sebastian-websites/ui"
 
+import { SERVICE_PATHS } from "~/data/services"
+
 import * as styles from "./Services.css.ts"
 
 /**
@@ -14,14 +16,20 @@ import * as styles from "./Services.css.ts"
 export function Services(): ReactElement {
   const services = [
     {
+      href: SERVICE_PATHS.architecture,
+      label: t`Explore architecture reviews`,
       text: t`When a web application has become hard to change, we review the architecture with your team, make tradeoffs visible, and help implement the next step in React and TypeScript. You get a target picture, a reasoned decision, and a migration path the team can carry.`,
       title: t`Make the next change easier.`,
     },
     {
+      href: SERVICE_PATHS.internationalization,
+      label: t`Explore internationalization consulting`,
       text: t`We help turn internationalization into a maintainable product capability, from code and catalogs to context, translation workflows, and delivery, so new languages stop being a project of their own.`,
       title: t`Bring the product into more languages.`,
     },
     {
+      href: SERVICE_PATHS.modernization,
+      label: t`Explore React and TypeScript modernization`,
       text: t`Pairing, reviews, and practical standards help teams build shared judgment, including clear guardrails for AI-assisted delivery. Knowledge, tools, and standards stay when we leave.`,
       title: t`Leave the team stronger.`,
     },
@@ -36,6 +44,9 @@ export function Services(): ReactElement {
           <li className={styles.item} key={service.title}>
             <h3 className={styles.title}>{service.title}</h3>
             <p className={styles.text}>{service.text}</p>
+            <p>
+              <ArrowLink href={service.href}>{service.label}</ArrowLink>
+            </p>
           </li>
         ))}
       </ul>

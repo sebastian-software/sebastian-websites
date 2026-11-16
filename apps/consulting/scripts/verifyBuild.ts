@@ -3,6 +3,7 @@ import { resolve } from "node:path"
 import { pathToFileURL } from "node:url"
 
 import { verifyWernerProfileContent } from "./verify-profile-content"
+import { verifyServicePages } from "./verify-service-pages"
 import { verifyProfileDownloadNames, verifyVariantProfileArtifacts } from "./verifyProfileArtifacts"
 
 /**
@@ -20,6 +21,7 @@ export async function verifyBuild(variantId: string): Promise<void> {
   await verifyVariantProfileArtifacts(output, locale)
   await verifyProfileDownloadNames(output, locale)
   await verifyWernerProfileContent(output, locale)
+  await verifyServicePages(output, locale)
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {
