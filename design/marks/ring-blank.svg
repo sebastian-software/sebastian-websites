@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="">
+  <clipPath id="window"><circle cx="120" cy="120" r="97"/></clipPath>
+  <g clip-path="url(#window)">
+    <!-- Motif: navy #0E2A4D shapes, one bronze #BC8A45 accent. Highest point at y = 38. -->
+  </g>
+  <circle cx="120" cy="120" r="112" fill="none" stroke="#BC8A45" stroke-width="10"/>
+</svg>
