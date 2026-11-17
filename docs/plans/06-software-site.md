@@ -49,7 +49,8 @@ In scope:
 - Redirects: the alias domains, `/consulting` to the Consulting site in the matching
   language, `/mission` to the company page, `/privacy-policy` to `/privacy`, `/team` to the Consulting
   team page,
-  `/testimonials` and `/testimonial/*` to 410 until the Consulting references exist.
+  `/testimonials` to the Consulting references in the matching language. Known preserved
+  recommendations redirect to their anchors; unmatched `/testimonial/*` paths remain 410.
 - Bunny targets `sebastian-websites-software-de` and `sebastian-websites-software-en`, the canonical domains attached, TLS, and the
   DNS move for the two canonical domains and the aliases.
 

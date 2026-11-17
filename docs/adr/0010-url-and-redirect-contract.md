@@ -29,8 +29,9 @@ Consulting profiles. Removing one of them needs its own decision.
 Legacy paths of the old Software site: `/consulting` redirects to the Consulting site in the
 matching language, `/fastner` and `/werner` to the Consulting profiles, `/team` to the
 Consulting team page, `/mission` to the new company page, `/privacy-policy` to `/privacy`;
-`/testimonials` redirects to the Consulting references once they exist and answers 410 until
-then. The old Consulting path `/fastner/projektprofil` becomes `/fastner/project-profile` with
+`/testimonials` redirects directly to `/references` on the matching-language Consulting
+domain. Captured detail URLs whose complete recommendation is still published redirect to
+its stable recommendation anchor; unmatched details continue to answer 410. The old Consulting path `/fastner/projektprofil` becomes `/fastner/project-profile` with
 a redirect. Old PDF file names that only redirected to current ones are not carried over, and
 the fixed-price offer PDFs answer 410.
 

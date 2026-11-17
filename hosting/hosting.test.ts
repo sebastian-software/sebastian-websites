@@ -557,9 +557,9 @@ const LEGACY_CASES: readonly LegacyCase[] = [
   },
   {
     host: "sebastian-software.com",
-    location: null,
+    location: "https://sebastian-consulting.com/references",
     path: "/testimonials",
-    status: GONE,
+    status: MOVED_PERMANENTLY,
     zone: SOFTWARE_EN,
   },
   {

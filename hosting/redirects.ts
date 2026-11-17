@@ -63,6 +63,25 @@ const CONSULTING_LOCALE_RULES: readonly PathRule[] = LOCALES.flatMap((locale) =>
   }))
 )
 
+// Captured detail URLs with the same author, consultant, and recommendation.
+// Nine preserve the English wording; four now show the received original instead
+// of the old edited translation. Other statements retain the 410 wildcard.
+const TESTIMONIAL_DESTINATIONS = {
+  "alex-fechner-.-sebastian-werner~2dcac85d": "alex-fechner",
+  "artur-koenig-.-sebastian-werner~9002a691": "artur-konig",
+  "cesare-cesari-.-sebastian-werner~41c06390": "cesare-cesari",
+  "chris-lewis-.-sebastian-werner~c462a069": "chris-lewis",
+  "damian-osipiuk-.-sebastian-werner~cbd21c94": "damian-osipiuk",
+  "emanuele-de-monte-.-sebastian-werner~4b102b56": "emanuele-de-monte",
+  "florian-eibeck-.-sebastian-werner~6ddae6ef": "florian-eibeck",
+  "igor-ilic-.-sebastian-werner~1af97089": "igor-ilic",
+  "kai-santanius-.-sebastian-werner~397f3ba8": "kai-s",
+  "patrick-schouler-.-sebastian-werner~90f4aea9": "patric-schouler",
+  "paul-bakaus-.-sebastian-werner~d968c32d": "paul-bakaus",
+  "rouven-haban-.-sebastian-werner~1a6e3d19": "rouven-haban",
+  "tobias-arweiler-.-sebastian-werner~8352c64b": "tobias-arweiler",
+} as const
+
 /** The legacy rules of every site. */
 export const PATH_RULES: Readonly<Record<SiteId, readonly PathRule[]>> = {
   "app-tracking": [],
@@ -95,8 +114,17 @@ export const PATH_RULES: Readonly<Record<SiteId, readonly PathRule[]>> = {
       id: "SW-PRIVACY",
       path: "/privacy-policy",
     },
-    // Testimonials return as Consulting references (#26); until then they are gone.
-    { gone: true, id: "SW-TESTIMONIALS", path: "/testimonials" },
+    // Only known recommendations with a meaningful current counterpart move.
+    {
+      destination: { path: "/references", site: "consulting" },
+      id: "SW-TESTIMONIALS",
+      path: "/testimonials",
+    },
+    ...Object.entries(TESTIMONIAL_DESTINATIONS).map(([slug, anchor]) => ({
+      destination: { path: `/references#recommendation-${anchor}`, site: "consulting" as const },
+      id: "SW-TESTIMONIAL-DETAIL",
+      path: `/testimonial/${slug}`,
+    })),
     { gone: true, id: "SW-TESTIMONIALS", path: "/testimonial/*" },
   ],
 }
