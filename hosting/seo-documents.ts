@@ -149,9 +149,30 @@ function assertOpenGraph(
   }
 }
 
+function assertPageCopy(document: Document, path: string): void {
+  const titles = [...document.head.querySelectorAll("title")]
+  if (titles.length !== 1 || titles[0].textContent.trim() === "") {
+    throw new Error(`SEO ${path}: expected one nonempty title`)
+  }
+  const descriptions = [...document.head.querySelectorAll("meta")].filter(
+    (meta) => meta.name.toLowerCase() === "description"
+  )
+  // Reviewed legal notices may omit promotional preview text. 404 and dark
+  // publication documents are excluded by the existing plan before this check.
+  const required = path !== "/imprint" && path !== "/privacy"
+  if (
+    descriptions.length > 1 ||
+    (required && descriptions.length !== 1) ||
+    descriptions.some((meta) => meta.content.trim() === "")
+  ) {
+    throw new Error(`SEO ${path}: expected one nonempty description (optional on legal pages)`)
+  }
+}
+
 export function assertDocument(html: string, plan: SeoPlan, path: string): void {
   const { variant } = plan
   const document = parseHtml(html)
+  assertPageCopy(document, path)
   const canonical = `${variant.canonicalOrigin}${path}`
   const links = [...document.head.querySelectorAll("link")]
   const canonicals = links.filter((link) => hasRel(link, "canonical"))

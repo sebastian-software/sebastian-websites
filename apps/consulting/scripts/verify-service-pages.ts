@@ -23,6 +23,23 @@ const SERVICES = [
   },
 ] as const
 
+const PROFILE_DESCRIPTIONS = {
+  de: { fastner: "Fullstack-Entwicklung", werner: "Frontend-Architektur" },
+  en: { fastner: "Full-stack development", werner: "Frontend architecture" },
+} as const
+
+async function assertProfileMetadata(
+  page: Page,
+  locale: "de" | "en",
+  profile: "fastner" | "werner"
+): Promise<void> {
+  const description = await page.locator('meta[name="description"]').getAttribute("content")
+  assert.ok(description?.startsWith(PROFILE_DESCRIPTIONS[locale][profile]))
+  for (const selector of ['meta[property="og:description"]', 'meta[name="twitter:description"]']) {
+    assert.equal(await page.locator(selector).getAttribute("content"), description)
+  }
+}
+
 async function assertMetadata(page: Page, path: string, locale: "de" | "en"): Promise<void> {
   const origin = `https://sebastian-consulting.${locale === "de" ? "de" : "com"}`
   assert.equal(await page.locator("html").getAttribute("lang"), locale)
@@ -104,6 +121,10 @@ export async function verifyServicePages(output: string, locale: "de" | "en"): P
     }
     for (const route of ["services", "werner", "fastner", "fastner/project-profile"]) {
       const html = await readFile(resolve(output, route, "index.html"), "utf8")
+      if (route === "fastner" || route === "werner") {
+        await page.setContent(html, { waitUntil: "domcontentloaded" })
+        await assertProfileMetadata(page, locale, route)
+      }
       for (const service of SERVICES) {
         assert.ok(
           html.includes(`href="${service.path}"`),

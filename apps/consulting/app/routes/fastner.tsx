@@ -8,6 +8,7 @@ import { getConsultant, getProjects, skills } from "~/data/fastner.data"
 import { activeLocale } from "~/lib/i18n"
 import { createSeoMetadata } from "~/lib/meta"
 import { PROFILE_PHOTOS } from "~/lib/photos"
+import { profileDescriptions } from "~/lib/profileMeta"
 import { variant } from "~/lib/site"
 import {
   ADDRESS,
@@ -15,7 +16,6 @@ import {
   EXTERNAL_URLS,
   getProfileDocument,
   META,
-  META_DESCRIPTIONS,
   PAGE_TITLES,
   SCHEMA,
   TEAM,
@@ -29,7 +29,7 @@ import {
 // eslint-disable-next-line react-refresh/only-export-components -- Ardo reads route metadata
 export function meta(): ArdoMetaDescriptor[] {
   const title = PAGE_TITLES.fastner
-  const description = META_DESCRIPTIONS.fastner
+  const description = profileDescriptions().fastner
 
   return pageMeta(
     variant,

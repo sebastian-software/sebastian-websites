@@ -8,16 +8,9 @@ import { getConsultant, skills } from "~/data/werner.data"
 import { activeLocale } from "~/lib/i18n"
 import { createSeoMetadata } from "~/lib/meta"
 import { PROFILE_PHOTOS } from "~/lib/photos"
+import { profileDescriptions } from "~/lib/profileMeta"
 import { variant } from "~/lib/site"
-import {
-  ADDRESS,
-  COMPANY_BRAND,
-  META,
-  META_DESCRIPTIONS,
-  PAGE_TITLES,
-  SCHEMA,
-  TEAM,
-} from "~/lib/untranslated"
+import { ADDRESS, COMPANY_BRAND, META, PAGE_TITLES, SCHEMA, TEAM } from "~/lib/untranslated"
 
 // =============================================================================
 // Meta
@@ -26,7 +19,7 @@ import {
 // eslint-disable-next-line react-refresh/only-export-components -- Ardo reads route metadata
 export function meta(): ArdoMetaDescriptor[] {
   const title = PAGE_TITLES.werner
-  const description = META_DESCRIPTIONS.werner
+  const description = profileDescriptions().werner
 
   return pageMeta(
     variant,
