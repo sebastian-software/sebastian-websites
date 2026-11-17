@@ -210,8 +210,8 @@ export const PROFILE_PDFS: Record<
 
 export const EXTERNAL_URLS = {
   companyWebsite: "https://sebastian-software.de",
-  githubFastner: "https://github.com/sebastianfastner",
-  githubWerner: "https://github.com/sebastianwerner",
+  githubFastner: "https://github.com/fastner",
+  githubWerner: "https://github.com/swernerx",
   linkedinFastner: "https://linkedin.com/in/sebastianfastner",
   linkedinWerner: "https://www.linkedin.com/in/swernerx/",
   mastodonFastner: "https://mainz.social/@sf",

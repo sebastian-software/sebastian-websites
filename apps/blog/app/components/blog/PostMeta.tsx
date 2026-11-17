@@ -41,7 +41,13 @@ export function PostMeta({ post }: { readonly post: Post }): ReactElement {
           const founder = getFounder(author.id)
           return (
             <li className={styles.author} key={author.id ?? author.name}>
-              <span className={styles.authorName}>{founder?.name ?? author.name}</span>
+              {founder === undefined ? (
+                <span className={styles.authorName}>{author.name}</span>
+              ) : (
+                <a className={styles.authorLink} href={founder.profileUrl} rel="author">
+                  {founder.name}
+                </a>
+              )}
               {founder === undefined ? null : (
                 <span className={styles.authorRole}>{founder.role}</span>
               )}

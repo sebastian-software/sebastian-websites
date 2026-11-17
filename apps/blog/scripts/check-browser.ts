@@ -25,6 +25,7 @@ import path from "node:path"
 import { fileURLToPath } from "node:url"
 import { type Browser, type BrowserContext, chromium, type Page } from "playwright"
 
+import { checkArticleIdentity } from "./check-article-identity.ts"
 import { type BlogCoverage, checkBlogPage, isBlogPath } from "./check-blog-pages.ts"
 
 const app = fileURLToPath(new URL("..", import.meta.url))
@@ -368,7 +369,11 @@ async function sitemapPages(context: BrowserContext, server: string): Promise<st
   assert.equal(response.status(), OK)
   return sitemapPaths(await response.text())
 }
-async function checkStaticFallback(browser: Browser, current: Fixture): Promise<void> {
+async function checkStaticFallback(
+  browser: Browser,
+  current: Fixture,
+  locale: Locale
+): Promise<void> {
   // Ardo scrolls smoothly unless reduced motion is preferred; an animated scroll can leave the
   // link outside the viewport when Playwright clicks it on a slow runner.
   const noScript = await browser.newContext({ javaScriptEnabled: false, reducedMotion: "reduce" })
@@ -378,6 +383,10 @@ async function checkStaticFallback(browser: Browser, current: Fixture): Promise<
     assert.equal(await staticPage.locator("h1").count(), 1)
     await staticPage.locator(IMPRINT_LINK).click()
     assert.ok(staticPage.url().endsWith("/imprint"))
+    if (fixtures) {
+      await staticPage.goto(`${current.origin}/posts/pair`)
+      await checkArticleIdentity(staticPage, locale)
+    }
   } finally {
     await noScript.close()
   }
@@ -508,7 +517,7 @@ async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
     await checkNotFound(page, { current, variant })
     await checkResources(context, current)
     assert.deepEqual(errors, [], `${variant}: browser errors`)
-    await checkStaticFallback(browser, current)
+    await checkStaticFallback(browser, current, locale)
     await checkCatalogRecovery(browser, current, locale)
     console.log(
       `${variant}: all routes, SEO, layout, hydration, native navigation, 404 and static fallback passed`

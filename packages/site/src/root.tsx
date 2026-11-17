@@ -10,6 +10,7 @@ import {
   PageError,
   SiteFooter,
   SiteHeader,
+  SiteIdentity,
 } from "@sebastian-websites/ui"
 import { createPageErrorCopy } from "@sebastian-websites/ui/error-copy"
 import { createFrameCopy } from "@sebastian-websites/ui/frame-copy"
@@ -93,6 +94,7 @@ export function createSiteRoot({
     const copy = createFrameCopy(year)
     return (
       <>
+        <SiteIdentity variant={variant} />
         <SiteHeader copy={copy} frame={frame} />
         <ArdoOutlet />
         {ending === "footer" ? (

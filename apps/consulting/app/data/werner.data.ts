@@ -1,4 +1,5 @@
 import { t } from "@palamedes/core/macro"
+import { PEOPLE } from "@sebastian-websites/web-core"
 
 import type { Consultant, Project, Skills } from "./types"
 
@@ -54,7 +55,7 @@ export function getConsultant(): Consultant {
     name: "Sebastian Werner",
     phone: "+49 151 22631309",
     profiles: {
-      github: "https://github.com/sebastian-software",
+      github: PEOPLE.werner.github,
       linkedin: "https://www.linkedin.com/in/swernerx/",
     },
     title: t`Principal Technology Consultant`,

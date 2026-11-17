@@ -3,6 +3,7 @@ import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 import { t } from "@palamedes/core/macro"
 import { pageMeta } from "@sebastian-websites/site/meta"
+import { jsonLd, personIdentity } from "@sebastian-websites/web-core"
 
 import { ProjectProfile } from "~/components/project-profile/ProjectProfile"
 import { getConsultant, getProjects } from "~/data/fastner.data"
@@ -11,14 +12,7 @@ import { activeLocale } from "~/lib/i18n"
 import { createSeoMetadata } from "~/lib/meta"
 import { PROFILE_PHOTOS } from "~/lib/photos"
 import { variant } from "~/lib/site"
-import {
-  ADDRESS,
-  COMPANY_BRAND,
-  COMPANY_NAME,
-  getProfileDocument,
-  SCHEMA,
-  TEAM,
-} from "~/lib/untranslated"
+import { ADDRESS, COMPANY_BRAND, getProfileDocument, SCHEMA, TEAM } from "~/lib/untranslated"
 
 // eslint-disable-next-line react-refresh/only-export-components -- Ardo reads route metadata
 export function meta(): ArdoMetaDescriptor[] {
@@ -41,7 +35,7 @@ export default function ProfileFastnerProject(): ReactNode {
   const consultantProfileDocument = getProfileDocument("consultant_profile", consultant.id)
   const personSchema = {
     "@context": SCHEMA.context,
-    "@type": SCHEMA.types.person,
+    ...personIdentity("fastner", activeLocale),
     address: {
       "@type": SCHEMA.types.postalAddress,
       addressCountry: ADDRESS.country,
@@ -53,19 +47,12 @@ export default function ProfileFastnerProject(): ReactNode {
     jobTitle: projectProfile.role,
     knowsAbout: projectProfile.focusSkills,
     knowsLanguage: consultant.languages,
-    name: TEAM.fastner.name,
     telephone: consultant.phone,
-    url: `${variant.canonicalOrigin}${document.route}`,
-    worksFor: {
-      "@type": SCHEMA.types.organization,
-      name: COMPANY_NAME,
-      url: variant.canonicalOrigin,
-    },
   }
 
   return (
     <>
-      <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
+      <script type="application/ld+json">{jsonLd(personSchema)}</script>
       <ProjectProfile
         consultantProfileUrl={`${variant.canonicalOrigin}${consultantProfileDocument.route}`}
         data={projectProfile}
