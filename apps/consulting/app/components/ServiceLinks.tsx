@@ -46,6 +46,11 @@ export function ServiceLinks({ consultant }: { readonly consultant: string }): R
             <a className={styles.railHomeLink} href="/case-studies/enbw">{t`EnBW case study`}</a>
           </li>
         ) : null}
+        {consultant === "fastner" ? (
+          <li>
+            <a className={styles.railHomeLink} href="/case-studies/witt">{t`Witt case study`}</a>
+          </li>
+        ) : null}
       </ul>
     </div>
   )

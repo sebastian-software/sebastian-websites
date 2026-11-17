@@ -170,6 +170,18 @@ msgstr "A drawn road winding through a valley toward the mountains."
 #~ "technical skill, he elevates everyone around him—thoughtful, collaborative, "
 #~ "and genuinely a pleasure to have on a team."
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"A multi-brand commerce business needed a frontend foundation for shops across "
+"international markets. I led the frontend rebuild for the Witt Group within "
+"the Otto Group, connecting shared application code, reusable content, and "
+"backend services."
+msgstr ""
+"A multi-brand commerce business needed a frontend foundation for shops across "
+"international markets. I led the frontend rebuild for the Witt Group within "
+"the Otto Group, connecting shared application code, reusable content, and "
+"backend services."
+
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
 "A one-off on-site assignment in the US demonstrates willingness to travel "
@@ -217,6 +229,18 @@ msgid ""
 msgstr ""
 "A rocky ridge path at dusk leading toward a cairn on an overlook above layered"
 " hills."
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"A shared application foundation and reusable content addressed different parts"
+" of the multi-brand problem. Application code could provide common frontend "
+"behavior, while Contentful held content that could be reused across the shop "
+"context."
+msgstr ""
+"A shared application foundation and reusable content addressed different parts"
+" of the multi-brand problem. Application code could provide common frontend "
+"behavior, while Contentful held content that could be reused across the shop "
+"context."
 
 #: app/data/recommendations.ts#getRecommendations
 msgid "A shared focus on users"
@@ -393,6 +417,12 @@ msgid ""
 msgstr ""
 "Approximate geographic location (country level, derived from the IP address, "
 "which itself is not stored)"
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"April 2019–September 2020 · Sebastian Fastner · Senior Frontend Architect"
+msgstr ""
+"April 2019–September 2020 · Sebastian Fastner · Senior Frontend Architect"
 
 #: app/routes/services.tsx
 msgid "Architecture"
@@ -958,6 +988,18 @@ msgstr "Contact"
 msgid "Contact via Email"
 msgstr "Contact via Email"
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"Contentful supplied reusable content and control over SEO-related pages. I "
+"also built automated test infrastructure, including GraphQL query tests for "
+"the release process. AWS, Kubernetes, and Vault were part of the published "
+"deployment stack."
+msgstr ""
+"Contentful supplied reusable content and control over SEO-related pages. I "
+"also built automated test infrastructure, including GraphQL query tests for "
+"the release process. AWS, Kubernetes, and Vault were part of the published "
+"deployment stack."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid "Controller"
 msgstr "Controller"
@@ -991,6 +1033,10 @@ msgstr "Darmstadt, Germany"
 #: app/components/project-profile/ProjectProfile.tsx#CareerPage
 msgid "Degree"
 msgstr "Degree"
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Delivered capabilities"
+msgstr "Delivered capabilities"
 
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
@@ -1317,9 +1363,10 @@ msgstr "Explore our services"
 msgid "Explore React and TypeScript modernization"
 msgstr "Explore React and TypeScript modernization"
 
-#: app/data/services.ts#modernizationService
-msgid "Explore the commerce project experience"
-msgstr "Explore the commerce project experience"
+#~ #@ obsolete-since: 2026-11-17
+#~ #: app/data/services.ts#modernizationService
+#~ msgid "Explore the commerce project experience"
+#~ msgstr "Explore the commerce project experience"
 
 #: app/routes/services.tsx
 msgid "Explore the project experience"
@@ -1333,7 +1380,12 @@ msgstr "Explore Werner's project history"
 msgid "External Links"
 msgstr "External Links"
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Fastner's compact project profile"
+msgstr "Fastner's compact project profile"
+
 #: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+#: app/data/case-studies/witt.ts#getWittCaseStudy
 msgid "Fastner's full consultant profile"
 msgstr "Fastner's full consultant profile"
 
@@ -1816,6 +1868,18 @@ msgstr ""
 "their own weight. Code that the next team can understand too. And an honest "
 "assessment of when a new tool adds real value – and when it merely adds "
 "complexity."
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"I built the Next.js, React, and TypeScript frontend and an Apollo GraphQL "
+"layer. The GraphQL layer brought backend services together behind an interface"
+" the shop frontend could use. Styled Components supported the frontend "
+"implementation."
+msgstr ""
+"I built the Next.js, React, and TypeScript frontend and an Apollo GraphQL "
+"layer. The GraphQL layer brought backend services together behind an interface"
+" the shop frontend could use. Styled Components supported the frontend "
+"implementation."
 
 #: app/data/case-studies/enbw.ts#getEnbwCaseStudy
 msgid ""
@@ -2881,6 +2945,7 @@ msgid "Public sources and profiles"
 msgstr "Public sources and profiles"
 
 #: app/components/ServiceLinks.tsx#ServiceLinks
+#: app/data/case-studies/witt.ts#getWittCaseStudy
 #: app/data/services.ts#modernizationService
 msgid "React and TypeScript modernization"
 msgstr "React and TypeScript modernization"
@@ -2916,6 +2981,10 @@ msgstr "Read the Regrello case study"
 #~ #: app/data/services.ts#internationalizationService
 #~ msgid "Read the Regrello recommendation"
 #~ msgstr "Read the Regrello recommendation"
+
+#: app/data/services.ts#modernizationService
+msgid "Read the Witt case study"
+msgstr "Read the Witt case study"
 
 #~ #@ obsolete-since: 2026-11-17
 #~ #: app/data/services.ts#architectureService
@@ -3193,6 +3262,10 @@ msgstr ""
 #~ "unnecessary friction. I was particularly impressed by his user-centric "
 #~ "mindset."
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Sebastian Fastner · My contribution"
+msgstr "Sebastian Fastner · My contribution"
+
 #: app/routes/index.tsx
 msgid ""
 "Sebastian Fastner and Sebastian Werner in conversation at a table with coffee"
@@ -3206,6 +3279,16 @@ msgid ""
 msgstr ""
 "Sebastian Fastner and Sebastian Werner in conversation in front of a sandstone"
 " wall"
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"Sebastian Fastner's frontend architecture work for the Witt Group, April "
+"2019–September 2020: shared foundations for 17 multi-brand shops, "
+"Contentful, Apollo GraphQL, and release tests."
+msgstr ""
+"Sebastian Fastner's frontend architecture work for the Witt Group, April "
+"2019–September 2020: shared foundations for 17 multi-brand shops, "
+"Contentful, Apollo GraphQL, and release tests."
 
 #: app/routes/werner/summary.tsx#meta
 msgid "Sebastian Werner – Executive Summary"
@@ -3333,6 +3416,10 @@ msgstr "Share Project Profile"
 #~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
 #~ msgid "Share the reasoning"
 #~ msgstr "Share the reasoning"
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Shared code, content, and integration"
+msgstr "Shared code, content, and integration"
 
 #: app/data/case-studies/enbw.ts#getEnbwCaseStudy
 msgid ""
@@ -3606,6 +3693,16 @@ msgstr ""
 "enabled rapid development while allowing native distribution through the app "
 "stores. The user interface was optimized for mobile use on the go."
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"The Apollo GraphQL layer gave backend orchestration its own place instead of "
+"making every interface work directly with each underlying service. Query tests"
+" checked that integration as part of releases."
+msgstr ""
+"The Apollo GraphQL layer gave backend orchestration its own place instead of "
+"making every interface work directly with each underlying service. Query tests"
+" checked that integration as part of releases."
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "The business photos were taken by {photographer}."
 msgstr "The business photos were taken by {photographer}."
@@ -3618,6 +3715,18 @@ msgstr ""
 "The controller within the meaning of the General Data Protection Regulation "
 "(GDPR) and other data protection legislation is:"
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"The delivered capabilities documented in my profiles are the frontend "
+"foundation for 17 multi-brand shops, the Apollo GraphQL layer, reusable "
+"Contentful pages, and automated tests. These describe my technical "
+"contribution within the wider commerce program."
+msgstr ""
+"The delivered capabilities documented in my profiles are the frontend "
+"foundation for 17 multi-brand shops, the Apollo GraphQL layer, reusable "
+"Contentful pages, and automated tests. These describe my technical "
+"contribution within the wider commerce program."
+
 #: app/data/case-studies/enbw.ts#getEnbwCaseStudy
 msgid ""
 "The documented result is a set of shared frontend capabilities: workspace and "
@@ -3629,19 +3738,6 @@ msgstr ""
 "tooling foundations, themes, configuration, component development, and typed "
 "integration. I contributed these foundations as part of the project teams' "
 "work on the customer portals and support workbench."
-
-#~ #@ obsolete-since: 2026-11-17
-#~ #: app/data/case-studies/enbw.ts#getEnbwCaseStudy
-#~ msgid ""
-#~ "The documented result is a set of shared frontend capabilities: workspace and "
-#~ "tooling foundations, themes, configuration, component development, and typed "
-#~ "integration. My contribution formed part of the platform work; the project "
-#~ "history does not attribute the whole platform's delivery to one person."
-#~ msgstr ""
-#~ "The documented result is a set of shared frontend capabilities: workspace and "
-#~ "tooling foundations, themes, configuration, component development, and typed "
-#~ "integration. My contribution formed part of the platform work; the project "
-#~ "history does not attribute the whole platform's delivery to one person."
 
 #: app/data/case-studies/enbw.ts#getEnbwCaseStudy
 msgid ""
@@ -3729,6 +3825,16 @@ msgid ""
 msgstr ""
 "The link may be outdated, or the address may contain a typo. These pages lead "
 "on:"
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"The project combined multiple brands and international markets. The frontend "
+"had to support that scope while giving content and backend integration a "
+"shared technical foundation."
+msgstr ""
+"The project combined multiple brands and international markets. The frontend "
+"had to support that scope while giving content and backend integration a "
+"shared technical foundation."
 
 #: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
 msgid ""
@@ -3822,6 +3928,7 @@ msgstr "The sign-up did not go through. Please try again later."
 
 #: app/data/case-studies/enbw.ts#getEnbwCaseStudy
 #: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+#: app/data/case-studies/witt.ts#getWittCaseStudy
 msgid "The situation"
 msgstr "The situation"
 
@@ -3864,6 +3971,16 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
 msgid "There is no contact form – contact is made exclusively by email."
 msgstr "There is no contact form – contact is made exclusively by email."
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"This account covers my Witt Group engagement from April 2019 to September "
+"2020. I established technical foundations within this multi-brand program; the"
+" 17-shop figure describes the platform's scope."
+msgstr ""
+"This account covers my Witt Group engagement from April 2019 to September "
+"2020. I established technical foundations within this multi-brand program; the"
+" 17-shop figure describes the platform's scope."
 
 #: app/components/CaseStudy.tsx#CaseStudy
 msgid ""
@@ -4672,6 +4789,10 @@ msgstr ""
 "strict type-aware linting, GraphQL migration tooling, and targeted UI and "
 "end-to-end tests."
 
+#: app/components/ServiceLinks.tsx#ServiceLinks
+msgid "Witt case study"
+msgstr "Witt case study"
+
 #: app/routes/services.tsx#getServices
 msgid ""
 "Witt: 18 months rebuilding the foundations of 17 online shops. DWS/MorgenFund:"
@@ -4681,6 +4802,10 @@ msgstr ""
 "Witt: 18 months rebuilding the foundations of 17 online shops. DWS/MorgenFund:"
 " several years evolving an international investment platform and its delivery "
 "workflows."
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Witt: shared commerce foundations"
+msgstr "Witt: shared commerce foundations"
 
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/routes/services.tsx

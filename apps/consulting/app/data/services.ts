@@ -137,8 +137,8 @@ function modernizationService(): ServicePage {
     description: t`Modernize an existing React and TypeScript application alongside your team: review the foundations, sequence the migration, and implement changes while product work continues.`,
     evidence: [
       {
-        href: "/fastner/project-profile",
-        label: t`Explore the commerce project experience`,
+        href: "/case-studies/witt",
+        label: t`Read the Witt case study`,
         text: t`The published Witt project experience describes work on the foundations of multi-brand online shops. Fastner's compact profile explains his role, technologies, and contributions in that context.`,
       },
       {

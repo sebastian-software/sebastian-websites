@@ -176,6 +176,14 @@ msgstr ""
 #~ "er die Menschen um sich herum – aufmerksam, kooperativ und jemand, mit dem "
 #~ "man wirklich gerne im Team arbeitet."
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"A multi-brand commerce business needed a frontend foundation for shops across "
+"international markets. I led the frontend rebuild for the Witt Group within "
+"the Otto Group, connecting shared application code, reusable content, and "
+"backend services."
+msgstr "Ein Handelsunternehmen mit mehreren Marken brauchte eine Frontend-Grundlage für Shops in internationalen Märkten. Ich leitete den Frontend-Neuaufbau für die Witt-Gruppe innerhalb der Otto Group und verband gemeinsamen Anwendungscode, wiederverwendbare Inhalte und Backend-Dienste."
+
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
 "A one-off on-site assignment in the US demonstrates willingness to travel "
@@ -226,6 +234,14 @@ msgid ""
 msgstr ""
 "Ein felsiger Gratweg in der Abenddämmerung, der zu einem Steinmann auf einem "
 "Aussichtspunkt über gestaffelten Hügeln führt."
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"A shared application foundation and reusable content addressed different parts"
+" of the multi-brand problem. Application code could provide common frontend "
+"behavior, while Contentful held content that could be reused across the shop "
+"context."
+msgstr "Eine gemeinsame Anwendungsgrundlage und wiederverwendbare Inhalte lösten unterschiedliche Teile der Mehrmarken-Aufgabe. Der Anwendungscode stellte gemeinsames Frontend-Verhalten bereit; Contentful verwaltete Inhalte, die sich im Shop-Kontext wiederverwenden ließen."
 
 #: app/data/recommendations.ts#getRecommendations
 msgid "A shared focus on users"
@@ -408,6 +424,11 @@ msgid ""
 msgstr ""
 "Ungefähre geografische Zuordnung (auf Länderebene, abgeleitet aus der "
 "IP-Adresse, die selbst nicht gespeichert wird)"
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"April 2019–September 2020 · Sebastian Fastner · Senior Frontend Architect"
+msgstr "April 2019–September 2020 · Sebastian Fastner · Senior Frontend Architect"
 
 #: app/routes/services.tsx
 msgid "Architecture"
@@ -1001,6 +1022,14 @@ msgstr "Kontakt"
 msgid "Contact via Email"
 msgstr "Kontaktaufnahme per E-Mail"
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"Contentful supplied reusable content and control over SEO-related pages. I "
+"also built automated test infrastructure, including GraphQL query tests for "
+"the release process. AWS, Kubernetes, and Vault were part of the published "
+"deployment stack."
+msgstr "Contentful stellte wiederverwendbare Inhalte und die Steuerung SEO-relevanter Seiten bereit. Außerdem baute ich eine automatisierte Testinfrastruktur auf, einschließlich GraphQL-Abfragetests für den Release-Prozess. AWS, Kubernetes und Vault gehörten zum veröffentlichten Deployment-Stack."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid "Controller"
 msgstr "Verantwortlicher"
@@ -1020,7 +1049,11 @@ msgid ""
 "foundations while retaining tenant-specific features, content, communication "
 "options, and visual identity. I contributed architecture and implementation "
 "within the project teams."
-msgstr "Anwendungen für den Kunden-Selfservice und den Support brauchten gemeinsame Frontend-Grundlagen und zugleich mandantenspezifische Funktionen, Inhalte, Kommunikationsmöglichkeiten und Gestaltung. In den Projektteams trug ich zur Architektur und Implementierung bei."
+msgstr ""
+"Anwendungen für den Kunden-Selfservice und den Support brauchten gemeinsame "
+"Frontend-Grundlagen und zugleich mandantenspezifische Funktionen, Inhalte, "
+"Kommunikationsmöglichkeiten und Gestaltung. In den Projektteams trug ich zur "
+"Architektur und Implementierung bei."
 
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
@@ -1030,6 +1063,10 @@ msgstr "Darmstadt, Deutschland"
 #: app/components/project-profile/ProjectProfile.tsx#CareerPage
 msgid "Degree"
 msgstr "Abschluss"
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Delivered capabilities"
+msgstr "Umgesetzte Fähigkeiten"
 
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
@@ -1355,9 +1392,10 @@ msgstr "Unsere Leistungen im Detail"
 msgid "Explore React and TypeScript modernization"
 msgstr "Modernisierung mit React und TypeScript kennenlernen"
 
-#: app/data/services.ts#modernizationService
-msgid "Explore the commerce project experience"
-msgstr "Die Commerce-Projekterfahrung ansehen"
+#~ #@ obsolete-since: 2026-11-17
+#~ #: app/data/services.ts#modernizationService
+#~ msgid "Explore the commerce project experience"
+#~ msgstr "Die Commerce-Projekterfahrung ansehen"
 
 #: app/routes/services.tsx
 msgid "Explore the project experience"
@@ -1371,7 +1409,12 @@ msgstr "Werners Projekthistorie ansehen"
 msgid "External Links"
 msgstr "Externe Links"
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Fastner's compact project profile"
+msgstr "Fastners kompaktes Projektprofil"
+
 #: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+#: app/data/case-studies/witt.ts#getWittCaseStudy
 msgid "Fastner's full consultant profile"
 msgstr "Fastners vollständiges Beraterprofil"
 
@@ -1863,12 +1906,24 @@ msgstr ""
 "verstanden wird. Und die ehrliche Einschätzung, wann ein neues Tool echten "
 "Mehrwert bringt – und wann es nur Komplexität addiert."
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"I built the Next.js, React, and TypeScript frontend and an Apollo GraphQL "
+"layer. The GraphQL layer brought backend services together behind an interface"
+" the shop frontend could use. Styled Components supported the frontend "
+"implementation."
+msgstr "Ich entwickelte das Frontend mit Next.js, React und TypeScript sowie eine Apollo-GraphQL-Schicht. Die GraphQL-Schicht führte Backend-Dienste hinter einer Schnittstelle zusammen, die das Shop-Frontend nutzen konnte. Styled Components unterstützte die Frontend-Implementierung."
+
 #: app/data/case-studies/enbw.ts#getEnbwCaseStudy
 msgid ""
 "I built the PNPM/Turborepo workspace, shared theme and configuration packages,"
 " Storybook foundations, typed API integration, and reusable data-access "
 "utilities. These were frontend foundations used within the wider team effort."
-msgstr "Ich baute den PNPM-/Turborepo-Workspace, gemeinsame Theme- und Konfigurationspakete, Storybook-Grundlagen, typisierte API-Anbindungen und wiederverwendbare Datenzugriffswerkzeuge auf. Diese Frontend-Grundlagen waren Teil der gemeinsamen Projektarbeit."
+msgstr ""
+"Ich baute den PNPM-/Turborepo-Workspace, gemeinsame Theme- und "
+"Konfigurationspakete, Storybook-Grundlagen, typisierte API-Anbindungen und "
+"wiederverwendbare Datenzugriffswerkzeuge auf. Diese Frontend-Grundlagen waren "
+"Teil der gemeinsamen Projektarbeit."
 
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid ""
@@ -1975,7 +2030,12 @@ msgid ""
 "API-independent presentation layouts. The architecture used headless UI "
 "primitives and typed style and asset themes. The application layer could "
 "compose those pieces for its own tenant and workflow."
-msgstr "Ich dokumentierte, wie sich Routing und Datenintegration von wiederverwendbaren, API-unabhängigen Darstellungslayouts trennen lassen. Die Architektur nutzte Headless-UI-Bausteine sowie typisierte Style- und Asset-Themes. Die Anwendungsebene konnte diese Teile für den jeweiligen Mandanten und Workflow zusammenstellen."
+msgstr ""
+"Ich dokumentierte, wie sich Routing und Datenintegration von "
+"wiederverwendbaren, API-unabhängigen Darstellungslayouts trennen lassen. Die "
+"Architektur nutzte Headless-UI-Bausteine sowie typisierte Style- und "
+"Asset-Themes. Die Anwendungsebene konnte diese Teile für den jeweiligen "
+"Mandanten und Workflow zusammenstellen."
 
 #: app/data/werner.data.ts#getConsultant
 msgid ""
@@ -2276,7 +2336,9 @@ msgstr "JourFixe Besprechungsmanagement"
 msgid ""
 "June 2022–February 2024 · Sebastian Werner · Frontend Expert / React "
 "Architect"
-msgstr "Juni 2022–Februar 2024 · Sebastian Werner · Frontend-Experte / React-Architekt"
+msgstr ""
+"Juni 2022–Februar 2024 · Sebastian Werner · Frontend-Experte / "
+"React-Architekt"
 
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
@@ -2289,7 +2351,11 @@ msgid ""
 "defined place for backend integration. Shared themes and configuration "
 "represented differences between tenants without making every reusable "
 "component responsible for the whole application."
-msgstr "API-unabhängige Darstellungslayouts gaben der Backend-Anbindung einen definierten Platz. Gemeinsame Themes und Konfigurationen bildeten Unterschiede zwischen Mandanten ab, ohne jede wiederverwendbare Komponente für die gesamte Anwendung verantwortlich zu machen."
+msgstr ""
+"API-unabhängige Darstellungslayouts gaben der Backend-Anbindung einen "
+"definierten Platz. Gemeinsame Themes und Konfigurationen bildeten Unterschiede"
+" zwischen Mandanten ab, ohne jede wiederverwendbare Komponente für die "
+"gesamte Anwendung verantwortlich zu machen."
 
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
@@ -2944,6 +3010,7 @@ msgid "Public sources and profiles"
 msgstr "Öffentliche Quellen und Profile"
 
 #: app/components/ServiceLinks.tsx#ServiceLinks
+#: app/data/case-studies/witt.ts#getWittCaseStudy
 #: app/data/services.ts#modernizationService
 msgid "React and TypeScript modernization"
 msgstr "React- und TypeScript-Anwendungen modernisieren"
@@ -2979,6 +3046,10 @@ msgstr "Die Regrello-Fallstudie lesen"
 #~ #: app/data/services.ts#internationalizationService
 #~ msgid "Read the Regrello recommendation"
 #~ msgstr "Die Regrello-Empfehlung lesen"
+
+#: app/data/services.ts#modernizationService
+msgid "Read the Witt case study"
+msgstr "Die Witt-Fallstudie lesen"
 
 #~ #@ obsolete-since: 2026-11-17
 #~ #: app/data/services.ts#architectureService
@@ -3266,6 +3337,10 @@ msgstr ""
 #~ "entsteht. Besonders beeindruckt hat mich seine konsequente Orientierung an den"
 #~ " Nutzern."
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Sebastian Fastner · My contribution"
+msgstr "Sebastian Fastner · Mein Beitrag"
+
 #: app/routes/index.tsx
 msgid ""
 "Sebastian Fastner and Sebastian Werner in conversation at a table with coffee"
@@ -3278,6 +3353,13 @@ msgid ""
 " wall"
 msgstr ""
 "Sebastian Fastner und Sebastian Werner im Gespräch vor einer Sandsteinwand"
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"Sebastian Fastner's frontend architecture work for the Witt Group, April "
+"2019–September 2020: shared foundations for 17 multi-brand shops, "
+"Contentful, Apollo GraphQL, and release tests."
+msgstr "Sebastian Fastners Frontend-Architekturarbeit für die Witt-Gruppe, April 2019–September 2020: gemeinsame Grundlagen für 17 Mehrmarken-Shops, Contentful, Apollo GraphQL und Release-Tests."
 
 #: app/routes/werner/summary.tsx#meta
 msgid "Sebastian Werner – Executive Summary"
@@ -3317,7 +3399,10 @@ msgid ""
 "Sebastian Werner's frontend architecture work on EnBW customer portals and a "
 "support workbench: shared foundations, tenant configuration, and "
 "API-independent layouts, June 2022–February 2024."
-msgstr "Sebastian Werners Frontend-Architekturarbeit an EnBW-Kundenportalen und einem Support-Arbeitsplatz: gemeinsame Grundlagen, Mandantenkonfiguration und API-unabhängige Layouts, Juni 2022–Februar 2024."
+msgstr ""
+"Sebastian Werners Frontend-Architekturarbeit an EnBW-Kundenportalen und einem "
+"Support-Arbeitsplatz: gemeinsame Grundlagen, Mandantenkonfiguration und "
+"API-unabhängige Layouts, Juni 2022–Februar 2024."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "See what we build beyond consulting."
@@ -3406,12 +3491,19 @@ msgstr "Projektprofil weitergeben"
 #~ msgid "Share the reasoning"
 #~ msgstr "Entscheidungen erklären"
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Shared code, content, and integration"
+msgstr "Gemeinsamer Code, Inhalte und Integration"
+
 #: app/data/case-studies/enbw.ts#getEnbwCaseStudy
 msgid ""
 "Shared components had to fit that context. Reuse required clear boundaries "
 "between application routing, data integration, configuration, and the "
 "presentation that could be used across applications."
-msgstr "Gemeinsame Komponenten mussten zu diesem Kontext passen. Wiederverwendung erforderte klare Grenzen zwischen Anwendungsrouting, Datenintegration, Konfiguration und einer anwendungsübergreifend nutzbaren Darstellung."
+msgstr ""
+"Gemeinsame Komponenten mussten zu diesem Kontext passen. Wiederverwendung "
+"erforderte klare Grenzen zwischen Anwendungsrouting, Datenintegration, "
+"Konfiguration und einer anwendungsübergreifend nutzbaren Darstellung."
 
 #: app/data/services.ts#modernizationService
 msgid ""
@@ -3534,7 +3626,12 @@ msgid ""
 "applications. Typed integration and shared data-access utilities connected "
 "those interfaces to the APIs. React, TypeScript, Vite, Radix, VanillaExtract, "
 "SWR, REST, and GraphQL were part of the published project stack."
-msgstr "Storybook bildete eine Grundlage für die Komponentenentwicklung neben den Anwendungen. Typisierte Anbindungen und gemeinsame Datenzugriffswerkzeuge verbanden diese Oberflächen mit den APIs. Zum veröffentlichten Projekt-Stack gehörten React, TypeScript, Vite, Radix, VanillaExtract, SWR, REST und GraphQL."
+msgstr ""
+"Storybook bildete eine Grundlage für die Komponentenentwicklung neben den "
+"Anwendungen. Typisierte Anbindungen und gemeinsame Datenzugriffswerkzeuge "
+"verbanden diese Oberflächen mit den APIs. Zum veröffentlichten Projekt-Stack"
+" gehörten React, TypeScript, Vite, Radix, VanillaExtract, SWR, REST und "
+"GraphQL."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Subscribe"
@@ -3680,6 +3777,13 @@ msgstr ""
 "App Stores. Die Benutzeroberfläche war für die mobile Nutzung unterwegs "
 "optimiert."
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"The Apollo GraphQL layer gave backend orchestration its own place instead of "
+"making every interface work directly with each underlying service. Query tests"
+" checked that integration as part of releases."
+msgstr "Die Apollo-GraphQL-Schicht gab der Backend-Orchestrierung einen eigenen Platz. So musste nicht jede Oberfläche jeden zugrunde liegenden Dienst direkt anbinden. Abfragetests prüften diese Integration im Release-Prozess."
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "The business photos were taken by {photographer}."
 msgstr "Die Businessfotos wurden von {photographer} aufgenommen."
@@ -3692,22 +3796,25 @@ msgstr ""
 "Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer "
 "datenschutzrechtlicher Bestimmungen ist:"
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"The delivered capabilities documented in my profiles are the frontend "
+"foundation for 17 multi-brand shops, the Apollo GraphQL layer, reusable "
+"Contentful pages, and automated tests. These describe my technical "
+"contribution within the wider commerce program."
+msgstr "Meine Profile dokumentieren die Frontend-Grundlage für 17 Mehrmarken-Shops, die Apollo-GraphQL-Schicht, wiederverwendbare Contentful-Seiten und automatisierte Tests. Diese Fähigkeiten beschreiben meinen technischen Beitrag im übergreifenden Commerce-Programm."
+
 #: app/data/case-studies/enbw.ts#getEnbwCaseStudy
 msgid ""
 "The documented result is a set of shared frontend capabilities: workspace and "
 "tooling foundations, themes, configuration, component development, and typed "
 "integration. I contributed these foundations as part of the project teams' "
 "work on the customer portals and support workbench."
-msgstr "Dokumentiert sind gemeinsame Frontend-Fähigkeiten: Workspace- und Tooling-Grundlagen, Themes, Konfiguration, Komponentenentwicklung und typisierte Anbindungen. Ich brachte diese Grundlagen in die Arbeit der Projektteams an den Kundenportalen und dem Support-Arbeitsplatz ein."
-
-#~ #@ obsolete-since: 2026-11-17
-#~ #: app/data/case-studies/enbw.ts#getEnbwCaseStudy
-#~ msgid ""
-#~ "The documented result is a set of shared frontend capabilities: workspace and "
-#~ "tooling foundations, themes, configuration, component development, and typed "
-#~ "integration. My contribution formed part of the platform work; the project "
-#~ "history does not attribute the whole platform's delivery to one person."
-#~ msgstr ""
+msgstr ""
+"Dokumentiert sind gemeinsame Frontend-Fähigkeiten: Workspace- und "
+"Tooling-Grundlagen, Themes, Konfiguration, Komponentenentwicklung und "
+"typisierte Anbindungen. Ich brachte diese Grundlagen in die Arbeit der "
+"Projektteams an den Kundenportalen und dem Support-Arbeitsplatz ein."
 
 #: app/data/case-studies/enbw.ts#getEnbwCaseStudy
 msgid ""
@@ -3715,7 +3822,11 @@ msgid ""
 "workflows included contracts, invoices, meter readings, tariff changes, and "
 "relocation. The white-label platform supported differences between tenants in "
 "both functionality and presentation."
-msgstr "Die EnBW-Arbeit umfasste Kundenportale und einen Support-Arbeitsplatz. Zu den Kundenprozessen gehörten Verträge, Rechnungen, Zählerstände, Tarifwechsel und Umzüge. Die White-Label-Plattform unterstützte Unterschiede zwischen Mandanten sowohl in den Funktionen als auch in der Darstellung."
+msgstr ""
+"Die EnBW-Arbeit umfasste Kundenportale und einen Support-Arbeitsplatz. Zu den "
+"Kundenprozessen gehörten Verträge, Rechnungen, Zählerstände, Tarifwechsel "
+"und Umzüge. Die White-Label-Plattform unterstützte Unterschiede zwischen "
+"Mandanten sowohl in den Funktionen als auch in der Darstellung."
 
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/routes/references.tsx
@@ -3790,6 +3901,13 @@ msgid ""
 msgstr ""
 "Vielleicht ist der Link veraltet oder die Adresse enthält einen Tippfehler. "
 "Hier geht es weiter:"
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"The project combined multiple brands and international markets. The frontend "
+"had to support that scope while giving content and backend integration a "
+"shared technical foundation."
+msgstr "Das Projekt verband mehrere Marken und internationale Märkte. Das Frontend musste diesen Umfang unterstützen und zugleich eine gemeinsame technische Grundlage für Inhalte und Backend-Anbindung schaffen."
 
 #: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
 msgid ""
@@ -3885,6 +4003,7 @@ msgstr ""
 
 #: app/data/case-studies/enbw.ts#getEnbwCaseStudy
 #: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+#: app/data/case-studies/witt.ts#getWittCaseStudy
 msgid "The situation"
 msgstr "Die Ausgangssituation"
 
@@ -3930,6 +4049,13 @@ msgid "There is no contact form – contact is made exclusively by email."
 msgstr ""
 "Es gibt kein Kontaktformular – die Kontaktaufnahme erfolgt ausschließlich "
 "per E-Mail."
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"This account covers my Witt Group engagement from April 2019 to September "
+"2020. I established technical foundations within this multi-brand program; the"
+" 17-shop figure describes the platform's scope."
+msgstr "Diese Darstellung behandelt meinen Einsatz für die Witt-Gruppe von April 2019 bis September 2020. Ich schuf technische Grundlagen innerhalb dieses Mehrmarken-Programms; die Zahl von 17 Shops beschreibt den Umfang der Plattform."
 
 #: app/components/CaseStudy.tsx#CaseStudy
 msgid ""
@@ -4061,7 +4187,12 @@ msgid ""
 " contribution within the same client context. These are attributed colleague "
 "perspectives, with their original dates and wording preserved on the "
 "references page."
-msgstr "Tobias Arweiler beschreibt in seiner Empfehlung unsere Architekturdiskussionen und die Implementierungsarbeit bei EnBW. Emanuele De Monte schildert meinen Frontend-Beitrag im selben Kundenkontext. Diese Einschätzungen sind ihren Autoren zugeordnet; die Referenzseite erhält ihre ursprünglichen Datierungen und Formulierungen."
+msgstr ""
+"Tobias Arweiler beschreibt in seiner Empfehlung unsere Architekturdiskussionen"
+" und die Implementierungsarbeit bei EnBW. Emanuele De Monte schildert meinen "
+"Frontend-Beitrag im selben Kundenkontext. Diese Einschätzungen sind ihren "
+"Autoren zugeordnet; die Referenzseite erhält ihre ursprünglichen Datierungen"
+" und Formulierungen."
 
 #~ #@ obsolete-since: 2026-10-13
 #~ #: app/data/werner.data.ts#getConsultant
@@ -4757,6 +4888,10 @@ msgstr ""
 "arbeitete ich am Frontend-Workspace, strengem typbasiertem Linting, "
 "GraphQL-Migrationswerkzeugen sowie gezielten UI- und End-to-End-Tests."
 
+#: app/components/ServiceLinks.tsx#ServiceLinks
+msgid "Witt case study"
+msgstr "Witt-Fallstudie"
+
 #: app/routes/services.tsx#getServices
 msgid ""
 "Witt: 18 months rebuilding the foundations of 17 online shops. DWS/MorgenFund:"
@@ -4766,6 +4901,10 @@ msgstr ""
 "Witt: 18 Monate Neuaufbau der Grundlagen für 17 Online-Shops. DWS/MorgenFund:"
 " mehrere Jahre Weiterentwicklung einer internationalen Investment-Plattform "
 "und ihrer Auslieferungsprozesse."
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Witt: shared commerce foundations"
+msgstr "Witt: gemeinsame Commerce-Grundlagen"
 
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/routes/services.tsx
