@@ -355,6 +355,14 @@ msgstr ""
 "Abhängigkeiten und Delivery in Schritten zu verbessern, die zu Ihrem Produkt "
 "passen."
 
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"An existing collaborative product has more than application-owned labels. "
+"Workflow titles, task descriptions, and other user-entered text also carry "
+"information that people need to act on. A translated interface alone does not "
+"make those contents readable across languages."
+msgstr "Ein bestehendes Produkt für die Zusammenarbeit enthält mehr als anwendungseigene Beschriftungen. Workflow-Titel, Aufgabenbeschreibungen und weitere Nutzereingaben vermitteln Informationen, nach denen Menschen handeln müssen. Eine übersetzte Oberfläche macht diese Inhalte noch nicht sprachübergreifend verständlich."
+
 #: app/data/services.ts#architectureService
 msgid ""
 "An explanation of the relevant architecture and the sources of coupling or "
@@ -731,6 +739,7 @@ msgid "Book a call"
 msgstr "Termin buchen"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+#: app/components/CaseStudy.tsx#CaseStudy
 #: app/components/Closing.tsx#Closing
 #: app/components/Founders.tsx#Founders
 #: app/components/ServicePage.tsx#ServicePage
@@ -857,6 +866,14 @@ msgstr ""
 msgid "Can product development continue?"
 msgstr "Kann die Produktentwicklung weitergehen?"
 
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid "Capabilities and customer perspective"
+msgstr "Umgesetzte Fähigkeiten und Kundenperspektive"
+
+#: app/components/CaseStudy.tsx#CaseStudy
+msgid "Case study"
+msgstr "Fallstudie"
+
 #: app/routes/services.tsx#getServices
 msgid "Catalogs, terminology, and review workflows"
 msgstr "Kataloge, Terminologie und Prüfabläufe"
@@ -880,6 +897,19 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid "CDN, hosting and edge scripting for this website"
 msgstr "CDN, Hosting und Edge Scripting für diese Website"
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid "Chris Lewis's complete recommendation"
+msgstr "Die vollständige Empfehlung von Chris Lewis"
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"Chris Lewis's recommendation describes our work with Regrello's internal "
+"project lead and praises the research and developer workflow. His account is "
+"dated August 2025 and describes the user-content milestone as ongoing at that "
+"time. It is a qualitative customer assessment; no numerical business or "
+"performance result is inferred from it."
+msgstr "Chris Lewis beschreibt in seiner Empfehlung unsere Zusammenarbeit mit Regrellos internem Projektleiter und würdigt die Recherche und den Entwicklungsworkflow. Sein Bericht stammt vom August 2025 und beschreibt den Meilenstein für Nutzerinhalte als damals laufende Arbeit. Die Empfehlung ist eine qualitative Kundeneinschätzung; daraus werden keine quantifizierten Geschäfts- oder Performance-Ergebnisse abgeleitet."
 
 #~ #@ obsolete-since: 2026-10-09
 #~ #: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
@@ -1051,6 +1081,10 @@ msgstr "Sebastian/Software entdecken"
 #: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
 msgid "Discuss Availability"
 msgstr "Verfügbarkeit besprechen"
+
+#: app/components/CaseStudy.tsx#CaseStudy
+msgid "Discuss your situation"
+msgstr "Sprechen wir über Ihre Situation"
 
 #: app/data/services.ts#internationalizationService
 msgid "Do we need to change translation tools?"
@@ -1296,6 +1330,10 @@ msgstr "Werners Projekthistorie ansehen"
 #: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
 msgid "External Links"
 msgstr "Externe Links"
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid "Fastner's full consultant profile"
+msgstr "Fastners vollständiges Beraterprofil"
 
 #: app/components/CompanyBand.tsx#CompanyBand
 msgid "Fastner's project history"
@@ -1751,6 +1789,13 @@ msgstr "Funktionsweise"
 msgid "How long does a review take?"
 msgstr "Wie lange dauert ein Review?"
 
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"How Sebastian Werner and Sebastian Fastner worked on UI localization and "
+"user-content translation in Regrello's existing enterprise platform, from "
+"October 2024 to September 2025."
+msgstr "Wie Sebastian Werner und Sebastian Fastner von Oktober 2024 bis September 2025 an UI-Lokalisierung und der Übersetzung von Nutzerinhalten in Regrellos bestehender Enterprise-Plattform arbeiteten."
+
 #: app/components/ServicePage.tsx#ServicePage
 msgid "How we work with your team"
 msgstr "So arbeiten wir mit Ihrem Team"
@@ -1803,6 +1848,14 @@ msgstr ""
 "basierte, wurde auch die E-Learning-Plattform als PHP-Projekt entwickelt. Die "
 "Benutzeroberfläche bietet eine intuitive Fortschrittsverfolgung und klare "
 "Navigation durch die Lerninhalte."
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"I developed backend translation workflows for new and changed application "
+"content, workflow titles, and task descriptions. A plugin system around "
+"GraphQL resolvers and mutations integrated translations into the Go service "
+"APIs, with Redis caching."
+msgstr "Ich entwickelte Übersetzungsworkflows im Backend für neue und geänderte Anwendungsinhalte, Workflow-Titel und Aufgabenbeschreibungen. Ein Plugin-System für GraphQL-Resolver und -Mutationen integrierte die Übersetzungen in die Go-Service-APIs, ergänzt durch Redis-Caching."
 
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid ""
@@ -1889,6 +1942,14 @@ msgstr ""
 "entwickelt und bei Zynga umfassend als Basisbibliothek unserer Spiele und für"
 " deren Build-Prozess eingesetzt. Heute umfasst meine Infrastrukturarbeit auch "
 "Rust-Engines mit TypeScript-/Node.js-Schnittstellen."
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"I led frontend internationalization in the established application. I "
+"integrated localization into the UI and built catalog extraction, compilation,"
+" and LLM-assisted translation workflows that retained translation metadata and"
+" language-specific terminology."
+msgstr "Ich leitete die Frontend-Internationalisierung der bestehenden Anwendung. Ich integrierte die Lokalisierung in die Oberfläche und baute Workflows für Katalogextraktion, Kompilierung und LLM-gestützte Übersetzung auf, die Übersetzungsmetadaten und sprachspezifische Terminologie erhielten."
 
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid ""
@@ -2043,6 +2104,7 @@ msgid "Internationalization at Regrello"
 msgstr "Internationalisierung bei Regrello"
 
 #: app/components/ServiceLinks.tsx#ServiceLinks
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
 msgid "Internationalization consulting"
 msgstr "Beratung zur Internationalisierung"
 
@@ -2419,6 +2481,10 @@ msgstr ""
 msgid "Obligation to Provide Data"
 msgstr "Pflicht zur Bereitstellung der Daten"
 
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid "October 2024–September 2025 · Joint engagement"
+msgstr "Oktober 2024–September 2025 · Gemeinsames Projekt"
+
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/data/recommendations.ts#getRecommendations
 #~ msgid ""
@@ -2793,6 +2859,10 @@ msgstr "Projektprofil als PDF"
 msgid "Project Profile Sebastian Fastner – React & TypeScript"
 msgstr "Projektprofil Sebastian Fastner – React & TypeScript"
 
+#: app/components/CaseStudy.tsx#CaseStudy
+msgid "Public sources and profiles"
+msgstr "Öffentliche Quellen und Profile"
+
 #: app/components/ServiceLinks.tsx#ServiceLinks
 #: app/data/services.ts#modernizationService
 msgid "React and TypeScript modernization"
@@ -2816,8 +2886,14 @@ msgid "Read the references"
 msgstr "Zu den Referenzen"
 
 #: app/data/services.ts#internationalizationService
-msgid "Read the Regrello recommendation"
-msgstr "Die Regrello-Empfehlung lesen"
+#: app/routes/references.tsx
+msgid "Read the Regrello case study"
+msgstr "Die Regrello-Fallstudie lesen"
+
+#~ #@ obsolete-since: 2026-11-17
+#~ #: app/data/services.ts#internationalizationService
+#~ msgid "Read the Regrello recommendation"
+#~ msgstr "Die Regrello-Empfehlung lesen"
 
 #: app/data/services.ts#architectureService
 msgid "Read Werner's architecture experience"
@@ -2860,6 +2936,10 @@ msgstr "Registereintrag"
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Register Number:"
 msgstr "Registernummer:"
+
+#: app/components/ServiceLinks.tsx#ServiceLinks
+msgid "Regrello case study"
+msgstr "Regrello-Fallstudie"
 
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid ""
@@ -2922,6 +3002,10 @@ msgstr ""
 #~ "Regrello: Lokalisierung der Oberfläche und KI-Übersetzung von "
 #~ "Nutzerinhalten, mit Qualitätsbewertung, Warteschlangen, "
 #~ "Wiederholungsversuchen und Betriebswerkzeugen."
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid "Regrello: internationalization in a live product"
+msgstr "Regrello: Internationalisierung im laufenden Produkt"
 
 #: app/components/ServicePage.tsx#ServicePage
 msgid "Related services"
@@ -3419,6 +3503,14 @@ msgstr ""
 "Ablauf an Grenzen stößt und wer Inhalte entwickelt, übersetzt und prüft. "
 "Daraus können wir einen sinnvollen ersten Umfang ableiten."
 
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"Temporal workflows coordinated queues, workers, retries, throttling, and rate "
+"limits. I also built operational and CLI tools for managing jobs, testing "
+"workflows, and retrying failed translations. This work addressed the "
+"processing lifecycle behind the translated content shown in the frontend."
+msgstr "Temporal-Workflows koordinierten Queues, Worker, Wiederholungsversuche, Drosselung und Ratenbegrenzung. Zusätzlich entwickelte ich Betriebs- und CLI-Werkzeuge für die Auftragsverwaltung, Workflow-Tests und das erneute Anstoßen fehlgeschlagener Übersetzungen. Diese Arbeit umfasste den Verarbeitungszyklus hinter den übersetzten Inhalten im Frontend."
+
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Terminaro · Product by Sebastian Software GmbH · SaaS"
 msgstr "Terminaro · Produkt der Sebastian Software GmbH · SaaS"
@@ -3557,6 +3649,22 @@ msgstr ""
 "Vielleicht ist der Link veraltet oder die Adresse enthält einen Tippfehler. "
 "Hier geht es weiter:"
 
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"The public customer account describes an initial milestone for static UI "
+"strings and a second milestone for user-entered data. These scopes called for "
+"different handling of catalog messages, editable content, and asynchronous "
+"translation states."
+msgstr "Der öffentliche Kundenbericht beschreibt einen ersten Meilenstein für statische UI-Texte und einen zweiten für nutzereingegebene Daten. Diese Aufgaben erforderten einen unterschiedlichen Umgang mit Katalognachrichten, bearbeitbaren Inhalten und asynchronen Übersetzungszuständen."
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"The published profiles describe working catalog tooling, translation "
+"integration through service APIs, operational workflows, and interfaces for "
+"reviewing translated content. These are concrete capabilities across the two "
+"scopes."
+msgstr "Die veröffentlichten Profile beschreiben funktionsfähiges Katalog-Tooling, die Integration von Übersetzungen über Service-APIs, betriebliche Workflows und Oberflächen zur Prüfung übersetzter Inhalte. Damit sind konkrete Fähigkeiten in beiden Aufgabenbereichen dokumentiert."
+
 #: app/data/services.ts#modernizationService
 msgid ""
 "The published Witt project experience describes work on the foundations of "
@@ -3625,6 +3733,10 @@ msgid "The sign-up did not go through. Please try again later."
 msgstr ""
 "Die Anmeldung hat nicht geklappt. Bitte versuchen Sie es später noch einmal."
 
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid "The situation"
+msgstr "Die Ausgangssituation"
+
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
 "The transmission of your IP address is technically necessary to access this "
@@ -3667,6 +3779,13 @@ msgid "There is no contact form – contact is made exclusively by email."
 msgstr ""
 "Es gibt kein Kontaktformular – die Kontaktaufnahme erfolgt ausschließlich "
 "per E-Mail."
+
+#: app/components/CaseStudy.tsx#CaseStudy
+msgid ""
+"This account draws on the public project accounts linked below. Individual "
+"contributions are attributed to the consultant responsible; customer "
+"assessments remain attributed to their authors."
+msgstr "Diese Darstellung stützt sich auf die unten verlinkten öffentlichen Projektberichte. Einzelne Beiträge sind dem verantwortlichen Berater zugeordnet; Kundeneinschätzungen bleiben ihren Autoren zugeschrieben."
 
 #: ../../packages/ui/src/frame/errorCopy.ts#createPageErrorCopy
 msgid "This page couldn't be loaded."
@@ -4296,6 +4415,14 @@ msgstr ""
 "Pairing, Code-Reviews und Dokumentation helfen dem Team, die Konventionen zu "
 "verstehen und die Sprachunterstützung nach der Einführung weiterzupflegen."
 
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"We worked on two related language problems in Regrello's enterprise platform: "
+"translating the application interface and enabling people using different "
+"languages to work with user-authored content. The work combined frontend "
+"integration with backend translation workflows."
+msgstr "Wir arbeiteten an zwei zusammenhängenden Sprachaufgaben in Regrellos Enterprise-Plattform: der Übersetzung der Anwendungsoberfläche und der sprachübergreifenden Arbeit mit nutzerverfassten Inhalten. Das Projekt verband die Frontend-Integration mit Übersetzungsworkflows im Backend."
+
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Web analytics with Rybbit"
 msgstr "Webanalyse mit Rybbit"
@@ -4307,6 +4434,10 @@ msgstr "Webbasierte Promotionverwaltung"
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Weiden in der Oberpfalz, Germany"
 msgstr "Weiden in der Oberpfalz, Deutschland"
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid "Werner's detailed project history"
+msgstr "Werners ausführliche Projekthistorie"
 
 #: app/components/CompanyBand.tsx#CompanyBand
 msgid "Werner's project history"
@@ -4439,6 +4570,15 @@ msgstr ""
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid "Wireless LAN Infrastructure"
 msgstr "Wireless-LAN-Infrastruktur"
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"Within the shared initiative, I implemented review interfaces for translated "
+"user content, including rich text, mention placeholders, permission-sensitive "
+"editing, and asynchronous states. I also worked on the frontend workspace, "
+"strict type-aware linting, GraphQL migration tooling, and targeted UI and "
+"end-to-end tests."
+msgstr "Im gemeinsamen Vorhaben implementierte ich Prüfoberflächen für übersetzte Nutzerinhalte, einschließlich Rich Text, Platzhaltern für Erwähnungen, berechtigungsabhängiger Bearbeitung und asynchroner Zustände. Außerdem arbeitete ich am Frontend-Workspace, strengem typbasiertem Linting, GraphQL-Migrationswerkzeugen sowie gezielten UI- und End-to-End-Tests."
 
 #: app/routes/services.tsx#getServices
 msgid ""

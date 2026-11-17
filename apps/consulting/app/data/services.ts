@@ -212,8 +212,8 @@ function internationalizationService(): ServicePage {
     description: t`Bring language support into an established SaaS product: interface localization, catalogs and terminology, release workflows, and translation of user-generated content.`,
     evidence: [
       {
-        href: "/references#recommendation-chris-lewis",
-        label: t`Read the Regrello recommendation`,
+        href: "/case-studies/regrello",
+        label: t`Read the Regrello case study`,
         text: t`At Regrello, Werner and Fastner worked on interface internationalization and translation of user-generated content. Their profiles explain their respective work; Chris Lewis's recommendation also describes the shared contribution.`,
       },
       {

@@ -33,6 +33,12 @@ export function ServiceLinks(): ReactElement {
             href={SERVICE_PATHS.internationalization}
           >{t`Internationalization consulting`}</a>
         </li>
+        <li>
+          <a
+            className={styles.railHomeLink}
+            href="/case-studies/regrello"
+          >{t`Regrello case study`}</a>
+        </li>
       </ul>
     </div>
   )

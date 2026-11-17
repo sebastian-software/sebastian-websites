@@ -81,6 +81,7 @@ export default function ReferencesPage(): ReactElement {
           {group.id === "product" ? (
             <div className={styles.featured}>
               <RecommendationQuote featured recommendation={getFeaturedRecommendation()} />
+              <ArrowLink href="/case-studies/regrello">{t`Read the Regrello case study`}</ArrowLink>
             </div>
           ) : null}
           <ul className={styles.recommendations}>
