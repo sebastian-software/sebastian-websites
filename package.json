@@ -22,7 +22,8 @@
     "hosting:test": "node --test hosting/*.test.ts",
     "hosting:plan": "node hosting/check-builds.ts",
     "hosting:smoke": "node hosting/smoke.ts",
-    "hosting:check": "pnpm hosting:typecheck && pnpm hosting:lint && pnpm hosting:test"
+    "hosting:check": "pnpm hosting:typecheck && pnpm hosting:lint && pnpm hosting:test",
+    "seo:check": "pnpm build && pnpm hosting:plan"
   },
   "devDependencies": {
     "@sebastian-websites/config": "workspace:*",

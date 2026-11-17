@@ -20,6 +20,9 @@ Each app keeps one `ardo.config.ts`; Ardo supplies React, Vite, and Markdown
 compilation. Vitest is configured once in `vitest.config.ts` at the workspace root.
 Run `pnpm test` for all unit tests, or a package's `test` script for its own scope.
 
+Run `pnpm seo:check` for the local technical SEO and internal-link checks. The
+[local SEO guide](docs/operations/local-seo-checks.md) explains its scope and focused commands.
+
 The reusable legacy company copy is in [apps/software/content](apps/software/content/README.md).
 The [tech blog guide](docs/operations/tech-blog-site.md) describes the blog's site, domains,
 and cutover; the [blog publishing guide](docs/operations/blog-publishing.md) its posts.
