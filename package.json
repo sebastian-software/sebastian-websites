@@ -23,20 +23,23 @@
     "hosting:plan": "node hosting/check-builds.ts",
     "hosting:smoke": "node hosting/smoke.ts",
     "hosting:check": "pnpm hosting:typecheck && pnpm hosting:lint && pnpm hosting:test",
-    "seo:check": "pnpm build && pnpm hosting:plan"
+    "seo:check": "pnpm build && pnpm hosting:plan && pnpm seo:audit",
+    "seo:audit": "node hosting/lighthouse.ts"
   },
   "devDependencies": {
+    "@lhci/cli": "0.16.1",
     "@sebastian-websites/config": "workspace:*",
     "@types/node": "catalog:",
+    "@vanilla-extract/vite-plugin": "catalog:",
+    "ardo": "6.9.0",
     "esbuild": "catalog:",
     "eslint": "catalog:",
     "happy-dom": "catalog:",
     "jiti": "catalog:",
     "oxlint": "catalog:",
+    "playwright": "catalog:",
     "prettier": "catalog:",
     "typescript": "catalog:",
-    "ardo": "6.9.0",
-    "vitest": "catalog:",
-    "@vanilla-extract/vite-plugin": "catalog:"
+    "vitest": "catalog:"
   }
 }

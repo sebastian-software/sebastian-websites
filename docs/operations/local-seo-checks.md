@@ -13,7 +13,7 @@ Use the Node and pnpm versions in `mise.toml` / `package.json`. Chromium is used
 for the Consulting PDFs and built-page checks. The build can fetch public fonts
 and assets; “local” does not mean that every dependency is available offline.
 
-`seo:check` runs `pnpm build` followed by `pnpm hosting:plan`:
+`seo:check` runs `pnpm build`, `pnpm hosting:plan`, and `pnpm seo:audit`:
 
 - Ardo builds the static pages and checks internal links against the generated
   routes and anchors. A broken source link fails its owning build.
@@ -27,10 +27,41 @@ and assets; “local” does not mean that every dependency is available offline
   matching search / Open Graph / Twitter descriptions in both languages.
 - Build and image manifests are checked before the command reports that the
   output is ready for the deployment pipeline.
+- Lighthouse CI audits representative indexable pages in local Chromium. Its
+  applicable automated SEO checks must pass, including metadata, crawlability,
+  link text/links, image alternatives, status, hreflang, and canonical checks
+  implemented by the pinned Lighthouse version.
 
 The command builds and inspects files in the checkout. It does not deploy or
 require Bunny API credentials. A successful run establishes document and link
 correctness for the build, not search indexing, rankings, or AI citations.
+
+## Browser SEO audit
+
+Run `pnpm seo:audit` on existing builds, or focus it with
+`pnpm seo:audit software-de software-en`. Install the root browser with
+`pnpm exec playwright install chromium`. It reuses the workspace Playwright version.
+
+The sample covers every built site's homepage, Software products, Consulting's
+architecture-review service and long Werner profile, and the first indexable
+blog article when one exists: 16 pages before blog launch, 18 with the first
+paired article. The existing hosting/fixture checks own intentional dark, draft,
+future, absent-language, legal, and 404 publication behavior; those routes are
+outside the browser sample. Planned variants without a build are not audited.
+
+Each page gets one mobile Lighthouse SEO run. Performance and accessibility
+scores are not collected or gated here. A failing SEO result fails the command;
+remaining variants still run to preserve their reports.
+
+HTML/JSON reports and a URL manifest are written under
+`build/lighthouse/<variant>/reports/`. Rerunning a variant replaces its generated
+directory. Files are served locally, without deployment or API keys; public
+fonts/assets can still require network access. Results stay on disk. CI keeps
+the `lighthouse-seo` GitHub artifact for 14 days, including failed-audit reports;
+no Lighthouse cloud upload is used.
+
+The [tool selection record](seo-tool-selection.md) documents adoption,
+maintenance, and the static-build comparison behind this first integration.
 
 ## Focused checks
 

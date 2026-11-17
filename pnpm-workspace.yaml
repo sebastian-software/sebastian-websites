@@ -27,6 +27,11 @@ catalog:
   typescript: ^6.0.3
   vitest: ^5.0.0
 
+# Patched Lighthouse-only dependencies; see docs/operations/seo-tool-selection.md.
+overrides:
+  "get-uri@8.0.1>basic-ftp": 6.2.4
+  "chromium-bidi@157.0.8090-0>zod": 4.6.6
+
 allowBuilds:
   "@palamedes/cli": true
   esbuild: true
