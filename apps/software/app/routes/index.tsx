@@ -50,6 +50,7 @@ export default function Home(): ReactElement {
           className={editorial.widePhoto}
           crop={teamPhoto.crop}
           height={520}
+          priority
           sizes={editorialSizes(TEAM_PHOTO_WIDTH)}
           src={teamPhoto.src}
           width={TEAM_PHOTO_WIDTH}
