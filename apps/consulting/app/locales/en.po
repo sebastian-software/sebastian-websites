@@ -426,7 +426,12 @@ msgstr "Architecture and engineering for complex web applications."
 msgid "Architecture at EnBW"
 msgstr "Architecture at EnBW"
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid "Architecture boundaries"
+msgstr "Architecture boundaries"
+
 #: app/components/ServiceLinks.tsx#ServiceLinks
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
 msgid "Architecture reviews"
 msgstr "Architecture reviews"
 
@@ -829,6 +834,10 @@ msgstr ""
 msgid "Can product development continue?"
 msgstr "Can product development continue?"
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid "Capabilities and colleague perspectives"
+msgstr "Capabilities and colleague perspectives"
+
 #: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
 msgid "Capabilities and customer perspective"
 msgstr "Capabilities and customer perspective"
@@ -961,6 +970,18 @@ msgstr "Controller"
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid "Credit Portfolio Management Tool"
 msgstr "Credit Portfolio Management Tool"
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"Customer self-service and support applications needed shared frontend "
+"foundations while retaining tenant-specific features, content, communication "
+"options, and visual identity. I contributed architecture and implementation "
+"within the project teams."
+msgstr ""
+"Customer self-service and support applications needed shared frontend "
+"foundations while retaining tenant-specific features, content, communication "
+"options, and visual identity. I contributed architecture and implementation "
+"within the project teams."
 
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
@@ -1169,6 +1190,14 @@ msgstr "Email address"
 msgid "Email:"
 msgstr "Email:"
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid "Emanuele De Monte's complete recommendation"
+msgstr "Emanuele De Monte's complete recommendation"
+
+#: app/components/ServiceLinks.tsx#ServiceLinks
+msgid "EnBW case study"
+msgstr "EnBW case study"
+
 #: app/routes/services.tsx#getServices
 msgid ""
 "EnBW: 21 months building white-label customer portals and reusable components."
@@ -1178,6 +1207,10 @@ msgstr ""
 "EnBW: 21 months building white-label customer portals and reusable components."
 " DWS: three years taking an international investment platform from prototype "
 "to production."
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid "EnBW: shared frontend foundations"
+msgstr "EnBW: shared frontend foundations"
 
 #~ #@ obsolete-since: 2026-10-13
 #~ #: app/data/werner.data.ts#getConsultant
@@ -1784,6 +1817,16 @@ msgstr ""
 "assessment of when a new tool adds real value – and when it merely adds "
 "complexity."
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"I built the PNPM/Turborepo workspace, shared theme and configuration packages,"
+" Storybook foundations, typed API integration, and reusable data-access "
+"utilities. These were frontend foundations used within the wider team effort."
+msgstr ""
+"I built the PNPM/Turborepo workspace, shared theme and configuration packages,"
+" Storybook foundations, typed API integration, and reusable data-access "
+"utilities. These were frontend foundations used within the wider team effort."
+
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid ""
 "I developed an e-learning platform for Suzuki Germany that enables German "
@@ -1879,6 +1922,18 @@ msgstr ""
 "developed for mobile devices, as the original UI components did not perform "
 "well enough on mobile. Optimizations such as virtual lists significantly "
 "improved scroll performance."
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"I documented how to separate routing and data integration from reusable, "
+"API-independent presentation layouts. The architecture used headless UI "
+"primitives and typed style and asset themes. The application layer could "
+"compose those pieces for its own tenant and workflow."
+msgstr ""
+"I documented how to separate routing and data integration from reusable, "
+"API-independent presentation layouts. The architecture used headless UI "
+"primitives and typed style and asset themes. The application layer could "
+"compose those pieces for its own tenant and workflow."
 
 #: app/data/werner.data.ts#getConsultant
 msgid ""
@@ -2163,10 +2218,30 @@ msgstr "JavaScript Developer"
 msgid "JourFixe Meeting Management"
 msgstr "JourFixe Meeting Management"
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"June 2022–February 2024 · Sebastian Werner · Frontend Expert / React "
+"Architect"
+msgstr ""
+"June 2022–February 2024 · Sebastian Werner · Frontend Expert / React "
+"Architect"
+
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
 #~ msgid "Keep improving"
 #~ msgstr "Keep improving"
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"Keeping presentation layouts independent of a particular API gave the team a "
+"defined place for backend integration. Shared themes and configuration "
+"represented differences between tenants without making every reusable "
+"component responsible for the whole application."
+msgstr ""
+"Keeping presentation layouts independent of a particular API gave the team a "
+"defined place for backend integration. Shared themes and configuration "
+"represented differences between tenants without making every reusable "
+"component responsible for the whole application."
 
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
@@ -2822,6 +2897,11 @@ msgstr "React, TypeScript, and backend development"
 msgid "Read Fastner's project experience"
 msgstr "Read Fastner's project experience"
 
+#: app/data/services.ts#architectureService
+#: app/routes/references.tsx
+msgid "Read the EnBW case study"
+msgstr "Read the EnBW case study"
+
 #: app/components/ReferenceHighlights.tsx#ReferenceHighlights
 #: app/routes/services.tsx
 msgid "Read the references"
@@ -2837,9 +2917,10 @@ msgstr "Read the Regrello case study"
 #~ msgid "Read the Regrello recommendation"
 #~ msgstr "Read the Regrello recommendation"
 
-#: app/data/services.ts#architectureService
-msgid "Read Werner's architecture experience"
-msgstr "Read Werner's architecture experience"
+#~ #@ obsolete-since: 2026-11-17
+#~ #: app/data/services.ts#architectureService
+#~ msgid "Read Werner's architecture experience"
+#~ msgstr "Read Werner's architecture experience"
 
 #: app/components/project-profile/ProjectProfile.tsx#EvidenceAndProductsPage
 msgid "Recent Hands-on Products"
@@ -3134,6 +3215,10 @@ msgstr "Sebastian Werner – Executive Summary"
 msgid "Sebastian Werner – Project History"
 msgstr "Sebastian Werner – Project History"
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid "Sebastian Werner · My contribution"
+msgstr "Sebastian Werner · My contribution"
+
 #: app/routes/team.tsx
 msgid ""
 "Sebastian Werner and Sebastian Fastner founded Sebastian Software together. As"
@@ -3153,6 +3238,16 @@ msgstr ""
 "Sebastian Werner and Sebastian Fastner: two senior architects for React, "
 "TypeScript, and complex web applications, with their focus areas and full "
 "profiles."
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"Sebastian Werner's frontend architecture work on EnBW customer portals and a "
+"support workbench: shared foundations, tenant configuration, and "
+"API-independent layouts, June 2022–February 2024."
+msgstr ""
+"Sebastian Werner's frontend architecture work on EnBW customer portals and a "
+"support workbench: shared foundations, tenant configuration, and "
+"API-independent layouts, June 2022–February 2024."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "See what we build beyond consulting."
@@ -3238,6 +3333,16 @@ msgstr "Share Project Profile"
 #~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
 #~ msgid "Share the reasoning"
 #~ msgstr "Share the reasoning"
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"Shared components had to fit that context. Reuse required clear boundaries "
+"between application routing, data integration, configuration, and the "
+"presentation that could be used across applications."
+msgstr ""
+"Shared components had to fit that context. Reuse required clear boundaries "
+"between application routing, data integration, configuration, and the "
+"presentation that could be used across applications."
 
 #: app/data/services.ts#modernizationService
 msgid ""
@@ -3350,6 +3455,18 @@ msgstr "Start with the situation."
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Storage for static files and assets"
 msgstr "Storage for static files and assets"
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"Storybook provided a component-development foundation alongside the "
+"applications. Typed integration and shared data-access utilities connected "
+"those interfaces to the APIs. React, TypeScript, Vite, Radix, VanillaExtract, "
+"SWR, REST, and GraphQL were part of the published project stack."
+msgstr ""
+"Storybook provided a component-development foundation alongside the "
+"applications. Typed integration and shared data-access utilities connected "
+"those interfaces to the APIs. React, TypeScript, Vite, Radix, VanillaExtract, "
+"SWR, REST, and GraphQL were part of the published project stack."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Subscribe"
@@ -3500,6 +3617,43 @@ msgid ""
 msgstr ""
 "The controller within the meaning of the General Data Protection Regulation "
 "(GDPR) and other data protection legislation is:"
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"The documented result is a set of shared frontend capabilities: workspace and "
+"tooling foundations, themes, configuration, component development, and typed "
+"integration. I contributed these foundations as part of the project teams' "
+"work on the customer portals and support workbench."
+msgstr ""
+"The documented result is a set of shared frontend capabilities: workspace and "
+"tooling foundations, themes, configuration, component development, and typed "
+"integration. I contributed these foundations as part of the project teams' "
+"work on the customer portals and support workbench."
+
+#~ #@ obsolete-since: 2026-11-17
+#~ #: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+#~ msgid ""
+#~ "The documented result is a set of shared frontend capabilities: workspace and "
+#~ "tooling foundations, themes, configuration, component development, and typed "
+#~ "integration. My contribution formed part of the platform work; the project "
+#~ "history does not attribute the whole platform's delivery to one person."
+#~ msgstr ""
+#~ "The documented result is a set of shared frontend capabilities: workspace and "
+#~ "tooling foundations, themes, configuration, component development, and typed "
+#~ "integration. My contribution formed part of the platform work; the project "
+#~ "history does not attribute the whole platform's delivery to one person."
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"The EnBW work covered customer portals and a support workbench. Customer "
+"workflows included contracts, invoices, meter readings, tariff changes, and "
+"relocation. The white-label platform supported differences between tenants in "
+"both functionality and presentation."
+msgstr ""
+"The EnBW work covered customer portals and a support workbench. Customer "
+"workflows included contracts, invoices, meter readings, tariff changes, and "
+"relocation. The white-label platform supported differences between tenants in "
+"both functionality and presentation."
 
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/routes/references.tsx
@@ -3666,6 +3820,7 @@ msgstr ""
 msgid "The sign-up did not go through. Please try again later."
 msgstr "The sign-up did not go through. Please try again later."
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
 #: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
 msgid "The situation"
 msgstr "The situation"
@@ -3823,6 +3978,24 @@ msgid ""
 msgstr ""
 "To exercise your rights, you may contact us at any time at: "
 "<0>{privacyEmail}</0>"
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid "Tobias Arweiler's complete recommendation"
+msgstr "Tobias Arweiler's complete recommendation"
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"Tobias Arweiler's recommendation describes our architecture discussions and "
+"implementation work at EnBW. Emanuele De Monte's account describes my frontend"
+" contribution within the same client context. These are attributed colleague "
+"perspectives, with their original dates and wording preserved on the "
+"references page."
+msgstr ""
+"Tobias Arweiler's recommendation describes our architecture discussions and "
+"implementation work at EnBW. Emanuele De Monte's account describes my frontend"
+" contribution within the same client context. These are attributed colleague "
+"perspectives, with their original dates and wording preserved on the "
+"references page."
 
 #~ #@ obsolete-since: 2026-10-13
 #~ #: app/data/werner.data.ts#getConsultant
@@ -4353,6 +4526,7 @@ msgstr "Web-Based Promotion Management"
 msgid "Weiden in der Oberpfalz, Germany"
 msgstr "Weiden in der Oberpfalz, Germany"
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
 #: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
 msgid "Werner's detailed project history"
 msgstr "Werner's detailed project history"

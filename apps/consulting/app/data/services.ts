@@ -62,8 +62,8 @@ function architectureService(): ServicePage {
     description: t`Review your web application's architecture with experienced consultants. Understand the tradeoffs, agree priorities, and choose a practical next step with your team.`,
     evidence: [
       {
-        href: "/werner",
-        label: t`Read Werner's architecture experience`,
+        href: "/case-studies/enbw",
+        label: t`Read the EnBW case study`,
         text: t`At EnBW, Werner worked on white-label customer portals, reusable components, and frontend architecture. His published project history explains the scope; the references include perspectives from colleagues on that work.`,
       },
       {

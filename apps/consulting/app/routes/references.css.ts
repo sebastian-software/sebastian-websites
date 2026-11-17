@@ -23,6 +23,7 @@ export const heading = style([
   { fontSize: typeStep("2"), gridColumn: "1 / span 6" },
 ])
 export const description = style([editorial.body, { gridColumn: "8 / span 5" }])
+export const caseLink = style({ gridColumn: "1 / -1" })
 export const recommendations = style({
   "@media": { [COMPACT]: { columnCount: 1 } },
   columnCount: 2,

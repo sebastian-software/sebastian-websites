@@ -8,9 +8,11 @@ import * as styles from "./profile-screen/profileScreen.css.ts"
 
 /**
  * Relevant service destinations beside the profiles, outside the printed document.
- * @returns Links to the three focused services.
+ * @param props - The consultant whose project evidence is relevant.
+ * @param props.consultant - The consultant's public profile key.
+ * @returns Links to the focused services and relevant case studies.
  */
-export function ServiceLinks(): ReactElement {
+export function ServiceLinks({ consultant }: { readonly consultant: string }): ReactElement {
   return (
     <div className={styles.railModule}>
       <p className={styles.railHeading}>{t`Work with us`}</p>
@@ -39,6 +41,11 @@ export function ServiceLinks(): ReactElement {
             href="/case-studies/regrello"
           >{t`Regrello case study`}</a>
         </li>
+        {consultant === "werner" ? (
+          <li>
+            <a className={styles.railHomeLink} href="/case-studies/enbw">{t`EnBW case study`}</a>
+          </li>
+        ) : null}
       </ul>
     </div>
   )

@@ -77,6 +77,11 @@ export default function ReferencesPage(): ReactElement {
               {group.title}
             </h2>
             <p className={styles.description}>{group.description}</p>
+            {group.id === "collaboration" ? (
+              <div className={styles.caseLink}>
+                <ArrowLink href="/case-studies/enbw">{t`Read the EnBW case study`}</ArrowLink>
+              </div>
+            ) : null}
           </header>
           {group.id === "product" ? (
             <div className={styles.featured}>
