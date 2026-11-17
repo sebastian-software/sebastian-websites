@@ -94,12 +94,12 @@ so it appears on Software, Open Source, app-tracking, Skills, and the tech blog;
 unchanged. `BLOG_NAVIGATION` in
 `packages/web-core/src/blogLaunch.ts` sets the launch phase (owner decision of 2026-11-08):
 
-- `off` (current): the navigation does not link the blog, and the publication pages below
+- `off`: the navigation does not link the blog, and the publication pages below
   `/posts` carry `noindex` and stay out of the sitemap, so the unlinked empty blog can ship
   without being indexed (owner decision of 2026-11-08). The home, imprint, and privacy pages are
   indexed like those of any site. The hosting gate accepts such dark publication pages only in
   this phase.
-- `launching`: the item is shown, and the tech blog build fails when either language has no
+- `launching` (current): the item is shown, and the tech blog build fails when either language has no
   published post at the build time, so the item cannot go live on one domain only. The phase is
   set in the pull request that carries the first post in both languages.
 - `live`: the item is shown, and a language without a published post shows the empty state on
