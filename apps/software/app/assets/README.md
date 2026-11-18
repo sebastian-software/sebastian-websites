@@ -15,9 +15,9 @@ zone as `images/11-pastel-palette-r6.png` (1536 × 1024, transparent), following
 
 | Asset                                                     | Source                                                                                                                |
 | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [Terminaro mark](brands/terminaro-mark.svg)               | [Kerameikos](https://sebastian-software.github.io/kerameikos/#terminaro), `marks/terminaro/mark-small.svg`, unchanged |
+| [Terminaro mark](brands/terminaro-mark.svg)               | [Kerameikos](https://kerameikos.design/#terminaro), `marks/terminaro/mark-small.svg`, unchanged |
 | [Terminaro wordmark](brands/terminaro-wordmark.svg)       | The logo's Cinzel Hellenic (OFL) lettering as paths, with its original letter positions                               |
-| [Palamedes mark](brands/palamedes-mark.svg)               | [Kerameikos](https://sebastian-software.github.io/kerameikos/#palamedes), `marks/palamedes/mark-small.svg`, unchanged |
+| [Palamedes mark](brands/palamedes-mark.svg)               | [Kerameikos](https://kerameikos.design/#palamedes), `marks/palamedes/mark-small.svg`, unchanged |
 | [Palamedes+ wordmark](brands/palamedes-plus-wordmark.svg) | Set in Cinzel Hellenic (OFL), the Palamedes display face, as paths                                                    |
 
 The marks come from [Kerameikos](https://github.com/sebastian-software/kerameikos), the shared
