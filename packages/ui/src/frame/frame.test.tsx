@@ -1,4 +1,4 @@
-import { getSiteFrame } from "@sebastian-websites/web-core"
+import { BLOG_NAVIGATION, getSiteFrame } from "@sebastian-websites/web-core"
 import { act } from "ardo/react"
 import { flushSync } from "ardo/react-dom"
 import { createRoot } from "ardo/react-dom/client"
@@ -90,6 +90,9 @@ function parse(markup: string): Document {
 const texts = (elements: Iterable<Element>): Array<null | string> =>
   [...elements].map((element) => element.textContent)
 
+const softwareLinks =
+  BLOG_NAVIGATION === "off" ? ["Products", "Open Source"] : ["Products", "Open Source", "Blog"]
+
 describe("SiteHeader", () => {
   it("shows one current logo, local links, the language switch, and a plain outward link", () => {
     const frame = getSiteFrame("software", "de", "/company")
@@ -97,10 +100,9 @@ describe("SiteHeader", () => {
     const logos = header.querySelectorAll("img")
     expect(logos).toHaveLength(1)
     expect([...logos].at(0)?.getAttribute("alt")).toBe("Sebastian Software")
-    expect(texts(header.querySelectorAll('nav[aria-label="Main navigation"] a'))).toStrictEqual([
-      "Products",
-      "Open Source",
-    ])
+    expect(texts(header.querySelectorAll('nav[aria-label="Main navigation"] a'))).toStrictEqual(
+      softwareLinks
+    )
     expect(header.querySelector("a")?.getAttribute("href")).toBe("#main")
     const languages = header.querySelectorAll('nav[aria-label="Language"] a')
     expect([...languages].map((link) => link.getAttribute("href"))).toStrictEqual([

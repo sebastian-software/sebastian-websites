@@ -45,6 +45,10 @@ msgstr "a registered trademark of"
 msgid "Address"
 msgstr "Address"
 
+#: app/components/blog/tagLabel.ts#tagLabel
+msgid "AI agents"
+msgstr "AI agents"
+
 #: app/components/blog/BlogIndex.tsx#meta
 #: app/components/blog/BlogIndex.tsx
 #: app/components/blog/TagArchive.tsx
@@ -91,6 +95,10 @@ msgstr "Blog topic"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Book an intro call"
 msgstr "Book an intro call"
+
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid "Build documentation and static sites with React and MDX."
+msgstr "Build documentation and static sites with React and MDX."
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -639,6 +647,10 @@ msgstr ""
 msgid "Questions about this topic?"
 msgstr "Questions about this topic?"
 
+#: app/components/blog/nextStepCopy.ts#nextStepCopy
+msgid "Read the Ardo documentation"
+msgstr "Read the Ardo documentation"
+
 #: app/components/blog/BlogEmpty.tsx#BlogEmpty
 msgid "Read the English blog"
 msgstr "Read the English blog"
@@ -851,14 +863,14 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
 "The language preference is used solely to route the request to the matching "
-"language version. The German and English versions are on separate domains, "
-"so this redirect may also lead to the respective other domain. No cookie is "
-"set in the process."
+"language version. The German and English versions are on separate domains, so "
+"this redirect may also lead to the respective other domain. No cookie is set "
+"in the process."
 msgstr ""
 "The language preference is used solely to route the request to the matching "
-"language version. The German and English versions are on separate domains, "
-"so this redirect may also lead to the respective other domain. No cookie is "
-"set in the process."
+"language version. The German and English versions are on separate domains, so "
+"this redirect may also lead to the respective other domain. No cookie is set "
+"in the process."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid ""

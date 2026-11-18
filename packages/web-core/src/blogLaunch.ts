@@ -25,4 +25,4 @@ export type BlogNavigationPhase = (typeof BLOG_NAVIGATION_PHASES)[number]
  * The value is widened to the phase type, so code that reads the switch keeps
  * every branch whatever the current phase is.
  */
-export const BLOG_NAVIGATION = "off" as BlogNavigationPhase
+export const BLOG_NAVIGATION = "launching" as BlogNavigationPhase

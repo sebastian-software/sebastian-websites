@@ -70,7 +70,8 @@ that first announcement, not ahead of it.
 
 ## Consequences
 
-- The essay workflow in `sebastian-content` targets `apps/blog/content/posts/<locale>/`.
+- The essay workflow in `sebastian-content` stages working drafts. Published bilingual essays
+  are maintained in `apps/blog/content/articles/` and the blog’s Palamedes catalogs.
 - DNS and certificate steps happen outside the repository; until they are done, both variants
   stay `productionActive: false` and live on their Bunny origin hosts. The steps are in
   [the tech blog runbook](../operations/tech-blog-site.md).

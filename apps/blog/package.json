@@ -38,10 +38,13 @@
   },
   "devDependencies": {
     "@palamedes/cli": "catalog:",
+    "@palamedes/core-node": "2.2.0",
     "@palamedes/vite-plugin": "catalog:",
     "@sebastian-websites/config": "workspace:*",
     "@types/node": "catalog:",
     "eslint": "catalog:",
+    "ferromark": "4.1.0",
+    "oxc-parser": "0.156.0",
     "jiti": "catalog:",
     "oxlint": "catalog:",
     "prettier": "catalog:",

@@ -1,6 +1,6 @@
 ---
 status: accepted
-updated: 2026-11-12
+updated: 2026-11-18
 ---
 
 # The tech blog is built on Ardo's publication feature
@@ -9,7 +9,8 @@ The tech blog at `blog.sebastian-software.de` and `blog.sebastian-software.com` 
 technical writing for developers and technical leads and is distributed by hand. It was built
 on the Software site and moved to its own site, `apps/blog`
 ([ADR-0022](0022-tech-blog-as-its-own-site.md)); this record covers how the publication works.
-Posts are Markdown or MDX files in `apps/blog/content/posts/<locale>/`
+Posts have one English MDX source and a Palamedes catalog, or a Markdown/MDX file in a single
+language directory
 ([ADR-0004](0004-content-as-files-no-cms.md)). The blog uses the `publication` feature of Ardo ([ADR-0019](0019-software-site-on-ardo.md)), which
 provides the overview, post pages, tag archives, RSS 2.0 and Atom feeds, drafts, and future-dated
 posts. There is no CMS, fork, or custom feed generator. Where the feature lacked a reusable
@@ -33,11 +34,11 @@ capability, Ardo gained it first; the launch pins the release that contains them
   `packages/web-core/src/blogTags.ts`; labels are Palamedes `t` macros in
   `apps/blog/app/components/blog/tagLabel.ts`, so they stay in both catalogs and in the
   translation checks. URLs, the sitemap, and feed categories carry the key. The registry holds
-  one key at launch, `internationalization`; each further key comes with its label in both
+  the keys used by posts; each further key comes with its label in both
   catalogs.
 - **Every post names a next step.** `nextStep` is required and takes one value from a closed
   set in `packages/web-core/src/blogNextSteps.ts`: `products`, `open-source`, `contact`, three
-  Consulting offers, the documentation of Palamedes and Ferramenta, or `none` for a development
+  Consulting offers, the documentation of Ardo, Palamedes, and Ferramenta, or `none` for a development
   report. The post ends with one box for the target, except for `none`.
 - **Posts carry images that Ardo renders at build time.** A post may have a `coverImage` and
   raster or SVG images in its body; the files stay beside the post. Ardo's own image pipeline
@@ -51,7 +52,7 @@ capability, Ardo gained it first; the launch pins the release that contains them
 
 ## URLs, feeds, and the hosting gate
 
-- **One publication per language build.** Each variant sets `publication.from` to its original
+- **One publication per language build.** Each variant sets `publication.from` to its staged
   post directory and `to` to `posts`; the site's home page at `/` shows the newest posts. Ardo's `i18n` option stays off, because its locale prefixes
   contradict [ADR-0010](0010-url-and-redirect-contract.md). A top-level `trailingSlash: false`
   gives canonicals, links, the sitemap, and feed URLs the spelling of ADR-0010.
@@ -73,10 +74,8 @@ capability, Ardo gained it first; the launch pins the release that contains them
   zone, and passes it to both Ardo builds as `buildTime`. Ardo leaves out drafts and posts that
   are not yet due, and dates feeds and sitemap `lastmod` from the visible posts. The build
   records it in `build-time.txt` next to `client/`, and the gate rejects a pair whose build
-  times differ. Ardo reads original sources, so Git history dates its pages directly. Two
-  builds of one commit produce identical blog pages, feeds and sitemap when they share the same
-  `--build-time` and run in a checkout with the full Git history; CI and Deploy check out with
-  `fetch-depth: 0` for that. Pages with live data, such as the metrics on `/open-source`, can
+  times differ. The article frontmatter carries the publication and optional update dates because
+  generated translations have no Git history. Pages with live data, such as the metrics on `/open-source`, can
   still differ.
 - **Future-dated posts are merged early.** A post whose `publishedAt` lies ahead may be merged.
   It appears with the first Deploy run after its date, which is the next merge to `main` or a
@@ -94,12 +93,12 @@ so it appears on Software, Open Source, app-tracking, Skills, and the tech blog;
 unchanged. `BLOG_NAVIGATION` in
 `packages/web-core/src/blogLaunch.ts` sets the launch phase (owner decision of 2026-11-08):
 
-- `off` (current): the navigation does not link the blog, and the publication pages below
+- `off`: the navigation does not link the blog, and the publication pages below
   `/posts` carry `noindex` and stay out of the sitemap, so the unlinked empty blog can ship
   without being indexed (owner decision of 2026-11-08). The home, imprint, and privacy pages are
   indexed like those of any site. The hosting gate accepts such dark publication pages only in
   this phase.
-- `launching`: the item is shown, and the tech blog build fails when either language has no
+- `launching` (current): the item is shown, and the tech blog build fails when either language has no
   published post at the build time, so the item cannot go live on one domain only. The phase is
   set in the pull request that carries the first post in both languages.
 - `live`: the item is shown, and a language without a published post shows the empty state on
