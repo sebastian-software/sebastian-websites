@@ -2,9 +2,9 @@
  * The tag registry of the tech blog. Keys are English, lowercase, and
  * hyphenated, the same in both languages; translated labels belong to the
  * site's Palamedes catalog, and feeds carry the key. Add a key here, and its
- * label to both catalogs, before a post uses it. The blog launches with one key.
+ * label to both catalogs, before a post uses it. Add only keys used by an article.
  */
-export const BLOG_TAGS = ["internationalization"] as const
+export const BLOG_TAGS = ["ai-agents", "ardo", "internationalization", "open-source"] as const
 
 /** A registered tag key. */
 export type BlogTag = (typeof BLOG_TAGS)[number]

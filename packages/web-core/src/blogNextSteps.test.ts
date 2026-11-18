@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest"
 import { isNextStep, NEXT_STEPS, type NextStep, nextStepHref } from "./blogNextSteps.ts"
 
 const EXPECTED: Readonly<Record<NextStep, Readonly<Record<"de" | "en", string | undefined>>>> = {
+  "ardo-docs": { de: "https://ardo-docs.dev", en: "https://ardo-docs.dev" },
   "consulting-architecture": {
     de: "https://sebastian-consulting.de/services/architecture-review",
     en: "https://sebastian-consulting.com/services/architecture-review",

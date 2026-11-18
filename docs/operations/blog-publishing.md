@@ -10,12 +10,14 @@ publication are described in [website hosting](website-hosting.md).
 
 ## Writing a post
 
-Posts are Markdown (`.md`) or MDX (`.mdx`) files, one per language:
+Write a bilingual post as one English MDX file under `apps/blog/content/articles/`.
+Run `pnpm --filter @sebastian-websites/blog palamedes:extract` and review the German messages in
+`apps/blog/content/catalogs/de.po`. Palamedes extracts the title, description, cover alt text
+(`coverAlt`), and body. The build stages both language files before Ardo creates the pages and
+feeds. The staged files are temporary; edit the source or the catalog instead.
 
-```text
-apps/blog/content/posts/de/<slug>.md    # blog.sebastian-software.de
-apps/blog/content/posts/en/<slug>.md    # blog.sebastian-software.com
-```
+For content intentionally published in one language, use a Markdown or MDX file under
+`apps/blog/content/posts/<locale>/`.
 
 The file name is the slug and the post lives at `/posts/<slug>`. Slugs are lowercase, hyphenated
 English words, in both languages ([ADR-0010](../adr/0010-url-and-redirect-contract.md)). `tags`
@@ -39,24 +41,26 @@ draft: false
 ---
 ```
 
-| Field         | Rule                                                                                                                                                                                                                                                                                     |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`          | Required and stable. Unique within a language, drafts included. The translation of a post uses the same `id`.                                                                                                                                                                            |
-| `title`       | Set it on every post: the heading, overview, feeds, and previews use it.                                                                                                                                                                                                                 |
-| `description` | Set it on every post: one sentence for the overview, feeds, and previews.                                                                                                                                                                                                                |
-| `publishedAt` | Required. A timestamp with a time zone; one without a zone is rejected. A date in the future schedules the post (see below).                                                                                                                                                             |
-| `updatedAt`   | Optional. A timestamp with a time zone, not earlier than `publishedAt`.                                                                                                                                                                                                                  |
-| `authors`     | `fastner` and/or `werner`, the authors configured in `apps/blog/ardo.config.ts`.                                                                                                                                                                                                         |
-| `tags`        | Optional list of keys from the registry in `packages/web-core/src/blogTags.ts`. At launch the only key is `internationalization`.                                                                                                                                                        |
-| `nextStep`    | Required. One of `products`, `open-source`, `contact`, `consulting-architecture`, `consulting-internationalization`, `consulting-enablement`, `palamedes-docs`, `ferramenta-docs`, or `none` for a development report. The closed set lives in `packages/web-core/src/blogNextSteps.ts`. |
-| `draft`       | Optional, `false` by default. See "Review" before merging a draft.                                                                                                                                                                                                                       |
-| `path`        | Optional. Overrides the path derived from the file name; it must still be `/posts/<slug>`. Leave it out.                                                                                                                                                                                 |
+| Field         | Rule                                                                                                                                                                                                                                                                                                  |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`          | Required and stable. Unique within a language, drafts included. The translation of a post uses the same `id`.                                                                                                                                                                                         |
+| `title`       | Set it on every post: the heading, overview, feeds, and previews use it.                                                                                                                                                                                                                              |
+| `description` | Set it on every post: one sentence for the overview, feeds, and previews.                                                                                                                                                                                                                             |
+| `publishedAt` | Required. A timestamp with a time zone; one without a zone is rejected. A date in the future schedules the post (see below).                                                                                                                                                                          |
+| `updatedAt`   | Optional. A timestamp with a time zone, not earlier than `publishedAt`.                                                                                                                                                                                                                               |
+| `authors`     | `fastner` and/or `werner`, the authors configured in `apps/blog/ardo.config.ts`.                                                                                                                                                                                                                      |
+| `tags`        | Optional list of keys from the registry in `packages/web-core/src/blogTags.ts`. Use only registered keys.                                                                                                                                                                                             |
+| `nextStep`    | Required. One of `products`, `open-source`, `contact`, `consulting-architecture`, `consulting-internationalization`, `consulting-enablement`, `palamedes-docs`, `ferramenta-docs`, `ardo-docs`, or `none` for a development report. The closed set lives in `packages/web-core/src/blogNextSteps.ts`. |
+| `draft`       | Optional, `false` by default. See "Review" before merging a draft.                                                                                                                                                                                                                                    |
+| `path`        | Optional. Overrides the path derived from the file name; it must still be `/posts/<slug>`. Leave it out.                                                                                                                                                                                              |
 
 Do not write `counterpart`. The build computes it and rejects a source that sets it.
 
 ### Images
 
-Put image files beside the post and reference them relatively. Ardo renders them during the
+Put bilingual article assets in the sibling directory named after the slug (for example
+`content/articles/second-best/cover.png`), and reference them relatively. For single-language
+posts, keep the assets beside the post. Ardo renders them during the
 build into AVIF candidates and one JPEG below `assets/posts/`.
 
 - **Cover:** `coverImage: { src, alt, caption?, core?, frame? }` in the frontmatter. It appears
@@ -88,10 +92,9 @@ example to check a scheduled post, pass an RFC 3339 timestamp with seconds and a
 pnpm --filter @sebastian-websites/blog build --build-time=2026-12-01T09:00:00+01:00
 ```
 
-`pnpm --filter @sebastian-websites/blog dev` serves the tech blog and restages the posts when a
-file below `apps/blog/content/posts/` changes. The development server keeps the build time of its
-start, so a post that falls due while it runs appears only after a restart. The commands are defined in
-`apps/blog/package.json`.
+`pnpm --filter @sebastian-websites/blog dev` stages the publication at startup. Restart it
+after editing an article, a catalog, or a single-language post. The dev server also keeps its
+start time, so a post that becomes due appears after a restart.
 
 ## Translation and counterparts
 
@@ -99,9 +102,9 @@ Posts are not translated by default. A post that exists in one language only app
 domain only; the other domain answers its path with 404 and the language switch links to the
 other blog overview.
 
-To translate a post, add a file with the same slug in the other language and give it the same
-`id`. Both files then need the same path, and a shared path must share one `id`; the build fails
-on a mismatch. Dates, `tags`, and `nextStep` are set per file, so each language keeps its own.
+A catalog-backed article generates both files from the same metadata and requires a complete
+German translation. For a separately authored pair, both files need the same path and `id`; the
+build fails on a mismatch.
 The build links the pair through hreflang and the language switch, and the pair appears on both
 domains once both files are due. A tag archive exists in a language when a due post of that
 language uses the tag; it is linked across languages when both have one.
@@ -218,8 +221,8 @@ blocks indexing.
 
 In the pull request that carries the first post:
 
-1. Add the post in `de` and `en` with a shared `id`, and a `publishedAt` that is not later than
-   the CI run of the pull request.
+1. Add the English article and its German catalog entries, with a `publishedAt` that is not later
+   than the CI run of the pull request.
 2. Set `BLOG_NAVIGATION` to `"launching"`. The item appears, and the build fails if either
    language has no published post at the build time, so the item cannot go live on one domain
    only.
@@ -227,8 +230,7 @@ In the pull request that carries the first post:
    and the tech blog. CI has browser checks for Software, app-tracking, and the tech blog only,
    so look at Open Source and Skills by hand.
 
-The frame tests need no change: `frame.test.ts` checks the frame with the phase `off`, and
-`frame.blog.test.ts` with `launching` and `live`.
+The frame tests cover the current navigation and each launch phase.
 
 After the first deployment with the item:
 

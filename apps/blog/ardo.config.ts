@@ -45,6 +45,7 @@ export default createSiteConfig({
       },
     },
   },
+  markdown: { headingAttributes: true },
   publication: {
     from: source,
     to: BLOG_PATH.slice(1),
