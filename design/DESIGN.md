@@ -18,7 +18,13 @@ colors), `packages/ui` (frame and editorial primitives), and the three homepages
    12-column grid; white space separates sections instead of rules and tinted bands.
 3. **Fixed measure on desktop.** The page is 1040 px wide. Wider windows get wider margins,
    never larger type or wider text.
-4. **Explain before persuading.** Each homepage says what the site offers before founders,
+4. **Products and projects are guests.** A product or open-source project brings its own mark
+   and wordmark, shown unchanged and small beside its story; the rest of the page stays in the
+   site's own imagery. The illustrations show the customer's world in the site's style and are
+   never redrawn in a product's style, and product marks are never recolored or restyled to fit
+   the site. The marks of the products with ancient-Greek names come from
+   [Kerameikos](https://github.com/sebastian-software/kerameikos).
+5. **Explain before persuading.** Each homepage says what the site offers before founders,
    values, or slogans carry the message.
 
 ## Page and grid
