@@ -13,17 +13,17 @@ import type { Product, ProductId } from "~/data/products"
 
 import palamedesMark from "~/assets/brands/palamedes-mark.svg"
 import palamedesPlusWordmark from "~/assets/brands/palamedes-plus-wordmark.svg"
-import terminaroEmblem from "~/assets/brands/terminaro-emblem.svg"
+import terminaroMark from "~/assets/brands/terminaro-mark.svg"
 import terminaroWordmark from "~/assets/brands/terminaro-wordmark.svg"
 
 import * as styles from "./ProductStory.css.ts"
 
-/** Original artwork per product: the emblem and its wordmark in the product's own face. */
+/** Artwork per product: its Kerameikos mark (small version) and its wordmark in Cinzel Hellenic. */
 const IDENTITIES: Partial<
   Record<ProductId, { readonly mark: string; readonly ratio: number; readonly wordmark: string }>
 > = {
   "palamedes-plus": { mark: palamedesMark, ratio: 9.178, wordmark: palamedesPlusWordmark },
-  terminaro: { mark: terminaroEmblem, ratio: 8.222, wordmark: terminaroWordmark },
+  terminaro: { mark: terminaroMark, ratio: 8.222, wordmark: terminaroWordmark },
 }
 
 const MARK_SIZE = 92
