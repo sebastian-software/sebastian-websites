@@ -33,6 +33,7 @@ describe.each<BlogNavigationPhase>(["launching", "live"])(
       expect(frame.navigation.map((link) => link.id)).toStrictEqual([
         "products",
         "opensource",
+        "company",
         "blog",
       ])
       expect(frame.navigation.at(-1)).toStrictEqual({
@@ -60,12 +61,8 @@ describe.each<BlogNavigationPhase>(["launching", "live"])(
       ).toBe(false)
     })
 
-    it("keeps the footer index and the Consulting navigation unchanged", () => {
-      expect(siteFrame("software", "en", "/").index.map((link) => link.id)).toStrictEqual([
-        "products",
-        "opensource",
-        "company",
-      ])
+    it("keeps the Software footer without a local index and preserves Consulting navigation", () => {
+      expect(siteFrame("software", "en", "/").index).toHaveLength(0)
       const consulting = siteFrame("consulting", "en", "/")
       expect(consulting.navigation.map((link) => link.id)).toStrictEqual([
         "services",

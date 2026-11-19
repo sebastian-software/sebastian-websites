@@ -6,6 +6,7 @@ import {
   font,
   PHONE,
   scaled,
+  SPACE_SCALE,
   typeStep,
 } from "@sebastian-websites/ui/styles"
 import { style } from "@vanilla-extract/css"
@@ -33,11 +34,8 @@ export const column = style({
     [COMPACT]: {
       selectors: {
         "& + &": {
-          borderLeft: 0,
-          borderTop: `1px solid ${color.rule}`,
-          marginTop: scaled("36px"),
+          marginTop: SPACE_SCALE.xl,
           paddingLeft: 0,
-          paddingTop: scaled("32px"),
         },
       },
     },
@@ -45,7 +43,7 @@ export const column = style({
   display: "flex",
   flexDirection: "column",
   selectors: {
-    "& + &": { borderLeft: `1px solid ${color.rule}`, paddingLeft: "40px" },
+    "& + &": { paddingLeft: SPACE_SCALE.l },
   },
 })
 

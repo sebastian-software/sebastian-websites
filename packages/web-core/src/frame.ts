@@ -111,13 +111,14 @@ const SERVICES: Destination = { id: "services", path: "/services", site: "consul
 const PROFILES: Destination = { id: "profiles", path: "/team", site: "consulting" }
 const REFERENCES: Destination = { id: "references", path: "/references", site: "consulting" }
 /** The tech blog's home; the brand's other sites link it like Products, as a cross-site link. */
+const COMPANY: Destination = { id: "company", path: "/company", site: "software" }
 const BLOG: Destination = { id: "blog", path: "/", site: BLOG_SITE }
 
 /**
  * The two frame contexts. Open Source belongs to Software; Effective Agent is a
  * product and is reached through Open Source, not the header (2026-10-09). The
  * tech blog joins the brand navigation of every Software site once its
- * launch phase (`BLOG_NAVIGATION`) is `launching` or `live`; the footer index
+ * launch phase (`BLOG_NAVIGATION`) is `launching` or `live`; the Consulting footer index
  * stays without it. The booking link replaces a contact route on Consulting.
  */
 const CONTEXTS: Readonly<Record<BrandId, ContextSpec>> = {
@@ -129,8 +130,11 @@ const CONTEXTS: Readonly<Record<BrandId, ContextSpec>> = {
   },
   software: {
     home: "software",
-    index: [PRODUCTS, OPEN_SOURCE, { id: "company", path: "/company", site: "software" }],
-    navigation: BLOG_NAVIGATION === "off" ? [PRODUCTS, OPEN_SOURCE] : [PRODUCTS, OPEN_SOURCE, BLOG],
+    index: [],
+    navigation:
+      BLOG_NAVIGATION === "off"
+        ? [PRODUCTS, OPEN_SOURCE, COMPANY]
+        : [PRODUCTS, OPEN_SOURCE, COMPANY, BLOG],
     outbound: "consulting",
   },
 }

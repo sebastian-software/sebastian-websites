@@ -4,16 +4,12 @@ import type { ArdoMetaDescriptor } from "ardo/runtime"
 import { t } from "@palamedes/core/macro"
 import { pageMeta } from "@sebastian-websites/site/meta"
 import { ArrowLink, editorialSizes, Illustration } from "@sebastian-websites/ui"
-import { activity, metrics } from "virtual:opensource-build-data"
+import { metrics } from "virtual:opensource-build-data"
 
 import workshop from "~/assets/illustrations/open-workshop.image.mdx"
 import { FeaturedStory } from "~/components/FeaturedStory"
 import { MetricsOverview } from "~/components/MetricsSummary"
-import { ProjectTiles } from "~/components/ProjectTiles"
-import * as tiles from "~/components/ProjectTiles.css"
 import { getFeatured } from "~/data/featured"
-import { CURATED, EXCLUSIONS, getProjects } from "~/data/projects"
-import { buildCollection, findUncurated } from "~/lib/collection"
 import { variant } from "~/lib/site"
 
 import * as styles from "./home.css.ts"
@@ -31,19 +27,19 @@ export function meta(): ArdoMetaDescriptor[] {
   ])
 }
 
-// Report new repositories during prerendering; activity never adds uncurated tiles.
-if (import.meta.env.SSR) {
-  const uncurated = findUncurated(CURATED, EXCLUSIONS, activity)
-  if (uncurated.length > 0) {
-    console.warn(`Repositories missing from curation: ${uncurated.join(", ")}`)
-  }
-}
-
 export default function Home(): ReactElement {
-  const groups = buildCollection(getProjects(), activity)
   return (
     <main className={styles.main} id="main">
       <section aria-labelledby="home-title" className={styles.hero}>
+        <Illustration
+          alt={t`At an open workbench, a maker passes on the plans for an adjustable lamp.`}
+          className={styles.banner}
+          height={520}
+          priority
+          sizes={editorialSizes(BANNER_WIDTH)}
+          src={workshop}
+          width={BANNER_WIDTH}
+        />
         <h1 className={styles.heroTitle} id="home-title">
           {t`Open software you can build on.`}
         </h1>
@@ -55,33 +51,16 @@ export default function Home(): ReactElement {
             {t`Explore the projects`}
           </ArrowLink>
         </p>
-        <Illustration
-          alt={t`At an open workbench, a maker passes on the plans for an adjustable lamp.`}
-          className={styles.banner}
-          height={520}
-          priority
-          sizes={editorialSizes(BANNER_WIDTH)}
-          src={workshop}
-          width={BANNER_WIDTH}
-        />
       </section>
       <MetricsOverview initial={metrics} />
-      <div className={styles.stories}>
+      <div className={styles.stories} id="projects">
         {getFeatured().map((project, index) => (
           <FeaturedStory index={index} key={project.id} project={project} />
         ))}
       </div>
-      <section aria-labelledby="projects-title" className={styles.projects} id="projects">
-        <div className={tiles.head}>
-          <h2 className={tiles.title} id="projects-title">
-            {t`More open projects.`}
-          </h2>
-          <p
-            className={tiles.subtitle}
-          >{t`Tools, services and libraries for the next part of your work.`}</p>
-        </div>
-        <ProjectTiles groups={groups} />
-      </section>
+      <div className={styles.moreProjects}>
+        <ArrowLink href="/projects">{t`More open projects.`}</ArrowLink>
+      </div>
     </main>
   )
 }

@@ -100,6 +100,7 @@ describe("SiteHeader", () => {
     expect(texts(header.querySelectorAll('nav[aria-label="Main navigation"] a'))).toStrictEqual([
       "Products",
       "Open Source",
+      "Company",
     ])
     expect(header.querySelector("a")?.getAttribute("href")).toBe("#main")
     const languages = header.querySelectorAll('nav[aria-label="Language"] a')
@@ -199,6 +200,7 @@ describe("PageEnding", () => {
     expect(texts(footer.querySelectorAll("img"))).toHaveLength(1)
     expect(footer.querySelector("img")?.getAttribute("alt")).toBe("Sebastian Software")
     expect(footer.querySelector("form")).toBeNull()
+    expect(footer.querySelector('nav[aria-label="Site index"]')).toBeNull()
     expect(footer.textContent).not.toContain("Sebastian Consulting")
     expect(footer.querySelector("address")?.textContent).toContain("Dalheimer Straße 12")
     expect(

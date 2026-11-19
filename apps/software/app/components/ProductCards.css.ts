@@ -1,7 +1,11 @@
 import { blocks, editorial, SPACE_SCALE, typeStep } from "@sebastian-websites/ui/styles"
 import { style } from "@vanilla-extract/css"
 
-export const card = style([blocks.card, { minWidth: 0, overflow: "hidden", padding: 0 }])
+export const card = style([
+  blocks.card,
+  editorial.rounded,
+  { minWidth: 0, overflow: "hidden", padding: 0 },
+])
 export const image = editorial.media
 export const body = style({
   display: "flex",

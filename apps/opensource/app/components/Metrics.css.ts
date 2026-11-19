@@ -26,6 +26,16 @@ export const introText = style([editorial.body, { maxWidth: "42ch" }])
 globalStyle(`${homeIntro} > picture`, { gridColumn: "7 / span 6" })
 export const counter = editorial.paperIllustration
 
+export const overviewCard = style([
+  editorial.rounded,
+  {
+    backgroundColor: color.tint,
+    boxShadow: "0 8px 24px -12px rgb(31 48 60 / 20%)",
+    marginTop: SPACE_SCALE.l,
+    padding: SPACE_SCALE.m,
+  },
+])
+
 export const overview = style({
   "@media": { [COMPACT]: { gridTemplateColumns: "repeat(2, minmax(0, 1fr))" } },
   borderBlock: `1px solid ${color.rule}`,
@@ -49,6 +59,8 @@ globalStyle(`${overview} dd`, {
   lineHeight: 1.2,
   margin: `${SPACE_SCALE["2xs"]} 0 0`,
 })
+globalStyle(`${overviewCard} > ${overview}`, { borderBlock: 0, marginBlock: 0 })
+
 export const note = style([editorial.caption, { marginTop: SPACE_SCALE.xs }])
 export const tools = style({
   alignItems: "end",
@@ -156,10 +168,7 @@ export const sources = style({
 globalStyle(`${sources} li`, { borderTop: `1px solid ${color.rule}`, paddingTop: SPACE_SCALE.xs })
 export const skills = style([sources])
 export const prose = style([editorial.prose, editorial.small, { maxWidth: "68ch" }])
-export const home = style([
-  section,
-  { borderTop: `1px solid ${color.rule}`, paddingTop: SPACE_SCALE.xl },
-])
+export const home = section
 
 export const dashboard = style({})
 export const dashboardHeader = style({

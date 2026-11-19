@@ -29,6 +29,18 @@ export default function Home(): ReactElement {
   const products = getProducts()
   return (
     <main className={styles.main} id="main">
+      <figure className={styles.photoFrame}>
+        <BunnyImage
+          alt={t`Sebastian Werner and Sebastian Fastner in the office lounge`}
+          className={editorial.widePhoto}
+          crop={teamPhoto.crop}
+          height={520}
+          priority
+          sizes={editorialSizes(TEAM_PHOTO_WIDTH)}
+          src={teamPhoto.src}
+          width={TEAM_PHOTO_WIDTH}
+        />
+      </figure>
       <section aria-labelledby="home-title" className={styles.hero}>
         <h1 className={styles.heroTitle} id="home-title">
           {t`Independent software.`}
@@ -44,28 +56,16 @@ export default function Home(): ReactElement {
           </p>
         </div>
       </section>
-      <figure className={styles.photoFrame}>
-        <BunnyImage
-          alt={t`Sebastian Werner and Sebastian Fastner in the office lounge`}
-          className={editorial.widePhoto}
-          crop={teamPhoto.crop}
-          height={520}
-          priority
-          sizes={editorialSizes(TEAM_PHOTO_WIDTH)}
-          src={teamPhoto.src}
-          width={TEAM_PHOTO_WIDTH}
-        />
-      </figure>
       <div className={styles.stories}>
         {products.map((product, index) => (
           <ProductStory index={index} key={product.id} product={product} />
         ))}
       </div>
       <div className={styles.company}>
-        <RegionStory />
+        <OpenFoundations />
       </div>
       <div className={styles.company}>
-        <OpenFoundations />
+        <RegionStory />
       </div>
     </main>
   )

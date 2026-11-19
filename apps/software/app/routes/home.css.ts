@@ -1,14 +1,21 @@
-import { color, COMPACT, editorial, PHONE, scaled, typeStep } from "@sebastian-websites/ui/styles"
-import { style } from "@vanilla-extract/css"
+import {
+  color,
+  COMPACT,
+  editorial,
+  PHONE,
+  scaled,
+  SPACE_SCALE,
+  typeStep,
+} from "@sebastian-websites/ui/styles"
+import { globalStyle, style } from "@vanilla-extract/css"
 
 export const main = style([
   editorial.page,
   {
     "@media": {
-      [COMPACT]: { paddingTop: scaled("72px") },
-      [PHONE]: { paddingTop: scaled("48px") },
+      [COMPACT]: { paddingTop: SPACE_SCALE.l },
     },
-    paddingTop: scaled("112px"),
+    paddingTop: SPACE_SCALE.xl,
   },
 ])
 
@@ -40,8 +47,11 @@ export const heroText = style([editorial.bodySerif, { maxWidth: "22em" }])
 
 export const heroAction = style({ marginTop: scaled("28px") })
 
-export const photoFrame = style([editorial.section, { display: "block", margin: 0 }])
+export const photoFrame = style({ display: "block", margin: 0, marginBottom: SPACE_SCALE["2xl"] })
 
 export const stories = style([editorial.storyList, editorial.section])
+
+// The wordmark and illustration share the same top edge in each product row.
+globalStyle(`${stories} > article`, { alignItems: "start" })
 
 export const company = style([editorial.section])

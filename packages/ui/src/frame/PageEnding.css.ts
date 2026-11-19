@@ -9,13 +9,19 @@ import {
 } from "@sebastian-websites/tokens"
 import { style, styleVariants } from "@vanilla-extract/css"
 
-import { grid, heading, lead, outboundAccent, title } from "../editorial/editorial.css.ts"
+import {
+  featureHeading,
+  grid,
+  lead,
+  media,
+  outboundAccent,
+  rounded,
+} from "../editorial/editorial.css.ts"
 import { COMPACT, FRAME_WIDTH, PHONE } from "../responsive.ts"
 import { color, font } from "../theme.css.ts"
-import { continuousCorners } from "./corners.ts"
+import { continuousCorners, panelCorners } from "./corners.ts"
 
 const FIELD_RADIUS = 6
-const PANEL_RADIUS = 24
 const FIELD_HEIGHT = scaled("58px")
 
 const START_HALF = "1 / span 6"
@@ -43,7 +49,7 @@ export const newsletter = style([
 ])
 
 export const newsletterTitle = style([
-  heading,
+  featureHeading,
   {
     gridColumn: START_HALF,
     marginBottom: scaled("12px"),
@@ -166,13 +172,11 @@ export const invitationAccent = styleVariants({
 export const invitationCopy = style({ gridColumn: START_HALF })
 
 export const invitationTitle = style([
-  title,
+  featureHeading,
   {
     "@media": {
       [PHONE]: { marginBottom: scaled("20px") },
     },
-    fontSize: typeStep("4"),
-    lineHeight: 1.16,
     marginBottom: scaled("28px"),
   },
 ])
@@ -189,14 +193,14 @@ export const invitationArt = style({
   paddingLeft: scaled("40px"),
 })
 
-export const invitationImage = style({ display: "block", height: "auto", width: "100%" })
+export const invitationImage = style([media, rounded])
 
 // ---- Footer: the current site's substantial inset panel -----------------------
 
 export const footer = style([ending, { paddingBottom: scaled("24px") }])
 
 export const panel = style([
-  continuousCorners(PANEL_RADIUS),
+  panelCorners,
   {
     "@media": {
       [COMPACT]: { padding: scaled("44px 40px 28px") },
@@ -228,9 +232,9 @@ export const footerTop = style({
 export const footerHome = style({ borderRadius: scaled("8px"), display: "inline-block" })
 
 export const footerLogo = style({
-  "@media": { [PHONE]: { height: scaled("64px") } },
+  "@media": { [PHONE]: { height: scaled("38.4px") } },
   display: "block",
-  height: scaled("88px"),
+  height: scaled("52.8px"),
   selectors: { '[data-brand="consulting"] &': { height: "auto", width: scaled("290px") } },
   width: "auto",
 })
@@ -253,12 +257,13 @@ export const plainLink = style({ selectors: { "&:hover": { color: color.accent }
 
 export const aside = style({
   "@media": { [PHONE]: { minWidth: 0, rowGap: scaled("28px") } },
+  alignSelf: "end",
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
   minWidth: scaled("224px"),
   paddingTop: "2px",
-  selectors: { '[data-brand="consulting"] &': { rowGap: SPACE_SCALE.m } },
+  selectors: { '[data-brand="consulting"] &': { alignSelf: "stretch", rowGap: SPACE_SCALE.m } },
 })
 
 export const index = style({

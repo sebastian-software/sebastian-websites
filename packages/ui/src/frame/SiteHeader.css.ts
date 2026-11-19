@@ -1,4 +1,4 @@
-import { FRAME, scaled, SPACE_SCALE, typeStep } from "@sebastian-websites/tokens"
+import { FRAME, scaled, typeStep } from "@sebastian-websites/tokens"
 import { createVar, style } from "@vanilla-extract/css"
 
 import { COMPACT, FRAME_INSET, FRAME_OVERHANG, FRAME_WIDTH, PHONE } from "../responsive.ts"
@@ -40,21 +40,20 @@ export const area = style({
   marginTop: HEADER_TOP,
   position: "sticky",
   selectors: {
-    '&[data-brand="consulting"]': {
-      vars: { [HEADER_TOP]: `max(${FRAME.headerTop}, env(safe-area-inset-top, 0px))` },
-    },
-    '&[data-brand="consulting"]::before': {
+    "&::before": {
       backgroundColor: color.canvas,
-      backgroundImage: canvasTexture,
       content: '""',
-      height: `calc(${HEADER_TOP} + ${FRAME.headerHeight} + ${SPACE_SCALE.s})`,
+      height: `calc(${HEADER_TOP} + ${FRAME.headerHeight})`,
       insetInline: 0,
-      maskImage: `linear-gradient(to bottom, black calc(${HEADER_TOP} + ${FRAME.headerHeight} / 2), transparent)`,
       pointerEvents: "none",
       position: "fixed",
       top: 0,
       zIndex: -1,
     },
+    '&[data-brand="consulting"]': {
+      vars: { [HEADER_TOP]: `max(${FRAME.headerTop}, env(safe-area-inset-top, 0px))` },
+    },
+    '&[data-brand="consulting"]::before': { backgroundImage: canvasTexture },
   },
   top: HEADER_TOP,
   vars: { [HEADER_TOP]: FRAME.headerTop },

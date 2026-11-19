@@ -141,15 +141,16 @@ export function MetricsOverview({ initial }: { readonly initial: Snapshot }): Re
           width={COUNTER_WIDTH}
         />
       </div>
-      <MetricsSummary snapshot={snapshot} />
-      <p className={styles.note}>
-        {t`Collected`}: <SnapshotTime snapshot={snapshot} />
+      <div className={styles.overviewCard}>
+        <MetricsSummary snapshot={snapshot} />
         {failed ? (
-          <span> · {t`Live refresh unavailable; the previous snapshot is shown.`}</span>
+          <p
+            className={styles.note}
+          >{t`Live refresh unavailable; the previous snapshot is shown.`}</p>
         ) : null}
-      </p>
-      <div className={styles.toolbar}>
-        <ArrowLink href="/metrics">{t`Explore all metrics`}</ArrowLink>
+        <div className={styles.toolbar}>
+          <ArrowLink href="/metrics">{t`Explore all metrics`}</ArrowLink>
+        </div>
       </div>
     </section>
   )

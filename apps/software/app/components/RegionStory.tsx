@@ -29,7 +29,6 @@ export function RegionStory(): ReactElement {
         <p className={editorial.bodySerif}>
           {t`Based in Mainz and Heidelberg, rooted in the Rhine-Main and Rhine-Neckar regions. Two founders run the company themselves.`}
         </p>
-        <hr className={styles.rule} />
         <p className={styles.values}>
           {t`Experience.`}
           <br />
@@ -37,7 +36,6 @@ export function RegionStory(): ReactElement {
           <br />
           {t`Enthusiasm.`}
         </p>
-        <hr className={styles.rule} />
         <ArrowLink href="/company">{t`About our company`}</ArrowLink>
       </div>
     </section>

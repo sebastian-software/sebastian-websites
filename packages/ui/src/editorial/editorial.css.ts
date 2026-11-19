@@ -8,6 +8,7 @@ import {
 } from "@sebastian-websites/tokens"
 import { createVar, globalStyle, style, styleVariants } from "@vanilla-extract/css"
 
+import { panelCorners } from "../frame/corners.ts"
 import { COMPACT, PAGE_WIDTH, PHONE } from "../responsive.ts"
 import { color, font } from "../theme.css.ts"
 
@@ -46,11 +47,11 @@ globalStyle(`${grid} > *`, {
   "@media": { [COMPACT]: { gridColumn: "1 / -1 !important", gridRow: "auto !important" } },
 })
 
-/** Vertical space after a section; the next section starts without its own top. */
 /** A photograph across the page: 2:1 on desktop, 4:3 on phones so faces stay large. */
 export const widePhoto = style({
   "@media": { [PHONE]: { aspectRatio: "4 / 3" } },
   aspectRatio: "2 / 1",
+  ...panelCorners,
   backgroundColor: color.tint,
   display: "block",
   height: "auto",
@@ -58,6 +59,7 @@ export const widePhoto = style({
   width: "100%",
 })
 
+/** Vertical space after a section; the next section starts without its own top. */
 export const section = style({ paddingBottom: RHYTHM.section })
 
 // ---- Type ------------------------------------------------------------------
@@ -70,6 +72,7 @@ const serifHeading = {
 
 export const display = style({ ...serifHeading, ...step(TYPE_SCALE.display) })
 export const title = style({ ...serifHeading, ...step(TYPE_SCALE.title) })
+export const featureHeading = style([title, { fontSize: typeStep("4"), lineHeight: 1.16 }])
 export const heading = style({ ...serifHeading, ...step(TYPE_SCALE.heading) })
 export const subheading = style({ ...serifHeading, ...step(TYPE_SCALE.subheading) })
 
@@ -251,8 +254,11 @@ export const storyActions = style({
 
 export const media = style({ display: "block", height: "auto", width: "100%" })
 
+export const rounded = style(panelCorners)
+
 /** The edge of a mounted paper illustration. The source sets the aspect ratio. */
 export const paperIllustration = style([
   media,
-  { borderRadius: "6px", boxShadow: "0 2px 7px rgb(31 48 43 / 10%)" },
+  rounded,
+  { boxShadow: "0 2px 7px rgb(31 48 43 / 10%)" },
 ])
