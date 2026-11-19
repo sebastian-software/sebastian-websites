@@ -1,15 +1,16 @@
-import type { BunnyImageProps } from "@sebastian-websites/ui"
+import { type BunnyImageProps, editorialSizes } from "@sebastian-websites/ui"
 
 const CENTER = 0.5
 const LAPTOP_FOCUS = 0.62
 const BUILDING_FOCUS_X = 0.49
-const BUILDING_FOCUS_Y = 0.71
+const BUILDING_FOCUS_Y = 0.745
 const WERNER_FOCUS_X = 0.42
 const WERNER_FOCUS_Y = 0.37
 const FASTNER_FOCUS_X = 0.47
 const FASTNER_FOCUS_Y = 0.38
-const PHOTO_WIDTH = 800
-const LANDSCAPE_HEIGHT = 600
+const BUILDING_WIDTH = 768
+const BUILDING_HEIGHT = 1024
+const CLOSING_COLUMN_WIDTH = 384
 const PORTRAIT_SMALL = 150
 const PORTRAIT_MEDIUM = 300
 const PORTRAIT_LARGE = 450
@@ -17,9 +18,8 @@ const PORTRAIT_ZOOM = 1.75
 
 export type PhotoPlacement = Pick<BunnyImageProps, "crop" | "height" | "src" | "width" | "widths">
 
-// 560 design pixels grow to 623 px where the root reaches its largest size.
-export const PHOTO_SIZES =
-  "(min-width: 1281px) and (min-height: 1025px) 623px, (min-width: 1200px) 560px, (min-width: 960px) 45vw, 90vw"
+// The right column takes two fifths of the editorial grid after its gutter.
+export const PHOTO_SIZES = editorialSizes(CLOSING_COLUMN_WIDTH)
 
 export const laptopPhoto = {
   crop: { mode: "focus", point: [CENTER, LAPTOP_FOCUS] },
@@ -28,9 +28,9 @@ export const laptopPhoto = {
 
 export const buildingPhoto: PhotoPlacement = {
   crop: { mode: "focus", point: [BUILDING_FOCUS_X, BUILDING_FOCUS_Y], zoom: 1.8 },
-  height: LANDSCAPE_HEIGHT,
+  height: BUILDING_HEIGHT,
   src: { height: 3520, path: "shooting-2024/color_09092024-26-retouched.png", width: 2352 },
-  width: PHOTO_WIDTH,
+  width: BUILDING_WIDTH,
 }
 
 export const wernerPhoto: PhotoPlacement = {

@@ -31,7 +31,7 @@ export function Closing(): ReactElement {
         </div>
         <Photo
           alt={t`The two founders in front of the building`}
-          frame="landscape"
+          frame="portrait"
           image={buildingPhoto}
         />
       </div>

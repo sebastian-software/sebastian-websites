@@ -55,7 +55,7 @@ export const photo = style({
 
 export const photoFrame = styleVariants({
   landscape: { aspectRatio: "4 / 3" },
-  portrait: { aspectRatio: "4 / 5" },
+  portrait: { aspectRatio: "3 / 4" },
   square: { aspectRatio: "1 / 1" },
 })
 
