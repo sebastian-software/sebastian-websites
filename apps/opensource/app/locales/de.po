@@ -654,6 +654,10 @@ msgstr "Funktionsweise"
 msgid "How the data is collected"
 msgstr "So werden die Daten erfasst"
 
+#: app/routes/imprint.tsx
+msgid "Icon Credits"
+msgstr "Icon-Nachweis"
+
 #~ #@ obsolete-since: 2026-10-09
 #~ #: app/components/SkillsPanel.tsx#getSkills
 #~ msgid "Image"
@@ -1557,6 +1561,14 @@ msgid ""
 msgstr ""
 "Vielleicht ist der Link veraltet oder die Adresse enthält einen Tippfehler. "
 "Hier geht es weiter:"
+
+#: app/routes/imprint.tsx
+msgid ""
+"The metrics icons are from <0>Sharp Line by Streamline</0> and are licensed "
+"under <1>CC BY 4.0</1>."
+msgstr ""
+"Die Symbole bei den Kennzahlen stammen aus <0>Sharp Line von Streamline</0> "
+"und stehen unter <1>CC BY 4.0</1>."
 
 #: app/data/featured.ts#getFeatured
 msgid "The same message in several languages around a paper globe."

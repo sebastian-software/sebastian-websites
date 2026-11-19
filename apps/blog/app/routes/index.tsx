@@ -2,7 +2,7 @@ import type { ReactElement } from "ardo/react"
 import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 import { t } from "@palamedes/core/macro"
-import { ArrowLink, editorialSizes, Illustration } from "@sebastian-websites/ui"
+import { ArrowLink, frameImageSizes, Illustration } from "@sebastian-websites/ui"
 import { BLOG_PATH } from "@sebastian-websites/web-core"
 import publication from "virtual:ardo/publication"
 
@@ -60,7 +60,7 @@ export default function Home(): ReactElement {
           className={styles.banner}
           height={520}
           priority
-          sizes={editorialSizes(BANNER_WIDTH)}
+          sizes={frameImageSizes}
           src={writingDesk}
           width={BANNER_WIDTH}
         />

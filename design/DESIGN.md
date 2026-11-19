@@ -143,11 +143,28 @@ heading.
 
 ## Imagery
 
+Full-width photographs and banners on Software, Open Source, and the tech blog
+align with the header and footer. Apply `editorial.frameMedia` and
+`frameImageSizes` to those placements. Text and images within a column use the
+editorial grid.
+
 Ardo prepares responsive AVIF files and JPEG fallbacks for the editorial paper illustrations. The
 founder portraits come from the shared asset zone with a zoomed focus crop
 (`{ mode: "focus", point, zoom }`) tuned per photo, so both heads appear at the same scale in
 equal 7:10 frames. The [paper miniature guide](paper-miniatures/README.md) records the landscape
 reference. The surrounding text names Mainz and Heidelberg in each language.
+
+## Icons
+
+Use [Streamline Sharp Line](https://www.streamlinehq.com/icons/sharp-line-style) for
+interface icons on the Sebastian Software websites. Render them at 24 × 24 CSS px
+with their original 24 × 24 viewBox and strokes. Keep the control's hit area sized
+independently. Use the surrounding text or accent color, and hide decorative icons
+from assistive technology when a visible label already gives their meaning.
+
+The Open Source metrics use a folder for projects, a star badge for GitHub stars,
+and the same download icon for both package registries. The Open Source legal
+notice credits the [CC BY 4.0 artwork](https://icon-sets.iconify.design/streamline-sharp/).
 
 ## Motion
 

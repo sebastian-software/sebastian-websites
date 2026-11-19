@@ -23,7 +23,11 @@ export const head = style([
   { marginBottom: SPACE_SCALE["2xl"], rowGap: SPACE_SCALE.s },
 ])
 
-export const banner = style([editorial.paperIllustration, { marginTop: SPACE_SCALE.m }])
+export const banner = style([
+  editorial.paperIllustration,
+  editorial.frameMedia,
+  { marginTop: SPACE_SCALE.m },
+])
 
 globalStyle(`${head} > picture`, { gridColumn: FULL_WIDTH })
 

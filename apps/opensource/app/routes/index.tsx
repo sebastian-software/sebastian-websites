@@ -3,7 +3,7 @@ import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 import { t } from "@palamedes/core/macro"
 import { pageMeta } from "@sebastian-websites/site/meta"
-import { ArrowLink, editorialSizes, Illustration } from "@sebastian-websites/ui"
+import { ArrowLink, frameImageSizes, Illustration } from "@sebastian-websites/ui"
 import { metrics } from "virtual:opensource-build-data"
 
 import workshop from "~/assets/illustrations/open-workshop.image.mdx"
@@ -36,7 +36,7 @@ export default function Home(): ReactElement {
           className={styles.banner}
           height={520}
           priority
-          sizes={editorialSizes(BANNER_WIDTH)}
+          sizes={frameImageSizes}
           src={workshop}
           width={BANNER_WIDTH}
         />

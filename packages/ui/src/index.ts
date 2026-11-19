@@ -43,6 +43,7 @@ export {
   FRAME_INSET,
   FRAME_OVERHANG,
   FRAME_WIDTH,
+  frameImageSizes,
   PAGE_MARGIN,
   PAGE_WIDTH,
   PHONE,

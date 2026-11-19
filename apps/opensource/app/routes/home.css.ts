@@ -25,7 +25,11 @@ export const heroLead = style({
 
 export const heroAction = style({ marginTop: scaled("28px") })
 
-export const banner = style([editorial.paperIllustration, { marginBottom: SPACE_SCALE.xl }])
+export const banner = style([
+  editorial.paperIllustration,
+  editorial.frameMedia,
+  { marginBottom: SPACE_SCALE.xl },
+])
 
 export const stories = style([editorial.storyList, { scrollMarginTop: scaled("96px") }])
 

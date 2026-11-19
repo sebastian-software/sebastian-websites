@@ -51,6 +51,11 @@ globalStyle(`${overview} > div`, {
   padding: `${SPACE_SCALE.m} ${SPACE_SCALE.s}`,
 })
 globalStyle(`${overview} dt`, { color: color.text, fontSize: typeStep("0") })
+export const metricIcon = style({
+  color: color.accent,
+  display: "block",
+  marginBottom: SPACE_SCALE["2xs"],
+})
 globalStyle(`${overview} dd`, {
   color: color.accent,
   fontFamily: font.serif,

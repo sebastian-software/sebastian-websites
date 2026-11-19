@@ -48,6 +48,7 @@ export const heroText = style([editorial.bodySerif, { maxWidth: "22em" }])
 export const heroAction = style({ marginTop: scaled("28px") })
 
 export const photoFrame = style({ display: "block", margin: 0, marginBottom: SPACE_SCALE["2xl"] })
+export const photo = style([editorial.widePhoto, editorial.frameMedia])
 
 export const stories = style([editorial.storyList, editorial.section])
 

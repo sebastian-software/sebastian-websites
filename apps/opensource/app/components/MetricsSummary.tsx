@@ -8,6 +8,7 @@ import { crateDownloads30Days, type Snapshot } from "~/lib/metrics-model"
 import { variant } from "~/lib/site"
 import { useMetrics } from "~/lib/use-metrics"
 
+import { MetricIcon } from "./MetricIcon"
 import * as styles from "./Metrics.css"
 
 const COUNTER_WIDTH = 504
@@ -54,7 +55,10 @@ export function MetricsSummary({ snapshot }: { readonly snapshot: Snapshot }): R
   return (
     <dl className={styles.overview}>
       <div>
-        <dt>{t`Public projects`}</dt>
+        <dt>
+          <MetricIcon name="projects" />
+          {t`Public projects`}
+        </dt>
         <dd>
           <MetricNumber
             value={snapshot.sources.github === "ok" ? snapshot.projects.length : null}
@@ -62,7 +66,10 @@ export function MetricsSummary({ snapshot }: { readonly snapshot: Snapshot }): R
         </dd>
       </div>
       <div>
-        <dt>{t`GitHub stars`}</dt>
+        <dt>
+          <MetricIcon name="stars" />
+          {t`GitHub stars`}
+        </dt>
         <dd>
           <MetricNumber
             value={
@@ -74,13 +81,19 @@ export function MetricsSummary({ snapshot }: { readonly snapshot: Snapshot }): R
         </dd>
       </div>
       <div>
-        <dt>{t`npm downloads / month`}</dt>
+        <dt>
+          <MetricIcon name="downloads" />
+          {t`npm downloads / month`}
+        </dt>
         <dd>
           <MetricNumber value={sums("npm")} />
         </dd>
       </div>
       <div>
-        <dt>{t`crates.io downloads / month`}</dt>
+        <dt>
+          <MetricIcon name="downloads" />
+          {t`crates.io downloads / month`}
+        </dt>
         <dd>
           <MetricNumber
             value={

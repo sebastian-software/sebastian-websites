@@ -9,7 +9,7 @@ import {
 import { createVar, globalStyle, style, styleVariants } from "@vanilla-extract/css"
 
 import { panelCorners } from "../frame/corners.ts"
-import { COMPACT, PAGE_WIDTH, PHONE } from "../responsive.ts"
+import { COMPACT, FRAME_OVERHANG, PAGE_WIDTH, PHONE } from "../responsive.ts"
 import { color, font } from "../theme.css.ts"
 
 /**
@@ -262,3 +262,10 @@ export const paperIllustration = style([
   rounded,
   { boxShadow: "0 2px 7px rgb(31 48 43 / 10%)" },
 ])
+
+/** Full-width photographs and banners line up with the header shell. */
+export const frameMedia = style({
+  marginInline: `calc(-1 * ${FRAME_OVERHANG})`,
+  maxWidth: "none",
+  width: `calc(100% + 2 * ${FRAME_OVERHANG})`,
+})

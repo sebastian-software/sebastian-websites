@@ -5,7 +5,7 @@ import { t } from "@palamedes/core/macro"
 import {
   BunnyImage,
   editorial,
-  editorialSizes,
+  frameImageSizes,
   Illustration,
   layout,
   Section,
@@ -65,7 +65,7 @@ function Mission(): ReactElement {
         alt={t`A radio with its front panel removed, showing the speaker and wiring.`}
         className={styles.missionImage}
         height={RADIO_HEIGHT}
-        sizes={editorialSizes(WIDE_IMAGE_WIDTH)}
+        sizes={frameImageSizes}
         src={missionRadio}
         width={WIDE_IMAGE_WIDTH}
       />
@@ -92,7 +92,7 @@ export default function Company(): ReactElement {
           crop={laptopPhoto.crop}
           height={TEAM_IMAGE_HEIGHT}
           priority
-          sizes={editorialSizes(WIDE_IMAGE_WIDTH)}
+          sizes={frameImageSizes}
           src={laptopPhoto.src}
           width={WIDE_IMAGE_WIDTH}
         />

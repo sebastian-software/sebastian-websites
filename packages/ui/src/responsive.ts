@@ -71,6 +71,16 @@ const PAGE_STEPS = [
 /** The page width of the narrower desktop windows, rounded up. */
 const PAGE_BASE = 1100
 
+/** The two 24 px overhangs at the desktop design size. */
+const FRAME_DESIGN_EXTRA = 48
+const FRAME_EXTRA = Math.ceil(FRAME_DESIGN_EXTRA * ROOT_MAX_SCALE)
+
+/** Source sizes for a banner aligned to the header shell. */
+export const frameImageSizes = [
+  ...PAGE_STEPS.map(({ from, page }) => `(min-width: ${from}) ${String(page + FRAME_EXTRA)}px`),
+  `min(calc(100vw - 16px), ${String(PAGE_BASE + FRAME_EXTRA)}px)`,
+].join(", ")
+
 /**
  * The `sizes` of an image with a fixed design width, such as a portrait or
  * avatar, which grows with the root on large screens.
