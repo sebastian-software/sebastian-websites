@@ -2,7 +2,7 @@ import type { ReactElement } from "ardo/react"
 import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 import { t } from "@palamedes/core/macro"
-import { blocks, layout, Section, SectionHead, typography } from "@sebastian-websites/ui"
+import { layout, Section, SectionHead, typography } from "@sebastian-websites/ui"
 
 import { Closing } from "~/components/Closing"
 import { ProductCards } from "~/components/ProductCards"
@@ -56,7 +56,7 @@ export default function Products(): ReactElement {
         />
         <div className={layout.columns}>
           {principles.map((principle) => (
-            <div className={blocks.column} key={principle.title}>
+            <div key={principle.title}>
               <h3 className={typography.h3}>{principle.title}</h3>
               <p className={typography.textMuted}>{principle.text}</p>
             </div>
