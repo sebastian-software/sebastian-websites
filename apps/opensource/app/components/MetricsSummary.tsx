@@ -1,7 +1,7 @@
 import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
-import { ArrowLink, editorialSizes, Illustration } from "@sebastian-websites/ui"
+import { ArrowLink, editorial, editorialSizes, Illustration } from "@sebastian-websites/ui"
 
 import counter from "~/assets/illustrations/counter.image.mdx"
 import { crateDownloads30Days, type Snapshot } from "~/lib/metrics-model"
@@ -83,7 +83,8 @@ export function MetricsSummary({ snapshot }: { readonly snapshot: Snapshot }): R
       <div>
         <dt>
           <MetricIcon name="downloads" />
-          {t`npm downloads / month`}
+          <span aria-hidden="true">{t`npm / month`}</span>
+          <span className={editorial.visuallyHidden}>{t`npm downloads / month`}</span>
         </dt>
         <dd>
           <MetricNumber value={sums("npm")} />
@@ -92,7 +93,8 @@ export function MetricsSummary({ snapshot }: { readonly snapshot: Snapshot }): R
       <div>
         <dt>
           <MetricIcon name="downloads" />
-          {t`crates.io downloads / month`}
+          <span aria-hidden="true">{t`crates.io / month`}</span>
+          <span className={editorial.visuallyHidden}>{t`crates.io downloads / month`}</span>
         </dt>
         <dd>
           <MetricNumber

@@ -359,8 +359,9 @@ msgstr "Verantwortlicher"
 
 #: app/components/MetricsPackages.tsx#Packages
 #: app/components/MetricsProjects.tsx#ProjectHead
+#: app/components/MetricsSummary.tsx#MetricsSummary
 msgid "crates.io / month"
-msgstr "crates.io / 1 Monat"
+msgstr "crates.io / Monat"
 
 #~ #@ obsolete-since: 2026-10-19
 #~ #: app/components/MetricsPackages.tsx#Packages
@@ -905,6 +906,7 @@ msgstr "Nicht verbunden"
 
 #: app/components/MetricsPackages.tsx#Packages
 #: app/components/MetricsProjects.tsx#ProjectHead
+#: app/components/MetricsSummary.tsx#MetricsSummary
 msgid "npm / month"
 msgstr "npm / Monat"
 

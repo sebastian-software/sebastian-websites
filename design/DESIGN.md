@@ -162,9 +162,10 @@ with their original 24 × 24 viewBox and strokes. Keep the control's hit area si
 independently. Use the surrounding text or accent color, and hide decorative icons
 from assistive technology when a visible label already gives their meaning.
 
-The Open Source metrics use a folder for projects, a star badge for GitHub stars,
-and the same download icon for both package registries. The Open Source legal
-notice credits the [CC BY 4.0 artwork](https://icon-sets.iconify.design/streamline-sharp/).
+The Open Source metrics place a folder, a star badge, or a download icon before
+each label. The download labels show the registry and time window, with the
+full labels available to screen readers. The Open Source legal notice credits
+the [CC BY 4.0 artwork](https://icon-sets.iconify.design/streamline-sharp/).
 
 ## Motion
 

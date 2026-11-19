@@ -50,11 +50,16 @@ globalStyle(`${overview} > div`, {
   minWidth: 0,
   padding: `${SPACE_SCALE.m} ${SPACE_SCALE.s}`,
 })
-globalStyle(`${overview} dt`, { color: color.text, fontSize: typeStep("0") })
+globalStyle(`${overview} dt`, {
+  alignItems: "center",
+  color: color.text,
+  display: "flex",
+  fontSize: typeStep("0"),
+  gap: SPACE_SCALE["2xs"],
+})
 export const metricIcon = style({
   color: color.accent,
-  display: "block",
-  marginBottom: SPACE_SCALE["2xs"],
+  flexShrink: 0,
 })
 globalStyle(`${overview} dd`, {
   color: color.accent,

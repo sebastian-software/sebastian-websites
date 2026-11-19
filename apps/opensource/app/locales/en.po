@@ -349,6 +349,7 @@ msgstr "Controller"
 
 #: app/components/MetricsPackages.tsx#Packages
 #: app/components/MetricsProjects.tsx#ProjectHead
+#: app/components/MetricsSummary.tsx#MetricsSummary
 msgid "crates.io / month"
 msgstr "crates.io / month"
 
@@ -882,6 +883,7 @@ msgstr "Not connected"
 
 #: app/components/MetricsPackages.tsx#Packages
 #: app/components/MetricsProjects.tsx#ProjectHead
+#: app/components/MetricsSummary.tsx#MetricsSummary
 msgid "npm / month"
 msgstr "npm / month"
 
