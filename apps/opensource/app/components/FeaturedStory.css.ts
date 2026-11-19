@@ -1,4 +1,4 @@
-import { color, editorial, font, scaled, typeStep } from "@sebastian-websites/ui"
+import { color, editorial, font, scaled, typeStep } from "@sebastian-websites/ui/styles"
 import { style, styleVariants } from "@vanilla-extract/css"
 
 import type { FeaturedId } from "~/data/featured"

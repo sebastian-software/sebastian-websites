@@ -1,11 +1,10 @@
-import type { KerameikosName } from "@sebastian-websites/ui"
-import type { ImageSource } from "@sebastian-websites/web-core"
+import type { IllustrationSource, KerameikosName } from "@sebastian-websites/ui"
 
 import { t } from "@palamedes/core/macro"
 
-import palamedesPlusBooks from "~/assets/illustrations/palamedes-plus-studio.webp?bunny"
-import terminaroCalendar from "~/assets/illustrations/terminaro-salon.webp?bunny"
-import vorortStorefront from "~/assets/illustrations/vorort-workshop.webp?bunny"
+import palamedesPlusBooks from "~/assets/illustrations/palamedes-plus-studio.image.mdx"
+import terminaroCalendar from "~/assets/illustrations/terminaro-salon.image.mdx"
+import vorortStorefront from "~/assets/illustrations/vorort-workshop.image.mdx"
 
 /** Stable identifiers for the product sections. */
 export type ProductId = "palamedes-plus" | "terminaro" | "vorort"
@@ -16,7 +15,7 @@ export type Product = {
   /** Who it is for, the problem, the benefit, and how it works. */
   readonly description: string
   readonly id: ProductId
-  readonly illustration: { readonly alt: string; readonly src: ImageSource }
+  readonly illustration: { readonly alt: string; readonly src: IllustrationSource }
   readonly name: KerameikosName
   readonly title: string
 }

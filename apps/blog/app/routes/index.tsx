@@ -2,11 +2,11 @@ import type { ReactElement } from "ardo/react"
 import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 import { t } from "@palamedes/core/macro"
-import { ArrowLink, BunnyImage, editorialSizes } from "@sebastian-websites/ui"
+import { ArrowLink, editorialSizes, Illustration } from "@sebastian-websites/ui"
 import { BLOG_PATH } from "@sebastian-websites/web-core"
 import publication from "virtual:ardo/publication"
 
-import writingDesk from "~/assets/writing-desk.webp?bunny"
+import writingDesk from "~/assets/writing-desk.image.mdx"
 import { BlogEmpty } from "~/components/blog/BlogEmpty"
 import { blogLead } from "~/components/blog/blogLead"
 import { FeedLinks } from "~/components/blog/FeedLinks"
@@ -55,7 +55,7 @@ export default function Home(): ReactElement {
         <h1 className={styles.title}>{t`What we learn while building software.`}</h1>
         <p className={styles.lead}>{blogLead()}</p>
         <FeedLinks publication={publication} />
-        <BunnyImage
+        <Illustration
           alt={t`An engineer turns sketches and a folded prototype into an article.`}
           className={styles.banner}
           height={520}

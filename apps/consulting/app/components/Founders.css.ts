@@ -1,4 +1,12 @@
-import { color, COMPACT, editorial, font, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
+import {
+  color,
+  COMPACT,
+  editorial,
+  font,
+  PHONE,
+  scaled,
+  typeStep,
+} from "@sebastian-websites/ui/styles"
 import { style } from "@vanilla-extract/css"
 
 export const title = style([

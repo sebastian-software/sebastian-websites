@@ -6,7 +6,7 @@ import {
   scaled,
   SPACE_SCALE,
   typeStep,
-} from "@sebastian-websites/ui"
+} from "@sebastian-websites/ui/styles"
 import { globalStyle, style } from "@vanilla-extract/css"
 
 // The service explainer uses the shared grid and scale with restrained sans headings.

@@ -7,7 +7,7 @@ import {
   PHONE,
   scaled,
   typeStep,
-} from "@sebastian-websites/ui"
+} from "@sebastian-websites/ui/styles"
 import { style } from "@vanilla-extract/css"
 
 /** The one contained berry passage; only its top edge leans. */

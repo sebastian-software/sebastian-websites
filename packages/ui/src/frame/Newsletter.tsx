@@ -2,7 +2,7 @@ import { type ReactElement, useActionState, useId } from "ardo/react"
 
 import type { NewsletterCopy } from "./copy.ts"
 
-import newsletterLetter from "../assets/newsletter-letter.webp?bunny"
+import newsletterLetter from "../assets/newsletter-letter.image.mdx"
 import { visuallyHidden } from "../editorial/editorial.css.ts"
 import { StoryIllustration } from "../editorial/StoryIllustration.tsx"
 import * as styles from "./PageEnding.css.ts"

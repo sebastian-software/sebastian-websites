@@ -3,7 +3,7 @@ import type { ReactElement } from "ardo/react"
 import { t } from "@palamedes/core/macro"
 import { ArrowLink, editorial, StoryIllustration } from "@sebastian-websites/ui"
 
-import regionMap from "~/assets/illustrations/mainz-heidelberg.webp?bunny"
+import regionMap from "~/assets/illustrations/mainz-heidelberg.image.mdx"
 
 import * as styles from "./RegionStory.css.ts"
 

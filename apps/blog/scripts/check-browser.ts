@@ -62,6 +62,7 @@ function origin(locale: Locale): string {
   return getVariant(`blog-${locale}`).canonicalOrigin
 }
 const media: Record<string, string> = {
+  ".avif": "image/avif",
   ".css": "text/css",
   ".html": "text/html",
   ".ico": "image/x-icon",

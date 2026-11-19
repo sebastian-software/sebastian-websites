@@ -1,6 +1,6 @@
 import type { ReactElement } from "ardo/react"
 
-import { blocks, BunnyImage, editorialSizes, KerameikosLogo } from "@sebastian-websites/ui"
+import { blocks, editorialSizes, Illustration, KerameikosLogo } from "@sebastian-websites/ui"
 
 import { getProducts } from "~/data/products"
 
@@ -18,7 +18,7 @@ export function ProductCards(): ReactElement {
     <div className={blocks.cards}>
       {getProducts().map((product) => (
         <article className={styles.card} key={product.id}>
-          <BunnyImage
+          <Illustration
             alt={product.illustration.alt}
             className={styles.image}
             height={224}

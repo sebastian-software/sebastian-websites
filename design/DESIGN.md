@@ -143,7 +143,7 @@ heading.
 
 ## Imagery
 
-Repository illustrations use `BunnyImage` with `?bunny` imports and reserved dimensions. The
+Ardo prepares responsive AVIF files and JPEG fallbacks for the editorial paper illustrations. The
 founder portraits come from the shared asset zone with a zoomed focus crop
 (`{ mode: "focus", point, zoom }`) tuned per photo, so both heads appear at the same scale in
 equal 7:10 frames. The [paper miniature guide](paper-miniatures/README.md) records the landscape

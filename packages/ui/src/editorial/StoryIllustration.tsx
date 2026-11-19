@@ -1,6 +1,6 @@
 import type { ReactElement } from "ardo/react"
 
-import { BunnyImage, type BunnyImageProps } from "../BunnyImage.tsx"
+import { Illustration, type IllustrationProps } from "../Illustration.tsx"
 import { editorialSizes } from "../responsive.ts"
 import * as styles from "./editorial.css.ts"
 
@@ -13,9 +13,9 @@ const HEIGHT = 336
  * @param props - The original image and its localized description.
  * @returns A responsive editorial illustration.
  */
-export function StoryIllustration(props: Pick<BunnyImageProps, "alt" | "src">): ReactElement {
+export function StoryIllustration(props: Pick<IllustrationProps, "alt" | "src">): ReactElement {
   return (
-    <BunnyImage
+    <Illustration
       {...props}
       className={styles.paperIllustration}
       height={HEIGHT}

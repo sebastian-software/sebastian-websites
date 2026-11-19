@@ -1,8 +1,8 @@
 import type { ReactElement } from "ardo/react"
 
-import mark from "./assets/ferramenta-mark.webp?bunny"
-import { BunnyImage } from "./BunnyImage.tsx"
+import mark from "./assets/ferramenta-mark.image.mdx"
 import * as styles from "./FerramentaLogo.css.ts"
+import { Illustration } from "./Illustration.tsx"
 
 /**
  * Renders the Ferramenta family mark alongside its name.
@@ -11,7 +11,7 @@ import * as styles from "./FerramentaLogo.css.ts"
 export function FerramentaLogo(): ReactElement {
   return (
     <span className={styles.logo}>
-      <BunnyImage alt="" className={styles.mark} height={48} sizes="64px" src={mark} width={48} />
+      <Illustration alt="" className={styles.mark} height={48} sizes="64px" src={mark} width={48} />
       Ferramenta
     </span>
   )

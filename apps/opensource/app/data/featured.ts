@@ -1,12 +1,12 @@
-import type { ImageSource } from "@sebastian-websites/web-core"
+import type { IllustrationSource } from "@sebastian-websites/ui"
 
 import { t } from "@palamedes/core/macro"
 
-import ardoBook from "~/assets/illustrations/ardo-handbook.webp?bunny"
-import daloSetup from "~/assets/illustrations/dalo-loom.webp?bunny"
-import effectiveAgentRobot from "~/assets/illustrations/effective-agent-module.webp?bunny"
-import ferramentaDocuments from "~/assets/illustrations/ferramenta-tools.webp?bunny"
-import palamedesCatalogs from "~/assets/illustrations/palamedes-globe.webp?bunny"
+import ardoBook from "~/assets/illustrations/ardo-handbook.image.mdx"
+import daloSetup from "~/assets/illustrations/dalo-loom.image.mdx"
+import effectiveAgentRobot from "~/assets/illustrations/effective-agent-module.image.mdx"
+import ferramentaDocuments from "~/assets/illustrations/ferramenta-tools.image.mdx"
+import palamedesCatalogs from "~/assets/illustrations/palamedes-globe.image.mdx"
 
 import type { FEATURED } from "./projects"
 
@@ -18,7 +18,7 @@ export type FeaturedProject = {
   readonly description: string
   readonly id: FeaturedId
   /** The drawing beside the text. */
-  readonly illustration: { readonly alt: string; readonly src: ImageSource }
+  readonly illustration: { readonly alt: string; readonly src: IllustrationSource }
   readonly name: string
   readonly title: string
 }

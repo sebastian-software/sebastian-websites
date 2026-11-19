@@ -2,6 +2,10 @@
 
 ## Images
 
+Use Ardo for the product, landscape, and editorial illustrations on Software, Open Source,
+and the blog. Import a local `*.image.mdx` through `Illustration` as described in the
+[responsive images guide](docs/operations/responsive-images.md). Preserve the original framing.
+
 Use `BunnyImage` from `@sebastian-websites/ui` for raster images that need Bunny
 Optimizer transformations. Read
 [ADR-0015](docs/adr/0015-shared-bunny-image-component.md) and the

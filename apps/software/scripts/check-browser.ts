@@ -22,6 +22,7 @@ const PERFORMANCE_SAMPLES = 5
 const PERCENT = 100
 const LCP_BUDGET = 1.1
 const CLS_TOLERANCE = 0.001
+const PRODUCT_COUNT = 3
 const PRODUCTS_LINK = 'header a[href="/products"]'
 const VIEWPORTS = [
   { height: 1000, width: 1440 },
@@ -37,6 +38,7 @@ function median(values: number[]): number {
   return values.toSorted((a, b) => a - b)[Math.floor(values.length / 2)]
 }
 const media: Record<string, string> = {
+  ".avif": "image/avif",
   ".css": "text/css",
   ".html": "text/html",
   ".ico": "image/x-icon",
@@ -359,6 +361,19 @@ async function checkRoute(
     await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
     `${variant}${pathname}: overflow`
   )
+  if (pathname === "/" || pathname === "/products") {
+    const products = page.locator("main article")
+    const images = products.locator('picture:has(source[type="image/avif"]) > img')
+    assert.equal(await images.count(), PRODUCT_COUNT, "All three product images use Ardo")
+    for (const image of await images.all()) {
+      assert.match((await image.getAttribute("src")) ?? "", /^\/assets\/posts\/[\da-f]+\.jpg$/v)
+      assert.ok(
+        await image.evaluate(
+          (element) => element instanceof HTMLImageElement && element.naturalWidth > 0
+        )
+      )
+    }
+  }
   if (old) await compareBaseline(context, page, { old, pathname, variant, viewport })
   await page.screenshot({
     fullPage: true,

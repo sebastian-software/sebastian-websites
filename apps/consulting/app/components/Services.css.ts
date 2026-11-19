@@ -1,4 +1,4 @@
-import { editorial, SPACE_SCALE, typeStep } from "@sebastian-websites/ui"
+import { editorial, SPACE_SCALE, typeStep } from "@sebastian-websites/ui/styles"
 import { style } from "@vanilla-extract/css"
 
 /** The section heading leads the smaller headings in its three columns. */

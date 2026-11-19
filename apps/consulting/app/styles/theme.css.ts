@@ -1,4 +1,4 @@
-import { color, font } from "@sebastian-websites/ui"
+import { color, font } from "@sebastian-websites/ui/styles"
 
 // Tokens of the profile documents. They keep the values of the
 // sebastian-consulting.de print layout so the screen view and the PDFs stay

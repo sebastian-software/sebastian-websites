@@ -7,7 +7,7 @@ import {
   PHONE,
   scaled,
   typeStep,
-} from "@sebastian-websites/ui"
+} from "@sebastian-websites/ui/styles"
 import { style } from "@vanilla-extract/css"
 
 /** A pale panel whose text aligns with the page edge; the panel reaches beyond it. */

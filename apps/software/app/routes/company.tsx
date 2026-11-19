@@ -4,8 +4,8 @@ import type { ArdoMetaDescriptor } from "ardo/runtime"
 import { t } from "@palamedes/core/macro"
 import {
   blocks,
-  BunnyImage,
   editorialSizes,
+  Illustration,
   layout,
   Section,
   SectionHead,
@@ -13,7 +13,7 @@ import {
 } from "@sebastian-websites/ui"
 import { getSiteOrigin } from "@sebastian-websites/web-core"
 
-import missionRadio from "~/assets/illustrations/radio.webp?bunny"
+import missionRadio from "~/assets/illustrations/radio.image.mdx"
 import { Closing } from "~/components/Closing"
 import { Founders } from "~/components/Founders"
 import { Photo } from "~/components/Photo"
@@ -60,7 +60,7 @@ function Mission(): ReactElement {
         intro={t`Four themes have guided the company since 2014. They are written down here so that our partners and customers can hold us to them.`}
         title={t`What we stand for.`}
       />
-      <BunnyImage
+      <Illustration
         alt={t`Inside a radio, the wiring is as carefully arranged as the dial on its front.`}
         className={styles.missionImage}
         height={520}

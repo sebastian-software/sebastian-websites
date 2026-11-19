@@ -1,9 +1,9 @@
 import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
-import { ArrowLink, BunnyImage, editorialSizes } from "@sebastian-websites/ui"
+import { ArrowLink, editorialSizes, Illustration } from "@sebastian-websites/ui"
 
-import counter from "~/assets/illustrations/counter.webp?bunny"
+import counter from "~/assets/illustrations/counter.image.mdx"
 import { crateDownloads30Days, type Snapshot } from "~/lib/metrics-model"
 import { variant } from "~/lib/site"
 import { useMetrics } from "~/lib/use-metrics"
@@ -132,7 +132,7 @@ export function MetricsOverview({ initial }: { readonly initial: Snapshot }): Re
             className={styles.introText}
           >{t`Some of the tools we build for our own projects find their way into other codebases. Here you can see the projects we publish, their stars on GitHub and how often their packages are downloaded from npm and crates.io.`}</p>
         </div>
-        <BunnyImage
+        <Illustration
           alt=""
           className={styles.counter}
           height={252}

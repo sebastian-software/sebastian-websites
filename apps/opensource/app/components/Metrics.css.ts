@@ -7,7 +7,7 @@ import {
   scaled,
   SPACE_SCALE,
   typeStep,
-} from "@sebastian-websites/ui"
+} from "@sebastian-websites/ui/styles"
 import { globalStyle, style } from "@vanilla-extract/css"
 
 const spaceBetween = "space-between" as const
@@ -23,7 +23,8 @@ export const heading = style([
 export const homeIntro = style([editorial.grid, { alignItems: "center", rowGap: SPACE_SCALE.m }])
 globalStyle(`${homeIntro} > div`, { gridColumn: "1 / span 6" })
 export const introText = style([editorial.body, { maxWidth: "42ch" }])
-export const counter = style([editorial.paperIllustration, { gridColumn: "7 / span 6" }])
+globalStyle(`${homeIntro} > picture`, { gridColumn: "7 / span 6" })
+export const counter = editorial.paperIllustration
 
 export const overview = style({
   "@media": { [COMPACT]: { gridTemplateColumns: "repeat(2, minmax(0, 1fr))" } },

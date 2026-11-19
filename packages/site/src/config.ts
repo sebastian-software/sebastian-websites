@@ -27,6 +27,7 @@ export function createSiteConfig({
   return {
     buildTime: process.env.SITE_BUILD_DATE,
     icons: false,
+    images: {},
     lang: variant.locale,
     linkCheck: { enabled: true, level: "error" },
     outDir: path.join(process.env.SITE_OUTPUT_ROOT ?? "build", variantId),

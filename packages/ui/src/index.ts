@@ -31,6 +31,7 @@ export {
   type SubscribeAction,
   subscribeUnavailable,
 } from "./frame/subscribe.ts"
+export { Illustration, type IllustrationSource } from "./Illustration.tsx"
 export { KerameikosLogo, type KerameikosName } from "./KerameikosLogo.tsx"
 export * as layout from "./layout.css.ts"
 export { legalClassNames } from "./legal.css.ts"

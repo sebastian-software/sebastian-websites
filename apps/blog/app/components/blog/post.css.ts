@@ -1,4 +1,11 @@
-import { color, editorial, font, scaled, SPACE_SCALE, typeStep } from "@sebastian-websites/ui"
+import {
+  color,
+  editorial,
+  font,
+  scaled,
+  SPACE_SCALE,
+  typeStep,
+} from "@sebastian-websites/ui/styles"
 import { globalStyle, style } from "@vanilla-extract/css"
 
 import { eyebrow as eyebrowText } from "./eyebrow.css.ts"

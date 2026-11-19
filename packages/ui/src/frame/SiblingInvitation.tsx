@@ -5,12 +5,12 @@ import { useId } from "ardo/react"
 
 import type { InvitationCopy } from "./copy.ts"
 
-import softwareArt from "../assets/invitation-software.png?bunny"
-import consultingArt from "../assets/mountain-trails.webp?bunny"
-import { BunnyImage } from "../BunnyImage.tsx"
+import softwareArt from "../assets/invitation-software.image.mdx"
+import consultingArt from "../assets/mountain-trails.image.mdx"
 import { Arrow } from "../editorial/Arrow.tsx"
 import { outboundArrow, outboundLink } from "../editorial/editorial.css.ts"
 import { StoryIllustration } from "../editorial/StoryIllustration.tsx"
+import { Illustration } from "../Illustration.tsx"
 import { scaledSizes } from "../responsive.ts"
 import * as styles from "./PageEnding.css.ts"
 
@@ -57,7 +57,7 @@ export function SiblingInvitation(props: SiblingInvitationProps): ReactElement {
         </div>
       ) : (
         <div className={styles.invitationArt}>
-          <BunnyImage
+          <Illustration
             alt={copy.illustrationAlt}
             className={styles.invitationImage}
             height={348}

@@ -3,10 +3,10 @@ import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 import { t } from "@palamedes/core/macro"
 import { pageMeta } from "@sebastian-websites/site/meta"
-import { ArrowLink, BunnyImage, editorialSizes } from "@sebastian-websites/ui"
+import { ArrowLink, editorialSizes, Illustration } from "@sebastian-websites/ui"
 import { activity, metrics } from "virtual:opensource-build-data"
 
-import workshop from "~/assets/illustrations/open-workshop.webp?bunny"
+import workshop from "~/assets/illustrations/open-workshop.image.mdx"
 import { FeaturedStory } from "~/components/FeaturedStory"
 import { MetricsOverview } from "~/components/MetricsSummary"
 import { ProjectTiles } from "~/components/ProjectTiles"
@@ -55,7 +55,7 @@ export default function Home(): ReactElement {
             {t`Explore the projects`}
           </ArrowLink>
         </p>
-        <BunnyImage
+        <Illustration
           alt={t`At an open workbench, a maker passes on the plans for an adjustable lamp.`}
           className={styles.banner}
           height={520}

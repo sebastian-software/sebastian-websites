@@ -7,7 +7,7 @@ import {
   scaled,
   SPACE_SCALE,
   typeStep,
-} from "@sebastian-websites/ui"
+} from "@sebastian-websites/ui/styles"
 import { style } from "@vanilla-extract/css"
 
 export const main = style([
