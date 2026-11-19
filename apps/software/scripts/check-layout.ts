@@ -5,6 +5,7 @@ import assert from "node:assert/strict"
 const MAX_EDGE_DELTA = 1
 const HEADER_SHELL = 'header[data-brand="software"] > div'
 const PRODUCT_STORIES = 'main article[aria-labelledby^="product-"]'
+const FIRST_PRODUCT_IMAGE = `${PRODUCT_STORIES}:first-of-type picture img`
 const PRODUCT_CARDS = "main > section:first-child article"
 
 type Side = "left" | "right"
@@ -21,7 +22,7 @@ const contactPhoto: Placement = ["contact photo", "main > section:last-child img
 const routePlacements: Readonly<Record<LayoutRoute, readonly Placement[]>> = {
   "/": [
     ["founders photograph", "main > figure img", "both"],
-    ["first product illustration", `${PRODUCT_STORIES}:first-of-type picture img`, "right"],
+    ["first product illustration", FIRST_PRODUCT_IMAGE, "right"],
     ["second product illustration", `${PRODUCT_STORIES}:nth-of-type(2) picture img`, "left"],
     ["third product illustration", `${PRODUCT_STORIES}:last-of-type picture img`, "right"],
     ["open foundations", '[aria-labelledby="open-foundations"]', "both"],
@@ -81,20 +82,33 @@ export async function checkLayout(
  * @param path - The viewport screenshot path.
  */
 export async function captureScrolledHeader(page: Page, path: string): Promise<void> {
-  const image = page.locator(PRODUCT_STORIES).first().locator("picture img")
+  const image = page.locator(FIRST_PRODUCT_IMAGE)
   const header = page.locator(HEADER_SHELL)
   const shell = await header.boundingBox()
   assert.ok(shell, "home: header is visible")
   const overlap = shell.height / 2
   const target = shell.y + overlap
   await image.evaluate((element, top) => {
-    window.scrollBy(0, element.getBoundingClientRect().top - top)
+    window.scrollTo({
+      behavior: "instant",
+      top: window.scrollY + element.getBoundingClientRect().top - top,
+    })
   }, target)
+  await page.waitForFunction(
+    ({ headerSelector, imageSelector }) => {
+      const headerRect = document.querySelector(headerSelector)?.getBoundingClientRect()
+      const imageRect = document.querySelector(imageSelector)?.getBoundingClientRect()
+      return (
+        headerRect &&
+        imageRect &&
+        imageRect.top < headerRect.bottom &&
+        imageRect.bottom > headerRect.bottom
+      )
+    },
+    { headerSelector: HEADER_SHELL, imageSelector: FIRST_PRODUCT_IMAGE }
+  )
   const scrolled = await header.boundingBox()
-  const art = await image.boundingBox()
-  assert.ok(scrolled && art, "home: header and artwork remain visible after scrolling")
+  assert.ok(scrolled, "home: header remains visible after scrolling")
   assert.ok(Math.abs(scrolled.y - shell.y) <= MAX_EDGE_DELTA, "home: header sticks while scrolling")
-  const bottom = scrolled.y + scrolled.height
-  assert.ok(art.y < bottom && art.y + art.height > bottom, "home: artwork intersects the header")
   await page.screenshot({ animations: "disabled", path })
 }
