@@ -14,6 +14,7 @@
     "build:en": "node scripts/build.ts consulting-en",
     "generate:pdf": "tsx scripts/generatePdfs.ts",
     "verify:build": "tsx scripts/verifyBuild.ts",
+    "measure:performance": "node scripts/measure-performance.ts",
     "typecheck": "tsc",
     "lint": "oxlint -c ../../oxlint.config.ts app scripts && eslint app scripts --config ../../eslint.config.ts",
     "format": "prettier --write app scripts ardo.config.ts tsconfig.json",
