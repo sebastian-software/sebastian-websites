@@ -13,6 +13,8 @@ import { inspectWernerProfileLayout } from "./wernerProfileValidation"
 
 const OUTPUT_DIR = "public"
 const DEV_SERVER_READY_TIMEOUT_MS = 30_000
+/** The first profile request can also prepare Ardo image renditions on a cold CI runner. */
+const PROFILE_NAVIGATION_TIMEOUT_MS = 180_000
 const DEV_SERVER_STOP_TIMEOUT_MS = 5000
 const LOCALHOST_URL_PATTERN = /https?:\/\/(?:localhost|127\.0\.0\.1):\d+/v
 const MILLIMETERS_PER_INCH = 25.4
@@ -973,7 +975,10 @@ async function generateSinglePdf(
   console.log(`Generating ${page.outputPath} from ${url}...`)
 
   try {
-    await browserPage.goto(url, { waitUntil: "networkidle" })
+    await browserPage.goto(url, {
+      timeout: PROFILE_NAVIGATION_TIMEOUT_MS,
+      waitUntil: "networkidle",
+    })
     await browserPage.evaluate(async () => document.fonts.ready)
     await inspectProfilePage(browserPage, page)
     await browserPage.pdf({
