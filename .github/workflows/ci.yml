@@ -46,6 +46,16 @@ jobs:
       # language builds of every site, compared and SEO-validated together.
       - name: Check the builds before publication
         run: pnpm hosting:plan
+      - name: Audit the built pages with Lighthouse
+        run: pnpm seo:audit
+      - name: Keep Lighthouse SEO reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse-seo
+          path: build/lighthouse/*/reports/
+          if-no-files-found: warn
+          retention-days: 14
       # Test posts built into scratch output at two build times, plus the empty
       # state and post images; each fixture build passes the gate.
       - name: Check the blog fixtures

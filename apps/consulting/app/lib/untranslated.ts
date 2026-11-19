@@ -286,14 +286,6 @@ export const JOB_TITLES = {
   werner: "Frontend-Spezialist & Architekt",
 } as const
 
-// Meta descriptions (German, for SEO - not translated)
-export const META_DESCRIPTIONS = {
-  fastner:
-    "Senior Technology Consultant fuer Fullstack-Entwicklung, Frontend-Architektur und UI-Design.",
-  werner:
-    "Principal Technology Consultant fuer Frontend-Architektur, Developer Experience und Code-Qualitaet.",
-} as const
-
 // Address info for JSON-LD
 export const ADDRESS = {
   country: "DE",

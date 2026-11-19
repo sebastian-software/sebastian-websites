@@ -36,7 +36,7 @@ function html(locale: Locale, path: string): string {
       return `<link rel="${link.rel}" href="${link.href}"${language}>`
     })
     .join("")
-  return `<html lang="${locale}"><head><title>Consulting</title>${links}</head><body><h1>Consulting</h1></body></html>`
+  return `<html lang="${locale}"><head><title>Consulting</title><meta name="description" content="Architecture and engineering services.">${links}</head><body><h1>Consulting</h1></body></html>`
 }
 
 function build(locale: Locale = "de"): readonly Asset[] {
@@ -366,7 +366,7 @@ function blogHtml(locale: Locale, page: Page): string {
   const canonical = createSeoLinks("blog", locale, page.path)[0].href
   const type = `<meta property="og:type" content="${page.article === true ? "article" : "website"}">`
   const url = `<meta property="og:url" content="${canonical}">`
-  return `<html lang="${locale}"><head><title>Blog</title>${links}${type}${url}</head><body><h1>Blog</h1></body></html>`
+  return `<html lang="${locale}"><head><title>Blog</title><meta name="description" content="Engineering notes.">${links}${type}${url}</head><body><h1>Blog</h1></body></html>`
 }
 
 /** The build time tech blog builds record unless a test passes another one, or null for none. */

@@ -1580,6 +1580,13 @@ msgstr "Frontend-Architektur & Developer Experience"
 msgid "Frontend architecture with attention to user and developer experience."
 msgstr "Frontend-Architektur mit Blick auf Nutzer- und Entwicklererlebnis."
 
+#: app/lib/profileMeta.ts#profileDescriptions
+msgid ""
+"Frontend architecture, developer experience, and code quality with Sebastian "
+"Werner. Project experience in enterprise platforms, internationalization, and "
+"shared frontend foundations."
+msgstr "Frontend-Architektur, Developer Experience und Codequalität mit Sebastian Werner. Projekterfahrung mit Enterprise-Plattformen, Internationalisierung und gemeinsamen Frontend-Grundlagen."
+
 #: app/routes/werner/projects.tsx#meta
 #: app/routes/werner/summary.tsx#meta
 msgid ""
@@ -1629,6 +1636,13 @@ msgid ""
 msgstr ""
 "Full-Stack-Ansatz über die gesamte Anwendung – von Frontend bis "
 "Infrastruktur."
+
+#: app/lib/profileMeta.ts#profileDescriptions
+msgid ""
+"Full-stack development, frontend architecture, and internationalization with "
+"Sebastian Fastner. Experience in investment platforms, multi-brand commerce, "
+"and SaaS products."
+msgstr "Fullstack-Entwicklung, Frontend-Architektur und Internationalisierung mit Sebastian Fastner. Erfahrung mit Investmentplattformen, Multi-Brand-Commerce und SaaS-Produkten."
 
 #: app/data/fastner.project-profile.ts#createFastnerProjectProfile
 msgid "Full-time"
