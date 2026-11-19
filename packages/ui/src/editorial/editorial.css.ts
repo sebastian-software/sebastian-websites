@@ -30,6 +30,25 @@ function step(value: TypeStep): { fontSize: string; letterSpacing: string; lineH
  */
 export const page = style({ marginInline: "auto", width: PAGE_WIDTH })
 
+const frameMargin = `calc(-1 * ${FRAME_OVERHANG})`
+
+/** A block inside the editorial grid that reaches both header edges. */
+export const frameOutset = style({ marginInline: frameMargin })
+
+/** A column reaches the nearest header edge, or both edges when stacked. */
+export const frameMediaEdge = styleVariants({
+  end: {
+    "@media": { [COMPACT]: { marginInline: frameMargin } },
+    marginInlineEnd: frameMargin,
+    minWidth: 0,
+  },
+  start: {
+    "@media": { [COMPACT]: { marginInline: frameMargin } },
+    marginInlineStart: frameMargin,
+    minWidth: 0,
+  },
+})
+
 /**
  * The shared 12-column grid. Children place themselves with `gridColumn`. On
  * compact screens it is a single column, so the desktop placements fall away.
@@ -222,8 +241,8 @@ export const storyContent = styleVariants({
 })
 
 export const storyMedia = styleVariants({
-  end: { gridColumn: "7 / span 6", gridRow: 1 },
-  start: { gridColumn: "1 / span 6", gridRow: 1 },
+  end: [frameMediaEdge.end, { gridColumn: "7 / span 6", gridRow: 1 }],
+  start: [frameMediaEdge.start, { gridColumn: "1 / span 6", gridRow: 1 }],
 })
 
 export const storyList = style({ display: "grid", rowGap: RHYTHM.story })
@@ -264,8 +283,7 @@ export const paperIllustration = style([
 ])
 
 /** Full-width photographs and banners line up with the header shell. */
-export const frameMedia = style({
-  marginInline: `calc(-1 * ${FRAME_OVERHANG})`,
-  maxWidth: "none",
-  width: `calc(100% + 2 * ${FRAME_OVERHANG})`,
-})
+export const frameMedia = style([
+  frameOutset,
+  { maxWidth: "none", width: `calc(100% + 2 * ${FRAME_OVERHANG})` },
+])

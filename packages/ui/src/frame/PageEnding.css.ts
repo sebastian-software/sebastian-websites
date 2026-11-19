@@ -11,6 +11,7 @@ import { style, styleVariants } from "@vanilla-extract/css"
 
 import {
   featureHeading,
+  frameMediaEdge,
   grid,
   lead,
   media,
@@ -57,12 +58,15 @@ export const newsletterTitle = style([
   },
 ])
 
-export const newsletterArt = style({
-  "@media": { [COMPACT]: { marginBottom: SPACE_SCALE.m } },
-  alignSelf: "center",
-  gridColumn: START_HALF,
-  gridRow: "1 / span 4",
-})
+export const newsletterArt = style([
+  frameMediaEdge.start,
+  {
+    "@media": { [COMPACT]: { marginBottom: SPACE_SCALE.m } },
+    alignSelf: "center",
+    gridColumn: START_HALF,
+    gridRow: "1 / span 4",
+  },
+])
 
 export const newsletterText = style({
   color: color.text,
@@ -185,7 +189,7 @@ export const invitationText = style([lead, { maxWidth: "20em" }])
 
 export const invitationAction = style({ marginTop: RHYTHM.action })
 
-export const landscapeSlot = style({ gridColumn: END_HALF })
+export const landscapeSlot = style([frameMediaEdge.end, { gridColumn: END_HALF }])
 
 export const invitationArt = style({
   "@media": { [COMPACT]: { maxWidth: scaled("420px"), paddingLeft: 0 } },

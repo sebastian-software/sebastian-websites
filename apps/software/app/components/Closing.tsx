@@ -29,11 +29,13 @@ export function Closing(): ReactElement {
             </a>
           </div>
         </div>
-        <Photo
-          alt={t`The two founders in front of the building`}
-          frame="portrait"
-          image={buildingPhoto}
-        />
+        <div className={editorial.frameMediaEdge.end}>
+          <Photo
+            alt={t`The two founders in front of the building`}
+            frame="portrait"
+            image={buildingPhoto}
+          />
+        </div>
       </div>
     </Section>
   )

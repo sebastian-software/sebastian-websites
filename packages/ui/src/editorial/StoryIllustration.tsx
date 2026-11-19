@@ -1,7 +1,7 @@
 import type { ReactElement } from "ardo/react"
 
 import { Illustration, type IllustrationProps } from "../Illustration.tsx"
-import { editorialSizes } from "../responsive.ts"
+import { frameColumnSizes } from "../responsive.ts"
 import * as styles from "./editorial.css.ts"
 
 /** Six columns of the editorial grid, with a native 3:2 original. */
@@ -19,7 +19,7 @@ export function StoryIllustration(props: Pick<IllustrationProps, "alt" | "src">)
       {...props}
       className={styles.paperIllustration}
       height={HEIGHT}
-      sizes={editorialSizes(WIDTH)}
+      sizes={frameColumnSizes(WIDTH)}
       width={WIDTH}
     />
   )

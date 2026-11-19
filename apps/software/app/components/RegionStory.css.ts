@@ -6,10 +6,13 @@ export const region = style([
   { "@media": { [COMPACT]: { rowGap: scaled("40px") } }, alignItems: "center" },
 ])
 
-export const map = style({
-  gridColumn: "1 / span 6",
-  margin: 0,
-})
+export const map = style([
+  editorial.frameMediaEdge.start,
+  {
+    gridColumn: "1 / span 6",
+    marginBlock: 0,
+  },
+])
 
 export const aside = style({ gridColumn: "7 / span 6" })
 

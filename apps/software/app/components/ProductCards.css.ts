@@ -1,6 +1,8 @@
 import { blocks, editorial, SPACE_SCALE, typeStep } from "@sebastian-websites/ui/styles"
 import { style } from "@vanilla-extract/css"
 
+export const cards = style([blocks.cards, editorial.frameOutset])
+
 export const card = style([
   blocks.card,
   editorial.rounded,

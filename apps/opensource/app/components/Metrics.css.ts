@@ -21,12 +21,13 @@ export const heading = style([
   { fontSize: typeStep("3"), marginBottom: SPACE_SCALE.s },
 ])
 export const homeIntro = style([editorial.grid, { alignItems: "center", rowGap: SPACE_SCALE.m }])
-globalStyle(`${homeIntro} > div`, { gridColumn: "1 / span 6" })
+export const introCopy = style({ gridColumn: "1 / span 6" })
 export const introText = style([editorial.body, { maxWidth: "42ch" }])
-globalStyle(`${homeIntro} > picture`, { gridColumn: "7 / span 6" })
+export const counterSlot = style([editorial.frameMediaEdge.end, { gridColumn: "7 / span 6" }])
 export const counter = editorial.paperIllustration
 
 export const overviewCard = style([
+  editorial.frameOutset,
   editorial.rounded,
   {
     backgroundColor: color.tint,

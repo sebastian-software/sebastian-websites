@@ -1,9 +1,9 @@
 import {
-  bleed,
   color,
   COMPACT,
   editorial,
   font,
+  FRAME_OVERHANG,
   PHONE,
   scaled,
   SPACE_SCALE,
@@ -12,22 +12,24 @@ import {
 import { style } from "@vanilla-extract/css"
 
 /** A pale panel whose text aligns with the page edge; the panel reaches beyond it. */
-export const panel = style({
-  "@media": {
-    [COMPACT]: {
-      gridTemplateColumns: "minmax(0, 1fr)",
-      marginInline: 0,
-      padding: scaled("40px 32px 44px"),
+export const panel = style([
+  editorial.frameOutset,
+  {
+    "@media": {
+      [COMPACT]: {
+        gridTemplateColumns: "minmax(0, 1fr)",
+        paddingBlock: scaled("40px 44px"),
+      },
+      [PHONE]: { paddingBlock: scaled("32px 36px") },
     },
-    [PHONE]: { padding: scaled("32px 24px 36px") },
+    backgroundColor: color.tint,
+    borderRadius: scaled("16px"),
+    display: "grid",
+    gridTemplateColumns: "minmax(0, 1.45fr) repeat(2, minmax(0, 1fr))",
+    paddingBlock: scaled("52px 56px"),
+    paddingInline: `max(${FRAME_OVERHANG}, ${SPACE_SCALE.s})`,
   },
-  backgroundColor: color.tint,
-  borderRadius: scaled("16px"),
-  display: "grid",
-  gridTemplateColumns: "minmax(0, 1.45fr) repeat(2, minmax(0, 1fr))",
-  marginInline: `calc(-1 * ${bleed("40px")})`,
-  padding: scaled("52px 40px 56px"),
-})
+])
 
 export const column = style({
   "@media": {

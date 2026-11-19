@@ -1,7 +1,7 @@
 import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
-import { ArrowLink, editorial, editorialSizes, Illustration } from "@sebastian-websites/ui"
+import { ArrowLink, editorial, frameColumnSizes, Illustration } from "@sebastian-websites/ui"
 
 import counter from "~/assets/illustrations/counter.image.mdx"
 import { crateDownloads30Days, type Snapshot } from "~/lib/metrics-model"
@@ -138,7 +138,7 @@ export function MetricsOverview({ initial }: { readonly initial: Snapshot }): Re
   return (
     <section aria-labelledby="metrics-overview-title" className={styles.home}>
       <div className={styles.homeIntro}>
-        <div>
+        <div className={styles.introCopy}>
           <h2
             className={styles.heading}
             id="metrics-overview-title"
@@ -147,14 +147,16 @@ export function MetricsOverview({ initial }: { readonly initial: Snapshot }): Re
             className={styles.introText}
           >{t`Some of the tools we build for our own projects find their way into other codebases. Here you can see the projects we publish, their stars on GitHub and how often their packages are downloaded from npm and crates.io.`}</p>
         </div>
-        <Illustration
-          alt=""
-          className={styles.counter}
-          height={252}
-          sizes={editorialSizes(COUNTER_WIDTH)}
-          src={counter}
-          width={COUNTER_WIDTH}
-        />
+        <div className={styles.counterSlot}>
+          <Illustration
+            alt=""
+            className={styles.counter}
+            height={252}
+            sizes={frameColumnSizes(COUNTER_WIDTH)}
+            src={counter}
+            width={COUNTER_WIDTH}
+          />
+        </div>
       </div>
       <div className={styles.overviewCard}>
         <MetricsSummary snapshot={snapshot} />

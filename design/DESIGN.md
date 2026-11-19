@@ -16,8 +16,8 @@ colors), `packages/ui` (frame and editorial primitives), and the three homepages
    invitation.
 2. **An editorial page, not a stack of bands.** Stories alternate illustration and text on one
    12-column grid; white space separates sections instead of rules and tinted bands.
-3. **Fixed measure on desktop.** The page is 1040 px wide. Wider windows get wider margins,
-   never larger type or wider text.
+3. **Fluid measure.** Text follows the fluid editorial grid. The header, footer,
+   panels and illustrations share the outer frame.
 4. **Products and projects are guests.** A product or open-source project brings its own mark
    and wordmark, shown unchanged and small beside its story; the rest of the page stays in the
    site's own imagery. The illustrations show the customer's world in the site's style and are
@@ -29,16 +29,10 @@ colors), `packages/ui` (frame and editorial primitives), and the three homepages
 
 ## Page and grid
 
-| Token           | Value                  | Use                                                      |
-| --------------- | ---------------------- | -------------------------------------------------------- |
-| `PAGE.width`    | 1040 px                | the text edge; 12 columns with 32 px gaps                |
-| `PAGE.margin`   | 48 px                  | the smallest margin on narrow desktop windows            |
-| `PAGE.overhang` | 24 px                  | header shell and footer panel reach beyond the text edge |
-| Story media     | 7 or 6 columns + 40 px | the illustration bleeds 40 px past the page edge         |
-
-Stories alternate by position (`alternate(index)`): text in columns 1–5 beside an illustration
-in 6–12, then the illustration in 1–6 beside text in 7–12. Any number of stories keeps the
-rhythm; odd collections need no special layout.
+The [fluid page grid](../docs/adr/0017-space-scale-and-page-grid.md) has twelve
+columns. Stories alternate between six columns of text and six columns of
+illustration. The media column extends to its nearest frame edge while the text
+starts on the editorial grid.
 
 ## Type
 
@@ -145,8 +139,10 @@ heading.
 
 Full-width photographs and banners on Software, Open Source, and the tech blog
 align with the header and footer. Apply `editorial.frameMedia` and
-`frameImageSizes` to those placements. Text and images within a column use the
-editorial grid.
+`frameImageSizes` to those placements. Illustrated columns meet the nearest
+header edge and reach both edges when stacked. Use `editorial.frameMediaEdge`
+and `frameColumnSizes` for those columns, and `editorial.frameOutset` for panels
+and card grids. The editorial grid sets the inset for text.
 
 Ardo prepares responsive AVIF files and JPEG fallbacks for the editorial paper illustrations. The
 founder portraits come from the shared asset zone with a zoomed focus crop

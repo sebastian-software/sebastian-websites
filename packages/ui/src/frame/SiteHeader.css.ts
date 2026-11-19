@@ -8,7 +8,9 @@ import { continuousCorners } from "./corners.ts"
 /** The menu opens just below the header shell, inset like the shell itself. */
 const HEADER_TOP = createVar()
 const HEADER_HEIGHT = createVar()
-const MENU_TOP = `calc(${HEADER_TOP} + ${HEADER_HEIGHT} + ${scaled("8px")})`
+const HEADER_BOTTOM = `calc(${HEADER_TOP} + ${HEADER_HEIGHT})`
+const HEADER_FADE = scaled("36px")
+const MENU_TOP = `calc(${HEADER_BOTTOM} + ${scaled("8px")})`
 
 /** Touch targets in the compact menu grow with the root but never fall below 44 px. */
 const TOUCH_TARGET = `max(44px, ${scaled("44px")})`
@@ -44,7 +46,7 @@ export const area = style({
     "&::before": {
       backgroundColor: color.canvas,
       content: '""',
-      height: `calc(${HEADER_TOP} + ${HEADER_HEIGHT})`,
+      height: HEADER_BOTTOM,
       insetInline: 0,
       pointerEvents: "none",
       position: "fixed",
@@ -56,6 +58,16 @@ export const area = style({
     },
     '&[data-brand="consulting"]::before': { backgroundImage: canvasTexture },
     '&[data-brand="software"]': { vars: { [HEADER_HEIGHT]: "3.5rem" } },
+    '&[data-brand="software"]::after': {
+      backgroundImage: `linear-gradient(${color.canvas}, transparent)`,
+      content: '""',
+      height: HEADER_FADE,
+      insetInline: 0,
+      pointerEvents: "none",
+      position: "fixed",
+      top: HEADER_BOTTOM,
+      zIndex: -1,
+    },
   },
   top: HEADER_TOP,
   vars: { [HEADER_HEIGHT]: FRAME.headerHeight, [HEADER_TOP]: FRAME.headerTop },

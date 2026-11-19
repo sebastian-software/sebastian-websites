@@ -1,4 +1,4 @@
-import { type BunnyImageProps, editorialSizes } from "@sebastian-websites/ui"
+import { type BunnyImageProps, frameColumnSizes } from "@sebastian-websites/ui"
 
 const CENTER = 0.5
 const LAPTOP_FOCUS = 0.62
@@ -19,7 +19,7 @@ const PORTRAIT_ZOOM = 1.75
 export type PhotoPlacement = Pick<BunnyImageProps, "crop" | "height" | "src" | "width" | "widths">
 
 // The right column takes two fifths of the editorial grid after its gutter.
-export const PHOTO_SIZES = editorialSizes(CLOSING_COLUMN_WIDTH)
+export const PHOTO_SIZES = frameColumnSizes(CLOSING_COLUMN_WIDTH)
 
 export const laptopPhoto = {
   crop: { mode: "focus", point: [CENTER, LAPTOP_FOCUS] },

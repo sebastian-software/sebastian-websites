@@ -58,6 +58,7 @@ const LARGE_ROOT = `(min-width: 1281px) and (min-height: 1025px)`
 
 /** The smallest margins on both sides of a compact page. */
 const NARROW_MARGINS = "32px"
+const NARROW_FRAME_WIDTH = "calc(100vw - 16px)"
 
 /**
  * The page width the desktop grid reaches at least up to each viewport width,
@@ -78,7 +79,7 @@ const FRAME_EXTRA = Math.ceil(FRAME_DESIGN_EXTRA * ROOT_MAX_SCALE)
 /** Source sizes for a banner aligned to the header shell. */
 export const frameImageSizes = [
   ...PAGE_STEPS.map(({ from, page }) => `(min-width: ${from}) ${String(page + FRAME_EXTRA)}px`),
-  `min(calc(100vw - 16px), ${String(PAGE_BASE + FRAME_EXTRA)}px)`,
+  `min(${NARROW_FRAME_WIDTH}, ${String(PAGE_BASE + FRAME_EXTRA)}px)`,
 ].join(", ")
 
 /**
@@ -102,10 +103,23 @@ export function scaledSizes(width: DesignLength | number): string {
  * @returns The sizes attribute.
  */
 export function editorialSizes(desktopWidth: number): string {
+  return columnImageSizes(desktopWidth, `calc(100vw - ${NARROW_MARGINS})`, 0)
+}
+
+/**
+ * Estimates a column that reaches a header edge and uses the frame width when stacked.
+ * @param desktopWidth - The column width on the 1040 px design page before the outset.
+ * @returns The sizes attribute.
+ */
+export function frameColumnSizes(desktopWidth: number): string {
+  return columnImageSizes(desktopWidth, NARROW_FRAME_WIDTH, FRAME_EXTRA / 2)
+}
+
+function columnImageSizes(desktopWidth: number, compactWidth: string, outset: number): string {
   const share = desktopWidth / DESIGN_PAGE_WIDTH
-  const width = (page: number): string => `${String(Math.ceil(page * share))}px`
+  const width = (page: number): string => `${String(Math.ceil(page * share + outset))}px`
   return [
-    `(max-width: ${BREAKPOINTS.compact}) calc(100vw - ${NARROW_MARGINS})`,
+    `(max-width: ${BREAKPOINTS.compact}) ${compactWidth}`,
     ...PAGE_STEPS.map(({ from, page }) => `(min-width: ${from}) ${width(page)}`),
     width(PAGE_BASE),
   ].join(", ")

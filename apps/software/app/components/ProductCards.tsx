@@ -1,6 +1,6 @@
 import type { ReactElement } from "ardo/react"
 
-import { blocks, editorialSizes, Illustration, KerameikosLogo } from "@sebastian-websites/ui"
+import { blocks, frameColumnSizes, Illustration, KerameikosLogo } from "@sebastian-websites/ui"
 
 import { getProducts } from "~/data/products"
 
@@ -15,14 +15,14 @@ const CARD_WIDTH = 336
  */
 export function ProductCards(): ReactElement {
   return (
-    <div className={blocks.cards}>
+    <div className={styles.cards}>
       {getProducts().map((product) => (
         <article className={styles.card} key={product.id}>
           <Illustration
             alt={product.illustration.alt}
             className={styles.image}
             height={224}
-            sizes={editorialSizes(CARD_WIDTH)}
+            sizes={frameColumnSizes(CARD_WIDTH)}
             src={product.illustration.src}
             width={CARD_WIDTH}
           />
