@@ -1,42 +1,11 @@
-import { color, COMPACT, editorial, font, scaled, typeStep } from "@sebastian-websites/ui"
+import { color, editorial, font, scaled, typeStep } from "@sebastian-websites/ui"
 import { style, styleVariants } from "@vanilla-extract/css"
 
 import type { FeaturedId } from "~/data/featured"
 
-export const eyebrow = style({
-  color: color.accent,
-  fontFamily: font.sans,
-  fontSize: typeStep("-2"),
-  letterSpacing: "0.26em",
-  lineHeight: 1,
-  marginBottom: scaled("22px"),
-  textTransform: "uppercase",
-})
+export const familyName = style({ fontSize: typeStep("3") })
 
-/** The lockup may reach past the text column; the drawing leaves room for it. */
-/** Stacked on compact screens, the lockup stays inside the page and may wrap. */
-const wrapping = {
-  "@media": { [COMPACT]: { flexWrap: "wrap", marginBottom: scaled("28px"), width: "auto" } },
-} as const
-
-export const identity = styleVariants({
-  end: [
-    editorial.storyIdentity,
-    {
-      ...wrapping,
-      columnGap: scaled("22px"),
-      flexWrap: "nowrap",
-      marginBottom: scaled("36px"),
-      width: "max-content",
-    },
-  ],
-  start: [
-    editorial.storyIdentity,
-    { ...wrapping, columnGap: scaled("22px"), flexWrap: "nowrap", marginBottom: scaled("36px") },
-  ],
-})
-
-export const artwork = style({ display: "block", flexShrink: 0, width: "auto" })
+export const artwork = style({ display: "block", height: "auto", maxWidth: "100%" })
 
 /** Ardo's name is set in its own system sans, as on its documentation site. */
 export const ardoName = style({
@@ -72,7 +41,7 @@ export const projectLink = styleVariants({
   ardo: { color: "#b72a6f" },
   dalo: { color: "oklch(0.55 0.17 35)" },
   "effective-agent": { color: "#a54e2c" },
-  ferramenta: { color: "oklch(0.52 0.15 38)" },
+  ferramenta: { color: "#88492f" },
   palamedes: { color: "oklch(0.53 0.15 55)" },
 } satisfies Record<FeaturedId, { color: string }>)
 

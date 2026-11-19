@@ -8,7 +8,7 @@ import {
 } from "@sebastian-websites/tokens"
 import { createVar, globalStyle, style, styleVariants } from "@vanilla-extract/css"
 
-import { bleed, COMPACT, PAGE_WIDTH, PHONE } from "../responsive.ts"
+import { COMPACT, PAGE_WIDTH, PHONE } from "../responsive.ts"
 import { color, font } from "../theme.css.ts"
 
 /**
@@ -204,9 +204,6 @@ export const outboundArrow = style([
 
 // ---- Illustrated story -------------------------------------------------------
 
-/** Media reaches this far beyond the text edge on its outer side. */
-const MEDIA_BLEED = bleed("40px")
-
 export const story = style([
   grid,
   {
@@ -215,28 +212,15 @@ export const story = style([
   },
 ])
 
-/** Text placement, keyed by the illustration's side. */
+/** Mirrored six-column slots keep the gutter clear on both sides. */
 export const storyContent = styleVariants({
-  end: { gridColumn: "1 / span 5", gridRow: 1 },
-  start: { gridColumn: "7 / span 6", gridRow: 1 },
+  end: { gridColumn: "1 / span 6", gridRow: 1, minWidth: 0 },
+  start: { gridColumn: "7 / span 6", gridRow: 1, minWidth: 0 },
 })
 
-/** Stacked on compact screens, the illustration stays inside the page. */
-const stackedMedia = { "@media": { [COMPACT]: { marginInline: 0, marginTop: scaled("8px") } } }
-
 export const storyMedia = styleVariants({
-  end: {
-    ...stackedMedia,
-    gridColumn: "6 / span 7",
-    gridRow: 1,
-    marginRight: `calc(-1 * ${MEDIA_BLEED})`,
-  },
-  start: {
-    ...stackedMedia,
-    gridColumn: "1 / span 6",
-    gridRow: 1,
-    marginLeft: `calc(-1 * ${MEDIA_BLEED})`,
-  },
+  end: { gridColumn: "7 / span 6", gridRow: 1 },
+  start: { gridColumn: "1 / span 6", gridRow: 1 },
 })
 
 export const storyList = style({ display: "grid", rowGap: RHYTHM.story })
@@ -266,3 +250,9 @@ export const storyActions = style({
 })
 
 export const media = style({ display: "block", height: "auto", width: "100%" })
+
+/** The edge of a mounted paper illustration. The source sets the aspect ratio. */
+export const paperIllustration = style([
+  media,
+  { borderRadius: "6px", boxShadow: "0 2px 7px rgb(31 48 43 / 10%)" },
+])

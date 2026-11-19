@@ -146,7 +146,8 @@ heading.
 Repository illustrations use `BunnyImage` with `?bunny` imports and reserved dimensions. The
 founder portraits come from the shared asset zone with a zoomed focus crop
 (`{ mode: "focus", point, zoom }`) tuned per photo, so both heads appear at the same scale in
-equal 7:10 frames. Region names on the Mainz–Heidelberg drawing are HTML, so they translate.
+equal 7:10 frames. The [paper miniature guide](paper-miniatures/README.md) records the landscape
+reference. The surrounding text names Mainz and Heidelberg in each language.
 
 ## Motion
 
@@ -155,7 +156,5 @@ reduced motion. Nothing else moves.
 
 ## Open
 
-- The newsletter service, the Software journal, the VorOrt logo, and cleared Consulting
-  references.
-- The invitation drawings reuse existing illustrations; standalone drawings in the style of the
-  frame reference can replace them later.
+- The newsletter service, the Software journal, and cleared Consulting references.
+- The invitation to Software still reuses the calendar illustration.

@@ -40,7 +40,7 @@ export function createFrameCopy(year: number): FrameCopy {
       consulting: {
         action: t`Meet Sebastian/Consulting`,
         heading: t`Need a clearer direction for your software?`,
-        illustrationAlt: t`A drawn road winding through a valley toward the mountains.`,
+        illustrationAlt: t`Branching mountain trails lead from a village toward a summit hut.`,
         text: t`Our agency helps teams with software architecture, engineering and technical direction.`,
       },
       software: {
@@ -65,7 +65,7 @@ export function createFrameCopy(year: number): FrameCopy {
     },
     newsletter: {
       action: t`Subscribe`,
-      description: t`Insights into our work across software and consulting: what we're building, exploring and thinking about.`,
+      description: t`Why build our own translation tools? When is it worth reworking an architecture? In our newsletter we share the decisions behind our software and what we learn when teams put it to use.`,
       emailLabel: t`Email address`,
       failure: t`The sign-up did not go through. Please try again later.`,
       invalid: t`Please enter a complete email address, such as name@example.com.`,

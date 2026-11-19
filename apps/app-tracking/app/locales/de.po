@@ -57,10 +57,11 @@ msgstr ""
 "Ein gezeichneter Tischkalender mit einem markierten Termin neben einer "
 "Topfpflanze."
 
-#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
-msgid "A drawn road winding through a valley toward the mountains."
-msgstr ""
-"Eine gezeichnete Straße, die sich durch ein Tal auf die Berge zuwindet."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+#~ msgid "A drawn road winding through a valley toward the mountains."
+#~ msgstr ""
+#~ "Eine gezeichnete Straße, die sich durch ein Tal auf die Berge zuwindet."
 
 #: app/components/ReportingPage.tsx#ReportingPage
 msgid ""
@@ -172,6 +173,10 @@ msgstr "Blog"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Book an intro call"
 msgstr "Erstgespräch buchen"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Branching mountain trails lead from a village toward a summit hut."
+msgstr "Bergpfade verzweigen sich zwischen einem Dorf und einer Gipfelhütte."
 
 #~ #@ obsolete-since: 2026-10-28
 #~ #: app/components/ReportingPage.tsx#ReportingPage
@@ -609,12 +614,8 @@ msgid "Information pursuant to § 5 DDG"
 msgstr "Angaben gemäß § 5 DDG"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
-msgid ""
-"Insights into our work across software and consulting: what we're building, "
-"exploring and thinking about."
-msgstr ""
-"Einblicke in unsere Arbeit in Software und Beratung: was wir bauen, erkunden "
-"und durchdenken."
+msgid "Why build our own translation tools? When is it worth reworking an architecture? In our newsletter we share the decisions behind our software and what we learn when teams put it to use."
+msgstr "Warum bauen wir ein eigenes Übersetzungswerkzeug? Wann lohnt sich ein Umbau der Architektur? Im Newsletter erzählen wir, wie wir solche Entscheidungen treffen und was wir lernen, wenn Teams mit unserer Software arbeiten."
 
 #: app/components/ReportingPage.tsx#ReportingPage
 msgid "Inspect"

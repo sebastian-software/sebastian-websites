@@ -18,8 +18,9 @@ const FIELD_RADIUS = 6
 const PANEL_RADIUS = 24
 const FIELD_HEIGHT = scaled("58px")
 
-/** The second half of the grid: the form, its status, and the drawing. */
+const START_HALF = "1 / span 6"
 const END_HALF = "7 / span 6"
+const ILLUSTRATED = '[data-illustrated="true"] &'
 
 /** Neutral slate for the newsletter action, shared by both brands. */
 const ACTION = "oklch(0.33 0.012 250)"
@@ -43,8 +44,19 @@ export const newsletter = style([
 
 export const newsletterTitle = style([
   heading,
-  { gridColumn: "1 / span 6", marginBottom: scaled("12px") },
+  {
+    gridColumn: START_HALF,
+    marginBottom: scaled("12px"),
+    selectors: { [ILLUSTRATED]: { gridColumn: END_HALF } },
+  },
 ])
+
+export const newsletterArt = style({
+  "@media": { [COMPACT]: { marginBottom: SPACE_SCALE.m } },
+  alignSelf: "center",
+  gridColumn: START_HALF,
+  gridRow: "1 / span 4",
+})
 
 export const newsletterText = style({
   color: color.text,
@@ -53,6 +65,7 @@ export const newsletterText = style({
   gridColumn: "1 / span 5",
   gridRow: 2,
   lineHeight: 1.5,
+  selectors: { [ILLUSTRATED]: { gridColumn: END_HALF } },
 })
 
 export const form = style({
@@ -65,7 +78,10 @@ export const form = style({
   gridColumn: END_HALF,
   gridRow: 2,
   marginTop: scaled("-6px"),
-  selectors: { '[data-brand="consulting"] &': { alignItems: "stretch" } },
+  selectors: {
+    '[data-brand="consulting"] &': { alignItems: "stretch" },
+    [ILLUSTRATED]: { gridRow: 3, marginTop: SPACE_SCALE.m },
+  },
 })
 
 export const field = style([
@@ -125,6 +141,7 @@ export const status = style({
   lineHeight: TYPE_SCALE.small.lineHeight,
   marginTop: scaled("12px"),
   minHeight: "1.5em",
+  selectors: { [ILLUSTRATED]: { gridRow: 4 } },
 })
 
 export const statusProblem = style({ color: "oklch(0.48 0.17 25)" })
@@ -146,7 +163,7 @@ export const invitationAccent = styleVariants({
   software: { vars: { [outboundAccent]: PALETTES.software.roles.base } },
 })
 
-export const invitationCopy = style({ gridColumn: "1 / span 6" })
+export const invitationCopy = style({ gridColumn: START_HALF })
 
 export const invitationTitle = style([
   title,
@@ -163,6 +180,8 @@ export const invitationTitle = style([
 export const invitationText = style([lead, { maxWidth: "20em" }])
 
 export const invitationAction = style({ marginTop: RHYTHM.action })
+
+export const landscapeSlot = style({ gridColumn: END_HALF })
 
 export const invitationArt = style({
   "@media": { [COMPACT]: { maxWidth: scaled("420px"), paddingLeft: 0 } },

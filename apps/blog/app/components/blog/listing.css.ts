@@ -23,6 +23,11 @@ export const head = style([
   { marginBottom: SPACE_SCALE["2xl"], rowGap: SPACE_SCALE.s },
 ])
 
+export const banner = style([
+  editorial.paperIllustration,
+  { gridColumn: FULL_WIDTH, marginTop: SPACE_SCALE.m },
+])
+
 export const eyebrow = style([eyebrowText, { gridColumn: FULL_WIDTH }])
 
 /**

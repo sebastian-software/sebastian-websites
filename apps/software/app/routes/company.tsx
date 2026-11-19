@@ -2,15 +2,28 @@ import type { ReactElement } from "ardo/react"
 import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 import { t } from "@palamedes/core/macro"
-import { blocks, layout, Section, SectionHead, typography } from "@sebastian-websites/ui"
+import {
+  blocks,
+  BunnyImage,
+  editorialSizes,
+  layout,
+  Section,
+  SectionHead,
+  typography,
+} from "@sebastian-websites/ui"
 import { getSiteOrigin } from "@sebastian-websites/web-core"
 
+import missionRadio from "~/assets/illustrations/radio.webp?bunny"
 import { Closing } from "~/components/Closing"
 import { Founders } from "~/components/Founders"
 import { Photo } from "~/components/Photo"
 import { laptopPhoto } from "~/lib/photos"
 import { seoMeta } from "~/lib/seo"
 import { variant } from "~/lib/site"
+
+import * as styles from "./company.css.ts"
+
+const RADIO_WIDTH = 1040
 
 // eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
 export function meta(): ArdoMetaDescriptor[] {
@@ -46,6 +59,14 @@ function Mission(): ReactElement {
         eyebrow={t`Mission`}
         intro={t`Four themes have guided the company since 2014. They are written down here so that our partners and customers can hold us to them.`}
         title={t`What we stand for.`}
+      />
+      <BunnyImage
+        alt={t`Inside a radio, the wiring is as carefully arranged as the dial on its front.`}
+        className={styles.missionImage}
+        height={520}
+        sizes={editorialSizes(RADIO_WIDTH)}
+        src={missionRadio}
+        width={RADIO_WIDTH}
       />
       <div className={layout.columnsTwo}>
         {themes.map((theme) => (

@@ -1,0 +1,37 @@
+# Papierminiaturen für Sebastian Software
+
+## Die beiden Referenzen
+
+Die [freigegebene Rhein-Neckar-Karte](references/rhein-neckar.webp) mit der Alten Brücke über den Neckar ist die verbindliche Vorlage für weitere Landschaftsbilder. Sie gibt Landschaft, Kameradistanz und Farbklima vor. Beide Karten zeigen einen hohen Horizont, kleine Ortskerne, gestaffelte Waldkanten und offene Flächen aus hellem Papier. Auf der Regionalkarte prägen der große Dom links oben und das Heidelberger Schloss rechts unten die Silhouette. Die Alte Brücke führt vom Doppeltor am Altstadtufer schräg über den Neckar. Am gegenüberliegenden Ufer geht sie in einen hellen Weg über. Mannheim bildet mit dem Barockschloss, seinem offenen Ehrenhof und den Häuserquadraten den dritten Schwerpunkt. Zwischen Mannheim und Mainz markiert der kleinere Wormser Nibelungenturm eine Rheinquerung am Westufer. Der Neckar erreicht den Rhein am nördlichen Rand der Mannheimer Innenstadt. Ortsnamen stehen im übersetzbaren Seitentext. Die [VorOrt-Fahrradwerkstatt](../../apps/software/app/assets/illustrations/vorort-workshop.webp) übersetzt das ins Alltagsleben.
+
+## Ein neues Motiv bauen
+
+1. Beschreibe das Projekt mit einem Verb. Bei VorOrt erzählt schon der Blick durch das Werkstattfenster, für wen die Website da ist. Bei einer Familie wie Ferramenta lohnt ein anderer Blickwinkel. Welches Werkzeug würde jemand aus dem Kasten nehmen, um seine Aufgabe zu lösen?
+2. Hänge für eine Produktgeschichte die Fahrradwerkstatt als erstes Bild an, für eine Landschaft die Karte. Gibt es ein altes Motiv, hänge es als zweites Bild an. Weise den Bildern ausdrücklich ihre Aufgaben zu. Die erste Referenz liefert Material, Licht und Palette. Die zweite liefert den Gegenstand oder Vorgang.
+3. Verwende den Grundprompt unten und ergänze den Motivabsatz. Benenne Ort, Blickwinkel, eine Handlung und das Detail, an dem sie erkennbar ist. Beschreibe, welche Bildteile der Ausschnitt anschneidet und welche lesbar bleiben müssen. Ohne Altillustration entfällt der Satz zu Input 2. Für Produktgeschichten, Open-Source-Projekte und beide Landschaften entsteht jedes Original direkt in 3:2 (1536 × 1024 Pixel). Bei einem engeren Entwurf wird die Szene seitlich neu komponiert. Die Banner und das Zählwerk entstehen in 2:1. Auf der Seite erhalten die Papierillustrationen einen Eckenradius von 6 Pixeln und einen kurzen, weichen Schatten.
+4. Vergleiche den Entwurf neben VorOrt in der vorgesehenen Größe. Farbige Schnittkanten, kurze Schatten und kleine Überdeckungen sollen die Tiefe erklären. Prüfe die beschrifteten Arbeitsstücke, vor allem Code, Sprachen und Zahlen. Ist die Handlung in klein kaum zu erkennen, rücke näher heran oder entferne ein konkurrierendes Objekt.
+5. Achte besonders darauf, was das Modell aus der Vorlage mitkopiert. In einem ersten Palamedes-Entwurf stand hinter dem Sprachkatalog plötzlich ein Fahrrad. Ein engerer Ausschnitt auf die Arbeitsfläche hat das behoben. Pflanzen passen in die Straße vor dem Laden. Am Werktisch braucht jedes zusätzliche Detail einen eigenen Grund.
+
+## Tiefe und Maßstab
+
+Drei Entfernungen geben einer Szene Tiefe. Bei VorOrt führt der Blick von der Person auf dem Gehweg durch das Schaufenster bis zur Werkzeugwand. Wähle für ein breites Kopfbild eine ähnliche Staffelung. Für eine kleine Begleitillustration reicht oft ein Ausschnitt aus dieser Welt. Der Newsletter zeigt etwa den Moment, in dem eine Ausgabe durch den Briefschlitz gleitet. Nebeneinander sollen die Bilder den Blick zwischen Nähe und Weite wechseln lassen.
+
+## Umsetzung auf der Website
+
+Für den [Bergpfad](../../packages/ui/src/assets/mountain-trails.webp) steht die Kamera über dem Tal. Dorf, Abzweigungen und Gipfelhütte sind gleichzeitig sichtbar. Baumgruppen und einzelne Felsstufen geben dem Auge einen Maßstab. Große zusammenhängende Papierflächen halten den Verlauf der Pfade auch auf dem Handy lesbar.
+
+Beim [Palamedes-Globus](../../apps/opensource/app/assets/illustrations/palamedes-globe.webp) liegen zwei Korrekturabzüge versetzt im Vordergrund. Wörterbücher, Postfächer und das seitliche Fenster machen den Raum als Übersetzungsbüro erkennbar. Das Sprachband am Globus und die verschiedenen Schriften verbinden ihn mit der Übersetzungsarbeit. Für [Ferramenta](../../apps/opensource/app/assets/illustrations/ferramenta-tools.webp) erzählt der offene Werkzeugkasten von der Familie spezialisierter Werkzeuge. Das [Originalzeichen](../../packages/ui/src/assets/ferramenta-mark.webp) steht separat beim Namen.
+
+Auf der Unternehmensseite begleitet das geöffnete Radio die Mission. Beim Abschnitt zu den Open-Source-Kennzahlen steht das mechanische Zählwerk neben der Einleitung. Die aktuellen Werte folgen darunter als Text.
+
+## Grundprompt
+
+Diesen englischen Text haben wir mit dem eingebauten ImageGen benutzt. Das Muster lässt sich mit einem neuen Motivabsatz wiederverwenden.
+
+> Create a 3:2 landscape editorial image for the Sebastian Software open-source catalogue. Input 1, the approved VorOrt bicycle workshop, defines the art direction: contemporary meticulously hand-cut paper miniature photographed at close range, visible fine paper fibres and folded constructed edges, warm matte ivory, deep bottle green / petrol and restrained burnt terracotta. Side light from a large window, short directional contact shadows. Match the material and observed, inhabited feel of that workshop. Input 2 is the previous project illustration; take its central motif and purpose. Build a new full-bleed, three-dimensional scene that reads clearly at card size. Crop into a particular place, leaving a little space around the main action. Reserve detail for working parts. Lettering only where specified. No headline, border, potted plants, foliage, flags, logos, decorative hardware, sepia filter or generic background clutter.
+
+**Vorlage für den Motivabsatz**
+
+> At [specific place], [subject] is [one observable action]. Show [the detail that explains how it works]. Frame it from [viewpoint and distance]. Leave [space or context] visible. The only readable text is [exact words, if any].
+
+Die frühere Blender-Idee mit Metall, Glas, Eiche oder Walnuss und einem Beerenton bleibt eine eigene Materialstudie für eine spätere Runde.

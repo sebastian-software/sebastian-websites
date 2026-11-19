@@ -47,6 +47,7 @@ const media: Record<string, string> = {
   ".svg": "image/svg+xml",
   ".txt": "text/plain",
   ".webmanifest": "application/manifest+json",
+  ".webp": "image/webp",
   ".woff2": "font/woff2",
   ".xml": "application/xml",
 }
@@ -570,7 +571,7 @@ async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
     baseline === undefined ? undefined : await fixture(path.resolve(baseline, variant, "client"))
   const context = await browser.newContext()
   // Fix asset bytes across old/new comparisons; new Bunny originals need no publication.
-  await context.route("https://**", async (route) => {
+  await context.route(/^https:/v, async (route) => {
     const url = new URL(route.request().url())
     if (url.hostname === "assets.sebastian-software.com" && url.pathname.startsWith("/images/")) {
       try {

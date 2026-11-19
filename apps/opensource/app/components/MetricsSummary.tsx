@@ -1,13 +1,16 @@
 import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
-import { ArrowLink } from "@sebastian-websites/ui"
+import { ArrowLink, BunnyImage, editorialSizes } from "@sebastian-websites/ui"
 
+import counter from "~/assets/illustrations/counter.webp?bunny"
 import { crateDownloads30Days, type Snapshot } from "~/lib/metrics-model"
 import { variant } from "~/lib/site"
 import { useMetrics } from "~/lib/use-metrics"
 
 import * as styles from "./Metrics.css"
+
+const COUNTER_WIDTH = 504
 
 /**
  * Formats numbers in the variant's locale, with exact values available on hover.
@@ -119,8 +122,25 @@ export function MetricsOverview({ initial }: { readonly initial: Snapshot }): Re
   const { failed, snapshot } = useMetrics(initial)
   return (
     <section aria-labelledby="metrics-overview-title" className={styles.home}>
-      <h2 className={styles.heading} id="metrics-overview-title">{t`Open source, in numbers.`}</h2>
-      <p>{t`All opted-in public projects and published packages, in one shared snapshot.`}</p>
+      <div className={styles.homeIntro}>
+        <div>
+          <h2
+            className={styles.heading}
+            id="metrics-overview-title"
+          >{t`Open source, in numbers.`}</h2>
+          <p
+            className={styles.introText}
+          >{t`Some of the tools we build for our own projects find their way into other codebases. Here you can see the projects we publish, their stars on GitHub and how often their packages are downloaded from npm and crates.io.`}</p>
+        </div>
+        <BunnyImage
+          alt=""
+          className={styles.counter}
+          height={252}
+          sizes={editorialSizes(COUNTER_WIDTH)}
+          src={counter}
+          width={COUNTER_WIDTH}
+        />
+      </div>
       <MetricsSummary snapshot={snapshot} />
       <p className={styles.note}>
         {t`Collected`}: <SnapshotTime snapshot={snapshot} />

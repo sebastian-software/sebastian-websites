@@ -1,4 +1,13 @@
-import { color, COMPACT, editorial, font, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
+import {
+  color,
+  COMPACT,
+  editorial,
+  font,
+  PHONE,
+  scaled,
+  SPACE_SCALE,
+  typeStep,
+} from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 export const main = style([
@@ -42,6 +51,8 @@ export const heroLead = style({
 })
 
 export const heroAction = style({ marginTop: scaled("28px") })
+
+export const banner = style([editorial.paperIllustration, { marginTop: SPACE_SCALE.xl }])
 
 export const stories = style([editorial.storyList, editorial.section])
 

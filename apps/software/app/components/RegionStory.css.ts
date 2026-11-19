@@ -1,4 +1,4 @@
-import { color, COMPACT, editorial, font, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
 import { style } from "@vanilla-extract/css"
 
 export const region = style([
@@ -7,22 +7,8 @@ export const region = style([
 ])
 
 export const map = style({
-  "@media": { [COMPACT]: { marginLeft: 0 } },
-  gridColumn: "1 / span 8",
-  margin: scaled("0 0 0 -40px"),
-  position: "relative",
-})
-
-/** Place names stay HTML so they translate; each sits beside its part of the drawing. */
-export const place = style({
-  color: color.heading,
-  fontFamily: font.serif,
-  fontSize: typeStep("0"),
-  lineHeight: 1,
-  position: "absolute",
-  textShadow: "0 0 6px #fff, 0 0 2px #fff",
-  transform: "translate(-50%, -50%)",
-  whiteSpace: "nowrap",
+  gridColumn: "1 / span 6",
+  margin: 0,
 })
 
 export const aside = style({
@@ -31,8 +17,7 @@ export const aside = style({
     [PHONE]: { paddingLeft: scaled("20px") },
   },
   borderLeft: `1px solid ${color.rule}`,
-  gridColumn: "9 / span 4",
-  marginLeft: scaled("-48px"),
+  gridColumn: "7 / span 6",
   paddingBlock: scaled("8px"),
   paddingLeft: scaled("48px"),
 })

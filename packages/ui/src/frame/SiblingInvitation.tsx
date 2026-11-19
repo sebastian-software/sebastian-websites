@@ -5,19 +5,16 @@ import { useId } from "ardo/react"
 
 import type { InvitationCopy } from "./copy.ts"
 
-import consultingArt from "../assets/invitation-consulting.png?bunny"
 import softwareArt from "../assets/invitation-software.png?bunny"
+import consultingArt from "../assets/mountain-trails.webp?bunny"
 import { BunnyImage } from "../BunnyImage.tsx"
 import { Arrow } from "../editorial/Arrow.tsx"
 import { outboundArrow, outboundLink } from "../editorial/editorial.css.ts"
+import { StoryIllustration } from "../editorial/StoryIllustration.tsx"
 import { scaledSizes } from "../responsive.ts"
 import * as styles from "./PageEnding.css.ts"
 
-/** A small drawing per destination: a considered route for Consulting, the desk of a product company for Software. */
-const ART = {
-  consulting: { height: 309, src: consultingArt, width: 464 },
-  software: { height: 348, src: softwareArt, width: 464 },
-} as const
+const SOFTWARE_ART_WIDTH = 464
 
 export type SiblingInvitationProps = {
   /** The brand the invitation leads to. */
@@ -37,7 +34,6 @@ export type SiblingInvitationProps = {
 export function SiblingInvitation(props: SiblingInvitationProps): ReactElement {
   const { brand, copy, href } = props
   const id = useId()
-  const art = ART[brand]
   return (
     <section
       aria-labelledby={id}
@@ -55,16 +51,22 @@ export function SiblingInvitation(props: SiblingInvitationProps): ReactElement {
           </a>
         </p>
       </div>
-      <div className={styles.invitationArt}>
-        <BunnyImage
-          alt={copy.illustrationAlt}
-          className={styles.invitationImage}
-          height={art.height}
-          sizes={`(max-width: 959px) min(420px, 100vw - 40px), ${scaledSizes(art.width)}`}
-          src={art.src}
-          width={art.width}
-        />
-      </div>
+      {brand === "consulting" ? (
+        <div className={styles.landscapeSlot}>
+          <StoryIllustration alt={copy.illustrationAlt} src={consultingArt} />
+        </div>
+      ) : (
+        <div className={styles.invitationArt}>
+          <BunnyImage
+            alt={copy.illustrationAlt}
+            className={styles.invitationImage}
+            height={348}
+            sizes={`(max-width: 959px) min(420px, 100vw - 40px), ${scaledSizes(SOFTWARE_ART_WIDTH)}`}
+            src={softwareArt}
+            width={SOFTWARE_ART_WIDTH}
+          />
+        </div>
+      )}
     </section>
   )
 }

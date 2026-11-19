@@ -1,13 +1,13 @@
 import type { ReactElement } from "ardo/react"
 
-import { t } from "@palamedes/core/macro"
 import {
   alternate,
   ArrowLink,
-  BunnyImage,
   editorial,
-  editorialSizes,
+  FerramentaLogo,
+  KerameikosLogo,
   Story,
+  StoryIllustration,
 } from "@sebastian-websites/ui"
 
 import type { FeaturedId, FeaturedProject } from "~/data/featured"
@@ -16,10 +16,6 @@ import ardoMark from "~/assets/brands/ardo-mark.svg"
 import daloMark from "~/assets/brands/dalo-mark.svg"
 import daloWordmark from "~/assets/brands/dalo-wordmark.svg"
 import effectiveAgentMark from "~/assets/brands/effective-agent-mark.svg"
-import ferramentaMark from "~/assets/brands/ferramenta-mark.svg"
-import ferramentaWordmark from "~/assets/brands/ferramenta-wordmark.svg"
-import palamedesMark from "~/assets/brands/palamedes-mark.svg"
-import palamedesWordmark from "~/assets/brands/palamedes-wordmark.svg"
 
 import * as styles from "./FeaturedStory.css.ts"
 
@@ -31,7 +27,7 @@ type Artwork = { readonly height: number; readonly src: string; readonly width: 
  */
 const IDENTITIES: Readonly<
   Record<
-    FeaturedId,
+    Exclude<FeaturedId, "ferramenta" | "palamedes">,
     { readonly mark: Artwork; readonly nameClassName?: string; readonly wordmark?: Artwork }
   >
 > = {
@@ -44,24 +40,22 @@ const IDENTITIES: Readonly<
     mark: { height: 64, src: effectiveAgentMark, width: 64 },
     nameClassName: styles.textName,
   },
-  ferramenta: {
-    mark: { height: 60, src: ferramentaMark, width: 60 },
-    wordmark: { height: 40, src: ferramentaWordmark, width: 272 },
-  },
-  palamedes: {
-    mark: { height: 92, src: palamedesMark, width: 92 },
-    wordmark: { height: 38, src: palamedesWordmark, width: 319 },
-  },
 }
 
-function Identity(props: {
-  readonly project: FeaturedProject
-  readonly side: "end" | "start"
-}): ReactElement {
-  const { project, side } = props
+function Identity(props: { readonly project: FeaturedProject }): ReactElement {
+  const { project } = props
+  if (project.id === "ferramenta" || project.id === "palamedes") {
+    return (
+      <div className={editorial.storyIdentity}>
+        <span className={styles.familyName}>
+          {project.id === "ferramenta" ? <FerramentaLogo /> : <KerameikosLogo name="Palamedes" />}
+        </span>
+      </div>
+    )
+  }
   const { mark, nameClassName, wordmark } = IDENTITIES[project.id]
   return (
-    <div className={styles.identity[side]}>
+    <div className={editorial.storyIdentity}>
       <img
         alt=""
         className={styles.artwork}
@@ -84,11 +78,6 @@ function Identity(props: {
   )
 }
 
-const MEDIA = {
-  end: { height: 480, width: 640 },
-  start: { height: 420, width: 560 },
-} as const
-
 export type FeaturedStoryProps = {
   readonly index: number
   readonly project: FeaturedProject
@@ -104,26 +93,14 @@ export type FeaturedStoryProps = {
 export function FeaturedStory(props: FeaturedStoryProps): ReactElement {
   const { index, project } = props
   const side = alternate(index)
-  const media = MEDIA[side]
   const headingId = `project-${project.id}`
   return (
     <Story
       aria-labelledby={headingId}
-      media={
-        <BunnyImage
-          alt={project.illustration.alt}
-          className={editorial.media}
-          height={media.height}
-          priority={index === 0}
-          sizes={editorialSizes(media.width)}
-          src={project.illustration.src}
-          width={media.width}
-        />
-      }
+      media={<StoryIllustration {...project.illustration} />}
       mediaPosition={side}
     >
-      <p className={styles.eyebrow}>{t`Open source project`}</p>
-      <Identity project={project} side={side} />
+      <Identity project={project} />
       <h2 className={styles.title} id={headingId}>
         {project.title}
       </h2>

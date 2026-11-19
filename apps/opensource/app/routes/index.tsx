@@ -3,9 +3,10 @@ import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 import { t } from "@palamedes/core/macro"
 import { pageMeta } from "@sebastian-websites/site/meta"
-import { ArrowLink } from "@sebastian-websites/ui"
+import { ArrowLink, BunnyImage, editorialSizes } from "@sebastian-websites/ui"
 import { activity, metrics } from "virtual:opensource-build-data"
 
+import workshop from "~/assets/illustrations/open-workshop.webp?bunny"
 import { FeaturedStory } from "~/components/FeaturedStory"
 import { MetricsOverview } from "~/components/MetricsSummary"
 import { ProjectTiles } from "~/components/ProjectTiles"
@@ -16,6 +17,8 @@ import { buildCollection, findUncurated } from "~/lib/collection"
 import { variant } from "~/lib/site"
 
 import * as styles from "./home.css.ts"
+
+const BANNER_WIDTH = 1040
 
 // eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
 export function meta(): ArdoMetaDescriptor[] {
@@ -52,6 +55,15 @@ export default function Home(): ReactElement {
             {t`Explore the projects`}
           </ArrowLink>
         </p>
+        <BunnyImage
+          alt={t`At an open workbench, a maker passes on the plans for an adjustable lamp.`}
+          className={styles.banner}
+          height={520}
+          priority
+          sizes={editorialSizes(BANNER_WIDTH)}
+          src={workshop}
+          width={BANNER_WIDTH}
+        />
       </section>
       <MetricsOverview initial={metrics} />
       <div className={styles.stories}>

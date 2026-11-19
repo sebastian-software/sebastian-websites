@@ -1,7 +1,7 @@
 import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
-import { ArrowLink } from "@sebastian-websites/ui"
+import { ArrowLink, FerramentaLogo, KerameikosLogo } from "@sebastian-websites/ui"
 import { getSiteOrigin } from "@sebastian-websites/web-core"
 
 import { variant } from "~/lib/site"
@@ -18,12 +18,12 @@ export function OpenFoundations(): ReactElement {
   const projects = [
     {
       href: "https://github.com/sebastian-software/palamedes",
-      name: "Palamedes",
+      identity: <KerameikosLogo name="Palamedes" />,
       text: t`Internationalization for TypeScript applications: message extraction, catalogs, and framework adapters.`,
     },
     {
       href: "https://github.com/sebastian-software/ferramenta",
-      name: "Ferramenta",
+      identity: <FerramentaLogo />,
       text: t`A family of Rust-native engines and applications for documents and text.`,
     },
   ]
@@ -43,8 +43,8 @@ export function OpenFoundations(): ReactElement {
         </p>
       </div>
       {projects.map((project) => (
-        <div className={styles.column} key={project.name}>
-          <h3 className={styles.project}>{project.name}</h3>
+        <div className={styles.column} key={project.href}>
+          <h3 className={styles.project}>{project.identity}</h3>
           <p className={styles.text}>{project.text}</p>
           <p className={styles.action}>
             <ArrowLink href={project.href}>{t`View on GitHub`}</ArrowLink>

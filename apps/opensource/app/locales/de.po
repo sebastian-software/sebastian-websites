@@ -61,42 +61,47 @@ msgstr ""
 "Ein gezeichneter Tischkalender mit einem markierten Termin neben einer "
 "Topfpflanze."
 
-#: app/data/featured.ts#getFeatured
-msgid ""
-"A drawn Ferromark document stamped “Markdown into documents” beside books "
-"and a wooden stamp."
-msgstr ""
-"Ein gezeichnetes Ferromark-Dokument mit dem Stempel „Markdown into "
-"documents“ neben Büchern und einem Holzstempel."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/featured.ts#getFeatured
+#~ msgid ""
+#~ "A drawn Ferromark document stamped “Markdown into documents” beside books "
+#~ "and a wooden stamp."
+#~ msgstr ""
+#~ "Ein gezeichnetes Ferromark-Dokument mit dem Stempel „Markdown into "
+#~ "documents“ neben Büchern und einem Holzstempel."
 
-#: app/data/featured.ts#getFeatured
-msgid ""
-"A drawn little tin robot with glowing eyes, connected by a cable to a device "
-"holding seven colored cartridges."
-msgstr ""
-"Ein gezeichneter kleiner Blechroboter mit leuchtenden Augen, per Kabel mit "
-"einem Gerät verbunden, in dem sieben farbige Module stecken."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/featured.ts#getFeatured
+#~ msgid ""
+#~ "A drawn little tin robot with glowing eyes, connected by a cable to a device "
+#~ "holding seven colored cartridges."
+#~ msgstr ""
+#~ "Ein gezeichneter kleiner Blechroboter mit leuchtenden Augen, per Kabel mit "
+#~ "einem Gerät verbunden, in dem sieben farbige Module stecken."
 
-#: app/data/featured.ts#getFeatured
-msgid ""
-"A drawn messages.po catalog in front of cards for German, French, Spanish, and"
-" Japanese."
-msgstr ""
-"Ein gezeichneter messages.po-Katalog vor Karten für Deutsch, Französisch, "
-"Spanisch und Japanisch."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/featured.ts#getFeatured
+#~ msgid ""
+#~ "A drawn messages.po catalog in front of cards for German, French, Spanish, and"
+#~ " Japanese."
+#~ msgstr ""
+#~ "Ein gezeichneter messages.po-Katalog vor Karten für Deutsch, Französisch, "
+#~ "Spanisch und Japanisch."
 
-#: app/data/featured.ts#getFeatured
-msgid ""
-"A drawn open book with an Ardo table of contents and the line “Build "
-"beautiful docs with React”."
-msgstr ""
-"Ein gezeichnetes aufgeschlagenes Buch mit einem Ardo-Inhaltsverzeichnis und "
-"der Zeile „Build beautiful docs with React“."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/featured.ts#getFeatured
+#~ msgid ""
+#~ "A drawn open book with an Ardo table of contents and the line “Build "
+#~ "beautiful docs with React”."
+#~ msgstr ""
+#~ "Ein gezeichnetes aufgeschlagenes Buch mit einem Ardo-Inhaltsverzeichnis und "
+#~ "der Zeile „Build beautiful docs with React“."
 
-#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
-msgid "A drawn road winding through a valley toward the mountains."
-msgstr ""
-"Eine gezeichnete Straße, die sich durch ein Tal auf die Berge zuwindet."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+#~ msgid "A drawn road winding through a valley toward the mountains."
+#~ msgstr ""
+#~ "Eine gezeichnete Straße, die sich durch ein Tal auf die Berge zuwindet."
 
 #: app/data/featured.ts#getFeatured
 msgid ""
@@ -109,6 +114,14 @@ msgstr ""
 "reguläre Ausdrücke, Syntaxhervorhebung, Markdown, Rechtschreibprüfung, "
 "Übersetzungskataloge, Dateisuche und PDF-Vorschauen. Wählen Sie die Engine, "
 "die Ihre Aufgabe löst; jede lässt sich einzeln prüfen und nutzen."
+
+#: app/data/featured.ts#getFeatured
+msgid "A paper robot fits a skill module into its chest."
+msgstr "Ein Papierroboter setzt ein Skill-Modul in seine Brust ein."
+
+#: app/data/featured.ts#getFeatured
+msgid "A punch-card loom repeats the diamond from the pattern in a woven band."
+msgstr "Ein Lochkartenwebstuhl wiederholt die Raute der Vorlage auf einem gewebten Band."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "a registered trademark of"
@@ -128,12 +141,15 @@ msgid "Agent skills"
 msgstr "Agent-Skills"
 
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
-#: app/components/MetricsSummary.tsx#MetricsOverview
 msgid ""
 "All opted-in public projects and published packages, in one shared snapshot."
 msgstr ""
 "Alle aufgenommenen öffentlichen Projekte und veröffentlichten Pakete in "
 "einer gemeinsamen Momentaufnahme."
+
+#: app/components/MetricsSummary.tsx#MetricsOverview
+msgid "Some of the tools we build for our own projects find their way into other codebases. Here you can see the projects we publish, their stars on GitHub and how often their packages are downloaded from npm and crates.io."
+msgstr "Manche Werkzeuge, die wir für unsere Projekte bauen, finden ihren Weg in andere Codebasen. Hier sehen Sie, welche Projekte wir veröffentlichen, wie viele Sterne sie auf GitHub haben und wie oft ihre Pakete über npm und crates.io heruntergeladen werden."
 
 #: app/components/MetricsProjects.tsx#ProjectControls
 msgid "All projects"
@@ -159,6 +175,10 @@ msgstr ""
 "Fast geschafft: Bitte bestätigen Sie den Link, den wir Ihnen gerade geschickt"
 " haben."
 
+#: app/data/featured.ts#getFeatured
+msgid "An indexed handbook shows a React component and its rendered button."
+msgstr "Ein Handbuch mit Register zeigt eine React-Komponente und den zugehörigen Button."
+
 #: app/data/projects.ts#descriptions
 msgid "Apply prebuilt, type-aware lint configurations to TypeScript projects."
 msgstr ""
@@ -177,6 +197,11 @@ msgstr ""
 "Ungefähre geografische Zuordnung (auf Länderebene, abgeleitet aus der "
 "IP-Adresse, die selbst nicht gespeichert wird)"
 
+#: app/routes/index.tsx
+msgid ""
+"At an open workbench, a maker passes on the plans for an adjustable lamp."
+msgstr "An einer offenen Werkbank wird der Bauplan für eine verstellbare Lampe weitergegeben."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
 msgid "Automated Decision-Making"
 msgstr "Automatisierte Entscheidungsfindung"
@@ -192,6 +217,10 @@ msgstr "Blog"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Book an intro call"
 msgstr "Erstgespräch buchen"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Branching mountain trails lead from a village toward a summit hut."
+msgstr "Bergpfade verzweigen sich zwischen einem Dorf und einer Gipfelhütte."
 
 #: app/data/projects.ts#descriptions
 msgid ""
@@ -350,7 +379,7 @@ msgstr "crates.io / 1 Monat"
 
 #: app/components/MetricsSummary.tsx#MetricsSummary
 msgid "crates.io downloads / month"
-msgstr "crates.io-Downloads / 1 Monat"
+msgstr "crates.io-Downloads / Monat"
 
 #: app/components/MetricsDashboard.tsx#SourceList
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
@@ -403,11 +432,12 @@ msgstr ""
 #~ msgid "Downloads"
 #~ msgstr "Downloads"
 
-#: app/data/featured.ts#getFeatured
-msgid "Drawn cards for skills, instructions, and hooks in a tray beside a mug."
-msgstr ""
-"Gezeichnete Karten für Skills, Instructions und Hooks in einer Ablage neben "
-"einer Tasse."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/featured.ts#getFeatured
+#~ msgid "Drawn cards for skills, instructions, and hooks in a tray beside a mug."
+#~ msgstr ""
+#~ "Gezeichnete Karten für Skills, Instructions und Hooks in einer Ablage neben "
+#~ "einer Tasse."
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -637,17 +667,18 @@ msgstr "Bildnachweise"
 msgid "Imprint"
 msgstr "Impressum"
 
+#: app/data/featured.ts#getFeatured
+msgid ""
+"Independent precision tools in a fitted case, with one insert lifted out."
+msgstr "Einzelne Präzisionswerkzeuge in einem passgenauen Kasten. Ein Einsatz liegt daneben."
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Information pursuant to § 5 DDG"
 msgstr "Angaben gemäß § 5 DDG"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
-msgid ""
-"Insights into our work across software and consulting: what we're building, "
-"exploring and thinking about."
-msgstr ""
-"Einblicke in unsere Arbeit in Software und Beratung: was wir bauen, erkunden "
-"und durchdenken."
+msgid "Why build our own translation tools? When is it worth reworking an architecture? In our newsletter we share the decisions behind our software and what we learn when teams put it to use."
+msgstr "Warum bauen wir ein eigenes Übersetzungswerkzeug? Wann lohnt sich ein Umbau der Architektur? Im Newsletter erzählen wir, wie wir solche Entscheidungen treffen und was wir lernen, wenn Teams mit unserer Software arbeiten."
 
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
 msgid "Instruction packs"
@@ -959,9 +990,10 @@ msgstr "Open-Source-Kennzahlen"
 msgid "Open Source Metrics – Sebastian Software"
 msgstr "Open-Source-Kennzahlen – Sebastian Software"
 
-#: app/components/FeaturedStory.tsx#FeaturedStory
-msgid "Open source project"
-msgstr "Open-Source-Projekt"
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/components/FeaturedStory.tsx#FeaturedStory
+#~ msgid "Open source project"
+#~ msgstr "Open-Source-Projekt"
 
 #: app/components/MetricsSummary.tsx#MetricsOverview
 msgid "Open source, in numbers."
@@ -1525,6 +1557,10 @@ msgid ""
 msgstr ""
 "Vielleicht ist der Link veraltet oder die Adresse enthält einen Tippfehler. "
 "Hier geht es weiter:"
+
+#: app/data/featured.ts#getFeatured
+msgid "The same message in several languages around a paper globe."
+msgstr "Dieselbe Nachricht in mehreren Sprachen rund um einen Papierglobus."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "The sign-up did not go through. Please try again later."

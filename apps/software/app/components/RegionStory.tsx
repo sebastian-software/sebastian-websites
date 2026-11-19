@@ -1,23 +1,11 @@
 import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
-import { BunnyImage, editorial, editorialSizes } from "@sebastian-websites/ui"
+import { ArrowLink, editorial, StoryIllustration } from "@sebastian-websites/ui"
+
+import regionMap from "~/assets/illustrations/mainz-heidelberg.webp?bunny"
 
 import * as styles from "./RegionStory.css.ts"
-
-/** The drawing's rendered desktop width in CSS pixels. */
-const MAP_WIDTH = 720
-
-/** The pastel map of the region from the shared asset zone (ADR-0014). */
-const REGION = { height: 1024, path: "images/11-pastel-palette-r6.png", width: 1536 } as const
-
-/** Positions in percent of the drawing, beside the landmark each name belongs to. */
-const PLACES = [
-  { id: "mainz", x: 48, y: 9 },
-  { id: "rhine-main", x: 76, y: 20 },
-  { id: "rhine-neckar", x: 24, y: 62 },
-  { id: "heidelberg", x: 45, y: 91 },
-] as const
 
 /**
  * The company and its region: Mainz and Heidelberg in Rhine-Main and
@@ -26,33 +14,13 @@ const PLACES = [
  * @returns The regional story.
  */
 export function RegionStory(): ReactElement {
-  const names = {
-    heidelberg: "Heidelberg",
-    mainz: "Mainz",
-    "rhine-main": t`Rhine-Main`,
-    "rhine-neckar": t`Rhine-Neckar`,
-  }
   return (
     <section aria-labelledby="company-story" className={styles.region}>
       <figure className={styles.map}>
-        <BunnyImage
-          alt={t`A drawn map of the region with Mainz Cathedral at the top, a river through fields and vineyards, and Heidelberg Castle at the bottom.`}
-          className={editorial.media}
-          height={480}
-          sizes={editorialSizes(MAP_WIDTH)}
-          src={REGION}
-          width={MAP_WIDTH}
+        <StoryIllustration
+          alt={t`A paper map shows Mainz Cathedral, the Worms bridge tower and Mannheim Palace along the Rhine, and Heidelberg Castle on the Neckar.`}
+          src={regionMap}
         />
-        {PLACES.map((place) => (
-          <span
-            aria-hidden="true"
-            className={styles.place}
-            key={place.id}
-            style={{ left: `${place.x}%`, top: `${place.y}%` }}
-          >
-            {names[place.id]}
-          </span>
-        ))}
       </figure>
       <div className={styles.aside}>
         <h2 className={styles.since} id="company-story">
@@ -70,6 +38,7 @@ export function RegionStory(): ReactElement {
           {t`Enthusiasm.`}
         </p>
         <hr className={styles.rule} />
+        <ArrowLink href="/company">{t`About our company`}</ArrowLink>
       </div>
     </section>
   )
