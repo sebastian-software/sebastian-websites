@@ -62,7 +62,7 @@ function Mission(): ReactElement {
         </p>
       </div>
       <Illustration
-        alt={t`Inside a radio, the wiring is as carefully arranged as the dial on its front.`}
+        alt={t`A radio with its front panel removed, showing the speaker and wiring.`}
         className={styles.missionImage}
         height={RADIO_HEIGHT}
         sizes={editorialSizes(WIDE_IMAGE_WIDTH)}

@@ -1009,9 +1009,8 @@ msgid "Information pursuant to § 5 DDG"
 msgstr "Angaben gemäß § 5 DDG"
 
 #: app/routes/company.tsx#Mission
-msgid ""
-"Inside a radio, the wiring is as carefully arranged as the dial on its front."
-msgstr "Im geöffneten Radio sind die Leitungen so sorgfältig angeordnet wie der Drehregler auf der Vorderseite."
+msgid "A radio with its front panel removed, showing the speaker and wiring."
+msgstr "Ein Radio mit abgenommener Frontblende, sichtbarem Lautsprecher und sauber verlegten Leitungen."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Why build our own translation tools? When is it worth reworking an architecture? In our newsletter we share the decisions behind our software and what we learn when teams put it to use."
