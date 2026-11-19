@@ -7,7 +7,8 @@ import { continuousCorners } from "./corners.ts"
 
 /** The menu opens just below the header shell, inset like the shell itself. */
 const HEADER_TOP = createVar()
-const MENU_TOP = `calc(${HEADER_TOP} + ${FRAME.headerHeight} + ${scaled("8px")})`
+const HEADER_HEIGHT = createVar()
+const MENU_TOP = `calc(${HEADER_TOP} + ${HEADER_HEIGHT} + ${scaled("8px")})`
 
 /** Touch targets in the compact menu grow with the root but never fall below 44 px. */
 const TOUCH_TARGET = `max(44px, ${scaled("44px")})`
@@ -43,7 +44,7 @@ export const area = style({
     "&::before": {
       backgroundColor: color.canvas,
       content: '""',
-      height: `calc(${HEADER_TOP} + ${FRAME.headerHeight})`,
+      height: `calc(${HEADER_TOP} + ${HEADER_HEIGHT})`,
       insetInline: 0,
       pointerEvents: "none",
       position: "fixed",
@@ -54,9 +55,10 @@ export const area = style({
       vars: { [HEADER_TOP]: `max(${FRAME.headerTop}, env(safe-area-inset-top, 0px))` },
     },
     '&[data-brand="consulting"]::before': { backgroundImage: canvasTexture },
+    '&[data-brand="software"]': { vars: { [HEADER_HEIGHT]: "3.5rem" } },
   },
   top: HEADER_TOP,
-  vars: { [HEADER_TOP]: FRAME.headerTop },
+  vars: { [HEADER_HEIGHT]: FRAME.headerHeight, [HEADER_TOP]: FRAME.headerTop },
   zIndex: 20,
 })
 
@@ -72,7 +74,7 @@ export const shell = style([
     backgroundColor: FRAME.shell,
     boxShadow: FRAME.shadow,
     display: "flex",
-    height: FRAME.headerHeight,
+    height: HEADER_HEIGHT,
     marginInline: "auto",
     paddingInline: `${FRAME_OVERHANG} ${scaled("6px")}`,
     width: FRAME_WIDTH,
