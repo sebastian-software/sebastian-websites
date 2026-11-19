@@ -32,7 +32,7 @@ export const overviewCard = style([
     backgroundColor: color.tint,
     boxShadow: "0 8px 24px -12px rgb(31 48 60 / 20%)",
     marginTop: SPACE_SCALE.l,
-    padding: SPACE_SCALE.m,
+    padding: SPACE_SCALE.s,
   },
 ])
 
@@ -59,7 +59,22 @@ globalStyle(`${overview} dd`, {
   lineHeight: 1.2,
   margin: `${SPACE_SCALE["2xs"]} 0 0`,
 })
-globalStyle(`${overviewCard} > ${overview}`, { borderBlock: 0, marginBlock: 0 })
+const cardMetrics = `${overviewCard} > ${overview}`
+globalStyle(cardMetrics, {
+  "@media": {
+    "(max-width: 36em)": { gridTemplateColumns: "minmax(0, 1fr)" },
+    [`${COMPACT} and (min-width: 36em)`]: {
+      gridTemplateColumns: "repeat(2, minmax(max-content, 1fr))",
+    },
+  },
+  borderBlock: 0,
+  gap: `${SPACE_SCALE.xs} ${SPACE_SCALE.s}`,
+  gridTemplateColumns: "repeat(4, minmax(max-content, 1fr))",
+  marginBlock: 0,
+})
+globalStyle(`${cardMetrics} > div`, { padding: 0 })
+globalStyle(`${cardMetrics} dt`, { whiteSpace: "nowrap" })
+globalStyle(`${cardMetrics} dd`, { margin: 0 })
 
 export const note = style([editorial.caption, { marginTop: SPACE_SCALE.xs }])
 export const tools = style({
