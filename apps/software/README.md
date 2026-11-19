@@ -27,7 +27,12 @@ build adds the manifest and the hosting-compatible `404/index.html`.
 Browser checks require Playwright Chromium (`pnpm --filter
 @sebastian-websites/software exec playwright install chromium`). They exercise
 every page in each built variant's sitemap and write screenshots under
-`build/evidence`. Set `SOFTWARE_BASELINE_ROOT` to an earlier build directory containing
+`build/evidence`. The home, products, and company layouts check the shared frame
+edges at phone and desktop widths. The home check also captures artwork scrolling
+under the sticky header. CI saves these views in the `software-layout` artifact
+for visual review.
+
+Set `SOFTWARE_BASELINE_ROOT` to an earlier build directory containing
 `software-de/client` and `software-en/client` to also compare metadata, layout,
 images, and representative five-load LCP/CLS measurements in the same browser.
 

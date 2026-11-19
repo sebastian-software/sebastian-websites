@@ -1,5 +1,5 @@
-import { EDITORIAL_COLORS, NEUTRALS, PALETTES, scaled } from "@sebastian-websites/tokens"
-import { createGlobalTheme, globalStyle } from "@vanilla-extract/css"
+import { EDITORIAL_COLORS, NEUTRALS, PALETTES } from "@sebastian-websites/tokens"
+import { createGlobalTheme } from "@vanilla-extract/css"
 
 import { color } from "./theme.css.ts"
 
@@ -10,6 +10,3 @@ createGlobalTheme(":root", color, {
   ...NEUTRALS.software,
   ...EDITORIAL_COLORS.software,
 })
-
-// Anchor targets sit below the sticky navigation and its fade.
-globalStyle(":root", { scrollPaddingTop: scaled("120px") })

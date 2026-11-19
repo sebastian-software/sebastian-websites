@@ -9,7 +9,6 @@ import { continuousCorners } from "./corners.ts"
 const HEADER_TOP = createVar()
 const HEADER_HEIGHT = createVar()
 const HEADER_BOTTOM = `calc(${HEADER_TOP} + ${HEADER_HEIGHT})`
-const HEADER_FADE = scaled("36px")
 const MENU_TOP = `calc(${HEADER_BOTTOM} + ${scaled("8px")})`
 
 /** Touch targets in the compact menu grow with the root but never fall below 44 px. */
@@ -18,6 +17,7 @@ const TOUCH_TARGET = `max(44px, ${scaled("44px")})`
 const HEADER_RADIUS = 14
 const CAPSULE_RADIUS = 11
 const MENU_BUTTON_RADIUS = 10
+const SOFTWARE_HEADER_SHADOW = "0 1px 2px rgb(0 0 0 / 8%), 0 8px 20px -5px rgb(0 0 0 / 24%)"
 
 /** Hidden until focused; then it sits above the header as the first stop. */
 export const skip = style({
@@ -58,16 +58,6 @@ export const area = style({
     },
     '&[data-brand="consulting"]::before': { backgroundImage: canvasTexture },
     '&[data-brand="software"]': { vars: { [HEADER_HEIGHT]: "3.5rem" } },
-    '&[data-brand="software"]::after': {
-      backgroundImage: `linear-gradient(${color.canvas}, transparent)`,
-      content: '""',
-      height: HEADER_FADE,
-      insetInline: 0,
-      pointerEvents: "none",
-      position: "fixed",
-      top: HEADER_BOTTOM,
-      zIndex: -1,
-    },
   },
   top: HEADER_TOP,
   vars: { [HEADER_HEIGHT]: FRAME.headerHeight, [HEADER_TOP]: FRAME.headerTop },
@@ -89,6 +79,7 @@ export const shell = style([
     height: HEADER_HEIGHT,
     marginInline: "auto",
     paddingInline: `${FRAME_OVERHANG} ${scaled("6px")}`,
+    selectors: { '[data-brand="software"] &': { boxShadow: SOFTWARE_HEADER_SHADOW } },
     width: FRAME_WIDTH,
   },
 ])

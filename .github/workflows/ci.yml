@@ -60,3 +60,14 @@ jobs:
         run: pnpm --filter @sebastian-websites/blog check:browser:fixtures
       - name: Verify the reporting website in both languages
         run: pnpm --filter @sebastian-websites/app-tracking check:browser
+      - name: Save Software layout screenshots
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: software-layout
+          path: |
+            apps/software/build/evidence/software-*-home.png
+            apps/software/build/evidence/software-*-products.png
+            apps/software/build/evidence/software-*-company.png
+            apps/software/build/evidence/software-*-sticky-header.png
+          retention-days: 7

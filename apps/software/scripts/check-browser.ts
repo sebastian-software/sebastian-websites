@@ -9,6 +9,8 @@ import path from "node:path"
 import { fileURLToPath } from "node:url"
 import { type Browser, type BrowserContext, chromium, type Page } from "playwright"
 
+import { captureScrolledHeader, checkLayout } from "./check-layout.ts"
+
 const app = fileURLToPath(new URL("..", import.meta.url))
 const builds = path.join(app, "build")
 const evidence = path.join(app, "build/evidence")
@@ -23,6 +25,7 @@ const PERCENT = 100
 const LCP_BUDGET = 1.1
 const CLS_TOLERANCE = 0.001
 const PRODUCT_COUNT = 3
+const MENU_TOGGLE = "header button[popovertarget]"
 const PRODUCTS_LINK = 'header a[href="/products"]'
 const VIEWPORTS = [
   { height: 1000, width: 1440 },
@@ -358,7 +361,9 @@ async function checkRoute(
   await checkAlternates(page, pathname)
   await checkSocialMeta(page, canonical, `${variant}${pathname}`)
   assert.ok(
-    await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= document.documentElement.clientWidth
+    ),
     `${variant}${pathname}: overflow`
   )
   if (pathname === "/" || pathname === "/products") {
@@ -375,13 +380,28 @@ async function checkRoute(
     }
   }
   if (old) await compareBaseline(context, page, { old, pathname, variant, viewport })
+  await captureRouteEvidence(page, options)
+}
+async function captureRouteEvidence(page: Page, options: RouteOptions): Promise<void> {
+  const { pathname, variant, viewport } = options
+  if (pathname === "/" || pathname === "/products" || pathname === "/company") {
+    const compact = await page.locator(MENU_TOGGLE).isVisible()
+    await checkLayout(page, pathname, compact)
+  }
   await page.screenshot({
+    animations: "disabled",
     fullPage: true,
     path: path.join(
       evidence,
       `${variant}-${viewport.width}-${pathname === "/" ? "home" : pathname.slice(1)}.png`
     ),
   })
+  if (pathname === "/") {
+    await captureScrolledHeader(
+      page,
+      path.join(evidence, `${variant}-${viewport.width}-sticky-header.png`)
+    )
+  }
 }
 async function checkNavigation(page: Page, current: Fixture, locale: Locale): Promise<void> {
   await page.setViewportSize({ height: 844, width: 390 })
@@ -391,7 +411,7 @@ async function checkNavigation(page: Page, current: Fixture, locale: Locale): Pr
   assert.equal(await page.locator(":focus").getAttribute("href"), "#main")
   await page.keyboard.press("Enter")
   assert.equal(new URL(page.url()).hash, "#main")
-  await page.locator("header button[popovertarget]").click()
+  await page.locator(MENU_TOGGLE).click()
   assert.ok(await page.locator(PRODUCTS_LINK).isVisible())
   const otherOrigin = `https://sebastian-software.${locale === "de" ? "com" : "de"}/`
   assert.equal(
@@ -405,7 +425,7 @@ async function checkNavigation(page: Page, current: Fixture, locale: Locale): Pr
     await page.locator("header [popover]").evaluate((element) => element.matches(":popover-open")),
     false
   )
-  await page.locator("header button[popovertarget]").click()
+  await page.locator(MENU_TOGGLE).click()
   await page.locator(PRODUCTS_LINK).click()
   await settle(page)
   await page.goBack()
