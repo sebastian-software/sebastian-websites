@@ -13,7 +13,7 @@ import { inspectWernerProfileLayout } from "./wernerProfileValidation"
 
 const OUTPUT_DIR = "public"
 const DEV_SERVER_READY_TIMEOUT_MS = 30_000
-/** The first profile request can also prepare Ardo image renditions on a cold CI runner. */
+/** The first profile navigation also warms the development server on a cold CI runner. */
 const PROFILE_NAVIGATION_TIMEOUT_MS = 180_000
 const DEV_SERVER_STOP_TIMEOUT_MS = 5000
 const LOCALHOST_URL_PATTERN = /https?:\/\/(?:localhost|127\.0\.0\.1):\d+/v
@@ -996,7 +996,7 @@ async function generateSinglePdf(
 async function startDevelopmentServer(): Promise<{ baseUrl: string; process: ChildProcess }> {
   const developmentServer = spawn("pnpm", ["dev"], {
     detached: process.platform !== "win32",
-    env: { ...process.env, FORCE_COLOR: "0", NO_COLOR: "1" },
+    env: { ...process.env, CONSULTING_PDF_PREVIEW: "true", FORCE_COLOR: "0", NO_COLOR: "1" },
     stdio: ["ignore", "pipe", "pipe"],
   })
   let output = ""
