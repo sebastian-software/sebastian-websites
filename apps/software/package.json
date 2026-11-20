@@ -21,7 +21,8 @@
     "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm lint:messages && pnpm check:translations",
     "lint:messages": "pmds lint --fail-on warning",
     "check:browser": "node scripts/check-browser.ts",
-    "check:visual": "playwright test --config scripts/playwright.visual.config.ts"
+    "check:visual": "playwright test --config scripts/playwright.visual.config.ts",
+    "review:visual": "node scripts/visual-review.ts"
   },
   "dependencies": {
     "@palamedes/core": "catalog:",

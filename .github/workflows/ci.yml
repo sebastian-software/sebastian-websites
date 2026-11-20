@@ -51,6 +51,7 @@ jobs:
       - name: Check the blog fixtures
         run: pnpm --filter @sebastian-websites/blog check:fixtures
       - name: Verify both Software artifacts before publication
+        id: software-capture
         run: pnpm --filter @sebastian-websites/software check:browser
       - name: Verify both tech blog artifacts before publication
         run: pnpm --filter @sebastian-websites/blog check:browser
@@ -62,6 +63,57 @@ jobs:
         run: pnpm --filter @sebastian-websites/app-tracking check:browser
       - name: Compare Software homepage screenshots
         run: pnpm --filter @sebastian-websites/software check:visual
+      - name: Find visual changes against the pull request base
+        id: pr-snapshots
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && steps.software-capture.outcome == 'success' }}
+        continue-on-error: true
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          snapshot_path=apps/software/scripts/visual-reference
+          if ! git cat-file -e "$BASE_SHA:$snapshot_path"; then
+            exit 0
+          fi
+          review_root="$GITHUB_WORKSPACE/apps/software/build/visual-pr"
+          mkdir -p "$review_root/base"
+          git archive "$BASE_SHA" "$snapshot_path" | tar -x -C "$review_root/base"
+          SOFTWARE_VISUAL_REFERENCE="$review_root/base/$snapshot_path" \
+            SOFTWARE_VISUAL_RESULTS="$review_root/results" \
+            SOFTWARE_VISUAL_REPORT="$review_root/technical" \
+            pnpm --filter @sebastian-websites/software check:visual
+      - name: Check out the screenshot alignment tool
+        if: ${{ !cancelled() && steps.pr-snapshots.outcome == 'failure' }}
+        uses: actions/checkout@v7
+        with:
+          repository: sebastian-software/effective-agent
+          ref: 049cf6a9b7535d00a0f0382765d97b0a57b47c77
+          path: apps/software/build/visual-tools
+          sparse-checkout: skills/effective-web/scripts
+          persist-credentials: false
+      - name: Render before-and-after review images
+        if: ${{ !cancelled() && steps.pr-snapshots.outcome == 'failure' }}
+        run: |
+          review_root="$GITHUB_WORKSPACE/apps/software/build/visual-pr"
+          SOFTWARE_VISUAL_BOXES="$GITHUB_WORKSPACE/apps/software/build/visual-tools/skills/effective-web/scripts/visual-change-boxes.mjs" \
+            SOFTWARE_VISUAL_RESULTS="$review_root/results" \
+            SOFTWARE_VISUAL_REVIEW="$review_root/review" \
+            pnpm --filter @sebastian-websites/software review:visual
+      - name: Save pull request visual review
+        id: pr-visual-review
+        if: ${{ !cancelled() && steps.pr-snapshots.outcome == 'failure' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: pr-visual-review
+          path: |
+            apps/software/build/visual-pr/review/
+            apps/software/build/visual-pr/technical/
+          retention-days: 7
+      - name: Link the visual review from the run summary
+        if: ${{ !cancelled() && steps.pr-visual-review.outputs.artifact-url != '' }}
+        env:
+          REVIEW_URL: ${{ steps.pr-visual-review.outputs.artifact-url }}
+        run: |
+          printf '## Visual review\n\n[Before and after images and Playwright report](%s)\n' "$REVIEW_URL" >> "$GITHUB_STEP_SUMMARY"
       - name: Save Software layout screenshots
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7
