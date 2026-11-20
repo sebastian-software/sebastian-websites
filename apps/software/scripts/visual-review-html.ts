@@ -1,4 +1,5 @@
 import { build } from "esbuild"
+import { readFile } from "node:fs/promises"
 
 export type ReviewPair = {
   after: Buffer
@@ -99,7 +100,13 @@ function widthControl(width: number): string {
 
 export async function visualReviewHtml(pairs: ReviewPair[], widths: number[]): Promise<string> {
   const { script, style } = await viewerAssets()
+  const license = await readFile(
+    new URL("img-comparison-slider.LICENSE.txt", import.meta.url),
+    "utf8"
+  )
   return `<!doctype html>
+<!-- img-comparison-slider license
+${license}-->
 <html lang="en">
 <head>
 <meta charset="utf-8">
