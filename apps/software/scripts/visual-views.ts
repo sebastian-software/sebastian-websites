@@ -1,6 +1,6 @@
 export const REVIEW_VIEWPORTS = [
   { height: 780, width: 360 },
-  { height: 844, width: 390 },
+  { height: 932, width: 430 },
   { height: 720, width: 1280 },
   { height: 900, width: 1440 },
   { height: 1080, width: 1920 },

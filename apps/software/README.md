@@ -44,7 +44,7 @@ when a comparison fails. Find it in `build/visual-report` or the CI artifact
 For the pull request review, CI builds the German Software site at the base
 revision and captures both builds in the same Chromium. It compares the
 homepage and its scrolled header in portrait phone viewports at 360 × 780 and
-390 × 844 and in desktop viewports at 1280 × 720, 1440 × 900 and 1920 × 1080.
+430 × 932 and in desktop viewports at 1280 × 720, 1440 × 900 and 1920 × 1080.
 These sizes are in CSS pixels. For visible changes, CI uploads one
 self-contained `visual-review-<sha256>.html` file. The run summary and the
 Visual review comment open it directly in the browser. Choose a width and drag
