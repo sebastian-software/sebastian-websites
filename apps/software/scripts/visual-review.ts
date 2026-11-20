@@ -35,6 +35,7 @@ const context = 64
 const columnWidth = 530
 const maxPreviewHeight = 780
 const minCropWidth = 320
+const cleanCrop = { style: ".mark { visibility: hidden }" }
 const marks = {
   added: { color: "#15803d", label: "Added" },
   changed: { color: "#7651c4", label: "Changed" },
@@ -174,8 +175,8 @@ async function renderPairs(
     await render(page, { after, before }, { region, title: `${title} · ${capture.width} px` })
     await page.locator("main").screenshot({ path: path.join(output, image) })
     pairs.push({
-      after: await page.locator(".crop").last().screenshot(),
-      before: await page.locator(".crop").first().screenshot(),
+      after: await page.locator(".crop").last().screenshot(cleanCrop),
+      before: await page.locator(".crop").first().screenshot(cleanCrop),
       image,
       label: region.label,
       title,

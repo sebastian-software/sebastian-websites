@@ -143,7 +143,7 @@ ${license}-->
 </head>
 <body><main>
 <h1>Visual review</h1>
-<p>Drag the divider to compare. Frames mark changed areas.</p>
+<p>Drag the divider to compare.</p>
 <nav data-widths aria-label="Screenshot width" hidden>${widths.map((width) => widthControl(width)).join("\n")}</nav>
 ${widths.map((width) => viewport(width, pairs)).join("\n")}
 </main><script>${script}</script></body>
