@@ -9,7 +9,7 @@ import path from "node:path"
 import { fileURLToPath } from "node:url"
 import { type Browser, type BrowserContext, chromium, type Page } from "playwright"
 
-import { captureScrolledHeader, checkLayout } from "./check-layout.ts"
+import { captureScrolledHeader } from "./capture-scrolled-header.ts"
 
 const app = fileURLToPath(new URL("..", import.meta.url))
 const builds = path.join(app, "build")
@@ -384,10 +384,6 @@ async function checkRoute(
 }
 async function captureRouteEvidence(page: Page, options: RouteOptions): Promise<void> {
   const { pathname, variant, viewport } = options
-  if (pathname === "/" || pathname === "/products" || pathname === "/company") {
-    const compact = await page.locator(MENU_TOGGLE).isVisible()
-    await checkLayout(page, pathname, compact)
-  }
   await page.screenshot({
     animations: "disabled",
     fullPage: true,

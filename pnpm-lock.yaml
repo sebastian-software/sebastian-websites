@@ -179,6 +179,9 @@ catalogs:
     '@palamedes/vite-plugin':
       specifier: ^2.2.0
       version: 2.2.0
+    '@playwright/test':
+      specifier: 1.63.0
+      version: 1.63.0
     '@types/node':
       specifier: ^26.1.0
       version: 26.6.4
@@ -580,6 +583,9 @@ importers:
       '@palamedes/vite-plugin':
         specifier: 'catalog:'
         version: 2.2.0(vite@8.3.6(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15)(yaml@2.9.1))
+      '@playwright/test':
+        specifier: 'catalog:'
+        version: 1.63.0
       '@sebastian-websites/config':
         specifier: workspace:*
         version: link:../../packages/config
@@ -2265,6 +2271,11 @@ packages:
   '@pkgr/core@0.3.6':
     resolution: {integrity: sha512-SEeaJLb3qBNF/OaXnaR1NmmBbFYk1zC0ZH/52fATcRPLFg/p791YrcyFFy44Bo9sLaGuSuLp5Q6axbb/O+v/RA==}
     engines: {node: ^14.18.0 || >=16.0.0}
+
+  '@playwright/test@1.63.0':
+    resolution: {integrity: sha512-oxMK4vllB9RK5NQ2l1pq1IfOf2AvnEuj/vYGDj0H2nMtmtZpKtCwt/l00GEO6xjGfpBNAvjovvYdCm50dRQkpQ==}
+    engines: {node: '>=20'}
+    hasBin: true
 
   '@resvg/resvg-js-android-arm-eabi@2.6.2':
     resolution: {integrity: sha512-FrJibrAk6v29eabIPgcTUMPXiEz8ssrAk7TXxsiZzww9UTQ1Z5KAbFJs+Z0Ez+VZTYgnE5IQJqBcoSiMebtPHA==}
@@ -6384,6 +6395,10 @@ snapshots:
     optional: true
 
   '@pkgr/core@0.3.6': {}
+
+  '@playwright/test@1.63.0':
+    dependencies:
+      playwright: 1.63.0
 
   '@resvg/resvg-js-android-arm-eabi@2.6.2':
     optional: true

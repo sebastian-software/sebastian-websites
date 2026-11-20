@@ -27,10 +27,31 @@ build adds the manifest and the hosting-compatible `404/index.html`.
 Browser checks require Playwright Chromium (`pnpm --filter
 @sebastian-websites/software exec playwright install chromium`). They exercise
 every page in each built variant's sitemap and write screenshots under
-`build/evidence`. The home, products, and company layouts check the shared frame
-edges at phone and desktop widths. The home check also captures artwork scrolling
-under the sticky header. CI saves these views in the `software-layout` artifact
-for visual review.
+`build/evidence`. The home check also captures artwork scrolling under the
+sticky header. CI saves the home, products, company and scrolled views in
+`software-layout`.
+
+### Visual comparisons
+
+`pnpm --filter @sebastian-websites/software check:visual` compares the PNGs
+from `check:browser` using Playwright Test. It covers the German homepage at
+desktop and phone widths and one scrolled desktop view. Each snapshot allows
+up to 150 differing pixels after Playwright's perceptual color threshold of
+0.1. The HTML report contains the reference, the new image and the diff
+when a comparison fails. Find it in `build/visual-report` or the CI artifact
+`software-visual-diff`.
+
+CI runs on Ubuntu 26.04 with the locked Playwright Chromium. For an intentional
+change, review the diff and copy the approved PNGs from that run's
+`software-layout` artifact into `scripts/visual-reference/` in the same change.
+The initial references came from the
+[CI run for `8baece3`](https://github.com/sebastian-software/sebastian-websites/actions/runs/44639455902).
+
+For a local before-and-after comparison, save the original `build/evidence`
+directory, rebuild and recapture, then point `SOFTWARE_VISUAL_REFERENCE` to
+the saved directory. Use the same browser and operating system for both
+captures. `SOFTWARE_VISUAL_EVIDENCE` can point at a different candidate
+directory.
 
 Set `SOFTWARE_BASELINE_ROOT` to an earlier build directory containing
 `software-de/client` and `software-en/client` to also compare metadata, layout,

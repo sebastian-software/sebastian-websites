@@ -21,7 +21,7 @@ jobs:
     # GitHub-hosted on purpose: this repository is public, and pull requests from
     # forks must not run on the self-hosted runner. Deployment jobs, which need
     # secrets, are added when the first variant goes live (plan 02, ADR-0009).
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 20
     steps:
       # Full history: Ardo dates pages and publication sources from Git.
@@ -60,6 +60,8 @@ jobs:
         run: pnpm --filter @sebastian-websites/blog check:browser:fixtures
       - name: Verify the reporting website in both languages
         run: pnpm --filter @sebastian-websites/app-tracking check:browser
+      - name: Compare Software homepage screenshots
+        run: pnpm --filter @sebastian-websites/software check:visual
       - name: Save Software layout screenshots
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7
@@ -70,4 +72,11 @@ jobs:
             apps/software/build/evidence/software-*-products.png
             apps/software/build/evidence/software-*-company.png
             apps/software/build/evidence/software-*-sticky-header.png
+          retention-days: 7
+      - name: Save Software visual comparison
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: software-visual-diff
+          path: apps/software/build/visual-report/
           retention-days: 7

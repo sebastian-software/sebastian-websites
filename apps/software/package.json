@@ -20,7 +20,8 @@
     "check:translations": "pmds audit --fail-on warning",
     "agent:check": "pnpm typecheck && pnpm lint && pnpm format:check && pnpm lint:messages && pnpm check:translations",
     "lint:messages": "pmds lint --fail-on warning",
-    "check:browser": "node scripts/check-browser.ts"
+    "check:browser": "node scripts/check-browser.ts",
+    "check:visual": "playwright test --config scripts/playwright.visual.config.ts"
   },
   "dependencies": {
     "@palamedes/core": "catalog:",
@@ -37,6 +38,7 @@
   "devDependencies": {
     "@palamedes/cli": "catalog:",
     "@palamedes/vite-plugin": "catalog:",
+    "@playwright/test": "catalog:",
     "@sebastian-websites/config": "workspace:*",
     "@types/node": "catalog:",
     "eslint": "catalog:",
