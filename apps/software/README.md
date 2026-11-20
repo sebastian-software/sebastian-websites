@@ -41,14 +41,16 @@ up to 150 differing pixels after Playwright's perceptual color threshold of
 when a comparison fails. Find it in `build/visual-report` or the CI artifact
 `software-visual-diff`.
 
-Pull requests also compare these views against the reference images on the
-PR base, so changes remain visible when the PR updates its reference set.
-For changed views, CI uploads one self-contained `visual-review-<sha256>.html`
-file. Follow the direct link in the run summary or the Visual review comment
-on the pull request to open it in the browser. The report embeds the annotated
-before-and-after crops and a comparison slider. GitHub retains it for seven
-days. The technical Playwright reports are in `software-visual-diff`. Compare
-affected pages outside these three views separately.
+For the pull request review, CI builds the German Software site at the base
+revision and captures both builds in the same Chromium. It compares the
+homepage and its scrolled header at 390, 640, 960 and 1440 CSS pixels. The 640
+and 960 px views start the next layout ranges. For visible changes, CI uploads
+one self-contained `visual-review-<sha256>.html` file. The run summary and the
+Visual review comment open it directly in the browser. Choose a width and drag
+the divider on the image to compare. Widths without changes are marked in the
+report. GitHub retains it for seven days. The technical Playwright reports are
+in `software-visual-diff`. Compare affected routes outside the homepage
+separately.
 
 Other GitHub repositories can use the
 [upload action](../../.github/actions/upload-visual-review/action.yml) with any
@@ -74,8 +76,15 @@ change, review the diff and copy the approved PNGs from that run's
 The initial references came from the
 [CI run for `8baece3`](https://github.com/sebastian-software/sebastian-websites/actions/runs/44639455902).
 
-For a local before-and-after comparison, save the original `build/evidence`
-directory, rebuild and recapture, then point `SOFTWARE_VISUAL_REFERENCE` to
+To reproduce the responsive PR capture locally, build both revisions and run
+`check:browser` with `SOFTWARE_REVIEW_BASE_BUILD` set to the base build's
+`software-de/client` directory. It writes both screenshot sets under
+`build/visual-pr`. Set `SOFTWARE_VISUAL_RESPONSIVE=1` on `check:visual` and
+`review:visual`, and point the comparison at the `reference` and `candidate`
+subdirectories.
+
+For a local before-and-after comparison using existing captures, save the
+original `build/evidence` directory, rebuild and recapture, then point `SOFTWARE_VISUAL_REFERENCE` to
 the saved directory. Use the same browser and operating system for both
 captures. `SOFTWARE_VISUAL_EVIDENCE` can point at a different candidate
 directory. Set `SOFTWARE_VISUAL_VIEWS` to the comma-separated PNG filenames

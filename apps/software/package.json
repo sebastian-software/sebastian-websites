@@ -37,7 +37,6 @@
     "@sebastian-websites/site": "workspace:*"
   },
   "devDependencies": {
-    "@blazediff/ui": "3.0.2",
     "@palamedes/cli": "catalog:",
     "@palamedes/vite-plugin": "catalog:",
     "@playwright/test": "catalog:",
@@ -45,6 +44,7 @@
     "@types/node": "catalog:",
     "esbuild": "catalog:",
     "eslint": "catalog:",
+    "img-comparison-slider": "8.0.7",
     "jiti": "catalog:",
     "oxlint": "catalog:",
     "prettier": "catalog:",

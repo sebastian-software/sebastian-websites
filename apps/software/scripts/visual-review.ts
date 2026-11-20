@@ -10,6 +10,7 @@ import { chromium } from "playwright"
 import type { ReviewPair } from "./visual-review-html.ts"
 
 import { escape, visualReviewHtml } from "./visual-review-html.ts"
+import { screenshotInfo, visualViews } from "./visual-views.ts"
 
 type Rect = { height: number; width: number; x: number; y: number }
 type Kind = "added" | "changed" | "removed"
@@ -74,8 +75,8 @@ function regionsFor(before: Bitmap, after: Bitmap, boxes: ChangeBoxes): Region[]
   }))
 }
 
-function cropStart(center: number, crop: number, extent: number): number {
-  return Math.max(0, Math.min(center - crop / 2, extent - crop))
+function cropStart(start: number, crop: number, extent: number): number {
+  return Math.max(0, Math.min(start, extent - crop))
 }
 
 type Capture = { image: Bitmap; source: string }
@@ -83,12 +84,11 @@ type Capture = { image: Bitmap; source: string }
 function panel(
   capture: Capture,
   rect: Rect,
-  crop: { height: number; scale: number; width: number }
+  crop: { height: number; scale: number; width: number; x: number }
 ): string {
   const { image, source } = capture
-  const { scale } = crop
-  const x = cropStart(rect.x + rect.width / 2, crop.width, image.width)
-  const y = cropStart(rect.y + rect.height / 2, crop.height, image.height)
+  const { scale, x } = crop
+  const y = cropStart(rect.y - context, crop.height, image.height)
   return `<div class="crop" style="width:${crop.width * scale}px;height:${crop.height * scale}px">
     <img src="${source}" style="width:${image.width * scale}px;left:${-x * scale}px;top:${-y * scale}px">
     <div class="mark" style="left:${(rect.x - x) * scale}px;top:${(rect.y - y) * scale}px;width:${Math.max(2, rect.width * scale)}px;height:${Math.max(2, rect.height * scale)}px"></div>
@@ -102,14 +102,16 @@ async function render(
 ): Promise<void> {
   const { after, before } = captures
   const { region, title } = presentation
-  const width = Math.max(
-    minCropWidth,
-    region.before.width + 2 * context,
-    region.after.width + 2 * context
+  const left = Math.min(region.before.x, region.after.x)
+  const right = Math.max(region.before.x + region.before.width, region.after.x + region.after.width)
+  const extent = Math.max(before.image.width, after.image.width)
+  const width = Math.min(extent, Math.max(minCropWidth, right - left + 2 * context))
+  const height = Math.min(
+    Math.max(before.image.height, after.image.height),
+    Math.max(region.before.height, region.after.height) + 2 * context
   )
-  const height = Math.max(region.before.height, region.after.height) + 2 * context
   const scale = Math.min(1, columnWidth / width, maxPreviewHeight / height)
-  const crop = { height, scale, width }
+  const crop = { height, scale, width, x: cropStart(left - context, width, extent) }
   await page.setContent(`
     <!doctype html><html lang="en"><style>
       * { box-sizing: border-box }
@@ -157,21 +159,19 @@ async function renderPairs(
 ): Promise<ReviewPair[]> {
   const stem = file.slice(0, -"-actual.png".length)
   const name = path.basename(stem)
-  const capture = /^[a-z][a-z\-]*?-(?<language>[a-z]{2})-(?<width>\d+)-(?<view>[\da-z\-]+)$/v.exec(
-    name
-  )?.groups
+  const capture = screenshotInfo(`${name}.png`)
   if (!capture) return []
   const { boxes } = options
   const [before, after] = await Promise.all([
     loadCapture(path.join(results, `${stem}-expected.png`), boxes),
     loadCapture(path.join(results, file), boxes),
   ])
-  const title = `${viewLabel(capture.view)} · ${capture.width} px · ${capture.language.toUpperCase()}`
+  const title = `${viewLabel(capture.view)} · ${capture.language.toUpperCase()}`
   const regions = options.overrides[name] ?? regionsFor(before.image, after.image, boxes)
   const pairs: ReviewPair[] = []
   for (const [index, region] of regions.entries()) {
     const image = `${name}-${index + 1}.png`
-    await render(page, { after, before }, { region, title })
+    await render(page, { after, before }, { region, title: `${title} · ${capture.width} px` })
     await page.locator("main").screenshot({ path: path.join(output, image) })
     pairs.push({
       after: await page.locator(".crop").last().screenshot(),
@@ -179,6 +179,7 @@ async function renderPairs(
       image,
       label: region.label,
       title,
+      width: Number(capture.width),
     })
   }
   return pairs
@@ -188,6 +189,15 @@ function viewLabel(view: string): string {
   if (view === "home") return "Homepage"
   if (view === "sticky-header") return "Header while scrolling"
   return view.replaceAll("-", " ")
+}
+
+function reviewWidths(pairs: ReviewPair[]): number[] {
+  const widths = new Set(pairs.map(({ width }) => width))
+  for (const [, filename] of visualViews()) {
+    const view = screenshotInfo(filename)
+    if (view) widths.add(Number(view.width))
+  }
+  return [...widths].sort((left, right) => left - right)
 }
 
 async function generate(changedFiles: string[], options: RenderOptions): Promise<void> {
@@ -202,9 +212,16 @@ async function generate(changedFiles: string[], options: RenderOptions): Promise
     for (const file of changedFiles) {
       pairs.push(...(await renderPairs(page, file, options)))
     }
-    await writeReview(pairs.map(({ image, label, title }) => `![${title} — ${label}](./${image})`))
+    await writeReview(
+      pairs.map(
+        ({ image, label, title, width }) => `![${title} · ${width} px — ${label}](./${image})`
+      )
+    )
     if (pairs.length > 0) {
-      await writeFile(path.join(output, "report.html"), await visualReviewHtml(pairs))
+      await writeFile(
+        path.join(output, "report.html"),
+        await visualReviewHtml(pairs, reviewWidths(pairs))
+      )
     }
   } finally {
     await browser.close()

@@ -63,21 +63,27 @@ jobs:
         run: pnpm --filter @sebastian-websites/app-tracking check:browser
       - name: Compare Software homepage screenshots
         run: pnpm --filter @sebastian-websites/software check:visual
-      - name: Find visual changes against the pull request base
-        id: pr-snapshots
+      - name: Capture responsive views of both pull request revisions
+        id: pr-captures
         if: ${{ !cancelled() && github.event_name == 'pull_request' && steps.software-capture.outcome == 'success' }}
-        continue-on-error: true
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
-          snapshot_path=apps/software/scripts/visual-reference
-          if ! git cat-file -e "$BASE_SHA:$snapshot_path"; then
-            exit 0
-          fi
+          base_checkout="$(mktemp -d "$RUNNER_TEMP/software-review-base.XXXXXX")"
+          git worktree add --detach "$base_checkout" "$BASE_SHA"
+          pnpm --dir "$base_checkout" install --frozen-lockfile
+          pnpm --dir "$base_checkout" --filter @sebastian-websites/software build:de
+          SOFTWARE_REVIEW_BASE_BUILD="$base_checkout/apps/software/build/software-de/client" \
+            pnpm --filter @sebastian-websites/software check:browser
+      - name: Find visual changes against the pull request base
+        id: pr-snapshots
+        if: ${{ !cancelled() && steps.pr-captures.outcome == 'success' }}
+        continue-on-error: true
+        run: |
           review_root="$GITHUB_WORKSPACE/apps/software/build/visual-pr"
-          mkdir -p "$review_root/base"
-          git archive "$BASE_SHA" "$snapshot_path" | tar -x -C "$review_root/base"
-          SOFTWARE_VISUAL_REFERENCE="$review_root/base/$snapshot_path" \
+          SOFTWARE_VISUAL_RESPONSIVE=1 \
+            SOFTWARE_VISUAL_EVIDENCE="$review_root/candidate" \
+            SOFTWARE_VISUAL_REFERENCE="$review_root/reference" \
             SOFTWARE_VISUAL_RESULTS="$review_root/results" \
             SOFTWARE_VISUAL_REPORT="$review_root/technical" \
             pnpm --filter @sebastian-websites/software check:visual
@@ -95,7 +101,8 @@ jobs:
         if: ${{ !cancelled() && steps.pr-snapshots.outcome == 'failure' }}
         run: |
           review_root="$GITHUB_WORKSPACE/apps/software/build/visual-pr"
-          SOFTWARE_VISUAL_BOXES="$GITHUB_WORKSPACE/apps/software/build/visual-tools/skills/effective-web/scripts/visual-change-boxes.mjs" \
+          SOFTWARE_VISUAL_RESPONSIVE=1 \
+            SOFTWARE_VISUAL_BOXES="$GITHUB_WORKSPACE/apps/software/build/visual-tools/skills/effective-web/scripts/visual-change-boxes.mjs" \
             SOFTWARE_VISUAL_RESULTS="$review_root/results" \
             SOFTWARE_VISUAL_REVIEW="$review_root/review" \
             pnpm --filter @sebastian-websites/software review:visual

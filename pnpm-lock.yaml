@@ -577,9 +577,6 @@ importers:
         specifier: 6.9.0
         version: 6.9.0(@types/node@26.6.4)(esbuild@0.28.2)(jiti@2.7.0)(supports-color@9.4.0)(tsx@4.23.15)(typescript@6.0.3)
     devDependencies:
-      '@blazediff/ui':
-        specifier: 3.0.2
-        version: 3.0.2
       '@palamedes/cli':
         specifier: 'catalog:'
         version: 2.2.0
@@ -601,6 +598,9 @@ importers:
       eslint:
         specifier: 'catalog:'
         version: 10.12.0(jiti@2.7.0)(supports-color@9.4.0)
+      img-comparison-slider:
+        specifier: 8.0.7
+        version: 8.0.7
       jiti:
         specifier: 'catalog:'
         version: 2.7.0
@@ -944,15 +944,6 @@ packages:
   '@babel/types@7.29.8':
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
-
-  '@blazediff/contract@1.0.0':
-    resolution: {integrity: sha512-MHokakmcmZiEvGAe4htjc5lH6JewjqOSyj1ylNgvpVeJLelnu6NtoIdd+y+lTtVE8VqWgOw3MpQW6HujiDexOg==}
-
-  '@blazediff/core@2.0.2':
-    resolution: {integrity: sha512-/4WOGgX6+kMrHA3CMPRYZ9k5+KdPYIjH+5gFLN+O2Q5Q0i24HDwL7I75qeEjqF01eZENbiTr3WuN0Aq9Calz4Q==}
-
-  '@blazediff/ui@3.0.2':
-    resolution: {integrity: sha512-JbqRerLoe/Jkh1hgwVFnaTGjBJFiFlAXcYne8hRJDwoK8hUrm0nR8i8Cx2P3MTzNznY+mh/k3NNjv5/ry3Ck9w==}
 
   '@cacheable/memory@2.2.0':
     resolution: {integrity: sha512-CTLKqLItRCEixEAewD3/j9DB3/o96gpTPD4eJ1v+DGOlxZRZncRQkGYqqnAGCscYd6RNeXfGeiuCphsPtqyIfQ==}
@@ -3893,6 +3884,9 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  img-comparison-slider@8.0.7:
+    resolution: {integrity: sha512-BALViPtL2FgcCa9K8KkrmhWuyeDkVu6XVwBoRm9pU8Y6P1rjw31zujuEMBWTz2w6W30zzdQZNTccvg7J9Gf/LQ==}
+
   import-fresh@4.0.1:
     resolution: {integrity: sha512-/XFeXYgkuWgbtqPC7qPKvciXTvhtz7WMNQKQsAM1Kz+j0I5OWJDrybfiya6QtHF9oEvPkLwTHmC9+4OR/MmfIA==}
     engines: {node: '>=22.15'}
@@ -5398,16 +5392,6 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
-
-  '@blazediff/contract@1.0.0': {}
-
-  '@blazediff/core@2.0.2':
-    dependencies:
-      '@blazediff/contract': 1.0.0
-
-  '@blazediff/ui@3.0.2':
-    dependencies:
-      '@blazediff/core': 2.0.2
 
   '@cacheable/memory@2.2.0':
     dependencies:
@@ -8253,6 +8237,8 @@ snapshots:
   ignore@7.0.12: {}
 
   image-size@2.0.4: {}
+
+  img-comparison-slider@8.0.7: {}
 
   import-fresh@4.0.1: {}
 

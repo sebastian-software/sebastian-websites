@@ -10,6 +10,7 @@ import { fileURLToPath } from "node:url"
 import { type Browser, type BrowserContext, chromium, type Page } from "playwright"
 
 import { captureScrolledHeader } from "./capture-scrolled-header.ts"
+import { REVIEW_VIEWPORTS } from "./visual-views.ts"
 
 const app = fileURLToPath(new URL("..", import.meta.url))
 const builds = path.join(app, "build")
@@ -382,20 +383,24 @@ async function checkRoute(
   if (old) await compareBaseline(context, page, { old, pathname, variant, viewport })
   await captureRouteEvidence(page, options)
 }
-async function captureRouteEvidence(page: Page, options: RouteOptions): Promise<void> {
+async function captureRouteEvidence(
+  page: Page,
+  options: Pick<RouteOptions, "pathname" | "variant" | "viewport">,
+  directory = evidence
+): Promise<void> {
   const { pathname, variant, viewport } = options
   await page.screenshot({
     animations: "disabled",
     fullPage: true,
     path: path.join(
-      evidence,
+      directory,
       `${variant}-${viewport.width}-${pathname === "/" ? "home" : pathname.slice(1)}.png`
     ),
   })
   if (pathname === "/") {
     await captureScrolledHeader(
       page,
-      path.join(evidence, `${variant}-${viewport.width}-sticky-header.png`)
+      path.join(directory, `${variant}-${viewport.width}-sticky-header.png`)
     )
   }
 }
@@ -594,12 +599,7 @@ async function checkCatalogRecovery(
   }
 }
 
-async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
-  const variant = `software-${locale}`
-  const build = path.join(builds, variant, "client")
-  const current = await fixture(build)
-  const old =
-    baseline === undefined ? undefined : await fixture(path.resolve(baseline, variant, "client"))
+async function assetContext(browser: Browser, build: string): Promise<BrowserContext> {
   const context = await browser.newContext()
   // Fix asset bytes across old/new comparisons; new Bunny originals need no publication.
   await context.route(/^https:/v, async (route) => {
@@ -627,6 +627,36 @@ async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
     }
     await route.fulfill(cached)
   })
+  return context
+}
+
+async function captureReviewBuild(browser: Browser, build: string, output: string): Promise<void> {
+  await mkdir(output, { recursive: true })
+  const current = await fixture(build)
+  const context = await assetContext(browser, build)
+  try {
+    const page = await context.newPage()
+    for (const viewport of REVIEW_VIEWPORTS) {
+      await page.setViewportSize(viewport)
+      const response = await page.goto(current.origin)
+      assert.equal(response?.status(), OK)
+      await settle(page)
+      await settleImages(page)
+      await captureRouteEvidence(page, { pathname: "/", variant: "software-de", viewport }, output)
+    }
+  } finally {
+    await context.close()
+    await current.close()
+  }
+}
+
+async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
+  const variant = `software-${locale}`
+  const build = path.join(builds, variant, "client")
+  const current = await fixture(build)
+  const old =
+    baseline === undefined ? undefined : await fixture(path.resolve(baseline, variant, "client"))
+  const context = await assetContext(browser, build)
   const page = await context.newPage()
   const errors: string[] = []
   page.on("pageerror", (error) => errors.push(error.message))
@@ -663,10 +693,22 @@ async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
     await old?.close()
   }
 }
-await mkdir(evidence, { recursive: true })
 const testBrowser = await chromium.launch()
 try {
-  for (const locale of ["de", "en"] as const) await checkLocale(testBrowser, locale)
+  const reviewBase = process.env.SOFTWARE_REVIEW_BASE_BUILD
+  if (reviewBase === undefined) {
+    await mkdir(evidence, { recursive: true })
+    for (const locale of ["de", "en"] as const) await checkLocale(testBrowser, locale)
+  } else {
+    const output = path.resolve(
+      process.env.SOFTWARE_REVIEW_OUTPUT ?? path.join(builds, "visual-pr")
+    )
+    const reviewHead = path.resolve(
+      process.env.SOFTWARE_REVIEW_HEAD_BUILD ?? path.join(builds, "software-de/client")
+    )
+    await captureReviewBuild(testBrowser, path.resolve(reviewBase), path.join(output, "reference"))
+    await captureReviewBuild(testBrowser, reviewHead, path.join(output, "candidate"))
+  }
 } finally {
   await testBrowser.close()
 }

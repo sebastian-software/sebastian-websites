@@ -2,27 +2,13 @@ import { expect, test } from "@playwright/test"
 import { readFile } from "node:fs/promises"
 import path from "node:path"
 
+import { visualViews } from "./visual-views.ts"
+
 const evidence = path.resolve(
   process.env.SOFTWARE_VISUAL_EVIDENCE ?? path.join(import.meta.dirname, "../build/evidence")
 )
 
-const standardViews = [
-  ["Homepage on desktop", "software-de-1440-home.png"],
-  ["Homepage on a phone", "software-de-390-home.png"],
-  ["Header scrolling over the product image", "software-de-1440-sticky-header.png"],
-]
-const requested = process.env.SOFTWARE_VISUAL_VIEWS
-const views =
-  requested === undefined
-    ? standardViews
-    : requested.split(",").map((name) => {
-        const filename = name.trim()
-        if (!/^[a-z][\da-z\-]+\.png$/v.test(filename))
-          throw new Error(`Invalid screenshot name: ${filename}`)
-        return [filename, filename]
-      })
-
-for (const [title, filename] of views) {
+for (const [title, filename] of visualViews()) {
   test(title, async () => {
     const actual = await readFile(path.join(evidence, filename))
     expect(actual).toMatchSnapshot(filename)
