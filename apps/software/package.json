@@ -37,11 +37,13 @@
     "@sebastian-websites/site": "workspace:*"
   },
   "devDependencies": {
+    "@blazediff/ui": "3.0.2",
     "@palamedes/cli": "catalog:",
     "@palamedes/vite-plugin": "catalog:",
     "@playwright/test": "catalog:",
     "@sebastian-websites/config": "workspace:*",
     "@types/node": "catalog:",
+    "esbuild": "catalog:",
     "eslint": "catalog:",
     "jiti": "catalog:",
     "oxlint": "catalog:",

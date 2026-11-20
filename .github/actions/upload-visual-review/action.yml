@@ -1,0 +1,39 @@
+name: Upload visual review
+description: Publish one self-contained HTML report as a browser-viewable GitHub Actions artifact
+inputs:
+  report:
+    description: Path to the self-contained HTML file
+    required: true
+  retention-days:
+    description: How many days GitHub retains the report
+    default: "7"
+outputs:
+  url:
+    description: GitHub link that opens the report in a browser
+    value: ${{ steps.upload.outputs.artifact-url }}
+runs:
+  using: composite
+  steps:
+    - name: Name the report by its content hash
+      id: report
+      shell: bash
+      env:
+        REPORT: ${{ inputs.report }}
+      run: |
+        package_dir="$(mktemp -d "$RUNNER_TEMP/visual-review.XXXXXX")"
+        {
+          cat -- "$REPORT"
+          printf '\n<!-- GitHub run %s, attempt %s -->\n' "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT"
+        } > "$package_dir/report.html"
+        digest="$(sha256sum "$package_dir/report.html" | cut -d ' ' -f 1)"
+        artifact="$package_dir/visual-review-${digest}.html"
+        mv -- "$package_dir/report.html" "$artifact"
+        printf 'path=%s\n' "$artifact" >> "$GITHUB_OUTPUT"
+    - name: Upload the HTML file
+      id: upload
+      uses: actions/upload-artifact@v7
+      with:
+        path: ${{ steps.report.outputs.path }}
+        archive: false
+        if-no-files-found: error
+        retention-days: ${{ inputs.retention-days }}

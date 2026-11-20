@@ -45,14 +45,15 @@ Include a visual self-review for every pull request that can change rendered
 pages. Capture the base and head in matching conditions using the
 change-screenshots route of `effective-web`, and read the Playwright diffs
 before describing the change. For covered Software views, reuse
-`pr-visual-review` when available for the current PR revision. See the
+the linked HTML report when available for the current PR revision. See the
 [Software visual comparison guide](apps/software/README.md#visual-comparisons).
 
 Show only changed areas in the PR's `visual-review` section. Pair the before
 and after views. For a copy change, show and frame the enclosing card or
 section so the text has context. State what changed, which differences were
-intended, and which need attention. Use the technical diff for self-review. Use the rendered pairs for
-the PR description. Inspect the images before attaching them. When publishing
+intended, and which need attention. Use the technical diff for self-review
+and the rendered pairs for the PR description. CI maintains a separate comment
+with the interactive report link. Inspect the images before attaching them. When publishing
 an authorized PR, follow the `effective-delivery` attachment workflow and
 refresh that marked section after later pushes. Omit the image section when
 the compared views match.

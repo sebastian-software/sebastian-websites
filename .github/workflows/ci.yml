@@ -91,6 +91,7 @@ jobs:
           sparse-checkout: skills/effective-web/scripts
           persist-credentials: false
       - name: Render before-and-after review images
+        id: render-visual-review
         if: ${{ !cancelled() && steps.pr-snapshots.outcome == 'failure' }}
         run: |
           review_root="$GITHUB_WORKSPACE/apps/software/build/visual-pr"
@@ -98,22 +99,21 @@ jobs:
             SOFTWARE_VISUAL_RESULTS="$review_root/results" \
             SOFTWARE_VISUAL_REVIEW="$review_root/review" \
             pnpm --filter @sebastian-websites/software review:visual
+          if [[ -f "$review_root/review/report.html" ]]; then
+            printf 'path=%s\n' "$review_root/review/report.html" >> "$GITHUB_OUTPUT"
+          fi
       - name: Save pull request visual review
         id: pr-visual-review
-        if: ${{ !cancelled() && steps.pr-snapshots.outcome == 'failure' }}
-        uses: actions/upload-artifact@v7
+        if: ${{ !cancelled() && steps.render-visual-review.outputs.path != '' }}
+        uses: ./.github/actions/upload-visual-review
         with:
-          name: pr-visual-review
-          path: |
-            apps/software/build/visual-pr/review/
-            apps/software/build/visual-pr/technical/
-          retention-days: 7
+          report: ${{ steps.render-visual-review.outputs.path }}
       - name: Link the visual review from the run summary
-        if: ${{ !cancelled() && steps.pr-visual-review.outputs.artifact-url != '' }}
+        if: ${{ !cancelled() && steps.pr-visual-review.outputs.url != '' }}
         env:
-          REVIEW_URL: ${{ steps.pr-visual-review.outputs.artifact-url }}
+          REVIEW_URL: ${{ steps.pr-visual-review.outputs.url }}
         run: |
-          printf '## Visual review\n\n[Before and after images and Playwright report](%s)\n' "$REVIEW_URL" >> "$GITHUB_STEP_SUMMARY"
+          printf '## Visual review\n\n[Open interactive visual review](%s)\n' "$REVIEW_URL" >> "$GITHUB_STEP_SUMMARY"
       - name: Save Software layout screenshots
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7
@@ -130,5 +130,7 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: software-visual-diff
-          path: apps/software/build/visual-report/
+          path: |
+            apps/software/build/visual-report/
+            apps/software/build/visual-pr/technical/
           retention-days: 7

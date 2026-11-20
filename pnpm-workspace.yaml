@@ -72,3 +72,6 @@ minimumReleaseAgeExclude:
   - ferromark-win32-arm64-msvc@4.1.0
   - ferromark-win32-x64-msvc@4.1.0
   - ferromark@4.1.0
+  - "@blazediff/contract@1.0.0"
+  - "@blazediff/core@2.0.2"
+  - "@blazediff/ui@3.0.2"

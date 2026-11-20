@@ -43,14 +43,25 @@ when a comparison fails. Find it in `build/visual-report` or the CI artifact
 
 Pull requests also compare these views against the reference images on the
 PR base, so changes remain visible when the PR updates its reference set.
-For changed views, `pr-visual-review` contains annotated before-and-after
-pairs, a Markdown section and the technical Playwright report. Open the
-technical report during self-review and use the paired PNGs for the PR
-description. Compare affected pages outside these three views separately.
+For changed views, CI uploads one self-contained `visual-review-<sha256>.html`
+file. Follow the direct link in the run summary or the Visual review comment
+on the pull request to open it in the browser. The report embeds the annotated
+before-and-after crops and a comparison slider. GitHub retains it for seven
+days. The technical Playwright reports are in `software-visual-diff`. Compare
+affected pages outside these three views separately.
+
+Other GitHub repositories can use the
+[upload action](../../.github/actions/upload-visual-review/action.yml) with any
+self-contained HTML report. The
+[link action](../../.github/actions/link-visual-review/action.yml) runs after a
+pull request workflow completes and maintains the comment for the current
+revision. Its workflow needs `actions: read` and `pull-requests: write`.
 
 Use `review:visual` to render pairs from a local Playwright comparison.
 Set `SOFTWARE_VISUAL_BOXES` to `effective-web/scripts/visual-change-boxes.mjs`.
-The command reads `build/visual-results` and writes `build/visual-review`.
+The command reads `build/visual-results` and writes `build/visual-review`,
+including `report.html` when there are changes and separate PNGs for the PR
+description.
 To frame a whole card or section, set `SOFTWARE_VISUAL_REGIONS` to a JSON
 file keyed by snapshot name without its extension. Each value is an array of
 regions with a `label` and `before` and `after` rectangles in image pixels.

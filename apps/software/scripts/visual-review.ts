@@ -2,10 +2,14 @@
 /* eslint-disable security/detect-non-literal-fs-filename -- Paths belong to the local comparison and its generated output. */
 import type { Page } from "playwright"
 
-import { mkdir, readdir, readFile, writeFile } from "node:fs/promises"
+import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises"
 import path from "node:path"
 import { pathToFileURL } from "node:url"
 import { chromium } from "playwright"
+
+import type { ReviewPair } from "./visual-review-html.ts"
+
+import { escape, visualReviewHtml } from "./visual-review-html.ts"
 
 type Rect = { height: number; width: number; x: number; y: number }
 type Kind = "added" | "changed" | "removed"
@@ -50,7 +54,15 @@ function span(changes: Change[]): Rect {
 function regionsFor(before: Bitmap, after: Bitmap, boxes: ChangeBoxes): Region[] {
   const fresh = boxes.findChanges(before, after)
   const previous = boxes.findChanges(after, before)
-  if (fresh.length === 0 || previous.length === 0) return []
+  if (fresh.length === 0 || previous.length === 0) {
+    return [
+      {
+        after: { height: after.height, width: after.width, x: 0, y: 0 },
+        before: { height: before.height, width: before.width, x: 0, y: 0 },
+        label: "Full screenshot",
+      },
+    ]
+  }
   if (fresh.length !== previous.length) {
     return [{ after: span(fresh), before: span(previous), label: "Changed areas" }]
   }
@@ -81,10 +93,6 @@ function panel(
     <img src="${source}" style="width:${image.width * scale}px;left:${-x * scale}px;top:${-y * scale}px">
     <div class="mark" style="left:${(rect.x - x) * scale}px;top:${(rect.y - y) * scale}px;width:${Math.max(2, rect.width * scale)}px;height:${Math.max(2, rect.height * scale)}px"></div>
   </div>`
-}
-
-function escape(text: string): string {
-  return text.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
 }
 
 async function render(
@@ -142,28 +150,38 @@ async function writeReview(entries: string[]): Promise<void> {
   await writeFile(path.join(output, "review.md"), markdown)
 }
 
-async function renderPair(page: Page, file: string, options: RenderOptions): Promise<string[]> {
+async function renderPairs(
+  page: Page,
+  file: string,
+  options: RenderOptions
+): Promise<ReviewPair[]> {
   const stem = file.slice(0, -"-actual.png".length)
   const name = path.basename(stem)
   const capture = /^[a-z][a-z\-]*?-(?<language>[a-z]{2})-(?<width>\d+)-(?<view>[\da-z\-]+)$/v.exec(
     name
   )?.groups
   if (!capture) return []
-  const { boxes, overrides } = options
+  const { boxes } = options
   const [before, after] = await Promise.all([
     loadCapture(path.join(results, `${stem}-expected.png`), boxes),
     loadCapture(path.join(results, file), boxes),
   ])
   const title = `${viewLabel(capture.view)} · ${capture.width} px · ${capture.language.toUpperCase()}`
-  const regions = overrides[name] ?? regionsFor(before.image, after.image, boxes)
-  const entries: string[] = []
+  const regions = options.overrides[name] ?? regionsFor(before.image, after.image, boxes)
+  const pairs: ReviewPair[] = []
   for (const [index, region] of regions.entries()) {
     const image = `${name}-${index + 1}.png`
     await render(page, { after, before }, { region, title })
     await page.locator("main").screenshot({ path: path.join(output, image) })
-    entries.push(`![${title} — ${region.label}](./${image})`)
+    pairs.push({
+      after: await page.locator(".crop").last().screenshot(),
+      before: await page.locator(".crop").first().screenshot(),
+      image,
+      label: region.label,
+      title,
+    })
   }
-  return entries
+  return pairs
 }
 
 function viewLabel(view: string): string {
@@ -180,15 +198,20 @@ async function generate(changedFiles: string[], options: RenderOptions): Promise
       viewport: { height: 1000, width: 1190 },
     })
     await mkdir(output, { recursive: true })
-    const entries: string[] = []
+    const pairs: ReviewPair[] = []
     for (const file of changedFiles) {
-      entries.push(...(await renderPair(page, file, options)))
+      pairs.push(...(await renderPairs(page, file, options)))
     }
-    await writeReview(entries)
+    await writeReview(pairs.map(({ image, label, title }) => `![${title} — ${label}](./${image})`))
+    if (pairs.length > 0) {
+      await writeFile(path.join(output, "report.html"), await visualReviewHtml(pairs))
+    }
   } finally {
     await browser.close()
   }
 }
+
+await rm(path.join(output, "report.html"), { force: true })
 
 const files = await readdir(results, { recursive: true })
 const differences = files
