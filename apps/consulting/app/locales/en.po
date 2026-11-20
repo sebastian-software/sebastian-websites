@@ -171,6 +171,18 @@ msgstr ""
 #~ "technical skill, he elevates everyone around him—thoughtful, collaborative, "
 #~ "and genuinely a pleasure to have on a team."
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"A multi-brand commerce business needed a frontend foundation for shops across "
+"international markets. I led the frontend rebuild for the Witt Group within "
+"the Otto Group, connecting shared application code, reusable content, and "
+"backend services."
+msgstr ""
+"A multi-brand commerce business needed a frontend foundation for shops across "
+"international markets. I led the frontend rebuild for the Witt Group within "
+"the Otto Group, connecting shared application code, reusable content, and "
+"backend services."
+
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
 "A one-off on-site assignment in the US demonstrates willingness to travel "
@@ -218,6 +230,18 @@ msgid ""
 msgstr ""
 "A rocky ridge path at dusk leading toward a cairn on an overlook above layered"
 " hills."
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"A shared application foundation and reusable content addressed different parts"
+" of the multi-brand problem. Application code could provide common frontend "
+"behavior, while Contentful held content that could be reused across the shop "
+"context."
+msgstr ""
+"A shared application foundation and reusable content addressed different parts"
+" of the multi-brand problem. Application code could provide common frontend "
+"behavior, while Contentful held content that could be reused across the shop "
+"context."
 
 #: app/data/recommendations.ts#getRecommendations
 msgid "A shared focus on users"
@@ -342,6 +366,18 @@ msgstr ""
 "help your team improve React and TypeScript code, dependencies, and delivery "
 "in steps that fit the product you are maintaining."
 
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"An existing collaborative product has more than application-owned labels. "
+"Workflow titles, task descriptions, and other user-entered text also carry "
+"information that people need to act on. A translated interface alone does not "
+"make those contents readable across languages."
+msgstr ""
+"An existing collaborative product has more than application-owned labels. "
+"Workflow titles, task descriptions, and other user-entered text also carry "
+"information that people need to act on. A translated interface alone does not "
+"make those contents readable across languages."
+
 #: app/data/services.ts#architectureService
 msgid ""
 "An explanation of the relevant architecture and the sources of coupling or "
@@ -383,6 +419,12 @@ msgstr ""
 "Approximate geographic location (country level, derived from the IP address, "
 "which itself is not stored)"
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"April 2019–September 2020 · Sebastian Fastner · Senior Frontend Architect"
+msgstr ""
+"April 2019–September 2020 · Sebastian Fastner · Senior Frontend Architect"
+
 #: app/routes/services.tsx
 msgid "Architecture"
 msgstr "Architecture"
@@ -415,7 +457,12 @@ msgstr "Architecture and engineering for complex web applications."
 msgid "Architecture at EnBW"
 msgstr "Architecture at EnBW"
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid "Architecture boundaries"
+msgstr "Architecture boundaries"
+
 #: app/components/ServiceLinks.tsx#ServiceLinks
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
 msgid "Architecture reviews"
 msgstr "Architecture reviews"
 
@@ -694,6 +741,7 @@ msgid "Book a call"
 msgstr "Book a call"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+#: app/components/CaseStudy.tsx#CaseStudy
 #: app/components/Closing.tsx#Closing
 #: app/components/Founders.tsx#Founders
 #: app/components/ServicePage.tsx#ServicePage
@@ -821,6 +869,18 @@ msgstr ""
 msgid "Can product development continue?"
 msgstr "Can product development continue?"
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid "Capabilities and colleague perspectives"
+msgstr "Capabilities and colleague perspectives"
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid "Capabilities and customer perspective"
+msgstr "Capabilities and customer perspective"
+
+#: app/components/CaseStudy.tsx#CaseStudy
+msgid "Case study"
+msgstr "Case study"
+
 #: app/routes/services.tsx#getServices
 msgid "Catalogs, terminology, and review workflows"
 msgstr "Catalogs, terminology, and review workflows"
@@ -844,6 +904,24 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyDocument.tsx#ProcessorSection
 msgid "CDN, hosting and edge scripting for this website"
 msgstr "CDN, hosting and edge scripting for this website"
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid "Chris Lewis's complete recommendation"
+msgstr "Chris Lewis's complete recommendation"
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"Chris Lewis's recommendation describes our work with Regrello's internal "
+"project lead and praises the research and developer workflow. His account is "
+"dated August 2025 and describes the user-content milestone as ongoing at that "
+"time. It is a qualitative customer assessment; no numerical business or "
+"performance result is inferred from it."
+msgstr ""
+"Chris Lewis's recommendation describes our work with Regrello's internal "
+"project lead and praises the research and developer workflow. His account is "
+"dated August 2025 and describes the user-content milestone as ongoing at that "
+"time. It is a qualitative customer assessment; no numerical business or "
+"performance result is inferred from it."
 
 #~ #@ obsolete-since: 2026-10-09
 #~ #: app/components/profile-print/PersonalDetails.tsx#PersonalDetails
@@ -915,6 +993,18 @@ msgstr "Contact"
 msgid "Contact via Email"
 msgstr "Contact via Email"
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"Contentful supplied reusable content and control over SEO-related pages. I "
+"also built automated test infrastructure, including GraphQL query tests for "
+"the release process. AWS, Kubernetes, and Vault were part of the published "
+"deployment stack."
+msgstr ""
+"Contentful supplied reusable content and control over SEO-related pages. I "
+"also built automated test infrastructure, including GraphQL query tests for "
+"the release process. AWS, Kubernetes, and Vault were part of the published "
+"deployment stack."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid "Controller"
 msgstr "Controller"
@@ -928,6 +1018,18 @@ msgstr "Controller"
 msgid "Credit Portfolio Management Tool"
 msgstr "Credit Portfolio Management Tool"
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"Customer self-service and support applications needed shared frontend "
+"foundations while retaining tenant-specific features, content, communication "
+"options, and visual identity. I contributed architecture and implementation "
+"within the project teams."
+msgstr ""
+"Customer self-service and support applications needed shared frontend "
+"foundations while retaining tenant-specific features, content, communication "
+"options, and visual identity. I contributed architecture and implementation "
+"within the project teams."
+
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Darmstadt, Germany"
@@ -936,6 +1038,10 @@ msgstr "Darmstadt, Germany"
 #: app/components/project-profile/ProjectProfile.tsx#CareerPage
 msgid "Degree"
 msgstr "Degree"
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Delivered capabilities"
+msgstr "Delivered capabilities"
 
 #: app/data/fastner.project-profile.ts#staffingCopy
 msgid ""
@@ -1016,6 +1122,10 @@ msgstr "Discover Sebastian/Software"
 #: app/components/project-profile/ProjectProfileRail.tsx#ProjectProfileRail
 msgid "Discuss Availability"
 msgstr "Discuss Availability"
+
+#: app/components/CaseStudy.tsx#CaseStudy
+msgid "Discuss your situation"
+msgstr "Discuss your situation"
 
 #: app/data/services.ts#internationalizationService
 msgid "Do we need to change translation tools?"
@@ -1131,6 +1241,14 @@ msgstr "Email address"
 msgid "Email:"
 msgstr "Email:"
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid "Emanuele De Monte's complete recommendation"
+msgstr "Emanuele De Monte's complete recommendation"
+
+#: app/components/ServiceLinks.tsx#ServiceLinks
+msgid "EnBW case study"
+msgstr "EnBW case study"
+
 #: app/routes/services.tsx#getServices
 msgid ""
 "EnBW: 21 months building white-label customer portals and reusable components."
@@ -1140,6 +1258,10 @@ msgstr ""
 "EnBW: 21 months building white-label customer portals and reusable components."
 " DWS: three years taking an international investment platform from prototype "
 "to production."
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid "EnBW: shared frontend foundations"
+msgstr "EnBW: shared frontend foundations"
 
 #~ #@ obsolete-since: 2026-10-13
 #~ #: app/data/werner.data.ts#getConsultant
@@ -1246,9 +1368,10 @@ msgstr "Explore our services"
 msgid "Explore React and TypeScript modernization"
 msgstr "Explore React and TypeScript modernization"
 
-#: app/data/services.ts#modernizationService
-msgid "Explore the commerce project experience"
-msgstr "Explore the commerce project experience"
+#~ #@ obsolete-since: 2026-11-17
+#~ #: app/data/services.ts#modernizationService
+#~ msgid "Explore the commerce project experience"
+#~ msgstr "Explore the commerce project experience"
 
 #: app/routes/services.tsx
 msgid "Explore the project experience"
@@ -1261,6 +1384,15 @@ msgstr "Explore Werner's project history"
 #: ../../packages/legal/src/PrivacyDocument.tsx#ExternalLinksSection
 msgid "External Links"
 msgstr "External Links"
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Fastner's compact project profile"
+msgstr "Fastner's compact project profile"
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Fastner's full consultant profile"
+msgstr "Fastner's full consultant profile"
 
 #: app/components/CompanyBand.tsx#CompanyBand
 msgid "Fastner's project history"
@@ -1708,6 +1840,16 @@ msgstr "How It Works"
 msgid "How long does a review take?"
 msgstr "How long does a review take?"
 
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"How Sebastian Werner and Sebastian Fastner worked on UI localization and "
+"user-content translation in Regrello's existing enterprise platform, from "
+"October 2024 to September 2025."
+msgstr ""
+"How Sebastian Werner and Sebastian Fastner worked on UI localization and "
+"user-content translation in Regrello's existing enterprise platform, from "
+"October 2024 to September 2025."
+
 #: app/components/ServicePage.tsx#ServicePage
 msgid "How we work with your team"
 msgstr "How we work with your team"
@@ -1731,6 +1873,28 @@ msgstr ""
 "their own weight. Code that the next team can understand too. And an honest "
 "assessment of when a new tool adds real value – and when it merely adds "
 "complexity."
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"I built the Next.js, React, and TypeScript frontend and an Apollo GraphQL "
+"layer. The GraphQL layer brought backend services together behind an interface"
+" the shop frontend could use. Styled Components supported the frontend "
+"implementation."
+msgstr ""
+"I built the Next.js, React, and TypeScript frontend and an Apollo GraphQL "
+"layer. The GraphQL layer brought backend services together behind an interface"
+" the shop frontend could use. Styled Components supported the frontend "
+"implementation."
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"I built the PNPM/Turborepo workspace, shared theme and configuration packages,"
+" Storybook foundations, typed API integration, and reusable data-access "
+"utilities. These were frontend foundations used within the wider team effort."
+msgstr ""
+"I built the PNPM/Turborepo workspace, shared theme and configuration packages,"
+" Storybook foundations, typed API integration, and reusable data-access "
+"utilities. These were frontend foundations used within the wider team effort."
 
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid ""
@@ -1760,6 +1924,18 @@ msgstr ""
 " user interface offers intuitive progress tracking and clear navigation "
 "through the learning content."
 
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"I developed backend translation workflows for new and changed application "
+"content, workflow titles, and task descriptions. A plugin system around "
+"GraphQL resolvers and mutations integrated translations into the Go service "
+"APIs, with Redis caching."
+msgstr ""
+"I developed backend translation workflows for new and changed application "
+"content, workflow titles, and task descriptions. A plugin system around "
+"GraphQL resolvers and mutations integrated translations into the Go service "
+"APIs, with Redis caching."
+
 #: app/data/fastner.projects-additional.ts#getAdditionalProjects
 msgid ""
 "I developed DINA Frontend Neu – a web application for analyzing KPIs of "
@@ -1816,6 +1992,18 @@ msgstr ""
 "well enough on mobile. Optimizations such as virtual lists significantly "
 "improved scroll performance."
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"I documented how to separate routing and data integration from reusable, "
+"API-independent presentation layouts. The architecture used headless UI "
+"primitives and typed style and asset themes. The application layer could "
+"compose those pieces for its own tenant and workflow."
+msgstr ""
+"I documented how to separate routing and data integration from reusable, "
+"API-independent presentation layouts. The architecture used headless UI "
+"primitives and typed style and asset themes. The application layer could "
+"compose those pieces for its own tenant and workflow."
+
 #: app/data/werner.data.ts#getConsultant
 msgid ""
 "I help software teams and large organizations build new frontend platforms. I "
@@ -1841,6 +2029,18 @@ msgstr ""
 " Jasy were developed on our own initiative and used extensively at Zynga for "
 "our games' base library and build process. Today, my infrastructure work also "
 "includes Rust engines with TypeScript/Node.js interfaces."
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"I led frontend internationalization in the established application. I "
+"integrated localization into the UI and built catalog extraction, compilation,"
+" and LLM-assisted translation workflows that retained translation metadata and"
+" language-specific terminology."
+msgstr ""
+"I led frontend internationalization in the established application. I "
+"integrated localization into the UI and built catalog extraction, compilation,"
+" and LLM-assisted translation workflows that retained translation metadata and"
+" language-specific terminology."
 
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid ""
@@ -1983,6 +2183,7 @@ msgid "Internationalization at Regrello"
 msgstr "Internationalization at Regrello"
 
 #: app/components/ServiceLinks.tsx#ServiceLinks
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
 msgid "Internationalization consulting"
 msgstr "Internationalization consulting"
 
@@ -2082,10 +2283,30 @@ msgstr "JavaScript Developer"
 msgid "JourFixe Meeting Management"
 msgstr "JourFixe Meeting Management"
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"June 2022–February 2024 · Sebastian Werner · Frontend Expert / React "
+"Architect"
+msgstr ""
+"June 2022–February 2024 · Sebastian Werner · Frontend Expert / React "
+"Architect"
+
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
 #~ msgid "Keep improving"
 #~ msgstr "Keep improving"
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"Keeping presentation layouts independent of a particular API gave the team a "
+"defined place for backend integration. Shared themes and configuration "
+"represented differences between tenants without making every reusable "
+"component responsible for the whole application."
+msgstr ""
+"Keeping presentation layouts independent of a particular API gave the team a "
+"defined place for backend integration. Shared themes and configuration "
+"represented differences between tenants without making every reusable "
+"component responsible for the whole application."
 
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
@@ -2353,6 +2574,10 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid "Obligation to Provide Data"
 msgstr "Obligation to Provide Data"
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid "October 2024–September 2025 · Joint engagement"
+msgstr "October 2024–September 2025 · Joint engagement"
 
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/data/recommendations.ts#getRecommendations
@@ -2716,7 +2941,12 @@ msgstr "Project Profile PDF"
 msgid "Project Profile Sebastian Fastner – React & TypeScript"
 msgstr "Project Profile Sebastian Fastner – React & TypeScript"
 
+#: app/components/CaseStudy.tsx#CaseStudy
+msgid "Public sources and profiles"
+msgstr "Public sources and profiles"
+
 #: app/components/ServiceLinks.tsx#ServiceLinks
+#: app/data/case-studies/witt.ts#getWittCaseStudy
 #: app/data/services.ts#modernizationService
 msgid "React and TypeScript modernization"
 msgstr "React and TypeScript modernization"
@@ -2733,18 +2963,34 @@ msgstr "React, TypeScript, and backend development"
 msgid "Read Fastner's project experience"
 msgstr "Read Fastner's project experience"
 
+#: app/data/services.ts#architectureService
+#: app/routes/references.tsx
+msgid "Read the EnBW case study"
+msgstr "Read the EnBW case study"
+
 #: app/components/ReferenceHighlights.tsx#ReferenceHighlights
 #: app/routes/services.tsx
 msgid "Read the references"
 msgstr "Read the references"
 
 #: app/data/services.ts#internationalizationService
-msgid "Read the Regrello recommendation"
-msgstr "Read the Regrello recommendation"
+#: app/routes/references.tsx
+msgid "Read the Regrello case study"
+msgstr "Read the Regrello case study"
 
-#: app/data/services.ts#architectureService
-msgid "Read Werner's architecture experience"
-msgstr "Read Werner's architecture experience"
+#~ #@ obsolete-since: 2026-11-17
+#~ #: app/data/services.ts#internationalizationService
+#~ msgid "Read the Regrello recommendation"
+#~ msgstr "Read the Regrello recommendation"
+
+#: app/data/services.ts#modernizationService
+msgid "Read the Witt case study"
+msgstr "Read the Witt case study"
+
+#~ #@ obsolete-since: 2026-11-17
+#~ #: app/data/services.ts#architectureService
+#~ msgid "Read Werner's architecture experience"
+#~ msgstr "Read Werner's architecture experience"
 
 #: app/components/project-profile/ProjectProfile.tsx#EvidenceAndProductsPage
 msgid "Recent Hands-on Products"
@@ -2782,6 +3028,10 @@ msgstr "Register Entry"
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Register Number:"
 msgstr "Register Number:"
+
+#: app/components/ServiceLinks.tsx#ServiceLinks
+msgid "Regrello case study"
+msgstr "Regrello case study"
 
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid ""
@@ -2839,6 +3089,10 @@ msgstr ""
 #~ msgstr ""
 #~ "Regrello: interface localization and AI translation of user-generated content,"
 #~ " with quality evaluation, queues, retries, and operational tooling."
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid "Regrello: internationalization in a live product"
+msgstr "Regrello: internationalization in a live product"
 
 #: app/components/ServicePage.tsx#ServicePage
 msgid "Related services"
@@ -3009,6 +3263,10 @@ msgstr ""
 #~ "unnecessary friction. I was particularly impressed by his user-centric "
 #~ "mindset."
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Sebastian Fastner · My contribution"
+msgstr "Sebastian Fastner · My contribution"
+
 #: app/routes/index.tsx
 msgid ""
 "Sebastian Fastner and Sebastian Werner in conversation at a table with coffee"
@@ -3023,6 +3281,16 @@ msgstr ""
 "Sebastian Fastner and Sebastian Werner in conversation in front of a sandstone"
 " wall"
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"Sebastian Fastner's frontend architecture work for the Witt Group, April "
+"2019–September 2020: shared foundations for 17 multi-brand shops, "
+"Contentful, Apollo GraphQL, and release tests."
+msgstr ""
+"Sebastian Fastner's frontend architecture work for the Witt Group, April "
+"2019–September 2020: shared foundations for 17 multi-brand shops, "
+"Contentful, Apollo GraphQL, and release tests."
+
 #: app/routes/werner/summary.tsx#meta
 msgid "Sebastian Werner – Executive Summary"
 msgstr "Sebastian Werner – Executive Summary"
@@ -3030,6 +3298,10 @@ msgstr "Sebastian Werner – Executive Summary"
 #: app/routes/werner/projects.tsx#meta
 msgid "Sebastian Werner – Project History"
 msgstr "Sebastian Werner – Project History"
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid "Sebastian Werner · My contribution"
+msgstr "Sebastian Werner · My contribution"
 
 #: app/routes/team.tsx
 msgid ""
@@ -3050,6 +3322,16 @@ msgstr ""
 "Sebastian Werner and Sebastian Fastner: two senior architects for React, "
 "TypeScript, and complex web applications, with their focus areas and full "
 "profiles."
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"Sebastian Werner's frontend architecture work on EnBW customer portals and a "
+"support workbench: shared foundations, tenant configuration, and "
+"API-independent layouts, June 2022–February 2024."
+msgstr ""
+"Sebastian Werner's frontend architecture work on EnBW customer portals and a "
+"support workbench: shared foundations, tenant configuration, and "
+"API-independent layouts, June 2022–February 2024."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "See what we build beyond consulting."
@@ -3135,6 +3417,20 @@ msgstr "Share Project Profile"
 #~ #: app/components/ServiceIllustration.tsx#ServiceIllustration
 #~ msgid "Share the reasoning"
 #~ msgstr "Share the reasoning"
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Shared code, content, and integration"
+msgstr "Shared code, content, and integration"
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"Shared components had to fit that context. Reuse required clear boundaries "
+"between application routing, data integration, configuration, and the "
+"presentation that could be used across applications."
+msgstr ""
+"Shared components had to fit that context. Reuse required clear boundaries "
+"between application routing, data integration, configuration, and the "
+"presentation that could be used across applications."
 
 #: app/data/services.ts#modernizationService
 msgid ""
@@ -3248,6 +3544,18 @@ msgstr "Start with the situation."
 msgid "Storage for static files and assets"
 msgstr "Storage for static files and assets"
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"Storybook provided a component-development foundation alongside the "
+"applications. Typed integration and shared data-access utilities connected "
+"those interfaces to the APIs. React, TypeScript, Vite, Radix, VanillaExtract, "
+"SWR, REST, and GraphQL were part of the published project stack."
+msgstr ""
+"Storybook provided a component-development foundation alongside the "
+"applications. Typed integration and shared data-access utilities connected "
+"those interfaces to the APIs. React, TypeScript, Vite, Radix, VanillaExtract, "
+"SWR, REST, and GraphQL were part of the published project stack."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Subscribe"
 msgstr "Subscribe"
@@ -3324,6 +3632,18 @@ msgstr ""
 "process breaks down, and who develops, translates, and reviews the content. We"
 " can then discuss a useful first scope."
 
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"Temporal workflows coordinated queues, workers, retries, throttling, and rate "
+"limits. I also built operational and CLI tools for managing jobs, testing "
+"workflows, and retrying failed translations. This work addressed the "
+"processing lifecycle behind the translated content shown in the frontend."
+msgstr ""
+"Temporal workflows coordinated queues, workers, retries, throttling, and rate "
+"limits. I also built operational and CLI tools for managing jobs, testing "
+"workflows, and retrying failed translations. This work addressed the "
+"processing lifecycle behind the translated content shown in the frontend."
+
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Terminaro · Product by Sebastian Software GmbH · SaaS"
 msgstr "Terminaro · Product by Sebastian Software GmbH · SaaS"
@@ -3374,6 +3694,16 @@ msgstr ""
 "enabled rapid development while allowing native distribution through the app "
 "stores. The user interface was optimized for mobile use on the go."
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"The Apollo GraphQL layer gave backend orchestration its own place instead of "
+"making every interface work directly with each underlying service. Query tests"
+" checked that integration as part of releases."
+msgstr ""
+"The Apollo GraphQL layer gave backend orchestration its own place instead of "
+"making every interface work directly with each underlying service. Query tests"
+" checked that integration as part of releases."
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "The business photos were taken by {photographer}."
 msgstr "The business photos were taken by {photographer}."
@@ -3385,6 +3715,42 @@ msgid ""
 msgstr ""
 "The controller within the meaning of the General Data Protection Regulation "
 "(GDPR) and other data protection legislation is:"
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"The delivered capabilities documented in my profiles are the frontend "
+"foundation for 17 multi-brand shops, the Apollo GraphQL layer, reusable "
+"Contentful pages, and automated tests. These describe my technical "
+"contribution within the wider commerce program."
+msgstr ""
+"The delivered capabilities documented in my profiles are the frontend "
+"foundation for 17 multi-brand shops, the Apollo GraphQL layer, reusable "
+"Contentful pages, and automated tests. These describe my technical "
+"contribution within the wider commerce program."
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"The documented result is a set of shared frontend capabilities: workspace and "
+"tooling foundations, themes, configuration, component development, and typed "
+"integration. I contributed these foundations as part of the project teams' "
+"work on the customer portals and support workbench."
+msgstr ""
+"The documented result is a set of shared frontend capabilities: workspace and "
+"tooling foundations, themes, configuration, component development, and typed "
+"integration. I contributed these foundations as part of the project teams' "
+"work on the customer portals and support workbench."
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"The EnBW work covered customer portals and a support workbench. Customer "
+"workflows included contracts, invoices, meter readings, tariff changes, and "
+"relocation. The white-label platform supported differences between tenants in "
+"both functionality and presentation."
+msgstr ""
+"The EnBW work covered customer portals and a support workbench. Customer "
+"workflows included contracts, invoices, meter readings, tariff changes, and "
+"relocation. The white-label platform supported differences between tenants in "
+"both functionality and presentation."
 
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/routes/references.tsx
@@ -3461,6 +3827,40 @@ msgstr ""
 "The link may be outdated, or the address may contain a typo. These pages lead "
 "on:"
 
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"The project combined multiple brands and international markets. The frontend "
+"had to support that scope while giving content and backend integration a "
+"shared technical foundation."
+msgstr ""
+"The project combined multiple brands and international markets. The frontend "
+"had to support that scope while giving content and backend integration a "
+"shared technical foundation."
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"The public customer account describes an initial milestone for static UI "
+"strings and a second milestone for user-entered data. These scopes called for "
+"different handling of catalog messages, editable content, and asynchronous "
+"translation states."
+msgstr ""
+"The public customer account describes an initial milestone for static UI "
+"strings and a second milestone for user-entered data. These scopes called for "
+"different handling of catalog messages, editable content, and asynchronous "
+"translation states."
+
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"The published profiles describe working catalog tooling, translation "
+"integration through service APIs, operational workflows, and interfaces for "
+"reviewing translated content. These are concrete capabilities across the two "
+"scopes."
+msgstr ""
+"The published profiles describe working catalog tooling, translation "
+"integration through service APIs, operational workflows, and interfaces for "
+"reviewing translated content. These are concrete capabilities across the two "
+"scopes."
+
 #: app/data/services.ts#modernizationService
 msgid ""
 "The published Witt project experience describes work on the foundations of "
@@ -3527,6 +3927,12 @@ msgstr ""
 msgid "The sign-up did not go through. Please try again later."
 msgstr "The sign-up did not go through. Please try again later."
 
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "The situation"
+msgstr "The situation"
+
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
 "The transmission of your IP address is technically necessary to access this "
@@ -3566,6 +3972,26 @@ msgstr ""
 #: ../../packages/legal/src/PrivacyDocument.tsx#OverviewSection
 msgid "There is no contact form – contact is made exclusively by email."
 msgstr "There is no contact form – contact is made exclusively by email."
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid ""
+"This account covers my Witt Group engagement from April 2019 to September "
+"2020. I established technical foundations within this multi-brand program; the"
+" 17-shop figure describes the platform's scope."
+msgstr ""
+"This account covers my Witt Group engagement from April 2019 to September "
+"2020. I established technical foundations within this multi-brand program; the"
+" 17-shop figure describes the platform's scope."
+
+#: app/components/CaseStudy.tsx#CaseStudy
+msgid ""
+"This account draws on the public project accounts linked below. Individual "
+"contributions are attributed to the consultant responsible; customer "
+"assessments remain attributed to their authors."
+msgstr ""
+"This account draws on the public project accounts linked below. Individual "
+"contributions are attributed to the consultant responsible; customer "
+"assessments remain attributed to their authors."
 
 #: ../../packages/ui/src/frame/errorCopy.ts#createPageErrorCopy
 msgid "This page couldn't be loaded."
@@ -3670,6 +4096,24 @@ msgid ""
 msgstr ""
 "To exercise your rights, you may contact us at any time at: "
 "<0>{privacyEmail}</0>"
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid "Tobias Arweiler's complete recommendation"
+msgstr "Tobias Arweiler's complete recommendation"
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+msgid ""
+"Tobias Arweiler's recommendation describes our architecture discussions and "
+"implementation work at EnBW. Emanuele De Monte's account describes my frontend"
+" contribution within the same client context. These are attributed colleague "
+"perspectives, with their original dates and wording preserved on the "
+"references page."
+msgstr ""
+"Tobias Arweiler's recommendation describes our architecture discussions and "
+"implementation work at EnBW. Emanuele De Monte's account describes my frontend"
+" contribution within the same client context. These are attributed colleague "
+"perspectives, with their original dates and wording preserved on the "
+"references page."
 
 #~ #@ obsolete-since: 2026-10-13
 #~ #: app/data/werner.data.ts#getConsultant
@@ -4176,6 +4620,18 @@ msgstr ""
 "reviews, and documentation help the team understand the conventions and "
 "maintain language support after the initial work."
 
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"We worked on two related language problems in Regrello's enterprise platform: "
+"translating the application interface and enabling people using different "
+"languages to work with user-authored content. The work combined frontend "
+"integration with backend translation workflows."
+msgstr ""
+"We worked on two related language problems in Regrello's enterprise platform: "
+"translating the application interface and enabling people using different "
+"languages to work with user-authored content. The work combined frontend "
+"integration with backend translation workflows."
+
 #: ../../packages/legal/src/PrivacyAnalytics.tsx#PrivacyAnalytics
 msgid "Web analytics with Rybbit"
 msgstr "Web analytics with Rybbit"
@@ -4187,6 +4643,11 @@ msgstr "Web-Based Promotion Management"
 #: app/data/fastner.projects-featured.ts#getFeaturedProjects
 msgid "Weiden in der Oberpfalz, Germany"
 msgstr "Weiden in der Oberpfalz, Germany"
+
+#: app/data/case-studies/enbw.ts#getEnbwCaseStudy
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid "Werner's detailed project history"
+msgstr "Werner's detailed project history"
 
 #: app/components/CompanyBand.tsx#CompanyBand
 msgid "Werner's project history"
@@ -4315,6 +4776,24 @@ msgstr ""
 msgid "Wireless LAN Infrastructure"
 msgstr "Wireless LAN Infrastructure"
 
+#: app/data/case-studies/regrello.ts#getRegrelloCaseStudy
+msgid ""
+"Within the shared initiative, I implemented review interfaces for translated "
+"user content, including rich text, mention placeholders, permission-sensitive "
+"editing, and asynchronous states. I also worked on the frontend workspace, "
+"strict type-aware linting, GraphQL migration tooling, and targeted UI and "
+"end-to-end tests."
+msgstr ""
+"Within the shared initiative, I implemented review interfaces for translated "
+"user content, including rich text, mention placeholders, permission-sensitive "
+"editing, and asynchronous states. I also worked on the frontend workspace, "
+"strict type-aware linting, GraphQL migration tooling, and targeted UI and "
+"end-to-end tests."
+
+#: app/components/ServiceLinks.tsx#ServiceLinks
+msgid "Witt case study"
+msgstr "Witt case study"
+
 #: app/routes/services.tsx#getServices
 msgid ""
 "Witt: 18 months rebuilding the foundations of 17 online shops. DWS/MorgenFund:"
@@ -4324,6 +4803,10 @@ msgstr ""
 "Witt: 18 months rebuilding the foundations of 17 online shops. DWS/MorgenFund:"
 " several years evolving an international investment platform and its delivery "
 "workflows."
+
+#: app/data/case-studies/witt.ts#getWittCaseStudy
+msgid "Witt: shared commerce foundations"
+msgstr "Witt: shared commerce foundations"
 
 #~ #@ obsolete-since: 2026-10-12
 #~ #: app/routes/services.tsx

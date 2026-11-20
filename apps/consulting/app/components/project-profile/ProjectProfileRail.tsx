@@ -83,7 +83,7 @@ export function ProjectProfileRail({
           </ButtonLink>
         </div>
       )}
-      <ServiceLinks />
+      <ServiceLinks consultant={consultantId} />
     </aside>
   )
 }

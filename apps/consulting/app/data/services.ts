@@ -62,8 +62,8 @@ function architectureService(): ServicePage {
     description: t`Review your web application's architecture with experienced consultants. Understand the tradeoffs, agree priorities, and choose a practical next step with your team.`,
     evidence: [
       {
-        href: "/werner",
-        label: t`Read Werner's architecture experience`,
+        href: "/case-studies/enbw",
+        label: t`Read the EnBW case study`,
         text: t`At EnBW, Werner worked on white-label customer portals, reusable components, and frontend architecture. His published project history explains the scope; the references include perspectives from colleagues on that work.`,
       },
       {
@@ -137,8 +137,8 @@ function modernizationService(): ServicePage {
     description: t`Modernize an existing React and TypeScript application alongside your team: review the foundations, sequence the migration, and implement changes while product work continues.`,
     evidence: [
       {
-        href: "/fastner/project-profile",
-        label: t`Explore the commerce project experience`,
+        href: "/case-studies/witt",
+        label: t`Read the Witt case study`,
         text: t`The published Witt project experience describes work on the foundations of multi-brand online shops. Fastner's compact profile explains his role, technologies, and contributions in that context.`,
       },
       {
@@ -212,8 +212,8 @@ function internationalizationService(): ServicePage {
     description: t`Bring language support into an established SaaS product: interface localization, catalogs and terminology, release workflows, and translation of user-generated content.`,
     evidence: [
       {
-        href: "/references#recommendation-chris-lewis",
-        label: t`Read the Regrello recommendation`,
+        href: "/case-studies/regrello",
+        label: t`Read the Regrello case study`,
         text: t`At Regrello, Werner and Fastner worked on interface internationalization and translation of user-generated content. Their profiles explain their respective work; Chris Lewis's recommendation also describes the shared contribution.`,
       },
       {
