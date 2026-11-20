@@ -2,6 +2,7 @@ import type { ReactNode } from "ardo/react"
 import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 import { pageMeta } from "@sebastian-websites/site/meta"
+import { jsonLd, personIdentity } from "@sebastian-websites/web-core"
 
 import { ConsultantProfile } from "~/components/ConsultantProfile"
 import { getConsultant, getProjects, skills } from "~/data/fastner.data"
@@ -59,7 +60,7 @@ export default function ProfileFastner(): ReactNode {
   // JSON-LD Person structured data
   const personSchema = {
     "@context": SCHEMA.context,
-    "@type": SCHEMA.types.person,
+    ...personIdentity("fastner", activeLocale),
     address: {
       "@type": SCHEMA.types.postalAddress,
       addressCountry: ADDRESS.country,
@@ -76,19 +77,12 @@ export default function ProfileFastner(): ReactNode {
       ...(skills.additional ?? []),
     ],
     knowsLanguage: consultant.languages,
-    name: TEAM.fastner.name,
     telephone: consultant.phone,
-    url: `${variant.canonicalOrigin}/fastner`,
-    worksFor: {
-      "@type": SCHEMA.types.organization,
-      name: COMPANY_BRAND,
-      url: variant.canonicalOrigin,
-    },
   }
 
   return (
     <>
-      <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
+      <script type="application/ld+json">{jsonLd(personSchema)}</script>
       <ConsultantProfile
         consultant={{ ...consultant, photo: PROFILE_PHOTOS.fastner.sheet }}
         lang={activeLocale}

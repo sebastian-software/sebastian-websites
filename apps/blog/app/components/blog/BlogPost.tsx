@@ -3,7 +3,7 @@ import type { ReactElement } from "ardo/react"
 import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 import { SiteLink } from "@sebastian-websites/ui"
-import { BLOG_PATH, getSiteOrigin, type SocialImage } from "@sebastian-websites/web-core"
+import { BLOG_PATH, getSiteOrigin, jsonLd, type SocialImage } from "@sebastian-websites/web-core"
 import { ArdoImage } from "ardo/ui"
 
 import { postCounterpart } from "~/lib/blog"
@@ -15,6 +15,7 @@ import { main } from "./listing.css.ts"
 import { NextStep } from "./NextStep"
 import * as styles from "./post.css.ts"
 import { PostMeta } from "./PostMeta"
+import { postStructuredData } from "./postStructuredData.ts"
 import { PostTags } from "./PostTags"
 import { PostTranslationLink } from "./PostTranslationLink"
 
@@ -75,6 +76,9 @@ export function meta({ defaults, post }: PublicationPostMetaArgs): ArdoMetaDescr
 export default function BlogPost({ children, post }: PublicationPostProps): ReactElement {
   return (
     <main className={main} id="main">
+      <script type="application/ld+json">
+        {jsonLd(postStructuredData(post, variant, coverPreview(post.coverImage)))}
+      </script>
       <article
         className={styles.article}
         // The authored next step, for the browser check: one box, or none for `none`.

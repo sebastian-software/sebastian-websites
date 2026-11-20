@@ -2,6 +2,7 @@ import type { ReactNode } from "ardo/react"
 import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 import { pageMeta } from "@sebastian-websites/site/meta"
+import { jsonLd, personIdentity } from "@sebastian-websites/web-core"
 
 import { WernerProfile } from "~/components/werner-profile/WernerProfile"
 import { getConsultant, skills } from "~/data/werner.data"
@@ -54,7 +55,7 @@ export default function ProfileWerner(): ReactNode {
   // JSON-LD Person structured data
   const personSchema = {
     "@context": SCHEMA.context,
-    "@type": SCHEMA.types.person,
+    ...personIdentity("werner", activeLocale),
     address: {
       "@type": SCHEMA.types.postalAddress,
       addressCountry: ADDRESS.country,
@@ -71,19 +72,12 @@ export default function ProfileWerner(): ReactNode {
       ...(skills.additional ?? []),
     ],
     knowsLanguage: consultant.languages,
-    name: TEAM.werner.name,
     telephone: consultant.phone,
-    url: `${variant.canonicalOrigin}/werner`,
-    worksFor: {
-      "@type": SCHEMA.types.organization,
-      name: COMPANY_BRAND,
-      url: variant.canonicalOrigin,
-    },
   }
 
   return (
     <>
-      <script type="application/ld+json">{JSON.stringify(personSchema)}</script>
+      <script type="application/ld+json">{jsonLd(personSchema)}</script>
       <WernerProfile
         consultant={{ ...consultant, photo: PROFILE_PHOTOS.werner.sheet }}
         lang={activeLocale}
