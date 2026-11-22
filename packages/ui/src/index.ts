@@ -7,8 +7,10 @@ export { ArrowLink, type ArrowLinkProps } from "./editorial/ArrowLink.tsx"
 export { ButtonLink } from "./editorial/ButtonLink.tsx"
 export * as editorial from "./editorial/editorial.css.ts"
 export { Story, type StoryProps } from "./editorial/Story.tsx"
+export { StoryIllustration } from "./editorial/StoryIllustration.tsx"
 export { FaviconLinks, type FaviconLinksProps } from "./FaviconLinks.tsx"
 export { createWebManifest, FAVICONS, type FaviconSet, WEB_MANIFEST_PATH } from "./favicons.ts"
+export { FerramentaLogo } from "./FerramentaLogo.tsx"
 export { BrandLogo, type BrandLogoProps } from "./frame/BrandLogo.tsx"
 export type { CompanyDetails, FrameCopy, InvitationCopy, NewsletterCopy } from "./frame/copy.ts"
 export { Newsletter, type NewsletterProps } from "./frame/Newsletter.tsx"
@@ -29,6 +31,8 @@ export {
   type SubscribeAction,
   subscribeUnavailable,
 } from "./frame/subscribe.ts"
+export { Illustration, type IllustrationSource } from "./Illustration.tsx"
+export { KerameikosLogo, type KerameikosName } from "./KerameikosLogo.tsx"
 export * as layout from "./layout.css.ts"
 export { legalClassNames } from "./legal.css.ts"
 export {
@@ -39,6 +43,8 @@ export {
   FRAME_INSET,
   FRAME_OVERHANG,
   FRAME_WIDTH,
+  frameColumnSizes,
+  frameImageSizes,
   PAGE_MARGIN,
   PAGE_WIDTH,
   PHONE,

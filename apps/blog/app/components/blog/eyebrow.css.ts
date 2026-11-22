@@ -1,4 +1,4 @@
-import { color, editorial } from "@sebastian-websites/ui"
+import { color, editorial } from "@sebastian-websites/ui/styles"
 import { style } from "@vanilla-extract/css"
 
 /**

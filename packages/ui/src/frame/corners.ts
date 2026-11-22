@@ -25,3 +25,7 @@ export function continuousCorners(radius: number): StyleRule {
     borderRadius: scaled(`${String(radius)}px`),
   }
 }
+
+/** Shared corners for editorial pictures and the footer panel. */
+const PANEL_RADIUS = 24
+export const panelCorners = continuousCorners(PANEL_RADIUS)

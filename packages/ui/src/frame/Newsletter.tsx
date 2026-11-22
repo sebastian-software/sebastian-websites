@@ -2,7 +2,9 @@ import { type ReactElement, useActionState, useId } from "ardo/react"
 
 import type { NewsletterCopy } from "./copy.ts"
 
+import newsletterLetter from "../assets/newsletter-letter.image.mdx"
 import { visuallyHidden } from "../editorial/editorial.css.ts"
+import { StoryIllustration } from "../editorial/StoryIllustration.tsx"
 import * as styles from "./PageEnding.css.ts"
 import { type NewsletterStatus, type SubscribeAction, subscribeUnavailable } from "./subscribe.ts"
 
@@ -18,6 +20,7 @@ const EMAIL = /^[^\s@]+@[^\s@][^\s.@]*\.[^\s@]+$/v
 
 export type NewsletterProps = {
   readonly copy: NewsletterCopy
+  readonly illustration?: boolean
   readonly subscribe?: SubscribeAction
 }
 
@@ -29,7 +32,7 @@ export type NewsletterProps = {
  * @returns The newsletter section.
  */
 export function Newsletter(props: NewsletterProps): ReactElement {
-  const { copy, subscribe = subscribeUnavailable } = props
+  const { copy, illustration, subscribe = subscribeUnavailable } = props
   const id = useId()
   const [state, formAction, pending] = useActionState(
     async (_previous: NewsletterState, data: FormData): Promise<NewsletterState> => {
@@ -59,7 +62,17 @@ export function Newsletter(props: NewsletterProps): ReactElement {
   const problem = state.status === "invalid" || state.status === "failure"
 
   return (
-    <section aria-labelledby={`${id}-title`} className={styles.newsletter}>
+    <section
+      aria-labelledby={`${id}-title`}
+      className={styles.newsletter}
+      data-illustrated={illustration}
+      id="newsletter"
+    >
+      {illustration && (
+        <div className={styles.newsletterArt}>
+          <StoryIllustration alt="" src={newsletterLetter} />
+        </div>
+      )}
       <h2 className={styles.newsletterTitle} id={`${id}-title`}>
         {copy.title}
       </h2>

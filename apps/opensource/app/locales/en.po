@@ -59,41 +59,46 @@ msgid "A drawn desk calendar with one marked appointment beside a potted plant."
 msgstr ""
 "A drawn desk calendar with one marked appointment beside a potted plant."
 
-#: app/data/featured.ts#getFeatured
-msgid ""
-"A drawn Ferromark document stamped “Markdown into documents” beside books "
-"and a wooden stamp."
-msgstr ""
-"A drawn Ferromark document stamped “Markdown into documents” beside books "
-"and a wooden stamp."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/featured.ts#getFeatured
+#~ msgid ""
+#~ "A drawn Ferromark document stamped “Markdown into documents” beside books "
+#~ "and a wooden stamp."
+#~ msgstr ""
+#~ "A drawn Ferromark document stamped “Markdown into documents” beside books "
+#~ "and a wooden stamp."
 
-#: app/data/featured.ts#getFeatured
-msgid ""
-"A drawn little tin robot with glowing eyes, connected by a cable to a device "
-"holding seven colored cartridges."
-msgstr ""
-"A drawn little tin robot with glowing eyes, connected by a cable to a device "
-"holding seven colored cartridges."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/featured.ts#getFeatured
+#~ msgid ""
+#~ "A drawn little tin robot with glowing eyes, connected by a cable to a device "
+#~ "holding seven colored cartridges."
+#~ msgstr ""
+#~ "A drawn little tin robot with glowing eyes, connected by a cable to a device "
+#~ "holding seven colored cartridges."
 
-#: app/data/featured.ts#getFeatured
-msgid ""
-"A drawn messages.po catalog in front of cards for German, French, Spanish, and"
-" Japanese."
-msgstr ""
-"A drawn messages.po catalog in front of cards for German, French, Spanish, and"
-" Japanese."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/featured.ts#getFeatured
+#~ msgid ""
+#~ "A drawn messages.po catalog in front of cards for German, French, Spanish, and"
+#~ " Japanese."
+#~ msgstr ""
+#~ "A drawn messages.po catalog in front of cards for German, French, Spanish, and"
+#~ " Japanese."
 
-#: app/data/featured.ts#getFeatured
-msgid ""
-"A drawn open book with an Ardo table of contents and the line “Build "
-"beautiful docs with React”."
-msgstr ""
-"A drawn open book with an Ardo table of contents and the line “Build "
-"beautiful docs with React”."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/featured.ts#getFeatured
+#~ msgid ""
+#~ "A drawn open book with an Ardo table of contents and the line “Build "
+#~ "beautiful docs with React”."
+#~ msgstr ""
+#~ "A drawn open book with an Ardo table of contents and the line “Build "
+#~ "beautiful docs with React”."
 
-#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
-msgid "A drawn road winding through a valley toward the mountains."
-msgstr "A drawn road winding through a valley toward the mountains."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+#~ msgid "A drawn road winding through a valley toward the mountains."
+#~ msgstr "A drawn road winding through a valley toward the mountains."
 
 #: app/data/featured.ts#getFeatured
 msgid ""
@@ -106,6 +111,14 @@ msgstr ""
 " syntax highlighting, Markdown, spell checking, translation catalogs, file "
 "walking, and PDF previews. Choose the engine that solves your task; each one "
 "can be inspected and used on its own."
+
+#: app/data/featured.ts#getFeatured
+msgid "A paper robot fits a skill module into its chest."
+msgstr "A paper robot fits a skill module into its chest."
+
+#: app/data/featured.ts#getFeatured
+msgid "A punch-card loom repeats the diamond from the pattern in a woven band."
+msgstr "A punch-card loom repeats the diamond from the pattern in a woven band."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "a registered trademark of"
@@ -125,11 +138,14 @@ msgid "Agent skills"
 msgstr "Agent skills"
 
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
-#: app/components/MetricsSummary.tsx#MetricsOverview
 msgid ""
 "All opted-in public projects and published packages, in one shared snapshot."
 msgstr ""
 "All opted-in public projects and published packages, in one shared snapshot."
+
+#: app/components/MetricsSummary.tsx#MetricsOverview
+msgid "Some of the tools we build for our own projects find their way into other codebases. Here you can see the projects we publish, their stars on GitHub and how often their packages are downloaded from npm and crates.io."
+msgstr "Some of the tools we build for our own projects find their way into other codebases. Here you can see the projects we publish, their stars on GitHub and how often their packages are downloaded from npm and crates.io."
 
 #: app/components/MetricsProjects.tsx#ProjectControls
 msgid "All projects"
@@ -153,6 +169,10 @@ msgstr "All registries"
 msgid "Almost done: please confirm the link we just sent you."
 msgstr "Almost done: please confirm the link we just sent you."
 
+#: app/data/featured.ts#getFeatured
+msgid "An indexed handbook shows a React component and its rendered button."
+msgstr "An indexed handbook shows a React component and its rendered button."
+
 #: app/data/projects.ts#descriptions
 msgid "Apply prebuilt, type-aware lint configurations to TypeScript projects."
 msgstr "Apply prebuilt, type-aware lint configurations to TypeScript projects."
@@ -169,6 +189,12 @@ msgstr ""
 "Approximate geographic location (country level, derived from the IP address, "
 "which itself is not stored)"
 
+#: app/routes/index.tsx
+msgid ""
+"At an open workbench, a maker passes on the plans for an adjustable lamp."
+msgstr ""
+"At an open workbench, a maker passes on the plans for an adjustable lamp."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#AutomatedDecisionSection
 msgid "Automated Decision-Making"
 msgstr "Automated Decision-Making"
@@ -184,6 +210,10 @@ msgstr "Blog"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Book an intro call"
 msgstr "Book an intro call"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Branching mountain trails lead from a village toward a summit hut."
+msgstr "Branching mountain trails lead from a village toward a summit hut."
 
 #: app/data/projects.ts#descriptions
 msgid ""
@@ -319,6 +349,7 @@ msgstr "Controller"
 
 #: app/components/MetricsPackages.tsx#Packages
 #: app/components/MetricsProjects.tsx#ProjectHead
+#: app/components/MetricsSummary.tsx#MetricsSummary
 msgid "crates.io / month"
 msgstr "crates.io / month"
 
@@ -391,9 +422,10 @@ msgstr ""
 #~ msgid "Downloads"
 #~ msgstr "Downloads"
 
-#: app/data/featured.ts#getFeatured
-msgid "Drawn cards for skills, instructions, and hooks in a tray beside a mug."
-msgstr "Drawn cards for skills, instructions, and hooks in a tray beside a mug."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/featured.ts#getFeatured
+#~ msgid "Drawn cards for skills, instructions, and hooks in a tray beside a mug."
+#~ msgstr "Drawn cards for skills, instructions, and hooks in a tray beside a mug."
 
 #: ../../packages/legal/src/PrivacyHosting.tsx#PrivacyHosting
 msgid ""
@@ -608,6 +640,10 @@ msgstr "How It Works"
 msgid "How the data is collected"
 msgstr "How the data is collected"
 
+#: app/routes/imprint.tsx
+msgid "Icon Credits"
+msgstr "Icon Credits"
+
 #~ #@ obsolete-since: 2026-10-09
 #~ #: app/components/SkillsPanel.tsx#getSkills
 #~ msgid "Image"
@@ -621,17 +657,19 @@ msgstr "Image Credits"
 msgid "Imprint"
 msgstr "Imprint"
 
+#: app/data/featured.ts#getFeatured
+msgid ""
+"Independent precision tools in a fitted case, with one insert lifted out."
+msgstr ""
+"Independent precision tools in a fitted case, with one insert lifted out."
+
 #: ../../packages/legal/src/ImprintDocument.tsx#ImprintDocument
 msgid "Information pursuant to § 5 DDG"
 msgstr "Information pursuant to § 5 DDG"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
-msgid ""
-"Insights into our work across software and consulting: what we're building, "
-"exploring and thinking about."
-msgstr ""
-"Insights into our work across software and consulting: what we're building, "
-"exploring and thinking about."
+msgid "Why build our own translation tools? When is it worth reworking an architecture? In our newsletter we share the decisions behind our software and what we learn when teams put it to use."
+msgstr "Why build our own translation tools? When is it worth reworking an architecture? In our newsletter we share the decisions behind our software and what we learn when teams put it to use."
 
 #: app/components/MetricsDashboard.tsx#MetricsDashboard
 msgid "Instruction packs"
@@ -845,6 +883,7 @@ msgstr "Not connected"
 
 #: app/components/MetricsPackages.tsx#Packages
 #: app/components/MetricsProjects.tsx#ProjectHead
+#: app/components/MetricsSummary.tsx#MetricsSummary
 msgid "npm / month"
 msgstr "npm / month"
 
@@ -932,9 +971,10 @@ msgstr "Open Source metrics"
 msgid "Open Source Metrics – Sebastian Software"
 msgstr "Open Source Metrics – Sebastian Software"
 
-#: app/components/FeaturedStory.tsx#FeaturedStory
-msgid "Open source project"
-msgstr "Open source project"
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/components/FeaturedStory.tsx#FeaturedStory
+#~ msgid "Open source project"
+#~ msgstr "Open source project"
 
 #: app/components/MetricsSummary.tsx#MetricsOverview
 msgid "Open source, in numbers."
@@ -1478,6 +1518,18 @@ msgid ""
 msgstr ""
 "The link may be outdated, or the address may contain a typo. These pages lead "
 "on:"
+
+#: app/routes/imprint.tsx
+msgid ""
+"The metrics icons are from <0>Sharp Line by Streamline</0> and are licensed "
+"under <1>CC BY 4.0</1>."
+msgstr ""
+"The metrics icons are from <0>Sharp Line by Streamline</0> and are licensed "
+"under <1>CC BY 4.0</1>."
+
+#: app/data/featured.ts#getFeatured
+msgid "The same message in several languages around a paper globe."
+msgstr "The same message in several languages around a paper globe."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "The sign-up did not go through. Please try again later."

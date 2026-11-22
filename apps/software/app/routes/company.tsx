@@ -2,15 +2,28 @@ import type { ReactElement } from "ardo/react"
 import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 import { t } from "@palamedes/core/macro"
-import { blocks, layout, Section, SectionHead, typography } from "@sebastian-websites/ui"
+import {
+  BunnyImage,
+  editorial,
+  frameImageSizes,
+  Illustration,
+  layout,
+  Section,
+} from "@sebastian-websites/ui"
 import { getSiteOrigin } from "@sebastian-websites/web-core"
 
+import missionRadio from "~/assets/illustrations/radio.image.mdx"
 import { Closing } from "~/components/Closing"
 import { Founders } from "~/components/Founders"
-import { Photo } from "~/components/Photo"
 import { laptopPhoto } from "~/lib/photos"
 import { seoMeta } from "~/lib/seo"
 import { variant } from "~/lib/site"
+
+import * as styles from "./company.css.ts"
+
+const WIDE_IMAGE_WIDTH = 1040
+const TEAM_IMAGE_HEIGHT = 693
+const RADIO_HEIGHT = 520
 
 // eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
 export function meta(): ArdoMetaDescriptor[] {
@@ -42,16 +55,25 @@ function Mission(): ReactElement {
   ]
   return (
     <Section>
-      <SectionHead
-        eyebrow={t`Mission`}
-        intro={t`Four themes have guided the company since 2014. They are written down here so that our partners and customers can hold us to them.`}
-        title={t`What we stand for.`}
+      <div className={styles.sectionHead}>
+        <h2 className={editorial.featureHeading}>{t`What we stand for.`}</h2>
+        <p className={editorial.bodySerif}>
+          {t`Four themes have guided the company since 2014. They are written down here so that our partners and customers can hold us to them.`}
+        </p>
+      </div>
+      <Illustration
+        alt={t`A radio with its front panel removed, showing the speaker and wiring.`}
+        className={styles.missionImage}
+        height={RADIO_HEIGHT}
+        sizes={frameImageSizes}
+        src={missionRadio}
+        width={WIDE_IMAGE_WIDTH}
       />
       <div className={layout.columnsTwo}>
         {themes.map((theme) => (
-          <div className={blocks.column} key={theme.title}>
-            <h3 className={typography.h3}>{theme.title}</h3>
-            <p className={typography.textMuted}>{theme.text}</p>
+          <div className={editorial.prose} key={theme.title}>
+            <h3 className={editorial.heading}>{theme.title}</h3>
+            <p className={editorial.body}>{theme.text}</p>
           </div>
         ))}
       </div>
@@ -63,29 +85,38 @@ export default function Company(): ReactElement {
   const consulting = getSiteOrigin("consulting", variant.locale)
   return (
     <main id="main">
-      <Section tone="white">
-        <SectionHead
-          eyebrow={t`Company`}
-          intro={t`Sebastian Fastner and Sebastian Werner have run the company themselves since 2014. Both have worked in professional software development since the early 2000s, for a long time in large frontend projects for corporations, in between on frameworks that many others have used.`}
-          title={t`Two founders. Nothing in between.`}
-          titleAs="h1"
+      <section aria-labelledby="company-title" className={styles.companyIntro}>
+        <BunnyImage
+          alt={t`The two founders at the laptop`}
+          className={styles.companyPhoto}
+          crop={laptopPhoto.crop}
+          height={TEAM_IMAGE_HEIGHT}
+          priority
+          sizes={frameImageSizes}
+          src={laptopPhoto.src}
+          width={WIDE_IMAGE_WIDTH}
         />
-        <div className={layout.split}>
-          <div className={typography.prose}>
-            <p className={typography.text}>
+        <div className={styles.sectionHead}>
+          <h1 className={editorial.featureHeading} id="company-title">
+            {t`Two founders. Nothing in between.`}
+          </h1>
+          <div className={editorial.prose}>
+            <p className={editorial.bodySerif}>
+              {t`Sebastian Fastner and Sebastian Werner have run the company themselves since 2014. Both have worked in professional software development since the early 2000s, for a long time in large frontend projects for corporations, in between on frameworks that many others have used.`}
+            </p>
+            <p className={editorial.bodySerif}>
               {t`We have stayed small on purpose. No juniors, no layer in between, no handover to third parties: whoever works with us works with us. That holds for our products as much as for the project support we deliver as Sebastian Consulting. It is the way of working we have come to know as the most reliable in twenty years.`}
             </p>
-            <p className={typography.text}>
+            <p className={editorial.bodySerif}>
               {t`People who have worked with us tend to describe the same things: broad, current knowledge of web technologies; recommendations that are reasoned and traceable; a view of the whole system rather than only the framework; and the readiness to put a finger on the sore spot when a simpler path is possible. And that teams stand stronger after the collaboration, because knowledge, tools, and standards stay.`}
             </p>
-            <p className={typography.textMuted}>
+            <p className={editorial.body}>
               {t`Sebastian Software GmbH is based in Mainz and registered at the local court of Mainz. The company has no investors and no plans for any: it is owned and run by the two founders.`}
             </p>
           </div>
-          <Photo alt={t`The two founders at the laptop`} frame="landscape" image={laptopPhoto} />
         </div>
         <Founders profileOrigin={consulting} />
-      </Section>
+      </section>
       <Mission />
       <Closing />
     </main>

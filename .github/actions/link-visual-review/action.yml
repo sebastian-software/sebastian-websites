@@ -1,0 +1,18 @@
+name: Link visual review
+description: Update the visual review link on the PR for a completed GitHub Actions run
+inputs:
+  base:
+    description: Base branch of the pull requests handled by the comparison workflow
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Update the visual review comment
+      uses: actions/github-script@v9
+      env:
+        REVIEW_BASE: ${{ inputs.base }}
+        REVIEW_SCRIPT: ${{ github.action_path }}/link.cjs
+      with:
+        script: |
+          const linkReview = require(process.env.REVIEW_SCRIPT)
+          await linkReview(github, context, process.env.REVIEW_BASE)

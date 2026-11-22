@@ -1,30 +1,40 @@
 import type { ReactElement } from "ardo/react"
 
-import { blocks, button, SiteLink } from "@sebastian-websites/ui"
+import { blocks, frameColumnSizes, Illustration, KerameikosLogo } from "@sebastian-websites/ui"
 
 import { getProducts } from "~/data/products"
 
+import { ProductAction } from "./ProductAction"
+import * as styles from "./ProductCards.css.ts"
+
+const CARD_WIDTH = 336
+
 /**
- * The product cards: status, name, what it is for, and where to go next. They
- * render the same collection as the home page, so both pages always agree.
- *
- * @returns The card grid.
+ * Shows each product with a full-width illustration, its identity and next step.
+ * @returns The product grid.
  */
 export function ProductCards(): ReactElement {
   return (
-    <div className={blocks.cards}>
+    <div className={styles.cards}>
       {getProducts().map((product) => (
-        <article className={blocks.card} key={product.id}>
-          <span
-            className={product.released ? blocks.status : `${blocks.status} ${blocks.statusSoon}`}
-          >
-            {product.status}
-          </span>
-          <h3 className={blocks.cardTitle}>{product.name}</h3>
-          <p className={blocks.cardText}>{product.description}</p>
-          <SiteLink className={`${button.ghost} ${blocks.columnLink}`} href={product.action.href}>
-            {product.action.label} <span aria-hidden="true">→</span>
-          </SiteLink>
+        <article className={styles.card} key={product.id}>
+          <Illustration
+            alt={product.illustration.alt}
+            className={styles.image}
+            height={224}
+            sizes={frameColumnSizes(CARD_WIDTH)}
+            src={product.illustration.src}
+            width={CARD_WIDTH}
+          />
+          <div className={styles.body}>
+            <h2 className={styles.title}>
+              <KerameikosLogo name={product.name} />
+            </h2>
+            <p className={blocks.cardText}>{product.description}</p>
+            <p className={styles.action}>
+              <ProductAction action={product.action} />
+            </p>
+          </div>
         </article>
       ))}
     </div>

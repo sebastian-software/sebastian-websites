@@ -1,5 +1,5 @@
-import { color, editorial, font, SPACE_SCALE } from "@sebastian-websites/ui"
-import { style } from "@vanilla-extract/css"
+import { color, editorial, font, SPACE_SCALE } from "@sebastian-websites/ui/styles"
+import { globalStyle, style } from "@vanilla-extract/css"
 
 import { eyebrow as eyebrowText } from "./eyebrow.css.ts"
 
@@ -22,6 +22,14 @@ export const head = style([
   editorial.grid,
   { marginBottom: SPACE_SCALE["2xl"], rowGap: SPACE_SCALE.s },
 ])
+
+export const banner = style([
+  editorial.paperIllustration,
+  editorial.frameMedia,
+  { marginTop: SPACE_SCALE.m },
+])
+
+globalStyle(`${head} > picture`, { gridColumn: FULL_WIDTH })
 
 export const eyebrow = style([eyebrowText, { gridColumn: FULL_WIDTH }])
 

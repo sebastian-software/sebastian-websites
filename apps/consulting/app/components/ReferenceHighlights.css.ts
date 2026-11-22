@@ -1,4 +1,4 @@
-import { editorial, SPACE_SCALE, typeStep } from "@sebastian-websites/ui"
+import { editorial, SPACE_SCALE, typeStep } from "@sebastian-websites/ui/styles"
 import { style } from "@vanilla-extract/css"
 
 export const section = style([editorial.grid, { alignItems: "start", rowGap: SPACE_SCALE.m }])

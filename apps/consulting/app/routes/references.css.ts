@@ -1,4 +1,4 @@
-import { color, COMPACT, editorial, SPACE_SCALE, typeStep } from "@sebastian-websites/ui"
+import { color, COMPACT, editorial, SPACE_SCALE, typeStep } from "@sebastian-websites/ui/styles"
 import { style } from "@vanilla-extract/css"
 
 export const topics = style([

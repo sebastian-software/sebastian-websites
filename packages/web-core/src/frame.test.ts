@@ -16,7 +16,11 @@ describe("site frame", () => {
     for (const site of ["software", "opensource", "skills", "blog"] as const) {
       const frame = getSiteFrame(site, "en", "/")
       expect(frame.brand).toBe("software")
-      expect(frame.navigation.map((link) => link.id)).toStrictEqual(["products", "opensource"])
+      expect(frame.navigation.map((link) => link.id)).toStrictEqual([
+        "products",
+        "opensource",
+        "company",
+      ])
       expect(frame.outbound).toStrictEqual({
         brand: "consulting",
         href: "https://sebastian-consulting.com/",
@@ -54,9 +58,10 @@ describe("site frame", () => {
     expect(frame.navigation.map((link) => link.href)).toStrictEqual([
       "/products",
       "https://oss.sebastian-software.de/",
+      "/company",
     ])
     expect(frame.outbound.href).toBe("https://sebastian-consulting.de/")
-    expect(frame.index.find((link) => link.id === "company")).toStrictEqual({
+    expect(frame.navigation.find((link) => link.id === "company")).toStrictEqual({
       current: true,
       href: "/company",
       id: "company",

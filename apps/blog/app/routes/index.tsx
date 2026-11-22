@@ -2,16 +2,19 @@ import type { ReactElement } from "ardo/react"
 import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 import { t } from "@palamedes/core/macro"
-import { ArrowLink } from "@sebastian-websites/ui"
+import { ArrowLink, frameImageSizes, Illustration } from "@sebastian-websites/ui"
 import { BLOG_PATH } from "@sebastian-websites/web-core"
 import publication from "virtual:ardo/publication"
 
+import writingDesk from "~/assets/writing-desk.image.mdx"
 import { BlogEmpty } from "~/components/blog/BlogEmpty"
 import { blogLead } from "~/components/blog/blogLead"
 import { FeedLinks } from "~/components/blog/FeedLinks"
 import * as styles from "~/components/blog/listing.css.ts"
 import { PostList } from "~/components/blog/PostList"
 import { seoMeta } from "~/lib/seo"
+
+const BANNER_WIDTH = 1040
 
 /** The home page shows the newest posts; the overview below `/posts` lists them all. */
 const LATEST_POSTS = 5
@@ -52,6 +55,15 @@ export default function Home(): ReactElement {
         <h1 className={styles.title}>{t`What we learn while building software.`}</h1>
         <p className={styles.lead}>{blogLead()}</p>
         <FeedLinks publication={publication} />
+        <Illustration
+          alt={t`An engineer turns sketches and a folded prototype into an article.`}
+          className={styles.banner}
+          height={520}
+          priority
+          sizes={frameImageSizes}
+          src={writingDesk}
+          width={BANNER_WIDTH}
+        />
       </div>
       <div className={styles.body}>
         {posts.length === 0 ? (

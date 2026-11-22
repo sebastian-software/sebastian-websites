@@ -37,7 +37,7 @@ export function Founders(props: FoundersProps): ReactElement {
               className={blocks.photoImage}
               loading="lazy"
               {...PHOTOS[founder.id]}
-              sizes={scaledSizes("72px")}
+              sizes={`(max-width: 500px) 30vw, ${scaledSizes("150px")}`}
             />
           </span>
           <div>

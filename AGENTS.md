@@ -2,6 +2,10 @@
 
 ## Images
 
+Use Ardo for the product, landscape, and editorial illustrations on Software, Open Source,
+and the blog. Import a local `*.image.mdx` through `Illustration` as described in the
+[responsive images guide](docs/operations/responsive-images.md). Preserve the original framing.
+
 Use `BunnyImage` from `@sebastian-websites/ui` for raster images that need Bunny
 Optimizer transformations. Read
 [ADR-0015](docs/adr/0015-shared-bunny-image-component.md) and the
@@ -36,6 +40,23 @@ Type, space, and layout are fluid. Read
   overrides for sizes.
 
 ## Pull request screenshots
+
+Include a visual self-review for every pull request that can change rendered
+pages. Capture the base and head in matching conditions using the
+change-screenshots route of `effective-web`, and read the Playwright diffs
+before describing the change. For covered Software views, reuse
+the linked HTML report when available for the current PR revision. See the
+[Software visual comparison guide](apps/software/README.md#visual-comparisons).
+
+Show only changed areas in the PR's `visual-review` section. Pair the before
+and after views. For a copy change, show and frame the enclosing card or
+section so the text has context. State what changed, which differences were
+intended, and which need attention. Use the technical diff for self-review
+and the rendered pairs for the PR description. CI maintains a separate comment
+with the interactive report link. Inspect the images before attaching them. When publishing
+an authorized PR, follow the `effective-delivery` attachment workflow and
+refresh that marked section after later pushes. Omit the image section when
+the compared views match.
 
 Repository facts for the change-screenshots route of `effective-web`:
 

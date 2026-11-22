@@ -31,6 +31,10 @@ msgstr ""
 "{names}: the products of Sebastian Software, each grown out of a gap we saw "
 "ourselves and used in our own work."
 
+#: app/data/products.ts#getProducts
+msgid "A customer wheels a bicycle up to a neighborhood repair shop."
+msgstr "A customer wheels a bicycle up to a neighborhood repair shop."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""
 "A data protection officer has not been appointed, as the legal requirements "
@@ -41,9 +45,10 @@ msgstr ""
 "for this do not apply. For data protection inquiries, you can contact the "
 "email address listed above."
 
-#: app/data/products.ts#getProducts
-msgid "A drawn desk calendar with one booked slot, a pen, and a potted plant."
-msgstr "A drawn desk calendar with one booked slot, a pen, and a potted plant."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/products.ts#getProducts
+#~ msgid "A drawn desk calendar with one booked slot, a pen, and a potted plant."
+#~ msgstr "A drawn desk calendar with one booked slot, a pen, and a potted plant."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "A drawn desk calendar with one marked appointment beside a potted plant."
@@ -59,25 +64,28 @@ msgstr ""
 #~ "A drawn landscape with the cathedral of Mainz above and Heidelberg castle with"
 #~ " its old bridge below."
 
-#: app/components/RegionStory.tsx#RegionStory
-msgid ""
-"A drawn map of the region with Mainz Cathedral at the top, a river through "
-"fields and vineyards, and Heidelberg Castle at the bottom."
-msgstr ""
-"A drawn map of the region with Mainz Cathedral at the top, a river through "
-"fields and vineyards, and Heidelberg Castle at the bottom."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/components/RegionStory.tsx#RegionStory
+#~ msgid ""
+#~ "A drawn map of the region with Mainz Cathedral at the top, a river through "
+#~ "fields and vineyards, and Heidelberg Castle at the bottom."
+#~ msgstr ""
+#~ "A drawn map of the region with Mainz Cathedral at the top, a river through "
+#~ "fields and vineyards, and Heidelberg Castle at the bottom."
 
-#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
-msgid "A drawn road winding through a valley toward the mountains."
-msgstr "A drawn road winding through a valley toward the mountains."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+#~ msgid "A drawn road winding through a valley toward the mountains."
+#~ msgstr "A drawn road winding through a valley toward the mountains."
 
-#: app/data/products.ts#getProducts
-msgid ""
-"A drawn shop front with a striped awning, a blank sandwich board, and potted "
-"trees."
-msgstr ""
-"A drawn shop front with a striped awning, a blank sandwich board, and potted "
-"trees."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/products.ts#getProducts
+#~ msgid ""
+#~ "A drawn shop front with a striped awning, a blank sandwich board, and potted "
+#~ "trees."
+#~ msgstr ""
+#~ "A drawn shop front with a striped awning, a blank sandwich board, and potted "
+#~ "trees."
 
 #~ #@ obsolete-since: 2026-10-07
 #~ #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
@@ -104,6 +112,10 @@ msgstr ""
 #~ "highlighting, Markdown, spell checking, translation catalogs, file walking, "
 #~ "and PDF previews, plus Palamedes, Dalo, and Ardo built on them."
 
+#: app/components/RegionStory.tsx#RegionStory
+msgid "A paper map shows Mainz Cathedral, the Worms bridge tower and Mannheim Palace along the Rhine, and Heidelberg Castle on the Neckar."
+msgstr "A paper map shows Mainz Cathedral, the Worms bridge tower and Mannheim Palace along the Rhine, and Heidelberg Castle on the Neckar."
+
 #~ #@ obsolete-since: 2026-11-11
 #~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
 #~ msgid "A product that works across languages."
@@ -122,6 +134,14 @@ msgstr ""
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "a registered trademark of"
 msgstr "a registered trademark of"
+
+#: app/data/products.ts#getProducts
+msgid ""
+"A salon appointment appears at 10:30 on both the calendar and the customer’s"
+" phone."
+msgstr ""
+"A salon appointment appears at 10:30 on both the calendar and the customer’s"
+" phone."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/products.tsx
@@ -150,6 +170,10 @@ msgstr ""
 "everyday information are current. VorOrt sets up a professional website and "
 "keeps it current: owners describe what changed in the website chat, confirm "
 "the update, and never have to work in a CMS."
+
+#: app/components/RegionStory.tsx#RegionStory
+msgid "About our company"
+msgstr "About our company"
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/home.tsx
@@ -293,6 +317,10 @@ msgstr "Born from gaps we saw"
 #~ "withdraw each choice in the same tool settings used to give it, without "
 #~ "affecting the lawfulness of earlier processing. Public usage statistics remain"
 #~ " disabled pending a separate disclosure assessment."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Branching mountain trails lead from a village toward a summit hut."
+msgstr "Branching mountain trails lead from a village toward a summit hut."
 
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#ProjectSupport
@@ -497,13 +525,14 @@ msgstr "Discover Sebastian/Software"
 msgid "Discover the products"
 msgstr "Discover the products"
 
-#: app/data/products.ts#getProducts
-msgid ""
-"Drawn books and cards with a Latin letter and a Chinese character beside an "
-"open book."
-msgstr ""
-"Drawn books and cards with a Latin letter and a Chinese character beside an "
-"open book."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/products.ts#getProducts
+#~ msgid ""
+#~ "Drawn books and cards with a Latin letter and a Chinese character beside an "
+#~ "open book."
+#~ msgstr ""
+#~ "Drawn books and cards with a Latin letter and a Chinese character beside an "
+#~ "open book."
 
 #: app/routes/products.tsx
 msgid ""
@@ -964,13 +993,13 @@ msgstr "Independent software."
 msgid "Information pursuant to § 5 DDG"
 msgstr "Information pursuant to § 5 DDG"
 
+#: app/routes/company.tsx#Mission
+msgid "A radio with its front panel removed, showing the speaker and wiring."
+msgstr "A radio with its front panel removed, showing the speaker and wiring."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
-msgid ""
-"Insights into our work across software and consulting: what we're building, "
-"exploring and thinking about."
-msgstr ""
-"Insights into our work across software and consulting: what we're building, "
-"exploring and thinking about."
+msgid "Why build our own translation tools? When is it worth reworking an architecture? In our newsletter we share the decisions behind our software and what we learn when teams put it to use."
+msgstr "Why build our own translation tools? When is it worth reworking an architecture? In our newsletter we share the decisions behind our software and what we learn when teams put it to use."
 
 #: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
 msgid ""
@@ -1731,13 +1760,15 @@ msgstr ""
 msgid "Retention and backups"
 msgstr "Retention and backups"
 
-#: app/components/RegionStory.tsx#RegionStory
-msgid "Rhine-Main"
-msgstr "Rhine-Main"
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/components/RegionStory.tsx#RegionStory
+#~ msgid "Rhine-Main"
+#~ msgstr "Rhine-Main"
 
-#: app/components/RegionStory.tsx#RegionStory
-msgid "Rhine-Neckar"
-msgstr "Rhine-Neckar"
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/components/RegionStory.tsx#RegionStory
+#~ msgid "Rhine-Neckar"
+#~ msgstr "Rhine-Neckar"
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid "Right of access (Art. 15 GDPR)"
@@ -2464,6 +2495,12 @@ msgstr "Trust through inspection"
 #~ #: app/components/LogoBand.tsx#LogoBand
 #~ msgid "Trusted by teams at"
 #~ msgstr "Trusted by teams at"
+
+#: app/data/products.ts#getProducts
+msgid ""
+"Two colleagues compare an English source text with its German translation."
+msgstr ""
+"Two colleagues compare an English source text with its German translation."
 
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#Hero

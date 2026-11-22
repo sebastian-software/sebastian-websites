@@ -63,21 +63,23 @@ export function SiteFooter(props: SiteFooterProps): ReactElement {
             </address>
           </div>
           <div className={styles.aside}>
-            <nav aria-label={copy.footer.index}>
-              <ul className={styles.index}>
-                {frame.index.map((link) => (
-                  <li key={link.id}>
-                    <SiteLink
-                      aria-current={link.current ? "page" : undefined}
-                      className={styles.plainLink}
-                      href={link.href}
-                    >
-                      {copy.links[link.id]}
-                    </SiteLink>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            {frame.index.length === 0 ? null : (
+              <nav aria-label={copy.footer.index}>
+                <ul className={styles.index}>
+                  {frame.index.map((link) => (
+                    <li key={link.id}>
+                      <SiteLink
+                        aria-current={link.current ? "page" : undefined}
+                        className={styles.plainLink}
+                        href={link.href}
+                      >
+                        {copy.links[link.id]}
+                      </SiteLink>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
             <ul aria-label={copy.footer.profiles} className={styles.profiles}>
               {COMPANY_PROFILES.map((profile) => (
                 <li key={profile.id}>

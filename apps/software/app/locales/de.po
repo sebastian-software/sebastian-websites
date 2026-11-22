@@ -31,6 +31,10 @@ msgstr ""
 "{names}: die Produkte von Sebastian Software, jedes aus einer Lücke "
 "entstanden, die wir selbst gesehen haben, und im eigenen Alltag im Einsatz."
 
+#: app/data/products.ts#getProducts
+msgid "A customer wheels a bicycle up to a neighborhood repair shop."
+msgstr "Ein Kunde schiebt sein Fahrrad zu einer Werkstatt im Viertel."
+
 #: ../../packages/legal/src/PrivacyDocument.tsx#ControllerSection
 msgid ""
 "A data protection officer has not been appointed, as the legal requirements "
@@ -41,11 +45,12 @@ msgstr ""
 "Voraussetzungen hierfür nicht vorliegen. Bei Datenschutzfragen können Sie "
 "die oben genannte E-Mail-Adresse kontaktieren."
 
-#: app/data/products.ts#getProducts
-msgid "A drawn desk calendar with one booked slot, a pen, and a potted plant."
-msgstr ""
-"Ein gezeichneter Tischkalender mit einem gebuchten Termin, einem Stift und "
-"einer Topfpflanze."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/products.ts#getProducts
+#~ msgid "A drawn desk calendar with one booked slot, a pen, and a potted plant."
+#~ msgstr ""
+#~ "Ein gezeichneter Tischkalender mit einem gebuchten Termin, einem Stift und "
+#~ "einer Topfpflanze."
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "A drawn desk calendar with one marked appointment beside a potted plant."
@@ -62,26 +67,29 @@ msgstr ""
 #~ "Eine gezeichnete Landschaft mit dem Mainzer Dom oben und dem Heidelberger "
 #~ "Schloss mit der Alten Brücke unten."
 
-#: app/components/RegionStory.tsx#RegionStory
-msgid ""
-"A drawn map of the region with Mainz Cathedral at the top, a river through "
-"fields and vineyards, and Heidelberg Castle at the bottom."
-msgstr ""
-"Eine gezeichnete Karte der Region mit dem Mainzer Dom oben, einem Fluss durch "
-"Felder und Weinberge und dem Heidelberger Schloss unten."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/components/RegionStory.tsx#RegionStory
+#~ msgid ""
+#~ "A drawn map of the region with Mainz Cathedral at the top, a river through "
+#~ "fields and vineyards, and Heidelberg Castle at the bottom."
+#~ msgstr ""
+#~ "Eine gezeichnete Karte der Region mit dem Mainzer Dom oben, einem Fluss durch "
+#~ "Felder und Weinberge und dem Heidelberger Schloss unten."
 
-#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
-msgid "A drawn road winding through a valley toward the mountains."
-msgstr ""
-"Eine gezeichnete Straße, die sich durch ein Tal auf die Berge zuwindet."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+#~ msgid "A drawn road winding through a valley toward the mountains."
+#~ msgstr ""
+#~ "Eine gezeichnete Straße, die sich durch ein Tal auf die Berge zuwindet."
 
-#: app/data/products.ts#getProducts
-msgid ""
-"A drawn shop front with a striped awning, a blank sandwich board, and potted "
-"trees."
-msgstr ""
-"Eine gezeichnete Ladenfront mit gestreifter Markise, leerem Kundenstopper und "
-"Bäumen in Kübeln."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/products.ts#getProducts
+#~ msgid ""
+#~ "A drawn shop front with a striped awning, a blank sandwich board, and potted "
+#~ "trees."
+#~ msgstr ""
+#~ "Eine gezeichnete Ladenfront mit gestreifter Markise, leerem Kundenstopper und "
+#~ "Bäumen in Kübeln."
 
 #~ #@ obsolete-since: 2026-10-07
 #~ #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
@@ -107,6 +115,10 @@ msgstr ""
 #~ "Dateisuche und PDF-Vorschauen, dazu Palamedes, Dalo und Ardo, die darauf "
 #~ "aufbauen."
 
+#: app/components/RegionStory.tsx#RegionStory
+msgid "A paper map shows Mainz Cathedral, the Worms bridge tower and Mannheim Palace along the Rhine, and Heidelberg Castle on the Neckar."
+msgstr "Die Papierkarte zeigt den Mainzer Dom, den Wormser Nibelungenturm und das Mannheimer Barockschloss am Rhein sowie das Heidelberger Schloss am Neckar."
+
 #~ #@ obsolete-since: 2026-11-11
 #~ #: app/components/blog/nextStepCopy.ts#nextStepCopy
 #~ msgid "A product that works across languages."
@@ -126,6 +138,12 @@ msgstr ""
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "a registered trademark of"
 msgstr "eine eingetragene Marke der"
+
+#: app/data/products.ts#getProducts
+msgid ""
+"A salon appointment appears at 10:30 on both the calendar and the customer’s"
+" phone."
+msgstr "Ein Friseurtermin um 10:30 Uhr steht im Kalender und auf dem Handy des Kunden."
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/products.tsx
@@ -155,6 +173,10 @@ msgstr ""
 "professionelle Website ein und hält sie aktuell: Inhaberinnen und Inhaber "
 "beschreiben im Website-Chat, was sich geändert hat, bestätigen die Änderung"
 " und müssen nie in einem CMS arbeiten."
+
+#: app/components/RegionStory.tsx#RegionStory
+msgid "About our company"
+msgstr "Über unser Unternehmen"
 
 #~ #@ obsolete-since: 2026-10-06
 #~ #: app/routes/home.tsx
@@ -302,6 +324,10 @@ msgstr "Aus Lücken entstanden, die wir gesehen haben"
 #~ "erteilt haben. Die Rechtmäßigkeit der früheren Verarbeitung bleibt davon "
 #~ "unberührt. Öffentliche Nutzungsstatistiken bleiben bis zu einer gesonderten "
 #~ "Prüfung der Veröffentlichung deaktiviert."
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Branching mountain trails lead from a village toward a summit hut."
+msgstr "Bergpfade verzweigen sich zwischen einem Dorf und einer Gipfelhütte."
 
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#ProjectSupport
@@ -509,13 +535,14 @@ msgstr "Sebastian/Software entdecken"
 msgid "Discover the products"
 msgstr "Produkte entdecken"
 
-#: app/data/products.ts#getProducts
-msgid ""
-"Drawn books and cards with a Latin letter and a Chinese character beside an "
-"open book."
-msgstr ""
-"Gezeichnete Bücher und Karten mit einem lateinischen Buchstaben und einem "
-"chinesischen Schriftzeichen neben einem aufgeschlagenen Buch."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/data/products.ts#getProducts
+#~ msgid ""
+#~ "Drawn books and cards with a Latin letter and a Chinese character beside an "
+#~ "open book."
+#~ msgstr ""
+#~ "Gezeichnete Bücher und Karten mit einem lateinischen Buchstaben und einem "
+#~ "chinesischen Schriftzeichen neben einem aufgeschlagenen Buch."
 
 #: app/routes/products.tsx
 msgid ""
@@ -981,13 +1008,13 @@ msgstr "Unabhängige Software."
 msgid "Information pursuant to § 5 DDG"
 msgstr "Angaben gemäß § 5 DDG"
 
+#: app/routes/company.tsx#Mission
+msgid "A radio with its front panel removed, showing the speaker and wiring."
+msgstr "Ein Radio mit abgenommener Frontblende, sichtbarem Lautsprecher und sauber verlegten Leitungen."
+
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
-msgid ""
-"Insights into our work across software and consulting: what we're building, "
-"exploring and thinking about."
-msgstr ""
-"Einblicke in unsere Arbeit in Software und Beratung: was wir bauen, erkunden "
-"und durchdenken."
+msgid "Why build our own translation tools? When is it worth reworking an architecture? In our newsletter we share the decisions behind our software and what we learn when teams put it to use."
+msgstr "Warum bauen wir ein eigenes Übersetzungswerkzeug? Wann lohnt sich ein Umbau der Architektur? Im Newsletter erzählen wir, wie wir solche Entscheidungen treffen und was wir lernen, wenn Teams mit unserer Software arbeiten."
 
 #: app/components/ToolReportingPrivacy.tsx#ToolReportingPrivacy
 msgid ""
@@ -1768,13 +1795,15 @@ msgstr ""
 msgid "Retention and backups"
 msgstr "Speicherfristen und Sicherungen"
 
-#: app/components/RegionStory.tsx#RegionStory
-msgid "Rhine-Main"
-msgstr "Rhein-Main"
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/components/RegionStory.tsx#RegionStory
+#~ msgid "Rhine-Main"
+#~ msgstr "Rhein-Main"
 
-#: app/components/RegionStory.tsx#RegionStory
-msgid "Rhine-Neckar"
-msgstr "Rhein-Neckar"
+#~ #@ obsolete-since: 2026-11-19
+#~ #: app/components/RegionStory.tsx#RegionStory
+#~ msgid "Rhine-Neckar"
+#~ msgstr "Rhein-Neckar"
 
 #: ../../packages/legal/src/PrivacyRights.tsx#PrivacyRights
 msgid "Right of access (Art. 15 GDPR)"
@@ -2524,6 +2553,11 @@ msgstr "Vertrauen durch Prüfbarkeit"
 #~ #: app/components/LogoBand.tsx#LogoBand
 #~ msgid "Trusted by teams at"
 #~ msgstr "Vertraut von Teams bei"
+
+#: app/data/products.ts#getProducts
+msgid ""
+"Two colleagues compare an English source text with its German translation."
+msgstr "Zwei Kollegen vergleichen einen englischen Ausgangstext mit seiner deutschen Übersetzung."
 
 #~ #@ obsolete-since: 2026-10-07
 #~ #: app/routes/home.tsx#Hero

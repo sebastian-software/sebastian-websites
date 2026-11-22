@@ -1,7 +1,7 @@
 import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
-import { blocks, button, layout, typography } from "@sebastian-websites/ui"
+import { blocks, button, FerramentaLogo, layout, typography } from "@sebastian-websites/ui"
 import { getSiteOrigin } from "@sebastian-websites/web-core"
 
 import { variant } from "~/lib/site"
@@ -37,7 +37,9 @@ export function Families(): ReactElement {
     <div className={layout.columns}>
       {families.map((family) => (
         <div className={blocks.column} key={family.title}>
-          <h3 className={typography.h3}>{family.title}</h3>
+          <h3 className={typography.h3}>
+            {family.title === "Ferramenta" ? <FerramentaLogo /> : family.title}
+          </h3>
           <p className={typography.textMuted}>{family.text}</p>
           <a className={`${button.ghost} ${blocks.columnLink}`} href={family.href}>
             {family.link}

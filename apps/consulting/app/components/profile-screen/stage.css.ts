@@ -1,4 +1,4 @@
-import { FRAME_WIDTH } from "@sebastian-websites/ui"
+import { FRAME_WIDTH } from "@sebastian-websites/ui/styles"
 import { style } from "@vanilla-extract/css"
 
 // The screen stage of the printable profiles: the A4 sheet spans exactly the

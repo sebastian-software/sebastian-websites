@@ -85,21 +85,21 @@ export function ProjectTiles(props: ProjectTilesProps): ReactElement {
           className={`${styles.group} ${styles.groupTone[group.id]}`}
           key={group.id}
         >
-          <h3 className={styles.groupTitle} id={`group-${group.id}`}>
+          <h2 className={styles.groupTitle} id={`group-${group.id}`}>
             {text.groups[group.id]}
-          </h3>
+          </h2>
           <ul className={styles.grid}>
             {group.projects.map((project) => (
               <li key={project.repo}>
                 <article className={styles.tile}>
-                  <h4 className={styles.name}>
+                  <h3 className={styles.name}>
                     <a
                       className={styles.link}
                       href={`https://github.com/sebastian-software/${project.repo}`}
                     >
                       {project.name}
                     </a>
-                  </h4>
+                  </h3>
                   <p className={styles.description}>{project.description}</p>
                   <ul className={styles.badges}>
                     <li className={styles.badge}>{text.technologies[project.technology]}</li>

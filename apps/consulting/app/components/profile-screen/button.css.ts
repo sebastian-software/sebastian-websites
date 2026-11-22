@@ -1,4 +1,4 @@
-import { color, font, scaled } from "@sebastian-websites/ui"
+import { color, font, scaled } from "@sebastian-websites/ui/styles"
 import { style, styleVariants } from "@vanilla-extract/css"
 
 const base = style({

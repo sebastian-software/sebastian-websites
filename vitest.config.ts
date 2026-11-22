@@ -30,7 +30,15 @@ function project(
     ...options,
     root,
     resolve: {
-      alias: [...reactAliases, { find: "~", replacement: path.join(root, "app") }],
+      alias: [
+        ...reactAliases,
+        // Unit tests exercise placement and labels. The browser checks exercise Ardo's encoded files.
+        {
+          find: /^.*\.image\.mdx$/u,
+          replacement: path.join(import.meta.dirname, "packages/ui/src/test/image-module.tsx"),
+        },
+        { find: "~", replacement: path.join(root, "app") },
+      ],
     },
     test: {
       name,

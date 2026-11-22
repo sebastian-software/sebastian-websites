@@ -46,11 +46,8 @@ export const availabilityCapacity = style({
 
 export const firstPageSectionGap = style({
   "@media": {
-    [PAGED_SCREEN]: {
-      marginBottom: "3.25rem",
-    },
-    print: {
-      marginBottom: "3.25rem",
+    [`${PAGED_SCREEN}, print`]: {
+      selectors: { "&[data-project-profile-section]": { marginBottom: "3.25rem" } },
     },
   },
 })

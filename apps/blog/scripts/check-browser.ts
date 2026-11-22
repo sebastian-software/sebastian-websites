@@ -62,6 +62,7 @@ function origin(locale: Locale): string {
   return getVariant(`blog-${locale}`).canonicalOrigin
 }
 const media: Record<string, string> = {
+  ".avif": "image/avif",
   ".css": "text/css",
   ".html": "text/html",
   ".ico": "image/x-icon",
@@ -72,6 +73,7 @@ const media: Record<string, string> = {
   ".svg": "image/svg+xml",
   ".txt": "text/plain",
   ".webmanifest": "application/manifest+json",
+  ".webp": "image/webp",
   ".woff2": "font/woff2",
   ".xml": "application/xml",
 }
@@ -449,7 +451,7 @@ async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
   const current = await fixture(build)
   const context = await browser.newContext()
   // Serve new Bunny originals from the build, and fetch each other remote asset once.
-  await context.route("https://**", async (route) => {
+  await context.route(/^https:/v, async (route) => {
     const url = new URL(route.request().url())
     if (url.hostname === "assets.sebastian-software.com" && url.pathname.startsWith("/images/")) {
       try {

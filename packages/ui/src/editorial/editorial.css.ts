@@ -8,7 +8,8 @@ import {
 } from "@sebastian-websites/tokens"
 import { createVar, globalStyle, style, styleVariants } from "@vanilla-extract/css"
 
-import { bleed, COMPACT, PAGE_WIDTH, PHONE } from "../responsive.ts"
+import { panelCorners } from "../frame/corners.ts"
+import { COMPACT, FRAME_OVERHANG, PAGE_WIDTH, PHONE } from "../responsive.ts"
 import { color, font } from "../theme.css.ts"
 
 /**
@@ -29,6 +30,25 @@ function step(value: TypeStep): { fontSize: string; letterSpacing: string; lineH
  */
 export const page = style({ marginInline: "auto", width: PAGE_WIDTH })
 
+const frameMargin = `calc(-1 * ${FRAME_OVERHANG})`
+
+/** A block inside the editorial grid that reaches both header edges. */
+export const frameOutset = style({ marginInline: frameMargin })
+
+/** A column reaches the nearest header edge, or both edges when stacked. */
+export const frameMediaEdge = styleVariants({
+  end: {
+    "@media": { [COMPACT]: { marginInline: frameMargin } },
+    marginInlineEnd: frameMargin,
+    minWidth: 0,
+  },
+  start: {
+    "@media": { [COMPACT]: { marginInline: frameMargin } },
+    marginInlineStart: frameMargin,
+    minWidth: 0,
+  },
+})
+
 /**
  * The shared 12-column grid. Children place themselves with `gridColumn`. On
  * compact screens it is a single column, so the desktop placements fall away.
@@ -46,11 +66,11 @@ globalStyle(`${grid} > *`, {
   "@media": { [COMPACT]: { gridColumn: "1 / -1 !important", gridRow: "auto !important" } },
 })
 
-/** Vertical space after a section; the next section starts without its own top. */
 /** A photograph across the page: 2:1 on desktop, 4:3 on phones so faces stay large. */
 export const widePhoto = style({
   "@media": { [PHONE]: { aspectRatio: "4 / 3" } },
   aspectRatio: "2 / 1",
+  ...panelCorners,
   backgroundColor: color.tint,
   display: "block",
   height: "auto",
@@ -58,6 +78,7 @@ export const widePhoto = style({
   width: "100%",
 })
 
+/** Vertical space after a section; the next section starts without its own top. */
 export const section = style({ paddingBottom: RHYTHM.section })
 
 // ---- Type ------------------------------------------------------------------
@@ -70,6 +91,7 @@ const serifHeading = {
 
 export const display = style({ ...serifHeading, ...step(TYPE_SCALE.display) })
 export const title = style({ ...serifHeading, ...step(TYPE_SCALE.title) })
+export const featureHeading = style([title, { fontSize: typeStep("4"), lineHeight: 1.16 }])
 export const heading = style({ ...serifHeading, ...step(TYPE_SCALE.heading) })
 export const subheading = style({ ...serifHeading, ...step(TYPE_SCALE.subheading) })
 
@@ -204,9 +226,6 @@ export const outboundArrow = style([
 
 // ---- Illustrated story -------------------------------------------------------
 
-/** Media reaches this far beyond the text edge on its outer side. */
-const MEDIA_BLEED = bleed("40px")
-
 export const story = style([
   grid,
   {
@@ -215,28 +234,15 @@ export const story = style([
   },
 ])
 
-/** Text placement, keyed by the illustration's side. */
+/** Mirrored six-column slots keep the gutter clear on both sides. */
 export const storyContent = styleVariants({
-  end: { gridColumn: "1 / span 5", gridRow: 1 },
-  start: { gridColumn: "7 / span 6", gridRow: 1 },
+  end: { gridColumn: "1 / span 6", gridRow: 1, minWidth: 0 },
+  start: { gridColumn: "7 / span 6", gridRow: 1, minWidth: 0 },
 })
 
-/** Stacked on compact screens, the illustration stays inside the page. */
-const stackedMedia = { "@media": { [COMPACT]: { marginInline: 0, marginTop: scaled("8px") } } }
-
 export const storyMedia = styleVariants({
-  end: {
-    ...stackedMedia,
-    gridColumn: "6 / span 7",
-    gridRow: 1,
-    marginRight: `calc(-1 * ${MEDIA_BLEED})`,
-  },
-  start: {
-    ...stackedMedia,
-    gridColumn: "1 / span 6",
-    gridRow: 1,
-    marginLeft: `calc(-1 * ${MEDIA_BLEED})`,
-  },
+  end: [frameMediaEdge.end, { gridColumn: "7 / span 6", gridRow: 1 }],
+  start: [frameMediaEdge.start, { gridColumn: "1 / span 6", gridRow: 1 }],
 })
 
 export const storyList = style({ display: "grid", rowGap: RHYTHM.story })
@@ -266,3 +272,18 @@ export const storyActions = style({
 })
 
 export const media = style({ display: "block", height: "auto", width: "100%" })
+
+export const rounded = style(panelCorners)
+
+/** The edge of a mounted paper illustration. The source sets the aspect ratio. */
+export const paperIllustration = style([
+  media,
+  rounded,
+  { boxShadow: "0 2px 7px rgb(31 48 43 / 10%)" },
+])
+
+/** Full-width photographs and banners line up with the header shell. */
+export const frameMedia = style([
+  frameOutset,
+  { maxWidth: "none", width: `calc(100% + 2 * ${FRAME_OVERHANG})` },
+])

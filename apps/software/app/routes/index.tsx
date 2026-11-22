@@ -2,7 +2,7 @@ import type { ReactElement } from "ardo/react"
 import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 import { t } from "@palamedes/core/macro"
-import { ArrowLink, BunnyImage, editorial, editorialSizes } from "@sebastian-websites/ui"
+import { ArrowLink, BunnyImage, frameImageSizes } from "@sebastian-websites/ui"
 
 import { OpenFoundations } from "~/components/OpenFoundations"
 import { ProductStory } from "~/components/ProductStory"
@@ -22,13 +22,25 @@ export function meta(): ArdoMetaDescriptor[] {
   })
 }
 
-/** The founders' photograph spans the page: 1040 CSS pixels on desktop. */
+/** The fallback width of the founders' photograph. */
 const TEAM_PHOTO_WIDTH = 1040
 
 export default function Home(): ReactElement {
   const products = getProducts()
   return (
     <main className={styles.main} id="main">
+      <figure className={styles.photoFrame}>
+        <BunnyImage
+          alt={t`Sebastian Werner and Sebastian Fastner in the office lounge`}
+          className={styles.photo}
+          crop={teamPhoto.crop}
+          height={520}
+          priority
+          sizes={frameImageSizes}
+          src={teamPhoto.src}
+          width={TEAM_PHOTO_WIDTH}
+        />
+      </figure>
       <section aria-labelledby="home-title" className={styles.hero}>
         <h1 className={styles.heroTitle} id="home-title">
           {t`Independent software.`}
@@ -44,27 +56,16 @@ export default function Home(): ReactElement {
           </p>
         </div>
       </section>
-      <figure className={styles.photoFrame}>
-        <BunnyImage
-          alt={t`Sebastian Werner and Sebastian Fastner in the office lounge`}
-          className={editorial.widePhoto}
-          crop={teamPhoto.crop}
-          height={520}
-          sizes={editorialSizes(TEAM_PHOTO_WIDTH)}
-          src={teamPhoto.src}
-          width={TEAM_PHOTO_WIDTH}
-        />
-      </figure>
       <div className={styles.stories}>
         {products.map((product, index) => (
           <ProductStory index={index} key={product.id} product={product} />
         ))}
       </div>
       <div className={styles.company}>
-        <RegionStory />
+        <OpenFoundations />
       </div>
       <div className={styles.company}>
-        <OpenFoundations />
+        <RegionStory />
       </div>
     </main>
   )

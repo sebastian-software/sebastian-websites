@@ -21,7 +21,7 @@ jobs:
     # GitHub-hosted on purpose: this repository is public, and pull requests from
     # forks must not run on the self-hosted runner. Deployment jobs, which need
     # secrets, are added when the first variant goes live (plan 02, ADR-0009).
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     timeout-minutes: 20
     steps:
       # Full history: Ardo dates pages and publication sources from Git.
@@ -51,6 +51,7 @@ jobs:
       - name: Check the blog fixtures
         run: pnpm --filter @sebastian-websites/blog check:fixtures
       - name: Verify both Software artifacts before publication
+        id: software-capture
         run: pnpm --filter @sebastian-websites/software check:browser
       - name: Verify both tech blog artifacts before publication
         run: pnpm --filter @sebastian-websites/blog check:browser
@@ -60,3 +61,83 @@ jobs:
         run: pnpm --filter @sebastian-websites/blog check:browser:fixtures
       - name: Verify the reporting website in both languages
         run: pnpm --filter @sebastian-websites/app-tracking check:browser
+      - name: Compare Software homepage screenshots
+        run: pnpm --filter @sebastian-websites/software check:visual
+      - name: Capture responsive views of both pull request revisions
+        id: pr-captures
+        if: ${{ !cancelled() && github.event_name == 'pull_request' && steps.software-capture.outcome == 'success' }}
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          base_checkout="$(mktemp -d "$RUNNER_TEMP/software-review-base.XXXXXX")"
+          git worktree add --detach "$base_checkout" "$BASE_SHA"
+          pnpm --dir "$base_checkout" install --frozen-lockfile
+          pnpm --dir "$base_checkout" --filter @sebastian-websites/software build:de
+          SOFTWARE_REVIEW_BASE_BUILD="$base_checkout/apps/software/build/software-de/client" \
+            pnpm --filter @sebastian-websites/software check:browser
+      - name: Find visual changes against the pull request base
+        id: pr-snapshots
+        if: ${{ !cancelled() && steps.pr-captures.outcome == 'success' }}
+        continue-on-error: true
+        run: |
+          review_root="$GITHUB_WORKSPACE/apps/software/build/visual-pr"
+          SOFTWARE_VISUAL_RESPONSIVE=1 \
+            SOFTWARE_VISUAL_EVIDENCE="$review_root/candidate" \
+            SOFTWARE_VISUAL_REFERENCE="$review_root/reference" \
+            SOFTWARE_VISUAL_RESULTS="$review_root/results" \
+            SOFTWARE_VISUAL_REPORT="$review_root/technical" \
+            pnpm --filter @sebastian-websites/software check:visual
+      - name: Check out the screenshot alignment tool
+        if: ${{ !cancelled() && steps.pr-snapshots.outcome == 'failure' }}
+        uses: actions/checkout@v7
+        with:
+          repository: sebastian-software/effective-agent
+          ref: 049cf6a9b7535d00a0f0382765d97b0a57b47c77
+          path: apps/software/build/visual-tools
+          sparse-checkout: skills/effective-web/scripts
+          persist-credentials: false
+      - name: Render before-and-after review images
+        id: render-visual-review
+        if: ${{ !cancelled() && steps.pr-snapshots.outcome == 'failure' }}
+        run: |
+          review_root="$GITHUB_WORKSPACE/apps/software/build/visual-pr"
+          SOFTWARE_VISUAL_RESPONSIVE=1 \
+            SOFTWARE_VISUAL_BOXES="$GITHUB_WORKSPACE/apps/software/build/visual-tools/skills/effective-web/scripts/visual-change-boxes.mjs" \
+            SOFTWARE_VISUAL_RESULTS="$review_root/results" \
+            SOFTWARE_VISUAL_REVIEW="$review_root/review" \
+            pnpm --filter @sebastian-websites/software review:visual
+          if [[ -f "$review_root/review/report.html" ]]; then
+            printf 'path=%s\n' "$review_root/review/report.html" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Save pull request visual review
+        id: pr-visual-review
+        if: ${{ !cancelled() && steps.render-visual-review.outputs.path != '' }}
+        uses: ./.github/actions/upload-visual-review
+        with:
+          report: ${{ steps.render-visual-review.outputs.path }}
+      - name: Link the visual review from the run summary
+        if: ${{ !cancelled() && steps.pr-visual-review.outputs.url != '' }}
+        env:
+          REVIEW_URL: ${{ steps.pr-visual-review.outputs.url }}
+        run: |
+          printf '## Visual review\n\n[Open interactive visual review](%s)\n' "$REVIEW_URL" >> "$GITHUB_STEP_SUMMARY"
+      - name: Save Software layout screenshots
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: software-layout
+          path: |
+            apps/software/build/evidence/software-*-home.png
+            apps/software/build/evidence/software-*-products.png
+            apps/software/build/evidence/software-*-company.png
+            apps/software/build/evidence/software-*-sticky-header.png
+          retention-days: 7
+      - name: Save Software visual comparison
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: software-visual-diff
+          path: |
+            apps/software/build/visual-report/
+            apps/software/build/visual-pr/technical/
+          retention-days: 7

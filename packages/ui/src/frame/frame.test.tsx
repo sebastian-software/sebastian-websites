@@ -91,7 +91,9 @@ const texts = (elements: Iterable<Element>): Array<null | string> =>
   [...elements].map((element) => element.textContent)
 
 const softwareLinks =
-  BLOG_NAVIGATION === "off" ? ["Products", "Open Source"] : ["Products", "Open Source", "Blog"]
+  BLOG_NAVIGATION === "off"
+    ? ["Products", "Open Source", "Company"]
+    : ["Products", "Open Source", "Company", "Blog"]
 
 describe("SiteHeader", () => {
   it("shows one current logo, local links, the language switch, and a plain outward link", () => {
@@ -201,6 +203,7 @@ describe("PageEnding", () => {
     expect(texts(footer.querySelectorAll("img"))).toHaveLength(1)
     expect(footer.querySelector("img")?.getAttribute("alt")).toBe("Sebastian Software")
     expect(footer.querySelector("form")).toBeNull()
+    expect(footer.querySelector('nav[aria-label="Site index"]')).toBeNull()
     expect(footer.textContent).not.toContain("Sebastian Consulting")
     expect(footer.querySelector("address")?.textContent).toContain("Dalheimer Straße 12")
     expect(

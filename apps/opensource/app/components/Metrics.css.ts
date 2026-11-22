@@ -7,9 +7,10 @@ import {
   scaled,
   SPACE_SCALE,
   typeStep,
-} from "@sebastian-websites/ui"
+} from "@sebastian-websites/ui/styles"
 import { globalStyle, style } from "@vanilla-extract/css"
 
+const spaceBetween = "space-between" as const
 const nameColumnWidth = `clamp(${scaled("150px")}, 20vw, ${scaled("240px")})`
 
 export const page = style([editorial.page, { paddingTop: SPACE_SCALE.m }])
@@ -19,6 +20,23 @@ export const heading = style([
   editorial.title,
   { fontSize: typeStep("3"), marginBottom: SPACE_SCALE.s },
 ])
+export const homeIntro = style([editorial.grid, { alignItems: "center", rowGap: SPACE_SCALE.m }])
+export const introCopy = style({ gridColumn: "1 / span 6" })
+export const introText = style([editorial.body, { maxWidth: "42ch" }])
+export const counterSlot = style([editorial.frameMediaEdge.end, { gridColumn: "7 / span 6" }])
+export const counter = editorial.paperIllustration
+
+export const overviewCard = style([
+  editorial.frameOutset,
+  editorial.rounded,
+  {
+    backgroundColor: color.tint,
+    boxShadow: "0 8px 24px -12px rgb(31 48 60 / 20%)",
+    marginTop: SPACE_SCALE.l,
+    padding: SPACE_SCALE.s,
+  },
+])
+
 export const overview = style({
   "@media": { [COMPACT]: { gridTemplateColumns: "repeat(2, minmax(0, 1fr))" } },
   borderBlock: `1px solid ${color.rule}`,
@@ -26,16 +44,49 @@ export const overview = style({
   gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
   marginBlock: SPACE_SCALE.l,
 })
-globalStyle(`${overview} > div`, { minWidth: 0, padding: `${SPACE_SCALE.m} ${SPACE_SCALE.s}` })
-globalStyle(`${overview} dt`, { color: color.text, fontSize: typeStep("-1") })
+globalStyle(`${overview} > div`, {
+  display: "grid",
+  gridRow: "span 2",
+  gridTemplateRows: "subgrid",
+  minWidth: 0,
+  padding: `${SPACE_SCALE.m} ${SPACE_SCALE.s}`,
+})
+globalStyle(`${overview} dt`, {
+  alignItems: "center",
+  color: color.text,
+  display: "flex",
+  fontSize: typeStep("0"),
+  gap: SPACE_SCALE["2xs"],
+})
+export const metricIcon = style({
+  color: color.accent,
+  flexShrink: 0,
+})
 globalStyle(`${overview} dd`, {
   color: color.accent,
   fontFamily: font.serif,
-  fontSize: typeStep("4"),
+  fontSize: typeStep("5"),
   fontVariantNumeric: "tabular-nums",
   lineHeight: 1.2,
   margin: `${SPACE_SCALE["2xs"]} 0 0`,
 })
+const cardMetrics = `${overviewCard} > ${overview}`
+globalStyle(cardMetrics, {
+  "@media": {
+    "(max-width: 36em)": { gridTemplateColumns: "minmax(0, 1fr)" },
+    [`${COMPACT} and (min-width: 36em)`]: {
+      gridTemplateColumns: "repeat(2, minmax(max-content, 1fr))",
+    },
+  },
+  borderBlock: 0,
+  gap: `${SPACE_SCALE.xs} ${SPACE_SCALE.s}`,
+  gridTemplateColumns: "repeat(4, minmax(max-content, 1fr))",
+  marginBlock: 0,
+})
+globalStyle(`${cardMetrics} > div`, { padding: 0 })
+globalStyle(`${cardMetrics} dt`, { whiteSpace: "nowrap" })
+globalStyle(`${cardMetrics} dd`, { margin: 0 })
+
 export const note = style([editorial.caption, { marginTop: SPACE_SCALE.xs }])
 export const tools = style({
   alignItems: "end",
@@ -77,7 +128,7 @@ export const toolbar = style({
   display: "flex",
   flexWrap: "wrap",
   gap: SPACE_SCALE.s,
-  justifyContent: "space-between",
+  justifyContent: spaceBetween,
   marginBlock: SPACE_SCALE.s,
 })
 export const notice = style({
@@ -143,10 +194,7 @@ export const sources = style({
 globalStyle(`${sources} li`, { borderTop: `1px solid ${color.rule}`, paddingTop: SPACE_SCALE.xs })
 export const skills = style([sources])
 export const prose = style([editorial.prose, editorial.small, { maxWidth: "68ch" }])
-export const home = style([
-  section,
-  { borderTop: `1px solid ${color.rule}`, paddingTop: SPACE_SCALE.xl },
-])
+export const home = section
 
 export const dashboard = style({})
 export const dashboardHeader = style({
@@ -154,7 +202,7 @@ export const dashboardHeader = style({
   display: "flex",
   flexWrap: "wrap",
   gap: SPACE_SCALE.s,
-  justifyContent: "space-between",
+  justifyContent: spaceBetween,
 })
 export const tableScroll = style({
   marginTop: SPACE_SCALE.xs,

@@ -1,5 +1,31 @@
 # Responsive images
 
+## Local illustrations on the Software sites
+
+Ardo prepares the editorial illustrations on Software, Open Source, and the blog home page.
+It also prepares the shared newsletter, invitation, and Ferramenta artwork. Keep the original
+in the repository in its intended aspect ratio. Add a sibling `*.image.mdx` snippet with a
+literal relative path so Ardo can discover the image at build time. For example:
+
+```mdx
+import { ArdoImage as Image } from "ardo/ui"
+
+export default function ImageLayout({ children }) {
+  return children
+}
+
+<Image src="./mainz-heidelberg.webp" {...props} />
+```
+
+Import that snippet as the `src` of `Illustration` or `StoryIllustration`. The caller supplies
+localized alternative text, CSS, and responsive `sizes`. Ardo emits AVIF sizes and a JPEG fallback
+under the website's own `assets/posts/` path. The unframed image keeps its complete composition.
+Use `priority` on the LCP illustration. The generated `picture` is the layout child, with the
+passed class on its `img`. The [visual reference](../../design/paper-miniatures/README.md) describes
+the illustration style.
+
+## Shared photography and Bunny transformations
+
 `BunnyImage` in `@sebastian-websites/ui` renders a responsive image using the shared
 Bunny asset zone. Originals have known dimensions; `srcset` candidates never exceed
 the available crop. The browser uses `sizes` and its pixel density to choose a variant.

@@ -1,6 +1,7 @@
 import { RADIUS, scaled, SPACE, TYPE, typeStep } from "@sebastian-websites/tokens"
 import { style, styleVariants } from "@vanilla-extract/css"
 
+import { panelCorners } from "./frame/corners.ts"
 import { color, NARROW, ON_NIGHT } from "./theme.css.ts"
 
 // ---- Hero ------------------------------------------------------------------
@@ -46,15 +47,15 @@ export const factLabel = style({ color: color.muted, fontSize: TYPE.tiny })
 // ---- Photos ----------------------------------------------------------------
 
 export const photo = style({
+  ...panelCorners,
   backgroundColor: color.line,
-  borderRadius: RADIUS.panel,
   overflow: "hidden",
   position: "relative",
 })
 
 export const photoFrame = styleVariants({
   landscape: { aspectRatio: "4 / 3" },
-  portrait: { aspectRatio: "4 / 5" },
+  portrait: { aspectRatio: "3 / 4" },
   square: { aspectRatio: "1 / 1" },
 })
 
@@ -262,21 +263,21 @@ export const persons = style({
   marginTop: scaled("80px"),
 })
 
+export const PERSON_PHOTO_SIZE = `min(${scaled("150px")}, 30vw)`
+
 export const person = style({
   alignItems: "start",
-  borderTop: `1px solid ${color.line}`,
   display: "grid",
   gap: SPACE.md,
-  gridTemplateColumns: `${scaled("72px")} 1fr`,
-  paddingTop: scaled("28px"),
+  gridTemplateColumns: `${PERSON_PHOTO_SIZE} minmax(0, 1fr)`,
 })
 
 export const face = style({
-  borderRadius: "50%",
-  height: scaled("72px"),
+  ...panelCorners,
+  height: PERSON_PHOTO_SIZE,
   overflow: "hidden",
   position: "relative",
-  width: scaled("72px"),
+  width: PERSON_PHOTO_SIZE,
 })
 
 export const personName = style({

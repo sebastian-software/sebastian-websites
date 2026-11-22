@@ -9,6 +9,9 @@ import path from "node:path"
 import { fileURLToPath } from "node:url"
 import { type Browser, type BrowserContext, chromium, type Page } from "playwright"
 
+import { captureScrolledHeader } from "./capture-scrolled-header.ts"
+import { REVIEW_VIEWPORTS } from "./visual-views.ts"
+
 const app = fileURLToPath(new URL("..", import.meta.url))
 const builds = path.join(app, "build")
 const evidence = path.join(app, "build/evidence")
@@ -22,6 +25,8 @@ const PERFORMANCE_SAMPLES = 5
 const PERCENT = 100
 const LCP_BUDGET = 1.1
 const CLS_TOLERANCE = 0.001
+const PRODUCT_COUNT = 3
+const MENU_TOGGLE = "header button[popovertarget]"
 const PRODUCTS_LINK = 'header a[href="/products"]'
 const VIEWPORTS = [
   { height: 1000, width: 1440 },
@@ -37,6 +42,7 @@ function median(values: number[]): number {
   return values.toSorted((a, b) => a - b)[Math.floor(values.length / 2)]
 }
 const media: Record<string, string> = {
+  ".avif": "image/avif",
   ".css": "text/css",
   ".html": "text/html",
   ".ico": "image/x-icon",
@@ -47,6 +53,7 @@ const media: Record<string, string> = {
   ".svg": "image/svg+xml",
   ".txt": "text/plain",
   ".webmanifest": "application/manifest+json",
+  ".webp": "image/webp",
   ".woff2": "font/woff2",
   ".xml": "application/xml",
 }
@@ -355,17 +362,47 @@ async function checkRoute(
   await checkAlternates(page, pathname)
   await checkSocialMeta(page, canonical, `${variant}${pathname}`)
   assert.ok(
-    await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= document.documentElement.clientWidth
+    ),
     `${variant}${pathname}: overflow`
   )
+  if (pathname === "/" || pathname === "/products") {
+    const products = page.locator("main article")
+    const images = products.locator('picture:has(source[type="image/avif"]) > img')
+    assert.equal(await images.count(), PRODUCT_COUNT, "All three product images use Ardo")
+    for (const image of await images.all()) {
+      assert.match((await image.getAttribute("src")) ?? "", /^\/assets\/posts\/[\da-f]+\.jpg$/v)
+      assert.ok(
+        await image.evaluate(
+          (element) => element instanceof HTMLImageElement && element.naturalWidth > 0
+        )
+      )
+    }
+  }
   if (old) await compareBaseline(context, page, { old, pathname, variant, viewport })
+  await captureRouteEvidence(page, options)
+}
+async function captureRouteEvidence(
+  page: Page,
+  options: Pick<RouteOptions, "pathname" | "variant" | "viewport">,
+  directory = evidence
+): Promise<void> {
+  const { pathname, variant, viewport } = options
   await page.screenshot({
+    animations: "disabled",
     fullPage: true,
     path: path.join(
-      evidence,
+      directory,
       `${variant}-${viewport.width}-${pathname === "/" ? "home" : pathname.slice(1)}.png`
     ),
   })
+  if (pathname === "/") {
+    await captureScrolledHeader(
+      page,
+      path.join(directory, `${variant}-${viewport.width}-sticky-header.png`)
+    )
+  }
 }
 async function checkNavigation(page: Page, current: Fixture, locale: Locale): Promise<void> {
   await page.setViewportSize({ height: 844, width: 390 })
@@ -375,7 +412,7 @@ async function checkNavigation(page: Page, current: Fixture, locale: Locale): Pr
   assert.equal(await page.locator(":focus").getAttribute("href"), "#main")
   await page.keyboard.press("Enter")
   assert.equal(new URL(page.url()).hash, "#main")
-  await page.locator("header button[popovertarget]").click()
+  await page.locator(MENU_TOGGLE).click()
   assert.ok(await page.locator(PRODUCTS_LINK).isVisible())
   const otherOrigin = `https://sebastian-software.${locale === "de" ? "com" : "de"}/`
   assert.equal(
@@ -389,7 +426,7 @@ async function checkNavigation(page: Page, current: Fixture, locale: Locale): Pr
     await page.locator("header [popover]").evaluate((element) => element.matches(":popover-open")),
     false
   )
-  await page.locator("header button[popovertarget]").click()
+  await page.locator(MENU_TOGGLE).click()
   await page.locator(PRODUCTS_LINK).click()
   await settle(page)
   await page.goBack()
@@ -562,15 +599,10 @@ async function checkCatalogRecovery(
   }
 }
 
-async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
-  const variant = `software-${locale}`
-  const build = path.join(builds, variant, "client")
-  const current = await fixture(build)
-  const old =
-    baseline === undefined ? undefined : await fixture(path.resolve(baseline, variant, "client"))
+async function assetContext(browser: Browser, build: string): Promise<BrowserContext> {
   const context = await browser.newContext()
   // Fix asset bytes across old/new comparisons; new Bunny originals need no publication.
-  await context.route("https://**", async (route) => {
+  await context.route(/^https:/v, async (route) => {
     const url = new URL(route.request().url())
     if (url.hostname === "assets.sebastian-software.com" && url.pathname.startsWith("/images/")) {
       try {
@@ -595,6 +627,36 @@ async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
     }
     await route.fulfill(cached)
   })
+  return context
+}
+
+async function captureReviewBuild(browser: Browser, build: string, output: string): Promise<void> {
+  await mkdir(output, { recursive: true })
+  const current = await fixture(build)
+  const context = await assetContext(browser, build)
+  try {
+    const page = await context.newPage()
+    for (const viewport of REVIEW_VIEWPORTS) {
+      await page.setViewportSize(viewport)
+      const response = await page.goto(current.origin)
+      assert.equal(response?.status(), OK)
+      await settle(page)
+      await settleImages(page)
+      await captureRouteEvidence(page, { pathname: "/", variant: "software-de", viewport }, output)
+    }
+  } finally {
+    await context.close()
+    await current.close()
+  }
+}
+
+async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
+  const variant = `software-${locale}`
+  const build = path.join(builds, variant, "client")
+  const current = await fixture(build)
+  const old =
+    baseline === undefined ? undefined : await fixture(path.resolve(baseline, variant, "client"))
+  const context = await assetContext(browser, build)
   const page = await context.newPage()
   const errors: string[] = []
   page.on("pageerror", (error) => errors.push(error.message))
@@ -631,10 +693,22 @@ async function checkLocale(browser: Browser, locale: Locale): Promise<void> {
     await old?.close()
   }
 }
-await mkdir(evidence, { recursive: true })
 const testBrowser = await chromium.launch()
 try {
-  for (const locale of ["de", "en"] as const) await checkLocale(testBrowser, locale)
+  const reviewBase = process.env.SOFTWARE_REVIEW_BASE_BUILD
+  if (reviewBase === undefined) {
+    await mkdir(evidence, { recursive: true })
+    for (const locale of ["de", "en"] as const) await checkLocale(testBrowser, locale)
+  } else {
+    const output = path.resolve(
+      process.env.SOFTWARE_REVIEW_OUTPUT ?? path.join(builds, "visual-pr")
+    )
+    const reviewHead = path.resolve(
+      process.env.SOFTWARE_REVIEW_HEAD_BUILD ?? path.join(builds, "software-de/client")
+    )
+    await captureReviewBuild(testBrowser, path.resolve(reviewBase), path.join(output, "reference"))
+    await captureReviewBuild(testBrowser, reviewHead, path.join(output, "candidate"))
+  }
 } finally {
   await testBrowser.close()
 }

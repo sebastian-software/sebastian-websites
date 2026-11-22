@@ -29,9 +29,10 @@ msgid "A drawn desk calendar with one marked appointment beside a potted plant."
 msgstr ""
 "A drawn desk calendar with one marked appointment beside a potted plant."
 
-#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
-msgid "A drawn road winding through a valley toward the mountains."
-msgstr "A drawn road winding through a valley toward the mountains."
+#~ #@ obsolete-since: 2026-11-19
+#~ #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+#~ msgid "A drawn road winding through a valley toward the mountains."
+#~ msgstr "A drawn road winding through a valley toward the mountains."
 
 #: app/components/blog/nextStepCopy.ts#nextStepCopy
 msgid "A product that works across languages."
@@ -59,6 +60,10 @@ msgstr "All posts"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Almost done: please confirm the link we just sent you."
 msgstr "Almost done: please confirm the link we just sent you."
+
+#: app/routes/index.tsx
+msgid "An engineer turns sketches and a folded prototype into an article."
+msgstr "An engineer turns sketches and a folded prototype into an article."
 
 #: ../../packages/legal/src/PrivacyBooking.tsx#PrivacyBooking
 msgid "Appointment Booking via Terminaro"
@@ -95,6 +100,10 @@ msgstr "Blog topic"
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
 msgid "Book an intro call"
 msgstr "Book an intro call"
+
+#: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
+msgid "Branching mountain trails lead from a village toward a summit hut."
+msgstr "Branching mountain trails lead from a village toward a summit hut."
 
 #: app/components/blog/nextStepCopy.ts#nextStepCopy
 msgid "Build documentation and static sites with React and MDX."
@@ -395,12 +404,8 @@ msgid "Information pursuant to § 5 DDG"
 msgstr "Information pursuant to § 5 DDG"
 
 #: ../../packages/ui/src/frame/frameCopy.ts#createFrameCopy
-msgid ""
-"Insights into our work across software and consulting: what we're building, "
-"exploring and thinking about."
-msgstr ""
-"Insights into our work across software and consulting: what we're building, "
-"exploring and thinking about."
+msgid "Why build our own translation tools? When is it worth reworking an architecture? In our newsletter we share the decisions behind our software and what we learn when teams put it to use."
+msgstr "Why build our own translation tools? When is it worth reworking an architecture? In our newsletter we share the decisions behind our software and what we learn when teams put it to use."
 
 #: app/components/blog/tagLabel.ts#tagLabel
 msgid "Internationalization"

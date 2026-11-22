@@ -1,4 +1,12 @@
-import { color, COMPACT, editorial, font, PHONE, scaled, typeStep } from "@sebastian-websites/ui"
+import {
+  color,
+  COMPACT,
+  editorial,
+  font,
+  PHONE,
+  scaled,
+  typeStep,
+} from "@sebastian-websites/ui/styles"
 import { createVar, style, styleVariants } from "@vanilla-extract/css"
 
 import type { GroupId } from "~/lib/collection"

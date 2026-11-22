@@ -1,13 +1,17 @@
 import type { ReactElement } from "ardo/react"
 
 import { t } from "@palamedes/core/macro"
-import { ArrowLink } from "@sebastian-websites/ui"
+import { ArrowLink, editorial, frameColumnSizes, Illustration } from "@sebastian-websites/ui"
 
+import counter from "~/assets/illustrations/counter.image.mdx"
 import { crateDownloads30Days, type Snapshot } from "~/lib/metrics-model"
 import { variant } from "~/lib/site"
 import { useMetrics } from "~/lib/use-metrics"
 
+import { MetricIcon } from "./MetricIcon"
 import * as styles from "./Metrics.css"
+
+const COUNTER_WIDTH = 504
 
 /**
  * Formats numbers in the variant's locale, with exact values available on hover.
@@ -51,7 +55,10 @@ export function MetricsSummary({ snapshot }: { readonly snapshot: Snapshot }): R
   return (
     <dl className={styles.overview}>
       <div>
-        <dt>{t`Public projects`}</dt>
+        <dt>
+          <MetricIcon name="projects" />
+          {t`Public projects`}
+        </dt>
         <dd>
           <MetricNumber
             value={snapshot.sources.github === "ok" ? snapshot.projects.length : null}
@@ -59,7 +66,10 @@ export function MetricsSummary({ snapshot }: { readonly snapshot: Snapshot }): R
         </dd>
       </div>
       <div>
-        <dt>{t`GitHub stars`}</dt>
+        <dt>
+          <MetricIcon name="stars" />
+          {t`GitHub stars`}
+        </dt>
         <dd>
           <MetricNumber
             value={
@@ -71,13 +81,21 @@ export function MetricsSummary({ snapshot }: { readonly snapshot: Snapshot }): R
         </dd>
       </div>
       <div>
-        <dt>{t`npm downloads / month`}</dt>
+        <dt>
+          <MetricIcon name="downloads" />
+          <span aria-hidden="true">{t`npm / month`}</span>
+          <span className={editorial.visuallyHidden}>{t`npm downloads / month`}</span>
+        </dt>
         <dd>
           <MetricNumber value={sums("npm")} />
         </dd>
       </div>
       <div>
-        <dt>{t`crates.io downloads / month`}</dt>
+        <dt>
+          <MetricIcon name="downloads" />
+          <span aria-hidden="true">{t`crates.io / month`}</span>
+          <span className={editorial.visuallyHidden}>{t`crates.io downloads / month`}</span>
+        </dt>
         <dd>
           <MetricNumber
             value={
@@ -119,17 +137,37 @@ export function MetricsOverview({ initial }: { readonly initial: Snapshot }): Re
   const { failed, snapshot } = useMetrics(initial)
   return (
     <section aria-labelledby="metrics-overview-title" className={styles.home}>
-      <h2 className={styles.heading} id="metrics-overview-title">{t`Open source, in numbers.`}</h2>
-      <p>{t`All opted-in public projects and published packages, in one shared snapshot.`}</p>
-      <MetricsSummary snapshot={snapshot} />
-      <p className={styles.note}>
-        {t`Collected`}: <SnapshotTime snapshot={snapshot} />
+      <div className={styles.homeIntro}>
+        <div className={styles.introCopy}>
+          <h2
+            className={styles.heading}
+            id="metrics-overview-title"
+          >{t`Open source, in numbers.`}</h2>
+          <p
+            className={styles.introText}
+          >{t`Some of the tools we build for our own projects find their way into other codebases. Here you can see the projects we publish, their stars on GitHub and how often their packages are downloaded from npm and crates.io.`}</p>
+        </div>
+        <div className={styles.counterSlot}>
+          <Illustration
+            alt=""
+            className={styles.counter}
+            height={252}
+            sizes={frameColumnSizes(COUNTER_WIDTH)}
+            src={counter}
+            width={COUNTER_WIDTH}
+          />
+        </div>
+      </div>
+      <div className={styles.overviewCard}>
+        <MetricsSummary snapshot={snapshot} />
         {failed ? (
-          <span> · {t`Live refresh unavailable; the previous snapshot is shown.`}</span>
+          <p
+            className={styles.note}
+          >{t`Live refresh unavailable; the previous snapshot is shown.`}</p>
         ) : null}
-      </p>
-      <div className={styles.toolbar}>
-        <ArrowLink href="/metrics">{t`Explore all metrics`}</ArrowLink>
+        <div className={styles.toolbar}>
+          <ArrowLink href="/metrics">{t`Explore all metrics`}</ArrowLink>
+        </div>
       </div>
     </section>
   )

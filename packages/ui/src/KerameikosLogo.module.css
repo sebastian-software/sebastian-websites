@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "Cinzel Hellenic";
+  src: url("./assets/kerameikos/CinzelHellenic-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.logo {
+  align-items: center;
+  color: #0e2a4d;
+  display: inline-flex;
+  font-family: "Cinzel Hellenic", "Times New Roman", serif;
+  font-weight: 400;
+  gap: 0.56em;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.mark {
+  display: block;
+  height: 1.6em;
+  width: 1.6em;
+}

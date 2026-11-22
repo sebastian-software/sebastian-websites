@@ -9,17 +9,25 @@ import {
 } from "@sebastian-websites/tokens"
 import { style, styleVariants } from "@vanilla-extract/css"
 
-import { grid, heading, lead, outboundAccent, title } from "../editorial/editorial.css.ts"
+import {
+  featureHeading,
+  frameMediaEdge,
+  grid,
+  lead,
+  media,
+  outboundAccent,
+  rounded,
+} from "../editorial/editorial.css.ts"
 import { COMPACT, FRAME_WIDTH, PHONE } from "../responsive.ts"
 import { color, font } from "../theme.css.ts"
-import { continuousCorners } from "./corners.ts"
+import { continuousCorners, panelCorners } from "./corners.ts"
 
 const FIELD_RADIUS = 6
-const PANEL_RADIUS = 24
 const FIELD_HEIGHT = scaled("58px")
 
-/** The second half of the grid: the form, its status, and the drawing. */
+const START_HALF = "1 / span 6"
 const END_HALF = "7 / span 6"
+const ILLUSTRATED = '[data-illustrated="true"] &'
 
 /** Neutral slate for the newsletter action, shared by both brands. */
 const ACTION = "oklch(0.33 0.012 250)"
@@ -42,8 +50,22 @@ export const newsletter = style([
 ])
 
 export const newsletterTitle = style([
-  heading,
-  { gridColumn: "1 / span 6", marginBottom: scaled("12px") },
+  featureHeading,
+  {
+    gridColumn: START_HALF,
+    marginBottom: scaled("12px"),
+    selectors: { [ILLUSTRATED]: { gridColumn: END_HALF } },
+  },
+])
+
+export const newsletterArt = style([
+  frameMediaEdge.start,
+  {
+    "@media": { [COMPACT]: { marginBottom: SPACE_SCALE.m } },
+    alignSelf: "center",
+    gridColumn: START_HALF,
+    gridRow: "1 / span 4",
+  },
 ])
 
 export const newsletterText = style({
@@ -53,6 +75,7 @@ export const newsletterText = style({
   gridColumn: "1 / span 5",
   gridRow: 2,
   lineHeight: 1.5,
+  selectors: { [ILLUSTRATED]: { gridColumn: END_HALF } },
 })
 
 export const form = style({
@@ -65,7 +88,10 @@ export const form = style({
   gridColumn: END_HALF,
   gridRow: 2,
   marginTop: scaled("-6px"),
-  selectors: { '[data-brand="consulting"] &': { alignItems: "stretch" } },
+  selectors: {
+    '[data-brand="consulting"] &': { alignItems: "stretch" },
+    [ILLUSTRATED]: { gridRow: 3, marginTop: SPACE_SCALE.m },
+  },
 })
 
 export const field = style([
@@ -125,6 +151,7 @@ export const status = style({
   lineHeight: TYPE_SCALE.small.lineHeight,
   marginTop: scaled("12px"),
   minHeight: "1.5em",
+  selectors: { [ILLUSTRATED]: { gridRow: 4 } },
 })
 
 export const statusProblem = style({ color: "oklch(0.48 0.17 25)" })
@@ -146,16 +173,14 @@ export const invitationAccent = styleVariants({
   software: { vars: { [outboundAccent]: PALETTES.software.roles.base } },
 })
 
-export const invitationCopy = style({ gridColumn: "1 / span 6" })
+export const invitationCopy = style({ gridColumn: START_HALF })
 
 export const invitationTitle = style([
-  title,
+  featureHeading,
   {
     "@media": {
       [PHONE]: { marginBottom: scaled("20px") },
     },
-    fontSize: typeStep("4"),
-    lineHeight: 1.16,
     marginBottom: scaled("28px"),
   },
 ])
@@ -164,20 +189,22 @@ export const invitationText = style([lead, { maxWidth: "20em" }])
 
 export const invitationAction = style({ marginTop: RHYTHM.action })
 
+export const landscapeSlot = style([frameMediaEdge.end, { gridColumn: END_HALF }])
+
 export const invitationArt = style({
   "@media": { [COMPACT]: { maxWidth: scaled("420px"), paddingLeft: 0 } },
   gridColumn: END_HALF,
   paddingLeft: scaled("40px"),
 })
 
-export const invitationImage = style({ display: "block", height: "auto", width: "100%" })
+export const invitationImage = style([media, rounded])
 
 // ---- Footer: the current site's substantial inset panel -----------------------
 
 export const footer = style([ending, { paddingBottom: scaled("24px") }])
 
 export const panel = style([
-  continuousCorners(PANEL_RADIUS),
+  panelCorners,
   {
     "@media": {
       [COMPACT]: { padding: scaled("44px 40px 28px") },
@@ -209,9 +236,9 @@ export const footerTop = style({
 export const footerHome = style({ borderRadius: scaled("8px"), display: "inline-block" })
 
 export const footerLogo = style({
-  "@media": { [PHONE]: { height: scaled("64px") } },
+  "@media": { [PHONE]: { height: scaled("38.4px") } },
   display: "block",
-  height: scaled("88px"),
+  height: scaled("52.8px"),
   selectors: { '[data-brand="consulting"] &': { height: "auto", width: scaled("290px") } },
   width: "auto",
 })
@@ -234,12 +261,13 @@ export const plainLink = style({ selectors: { "&:hover": { color: color.accent }
 
 export const aside = style({
   "@media": { [PHONE]: { minWidth: 0, rowGap: scaled("28px") } },
+  alignSelf: "end",
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
   minWidth: scaled("224px"),
   paddingTop: "2px",
-  selectors: { '[data-brand="consulting"] &': { rowGap: SPACE_SCALE.m } },
+  selectors: { '[data-brand="consulting"] &': { alignSelf: "stretch", rowGap: SPACE_SCALE.m } },
 })
 
 export const index = style({

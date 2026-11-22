@@ -1,4 +1,4 @@
-import { FRAME, scaled, SPACE_SCALE, typeStep } from "@sebastian-websites/tokens"
+import { FRAME, scaled, typeStep } from "@sebastian-websites/tokens"
 import { createVar, style } from "@vanilla-extract/css"
 
 import { COMPACT, FRAME_INSET, FRAME_OVERHANG, FRAME_WIDTH, PHONE } from "../responsive.ts"
@@ -7,7 +7,9 @@ import { continuousCorners } from "./corners.ts"
 
 /** The menu opens just below the header shell, inset like the shell itself. */
 const HEADER_TOP = createVar()
-const MENU_TOP = `calc(${HEADER_TOP} + ${FRAME.headerHeight} + ${scaled("8px")})`
+const HEADER_HEIGHT = createVar()
+const HEADER_BOTTOM = `calc(${HEADER_TOP} + ${HEADER_HEIGHT})`
+const MENU_TOP = `calc(${HEADER_BOTTOM} + ${scaled("8px")})`
 
 /** Touch targets in the compact menu grow with the root but never fall below 44 px. */
 const TOUCH_TARGET = `max(44px, ${scaled("44px")})`
@@ -15,6 +17,7 @@ const TOUCH_TARGET = `max(44px, ${scaled("44px")})`
 const HEADER_RADIUS = 14
 const CAPSULE_RADIUS = 11
 const MENU_BUTTON_RADIUS = 10
+const SOFTWARE_HEADER_SHADOW = "0 1px 2px rgb(0 0 0 / 8%), 0 8px 20px -5px rgb(0 0 0 / 24%)"
 
 /** Hidden until focused; then it sits above the header as the first stop. */
 export const skip = style({
@@ -40,24 +43,24 @@ export const area = style({
   marginTop: HEADER_TOP,
   position: "sticky",
   selectors: {
-    '&[data-brand="consulting"]': {
-      vars: { [HEADER_TOP]: `max(${FRAME.headerTop}, env(safe-area-inset-top, 0px))` },
-    },
-    '&[data-brand="consulting"]::before': {
+    "&::before": {
       backgroundColor: color.canvas,
-      backgroundImage: canvasTexture,
       content: '""',
-      height: `calc(${HEADER_TOP} + ${FRAME.headerHeight} + ${SPACE_SCALE.s})`,
+      height: HEADER_BOTTOM,
       insetInline: 0,
-      maskImage: `linear-gradient(to bottom, black calc(${HEADER_TOP} + ${FRAME.headerHeight} / 2), transparent)`,
       pointerEvents: "none",
       position: "fixed",
       top: 0,
       zIndex: -1,
     },
+    '&[data-brand="consulting"]': {
+      vars: { [HEADER_TOP]: `max(${FRAME.headerTop}, env(safe-area-inset-top, 0px))` },
+    },
+    '&[data-brand="consulting"]::before': { backgroundImage: canvasTexture },
+    '&[data-brand="software"]': { vars: { [HEADER_HEIGHT]: "3.5rem" } },
   },
   top: HEADER_TOP,
-  vars: { [HEADER_TOP]: FRAME.headerTop },
+  vars: { [HEADER_HEIGHT]: FRAME.headerHeight, [HEADER_TOP]: FRAME.headerTop },
   zIndex: 20,
 })
 
@@ -73,9 +76,10 @@ export const shell = style([
     backgroundColor: FRAME.shell,
     boxShadow: FRAME.shadow,
     display: "flex",
-    height: FRAME.headerHeight,
+    height: HEADER_HEIGHT,
     marginInline: "auto",
     paddingInline: `${FRAME_OVERHANG} ${scaled("6px")}`,
+    selectors: { '[data-brand="software"] &': { boxShadow: SOFTWARE_HEADER_SHADOW } },
     width: FRAME_WIDTH,
   },
 ])
