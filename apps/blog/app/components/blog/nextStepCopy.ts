@@ -18,6 +18,13 @@ export type NextStepCopy = {
  */
 export function nextStepCopy(step: Exclude<NextStep, "none">): NextStepCopy {
   switch (step) {
+    case "ardo-docs": {
+      return {
+        action: t`Read the Ardo documentation`,
+        text: t`Build documentation and static sites with React and MDX.`,
+        title: "Ardo",
+      }
+    }
     case "consulting-architecture": {
       return {
         action: t`Explore architecture consulting`,

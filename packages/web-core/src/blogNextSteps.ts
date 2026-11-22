@@ -8,6 +8,7 @@ import { canonicalUrl } from "./seo.ts"
  */
 export const NEXT_STEPS = [
   "products",
+  "ardo-docs",
   "open-source",
   "contact",
   "none",
@@ -26,6 +27,7 @@ type NextStepTarget =
 
 /** Each step's destination; focused Consulting offers have their own pages. */
 const NEXT_STEP_TARGETS: Readonly<Record<Exclude<NextStep, "none">, NextStepTarget>> = {
+  "ardo-docs": { href: "https://ardo-docs.dev" },
   "consulting-architecture": { path: "/services/architecture-review", site: "consulting" },
   "consulting-enablement": { fragment: "enablement", path: "/services", site: "consulting" },
   "consulting-internationalization": {

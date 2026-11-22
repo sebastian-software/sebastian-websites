@@ -12,8 +12,17 @@ import { t } from "@palamedes/core/macro"
  */
 const tagLabel: PublicationTagLabel = (key) => {
   switch (key) {
+    case "ai-agents": {
+      return t`AI agents`
+    }
+    case "ardo": {
+      return "Ardo"
+    }
     case "internationalization": {
       return t`Internationalization`
+    }
+    case "open-source": {
+      return "Open Source"
     }
     default: {
       return key

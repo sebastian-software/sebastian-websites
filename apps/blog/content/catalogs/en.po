@@ -1,0 +1,413 @@
+msgid ""
+msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"X-Generator: palamedes\n"
+
+#: content/articles/second-best.mdx
+msgid ""
+"\"Right\" is my right, admittedly. I'm a precision junkie. I want software "
+"that behaves the way you expect, that makes simple things simple and hard "
+"things possible. Ardo is where I get to hold a tool to that standard all the "
+"way down."
+msgstr ""
+"\"Right\" is my right, admittedly. I'm a precision junkie. I want software "
+"that behaves the way you expect, that makes simple things simple and hard "
+"things possible. Ardo is where I get to hold a tool to that standard all the "
+"way down."
+
+#: content/articles/second-best.mdx
+msgid "1,278"
+msgstr "1,278"
+
+#: content/articles/second-best.mdx
+msgid "122"
+msgstr "122"
+
+#: content/articles/second-best.mdx
+msgid "124 MB"
+msgstr "124 MB"
+
+#: content/articles/second-best.mdx
+msgid "126"
+msgstr "126"
+
+#: content/articles/second-best.mdx
+msgid "212 MB"
+msgstr "212 MB"
+
+#: content/articles/second-best.mdx
+msgid "255 MB"
+msgstr "255 MB"
+
+#: content/articles/second-best.mdx
+msgid "315"
+msgstr "315"
+
+#: content/articles/second-best.mdx
+msgid "99 MB"
+msgstr "99 MB"
+
+#: content/articles/second-best.mdx
+msgid ""
+"A paper craftsperson fits a terracotta joint into a recess in an ivory board."
+msgstr ""
+"A paper craftsperson fits a terracotta joint into a recess in an ivory board."
+
+#: content/articles/second-best.mdx
+msgid ""
+"And beyond that, I'm hoping a few people share the taste and want to help."
+msgstr ""
+"And beyond that, I'm hoping a few people share the taste and want to help."
+
+#: content/articles/second-best.mdx
+msgid "Ardo 2.0.1, January 2026"
+msgstr "Ardo 2.0.1, January 2026"
+
+#: content/articles/second-best.mdx
+msgid "Ardo 6.9"
+msgstr "Ardo 6.9"
+
+#: content/articles/second-best.mdx
+msgid "Ardo doesn't need to do everything. What it does has to be right."
+msgstr "Ardo doesn't need to do everything. What it does has to be right."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Ardo installs about a tenth of the packages Docusaurus does, and well under "
+"half of what Ardo itself installed in January. VitePress is lighter still. "
+"Fair enough: it's the one I would have settled for."
+msgstr ""
+"Ardo installs about a tenth of the packages Docusaurus does, and well under "
+"half of what Ardo itself installed in January. VitePress is lighter still. "
+"Fair enough: it's the one I would have settled for."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Ardo isn't a business. It's the tool I wanted, built to the standard I care "
+"about, and it already runs every site we have. This essay is me starting on "
+"the second half."
+msgstr ""
+"Ardo isn't a business. It's the tool I wanted, built to the standard I care "
+"about, and it already runs every site we have. This essay is me starting on "
+"the second half."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Ardo started with the usual stack: unified with remark and rehype for "
+"Markdown, Shiki for syntax highlighting, TypeDoc for the API reference. All "
+"good projects. But I kept running into the same thought. Why pull in a whole "
+"library and its dependency tree when I need a tenth of it?"
+msgstr ""
+"Ardo started with the usual stack: unified with remark and rehype for "
+"Markdown, Shiki for syntax highlighting, TypeDoc for the API reference. All "
+"good projects. But I kept running into the same thought. Why pull in a whole "
+"library and its dependency tree when I need a tenth of it?"
+
+#: content/articles/second-best.mdx
+msgid ""
+"But a big name isn't a guarantee either. Years ago I told people to use Radix "
+"UI. Two of the people who built it now work on Base UI. I've watched plenty of"
+" React libraries go quiet that once looked like the safe choice."
+msgstr ""
+"But a big name isn't a guarantee either. Years ago I told people to use Radix "
+"UI. Two of the people who built it now work on Base UI. I've watched plenty of"
+" React libraries go quiet that once looked like the safe choice."
+
+#: content/articles/second-best.mdx
+msgid "Docusaurus 3.10.2 with the classic preset"
+msgstr "Docusaurus 3.10.2 with the classic preset"
+
+#: content/articles/second-best.mdx
+msgid ""
+"Docusaurus is the obvious answer for React docs. It also carries a lot of "
+"history. Version 3.10.2 still builds with webpack by default, and it has grown"
+" into a large ecosystem that is hard to slim down from the outside. And it "
+"never felt like the right home for a marketing site next to the docs."
+msgstr ""
+"Docusaurus is the obvious answer for React docs. It also carries a lot of "
+"history. Version 3.10.2 still builds with webpack by default, and it has grown"
+" into a large ecosystem that is hard to slim down from the outside. And it "
+"never felt like the right home for a marketing site next to the docs."
+
+#: content/articles/second-best.mdx
+msgid "Every version a little better"
+msgstr "Every version a little better"
+
+#: content/articles/second-best.mdx
+msgid ""
+"For most of my career, when a tool didn't quite fit, I picked the one that fit"
+" best and moved on. In January I needed documentation for our React projects. "
+"A few years ago I would have picked VitePress, made my peace with it running "
+"on Vue, and shipped. This time I built my own."
+msgstr ""
+"For most of my career, when a tool didn't quite fit, I picked the one that fit"
+" best and moved on. In January I needed documentation for our React projects. "
+"A few years ago I would have picked VitePress, made my peace with it running "
+"on Vue, and shipped. This time I built my own."
+
+#: content/articles/second-best.mdx
+msgid ""
+"For the first time in my working life, I can take something I don't like and "
+"make it better at scale."
+msgstr ""
+"For the first time in my working life, I can take something I don't like and "
+"make it better at scale."
+
+#: content/articles/second-best.mdx
+msgid "I used to settle for second best"
+msgstr "I used to settle for second best"
+
+#: content/articles/second-best.mdx
+msgid ""
+"I wanted to know whether \"lean\" holds up, so I installed each tool into an "
+"empty project and counted. This is a snapshot of the packages installed by npm"
+" on macOS arm64, measured on disk. It does not measure build speed."
+msgstr ""
+"I wanted to know whether \"lean\" holds up, so I installed each tool into an "
+"empty project and counted. This is a snapshot of the packages installed by npm"
+" on macOS arm64, measured on disk. It does not measure build speed."
+
+#: content/articles/second-best.mdx
+msgid ""
+"I've built JavaScript frameworks since the early 2000s: qooxdoo with 1&1, "
+"Unify with Deutsche Telekom, and a long list of smaller open-source projects "
+"since. After 25 years you see patterns. You look at a tool and know exactly "
+"where it will hurt in two years and how it should have been built."
+msgstr ""
+"I've built JavaScript frameworks since the early 2000s: qooxdoo with 1&1, "
+"Unify with Deutsche Telekom, and a long list of smaller open-source projects "
+"since. After 25 years you see patterns. You look at a tool and know exactly "
+"where it will hurt in two years and how it should have been built."
+
+#: content/articles/second-best.mdx
+msgid ""
+"If you run a team, you're asking a fair question by now: who maintains this "
+"when Sebastian loses interest? Docusaurus has Meta and a huge community behind"
+" it."
+msgstr ""
+"If you run a team, you're asking a fair question by now: who maintains this "
+"when Sebastian loses interest? Docusaurus has Meta and a huge community behind"
+" it."
+
+#: content/articles/second-best.mdx
+msgid ""
+"If you want to try it, hand this sentence to your coding agent, in a fresh "
+"repository or one you already have:"
+msgstr ""
+"If you want to try it, hand this sentence to your coding agent, in a fresh "
+"repository or one you already have:"
+
+#: content/articles/second-best.mdx
+msgid ""
+"In October, Ardo switched to its own Markdown engine, Ferromark, and its own "
+"highlighter, Ferriki, both written in Rust. A week later, TypeDoc was gone and"
+" Ardo read the types itself. Each of those pieces became a project of its own."
+" In our <0>first-render benchmark</0>, Ferriki produced HTML 4.2 to 5.5 times "
+"faster than Shiki’s WASM build on the same files. One documentation tool "
+"turned into a whole family of Rust tools, because every time I dug deeper, I "
+"found the next thing I wanted to do properly."
+msgstr ""
+"In October, Ardo switched to its own Markdown engine, Ferromark, and its own "
+"highlighter, Ferriki, both written in Rust. A week later, TypeDoc was gone and"
+" Ardo read the types itself. Each of those pieces became a project of its own."
+" In our <0>first-render benchmark</0>, Ferriki produced HTML 4.2 to 5.5 times "
+"faster than Shiki’s WASM build on the same files. One documentation tool "
+"turned into a whole family of Rust tools, because every time I dug deeper, I "
+"found the next thing I wanted to do properly."
+
+#: content/articles/second-best.mdx
+msgid "Install"
+msgstr "Install"
+
+#: content/articles/second-best.mdx
+msgid ""
+"It follows Ardo's agent instructions, adapts the tested example, and reports "
+"how typecheck, tests, and build went. You review the result like any other "
+"pull request."
+msgstr ""
+"It follows Ardo's agent instructions, adapts the tested example, and reports "
+"how typecheck, tests, and build went. You review the result like any other "
+"pull request."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Knowing isn't building, though. Writing a documentation framework from "
+"scratch, with a Markdown pipeline, syntax highlighting, API reference and "
+"search, was a team-sized project. So you made the rational call: take the "
+"good-enough option and spend your time on the work that pays."
+msgstr ""
+"Knowing isn't building, though. Writing a documentation framework from "
+"scratch, with a Markdown pipeline, syntax highlighting, API reference and "
+"search, was a team-sized project. So you made the rational call: take the "
+"good-enough option and spend your time on the work that pays."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Large, old projects often turn into a monolithic standard. You look at them "
+"and wonder how all of that got in, and how nobody minded the project growing "
+"like that."
+msgstr ""
+"Large, old projects often turn into a monolithic standard. You look at them "
+"and wonder how all of that got in, and how nobody minded the project growing "
+"like that."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Most of those breaks came from one question I kept asking: what is actually in"
+" here, and why?"
+msgstr ""
+"Most of those breaks came from one question I kept asking: what is actually in"
+" here, and why?"
+
+#: content/articles/second-best.mdx
+msgid "Packages"
+msgstr "Packages"
+
+#: content/articles/second-best.mdx
+msgid "Second best used to be the smart choice"
+msgstr "Second best used to be the smart choice"
+
+#: content/articles/second-best.mdx
+msgid "Size on disk"
+msgstr "Size on disk"
+
+#: content/articles/second-best.mdx
+msgid ""
+"So here is what I'd point to instead. Ardo doesn't make your content its own. "
+"What you bring is React components, Markdown, MDX, and the types in your code."
+" I don't see a lock-in in that. If you decide differently in a year, so be it."
+msgstr ""
+"So here is what I'd point to instead. Ardo doesn't make your content its own. "
+"What you bring is React components, Markdown, MDX, and the types in your code."
+" I don't see a lock-in in that. If you decide differently in a year, so be it."
+
+#: content/articles/second-best.mdx
+msgid ""
+"So I started small. Something that fit my own projects: MDX in, plain HTML "
+"out, and no need to rebuild the same setup for every website we run."
+msgstr ""
+"So I started small. Something that fit my own projects: MDX in, plain HTML "
+"out, and no need to rebuild the same setup for every website we run."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Something changed this year, and it isn't my taste. When I counted on November"
+" 11, about 365 of Ardo’s 787 commits had been written together with an AI "
+"agent."
+msgstr ""
+"Something changed this year, and it isn't my taste. When I counted on November"
+" 11, about 365 of Ardo’s 787 commits had been written together with an AI "
+"agent."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Steve Jobs is often quoted as saying that innovation means saying no to a "
+"thousand things. I think about that a lot."
+msgstr ""
+"Steve Jobs is often quoted as saying that innovation means saying no to a "
+"thousand things. I think about that a lot."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Ten months later, Ardo is at version 6.9, every one of our websites runs on "
+"it, and I don't plan to settle again."
+msgstr ""
+"Ten months later, Ardo is at version 6.9, every one of our websites runs on "
+"it, and I don't plan to settle again."
+
+#: content/articles/second-best.mdx
+msgid ""
+"That's what second best really was. Not a lack of taste. A lack of hours."
+msgstr ""
+"That's what second best really was. Not a lack of taste. A lack of hours."
+
+#: content/articles/second-best.mdx
+msgid ""
+"The agent doesn't decide what right means. It doesn't know which dependency "
+"annoys me or why a Markdown edge case matters. Twenty-five years of noticing "
+"those things do. What the agent changes is the cost of acting on them."
+msgstr ""
+"The agent doesn't decide what right means. It doesn't know which dependency "
+"annoys me or why a Markdown edge case matters. Twenty-five years of noticing "
+"those things do. What the agent changes is the cost of acting on them."
+
+#: content/articles/second-best.mdx
+msgid ""
+"The first version worked. After that it was iteration, the way Apple ships "
+"iPhones: each one only a step, each one better than the last. Ardo went from "
+"version 1 to 6 in nine months, and every major was a real break."
+msgstr ""
+"The first version worked. After that it was iteration, the way Apple ships "
+"iPhones: each one only a step, each one better than the last. Ardo went from "
+"version 1 to 6 in nine months, and every major was a real break."
+
+#: content/articles/second-best.mdx
+msgid "The half we never did"
+msgstr "The half we never did"
+
+#: content/articles/second-best.mdx
+msgid "The honest objection"
+msgstr "The honest objection"
+
+#: content/articles/second-best.mdx
+msgid ""
+"The newer tools are lovely, but most of them sit on Astro or Vue. We write "
+"React. Our docs need our own components, and so do the landing pages next to "
+"them. I didn't want a second stack just for documentation."
+msgstr ""
+"The newer tools are lovely, but most of them sit on Astro or Vue. We write "
+"React. Our docs need our own components, and so do the landing pages next to "
+"them. I didn't want a second stack just for documentation."
+
+#: content/articles/second-best.mdx
+msgid "The numbers"
+msgstr "The numbers"
+
+#: content/articles/second-best.mdx
+msgid ""
+"There's a German saying: <0>Tu Gutes und rede darüber.</0> Do good things and"
+" talk about them."
+msgstr ""
+"There's a German saying: <0>Tu Gutes und rede darüber.</0> Do good things and"
+" talk about them."
+
+#: content/articles/second-best.mdx
+msgid "VitePress 1.6.4"
+msgstr "VitePress 1.6.4"
+
+#: content/articles/second-best.mdx
+msgid ""
+"We've always been good at the first half. We'd rather build the next iteration"
+" than talk about the last one."
+msgstr ""
+"We've always been good at the first half. We'd rather build the next iteration"
+" than talk about the last one."
+
+#: content/articles/second-best.mdx
+msgid "What I didn't want"
+msgstr "What I didn't want"
+
+#: content/articles/second-best.mdx
+msgid ""
+"Why I built my own React documentation framework, and what AI agents changed "
+"about it."
+msgstr ""
+"Why I built my own React documentation framework, and what AI agents changed "
+"about it."
+
+#: content/articles/second-best.mdx
+msgid "Why now"
+msgstr "Why now"
+
+#: content/articles/second-best.mdx
+msgid ""
+"You're right about the community. Open source has a chicken-and-egg problem. "
+"Without users, nobody maintains a project, and without maintainers, nobody "
+"uses it."
+msgstr ""
+"You're right about the community. Open source has a chicken-and-egg problem. "
+"Without users, nobody maintains a project, and without maintainers, nobody "
+"uses it."

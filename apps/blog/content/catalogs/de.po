@@ -1,0 +1,425 @@
+msgid ""
+msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"X-Generator: palamedes\n"
+
+#: content/articles/second-best.mdx
+msgid ""
+"\"Right\" is my right, admittedly. I'm a precision junkie. I want software "
+"that behaves the way you expect, that makes simple things simple and hard "
+"things possible. Ardo is where I get to hold a tool to that standard all the "
+"way down."
+msgstr ""
+"„Richtig“ heißt zugegeben: mein Richtig. Ich bin ein Präzisionsjunkie. "
+"Ich will Software, die sich so verhält, wie man es erwartet, die Einfaches "
+"einfach macht und Schweres möglich. Mit Ardo kann ich ein Werkzeug bis in die"
+" letzte Schicht an diesem Anspruch messen."
+
+#: content/articles/second-best.mdx
+msgid "1,278"
+msgstr "1.278"
+
+#: content/articles/second-best.mdx
+msgid "122"
+msgstr "122"
+
+#: content/articles/second-best.mdx
+msgid "124 MB"
+msgstr "124 MB"
+
+#: content/articles/second-best.mdx
+msgid "126"
+msgstr "126"
+
+#: content/articles/second-best.mdx
+msgid "212 MB"
+msgstr "212 MB"
+
+#: content/articles/second-best.mdx
+msgid "255 MB"
+msgstr "255 MB"
+
+#: content/articles/second-best.mdx
+msgid "315"
+msgstr "315"
+
+#: content/articles/second-best.mdx
+msgid "99 MB"
+msgstr "99 MB"
+
+#: content/articles/second-best.mdx
+msgid ""
+"A paper craftsperson fits a terracotta joint into a recess in an ivory board."
+msgstr ""
+"Eine Papierfigur passt ein terrakottafarbenes Verbindungsstück in die Aussparung eines hellen Bretts ein."
+
+#: content/articles/second-best.mdx
+msgid ""
+"And beyond that, I'm hoping a few people share the taste and want to help."
+msgstr ""
+"Und ansonsten hoffe ich, dass ein paar Leute den gleichen Geschmack haben und "
+"mitmachen wollen."
+
+#: content/articles/second-best.mdx
+msgid "Ardo 2.0.1, January 2026"
+msgstr "Ardo 2.0.1, Januar 2026"
+
+#: content/articles/second-best.mdx
+msgid "Ardo 6.9"
+msgstr "Ardo 6.9"
+
+#: content/articles/second-best.mdx
+msgid "Ardo doesn't need to do everything. What it does has to be right."
+msgstr "Ardo muss nicht alles können. Aber was es kann, muss richtig sein."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Ardo installs about a tenth of the packages Docusaurus does, and well under "
+"half of what Ardo itself installed in January. VitePress is lighter still. "
+"Fair enough: it's the one I would have settled for."
+msgstr ""
+"Ardo installiert etwa ein Zehntel der Pakete von Docusaurus und deutlich "
+"weniger als die Hälfte dessen, was Ardo selbst im Januar installiert hat. "
+"VitePress ist noch leichter. Geschenkt: Es ist genau das Werkzeug, mit dem ich"
+" mich abgefunden hätte."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Ardo isn't a business. It's the tool I wanted, built to the standard I care "
+"about, and it already runs every site we have. This essay is me starting on "
+"the second half."
+msgstr ""
+"Ardo ist kein Geschäft. Es ist das Werkzeug, das ich haben wollte, gebaut "
+"nach dem Anspruch, der mir wichtig ist, und es trägt schon jede unserer "
+"Websites. Mit diesem Text fange ich die zweite Hälfte an."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Ardo started with the usual stack: unified with remark and rehype for "
+"Markdown, Shiki for syntax highlighting, TypeDoc for the API reference. All "
+"good projects. But I kept running into the same thought. Why pull in a whole "
+"library and its dependency tree when I need a tenth of it?"
+msgstr ""
+"Ardo startete mit dem üblichen Stack: unified mit remark und rehype für "
+"Markdown, Shiki für das Syntax-Highlighting, TypeDoc für die API-Referenz. "
+"Alles gute Projekte. Trotzdem kam ich immer wieder auf denselben Gedanken: "
+"Warum eine ganze Library samt Abhängigkeitsbaum einbinden, wenn ich ein "
+"Zehntel davon brauche?"
+
+#: content/articles/second-best.mdx
+msgid ""
+"But a big name isn't a guarantee either. Years ago I told people to use Radix "
+"UI. Two of the people who built it now work on Base UI. I've watched plenty of"
+" React libraries go quiet that once looked like the safe choice."
+msgstr ""
+"Ein großer Name ist aber auch keine Garantie. Vor Jahren habe ich Leuten "
+"Radix UI empfohlen. Zwei der Leute, die es gebaut haben, arbeiten heute an "
+"Base UI. Ich habe viele React-Libraries einschlafen sehen, die einmal als "
+"sichere Wahl galten."
+
+#: content/articles/second-best.mdx
+msgid "Docusaurus 3.10.2 with the classic preset"
+msgstr "Docusaurus 3.10.2 mit Classic-Preset"
+
+#: content/articles/second-best.mdx
+msgid ""
+"Docusaurus is the obvious answer for React docs. It also carries a lot of "
+"history. Version 3.10.2 still builds with webpack by default, and it has grown"
+" into a large ecosystem that is hard to slim down from the outside. And it "
+"never felt like the right home for a marketing site next to the docs."
+msgstr ""
+"Für React-Doku ist Docusaurus die naheliegende Antwort. Es bringt aber viel "
+"Geschichte mit. Version 3.10.2 baut standardmäßig mit Webpack, und es ist zu"
+" einem großen Ökosystem gewachsen, das man von außen kaum schlanker "
+"bekommt. Als Zuhause für eine Marketingseite neben der Doku hat es sich für "
+"mich nie richtig angefühlt."
+
+#: content/articles/second-best.mdx
+msgid "Every version a little better"
+msgstr "Jede Version ein Stück besser"
+
+#: content/articles/second-best.mdx
+msgid ""
+"For most of my career, when a tool didn't quite fit, I picked the one that fit"
+" best and moved on. In January I needed documentation for our React projects. "
+"A few years ago I would have picked VitePress, made my peace with it running "
+"on Vue, and shipped. This time I built my own."
+msgstr ""
+"Den größten Teil meines Berufslebens lief es so: Passte kein Werkzeug "
+"richtig, nahm ich das, was am besten passte, und machte weiter. Im Januar "
+"brauchte ich Dokumentation für unsere React-Projekte. Vor ein paar Jahren "
+"hätte ich VitePress genommen, mich damit arrangiert, dass es auf Vue läuft, "
+"und losgelegt. Diesmal habe ich selbst eins gebaut."
+
+#: content/articles/second-best.mdx
+msgid ""
+"For the first time in my working life, I can take something I don't like and "
+"make it better at scale."
+msgstr ""
+"Zum ersten Mal in meinem Berufsleben kann ich etwas, das mir nicht gefällt, "
+"in großem Maßstab besser machen."
+
+#: content/articles/second-best.mdx
+msgid "I used to settle for second best"
+msgstr "Früher habe ich mich mit dem Zweitbesten abgefunden"
+
+#: content/articles/second-best.mdx
+msgid ""
+"I wanted to know whether \"lean\" holds up, so I installed each tool into an "
+"empty project and counted. This is a snapshot of the packages installed by npm"
+" on macOS arm64, measured on disk. It does not measure build speed."
+msgstr ""
+"Ich wollte wissen, ob „schlank“ einer Messung standhält. Also habe ich "
+"jedes Werkzeug in ein leeres Projekt installiert und gezählt. Die Tabelle "
+"zeigt die mit npm installierten Pakete und ihren Platzbedarf auf macOS mit "
+"Apple Silicon. Über die Build-Geschwindigkeit sagt sie nichts aus."
+
+#: content/articles/second-best.mdx
+msgid ""
+"I've built JavaScript frameworks since the early 2000s: qooxdoo with 1&1, "
+"Unify with Deutsche Telekom, and a long list of smaller open-source projects "
+"since. After 25 years you see patterns. You look at a tool and know exactly "
+"where it will hurt in two years and how it should have been built."
+msgstr ""
+"Ich baue JavaScript-Frameworks seit Anfang der 2000er-Jahre: qooxdoo mit 1&1, "
+"Unify mit der Deutschen Telekom und seitdem eine lange Reihe kleinerer "
+"Open-Source-Projekte. Nach 25 Jahren sieht man Muster. Man schaut sich ein "
+"Werkzeug an und weiß genau, wo es in zwei Jahren wehtun wird und wie man es "
+"hätte bauen sollen."
+
+#: content/articles/second-best.mdx
+msgid ""
+"If you run a team, you're asking a fair question by now: who maintains this "
+"when Sebastian loses interest? Docusaurus has Meta and a huge community behind"
+" it."
+msgstr ""
+"Wenn du ein Team leitest, fragst du dich spätestens jetzt zu Recht: Wer "
+"wartet das, wenn Sebastian die Lust verliert? Hinter Docusaurus stehen Meta "
+"und eine riesige Community."
+
+#: content/articles/second-best.mdx
+msgid ""
+"If you want to try it, hand this sentence to your coding agent, in a fresh "
+"repository or one you already have:"
+msgstr ""
+"Wenn du es ausprobieren willst, gib deinem Coding-Agenten diesen Satz, in "
+"einem frischen Repository oder einem bestehenden:"
+
+#: content/articles/second-best.mdx
+msgid ""
+"In October, Ardo switched to its own Markdown engine, Ferromark, and its own "
+"highlighter, Ferriki, both written in Rust. A week later, TypeDoc was gone and"
+" Ardo read the types itself. Each of those pieces became a project of its own."
+" In our <0>first-render benchmark</0>, Ferriki produced HTML 4.2 to 5.5 times "
+"faster than Shiki’s WASM build on the same files. One documentation tool "
+"turned into a whole family of Rust tools, because every time I dug deeper, I "
+"found the next thing I wanted to do properly."
+msgstr ""
+"Im Oktober wechselte Ardo auf eine eigene Markdown-Engine, Ferromark, und "
+"einen eigenen Highlighter, Ferriki, beide in Rust geschrieben. Eine Woche "
+"später war TypeDoc raus, seitdem liest Ardo die Typen selbst. Aus jedem "
+"dieser Teile wurde ein eigenes Projekt. In unserem <0>Benchmark zur ersten "
+"Ausgabe</0> erzeugte Ferriki das erste HTML 4,2- bis 5,5-mal schneller als die"
+" WASM-Variante von Shiki, bei denselben Dateien. Aus einem Doku-Werkzeug ist "
+"so eine ganze Familie von Rust-Werkzeugen geworden. Jedes Mal, wenn ich tiefer"
+" gebohrt habe, fand ich die nächste Sache, die ich richtig machen wollte."
+
+#: content/articles/second-best.mdx
+msgid "Install"
+msgstr "Installation"
+
+#: content/articles/second-best.mdx
+msgid ""
+"It follows Ardo's agent instructions, adapts the tested example, and reports "
+"how typecheck, tests, and build went. You review the result like any other "
+"pull request."
+msgstr ""
+"Er folgt Ardos Anleitung für Agenten, passt das getestete Beispiel an und "
+"berichtet, wie Typecheck, Tests und Build gelaufen sind. Das Ergebnis prüfst "
+"du wie jeden anderen Pull Request."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Knowing isn't building, though. Writing a documentation framework from "
+"scratch, with a Markdown pipeline, syntax highlighting, API reference and "
+"search, was a team-sized project. So you made the rational call: take the "
+"good-enough option and spend your time on the work that pays."
+msgstr ""
+"Wissen ist aber noch nicht Bauen. Ein Doku-Framework von Grund auf zu "
+"schreiben, mit Markdown-Pipeline, Syntax-Highlighting, API-Referenz und Suche,"
+" war ein Projekt für ein ganzes Team. Also traf man die vernünftige "
+"Entscheidung: die Lösung nehmen, die gut genug ist, und die Zeit in die "
+"Arbeit stecken, die sich bezahlt macht."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Large, old projects often turn into a monolithic standard. You look at them "
+"and wonder how all of that got in, and how nobody minded the project growing "
+"like that."
+msgstr ""
+"Große, alte Projekte werden oft zu einem monolithischen Standard. Man schaut "
+"sie an und fragt sich, wie das alles hineingekommen ist und warum es niemanden"
+" gestört hat, dass das Projekt so wächst."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Most of those breaks came from one question I kept asking: what is actually in"
+" here, and why?"
+msgstr ""
+"Die meisten dieser Brüche kamen aus einer Frage, die ich mir immer wieder "
+"gestellt habe: Was steckt hier eigentlich drin, und warum?"
+
+#: content/articles/second-best.mdx
+msgid "Packages"
+msgstr "Pakete"
+
+#: content/articles/second-best.mdx
+msgid "Second best used to be the smart choice"
+msgstr "Das Zweitbeste war lange die kluge Wahl"
+
+#: content/articles/second-best.mdx
+msgid "Size on disk"
+msgstr "Größe auf der Platte"
+
+#: content/articles/second-best.mdx
+msgid ""
+"So here is what I'd point to instead. Ardo doesn't make your content its own. "
+"What you bring is React components, Markdown, MDX, and the types in your code."
+" I don't see a lock-in in that. If you decide differently in a year, so be it."
+msgstr ""
+"Darauf würde ich stattdessen schauen: Ardo macht deine Inhalte nicht zu "
+"seinen. Was du mitbringst, sind React-Komponenten, Markdown, MDX und die Typen"
+" in deinem Code. Einen Lock-in sehe ich darin nicht. Wenn du dich in einem "
+"Jahr anders entscheidest, dann ist das eben so."
+
+#: content/articles/second-best.mdx
+msgid ""
+"So I started small. Something that fit my own projects: MDX in, plain HTML "
+"out, and no need to rebuild the same setup for every website we run."
+msgstr ""
+"Also habe ich klein angefangen. Etwas, das zu meinen eigenen Projekten passt: "
+"MDX rein, reines HTML raus, und nicht für jede Website wieder dasselbe Setup."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Something changed this year, and it isn't my taste. When I counted on November"
+" 11, about 365 of Ardo’s 787 commits had been written together with an AI "
+"agent."
+msgstr ""
+"In diesem Jahr hat sich etwas verändert, und es ist nicht mein Geschmack. Als"
+" ich am 11. November nachgezählt habe, waren rund 365 von Ardos 787 Commits "
+"gemeinsam mit einem KI-Agenten entstanden."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Steve Jobs is often quoted as saying that innovation means saying no to a "
+"thousand things. I think about that a lot."
+msgstr ""
+"Steve Jobs wird oft mit dem Satz zitiert, Innovation heiße, zu tausend Dingen"
+" Nein zu sagen. Der Satz begleitet mich."
+
+#: content/articles/second-best.mdx
+msgid ""
+"Ten months later, Ardo is at version 6.9, every one of our websites runs on "
+"it, and I don't plan to settle again."
+msgstr ""
+"Zehn Monate später steht Ardo bei Version 6.9, alle unsere Websites laufen "
+"darauf, und ich habe nicht vor, mich je wieder mit dem Zweitbesten abzufinden."
+
+#: content/articles/second-best.mdx
+msgid ""
+"That's what second best really was. Not a lack of taste. A lack of hours."
+msgstr ""
+"Das Zweitbeste war nie ein Mangel an Geschmack. Es war ein Mangel an Stunden."
+
+#: content/articles/second-best.mdx
+msgid ""
+"The agent doesn't decide what right means. It doesn't know which dependency "
+"annoys me or why a Markdown edge case matters. Twenty-five years of noticing "
+"those things do. What the agent changes is the cost of acting on them."
+msgstr ""
+"Der Agent entscheidet nicht, was richtig ist. Er weiß nicht, welche "
+"Abhängigkeit mich stört oder warum ein Randfall in Markdown wichtig ist. Das"
+" wissen 25 Jahre, in denen ich auf genau solche Dinge geachtet habe. Was der "
+"Agent verändert, ist der Preis dafür, danach zu handeln."
+
+#: content/articles/second-best.mdx
+msgid ""
+"The first version worked. After that it was iteration, the way Apple ships "
+"iPhones: each one only a step, each one better than the last. Ardo went from "
+"version 1 to 6 in nine months, and every major was a real break."
+msgstr ""
+"Die erste Version funktionierte. Danach kam die Iteration, so wie bei Apple "
+"und dem iPhone: jedes nur ein Schritt, jedes besser als das davor. Ardo ist in"
+" neun Monaten von Version 1 auf Version 6 gekommen, und jede davon war ein "
+"echter Bruch."
+
+#: content/articles/second-best.mdx
+msgid "The half we never did"
+msgstr "Die Hälfte, die wir nie gemacht haben"
+
+#: content/articles/second-best.mdx
+msgid "The honest objection"
+msgstr "Der berechtigte Einwand"
+
+#: content/articles/second-best.mdx
+msgid ""
+"The newer tools are lovely, but most of them sit on Astro or Vue. We write "
+"React. Our docs need our own components, and so do the landing pages next to "
+"them. I didn't want a second stack just for documentation."
+msgstr ""
+"Die neueren Werkzeuge sind gut gemacht, aber die meisten setzen auf Astro oder"
+" Vue. Wir schreiben React. Unsere Doku braucht unsere eigenen Komponenten, die"
+" Landingpages daneben auch. Einen zweiten Stack nur für die Dokumentation "
+"wollte ich nicht."
+
+#: content/articles/second-best.mdx
+msgid "The numbers"
+msgstr "Die Zahlen"
+
+#: content/articles/second-best.mdx
+msgid ""
+"There's a German saying: <0>Tu Gutes und rede darüber.</0> Do good things and"
+" talk about them."
+msgstr "Es gibt diesen Satz: <0>Tu Gutes und rede darüber.</0>"
+
+#: content/articles/second-best.mdx
+msgid "VitePress 1.6.4"
+msgstr "VitePress 1.6.4"
+
+#: content/articles/second-best.mdx
+msgid ""
+"We've always been good at the first half. We'd rather build the next iteration"
+" than talk about the last one."
+msgstr ""
+"Die erste Hälfte konnten wir schon immer. Wir bauen lieber die nächste "
+"Iteration, als über die letzte zu reden."
+
+#: content/articles/second-best.mdx
+msgid "What I didn't want"
+msgstr "Was ich nicht wollte"
+
+#: content/articles/second-best.mdx
+msgid ""
+"Why I built my own React documentation framework, and what AI agents changed "
+"about it."
+msgstr ""
+"Warum ich mein eigenes React-Doku-Framework gebaut habe und was KI-Agenten "
+"daran verändert haben."
+
+#: content/articles/second-best.mdx
+msgid "Why now"
+msgstr "Warum jetzt"
+
+#: content/articles/second-best.mdx
+msgid ""
+"You're right about the community. Open source has a chicken-and-egg problem. "
+"Without users, nobody maintains a project, and without maintainers, nobody "
+"uses it."
+msgstr ""
+"Bei der Community hast du recht. Open Source hat ein Henne-Ei-Problem. Ohne "
+"Nutzer wartet niemand ein Projekt, und ohne jemanden, der es wartet, nutzt es "
+"niemand."

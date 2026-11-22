@@ -1,7 +1,13 @@
 locales: [en, de]
 source-locale: en
 source-reference-root: config
+mdx:
+  framework: react
+  translatable-attributes: [alt, title, aria-label, label, text, tagline, linkText]
+  front-matter-fields: [title, description, coverAlt]
 catalogs:
+  - path: content/catalogs/{locale}
+    include: [content/articles]
   - path: app/locales/{locale}
     include:
       [
@@ -11,5 +17,6 @@ catalogs:
         ../../packages/ui/src/frame/errorCopy.ts,
       ]
     exclude:
+      - app/routes/posts/**
       - ../../packages/legal/src/**/*.test.ts
       - ../../packages/legal/src/**/*.test.tsx

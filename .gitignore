@@ -8,3 +8,6 @@ build/
 
 # Ardo materializes publication routes from the authored content.
 apps/blog/app/routes/posts/
+
+# Localized blog inputs written before Ardo discovers the publication.
+apps/blog/.blog-localized/

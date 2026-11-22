@@ -13,7 +13,9 @@ import { blogLanguageData, readBlog } from "./blog-sources.ts"
  */
 export async function prepareBlog() {
   const locale = getVariant(process.env.SITE_VARIANT ?? "blog-en").locale
-  const content = path.resolve(process.env.BLOG_CONTENT ?? "content/posts")
+  const content = path.resolve(
+    process.env.BLOG_CONTENT ?? process.env.BLOG_LOCALIZED_CONTENT ?? "content/posts"
+  )
   const blog = await readBlog(content, process.env.SITE_BUILD_DATE ?? new Date().toISOString(), {
     requireBothLanguages: BLOG_NAVIGATION === "launching" && process.env.BLOG_CONTENT === undefined,
   })
@@ -28,7 +30,9 @@ export async function prepareBlog() {
  * @returns A Vite virtual module integrated with the existing development watcher.
  */
 export function blogData(): Plugin {
-  const content = path.resolve(process.env.BLOG_CONTENT ?? "content/posts")
+  const content = path.resolve(
+    process.env.BLOG_CONTENT ?? process.env.BLOG_LOCALIZED_CONTENT ?? "content/posts"
+  )
   const virtualId = "\0virtual:blog-data"
   return {
     configureServer(server) {

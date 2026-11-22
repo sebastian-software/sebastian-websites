@@ -200,10 +200,10 @@ async function checkSocialMeta(page: Page, canonical: string, label: string): Pr
   assert.notEqual(await meta('meta[property="og:title"]'), "", `${label}: og:title`)
   assert.notEqual(await meta('meta[property="og:description"]'), "", `${label}: og:description`)
   const image = await meta('meta[property="og:image"]')
-  // A post with a cover uses the cover's JPEG rendition from its own site.
-  const cover =
+  // Ardo serves authored share cards and cover fallbacks from the post assets.
+  const postImage =
     image.startsWith(`${new URL(canonical).origin}/assets/posts/`) && image.endsWith(".jpg")
-  assert.ok(BUNNY_IMAGE.test(image) || cover, `${label}: og:image ${image}`)
+  assert.ok(BUNNY_IMAGE.test(image) || postImage, `${label}: og:image ${image}`)
   assert.equal(await meta('meta[name="twitter:card"]'), "summary_large_image", `${label}: card`)
 }
 async function checkRoute(page: Page, options: RouteOptions): Promise<void> {
