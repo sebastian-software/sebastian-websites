@@ -19,23 +19,30 @@ import { PostTags } from "./PostTags"
 import { PostTranslationLink } from "./PostTranslationLink"
 
 /**
- * The social preview of a post: its cover's JPEG rendition, which Ardo also
- * puts into the feeds, at the site's canonical origin. A post without a
- * cover, or with an SVG or animated cover that has no JPEG, keeps the site's
- * default preview.
- * @param cover - The post's prepared cover image.
- * @returns The preview, or undefined for the default.
+ * Use the share image URL Ardo resolved when preparing the post. An authored
+ * social card is 1200 × 630. A cover rendition keeps its generated dimensions.
+ * @param defaults - Ardo's page metadata, including its selected preview.
+ * @param cover - The responsive cover and its JPEG fallback.
+ * @returns The post preview, or undefined for the site's default image.
  */
-function coverPreview(cover: PostImage | undefined): SocialImage | undefined {
-  const jpeg = cover?.fallback
-  if (jpeg === undefined) return undefined
+function postPreview(
+  defaults: readonly ArdoMetaDescriptor[],
+  cover: PostImage | undefined
+): SocialImage | undefined {
+  const image = defaults.find((item) => "property" in item && item.property === "og:image")
+  if (image === undefined || !("content" in image) || typeof image.content !== "string")
+    return undefined
   const origin = getSiteOrigin(variant.site, variant.locale)
-  return { height: jpeg.height, url: new URL(jpeg.src, origin).href, width: jpeg.width }
+  const url = new URL(image.content, origin).href
+  const jpeg = cover?.fallback
+  if (jpeg !== undefined && new URL(jpeg.src, origin).href === url)
+    return { height: jpeg.height, url, width: jpeg.width }
+  return { height: 630, url, width: 1200 }
 }
 
 /**
- * A post's head metadata: the shared SEO set with article times and the cover
- * as social preview, no language alternates for a single-language post, and
+ * A post's head metadata: the shared SEO set with article times and the selected
+ * social preview, no language alternates for a single-language post, and
  * Ardo's feed discovery links.
  * @param args - What Ardo passes to the post route's `meta`.
  * @param args.defaults - The descriptors Ardo would render, which carry the feed links.
@@ -44,7 +51,7 @@ function coverPreview(cover: PostImage | undefined): SocialImage | undefined {
  */
 // eslint-disable-next-line react-refresh/only-export-components -- Ardo reads meta from the route module
 export function meta({ defaults, post }: PublicationPostMetaArgs): ArdoMetaDescriptor[] {
-  const preview = coverPreview(post.coverImage)
+  const preview = postPreview(defaults, post.coverImage)
   return [
     ...seoMeta({
       article: {

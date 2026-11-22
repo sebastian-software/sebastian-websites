@@ -52,10 +52,9 @@ msgstr "99 MB"
 
 #: content/articles/second-best.mdx
 msgid ""
-"A ring of factory-made keys beside a lock holding a hand-filed brass key."
+"A paper craftsperson fits a terracotta joint into a recess in an ivory board."
 msgstr ""
-"Ein Ring mit Serienschlüsseln neben einem Schloss mit einem handgefeilten "
-"Messingschlüssel."
+"Eine Papierfigur passt ein terrakottafarbenes Verbindungsstück in die Aussparung eines hellen Bretts ein."
 
 #: content/articles/second-best.mdx
 msgid ""

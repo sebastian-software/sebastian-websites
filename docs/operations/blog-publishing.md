@@ -59,13 +59,15 @@ Do not write `counterpart`. The build computes it and rejects a source that sets
 ### Images
 
 Put bilingual article assets in the sibling directory named after the slug (for example
-`content/articles/second-best/cover.png`), and reference them relatively. For single-language
+`content/articles/second-best/cover.webp`), and reference them relatively. For single-language
 posts, keep the assets beside the post. Ardo renders them during the
 build into AVIF candidates and one JPEG below `assets/posts/`.
 
 - **Cover:** `coverImage: { src, alt, caption?, core?, frame? }` in the frontmatter. It appears
-  above the body, its JPEG is the post's social preview, and Ardo puts it into the feeds. A
-  post without a cover uses the shared team photo as preview.
+  above the body and in the feeds.
+- **Social preview:** Set `ogImage: ./second-best/social.jpg` (using the article’s own folder)
+  to use the approved 1200 × 630 JPEG from the content archive. Without it, the post uses
+  its cover JPEG or the shared team photo.
 - **Body:** plain Markdown, `![Alt text](./diagram.png)`. Per-image settings go under `images:`
   in the frontmatter, keyed by the path.
 - **Framing:** framed images are cropped to 4:3 on phones and 16:10 from the column layout on.
@@ -226,7 +228,7 @@ In the pull request that carries the first post:
 2. Set `BLOG_NAVIGATION` to `"launching"`. The item appears, and the build fails if either
    language has no published post at the build time, so the item cannot go live on one domain
    only.
-3. Check the header with three items at 390px on Software, Open Source, app-tracking, Skills,
+3. Check the header with the Blog link at 390px on Software, Open Source, app-tracking, Skills,
    and the tech blog. CI has browser checks for Software, app-tracking, and the tech blog only,
    so look at Open Source and Skills by hand.
 
