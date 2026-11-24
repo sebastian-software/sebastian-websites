@@ -1,11 +1,15 @@
 import { t } from "@palamedes/core/macro"
+import { personIdentity } from "@sebastian-websites/web-core"
 
 import { FOUNDER_NAMES, type FounderId } from "./founderNames.ts"
+import { variant } from "./site"
 
 export type Founder = {
   /** The founder's key, the same as the post author key. */
   readonly id: FounderId
   readonly name: string
+  readonly personId: string
+  readonly profileUrl: string
   readonly role: string
 }
 
@@ -21,9 +25,17 @@ export function getFounders(): readonly Founder[] {
     {
       id: "werner",
       name: FOUNDER_NAMES.werner,
+      personId: personIdentity("werner", variant.locale)["@id"],
+      profileUrl: personIdentity("werner", variant.locale).url,
       role: t`Founder · Frontend architecture and developer experience`,
     },
-    { id: "fastner", name: FOUNDER_NAMES.fastner, role: t`Founder · Full stack and platform` },
+    {
+      id: "fastner",
+      name: FOUNDER_NAMES.fastner,
+      personId: personIdentity("fastner", variant.locale)["@id"],
+      profileUrl: personIdentity("fastner", variant.locale).url,
+      role: t`Founder · Full stack and platform`,
+    },
   ]
 }
 

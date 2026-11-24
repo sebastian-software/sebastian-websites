@@ -72,6 +72,11 @@ export const author = style({ display: "grid" })
 
 export const authorName = style({ color: color.heading, fontWeight: 600 })
 
+export const authorLink = style([
+  authorName,
+  { textDecoration: "underline", textDecorationThickness: "1px", textUnderlineOffset: "0.2em" },
+])
+
 export const authorRole = style({ color: color.subtle })
 
 export const translation = style({ marginTop: SPACE_SCALE["2xs"] })

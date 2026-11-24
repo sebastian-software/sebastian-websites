@@ -25,6 +25,7 @@ export { PageError, type PageErrorCopy } from "./frame/PageError.tsx"
 export { SiblingInvitation, type SiblingInvitationProps } from "./frame/SiblingInvitation.tsx"
 export { SiteFooter, type SiteFooterProps } from "./frame/SiteFooter.tsx"
 export { SiteHeader, type SiteHeaderProps } from "./frame/SiteHeader.tsx"
+export { SiteIdentity } from "./frame/SiteIdentity.tsx"
 export { SocialGlyph, type SocialGlyphProps } from "./frame/SocialGlyph.tsx"
 export {
   type NewsletterStatus,
@@ -52,8 +53,8 @@ export {
 } from "./responsive.ts"
 export { Section, type SectionProps, type SectionTone } from "./Section.tsx"
 export { SectionHead, type SectionHeadProps } from "./SectionHead.tsx"
-export { SiteLink } from "./SiteLink.tsx"
 
+export { SiteLink } from "./SiteLink.tsx"
 export { color, font, FONT_STYLESHEET, NARROW, ON_NIGHT } from "./theme.css.ts"
 export * as typography from "./typography.css.ts"
 export { scaled, scaledBetween, SPACE_SCALE, typeStep } from "@sebastian-websites/tokens"

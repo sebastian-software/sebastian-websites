@@ -17,6 +17,8 @@ import {
 } from "@sebastian-websites/web-core"
 import assert from "node:assert/strict"
 
+import { checkArticleIdentity } from "./check-article-identity.ts"
+
 /** The blog page kinds a run has checked. */
 export type BlogCoverage = Set<"next-step" | "no-next-step" | "overview" | "post" | "tag-archive">
 
@@ -259,6 +261,7 @@ async function checkPost(page: Page, context: PageContext): Promise<boolean> {
   )
   assert.equal(await page.locator('meta[property="article:published_time"]').count(), 1)
   assert.ok((await page.locator("article ul[aria-label] li").count()) > 0, `${label}: authors`)
+  await checkArticleIdentity(page, context.locale)
   await checkTranslationLink(page, context)
   await checkTagLinks(page, label)
   return checkNextStep(page, label)

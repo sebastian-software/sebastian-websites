@@ -3,6 +3,7 @@ import type { ArdoMetaDescriptor } from "ardo/runtime"
 
 import { t } from "@palamedes/core/macro"
 import { pageMeta } from "@sebastian-websites/site/meta"
+import { jsonLd, personIdentity } from "@sebastian-websites/web-core"
 
 import { WernerProfileDocument } from "~/components/werner-profile/WernerProfileDocument"
 import { createSeoMetadata } from "~/lib/meta"
@@ -24,5 +25,12 @@ export function meta(): ArdoMetaDescriptor[] {
 }
 
 export default function WernerSummary(): ReactNode {
-  return <WernerProfileDocument view="executive_summary" />
+  return (
+    <>
+      <script type="application/ld+json">
+        {jsonLd({ "@context": "https://schema.org", ...personIdentity("werner", variant.locale) })}
+      </script>
+      <WernerProfileDocument view="executive_summary" />
+    </>
+  )
 }
