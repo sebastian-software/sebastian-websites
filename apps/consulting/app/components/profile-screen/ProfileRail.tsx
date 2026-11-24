@@ -123,7 +123,7 @@ export function ProfileRail({
       )}
 
       <PdfActions consultant={consultant} lang={lang} pdf={pdf} />
-      <ServiceLinks />
+      <ServiceLinks consultant={consultant} />
 
       {projectProfile === undefined ? null : (
         <div className={styles.railModule}>

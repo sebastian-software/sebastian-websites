@@ -16,7 +16,7 @@ const preview = responsiveImage(HOME_PHOTO.src, {
 })
 
 /**
- * Complete metadata for the dedicated, paired service routes.
+ * Complete metadata for paired Consulting service and case-study routes.
  * @param path - The paired service route.
  * @param title - The localized page heading.
  * @param description - The localized service description.
